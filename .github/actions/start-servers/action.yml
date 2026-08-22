@@ -1,0 +1,100 @@
+name: 'Запуск серверов'
+description: 'Запуск Login и Game серверов и проверка работоспособности'
+
+inputs:
+  vps-host:
+    description: 'IP или хост VPS'
+    required: true
+  vps-username:
+    description: 'Имя пользователя VPS'
+    required: true
+  vps-ssh-key:
+    description: 'SSH-ключ для подключения к VPS'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 🚀 Запуск Login Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ inputs.vps-host }}
+        username: ${{ inputs.vps-username }}
+        key: ${{ inputs.vps-ssh-key }}
+        script: |
+          echo "🚀 Запуск Login Server..."
+          cd /root/l2server/login
+          ./startLoginServer.sh > /dev/null 2>&1 &
+          sleep 5
+
+          if pgrep -f "l2jserver" > /dev/null; then
+            echo "✅ Login Server запущен (PID: $(pgrep -f 'l2jserver'))"
+          else
+            echo "⚠️ Login Server, вероятно, не запустился"
+          fi
+
+    - name: 🎮 Запуск Game Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ inputs.vps-host }}
+        username: ${{ inputs.vps-username }}
+        key: ${{ inputs.vps-ssh-key }}
+        script: |
+          echo "🎮 Запуск Game Server..."
+          cd /root/l2server/gameserver
+          ./startGameServer.sh > /dev/null 2>&1 &
+          sleep 8
+
+          echo "📋 Последние 15 строк лога Game Server:"
+          echo "────────────────────────────────────────"
+          tail -n 15 /root/l2server/gameserver/log/stdout.log || echo "Лог не найден"
+          echo "────────────────────────────────────────"
+
+    - name: ✅ Финальная проверка
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ inputs.vps-host }}
+        username: ${{ inputs.vps-username }}
+        key: ${{ inputs.vps-ssh-key }}
+        script: |
+          echo "🔍 ФИНАЛЬНАЯ ПРОВЕРКА"
+
+          echo "📊 Активные Java-процессы:"
+          PROCESSES=$(ps aux | grep -E "l2jserver" | grep -v grep)
+          if [ -n "$PROCESSES" ]; then
+            echo "$PROCESSES" | awk '{print "   PID:", $2, "CPU:", $3"%", "MEM:", $4"%"}'
+          else
+            echo "   ⚠️ Java-процессы не найдены!"
+          fi
+
+          echo ""
+          echo "⏳ Ожидание полной инициализации сервисов (15 сек)..."
+          sleep 15
+
+          echo ""
+          echo "🔌 Проверка портов:"
+
+          LOGIN_PORT=$(ss -tlnp | grep :2106)
+          if [ -n "$LOGIN_PORT" ]; then
+            echo "   ✅ Login Server (2106): слушается"
+          else
+            echo "   ❌ Login Server (2106): НЕ слушается"
+            echo "   📋 Последние 10 строк лога Login Server:"
+            tail -n 10 /root/l2server/login/log/stdout.log 2>/dev/null || echo "      Лог не найден"
+          fi
+
+          GAME_PORT=$(ss -tlnp | grep :7777)
+          if [ -n "$GAME_PORT" ]; then
+            echo "   ✅ Game Server (7777): слушается"
+          else
+            echo "   ❌ Game Server (7777): НЕ слушается"
+            echo "   📋 Последние 10 строк лога Game Server:"
+            tail -n 10 /root/l2server/gameserver/log/stdout.log 2>/dev/null || echo "      Лог не найден"
+          fi
+
+          echo ""
+          if [ -n "$LOGIN_PORT" ] && [ -n "$GAME_PORT" ]; then
+            echo "✅ ДЕПЛОЙ ЗАВЕРШЁН УСПЕШНО! Все серверы запущены и слушают порты"
+          else
+            echo "⚠️ ДЕПЛОЙ ЗАВЕРШЁН, НО ЕСТЬ ПРОБЛЕМЫ! Проверьте логи выше"
+          fi

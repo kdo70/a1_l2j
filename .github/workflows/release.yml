@@ -1,0 +1,64 @@
+name: 🚀 Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Сборка и деплой
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: ☕ Установка JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: 📦 Сборка и деплой на VPS
+        uses: ./.github/actions/build-and-deploy
+        with:
+          vps-host: ${{ secrets.VPS_HOST }}
+          vps-username: ${{ secrets.VPS_USERNAME }}
+          vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
+
+  configure:
+    name: Настройка сервера
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Настройка конфигов
+        uses: ./.github/actions/configure-server
+        with:
+          vps-host: ${{ secrets.VPS_HOST }}
+          vps-username: ${{ secrets.VPS_USERNAME }}
+          vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
+          db-host: ${{ secrets.DB_HOST }}
+          db-port: ${{ secrets.DB_PORT }}
+          db-name-login: ${{ secrets.DB_NAME_LOGIN }}
+          db-name-game: ${{ secrets.DB_NAME_GAME }}
+          db-user: ${{ secrets.DB_USER }}
+          db-password: ${{ secrets.DB_PASSWORD }}
+          external-hostname: ${{ secrets.EXTERNAL_HOSTNAME }}
+
+  start:
+    name: Запуск серверов
+    needs: configure
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: 🚀 Запуск и проверка
+        uses: ./.github/actions/start-servers
+        with:
+          vps-host: ${{ secrets.VPS_HOST }}
+          vps-username: ${{ secrets.VPS_USERNAME }}
+          vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
