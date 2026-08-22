@@ -7,7 +7,7 @@ on:
 
 jobs:
   # ═══════════════════════════════════════════════════════════════
-  # JOB 1: BUILD - Компиляция через Ant, сборка и деплой на сервер
+  # JOB 1: BUILD - Компиляция ядра и инъекция jar в готовую структуру из Git
   # ═══════════════════════════════════════════════════════════════
   build:
     runs-on: ubuntu-latest
@@ -28,57 +28,33 @@ jobs:
           sudo apt-get install -y ant
           ant -version
 
-      - name: Clean build directories
+      - name: Compile aCis_gameserver ONLY
         run: |
-          echo "🧹 Cleaning old build artifacts..."
-          rm -rf source/aCis_gameserver/build
-          rm -rf source/aCis_datapack/build
-          echo "✅ Build directories cleaned"
-
-      - name: Compile aCis_gameserver
-        run: |
-          echo "🔨 Compiling aCis_gameserver..."
+          echo "🔨 Compiling aCis_gameserver to get new l2jserver.jar..."
           cd source/aCis_gameserver
           ant
           echo "✅ Gameserver compiled"
 
-      - name: Compile aCis_datapack
+      - name: Inject new JAR into build folder
         run: |
-          echo "🔨 Compiling aCis_datapack..."
-          cd source/aCis_datapack
-          ant
-          echo "✅ Datapack compiled"
-
-      - name: Assemble build folder
-        run: |
-          echo "📦 Assembling build folder..."
-          rm -rf build
-          mkdir -p build
+          echo "💉 Injecting new l2jserver.jar into build folder..."
           
-          # 1. datapack/build -> build (data, sql, tools и т.д.)
-          cp -r source/aCis_datapack/build/* build/
+          # Проверяем, что папка build существует в репозитории
+          if [ ! -d "build" ]; then
+            echo "❌ ERROR: 'build' folder not found in repository!"
+            exit 1
+          fi
           
-          # 2. gameserver/build/dist -> build (login/, gameserver/ со скриптами)
-          cp -r source/aCis_gameserver/build/dist/* build/
-          
-          # 3. gameserver/build/l2jserver.jar -> login/libs и gameserver/libs
+          # Создаем папки libs, если их вдруг нет
           mkdir -p build/login/libs
           mkdir -p build/gameserver/libs
+          
+          # Копируем скомпилированный jar поверх старых
           cp source/aCis_gameserver/build/l2jserver.jar build/login/libs/
           cp source/aCis_gameserver/build/l2jserver.jar build/gameserver/libs/
           
-          echo "✅ Build folder assembled"
-          echo "   Files: $(find build -type f | wc -l)"
-          
-          echo ""
-          echo "🔍 DEBUG - Checking geoengine.properties in build:"
-          if [ -f build/gameserver/config/geoengine.properties ]; then
-            echo "   ✓ File exists"
-            echo "   Content preview:"
-            head -n 5 build/gameserver/config/geoengine.properties | sed 's/^/     /'
-          else
-            echo "   ✗ File NOT found!"
-          fi
+          echo "✅ JAR files injected successfully"
+          echo "   Files in build folder: $(find build -type f | wc -l)"
 
       - name: Archive build folder
         run: |
@@ -102,68 +78,43 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🛑 Stopping server..."
+            echo "🛑 Агрессивная остановка сервера..."
+            pkill -9 -f "l2jserver" || true
             killall -9 java || true
-            sleep 2
+            sleep 3
             
             echo "💾 Backing up important files..."
             mkdir -p /tmp/l2backup
             
-            # Сохраняем только то, чего нет в репозитории:
-            # 1. HexID (генерируется при регистрации сервера)
             if [ -f /root/l2server/login/hexid.txt ]; then
               cp /root/l2server/login/hexid.txt /tmp/l2backup/
             fi
             if [ -f /root/l2server/gameserver/config/hexid.txt ]; then
               cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/
             fi
-            
-            # 2. Geodata (бинарные файлы, не хранятся в Git)
             if [ -d /root/l2server/gameserver/data/geodata ]; then
               cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/
             fi
             
             echo "📂 Extracting new build..."
-            
-            # ВАЖНО: Полностью удаляем старую папку, чтобы гарантировать чистую распаковку
             rm -rf /root/l2server
             mkdir -p /root/l2server
             
-            # Распаковываем с принудительной перезаписью
             tar -xzf /tmp/build.tar.gz -C /root/l2server/
             rm -f /tmp/build.tar.gz
             
             echo "🔄 Restoring important files..."
-            
-            # Восстанавливаем HexID
             if [ -f /tmp/l2backup/hexid.txt ]; then
               cp /tmp/l2backup/hexid.txt /root/l2server/login/
               cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/
               echo "   ✓ hexid.txt restored"
             fi
-            
-            # Восстанавливаем Geodata
             if [ -d /tmp/l2backup/geodata ]; then
               mkdir -p /root/l2server/gameserver/data/geodata
               cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/
               echo "   ✓ geodata restored"
             fi
-            
             rm -rf /tmp/l2backup
-            
-            echo ""
-            echo "🔍 DEBUG - Checking geoengine.properties on VPS AFTER extraction:"
-            if [ -f /root/l2server/gameserver/config/geoengine.properties ]; then
-              echo "   ✓ File exists"
-              echo "   File size: $(stat -c%s /root/l2server/gameserver/config/geoengine.properties) bytes"
-              echo "   Content preview (first 10 lines):"
-              head -n 10 /root/l2server/gameserver/config/geoengine.properties | sed 's/^/     /'
-            else
-              echo "   ✗ File NOT found!"
-              echo "   Contents of /root/l2server/gameserver/config/:"
-              ls -la /root/l2server/gameserver/config/ || echo "   Directory does not exist!"
-            fi
-            
             echo "✅ Build deployed successfully"
 
   # ═══════════════════════════════════════════════════════════════
@@ -189,19 +140,13 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
           script: |
-            echo "⚙️ Configuring loginserver.properties..."
             LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
-            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginHostname *=.*#LoginHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$LOGIN_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$LOGIN_CFG"
-            
-            echo "   ✓ loginserver.properties configured"
-            echo ""
-            echo "🔍 DEBUG - Current login config:"
-            grep -iE "^(ExternalHostname|Hostname|LoginHostname|LoginserverHostname|Login|Password)" "$LOGIN_CFG" || echo "Keys not found!"
+            echo "✓ loginserver.properties configured"
 
       - name: Configure server.properties
         uses: appleboy/ssh-action@master
@@ -218,19 +163,13 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           envs: DB_HOST,DB_PORT,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
           script: |
-            echo "⚙️ Configuring server.properties..."
             GAME_CFG="/root/l2server/gameserver/config/server.properties"
-            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^GameserverHostname *=.*#GameserverHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^LoginHost *=.*#LoginHost = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$GAME_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$GAME_CFG"
-            
-            echo "   ✓ server.properties configured"
-            echo ""
-            echo "🔍 DEBUG - Current gameserver config:"
-            grep -iE "^(ExternalHostname|Hostname|GameserverHostname|LoginHost|Login|Password)" "$GAME_CFG" || echo "Keys not found!"
+            echo "✓ server.properties configured"
 
       - name: Set permissions
         uses: appleboy/ssh-action@master
@@ -239,13 +178,11 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🔧 Setting permissions..."
             chmod +x /root/l2server/login/*.sh
             chmod +x /root/l2server/gameserver/*.sh
-            echo "✅ Configuration complete"
 
   # ═══════════════════════════════════════════════════════════════
-  # JOB 3: START - Запуск серверов и вывод логов
+  # JOB 3: START - Запуск серверов и проверка
   # ═══════════════════════════════════════════════════════════════
   start:
     needs: configure
@@ -259,19 +196,10 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🚀 Starting Login Server..."
             cd /root/l2server/login
             ./startLoginServer.sh > /dev/null 2>&1 &
             sleep 5
-            
-            echo "📋 Login Server Log (last 30 lines):"
-            echo "────────────────────────────────────────"
-            if [ -f log/stdout.log ]; then
-              tail -n 30 log/stdout.log
-            else
-              echo "Log file not found yet..."
-            fi
-            echo "────────────────────────────────────────"
+            echo "✓ Login Server started"
 
       - name: Start Game Server
         uses: appleboy/ssh-action@master
@@ -280,31 +208,23 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🚀 Starting Game Server..."
             cd /root/l2server/gameserver
             ./startGameServer.sh > /dev/null 2>&1 &
-            sleep 5
+            sleep 8
+            echo "✓ Game Server started"
             
-            echo "📋 Game Server Log (last 30 lines):"
+            echo "📋 Game Server Log (last 15 lines):"
             echo "────────────────────────────────────────"
-            if [ -f log/stdout.log ]; then
-              tail -n 30 log/stdout.log
-            else
-              echo "Log file not found yet..."
-            fi
+            tail -n 15 /root/l2server/gameserver/log/stdout.log || echo "Log not found"
             echo "────────────────────────────────────────"
 
-      - name: Final Status Check
+      - name: Final Verification
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo ""
-            echo "🔍 Checking server processes..."
-            echo "────────────────────────────────────────"
-            ps aux | grep -E "(login|game).*[j]ava" | awk '{print "  ✓ " $11 " (PID: " $2 ")"}' || echo "  ✗ No Java processes found"
-            echo "────────────────────────────────────────"
-            echo ""
+            echo "🔍 Финальная проверка:"
+            ps aux | grep -E "l2jserver" | grep -v grep || echo "Нет процессов Java!"
             echo "✅ Deployment complete!"
