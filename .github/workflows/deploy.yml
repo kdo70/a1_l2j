@@ -92,12 +92,16 @@ jobs:
             echo "💾 Backing up important files..."
             mkdir -p /tmp/l2backup
             
+            # Сохраняем только то, чего нет в репозитории:
+            # 1. HexID (генерируется при регистрации сервера)
             if [ -f /root/l2server/login/hexid.txt ]; then
               cp /root/l2server/login/hexid.txt /tmp/l2backup/
             fi
             if [ -f /root/l2server/gameserver/config/hexid.txt ]; then
               cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/
             fi
+            
+            # 2. Geodata (бинарные файлы, не хранятся в Git)
             if [ -d /root/l2server/gameserver/data/geodata ]; then
               cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/
             fi
@@ -108,18 +112,22 @@ jobs:
             rm -f /tmp/build.tar.gz
             
             echo "🔄 Restoring important files..."
+            
+            # Восстанавливаем HexID
             if [ -f /tmp/l2backup/hexid.txt ]; then
               cp /tmp/l2backup/hexid.txt /root/l2server/login/
               cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/
               echo "   ✓ hexid.txt restored"
             fi
+            
+            # Восстанавливаем Geodata
             if [ -d /tmp/l2backup/geodata ]; then
               mkdir -p /root/l2server/gameserver/data/geodata
               cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/
               echo "   ✓ geodata restored"
             fi
-            rm -rf /tmp/l2backup
             
+            rm -rf /tmp/l2backup
             echo "✅ Build deployed successfully"
 
   # ═══════════════════════════════════════════════════════════════
