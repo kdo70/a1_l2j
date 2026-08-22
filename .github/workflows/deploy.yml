@@ -7,7 +7,7 @@ on:
 
 jobs:
   # ═══════════════════════════════════════════════════════════════
-  # JOB 1: BUILD - Компиляция, архивация и деплой на сервер
+  # JOB 1: BUILD - Компиляция через Ant, сборка и деплой на сервер
   # ═══════════════════════════════════════════════════════════════
   build:
     runs-on: ubuntu-latest
@@ -15,6 +15,53 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Install Apache Ant
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ant
+          ant -version
+
+      - name: Compile aCis_gameserver
+        run: |
+          echo "🔨 Compiling aCis_gameserver..."
+          cd source/aCis_gameserver
+          ant
+          echo "✅ Gameserver compiled"
+
+      - name: Compile aCis_datapack
+        run: |
+          echo "🔨 Compiling aCis_datapack..."
+          cd source/aCis_datapack
+          ant
+          echo "✅ Datapack compiled"
+
+      - name: Assemble build folder
+        run: |
+          echo "📦 Assembling build folder..."
+          rm -rf build
+          mkdir -p build
+          
+          # 1. datapack/build -> build (data, sql, tools и т.д.)
+          cp -r source/aCis_datapack/build/* build/
+          
+          # 2. gameserver/build/dist -> build (login/, gameserver/ со скриптами)
+          cp -r source/aCis_gameserver/build/dist/* build/
+          
+          # 3. gameserver/build/l2jserver.jar -> login/libs и gameserver/libs
+          mkdir -p build/login/libs
+          mkdir -p build/gameserver/libs
+          cp source/aCis_gameserver/build/l2jserver.jar build/login/libs/
+          cp source/aCis_gameserver/build/l2jserver.jar build/gameserver/libs/
+          
+          echo "✅ Build folder assembled"
+          echo "   Files: $(find build -type f | wc -l)"
 
       - name: Archive build folder
         run: |
