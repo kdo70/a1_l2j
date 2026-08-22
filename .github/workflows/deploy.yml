@@ -81,13 +81,9 @@ jobs:
             
             echo "⚙️ Configuring loginserver.properties..."
             LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
-            # Публичный IP для клиентов
-            sed -i "s#^ExternalHostname *=.*#ExternalHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
-            # Локальный бинд (слушать все интерфейсы)
-            sed -i "s#^LoginHostname *=.*#LoginHostname = 0.0.0.0#" "$LOGIN_CFG"
-            sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = 0.0.0.0#" "$LOGIN_CFG"
-            # База данных
+            sed -i "s#^LoginHostname *=.*#LoginHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
+            sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^URL *=.*#URL = jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME_LOGIN}?autoReconnect=true\&useSSL=false#" "$LOGIN_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$LOGIN_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$LOGIN_CFG"
@@ -95,13 +91,9 @@ jobs:
             
             echo "⚙️ Configuring server.properties..."
             GAME_CFG="/root/l2server/gameserver/config/server.properties"
-            # Публичный IP для клиентов
-            sed -i "s#^ExternalHostname *=.*#ExternalHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
-            # Локальный бинд и адрес логин-сервера
-            sed -i "s#^GameserverHostname *=.*#GameserverHostname = 0.0.0.0#" "$GAME_CFG"
-            sed -i "s#^LoginHost *=.*#LoginHost = 127.0.0.1#" "$GAME_CFG"
-            # База данных
+            sed -i "s#^GameserverHostname *=.*#GameserverHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
+            sed -i "s#^LoginHost *=.*#LoginHost = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^URL *=.*#URL = jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME_GAME}?autoReconnect=true\&useSSL=false#" "$GAME_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$GAME_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$GAME_CFG"
