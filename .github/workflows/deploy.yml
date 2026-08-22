@@ -25,21 +25,91 @@ jobs:
           source: "build.tar.gz"
           target: "/tmp"
 
-      - name: Extract and Restart on VPS
+      - name: Extract, Configure and Restart on VPS
         uses: appleboy/ssh-action@master
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME_LOGIN: ${{ secrets.DB_NAME_LOGIN }}
+          DB_NAME_GAME: ${{ secrets.DB_NAME_GAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          EXTERNAL_HOSTNAME: ${{ secrets.EXTERNAL_HOSTNAME }}
+          GAMESERVER_PORT: ${{ secrets.GAMESERVER_PORT }}
+          LOGIN_PORT: ${{ secrets.LOGIN_PORT }}
+          SERVER_NAME: ${{ secrets.SERVER_NAME }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME,GAMESERVER_PORT,LOGIN_PORT,SERVER_NAME
           script: |
             echo "🛑 Stopping server..."
             killall -9 java || true
             sleep 2
             
-            echo "📂 Extracting build..."
+            echo "💾 Backing up important files..."
+            mkdir -p /tmp/l2backup
+            
+            # Сохраняем hexid.txt
+            if [ -f /root/l2server/login/hexid.txt ]; then
+              cp /root/l2server/login/hexid.txt /tmp/l2backup/
+              echo "   ✓ login/hexid.txt backed up"
+            fi
+            
+            if [ -f /root/l2server/gameserver/config/hexid.txt ]; then
+              cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/
+              echo "   ✓ gameserver/config/hexid.txt backed up"
+            fi
+            
+            # Сохраняем геодату
+            if [ -d /root/l2server/gameserver/data/geodata ]; then
+              cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/
+              echo "   ✓ geodata backed up"
+            fi
+            
+            echo "📂 Extracting new build..."
             rm -rf /root/l2server/*
             tar -xzf /tmp/build.tar.gz -C /root/l2server/
             rm -f /tmp/build.tar.gz
+            
+            echo "🔄 Restoring important files..."
+            # Восстанавливаем hexid
+            if [ -f /tmp/l2backup/hexid.txt ]; then
+              cp /tmp/l2backup/hexid.txt /root/l2server/login/
+              cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/
+              echo "   ✓ hexid.txt restored"
+            fi
+            
+            # Восстанавливаем геодату
+            if [ -d /tmp/l2backup/geodata ]; then
+              mkdir -p /root/l2server/gameserver/data/geodata
+              cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/
+              echo "   ✓ geodata restored"
+            fi
+            
+            rm -rf /tmp/l2backup
+            
+            echo "⚙️  Configuring loginserver.properties..."
+            LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
+            sed -i "s|^LoginHostname=.*|LoginHostname=0.0.0.0|" "$LOGIN_CFG"
+            sed -i "s|^LoginPort=.*|LoginPort=${LOGIN_PORT}|" "$LOGIN_CFG"
+            sed -i "s|^ExternalHostname=.*|ExternalHostname=${EXTERNAL_HOSTNAME}|" "$LOGIN_CFG"
+            sed -i "s|^URL=.*|URL=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME_LOGIN}?autoReconnect=true\&useSSL=false|" "$LOGIN_CFG"
+            sed -i "s|^LoginUser=.*|LoginUser=${DB_USER}|" "$LOGIN_CFG"
+            sed -i "s|^LoginPassword=.*|LoginPassword=${DB_PASSWORD}|" "$LOGIN_CFG"
+            echo "   ✓ loginserver.properties configured"
+            
+            echo "⚙️  Configuring server.properties..."
+            GAME_CFG="/root/l2server/gameserver/config/server.properties"
+            sed -i "s|^GameserverHostname=.*|GameserverHostname=0.0.0.0|" "$GAME_CFG"
+            sed -i "s|^GameserverPort=.*|GameserverPort=${GAMESERVER_PORT}|" "$GAME_CFG"
+            sed -i "s|^ExternalHostname=.*|ExternalHostname=${EXTERNAL_HOSTNAME}|" "$GAME_CFG"
+            sed -i "s|^ServerName=.*|ServerName=${SERVER_NAME}|" "$GAME_CFG"
+            sed -i "s|^URL=.*|URL=jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME_GAME}?autoReconnect=true\&useSSL=false|" "$GAME_CFG"
+            sed -i "s|^LoginUser=.*|LoginUser=${DB_USER}|" "$GAME_CFG"
+            sed -i "s|^LoginPassword=.*|LoginPassword=${DB_PASSWORD}|" "$GAME_CFG"
+            echo "   ✓ server.properties configured"
             
             echo "🔧 Setting permissions..."
             chmod +x /root/l2server/login/*.sh
