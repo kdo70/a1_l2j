@@ -1,0 +1,53 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Archive build folder
+        run: tar -czf build.tar.gz -C build .
+
+      - name: Deploy to VPS via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "build.tar.gz"
+          target: "/tmp"
+
+      - name: Extract and Restart on VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo "🛑 Stopping server..."
+            killall -9 java || true
+            sleep 2
+            
+            echo "📂 Extracting build..."
+            rm -rf /root/l2server/*
+            tar -xzf /tmp/build.tar.gz -C /root/l2server/
+            rm -f /tmp/build.tar.gz
+            
+            echo "🔧 Setting permissions..."
+            chmod +x /root/l2server/login/*.sh
+            chmod +x /root/l2server/gameserver/*.sh
+            
+            echo "🚀 Starting server..."
+            cd /root/l2server/login && ./startLoginServer.sh > /dev/null 2>&1 &
+            sleep 3
+            cd /root/l2server/gameserver && ./startGameServer.sh > /dev/null 2>&1 &
+            
+            echo "✅ Deployment complete!"
