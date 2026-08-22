@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: 🚀 Деплой на VPS
 
 on:
   push:
@@ -13,34 +13,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 📥 Клонирование репозитория
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: ☕ Установка JDK 21
         uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Install Apache Ant
+      - name: 🐜 Установка Apache Ant
         run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📦 Устанавливаем Apache Ant..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           sudo apt-get update -qq
           sudo apt-get install -y ant
-          ant -version
+          echo "✅ Версия Ant: $(ant -version)"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Compile aCis_gameserver ONLY
+      - name: 🔨 Компиляция aCis_gameserver
         run: |
-          echo "🔨 Compiling aCis_gameserver to get new l2jserver.jar..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔨 Компиляция aCis_gameserver для получения l2jserver.jar..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           cd source/aCis_gameserver
           ant
-          echo "✅ Gameserver compiled"
+          echo "✅ Компиляция завершена успешно"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Inject new JAR into build folder
+      - name: 💉 Инъекция нового JAR в папку build
         run: |
-          echo "💉 Injecting new l2jserver.jar into build folder..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "💉 Инъекция нового l2jserver.jar в папку build..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           
           if [ ! -d "build" ]; then
-            echo "❌ ERROR: 'build' folder not found in repository!"
+            echo "❌ ОШИБКА: Папка 'build' не найдена в репозитории!"
+            echo "   Убедитесь, что структура проекта корректна"
             exit 1
           fi
           
@@ -50,16 +60,21 @@ jobs:
           cp source/aCis_gameserver/build/l2jserver.jar build/login/libs/
           cp source/aCis_gameserver/build/l2jserver.jar build/gameserver/libs/
           
-          echo "✅ JAR files injected successfully"
-          echo "   Files in build folder: $(find build -type f | wc -l)"
+          echo "✅ JAR файлы успешно скопированы"
+          echo "📊 Общее количество файлов в папке build: $(find build -type f | wc -l)"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Archive build folder
+      - name: 📦 Создание архива build
         run: |
-          echo "📦 Creating build archive..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📦 Создание архива build.tar.gz..."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           tar -czf build.tar.gz -C build .
-          echo "✓ Archive created: $(du -h build.tar.gz | cut -f1)"
+          echo "✅ Архив создан"
+          echo "📏 Размер архива: $(du -h build.tar.gz | cut -f1)"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Upload archive to VPS
+      - name: 📤 Загрузка архива на VPS
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -67,44 +82,52 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "build.tar.gz"
           target: "/tmp"
+          strip_components: 0
 
-      - name: Extract build on VPS
+      - name: 🛠️ Распаковка и настройка на VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🛑 Остановка сервера..."
-            # Убиваем ТОЛЬКО процессы java. Это на 100% безопасно для SSH-сессии.
-            # || true гарантирует, что скрипт продолжится, даже если java уже не запущена
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🛑 Остановка текущих серверов..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             killall -9 java > /dev/null 2>&1 || true
             sleep 3
-            echo "   ✓ Сервер остановлен"
-
-            echo "💾 Backing up important files..."
+            echo "✅ Все Java процессы остановлены"
+            
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "💾 Резервное копирование важных файлов..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             mkdir -p /tmp/l2backup
             
-            # Копируем с подавлением ошибок, если файлов вдруг нет
             cp /root/l2server/login/hexid.txt /tmp/l2backup/ 2>/dev/null || true
             cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/ 2>/dev/null || true
             cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/ 2>/dev/null || true
-
-            echo "📂 Extracting new build..."
-            # Полностью удаляем и создаем заново для абсолютной чистоты
+            echo "✅ Резервная копия создана"
+            
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "📂 Распаковка новой сборки..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             rm -rf /root/l2server
             mkdir -p /root/l2server
             
             tar -xzf /tmp/build.tar.gz -C /root/l2server/
             rm -f /tmp/build.tar.gz
-
-            echo "🔄 Restoring important files..."
+            echo "✅ Сборка распакована"
+            
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🔄 Восстановление важных файлов..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             cp /tmp/l2backup/hexid.txt /root/l2server/login/ 2>/dev/null || true
             cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/ 2>/dev/null || true
             cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/ 2>/dev/null || true
-
+            
             rm -rf /tmp/l2backup
-            echo "✅ Build deployed successfully"
+            echo "✅ Сборка успешно задеплоена"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
   # ═══════════════════════════════════════════════════════════════
   # JOB 2: CONFIGURE - Заполнение конфигов на сервере
@@ -114,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure loginserver.properties
+      - name: ⚙️ Настройка loginserver.properties
         uses: appleboy/ssh-action@master
         env:
           DB_HOST: ${{ secrets.DB_HOST }}
@@ -129,15 +152,28 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
           script: |
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "⚙️ Настройка loginserver.properties..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
+            
+            if [ ! -f "$LOGIN_CFG" ]; then
+              echo "❌ ОШИБКА: Файл $LOGIN_CFG не найден!"
+              exit 1
+            fi
+            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginHostname *=.*#LoginHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$LOGIN_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$LOGIN_CFG"
-            echo "✓ loginserver.properties configured"
+            
+            echo "✅ loginserver.properties успешно настроен"
+            echo "   Hostname: ${EXTERNAL_HOSTNAME}"
+            echo "   DB User: ${DB_USER}"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Configure server.properties
+      - name: ⚙️ Настройка server.properties
         uses: appleboy/ssh-action@master
         env:
           DB_HOST: ${{ secrets.DB_HOST }}
@@ -152,23 +188,41 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           envs: DB_HOST,DB_PORT,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
           script: |
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "⚙️ Настройка server.properties..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             GAME_CFG="/root/l2server/gameserver/config/server.properties"
+            
+            if [ ! -f "$GAME_CFG" ]; then
+              echo "❌ ОШИБКА: Файл $GAME_CFG не найден!"
+              exit 1
+            fi
+            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^GameserverHostname *=.*#GameserverHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^LoginHost *=.*#LoginHost = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$GAME_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$GAME_CFG"
-            echo "✓ server.properties configured"
+            
+            echo "✅ server.properties успешно настроен"
+            echo "   Hostname: ${EXTERNAL_HOSTNAME}"
+            echo "   DB User: ${DB_USER}"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Set permissions
+      - name: 🔐 Установка прав доступа
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🔐 Установка прав на скрипты запуска..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             chmod +x /root/l2server/login/*.sh
             chmod +x /root/l2server/gameserver/*.sh
+            echo "✅ Права установлены"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
   # ═══════════════════════════════════════════════════════════════
   # JOB 3: START - Запуск серверов и проверка
@@ -178,42 +232,67 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Start Login Server
+      - name: 🚀 Запуск Login Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🚀 Запуск Login Server..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             cd /root/l2server/login
             ./startLoginServer.sh > /dev/null 2>&1 &
             sleep 5
-            echo "✓ Login Server started"
+            
+            if pgrep -f "l2jserver" > /dev/null; then
+              echo "✅ Login Server запущен успешно"
+              echo "📡 PID процесса: $(pgrep -f "l2jserver")"
+            else
+              echo "⚠️ Login Server возможно не запустился"
+            fi
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Start Game Server
+      - name: 🎮 Запуск Game Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🎮 Запуск Game Server..."
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             cd /root/l2server/gameserver
             ./startGameServer.sh > /dev/null 2>&1 &
             sleep 8
-            echo "✓ Game Server started"
             
-            echo "📋 Game Server Log (last 15 lines):"
+            echo "📋 Последние 15 строк лога Game Server:"
             echo "────────────────────────────────────────"
-            tail -n 15 /root/l2server/gameserver/log/stdout.log || echo "Log not found"
+            tail -n 15 /root/l2server/gameserver/log/stdout.log || echo "Лог не найден"
             echo "────────────────────────────────────────"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      - name: Final Verification
+      - name: ✅ Финальная проверка
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            echo "🔍 Финальная проверка:"
-            ps aux | grep -E "l2jserver" | grep -v grep || echo "Нет процессов Java!"
-            echo "✅ Deployment complete!"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "🔍 ФИНАЛЬНАЯ ПРОВЕРКА"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            
+            echo "📊 Активные Java процессы:"
+            ps aux | grep -E "l2jserver" | grep -v grep || echo "   ⚠️ Процессы Java не найдены!"
+            
+            echo ""
+            echo "🔌 Проверка портов:"
+            echo "   Login Server (2003): $(ss -tlnp | grep :2003 || echo 'не слушается')"
+            echo "   Game Server (7777):  $(ss -tlnp | grep :7777 || echo 'не слушается')"
+            
+            echo ""
+            echo "✅ ДИСПЛОЙ ЗАВЕРШЕН УСПЕШНО!"
+            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
