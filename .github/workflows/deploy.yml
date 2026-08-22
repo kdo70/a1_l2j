@@ -6,7 +6,10 @@ on:
       - main
 
 jobs:
-  deploy:
+  # ═══════════════════════════════════════════════════════════════
+  # JOB 1: BUILD - Компиляция, архивация и деплой на сервер
+  # ═══════════════════════════════════════════════════════════════
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,9 +17,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Archive build folder
-        run: tar -czf build.tar.gz -C build .
+        run: |
+          echo "📦 Creating build archive..."
+          tar -czf build.tar.gz -C build .
+          echo "✓ Archive created: $(du -h build.tar.gz | cut -f1)"
 
-      - name: Deploy to VPS via SCP
+      - name: Upload archive to VPS
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -25,21 +31,12 @@ jobs:
           source: "build.tar.gz"
           target: "/tmp"
 
-      - name: Extract, Configure and Restart on VPS
+      - name: Extract build on VPS
         uses: appleboy/ssh-action@master
-        env:
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_NAME_LOGIN: ${{ secrets.DB_NAME_LOGIN }}
-          DB_NAME_GAME: ${{ secrets.DB_NAME_GAME }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          EXTERNAL_HOSTNAME: ${{ secrets.EXTERNAL_HOSTNAME }}
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
           script: |
             echo "🛑 Stopping server..."
             killall -9 java || true
@@ -76,37 +73,147 @@ jobs:
             fi
             rm -rf /tmp/l2backup
             
+            echo "✅ Build deployed successfully"
+
+  # ═══════════════════════════════════════════════════════════════
+  # JOB 2: CONFIGURE - Заполнение конфигов на сервере
+  # ═══════════════════════════════════════════════════════════════
+  configure:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure loginserver.properties
+        uses: appleboy/ssh-action@master
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME_LOGIN: ${{ secrets.DB_NAME_LOGIN }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          EXTERNAL_HOSTNAME: ${{ secrets.EXTERNAL_HOSTNAME }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
+          script: |
             echo "⚙️ Configuring loginserver.properties..."
             LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
+            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginHostname *=.*#LoginHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$LOGIN_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$LOGIN_CFG"
-            echo "   ✓ loginserver.properties configured"
             
+            echo "   ✓ loginserver.properties configured"
+            echo ""
+            echo "🔍 DEBUG - Current login config:"
+            grep -iE "^(ExternalHostname|Hostname|LoginHostname|LoginserverHostname|Login|Password)" "$LOGIN_CFG" || echo "Keys not found!"
+
+      - name: Configure server.properties
+        uses: appleboy/ssh-action@master
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME_GAME: ${{ secrets.DB_NAME_GAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          EXTERNAL_HOSTNAME: ${{ secrets.EXTERNAL_HOSTNAME }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          envs: DB_HOST,DB_PORT,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
+          script: |
             echo "⚙️ Configuring server.properties..."
             GAME_CFG="/root/l2server/gameserver/config/server.properties"
+            
             sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^GameserverHostname *=.*#GameserverHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^LoginHost *=.*#LoginHost = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
             sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$GAME_CFG"
             sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$GAME_CFG"
+            
             echo "   ✓ server.properties configured"
+            echo ""
+            echo "🔍 DEBUG - Current gameserver config:"
+            grep -iE "^(ExternalHostname|Hostname|GameserverHostname|LoginHost|Login|Password)" "$GAME_CFG" || echo "Keys not found!"
 
-            echo "🔍 DEBUG: Checking Hostname config in loginserver.properties:"
-            grep -iE "^(ExternalHostname|Hostname|LoginHostname|LoginserverHostname)" "$LOGIN_CFG" || echo "Keys not found!"
-            
-            echo "🔍 DEBUG: Checking Hostname config in server.properties:"
-            grep -iE "^(ExternalHostname|Hostname|GameserverHostname|LoginHost)" "$GAME_CFG" || echo "Keys not found!"
-            
+      - name: Set permissions
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
             echo "🔧 Setting permissions..."
             chmod +x /root/l2server/login/*.sh
             chmod +x /root/l2server/gameserver/*.sh
+            echo "✅ Configuration complete"
+
+  # ═══════════════════════════════════════════════════════════════
+  # JOB 3: START - Запуск серверов и вывод логов
+  # ═══════════════════════════════════════════════════════════════
+  start:
+    needs: configure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start Login Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo "🚀 Starting Login Server..."
+            cd /root/l2server/login
+            ./startLoginServer.sh > /dev/null 2>&1 &
+            sleep 5
             
-            echo "🚀 Starting server..."
-            cd /root/l2server/login && ./startLoginServer.sh > /dev/null 2>&1 &
-            sleep 3
-            cd /root/l2server/gameserver && ./startGameServer.sh > /dev/null 2>&1 &
+            echo "📋 Login Server Log (last 30 lines):"
+            echo "────────────────────────────────────────"
+            if [ -f log/stdout.log ]; then
+              tail -n 30 log/stdout.log
+            else
+              echo "Log file not found yet..."
+            fi
+            echo "────────────────────────────────────────"
+
+      - name: Start Game Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo "🚀 Starting Game Server..."
+            cd /root/l2server/gameserver
+            ./startGameServer.sh > /dev/null 2>&1 &
+            sleep 5
             
+            echo "📋 Game Server Log (last 30 lines):"
+            echo "────────────────────────────────────────"
+            if [ -f log/stdout.log ]; then
+              tail -n 30 log/stdout.log
+            else
+              echo "Log file not found yet..."
+            fi
+            echo "────────────────────────────────────────"
+
+      - name: Final Status Check
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            echo ""
+            echo "🔍 Checking server processes..."
+            echo "────────────────────────────────────────"
+            ps aux | grep -E "(login|game).*[j]ava" | awk '{print "  ✓ " $11 " (PID: " $2 ")"}' || echo "  ✗ No Java processes found"
+            echo "────────────────────────────────────────"
+            echo ""
             echo "✅ Deployment complete!"
