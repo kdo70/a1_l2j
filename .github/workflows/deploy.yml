@@ -28,6 +28,13 @@ jobs:
           sudo apt-get install -y ant
           ant -version
 
+      - name: Clean build directories
+        run: |
+          echo "🧹 Cleaning old build artifacts..."
+          rm -rf source/aCis_gameserver/build
+          rm -rf source/aCis_datapack/build
+          echo "✅ Build directories cleaned"
+
       - name: Compile aCis_gameserver
         run: |
           echo "🔨 Compiling aCis_gameserver..."
@@ -62,6 +69,16 @@ jobs:
           
           echo "✅ Build folder assembled"
           echo "   Files: $(find build -type f | wc -l)"
+          
+          echo ""
+          echo "🔍 DEBUG - Checking geoengine.properties in build:"
+          if [ -f build/gameserver/config/geoengine.properties ]; then
+            echo "   ✓ File exists"
+            echo "   Content preview:"
+            head -n 5 build/gameserver/config/geoengine.properties | sed 's/^/     /'
+          else
+            echo "   ✗ File NOT found!"
+          fi
 
       - name: Archive build folder
         run: |
@@ -128,6 +145,17 @@ jobs:
             fi
             
             rm -rf /tmp/l2backup
+            
+            echo ""
+            echo "🔍 DEBUG - Checking geoengine.properties on VPS:"
+            if [ -f /root/l2server/gameserver/config/geoengine.properties ]; then
+              echo "   ✓ File exists"
+              echo "   Content preview:"
+              head -n 5 /root/l2server/gameserver/config/geoengine.properties | sed 's/^/     /'
+            else
+              echo "   ✗ File NOT found!"
+            fi
+            
             echo "✅ Build deployed successfully"
 
   # ═══════════════════════════════════════════════════════════════
