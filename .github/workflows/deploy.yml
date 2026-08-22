@@ -124,7 +124,12 @@ jobs:
             fi
             
             echo "📂 Extracting new build..."
-            rm -rf /root/l2server/*
+            
+            # ВАЖНО: Полностью удаляем старую папку, чтобы гарантировать чистую распаковку
+            rm -rf /root/l2server
+            mkdir -p /root/l2server
+            
+            # Распаковываем с принудительной перезаписью
             tar -xzf /tmp/build.tar.gz -C /root/l2server/
             rm -f /tmp/build.tar.gz
             
@@ -147,13 +152,16 @@ jobs:
             rm -rf /tmp/l2backup
             
             echo ""
-            echo "🔍 DEBUG - Checking geoengine.properties on VPS:"
+            echo "🔍 DEBUG - Checking geoengine.properties on VPS AFTER extraction:"
             if [ -f /root/l2server/gameserver/config/geoengine.properties ]; then
               echo "   ✓ File exists"
-              echo "   Content preview:"
-              head -n 5 /root/l2server/gameserver/config/geoengine.properties | sed 's/^/     /'
+              echo "   File size: $(stat -c%s /root/l2server/gameserver/config/geoengine.properties) bytes"
+              echo "   Content preview (first 10 lines):"
+              head -n 10 /root/l2server/gameserver/config/geoengine.properties | sed 's/^/     /'
             else
               echo "   ✗ File NOT found!"
+              echo "   Contents of /root/l2server/gameserver/config/:"
+              ls -la /root/l2server/gameserver/config/ || echo "   Directory does not exist!"
             fi
             
             echo "✅ Build deployed successfully"
