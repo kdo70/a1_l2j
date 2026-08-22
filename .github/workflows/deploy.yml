@@ -74,38 +74,43 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          script_stop: false # Явно запрещаем прерывать скрипт при ошибках
           script: |
-            # ОТКЛЮЧАЕМ строгий режим, чтобы pkill/killall не ломали скрипт, если процессов нет
-            set +e
-            
             echo "🛑 Остановка сервера..."
-            pkill -9 -f "l2jserver" > /dev/null 2>&1
-            killall -9 java > /dev/null 2>&1
-            sleep 3
-            echo "   ✓ Сервер остановлен"
             
+            # 1. Мягкая остановка. 2>/dev/null скрывает ошибки, || true гарантирует успех
+            pkill -f "l2jserver" 2>/dev/null || true
+            sleep 3
+            
+            # 2. Жесткая остановка зависших процессов (только l2jserver!)
+            pkill -9 -f "l2jserver" 2>/dev/null || true
+            sleep 2
+            
+            echo "   ✓ Сервер остановлен"
+
             echo "💾 Backing up important files..."
             mkdir -p /tmp/l2backup
-            
-            [ -f /root/l2server/login/hexid.txt ] && cp /root/l2server/login/hexid.txt /tmp/l2backup/
-            [ -f /root/l2server/gameserver/config/hexid.txt ] && cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/
-            [ -d /root/l2server/gameserver/data/geodata ] && cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/
-            
+
+            [ -f /root/l2server/login/hexid.txt ] && cp /root/l2server/login/hexid.txt /tmp/l2backup/ || true
+            [ -f /root/l2server/gameserver/config/hexid.txt ] && cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/ || true
+            [ -d /root/l2server/gameserver/data/geodata ] && cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/ || true
+
             echo "📂 Extracting new build..."
-            rm -rf /root/l2server
-            mkdir -p /root/l2server
             
-            # ВКЛЮЧАЕМ строгий режим для критических операций
-            set -e
-            
+            # Очищаем содержимое папки, но не саму папку (безопаснее для прав доступа)
+            rm -rf /root/l2server/* 2>/dev/null || true
+            rm -rf /root/l2server/.* 2>/dev/null || true
+
+            # Распаковка архива
             tar -xzf /tmp/build.tar.gz -C /root/l2server/
             rm -f /tmp/build.tar.gz
-            
+
             echo "🔄 Restoring important files..."
-            [ -f /tmp/l2backup/hexid.txt ] && cp /tmp/l2backup/hexid.txt /root/l2server/login/
-            [ -f /tmp/l2backup/hexid.txt ] && cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/
-            [ -d /tmp/l2backup/geodata ] && cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/
             
+            [ -f /tmp/l2backup/hexid.txt ] && cp /tmp/l2backup/hexid.txt /root/l2server/login/ || true
+            [ -f /tmp/l2backup/hexid.txt ] && cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/ || true
+            [ -d /tmp/l2backup/geodata ] && cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/ || true
+
             rm -rf /tmp/l2backup
             echo "✅ Build deployed successfully"
 
