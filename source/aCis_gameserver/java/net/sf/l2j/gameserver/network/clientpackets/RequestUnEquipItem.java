@@ -42,9 +42,6 @@ public class RequestUnEquipItem extends L2GameClientPacket
 		
 		final ItemInstance[] unequipped = player.getInventory().unequipItemInBodySlotAndRecord(_slot);
 		
-		for (ItemInstance itm : unequipped)
-			itm.unChargeAllShots();
-		
 		player.broadcastUserInfo();
 		
 		// this can be 0 if the user pressed the right mousebutton twice very fast

@@ -1201,8 +1201,8 @@ public final class Player extends Playable
 	/**
 	 * Equip or unequip the {@link ItemInstance} set as parameter.
 	 * <UL>
-	 * <LI>If the item is equipped, shots are applied if automation is on.</LI>
-	 * <LI>If the item is unequipped, shots are discharged.</LI>
+	 * <LI>If the item is equipped, shots are applied if automation is on, unless the weapon is already charged.</LI>
+	 * <LI>If the item is unequipped, shots stay charged ; a charge is only consumed when dealing damage.</LI>
 	 * </UL>
 	 * @param item : The {@link ItemInstance} to equip/unequip.
 	 * @param abortAttack : If true, the current attack will be aborted.
@@ -1211,9 +1211,6 @@ public final class Player extends Playable
 	{
 		final boolean isEquipped = item.isEquipped();
 		final int oldInvLimit = getStatus().getInventoryLimit();
-		
-		if (item.getItem() instanceof Weapon)
-			item.unChargeAllShots();
 		
 		if (isEquipped)
 		{

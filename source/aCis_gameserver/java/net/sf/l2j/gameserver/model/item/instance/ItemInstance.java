@@ -743,6 +743,9 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 	 */
 	public final void dropMe(Creature dropper, int x, int y, int z)
 	{
+		// A weapon dropped on ground loses its shot charge.
+		unChargeAllShots();
+		
 		ThreadPool.execute(() ->
 		{
 			// Set the dropper OID for sendInfo show correct dropping animation.
@@ -767,6 +770,9 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 	 */
 	public final void dropMe(Creature dropper, int offset)
 	{
+		// A weapon dropped on ground loses its shot charge.
+		unChargeAllShots();
+		
 		// Create drop location.
 		final Location loc = dropper.getPosition().clone();
 		loc.addRandomOffset(offset);
