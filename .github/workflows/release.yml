@@ -5,13 +5,21 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Сборка и деплой
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: 📥 Клонирование репозитория
-        uses: actions/checkout@v5   # ⬅️ обновлено
+        uses: actions/checkout@v5
 
       - name: ☕ Установка JDK 21
         uses: actions/setup-java@v5
@@ -30,9 +38,10 @@ jobs:
     name: Настройка сервера
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: 📥 Клонирование репозитория
-        uses: actions/checkout@v5   # ⬅️ обновлено
+        uses: actions/checkout@v5
 
       - name: ⚙️ Настройка конфигов
         uses: ./.github/actions/configure-server
@@ -52,9 +61,10 @@ jobs:
     name: Запуск серверов
     needs: configure
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: 📥 Клонирование репозитория
-        uses: actions/checkout@v5   # ⬅️ обновлено
+        uses: actions/checkout@v5
 
       - name: 🚀 Запуск и проверка
         uses: ./.github/actions/start-servers

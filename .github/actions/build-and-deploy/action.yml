@@ -15,13 +15,17 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: 🐜 Установка Apache Ant
+    - name: 🐜 Проверка Apache Ant
       shell: bash
       run: |
-        echo "📦 Устанавливаем Apache Ant..."
-        sudo apt-get update -qq
-        sudo apt-get install -y ant
-        echo "✅ Версия Ant: $(ant -version)"
+        if command -v ant > /dev/null 2>&1; then
+          echo "✅ Ant уже установлен: $(ant -version)"
+        else
+          echo "📦 Устанавливаем Apache Ant..."
+          sudo apt-get update -qq
+          sudo apt-get install -y ant
+          echo "✅ Версия Ant: $(ant -version)"
+        fi
 
     - name: 🔨 Компиляция aCis_gameserver
       shell: bash
@@ -57,7 +61,7 @@ runs:
         echo "✅ Архив создан, размер: $(du -h build.tar.gz | cut -f1)"
 
     - name: 📤 Загрузка архива на VPS
-      uses: appleboy/scp-action@master
+      uses: appleboy/scp-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
@@ -67,7 +71,7 @@ runs:
         strip_components: 0
 
     - name: 🛠️ Распаковка и восстановление на VPS
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}

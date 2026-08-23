@@ -36,12 +36,13 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: ⚙️ Настройка loginserver.properties
-      uses: appleboy/ssh-action@master
+    - name: ⚙️ Настройка конфигов и прав доступа
+      uses: appleboy/ssh-action@v1
       env:
         DB_HOST: ${{ inputs.db-host }}
         DB_PORT: ${{ inputs.db-port }}
         DB_NAME_LOGIN: ${{ inputs.db-name-login }}
+        DB_NAME_GAME: ${{ inputs.db-name-game }}
         DB_USER: ${{ inputs.db-user }}
         DB_PASSWORD: ${{ inputs.db-password }}
         EXTERNAL_HOSTNAME: ${{ inputs.external-hostname }}
@@ -49,7 +50,7 @@ runs:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
-        envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
+        envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
         script: |
           echo "⚙️ Настройка loginserver.properties..."
           LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
@@ -67,21 +68,6 @@ runs:
 
           echo "✅ loginserver.properties настроен (Hostname: ${EXTERNAL_HOSTNAME}, DB User: ${DB_USER})"
 
-    - name: ⚙️ Настройка server.properties
-      uses: appleboy/ssh-action@master
-      env:
-        DB_HOST: ${{ inputs.db-host }}
-        DB_PORT: ${{ inputs.db-port }}
-        DB_NAME_GAME: ${{ inputs.db-name-game }}
-        DB_USER: ${{ inputs.db-user }}
-        DB_PASSWORD: ${{ inputs.db-password }}
-        EXTERNAL_HOSTNAME: ${{ inputs.external-hostname }}
-      with:
-        host: ${{ inputs.vps-host }}
-        username: ${{ inputs.vps-username }}
-        key: ${{ inputs.vps-ssh-key }}
-        envs: DB_HOST,DB_PORT,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
-        script: |
           echo "⚙️ Настройка server.properties..."
           GAME_CFG="/root/l2server/gameserver/config/server.properties"
 
@@ -98,13 +84,6 @@ runs:
 
           echo "✅ server.properties настроен (Hostname: ${EXTERNAL_HOSTNAME}, DB User: ${DB_USER})"
 
-    - name: 🔐 Установка прав доступа
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ inputs.vps-host }}
-        username: ${{ inputs.vps-username }}
-        key: ${{ inputs.vps-ssh-key }}
-        script: |
           echo "🔐 Установка прав на скрипты запуска..."
           chmod +x /root/l2server/login/*.sh
           chmod +x /root/l2server/gameserver/*.sh

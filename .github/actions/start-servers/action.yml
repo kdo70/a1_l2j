@@ -16,7 +16,7 @@ runs:
   using: 'composite'
   steps:
     - name: 🚀 Запуск Login Server
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
@@ -25,7 +25,11 @@ runs:
           echo "🚀 Запуск Login Server..."
           cd /root/l2server/login
           ./startLoginServer.sh > /dev/null 2>&1 &
-          sleep 5
+
+          for i in $(seq 1 15); do
+            pgrep -f "l2jserver" > /dev/null && break
+            sleep 2
+          done
 
           if pgrep -f "l2jserver" > /dev/null; then
             echo "✅ Login Server запущен (PID: $(pgrep -f 'l2jserver'))"
@@ -34,7 +38,7 @@ runs:
           fi
 
     - name: 🎮 Запуск Game Server
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
@@ -43,7 +47,11 @@ runs:
           echo "🎮 Запуск Game Server..."
           cd /root/l2server/gameserver
           ./startGameServer.sh > /dev/null 2>&1 &
-          sleep 8
+
+          for i in $(seq 1 15); do
+            pgrep -f "net.sf.l2j.gameserver.GameServer" > /dev/null && break
+            sleep 2
+          done
 
           echo "📋 Последние 15 строк лога Game Server:"
           echo "────────────────────────────────────────"
@@ -51,7 +59,7 @@ runs:
           echo "────────────────────────────────────────"
 
     - name: ✅ Финальная проверка
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
@@ -68,27 +76,30 @@ runs:
           fi
 
           echo ""
-          echo "⏳ Ожидание полной инициализации сервисов (15 сек)..."
-          sleep 15
-
-          echo ""
-          echo "🔌 Проверка портов:"
+          echo "⏳ Ожидание портов 2106 и 7777 (до 60 сек)..."
+          for i in $(seq 1 30); do
+            if ss -tln | grep -q :2106 && ss -tln | grep -q :7777; then
+              break
+            fi
+            sleep 2
+          done
 
           LOGIN_PORT=$(ss -tlnp | grep :2106)
+          GAME_PORT=$(ss -tlnp | grep :7777)
+
           if [ -n "$LOGIN_PORT" ]; then
             echo "   ✅ Login Server (2106): слушается"
           else
             echo "   ❌ Login Server (2106): НЕ слушается"
-            echo "   📋 Последние 10 строк лога Login Server:"
+            echo "📋 Последние 10 строк лога Login Server:"
             tail -n 10 /root/l2server/login/log/stdout.log 2>/dev/null || echo "      Лог не найден"
           fi
 
-          GAME_PORT=$(ss -tlnp | grep :7777)
           if [ -n "$GAME_PORT" ]; then
             echo "   ✅ Game Server (7777): слушается"
           else
             echo "   ❌ Game Server (7777): НЕ слушается"
-            echo "   📋 Последние 10 строк лога Game Server:"
+            echo "📋 Последние 10 строк лога Game Server:"
             tail -n 10 /root/l2server/gameserver/log/stdout.log 2>/dev/null || echo "      Лог не найден"
           fi
 
