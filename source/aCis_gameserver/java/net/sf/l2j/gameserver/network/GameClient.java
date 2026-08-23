@@ -241,6 +241,9 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 						if (getPlayer().getOfflineStartTime() == 0)
 							getPlayer().setOfflineStartTime(System.currentTimeMillis());
 						
+						// The session isn't active anymore ; release the account on both this GameServer and the LoginServer.
+						LoginServerThread.getInstance().sendLogout(GameClient.this);
+						
 						LOGGER.info("{} has entered offline shop mode.", getPlayer().getName());
 						return;
 					}
@@ -577,9 +580,26 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 		if (player == null)
 			return Player.restore(objectId);
 		
-		// We found an existing Player ; abort the connection if a GameClient is found, otherwise delete the object.
+		// We found an existing Player ; abort the connection if an active GameClient is found.
 		if (player.getClient() != null)
+		{
+			// The Player holds an offline shop ; close the shop, then take over the character.
+			if (player.getClient().isDetached())
+			{
+				final GameClient offlineClient = player.getClient();
+				
+				player.setClient(null);
+				player.deleteMe();
+				
+				// Clean the offline client (auto save task notably), it doesn't hold any Player anymore.
+				offlineClient.setPlayer(null);
+				offlineClient.cleanMe(true);
+				
+				return Player.restore(objectId);
+			}
+			
 			player.getClient().closeNow();
+		}
 		else
 			player.deleteMe();
 		
@@ -705,7 +725,7 @@ public final class GameClient extends MMOClient<MMOConnection<GameClient>> imple
 			setPlayer(null);
 			
 			// Send logout packet, remove the client from connected clients.
-			LoginServerThread.getInstance().sendLogout(getAccountName());
+			LoginServerThread.getInstance().sendLogout(GameClient.this);
 		}
 	}
 	

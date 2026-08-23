@@ -202,9 +202,14 @@ public class LoginServerThread extends Thread
 							{
 								final List<String> playerList = new ArrayList<>();
 								for (Player player : players)
-									playerList.add(player.getAccountName());
+								{
+									// Players in offline shop mode aren't advertised, so their account remains usable.
+									if (player.getClient() != null && !player.getClient().isDetached())
+										playerList.add(player.getAccountName());
+								}
 								
-								sendPacket(new PlayerInGame(playerList));
+								if (!playerList.isEmpty())
+									sendPacket(new PlayerInGame(playerList));
 							}
 							break;
 						
@@ -270,9 +275,19 @@ public class LoginServerThread extends Thread
 		}
 	}
 	
-	public void sendLogout(String account)
+	/**
+	 * Advertise the LoginServer that the account of this {@link GameClient} logged out.<br>
+	 * Only registered active sessions are advertised : {@link GameClient}s of offline shops aren't known by the LoginServer, and an account can keep an active session while other characters of the same account hold offline shops.
+	 * @param client : The {@link GameClient} to test.
+	 */
+	public void sendLogout(GameClient client)
 	{
+		final String account = (client == null) ? null : client.getAccountName();
 		if (account == null)
+			return;
+		
+		// The client wasn't the registered active session of that account, don't advertise anything.
+		if (!_clients.remove(account, client))
 			return;
 		
 		try
@@ -282,10 +297,6 @@ public class LoginServerThread extends Thread
 		catch (IOException e)
 		{
 			LOGGER.error("Error while sending logout packet to login.");
-		}
-		finally
-		{
-			_clients.remove(account);
 		}
 	}
 	
@@ -305,29 +316,6 @@ public class LoginServerThread extends Thread
 		catch (IOException e)
 		{
 			LOGGER.error("Error while sending player auth request.");
-		}
-	}
-	
-	/**
-	 * Register a restored offline shop {@link GameClient} on this GameServer, and advertise the LoginServer that the account is in game.
-	 * @param account : The account name to register.
-	 * @param client : The {@link GameClient} linked to the offline shop.
-	 */
-	public void addGameServerLogin(String account, GameClient client)
-	{
-		_clients.put(account, client);
-		
-		try
-		{
-			sendPacket(new PlayerInGame(account));
-		}
-		catch (IOException e)
-		{
-			LOGGER.error("Error while sending player in game packet.");
-		}
-		catch (NullPointerException e)
-		{
-			// The LoginServer connection isn't established yet ; the whole players list is sent upon registration.
 		}
 	}
 	

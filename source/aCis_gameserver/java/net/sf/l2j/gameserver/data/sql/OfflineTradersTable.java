@@ -9,7 +9,6 @@ import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.pool.ConnectionPool;
 
 import net.sf.l2j.Config;
-import net.sf.l2j.gameserver.LoginServerThread;
 import net.sf.l2j.gameserver.data.xml.RecipeData;
 import net.sf.l2j.gameserver.enums.actors.OperateType;
 import net.sf.l2j.gameserver.model.World;
@@ -188,8 +187,6 @@ public class OfflineTradersTable
 					player.setClient(client);
 					player.setOfflineStartTime(time);
 					player.spawnMe(player.getX(), player.getY(), player.getZ());
-					
-					LoginServerThread.getInstance().addGameServerLogin(player.getAccountName(), client);
 					
 					try (PreparedStatement itemsPs = con.prepareStatement(LOAD_OFFLINE_ITEMS))
 					{
