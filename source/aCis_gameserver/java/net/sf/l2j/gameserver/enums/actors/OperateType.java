@@ -23,4 +23,21 @@ public enum OperateType
 	{
 		return _id;
 	}
+	
+	public static final OperateType[] VALUES = values();
+	
+	/**
+	 * @param id : The id to test.
+	 * @return The {@link OperateType} matching the id, or {@link OperateType#NONE} if not found.
+	 */
+	public static OperateType getById(int id)
+	{
+		for (OperateType type : VALUES)
+		{
+			if (type._id == id)
+				return type;
+		}
+		
+		return NONE;
+	}
 }

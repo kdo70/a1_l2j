@@ -17,6 +17,8 @@ DROP TABLE IF EXISTS castle_trapupgrade;
 DROP TABLE IF EXISTS character_hennas;
 DROP TABLE IF EXISTS character_macroses;
 DROP TABLE IF EXISTS character_memo;
+DROP TABLE IF EXISTS character_offline_trade;
+DROP TABLE IF EXISTS character_offline_trade_items;
 DROP TABLE IF EXISTS character_quests;
 DROP TABLE IF EXISTS character_raid_points;
 DROP TABLE IF EXISTS character_recipebook;

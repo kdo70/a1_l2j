@@ -103,6 +103,10 @@ public class PlayerStatus extends PlayableStatus<Player>
 		if (_actor.isDead())
 			return;
 		
+		// A Player in offline shop mode doesn't take any damage.
+		if (Config.OFFLINE_MODE_NO_DAMAGE && _actor.getClient() != null && _actor.getClient().isDetached() && _actor.isInStoreMode())
+			return;
+		
 		// invul handling
 		if (_actor.isInvul())
 		{

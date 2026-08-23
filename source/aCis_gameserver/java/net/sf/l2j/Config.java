@@ -487,6 +487,17 @@ public final class Config
 	public static boolean SERVER_NEWS;
 	public static int ZONE_TOWN;
 	
+	/** Offline shop */
+	public static boolean OFFLINE_TRADE_ENABLE;
+	public static boolean OFFLINE_CRAFT_ENABLE;
+	public static boolean OFFLINE_MODE_IN_PEACE_ZONE;
+	public static boolean OFFLINE_MODE_NO_DAMAGE;
+	public static boolean OFFLINE_SET_NAME_COLOR;
+	public static int OFFLINE_NAME_COLOR;
+	public static boolean RESTORE_OFFLINERS;
+	public static int OFFLINE_MAX_DAYS;
+	public static boolean OFFLINE_DISCONNECT_FINISHED;
+	
 	// --------------------------------------------------
 	// Those "hidden" settings haven't configs to avoid admins to fuck their server
 	// You still can experiment changing values here. But don't say I didn't warn you.
@@ -1022,6 +1033,16 @@ public final class Config
 		L2WALKER_PROTECTION = server.getProperty("L2WalkerProtection", false);
 		ZONE_TOWN = server.getProperty("ZoneTown", 0);
 		SERVER_NEWS = server.getProperty("ShowServerNews", false);
+		
+		OFFLINE_TRADE_ENABLE = server.getProperty("OfflineTradeEnable", false);
+		OFFLINE_CRAFT_ENABLE = server.getProperty("OfflineCraftEnable", false);
+		OFFLINE_MODE_IN_PEACE_ZONE = server.getProperty("OfflineModeInPeaceZone", false);
+		OFFLINE_MODE_NO_DAMAGE = server.getProperty("OfflineModeNoDamage", false);
+		OFFLINE_SET_NAME_COLOR = server.getProperty("OfflineSetNameColor", false);
+		OFFLINE_NAME_COLOR = Integer.decode("0x" + server.getProperty("OfflineNameColor", "808080"));
+		RESTORE_OFFLINERS = server.getProperty("RestoreOffliners", false);
+		OFFLINE_MAX_DAYS = server.getProperty("OfflineMaxDays", 10);
+		OFFLINE_DISCONNECT_FINISHED = server.getProperty("OfflineDisconnectFinished", true);
 	}
 	
 	/**

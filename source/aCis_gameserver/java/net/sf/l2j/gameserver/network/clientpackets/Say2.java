@@ -9,7 +9,9 @@ import net.sf.l2j.gameserver.enums.SayType;
 import net.sf.l2j.gameserver.handler.ChatHandler;
 import net.sf.l2j.gameserver.handler.IChatHandler;
 import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.SystemMessageId;
+import net.sf.l2j.gameserver.network.serverpackets.ServerClose;
 
 public final class Say2 extends L2GameClientPacket
 {
@@ -78,6 +80,19 @@ public final class Say2 extends L2GameClientPacket
 		
 		if (_text.isEmpty() || _text.length() > 100)
 			return;
+		
+		// The ".offline" command : disconnect the Player, but keep his shop opened in the world.
+		if (_text.equalsIgnoreCase(".offline"))
+		{
+			if (!GameClient.offlineMode(player))
+			{
+				player.sendMessage("You can't enter offline mode in this state.");
+				return;
+			}
+			
+			getClient().close(ServerClose.STATIC_PACKET);
+			return;
+		}
 		
 		SayType type = SayType.VALUES[_id];
 		if (Config.L2WALKER_PROTECTION && type == SayType.TELL && checkBot(_text))

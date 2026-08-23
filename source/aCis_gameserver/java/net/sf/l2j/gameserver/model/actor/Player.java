@@ -342,6 +342,7 @@ public final class Player extends Playable
 	private PcFreight _freight;
 	
 	private OperateType _operateType = OperateType.NONE;
+	private long _offlineShopStart;
 	
 	private TradeList _activeTradeList;
 	private ItemContainer _activeWarehouse;
@@ -3202,6 +3203,10 @@ public final class Player extends Playable
 	public void setOperateType(OperateType type)
 	{
 		_operateType = type;
+		
+		// An offline shop just finished its business ; drop the Player entirely.
+		if (Config.OFFLINE_DISCONNECT_FINISHED && _operateType == OperateType.NONE && _client != null && _client.isDetached())
+			_client.cleanMe(true);
 	}
 	
 	/**
@@ -3218,6 +3223,23 @@ public final class Player extends Playable
 	public boolean isInManageStoreMode()
 	{
 		return _operateType == OperateType.BUY_MANAGE || _operateType == OperateType.SELL_MANAGE || _operateType == OperateType.MANUFACTURE_MANAGE;
+	}
+	
+	/**
+	 * @return The time when this {@link Player} entered offline shop mode, or 0 if he isn't in offline mode.
+	 */
+	public long getOfflineStartTime()
+	{
+		return _offlineShopStart;
+	}
+	
+	/**
+	 * Set the time when this {@link Player} entered offline shop mode.
+	 * @param time : The offline start time to set.
+	 */
+	public void setOfflineStartTime(long time)
+	{
+		_offlineShopStart = time;
 	}
 	
 	/**

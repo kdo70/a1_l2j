@@ -308,6 +308,29 @@ public class LoginServerThread extends Thread
 		}
 	}
 	
+	/**
+	 * Register a restored offline shop {@link GameClient} on this GameServer, and advertise the LoginServer that the account is in game.
+	 * @param account : The account name to register.
+	 * @param client : The {@link GameClient} linked to the offline shop.
+	 */
+	public void addGameServerLogin(String account, GameClient client)
+	{
+		_clients.put(account, client);
+		
+		try
+		{
+			sendPacket(new PlayerInGame(account));
+		}
+		catch (IOException e)
+		{
+			LOGGER.error("Error while sending player in game packet.");
+		}
+		catch (NullPointerException e)
+		{
+			// The LoginServer connection isn't established yet ; the whole players list is sent upon registration.
+		}
+	}
+	
 	public void sendAccessLevel(String account, int level)
 	{
 		try
