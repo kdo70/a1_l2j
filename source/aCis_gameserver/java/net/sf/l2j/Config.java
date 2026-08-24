@@ -15,6 +15,7 @@ import net.sf.l2j.commons.config.ExProperties;
 import net.sf.l2j.commons.logging.CLogger;
 
 import net.sf.l2j.gameserver.enums.GeoType;
+import net.sf.l2j.gameserver.enums.skills.AbnormalEffect;
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 
 /**
@@ -30,6 +31,7 @@ public final class Config
 	
 	private static final CLogger LOGGER = new CLogger(Config.class.getName());
 	
+	private static final String CHAMPION_MOBS_FILE = "./config/championmobs.properties";
 	private static final String CLANS_FILE = "./config/clans.properties";
 	private static final String EVENTS_FILE = "./config/events.properties";
 	public static final String GEOENGINE_FILE = "./config/geoengine.properties";
@@ -39,6 +41,28 @@ public final class Config
 	private static final String PLAYERS_FILE = "./config/players.properties";
 	private static final String SERVER_FILE = "./config/server.properties";
 	private static final String SIEGE_FILE = "./config/siege.properties";
+	
+	// --------------------------------------------------
+	// Champion mobs
+	// --------------------------------------------------
+	
+	public static boolean CHAMPION_MOBS_ENABLE;
+	public static boolean CHAMPION_MOBS_PASSIVE;
+	public static int CHAMPION_MOBS_FREQUENCY;
+	public static String CHAMPION_MOBS_TITLE;
+	public static int CHAMPION_MOBS_MIN_LEVEL;
+	public static int CHAMPION_MOBS_MAX_LEVEL;
+	public static int CHAMPION_MOBS_HP_MULTIPLIER;
+	public static double CHAMPION_MOBS_PATK_MULTIPLIER;
+	public static double CHAMPION_MOBS_PDEF_MULTIPLIER;
+	public static double CHAMPION_MOBS_MATK_MULTIPLIER;
+	public static double CHAMPION_MOBS_MDEF_MULTIPLIER;
+	public static int CHAMPION_MOBS_XPSP_MULTIPLIER;
+	public static double CHAMPION_MOBS_ADENA_MULTIPLIER;
+	public static int CHAMPION_MOBS_REWARD_ITEM_ID;
+	public static int CHAMPION_MOBS_REWARD_ITEM_QTY;
+	public static int CHAMPION_MOBS_REWARD_CHANCE;
+	public static AbnormalEffect CHAMPION_MOBS_AURA;
 	
 	// --------------------------------------------------
 	// Clans settings
@@ -544,6 +568,36 @@ public final class Config
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * Loads champion mobs settings.
+	 */
+	private static final void loadChampionMobs()
+	{
+		final ExProperties championMobs = initProperties(CHAMPION_MOBS_FILE);
+		
+		CHAMPION_MOBS_ENABLE = championMobs.getProperty("ChampionMobsEnable", false);
+		CHAMPION_MOBS_PASSIVE = championMobs.getProperty("ChampionMobsPassive", false);
+		CHAMPION_MOBS_FREQUENCY = championMobs.getProperty("ChampionMobsFrequency", 0);
+		CHAMPION_MOBS_TITLE = championMobs.getProperty("ChampionMobsTitle", "Champion");
+		CHAMPION_MOBS_MIN_LEVEL = championMobs.getProperty("ChampionMobsMinLevel", 1);
+		CHAMPION_MOBS_MAX_LEVEL = championMobs.getProperty("ChampionMobsMaxLevel", 85);
+		
+		CHAMPION_MOBS_HP_MULTIPLIER = championMobs.getProperty("ChampionMobsHpMultiplier", 1);
+		CHAMPION_MOBS_PATK_MULTIPLIER = championMobs.getProperty("ChampionMobsPAtkMultiplier", 1.);
+		CHAMPION_MOBS_PDEF_MULTIPLIER = championMobs.getProperty("ChampionMobsPDefMultiplier", 1.);
+		CHAMPION_MOBS_MATK_MULTIPLIER = championMobs.getProperty("ChampionMobsMAtkMultiplier", 1.);
+		CHAMPION_MOBS_MDEF_MULTIPLIER = championMobs.getProperty("ChampionMobsMDefMultiplier", 1.);
+		
+		CHAMPION_MOBS_XPSP_MULTIPLIER = championMobs.getProperty("ChampionMobsXpSpMultiplier", 1);
+		CHAMPION_MOBS_ADENA_MULTIPLIER = championMobs.getProperty("ChampionMobsAdenaMultiplier", 1.);
+		
+		CHAMPION_MOBS_REWARD_ITEM_ID = championMobs.getProperty("ChampionMobsRewardItemId", 0);
+		CHAMPION_MOBS_REWARD_ITEM_QTY = championMobs.getProperty("ChampionMobsRewardItemQty", 1);
+		CHAMPION_MOBS_REWARD_CHANCE = championMobs.getProperty("ChampionMobsRewardChance", 0);
+		
+		CHAMPION_MOBS_AURA = AbnormalEffect.getByName(championMobs.getProperty("ChampionMobsAura", "bleeding"));
 	}
 	
 	/**
@@ -1079,6 +1133,9 @@ public final class Config
 	public static final void loadGameServer()
 	{
 		LOGGER.info("Loading gameserver configuration files.");
+		
+		// champion mobs settings
+		loadChampionMobs();
 		
 		// clans settings
 		loadClans();

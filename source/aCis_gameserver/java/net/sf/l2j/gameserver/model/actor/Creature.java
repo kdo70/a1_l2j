@@ -569,6 +569,14 @@ public abstract class Creature extends WorldObject
 		return false;
 	}
 	
+	/**
+	 * @return true if this object is a champion mob.
+	 */
+	public boolean isChampion()
+	{
+		return false;
+	}
+	
 	public final boolean isAfraid()
 	{
 		return isAffected(EffectFlag.FEAR);
@@ -1641,7 +1649,11 @@ public abstract class Creature extends WorldObject
 	
 	public void reduceCurrentHp(double i, Creature attacker, boolean awake, boolean isDOT, L2Skill skill)
 	{
-		getStatus().reduceHp(i, attacker, awake, isDOT, false);
+		// Champion mobs take reduced damages, acting as an effective HP multiplier.
+		if (isChampion() && Config.CHAMPION_MOBS_HP_MULTIPLIER > 1)
+			getStatus().reduceHp(i / Config.CHAMPION_MOBS_HP_MULTIPLIER, attacker, awake, isDOT, false);
+		else
+			getStatus().reduceHp(i, attacker, awake, isDOT, false);
 	}
 	
 	/**

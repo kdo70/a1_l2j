@@ -105,6 +105,10 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			if (Config.SHOW_NPC_LVL && _npc instanceof Monster monster)
 				_title = "Lv " + monster.getStatus().getLevel() + (monster.getTemplate().getAggroRange() > 0 ? "* " : " ") + _title;
 			
+			// Override the title for champion mobs.
+			if (_npc.isChampion())
+				_title = Config.CHAMPION_MOBS_TITLE;
+			
 			// NPC crest system
 			if (Config.SHOW_NPC_CREST)
 			{

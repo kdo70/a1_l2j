@@ -10,6 +10,7 @@ import java.util.concurrent.ScheduledFuture;
 
 import net.sf.l2j.commons.math.MathUtil;
 import net.sf.l2j.commons.pool.ThreadPool;
+import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
@@ -55,6 +56,8 @@ public class Monster extends Attackable
 	private long _lastCcAttack;
 	
 	private boolean _isRaidRelated;
+	
+	private boolean _isChampion;
 	
 	public Monster(int objectId, NpcTemplate template)
 	{
@@ -155,6 +158,13 @@ public class Monster extends Attackable
 					
 					exp *= 1 - penalty;
 					
+					// Champion mobs give more XP/SP.
+					if (isChampion())
+					{
+						exp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+						sp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+					}
+					
 					// Test over-hit.
 					if (_overhitState.isValidOverhit(attacker))
 					{
@@ -226,6 +236,13 @@ public class Monster extends Attackable
 				long exp = (long) (expSp[0] * partyMul);
 				int sp = (int) (expSp[1] * partyMul);
 				
+				// Champion mobs give more XP/SP.
+				if (isChampion())
+				{
+					exp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+					sp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+				}
+				
 				// Test over-hit.
 				if (_overhitState.isValidOverhit(attacker))
 				{
@@ -243,6 +260,9 @@ public class Monster extends Attackable
 	@Override
 	public boolean isAggressive()
 	{
+		if (Config.CHAMPION_MOBS_PASSIVE && isChampion())
+			return false;
+		
 		return getTemplate().getAggroRange() > 0;
 	}
 	
@@ -250,6 +270,15 @@ public class Monster extends Attackable
 	public void onSpawn()
 	{
 		super.onSpawn();
+		
+		// Roll the champion status. Raid bosses, minions and summoned monsters are excluded.
+		setChampion(Config.CHAMPION_MOBS_ENABLE && !isRaidRelated() && !hasMaster() && getStatus().getLevel() >= Config.CHAMPION_MOBS_MIN_LEVEL && getStatus().getLevel() <= Config.CHAMPION_MOBS_MAX_LEVEL && Rnd.get(100) < Config.CHAMPION_MOBS_FREQUENCY);
+		
+		// Refresh the champion aura, which persists over respawns of the same instance.
+		if (isChampion())
+			startAbnormalEffect(Config.CHAMPION_MOBS_AURA);
+		else if ((getAbnormalEffect() & Config.CHAMPION_MOBS_AURA.getMask()) != 0)
+			stopAbnormalEffect(Config.CHAMPION_MOBS_AURA);
 		
 		// Clear over-hit state.
 		_overhitState.clear();
@@ -322,6 +351,21 @@ public class Monster extends Attackable
 	public void setRaidRelated()
 	{
 		_isRaidRelated = true;
+	}
+	
+	@Override
+	public boolean isChampion()
+	{
+		return _isChampion;
+	}
+	
+	/**
+	 * Set this {@link Monster} as a champion mob, which got boosted stats and rewards.
+	 * @param value : The champion state to set.
+	 */
+	public void setChampion(boolean value)
+	{
+		_isChampion = value;
 	}
 	
 	public OverhitState getOverhitState()
@@ -490,10 +534,17 @@ public class Monster extends Attackable
 					getSpoilState().put(drop.getKey(), drop.getValue());
 				else if (type == DropType.HERB)
 					dropOrAutoLootHerb(player, drop.getKey(), drop.getValue());
+				// Champion mobs drop more adena.
+				else if (drop.getKey() == 57 && isChampion())
+					dropOrAutoLootItem(player, drop.getKey(), (int) (drop.getValue() * Config.CHAMPION_MOBS_ADENA_MULTIPLIER));
 				else
 					dropOrAutoLootItem(player, drop.getKey(), drop.getValue());
 			}
 		}
+		
+		// Drop the champion bonus reward item.
+		if (isChampion() && Config.CHAMPION_MOBS_REWARD_ITEM_ID > 0 && Config.CHAMPION_MOBS_REWARD_CHANCE > 0 && Rnd.get(100) < Config.CHAMPION_MOBS_REWARD_CHANCE)
+			dropOrAutoLootItem(player, Config.CHAMPION_MOBS_REWARD_ITEM_ID, Rnd.get(1, Math.max(1, Config.CHAMPION_MOBS_REWARD_ITEM_QTY)));
 	}
 	
 	/**

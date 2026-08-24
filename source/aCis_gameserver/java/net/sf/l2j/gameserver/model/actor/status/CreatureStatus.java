@@ -627,7 +627,7 @@ public class CreatureStatus<T extends Creature>
 	 */
 	public int getMAtk(Creature target, L2Skill skill)
 	{
-		return (int) calcStat(Stats.MAGIC_ATTACK, _actor.getTemplate().getBaseMAtk(), target, skill);
+		return (int) calcStat(Stats.MAGIC_ATTACK, _actor.getTemplate().getBaseMAtk() * (_actor.isChampion() ? Config.CHAMPION_MOBS_MATK_MULTIPLIER : 1), target, skill);
 	}
 	
 	/**
@@ -646,7 +646,7 @@ public class CreatureStatus<T extends Creature>
 	public int getMDef(Creature target, L2Skill skill)
 	{
 		// Calculate modifiers Magic Attack
-		return (int) calcStat(Stats.MAGIC_DEFENCE, _actor.getTemplate().getBaseMDef() * ((_actor.isRaidRelated()) ? Config.RAID_DEFENCE_MULTIPLIER : 1), target, skill);
+		return (int) calcStat(Stats.MAGIC_DEFENCE, _actor.getTemplate().getBaseMDef() * ((_actor.isRaidRelated()) ? Config.RAID_DEFENCE_MULTIPLIER : 1) * (_actor.isChampion() ? Config.CHAMPION_MOBS_MDEF_MULTIPLIER : 1), target, skill);
 	}
 	
 	/**
@@ -655,7 +655,7 @@ public class CreatureStatus<T extends Creature>
 	 */
 	public int getPAtk(Creature target)
 	{
-		return (int) calcStat(Stats.POWER_ATTACK, _actor.getTemplate().getBasePAtk(), target, null);
+		return (int) calcStat(Stats.POWER_ATTACK, _actor.getTemplate().getBasePAtk() * (_actor.isChampion() ? Config.CHAMPION_MOBS_PATK_MULTIPLIER : 1), target, null);
 	}
 	
 	/**
@@ -672,7 +672,7 @@ public class CreatureStatus<T extends Creature>
 	 */
 	public int getPDef(Creature target)
 	{
-		return (int) calcStat(Stats.POWER_DEFENCE, _actor.getTemplate().getBasePDef() * ((_actor.isRaidRelated()) ? Config.RAID_DEFENCE_MULTIPLIER : 1), target, null);
+		return (int) calcStat(Stats.POWER_DEFENCE, _actor.getTemplate().getBasePDef() * ((_actor.isRaidRelated()) ? Config.RAID_DEFENCE_MULTIPLIER : 1) * (_actor.isChampion() ? Config.CHAMPION_MOBS_PDEF_MULTIPLIER : 1), target, null);
 	}
 	
 	/**
