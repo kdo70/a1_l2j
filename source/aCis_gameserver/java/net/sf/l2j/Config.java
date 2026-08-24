@@ -311,6 +311,11 @@ public final class Config
 	public static int AUGMENTATION_TOP_SKILL_CHANCE;
 	public static int AUGMENTATION_TOP_GLOW_CHANCE;
 	public static int AUGMENTATION_BASESTAT_CHANCE;
+	public static boolean AUGMENTATION_VIA_LIFE_STONE;
+	public static int[] AUGMENTATION_VIA_LIFE_STONE_COST_NO_GRADE;
+	public static int[] AUGMENTATION_VIA_LIFE_STONE_COST_MID_GRADE;
+	public static int[] AUGMENTATION_VIA_LIFE_STONE_COST_HIGH_GRADE;
+	public static int[] AUGMENTATION_VIA_LIFE_STONE_COST_TOP_GRADE;
 	
 	/** Karma & PvP */
 	public static boolean KARMA_PLAYER_CAN_SHOP;
@@ -868,6 +873,27 @@ public final class Config
 		AUGMENTATION_TOP_SKILL_CHANCE = players.getProperty("AugmentationTopSkillChance", 60);
 		AUGMENTATION_TOP_GLOW_CHANCE = players.getProperty("AugmentationTopGlowChance", 100);
 		AUGMENTATION_BASESTAT_CHANCE = players.getProperty("AugmentationBaseStatChance", 1);
+		AUGMENTATION_VIA_LIFE_STONE = players.getProperty("AugmentationViaLifeStone", true);
+		AUGMENTATION_VIA_LIFE_STONE_COST_NO_GRADE = players.getProperty("AugmentationViaLifeStoneCostNoGrade", new int[]
+		{
+			2130,
+			20
+		});
+		AUGMENTATION_VIA_LIFE_STONE_COST_MID_GRADE = players.getProperty("AugmentationViaLifeStoneCostMidGrade", new int[]
+		{
+			2130,
+			30
+		});
+		AUGMENTATION_VIA_LIFE_STONE_COST_HIGH_GRADE = players.getProperty("AugmentationViaLifeStoneCostHighGrade", new int[]
+		{
+			2131,
+			20
+		});
+		AUGMENTATION_VIA_LIFE_STONE_COST_TOP_GRADE = players.getProperty("AugmentationViaLifeStoneCostTopGrade", new int[]
+		{
+			2131,
+			25
+		});
 		
 		KARMA_PLAYER_CAN_SHOP = players.getProperty("KarmaPlayerCanShop", false);
 		KARMA_PLAYER_CAN_USE_GK = players.getProperty("KarmaPlayerCanUseGK", false);

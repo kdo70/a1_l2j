@@ -42,7 +42,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 			_lifeStones.put(itemId, new LifeStone(GRADE_TOP, i));
 	}
 	
-	protected static final LifeStone getLifeStone(int itemId)
+	public static final LifeStone getLifeStone(int itemId)
 	{
 		return _lifeStones.get(itemId);
 	}
@@ -54,7 +54,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	 * @param gemstoneItem : The {@link ItemInstance} used as gemstone to test.
 	 * @return True if the augmentation process is doable, otherwise return false.
 	 */
-	protected static final boolean isValid(Player player, ItemInstance item, ItemInstance refinerItem, ItemInstance gemstoneItem)
+	public static final boolean isValid(Player player, ItemInstance item, ItemInstance refinerItem, ItemInstance gemstoneItem)
 	{
 		// Conditions must be valid.
 		if (!isValid(player, item, refinerItem))
@@ -84,7 +84,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	 * @param refinerItem : The {@link ItemInstance} used as Lifestone to test.
 	 * @return True if the conditions for augmentation process are met for the {@link Player}, the {@link ItemInstance} and the {@link ItemInstance} used as Lifestone set as parameters.
 	 */
-	protected static final boolean isValid(Player player, ItemInstance item, ItemInstance refinerItem)
+	public static final boolean isValid(Player player, ItemInstance item, ItemInstance refinerItem)
 	{
 		if (refinerItem == null)
 			return false;
@@ -120,7 +120,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	 * @param item : The {@link ItemInstance} to test.
 	 * @return True if the conditions for augmentation process are met for the {@link Player} and the {@link ItemInstance} set as parameters.
 	 */
-	protected static final boolean isValid(Player player, ItemInstance item)
+	public static final boolean isValid(Player player, ItemInstance item)
 	{
 		if (item == null)
 			return false;
@@ -149,7 +149,7 @@ public abstract class AbstractRefinePacket extends L2GameClientPacket
 	 * @param player : The {@link Player} to test.
 	 * @return True if the conditions for augmentation process are met for the {@link Player} set as parameter.
 	 */
-	protected static final boolean isValid(Player player)
+	public static final boolean isValid(Player player)
 	{
 		if (player == null)
 			return false;
