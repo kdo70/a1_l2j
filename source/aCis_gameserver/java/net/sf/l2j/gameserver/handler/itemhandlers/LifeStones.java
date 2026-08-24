@@ -13,10 +13,12 @@ import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.clientpackets.AbstractRefinePacket;
+import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
 
 /**
  * Handle the augmentation of the equipped weapon through a double-click on a {@link LifeStone}.<br>
- * The whole validation logic is the same than the NPC-based augmentation process.
+ * The whole validation logic is the same than the NPC-based augmentation process.<br>
+ * If the weapon is already augmented, the previous augmentation is removed and replaced by the new one.
  */
 public class LifeStones implements IItemHandler
 {
@@ -41,18 +43,9 @@ public class LifeStones implements IItemHandler
 			return;
 		}
 		
-		if (weapon.isAugmented())
-		{
-			player.sendPacket(SystemMessageId.ONCE_AN_ITEM_IS_AUGMENTED_IT_CANNOT_BE_AUGMENTED_AGAIN);
+		// Player state checks (private store, trade, death, paralysis, fishing, sitting, cursed weapon).
+		if (!AbstractRefinePacket.isValid(player))
 			return;
-		}
-		
-		// Same conditions than the NPC-based augmentation process.
-		if (!AbstractRefinePacket.isValid(player, weapon, item))
-		{
-			player.sendPacket(SystemMessageId.AUGMENTATION_FAILED_DUE_TO_INAPPROPRIATE_CONDITIONS);
-			return;
-		}
 		
 		// Retrieve the configured cost for the life stone grade.
 		final int[] cost = switch (lifeStone.grade())
@@ -72,6 +65,22 @@ public class LifeStones implements IItemHandler
 				player.sendMessage("You need " + cost[1] + " x " + ((costTemplate != null) ? costTemplate.getName() : "item " + cost[0]) + " in order to augment your weapon.");
 				return;
 			}
+		}
+		
+		// The weapon is already augmented ; remove the previous augmentation first.
+		if (weapon.isAugmented())
+		{
+			weapon.getAugmentation().removeBonus(player);
+			weapon.removeAugmentation(player);
+			
+			player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.AUGMENTATION_HAS_BEEN_SUCCESSFULLY_REMOVED_FROM_YOUR_S1).addItemName(weapon));
+		}
+		
+		// Same conditions than the NPC-based augmentation process.
+		if (!AbstractRefinePacket.isValid(player, weapon, item))
+		{
+			player.sendPacket(SystemMessageId.AUGMENTATION_FAILED_DUE_TO_INAPPROPRIATE_CONDITIONS);
+			return;
 		}
 		
 		// Consume the life stone.
