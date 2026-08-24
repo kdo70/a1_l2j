@@ -119,6 +119,7 @@ $MYG < ../sql/clanhall_siege_attackers.sql &> /dev/null
 $MYG < ../sql/cursed_weapons.sql &> /dev/null
 $MYG < ../sql/fishing_championship.sql &> /dev/null
 $MYG < ../sql/games.sql &> /dev/null
+$MYG < ../sql/gatekeeper_stats.sql &> /dev/null
 $MYG < ../sql/grandboss_list.sql &> /dev/null
 $MYG < ../sql/heroes_diary.sql &> /dev/null
 $MYG < ../sql/heroes.sql &> /dev/null

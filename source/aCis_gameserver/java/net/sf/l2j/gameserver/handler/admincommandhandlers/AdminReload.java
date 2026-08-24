@@ -13,6 +13,7 @@ import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.data.xml.AnnouncementData;
 import net.sf.l2j.gameserver.data.xml.BoatData;
 import net.sf.l2j.gameserver.data.xml.DoorData;
+import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.data.xml.InstantTeleportData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
@@ -121,7 +122,9 @@ public class AdminReload implements IAdminCommandHandler
 				{
 					InstantTeleportData.getInstance().reload();
 					TeleportData.getInstance().reload();
+					GatekeeperData.getInstance().reload();
 					player.sendMessage("Teleport locations have been reloaded.");
+					player.sendMessage("Use //reload script to register new gatekeeper npc ids.");
 				}
 				else if (type.startsWith("zone"))
 				{

@@ -100,6 +100,7 @@ echo Installing empty character-related tables.
 %mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/fishing_championship.sql
 %mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/games.sql
 %mysqlPath% -h %LSHOST% -u %LSUSER% --password=%LSPASS% -D %LSDB% < ../sql/gameservers.sql
+%mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/gatekeeper_stats.sql
 %mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/grandboss_list.sql
 %mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/heroes_diary.sql
 %mysqlPath% -h %GSHOST% -u %GSUSER% --password=%GSPASS% -D %GSDB% < ../sql/heroes.sql

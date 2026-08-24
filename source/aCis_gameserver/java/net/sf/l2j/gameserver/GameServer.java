@@ -30,6 +30,7 @@ import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.manager.DerbyTrackManager;
 import net.sf.l2j.gameserver.data.manager.FestivalOfDarknessManager;
 import net.sf.l2j.gameserver.data.manager.FishingChampionshipManager;
+import net.sf.l2j.gameserver.data.manager.GatekeeperStatsManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.manager.LotteryManager;
 import net.sf.l2j.gameserver.data.manager.PartyMatchRoomManager;
@@ -51,6 +52,7 @@ import net.sf.l2j.gameserver.data.xml.BoatData;
 import net.sf.l2j.gameserver.data.xml.ClanHallDecoData;
 import net.sf.l2j.gameserver.data.xml.DoorData;
 import net.sf.l2j.gameserver.data.xml.FishData;
+import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.data.xml.HealSpsData;
 import net.sf.l2j.gameserver.data.xml.HennaData;
 import net.sf.l2j.gameserver.data.xml.InstantTeleportData;
@@ -234,6 +236,8 @@ public class GameServer
 		NewbieBuffData.getInstance();
 		InstantTeleportData.getInstance();
 		TeleportData.getInstance();
+		GatekeeperData.getInstance();
+		GatekeeperStatsManager.getInstance();
 		ObserverGroupData.getInstance();
 		
 		CastleManager.getInstance().spawnEntities();

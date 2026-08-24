@@ -13,6 +13,7 @@ import net.sf.l2j.gameserver.data.manager.ClanHallManager;
 import net.sf.l2j.gameserver.data.manager.CoupleManager;
 import net.sf.l2j.gameserver.data.manager.FestivalOfDarknessManager;
 import net.sf.l2j.gameserver.data.manager.FishingChampionshipManager;
+import net.sf.l2j.gameserver.data.manager.GatekeeperStatsManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.manager.PetitionManager;
 import net.sf.l2j.gameserver.data.manager.RelationManager;
@@ -158,6 +159,10 @@ public class Shutdown extends Thread
 			// Save schemes.
 			BufferManager.getInstance().saveSchemes();
 			LOGGER.info("BufferManager has been saved.");
+
+			// Save gatekeeper teleport counters.
+			GatekeeperStatsManager.getInstance().store();
+			LOGGER.info("GatekeeperStatsManager has been saved.");
 			
 			// Save Petitions.
 			PetitionManager.getInstance().store();

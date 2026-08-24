@@ -43,6 +43,7 @@ DROP TABLE IF EXISTS clanhall_siege_attackers;
 DROP TABLE IF EXISTS cursed_weapons;
 DROP TABLE IF EXISTS fishing_championship;
 DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS gatekeeper_stats;
 DROP TABLE IF EXISTS grandboss_list;
 DROP TABLE IF EXISTS heroes_diary;
 DROP TABLE IF EXISTS heroes;
