@@ -4,51 +4,113 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - '.idea/**'
+  workflow_dispatch:
+    inputs:
+      restart_only:
+        description: 'Skip build & deploy — only re-apply the config and restart the servers'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
+# Never run two deployments against the same VPS at once, and never cancel one
+# in flight: a half-finished deploy leaves the game servers down.
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: deploy-production
   cancel-in-progress: false
 
 jobs:
+  preflight:
+    name: Preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 🔑 Check required secrets
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME_LOGIN: ${{ secrets.DB_NAME_LOGIN }}
+          DB_NAME_GAME: ${{ secrets.DB_NAME_GAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          EXTERNAL_HOSTNAME: ${{ secrets.EXTERNAL_HOSTNAME }}
+          VPS_SSH_FINGERPRINT: ${{ secrets.VPS_SSH_FINGERPRINT }}
+        run: |
+          set -euo pipefail
+
+          missing=0
+          for name in VPS_HOST VPS_USERNAME VPS_SSH_KEY \
+                      DB_HOST DB_PORT DB_NAME_LOGIN DB_NAME_GAME DB_USER \
+                      EXTERNAL_HOSTNAME; do
+            if [ -z "${!name:-}" ]; then
+              echo "::error::Required secret '${name}' is not set"
+              missing=1
+            fi
+          done
+
+          # Optional, but worth warning about.
+          [ -n "${DB_PASSWORD:-}" ] || echo "::warning::DB_PASSWORD is empty — the servers will connect without a password"
+          [ -n "${VPS_SSH_FINGERPRINT:-}" ] || echo "::warning::VPS_SSH_FINGERPRINT is not set — the SSH host key will not be verified"
+
+          [ "$missing" -eq 0 ] || exit 1
+          echo "✅ All required secrets are present"
+
   build:
-    name: Сборка и деплой
+    name: Build & deploy
+    needs: preflight
+    # A manual "restart only" run reuses whatever is already on the VPS.
+    if: ${{ !inputs.restart_only }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: 📥 Клонирование репозитория
+      - name: 📥 Check out repository
         uses: actions/checkout@v5
 
-      - name: ☕ Установка JDK 21
+      - name: ☕ Set up JDK 21
         uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: 📦 Сборка и деплой на VPS
+      - name: 📦 Build and deploy to the VPS
         uses: ./.github/actions/build-and-deploy
         with:
           vps-host: ${{ secrets.VPS_HOST }}
           vps-username: ${{ secrets.VPS_USERNAME }}
           vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
+          vps-port: ${{ secrets.VPS_PORT || '22' }}
+          vps-fingerprint: ${{ secrets.VPS_SSH_FINGERPRINT }}
 
   configure:
-    name: Настройка сервера
-    needs: build
+    name: Configure server
+    needs: [preflight, build]
+    if: ${{ always() && needs.preflight.result == 'success' && (needs.build.result == 'success' || needs.build.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: 📥 Клонирование репозитория
+      # This job only runs remote commands, so it does not need the ~16k files
+      # of the committed build/ folder — fetch just the composite actions.
+      - name: 📥 Check out composite actions
         uses: actions/checkout@v5
+        with:
+          sparse-checkout: .github
 
-      - name: ⚙️ Настройка конфигов
+      - name: ⚙️ Apply server configuration
         uses: ./.github/actions/configure-server
         with:
           vps-host: ${{ secrets.VPS_HOST }}
           vps-username: ${{ secrets.VPS_USERNAME }}
           vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
+          vps-port: ${{ secrets.VPS_PORT || '22' }}
+          vps-fingerprint: ${{ secrets.VPS_SSH_FINGERPRINT }}
           db-host: ${{ secrets.DB_HOST }}
           db-port: ${{ secrets.DB_PORT }}
           db-name-login: ${{ secrets.DB_NAME_LOGIN }}
@@ -58,17 +120,66 @@ jobs:
           external-hostname: ${{ secrets.EXTERNAL_HOSTNAME }}
 
   start:
-    name: Запуск серверов
+    name: Start servers
     needs: configure
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - name: 📥 Клонирование репозитория
+      - name: 📥 Check out composite actions
         uses: actions/checkout@v5
+        with:
+          sparse-checkout: .github
 
-      - name: 🚀 Запуск и проверка
+      - name: 🚀 Start servers and run health check
         uses: ./.github/actions/start-servers
         with:
           vps-host: ${{ secrets.VPS_HOST }}
           vps-username: ${{ secrets.VPS_USERNAME }}
           vps-ssh-key: ${{ secrets.VPS_SSH_KEY }}
+          vps-port: ${{ secrets.VPS_PORT || '22' }}
+          vps-fingerprint: ${{ secrets.VPS_SSH_FINGERPRINT }}
+
+  summary:
+    name: Summary
+    needs: [preflight, build, configure, start]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 📝 Write run summary
+        env:
+          PREFLIGHT: ${{ needs.preflight.result }}
+          BUILD: ${{ needs.build.result }}
+          CONFIGURE: ${{ needs.configure.result }}
+          START: ${{ needs.start.result }}
+        run: |
+          set -euo pipefail
+
+          icon() {
+            case "$1" in
+              success)   echo '✅' ;;
+              skipped)   echo '⏭️' ;;
+              cancelled) echo '🚫' ;;
+              *)         echo '❌' ;;
+            esac
+          }
+
+          {
+            echo "## 🚀 Release \`${GITHUB_SHA:0:7}\`"
+            echo
+            echo "| Stage | Result |"
+            echo "| --- | --- |"
+            echo "| Preflight | $(icon "$PREFLIGHT") \`$PREFLIGHT\` |"
+            echo "| Build & deploy | $(icon "$BUILD") \`$BUILD\` |"
+            echo "| Configure | $(icon "$CONFIGURE") \`$CONFIGURE\` |"
+            echo "| Start | $(icon "$START") \`$START\` |"
+            echo
+            if [ "$START" = 'success' ]; then
+              echo "Login Server (\`2106\`) and Game Server (\`7777\`) are up and listening."
+            else
+              echo "> ⚠️ The deployment did not finish cleanly."
+              echo "> The previous release is still on the VPS at \`/root/l2server.old\` — you can roll back by swapping it back into \`/root/l2server\`."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          [ "$START" = 'success' ] || [ "$START" = 'skipped' ]

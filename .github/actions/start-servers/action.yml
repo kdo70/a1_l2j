@@ -1,111 +1,156 @@
-name: 'Запуск серверов'
-description: 'Запуск Login и Game серверов и проверка работоспособности'
+name: 'Start servers'
+description: 'Starts the Login and Game servers on the VPS and verifies they are listening'
 
 inputs:
   vps-host:
-    description: 'IP или хост VPS'
+    description: 'VPS IP address or hostname'
     required: true
   vps-username:
-    description: 'Имя пользователя VPS'
+    description: 'VPS SSH user'
     required: true
   vps-ssh-key:
-    description: 'SSH-ключ для подключения к VPS'
+    description: 'Private SSH key used to connect to the VPS'
     required: true
+  vps-port:
+    description: 'VPS SSH port'
+    required: false
+    default: '22'
+  vps-fingerprint:
+    description: 'Base64 SSH host key fingerprint. Leave empty to skip host key verification.'
+    required: false
+    default: ''
+  remote-path:
+    description: 'Installation directory on the VPS'
+    required: false
+    default: '/root/l2server'
+  startup-timeout:
+    description: 'Seconds to wait for each server to start listening'
+    required: false
+    default: '180'
 
 runs:
   using: 'composite'
   steps:
-    - name: 🚀 Запуск Login Server
+    - name: 🚀 Start the servers and run the health check
       uses: appleboy/ssh-action@v1
+      env:
+        REMOTE_PATH: ${{ inputs.remote-path }}
+        STARTUP_TIMEOUT: ${{ inputs.startup-timeout }}
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
+        port: ${{ inputs.vps-port }}
+        fingerprint: ${{ inputs.vps-fingerprint }}
+        envs: REMOTE_PATH,STARTUP_TIMEOUT
+        script_stop: true
+        command_timeout: 20m
         script: |
-          echo "🚀 Запуск Login Server..."
-          cd /root/l2server/login
-          ./startLoginServer.sh > /dev/null 2>&1 &
+          set -eu
 
-          for i in $(seq 1 15); do
-            pgrep -f "l2jserver" > /dev/null && break
-            sleep 2
-          done
+          RELEASE="${REMOTE_PATH}"
+          TIMEOUT="${STARTUP_TIMEOUT}"
 
-          if pgrep -f "l2jserver" > /dev/null; then
-            echo "✅ Login Server запущен (PID: $(pgrep -f 'l2jserver'))"
-          else
-            echo "⚠️ Login Server, вероятно, не запустился"
-          fi
+          # Own PID / parent PID are filtered out so this never matches the
+          # shell running this very script.
+          l2_pids() {
+            pgrep -f 'l2jserver\.jar|Server_loop\.sh' 2>/dev/null \
+              | grep -v -x -e "$$" -e "$PPID" || true
+          }
 
-    - name: 🎮 Запуск Game Server
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ inputs.vps-host }}
-        username: ${{ inputs.vps-username }}
-        key: ${{ inputs.vps-ssh-key }}
-        script: |
-          echo "🎮 Запуск Game Server..."
-          cd /root/l2server/gameserver
-          ./startGameServer.sh > /dev/null 2>&1 &
-
-          for i in $(seq 1 15); do
-            pgrep -f "net.sf.l2j.gameserver.GameServer" > /dev/null && break
-            sleep 2
-          done
-
-          echo "📋 Последние 15 строк лога Game Server:"
-          echo "────────────────────────────────────────"
-          tail -n 15 /root/l2server/gameserver/log/stdout.log || echo "Лог не найден"
-          echo "────────────────────────────────────────"
-
-    - name: ✅ Финальная проверка
-      uses: appleboy/ssh-action@v1
-      with:
-        host: ${{ inputs.vps-host }}
-        username: ${{ inputs.vps-username }}
-        key: ${{ inputs.vps-ssh-key }}
-        script: |
-          echo "🔍 ФИНАЛЬНАЯ ПРОВЕРКА"
-
-          echo "📊 Активные Java-процессы:"
-          PROCESSES=$(ps aux | grep -E "l2jserver" | grep -v grep)
-          if [ -n "$PROCESSES" ]; then
-            echo "$PROCESSES" | awk '{print "   PID:", $2, "CPU:", $3"%", "MEM:", $4"%"}'
-          else
-            echo "   ⚠️ Java-процессы не найдены!"
-          fi
-
-          echo ""
-          echo "⏳ Ожидание портов 2106 и 7777 (до 60 сек)..."
-          for i in $(seq 1 30); do
-            if ss -tln | grep -q :2106 && ss -tln | grep -q :7777; then
-              break
+          listening_addrs() {
+            if command -v ss > /dev/null 2>&1; then
+              ss -tln 2>/dev/null | awk 'NR > 1 { print $4 }'
+            else
+              netstat -tln 2>/dev/null | awk 'NR > 2 { print $4 }'
             fi
-            sleep 2
-          done
+          }
 
-          LOGIN_PORT=$(ss -tlnp | grep :2106)
-          GAME_PORT=$(ss -tlnp | grep :7777)
+          wait_for_port() {   # $1 = port, $2 = timeout in seconds
+            _port="$1"; _limit="$2"; _i=0
+            while [ "$_i" -lt "$_limit" ]; do
+              if listening_addrs | grep -qE "[:.]${_port}\$"; then
+                return 0
+              fi
+              _i=$((_i + 1))
+              sleep 1
+            done
+            return 1
+          }
 
-          if [ -n "$LOGIN_PORT" ]; then
-            echo "   ✅ Login Server (2106): слушается"
-          else
-            echo "   ❌ Login Server (2106): НЕ слушается"
-            echo "📋 Последние 10 строк лога Login Server:"
-            tail -n 10 /root/l2server/login/log/stdout.log 2>/dev/null || echo "      Лог не найден"
+          # startLoginServer.sh / startGameServer.sh background their *_loop.sh
+          # wrapper and exit, so detach from the SSH session to keep the loop
+          # alive after this step disconnects.
+          start_detached() {   # $1 = working dir, $2 = script
+            cd "$1"
+            if command -v setsid > /dev/null 2>&1; then
+              setsid nohup "$2" > /dev/null 2>&1 < /dev/null &
+            else
+              nohup "$2" > /dev/null 2>&1 < /dev/null &
+            fi
+          }
+
+          dump_log() {   # $1 = log file
+            echo "📋 Last 40 lines of $1:"
+            echo "────────────────────────────────────────"
+            tail -n 40 "$1" 2>/dev/null || echo "   (log not found)"
+            echo "────────────────────────────────────────"
+          }
+
+          # --------------------------------------------------------------
+          # Idempotent restart: a manual "restart only" run finds them up.
+          # --------------------------------------------------------------
+          PIDS="$(l2_pids)"
+          if [ -n "$PIDS" ]; then
+            echo "🛑 Stopping the running instances first..."
+            echo "$PIDS" | xargs -r kill 2>/dev/null || true
+            i=0
+            while [ "$i" -lt 20 ] && [ -n "$(l2_pids)" ]; do
+              i=$((i + 1))
+              sleep 1
+            done
+            if [ -n "$(l2_pids)" ]; then
+              l2_pids | xargs -r kill -9 2>/dev/null || true
+              sleep 2
+            fi
+            echo "✅ Stopped"
           fi
 
-          if [ -n "$GAME_PORT" ]; then
-            echo "   ✅ Game Server (7777): слушается"
+          # --------------------------------------------------------------
+          # Login Server — port 2106 (clients) and 9014 (game server link)
+          # --------------------------------------------------------------
+          echo "🚀 Starting the Login Server..."
+          start_detached "${RELEASE}/login" ./startLoginServer.sh
+
+          if wait_for_port 2106 "$TIMEOUT" && wait_for_port 9014 60; then
+            echo "✅ Login Server is listening on 2106 and 9014"
           else
-            echo "   ❌ Game Server (7777): НЕ слушается"
-            echo "📋 Последние 10 строк лога Game Server:"
-            tail -n 10 /root/l2server/gameserver/log/stdout.log 2>/dev/null || echo "      Лог не найден"
+            echo "❌ Login Server failed to start within ${TIMEOUT}s"
+            dump_log "${RELEASE}/login/log/stdout.log"
+            exit 1
           fi
 
+          # --------------------------------------------------------------
+          # Game Server — port 7777
+          # --------------------------------------------------------------
+          echo "🎮 Starting the Game Server..."
+          start_detached "${RELEASE}/gameserver" ./startGameServer.sh
+
+          if wait_for_port 7777 "$TIMEOUT"; then
+            echo "✅ Game Server is listening on 7777"
+          else
+            echo "❌ Game Server failed to start within ${TIMEOUT}s"
+            dump_log "${RELEASE}/gameserver/log/stdout.log"
+            exit 1
+          fi
+
+          # --------------------------------------------------------------
+          # Final report
+          # --------------------------------------------------------------
           echo ""
-          if [ -n "$LOGIN_PORT" ] && [ -n "$GAME_PORT" ]; then
-            echo "✅ ДЕПЛОЙ ЗАВЕРШЁН УСПЕШНО! Все серверы запущены и слушают порты"
-          else
-            echo "⚠️ ДЕПЛОЙ ЗАВЕРШЁН, НО ЕСТЬ ПРОБЛЕМЫ! Проверьте логи выше"
-          fi
+          echo "🔍 FINAL CHECK"
+          echo "   Running L2 PIDs: $(l2_pids | tr '\n' ' ')"
+          echo ""
+          dump_log "${RELEASE}/gameserver/log/stdout.log"
+          echo ""
+          echo "✅ DEPLOY COMPLETE — both servers are up and listening"

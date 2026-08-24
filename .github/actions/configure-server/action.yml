@@ -1,44 +1,57 @@
-name: 'Настройка сервера'
-description: 'Заполнение конфигов на VPS'
+name: 'Configure server'
+description: 'Fills in the Login/Game server configs on the VPS from GitHub secrets'
 
 inputs:
   vps-host:
-    description: 'IP или хост VPS'
+    description: 'VPS IP address or hostname'
     required: true
   vps-username:
-    description: 'Имя пользователя VPS'
+    description: 'VPS SSH user'
     required: true
   vps-ssh-key:
-    description: 'SSH-ключ для подключения к VPS'
+    description: 'Private SSH key used to connect to the VPS'
     required: true
+  vps-port:
+    description: 'VPS SSH port'
+    required: false
+    default: '22'
+  vps-fingerprint:
+    description: 'Base64 SSH host key fingerprint. Leave empty to skip host key verification.'
+    required: false
+    default: ''
+  remote-path:
+    description: 'Installation directory on the VPS'
+    required: false
+    default: '/root/l2server'
   db-host:
-    description: 'Хост базы данных'
+    description: 'Database host'
     required: true
   db-port:
-    description: 'Порт базы данных'
+    description: 'Database port'
     required: true
   db-name-login:
-    description: 'Имя БД для Login Server'
+    description: 'Database name for the Login Server'
     required: true
   db-name-game:
-    description: 'Имя БД для Game Server'
+    description: 'Database name for the Game Server'
     required: true
   db-user:
-    description: 'Пользователь БД'
+    description: 'Database user'
     required: true
   db-password:
-    description: 'Пароль БД'
+    description: 'Database password'
     required: true
   external-hostname:
-    description: 'Внешний hostname сервера'
+    description: 'Public hostname / IP announced to game clients'
     required: true
 
 runs:
   using: 'composite'
   steps:
-    - name: ⚙️ Настройка конфигов и прав доступа
+    - name: ⚙️ Apply configuration
       uses: appleboy/ssh-action@v1
       env:
+        REMOTE_PATH: ${{ inputs.remote-path }}
         DB_HOST: ${{ inputs.db-host }}
         DB_PORT: ${{ inputs.db-port }}
         DB_NAME_LOGIN: ${{ inputs.db-name-login }}
@@ -50,41 +63,71 @@ runs:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
-        envs: DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
+        port: ${{ inputs.vps-port }}
+        fingerprint: ${{ inputs.vps-fingerprint }}
+        envs: REMOTE_PATH,DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
+        script_stop: true
+        command_timeout: 5m
         script: |
-          echo "⚙️ Настройка loginserver.properties..."
-          LOGIN_CFG="/root/l2server/login/config/loginserver.properties"
+          set -e
+          # An empty password is legitimate, so give it a default before -u.
+          DB_PASSWORD="${DB_PASSWORD:-}"
+          DB_PORT="${DB_PORT:-3306}"
+          set -u
 
-          if [ ! -f "$LOGIN_CFG" ]; then
-            echo "❌ ОШИБКА: Файл $LOGIN_CFG не найден!"
-            exit 1
-          fi
+          LOGIN_CFG="${REMOTE_PATH}/login/config/loginserver.properties"
+          GAME_CFG="${REMOTE_PATH}/gameserver/config/server.properties"
 
-          sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
-          sed -i "s#^LoginHostname *=.*#LoginHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
-          sed -i "s#^LoginserverHostname *=.*#LoginserverHostname = ${EXTERNAL_HOSTNAME}#" "$LOGIN_CFG"
-          sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$LOGIN_CFG"
-          sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$LOGIN_CFG"
+          for f in "$LOGIN_CFG" "$GAME_CFG"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ Config file not found: $f"
+              exit 1
+            fi
+          done
 
-          echo "✅ loginserver.properties настроен (Hostname: ${EXTERNAL_HOSTNAME}, DB User: ${DB_USER})"
+          # Rewrites "<key> = <value>" in place, appending the key if it is
+          # missing. The value is escaped so passwords and URLs containing
+          # \ & or | cannot corrupt the sed replacement.
+          set_prop() {
+            _file="$1"; _key="$2"; _value="$3"
+            _esc=$(printf '%s' "$_value" | sed -e 's/[\\&|]/\\&/g')
+            if grep -qE "^[[:space:]]*${_key}[[:space:]]*=" "$_file"; then
+              sed -i -E "s|^[[:space:]]*${_key}[[:space:]]*=.*|${_key} = ${_esc}|" "$_file"
+            else
+              printf '%s = %s\n' "$_key" "$_value" >> "$_file"
+            fi
+            echo "   • ${_key}"
+          }
 
-          echo "⚙️ Настройка server.properties..."
-          GAME_CFG="/root/l2server/gameserver/config/server.properties"
+          echo "⚙️ Configuring the Login Server..."
+          # Hostname is announced to clients; the *Hostname bind addresses stay
+          # on "*" so the servers listen on every local interface (binding them
+          # to the public hostname breaks behind NAT).
+          set_prop "$LOGIN_CFG" 'Hostname'            "$EXTERNAL_HOSTNAME"
+          set_prop "$LOGIN_CFG" 'LoginserverHostname' '*'
+          set_prop "$LOGIN_CFG" 'LoginHostname'       '*'
+          set_prop "$LOGIN_CFG" 'URL'                 "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_LOGIN}"
+          set_prop "$LOGIN_CFG" 'Login'               "$DB_USER"
+          set_prop "$LOGIN_CFG" 'Password'            "$DB_PASSWORD"
 
-          if [ ! -f "$GAME_CFG" ]; then
-            echo "❌ ОШИБКА: Файл $GAME_CFG не найден!"
-            exit 1
-          fi
+          echo "⚙️ Configuring the Game Server..."
+          # LoginHost stays on loopback: the Login Server runs on this same VPS.
+          set_prop "$GAME_CFG" 'Hostname'           "$EXTERNAL_HOSTNAME"
+          set_prop "$GAME_CFG" 'GameserverHostname' '*'
+          set_prop "$GAME_CFG" 'LoginHost'          '127.0.0.1'
+          set_prop "$GAME_CFG" 'URL'                "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_GAME}"
+          set_prop "$GAME_CFG" 'Login'              "$DB_USER"
+          set_prop "$GAME_CFG" 'Password'           "$DB_PASSWORD"
 
-          sed -i "s#^Hostname *=.*#Hostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
-          sed -i "s#^GameserverHostname *=.*#GameserverHostname = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
-          sed -i "s#^LoginHost *=.*#LoginHost = ${EXTERNAL_HOSTNAME}#" "$GAME_CFG"
-          sed -i "s#^Login *=.*#Login = ${DB_USER}#" "$GAME_CFG"
-          sed -i "s#^Password *=.*#Password = ${DB_PASSWORD}#" "$GAME_CFG"
+          # Verify every key landed, without echoing any secret value.
+          echo "🔍 Verifying the written keys..."
+          for f in "$LOGIN_CFG" "$GAME_CFG"; do
+            for key in Hostname URL Login Password; do
+              if ! grep -qE "^${key} = " "$f"; then
+                echo "❌ Key '${key}' is missing from $f after configuration"
+                exit 1
+              fi
+            done
+          done
 
-          echo "✅ server.properties настроен (Hostname: ${EXTERNAL_HOSTNAME}, DB User: ${DB_USER})"
-
-          echo "🔐 Установка прав на скрипты запуска..."
-          chmod +x /root/l2server/login/*.sh
-          chmod +x /root/l2server/gameserver/*.sh
-          echo "✅ Права установлены"
+          echo "✅ Configuration applied to both servers"

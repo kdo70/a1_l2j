@@ -78,18 +78,39 @@ ant -f source\aCis_gameserver\build.xml
 
 ## CI/CD (.github)
 
-При пуше в `main` workflow `release.yml` последовательно:
+Файлы workflow и composite actions написаны на английском.
+
+При пуше в `main` (кроме `*.md`, `.gitignore`, `.idea/`) workflow
+`release.yml` последовательно:
+0. `preflight`: проверка наличия обязательных секретов до того, как
+   что-либо будет сделано с работающим сервером.
 1. `build-and-deploy`: ant-компиляция gameserver, инъекция `l2jserver.jar`
-   в `build/`, tar-архив, деплой на VPS в `/root/l2server`
-   (с бэкапом/восстановлением `hexid.txt` и `geodata`,
-   предварительно `killall java`).
-2. `configure-server`: sed-подстановка секретов (БД, внешний hostname) в
-   `loginserver.properties` и `server.properties` на VPS.
-3. `start-servers`: запуск login и game серверов, проверка портов
-   2106 и 7777.
+   в `build/`, tar-архив + sha256, загрузка на VPS. На VPS: сверка
+   контрольной суммы, распаковка в `/root/l2server.new`, проверка структуры,
+   перенос `hexid.txt` и `geodata` из текущей установки, только затем
+   остановка процессов и атомарная подмена каталога. Предыдущий релиз
+   остаётся в `/root/l2server.old` для отката.
+2. `configure-server`: подстановка секретов в `loginserver.properties` и
+   `server.properties` на VPS, включая JDBC `URL`
+   (`jdbc:mariadb://DB_HOST:DB_PORT/DB_NAME_*`). Bind-адреса
+   (`LoginserverHostname`, `LoginHostname`, `GameserverHostname`) остаются
+   `*`, `LoginHost` — `127.0.0.1`; наружу отдаётся только `Hostname`.
+3. `start-servers`: идемпотентный рестарт login и game серверов с ожиданием
+   портов 2106, 9014 и 7777. Если порт не поднялся — шаг падает и выводит
+   хвост соответствующего `stdout.log`.
+4. `summary`: таблица результатов в GitHub Step Summary.
+
+Ручной запуск: `workflow_dispatch` с флагом `restart_only` — пропускает
+сборку и деплой, только применяет конфиги и перезапускает серверы.
 
 Секреты (VPS_*, DB_*, EXTERNAL_HOSTNAME) хранятся в GitHub; в коде и
-конфигах их не дублировать. Логи на VPS: `/root/l2server/*/log/stdout.log`.
+конфигах их не дублировать. Необязательные: `VPS_PORT` (по умолчанию 22) и
+`VPS_SSH_FINGERPRINT` (если не задан — host key VPS не проверяется).
+Логи на VPS: `/root/l2server/*/log/stdout.log`.
+
+Остановка серверов идёт по точному совпадению (`l2jserver.jar`,
+`*_loop.sh`), а не `killall java` — посторонние Java-процессы на VPS
+не затрагиваются.
 
 ## Стиль кода и коммиты
 

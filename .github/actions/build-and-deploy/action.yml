@@ -1,116 +1,210 @@
-name: 'Сборка и деплой'
-description: 'Компиляция aCis_gameserver и деплой сборки на VPS'
+name: 'Build and deploy'
+description: 'Compiles aCis_gameserver and deploys the distribution to the VPS'
 
 inputs:
   vps-host:
-    description: 'IP или хост VPS'
+    description: 'VPS IP address or hostname'
     required: true
   vps-username:
-    description: 'Имя пользователя VPS'
+    description: 'VPS SSH user'
     required: true
   vps-ssh-key:
-    description: 'SSH-ключ для подключения к VPS'
+    description: 'Private SSH key used to connect to the VPS'
     required: true
+  vps-port:
+    description: 'VPS SSH port'
+    required: false
+    default: '22'
+  vps-fingerprint:
+    description: 'Base64 SSH host key fingerprint. Leave empty to skip host key verification.'
+    required: false
+    default: ''
+  remote-path:
+    description: 'Installation directory on the VPS'
+    required: false
+    default: '/root/l2server'
 
 runs:
   using: 'composite'
   steps:
-    - name: 🐜 Проверка Apache Ant
+    - name: 🐜 Ensure Apache Ant is available
       shell: bash
       run: |
+        set -euo pipefail
         if command -v ant > /dev/null 2>&1; then
-          echo "✅ Ant уже установлен: $(ant -version)"
+          echo "✅ Ant is already installed: $(ant -version)"
         else
-          echo "📦 Устанавливаем Apache Ant..."
+          echo "📦 Installing Apache Ant..."
           sudo apt-get update -qq
-          sudo apt-get install -y ant
-          echo "✅ Версия Ant: $(ant -version)"
+          sudo apt-get install -y --no-install-recommends ant
+          echo "✅ Ant version: $(ant -version)"
         fi
 
-    - name: 🔨 Компиляция aCis_gameserver
+    - name: 🔨 Compile aCis_gameserver
       shell: bash
       run: |
-        echo "🔨 Компиляция aCis_gameserver для получения l2jserver.jar..."
-        cd source/aCis_gameserver
-        ant
-        echo "✅ Компиляция завершена успешно"
+        set -euo pipefail
 
-    - name: 💉 Инъекция JAR в папку build
+        echo "🔨 Compiling aCis_gameserver..."
+        ant -noinput -buildfile source/aCis_gameserver/build.xml
+
+        JAR="source/aCis_gameserver/build/l2jserver.jar"
+        if [ ! -f "$JAR" ]; then
+          echo "::error::The build finished but ${JAR} was not produced"
+          exit 1
+        fi
+        echo "✅ Compiled ${JAR} ($(du -h "$JAR" | cut -f1))"
+
+    - name: 💉 Inject the JAR into the build folder
       shell: bash
       run: |
-        echo "💉 Инъекция l2jserver.jar в папку build..."
+        set -euo pipefail
 
-        if [ ! -d "build" ]; then
-          echo "❌ ОШИБКА: Папка 'build' не найдена в репозитории!"
+        if [ ! -d build ]; then
+          echo "::error::The 'build' folder is missing from the repository"
           exit 1
         fi
 
         mkdir -p build/login/libs build/gameserver/libs
-
         cp source/aCis_gameserver/build/l2jserver.jar build/login/libs/
         cp source/aCis_gameserver/build/l2jserver.jar build/gameserver/libs/
 
-        echo "✅ JAR-файлы успешно скопированы"
-        echo "📊 Общее количество файлов в папке build: $(find build -type f | wc -l)"
+        echo "✅ JAR copied into both libs folders"
+        echo "📊 Total files in build: $(find build -type f | wc -l)"
 
-    - name: 📦 Создание архива
+    - name: 📦 Create the release archive
       shell: bash
       run: |
-        echo "📦 Создание архива build.tar.gz..."
-        tar -czf build.tar.gz -C build .
-        echo "✅ Архив создан, размер: $(du -h build.tar.gz | cut -f1)"
+        set -euo pipefail
 
-    - name: 📤 Загрузка архива на VPS
+        tar -czf build.tar.gz -C build .
+
+        # Catch a corrupt archive here rather than on the VPS.
+        tar -tzf build.tar.gz > /dev/null
+
+        sha256sum build.tar.gz | cut -d' ' -f1 > build.tar.gz.sha256
+        echo "✅ build.tar.gz created ($(du -h build.tar.gz | cut -f1))"
+        echo "   sha256: $(cat build.tar.gz.sha256)"
+
+    - name: 📤 Upload the archive to the VPS
       uses: appleboy/scp-action@v1
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
-        source: "build.tar.gz"
+        port: ${{ inputs.vps-port }}
+        fingerprint: ${{ inputs.vps-fingerprint }}
+        source: "build.tar.gz,build.tar.gz.sha256"
         target: "/tmp"
         strip_components: 0
 
-    - name: 🛠️ Распаковка и восстановление на VPS
+    - name: 🛠️ Deploy the release on the VPS
       uses: appleboy/ssh-action@v1
+      env:
+        REMOTE_PATH: ${{ inputs.remote-path }}
       with:
         host: ${{ inputs.vps-host }}
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
+        port: ${{ inputs.vps-port }}
+        fingerprint: ${{ inputs.vps-fingerprint }}
+        envs: REMOTE_PATH
+        script_stop: true
+        command_timeout: 15m
         script: |
-          echo "🛑 Остановка текущих серверов (мягкое завершение)..."
-          killall java > /dev/null 2>&1 || true
+          set -eu
 
-          echo "⏳ Ожидание корректного завершения (до 15 сек)..."
-          for i in $(seq 1 15); do
-            pgrep -x java > /dev/null || break
-            sleep 1
+          RELEASE="${REMOTE_PATH}"
+          STAGING="${RELEASE}.new"
+          PREVIOUS="${RELEASE}.old"
+
+          # Matches the two server JVMs and the loop wrappers that respawn them.
+          # Own PID / parent PID are filtered out so this never kills the shell
+          # running this very script.
+          l2_pids() {
+            pgrep -f 'l2jserver\.jar|Server_loop\.sh' 2>/dev/null \
+              | grep -v -x -e "$$" -e "$PPID" || true
+          }
+
+          # ---------------------------------------------------------------
+          # 1. Validate the upload BEFORE touching the running installation
+          # ---------------------------------------------------------------
+          echo "🔍 Verifying the uploaded archive..."
+          cd /tmp
+          echo "$(cat /tmp/build.tar.gz.sha256)  build.tar.gz" | sha256sum -c -
+          echo "✅ Checksum matches"
+
+          echo "📂 Extracting into the staging directory ${STAGING}..."
+          rm -rf "${STAGING}"
+          mkdir -p "${STAGING}"
+          tar -xzf /tmp/build.tar.gz -C "${STAGING}"
+
+          for f in "${STAGING}/login/libs/l2jserver.jar" \
+                   "${STAGING}/gameserver/libs/l2jserver.jar" \
+                   "${STAGING}/login/config/loginserver.properties" \
+                   "${STAGING}/gameserver/config/server.properties"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ The archive is missing ${f} — aborting, the current install is untouched"
+              rm -rf "${STAGING}"
+              exit 1
+            fi
           done
+          echo "✅ Archive layout looks valid"
 
-          if pgrep -x java > /dev/null; then
-            echo "⚠️ Процессы не завершились за 15 секунд, принудительная остановка..."
-            killall -9 java > /dev/null 2>&1 || true
-            sleep 2
+          # ---------------------------------------------------------------
+          # 2. Carry runtime state over while the servers are still running
+          # ---------------------------------------------------------------
+          if [ -d "${RELEASE}" ]; then
+            echo "💾 Carrying over runtime state (hexid, geodata)..."
+            [ -f "${RELEASE}/login/hexid.txt" ] \
+              && cp -a "${RELEASE}/login/hexid.txt" "${STAGING}/login/" || true
+            [ -f "${RELEASE}/gameserver/config/hexid.txt" ] \
+              && cp -a "${RELEASE}/gameserver/config/hexid.txt" "${STAGING}/gameserver/config/" || true
+            if [ -d "${RELEASE}/gameserver/data/geodata" ]; then
+              mkdir -p "${STAGING}/gameserver/data/geodata"
+              cp -a "${RELEASE}/gameserver/data/geodata/." "${STAGING}/gameserver/data/geodata/"
+            fi
+            echo "✅ Runtime state staged"
+          else
+            echo "ℹ️ No previous installation found — this is a first deploy"
           fi
-          echo "✅ Все Java-процессы остановлены"
 
-          echo "💾 Резервное копирование важных файлов..."
-          mkdir -p /tmp/l2backup
-          cp /root/l2server/login/hexid.txt /tmp/l2backup/ 2>/dev/null || true
-          cp /root/l2server/gameserver/config/hexid.txt /tmp/l2backup/ 2>/dev/null || true
-          cp -r /root/l2server/gameserver/data/geodata /tmp/l2backup/ 2>/dev/null || true
-          echo "✅ Резервная копия создана"
+          # ---------------------------------------------------------------
+          # 3. Stop the servers (downtime starts here)
+          # ---------------------------------------------------------------
+          PIDS="$(l2_pids)"
+          if [ -n "$PIDS" ]; then
+            echo "🛑 Stopping the L2 processes gracefully..."
+            echo "$PIDS" | xargs -r kill 2>/dev/null || true
 
-          echo "📂 Распаковка новой сборки..."
-          rm -rf /root/l2server
-          mkdir -p /root/l2server
-          tar -xzf /tmp/build.tar.gz -C /root/l2server/
-          rm -f /tmp/build.tar.gz
-          echo "✅ Сборка распакована"
+            i=0
+            while [ "$i" -lt 20 ] && [ -n "$(l2_pids)" ]; do
+              i=$((i + 1))
+              sleep 1
+            done
 
-          echo "🔄 Восстановление важных файлов..."
-          cp /tmp/l2backup/hexid.txt /root/l2server/login/ 2>/dev/null || true
-          cp /tmp/l2backup/hexid.txt /root/l2server/gameserver/config/ 2>/dev/null || true
-          cp -r /tmp/l2backup/geodata/* /root/l2server/gameserver/data/geodata/ 2>/dev/null || true
-          rm -rf /tmp/l2backup
+            if [ -n "$(l2_pids)" ]; then
+              echo "⚠️ Processes still alive after 20s — sending SIGKILL"
+              l2_pids | xargs -r kill -9 2>/dev/null || true
+              sleep 2
+            fi
+            echo "✅ All L2 processes stopped"
+          else
+            echo "ℹ️ No running L2 processes found"
+          fi
 
-          echo "✅ Сборка успешно развёрнута"
+          # ---------------------------------------------------------------
+          # 4. Atomic swap — the previous release is kept for rollback
+          # ---------------------------------------------------------------
+          echo "🔄 Swapping in the new release..."
+          rm -rf "${PREVIOUS}"
+          [ -d "${RELEASE}" ] && mv "${RELEASE}" "${PREVIOUS}" || true
+          mv "${STAGING}" "${RELEASE}"
+
+          chmod +x "${RELEASE}"/login/*.sh "${RELEASE}"/gameserver/*.sh
+          mkdir -p "${RELEASE}/login/log" "${RELEASE}/gameserver/log"
+
+          rm -f /tmp/build.tar.gz /tmp/build.tar.gz.sha256
+
+          echo "✅ Release deployed to ${RELEASE}"
+          echo "   Previous release kept at ${PREVIOUS} for rollback"
