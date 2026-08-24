@@ -104,8 +104,8 @@ runs:
           # on "*" so the servers listen on every local interface (binding them
           # to the public hostname breaks behind NAT).
           set_prop "$LOGIN_CFG" 'Hostname'            "$EXTERNAL_HOSTNAME"
-          set_prop "$LOGIN_CFG" 'LoginserverHostname' '*'
-          set_prop "$LOGIN_CFG" 'LoginHostname'       '*'
+          set_prop "$LOGIN_CFG" 'LoginserverHostname' '$EXTERNAL_HOSTNAME'
+          set_prop "$LOGIN_CFG" 'LoginHostname'       '$EXTERNAL_HOSTNAME'
           set_prop "$LOGIN_CFG" 'URL'                 "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_LOGIN}"
           set_prop "$LOGIN_CFG" 'Login'               "$DB_USER"
           set_prop "$LOGIN_CFG" 'Password'            "$DB_PASSWORD"
@@ -113,8 +113,8 @@ runs:
           echo "⚙️ Configuring the Game Server..."
           # LoginHost stays on loopback: the Login Server runs on this same VPS.
           set_prop "$GAME_CFG" 'Hostname'           "$EXTERNAL_HOSTNAME"
-          set_prop "$GAME_CFG" 'GameserverHostname' '*'
-          set_prop "$GAME_CFG" 'LoginHost'          '127.0.0.1'
+          set_prop "$GAME_CFG" 'GameserverHostname' '$EXTERNAL_HOSTNAME'
+          set_prop "$GAME_CFG" 'LoginHost'          '$EXTERNAL_HOSTNAME'
           set_prop "$GAME_CFG" 'URL'                "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_GAME}"
           set_prop "$GAME_CFG" 'Login'              "$DB_USER"
           set_prop "$GAME_CFG" 'Password'           "$DB_PASSWORD"
