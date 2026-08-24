@@ -10,6 +10,9 @@ public enum GatekeeperTabType
 	/** The tab holds areas ; it generates the areas list page. */
 	AREAS,
 
+	/** The tab directly holds teleport points ; it generates the points list page, without any intermediate area. */
+	POINTS,
+
 	/** The tab generates the most used teleport points page. */
 	POPULAR,
 

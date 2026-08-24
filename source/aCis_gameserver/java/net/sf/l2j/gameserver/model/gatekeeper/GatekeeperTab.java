@@ -86,4 +86,12 @@ public class GatekeeperTab
 	{
 		return (index < 0 || index >= _areas.size()) ? null : _areas.get(index);
 	}
+
+	/**
+	 * @return True if this tab directly shows teleport points, without any intermediate areas list.
+	 */
+	public boolean isFlat()
+	{
+		return _type == GatekeeperTabType.POINTS;
+	}
 }

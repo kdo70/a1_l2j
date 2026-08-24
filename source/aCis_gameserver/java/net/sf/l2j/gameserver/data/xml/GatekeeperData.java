@@ -49,6 +49,7 @@ public class GatekeeperData implements IXmlReader
 	private String _lockedLabel;
 	private String _freeLabel;
 	private String _emptyLabel;
+	private String _backLabel;
 
 	protected GatekeeperData()
 	{
@@ -86,6 +87,7 @@ public class GatekeeperData implements IXmlReader
 				_lockedLabel = parseString(attrs, "lockedLabel", _lockedLabel);
 				_freeLabel = parseString(attrs, "freeLabel", _freeLabel);
 				_emptyLabel = parseString(attrs, "emptyLabel", _emptyLabel);
+				_backLabel = parseString(attrs, "backLabel", _backLabel);
 			});
 
 			forEach(listNode, "menu", menuNode -> parseMenu(menuNode));
@@ -180,6 +182,29 @@ public class GatekeeperData implements IXmlReader
 					tab.addArea(area);
 				});
 			}
+			else if (type == GatekeeperTabType.POINTS)
+			{
+				// The tab directly holds points ; wrap them into a single implicit area, named after the tab.
+				final GatekeeperArea area = new GatekeeperArea(0, name, parseString(itemAttrs, "capital", ""));
+
+				forEach(itemNode, "loc", locNode ->
+				{
+					final GatekeeperPoint point = parsePoint(locNode, name, tabPriceId, tabPrice, tabNoblePrice);
+					if (point == null)
+						return;
+
+					area.addPoint(point);
+					menu.addPoint(point);
+				});
+
+				if (area.getPoints().isEmpty())
+				{
+					LOGGER.warn("Gatekeeper tab '{}' of menu id {} doesn't hold any valid point.", name, menuId);
+					return;
+				}
+
+				tab.addArea(area);
+			}
 
 			menu.addTab(tab);
 		});
@@ -228,6 +253,9 @@ public class GatekeeperData implements IXmlReader
 		if (hasChild(itemNode, "area"))
 			return GatekeeperTabType.AREAS;
 
+		if (hasChild(itemNode, "loc"))
+			return GatekeeperTabType.POINTS;
+
 		if (page != null)
 			return GatekeeperTabType.PAGE;
 
@@ -262,6 +290,9 @@ public class GatekeeperData implements IXmlReader
 		{
 			case AREAS:
 				return "Quest " + SCRIPT_NAME + " List " + index + " 0";
+
+			case POINTS:
+				return "Quest " + SCRIPT_NAME + " Area " + index + " 0 0";
 
 			case POPULAR:
 				return "Quest " + SCRIPT_NAME + " Popular " + index + " 0";
@@ -311,6 +342,7 @@ public class GatekeeperData implements IXmlReader
 		_lockedLabel = "-";
 		_freeLabel = "0";
 		_emptyLabel = "-";
+		_backLabel = "&lt;&lt; back";
 	}
 
 	public void reload()
@@ -413,6 +445,14 @@ public class GatekeeperData implements IXmlReader
 	public String getEmptyLabel()
 	{
 		return _emptyLabel;
+	}
+
+	/**
+	 * @return The label of the link leading back to the areas list.
+	 */
+	public String getBackLabel()
+	{
+		return _backLabel;
 	}
 
 	public static GatekeeperData getInstance()

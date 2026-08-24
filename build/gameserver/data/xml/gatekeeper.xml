@@ -15,6 +15,7 @@
 		lockedLabel      : label shown instead of the link, when the point is out of reach.
 		freeLabel        : label shown on the price column, when the teleport is free.
 		emptyLabel       : label shown instead of an empty list.
+		backLabel        : label of the link leading back to the areas list.
 
 	<npc>
 		id / menu : binds a npc id to a menu id. Add a line to make any npc a gatekeeper.
@@ -25,10 +26,12 @@
 
 	<item> (a tab of the top bar)
 		- holding <area> nodes    : generates the areas list page (areas.htm).
+		- holding <loc> nodes     : generates the points list page (locations.htm), without any area.
 		- type="popular"          : generates the most used points page (popular.htm).
 		- page="somefile.htm"     : shows an additional datapack HTM of the script folder.
 		- bypass="..."            : any regular bypass, handled by the core (multisell, quest, ...).
 		name / color              : label and color of the tab. %objectId% is supported on bypasses.
+		Tabs are spread on multiple rows above 4 entries, so their labels stay readable.
 
 	<loc>
 		id       : unique id, used as database key of the teleport counter. Never reuse it.
@@ -40,7 +43,7 @@
 		minLevel / maxLevel : optional level restriction.
 -->
 <list>
-	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" karmaPriceRate="2" defaultPriceId="57" defaultPrice="0" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." />
+	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" karmaPriceRate="2" defaultPriceId="57" defaultPrice="0" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
@@ -268,7 +271,13 @@
 				<loc id="167" name="Mining Zone" point="Western" type="STANDARD" x="136910" y="-205082" z="-3664" />
 			</area>
 		</item>
-		<item name="Популярное" type="popular" bypass="Quest GlobalGatekeeper Popular 2"/>
+		<!-- A tab holding <loc> nodes directly : no area step, the points are shown right away. -->
+		<item name="Разное" price="2000">
+			<loc id="168" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
+			<loc id="169" name="Coliseum" point="" type="STANDARD" x="146440" y="46723" z="-3400"/>
+			<loc id="170" name="Primeval Isle" point="Wharf" type="NOBLE" x="11320" y="-23504" z="-3640"/>
+		</item>
+		<item name="Популярное" type="popular"/>
 		<item name="Лавка" bypass="npc_%objectId%_multisell 002" color="6697FF"/>
 		<item name="Задание" bypass="npc_%objectId%_Quest" color="A3A0A3"/>
 		<!-- Additional page sample : shows data/html/script/teleport/GlobalGatekeeper/info.htm

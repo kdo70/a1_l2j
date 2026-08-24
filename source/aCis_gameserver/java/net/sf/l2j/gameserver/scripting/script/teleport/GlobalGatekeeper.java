@@ -9,6 +9,7 @@ import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.GatekeeperStatsManager;
 import net.sf.l2j.gameserver.data.xml.GatekeeperData;
+import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
 import net.sf.l2j.gameserver.model.actor.Npc;
@@ -17,7 +18,7 @@ import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperMenu;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperPoint;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTab;
-import net.sf.l2j.gameserver.model.itemcontainer.PcInventory;
+import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.residence.castle.Castle;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
@@ -40,6 +41,7 @@ import net.sf.l2j.gameserver.scripting.Quest;
 public class GlobalGatekeeper extends Quest
 {
 	private static final int MENU_WIDTH = 290;
+	private static final int MENU_MAX_COLUMNS = 4;
 	private static final int MAX_SHOWN_PAGES = 10;
 
 
@@ -177,6 +179,10 @@ public class GlobalGatekeeper extends Quest
 				showAreas(npc, player, menu, tab, page);
 				break;
 
+			case POINTS:
+				showPoints(npc, player, menu, tab, tab.getArea(0), page);
+				break;
+
 			case POPULAR:
 				showPopular(npc, player, menu, tab, page);
 				break;
@@ -202,14 +208,14 @@ public class GlobalGatekeeper extends Quest
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=280>");
+		sb.append("<table width=290>");
 
 		for (int i = page * perPage; i < Math.min(areas.size(), (page + 1) * perPage); i++)
 		{
 			final GatekeeperArea area = areas.get(i);
 			final GatekeeperPoint main = area.getMainPoint();
 
-			StringUtil.append(sb, "<tr><td width=130><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=100>", getPriceText(main, player), "</td><td width=50>", area.getCapital(), "</td></tr>");
+			StringUtil.append(sb, "<tr><td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55><font color=\"8F8F8F\">", area.getCapital(), "</font></td></tr>");
 		}
 		sb.append("</table>");
 
@@ -234,13 +240,13 @@ public class GlobalGatekeeper extends Quest
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=280>");
+		sb.append("<table width=290>");
 
 		for (int i = page * perPage; i < Math.min(points.size(), (page + 1) * perPage); i++)
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, "<tr><td width=115>", getNameText(point, player), "</td><td width=65>", point.getPoint(), "</td><td width=55>", getPriceText(point, player), "</td><td width=45>", getActionText(point, player, tab.getIndex(), area.getIndex(), page), "</td></tr>");
+			StringUtil.append(sb, "<tr><td width=110 height=17>", getNameText(point.getName(), point, player), "</td><td width=55><font color=\"8F8F8F\">", point.getPoint(), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=40 align=right>", getActionText(point, player, tab.getIndex(), area.getIndex(), page), "</td></tr>");
 		}
 		sb.append("</table>");
 
@@ -249,7 +255,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%area%", area.getName());
 		content = content.replace("%locations%", sb.toString());
 		content = content.replace("%pages%", getPages("Quest " + getName() + " Area " + tab.getIndex() + " " + area.getIndex(), page, pages));
-		content = content.replace("%back%", "Quest " + getName() + " List " + tab.getIndex() + " 0");
+		content = content.replace("%back%", (tab.isFlat()) ? "" : "<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + GatekeeperData.getInstance().getBackLabel() + "</a>");
 
 		sendHtml(npc, player, content);
 	}
@@ -271,7 +277,7 @@ public class GlobalGatekeeper extends Quest
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=280>");
+		sb.append("<table width=290>");
 
 		if (points.isEmpty())
 			sb.append("<tr><td><font color=\"707070\">" + data.getEmptyLabel() + "</font></td></tr>");
@@ -280,7 +286,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, "<tr><td width=105>", getNameText(point, player), "</td><td width=55>", point.getPoint(), "</td><td width=35>", stats.getCount(point.getId()), "</td><td width=45>", getPriceText(point, player), "</td><td width=40>", getActionText(point, player, tab.getIndex(), -1, page), "</td></tr>");
+			StringUtil.append(sb, "<tr><td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), -1, page), "</td></tr>");
 		}
 		sb.append("</table>");
 
@@ -371,11 +377,21 @@ public class GlobalGatekeeper extends Quest
 		if (tabs.isEmpty())
 			return "";
 
-		final int width = Math.max(MENU_WIDTH / tabs.size(), 1);
+		// Spread the tabs on multiple rows, in order to keep them readable.
+		final int rows = getPageCount(tabs.size(), MENU_MAX_COLUMNS);
+		final int columns = getPageCount(tabs.size(), rows);
+		final int width = Math.max(MENU_WIDTH / columns, 1);
 
 		final StringBuilder sb = new StringBuilder();
-		for (GatekeeperTab tab : tabs)
-			StringUtil.append(sb, "<td width=", width, " align=center><a action=\"bypass -h ", tab.getBypass(), "\"><font color=\"", (tab == active) ? "LEVEL" : tab.getColor(), "\">", tab.getName(), "</font></a></td>");
+		for (int i = 0; i < tabs.size(); i++)
+		{
+			if (i > 0 && i % columns == 0)
+				sb.append("</tr><tr>");
+
+			final GatekeeperTab tab = tabs.get(i);
+
+			StringUtil.append(sb, "<td width=", width, " height=18 align=center><a action=\"bypass -h ", tab.getBypass(), "\"><font color=\"", (tab == active) ? "LEVEL" : tab.getColor(), "\">", tab.getName(), "</font></a></td>");
+		}
 
 		return sb.toString();
 	}
@@ -432,17 +448,36 @@ public class GlobalGatekeeper extends Quest
 		if (price <= 0)
 			return "<font color=\"00FF00\">" + GatekeeperData.getInstance().getFreeLabel() + "</font>";
 
-		return (point.getPriceId() == PcInventory.ADENA_ID) ? StringUtil.formatNumber(price) : StringUtil.formatNumber(price) + " &#" + point.getPriceId() + ";";
+		// &#itemId; is replaced by the client with the localized item name.
+		return "<font color=\"LEVEL\">" + StringUtil.formatNumber(price) + "</font> &#" + point.getPriceId() + ";";
 	}
 
 	/**
+	 * The client confirmation box only accepts a single parameter, so the price is appended to the destination name.
 	 * @param point : The {@link GatekeeperPoint} to render.
+	 * @param player : The {@link Player} used to compute the price.
+	 * @return The content of the confirmation box shown before the teleport.
+	 */
+	private static String getPopupText(GatekeeperPoint point, Player player)
+	{
+		final int price = point.getCalculatedPrice(player);
+		if (price <= 0)
+			return point.getFullName();
+
+		final Item item = ItemData.getInstance().getTemplate(point.getPriceId());
+
+		return point.getFullName() + " (" + StringUtil.formatNumber(price) + ((item == null) ? "" : " " + item.getName()) + ")";
+	}
+
+	/**
+	 * @param name : The name to render.
+	 * @param point : The {@link GatekeeperPoint} to test.
 	 * @param player : The {@link Player} used to test conditions.
 	 * @return The name cell content of a given {@link GatekeeperPoint}, greyed if the {@link Player} can't use it.
 	 */
-	private static String getNameText(GatekeeperPoint point, Player player)
+	private static String getNameText(String name, GatekeeperPoint point, Player player)
 	{
-		return (point.isAvailableFor(player)) ? point.getName() : "<font color=\"707070\">" + point.getName() + "</font>";
+		return (point.isAvailableFor(player)) ? name : "<font color=\"707070\">" + name + "</font>";
 	}
 
 	/**
@@ -460,7 +495,7 @@ public class GlobalGatekeeper extends Quest
 		if (!point.isAvailableFor(player))
 			return "<font color=\"707070\">" + ((point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel()) + "</font>";
 
-		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + point.getFullName() + "\">" + data.getGoLabel() + "</a>";
+		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + getPopupText(point, player) + "\">" + data.getGoLabel() + "</a>";
 	}
 
 	private static int getPageCount(int size, int perPage)
