@@ -15,7 +15,6 @@ import net.sf.l2j.commons.config.ExProperties;
 import net.sf.l2j.commons.logging.CLogger;
 
 import net.sf.l2j.gameserver.enums.GeoType;
-import net.sf.l2j.gameserver.enums.skills.AbnormalEffect;
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 
 /**
@@ -62,7 +61,6 @@ public final class Config
 	public static int CHAMPION_MOBS_REWARD_ITEM_ID;
 	public static int CHAMPION_MOBS_REWARD_ITEM_QTY;
 	public static int CHAMPION_MOBS_REWARD_CHANCE;
-	public static AbnormalEffect CHAMPION_MOBS_AURA;
 	
 	// --------------------------------------------------
 	// Clans settings
@@ -596,8 +594,6 @@ public final class Config
 		CHAMPION_MOBS_REWARD_ITEM_ID = championMobs.getProperty("ChampionMobsRewardItemId", 0);
 		CHAMPION_MOBS_REWARD_ITEM_QTY = championMobs.getProperty("ChampionMobsRewardItemQty", 1);
 		CHAMPION_MOBS_REWARD_CHANCE = championMobs.getProperty("ChampionMobsRewardChance", 0);
-		
-		CHAMPION_MOBS_AURA = AbnormalEffect.getByName(championMobs.getProperty("ChampionMobsAura", "bleeding"));
 	}
 	
 	/**

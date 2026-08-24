@@ -274,12 +274,6 @@ public class Monster extends Attackable
 		// Roll the champion status. Raid bosses, minions and summoned monsters are excluded.
 		setChampion(Config.CHAMPION_MOBS_ENABLE && !isRaidRelated() && !hasMaster() && getStatus().getLevel() >= Config.CHAMPION_MOBS_MIN_LEVEL && getStatus().getLevel() <= Config.CHAMPION_MOBS_MAX_LEVEL && Rnd.get(100) < Config.CHAMPION_MOBS_FREQUENCY);
 		
-		// Refresh the champion aura, which persists over respawns of the same instance.
-		if (isChampion())
-			startAbnormalEffect(Config.CHAMPION_MOBS_AURA);
-		else if ((getAbnormalEffect() & Config.CHAMPION_MOBS_AURA.getMask()) != 0)
-			stopAbnormalEffect(Config.CHAMPION_MOBS_AURA);
-		
 		// Clear over-hit state.
 		_overhitState.clear();
 		

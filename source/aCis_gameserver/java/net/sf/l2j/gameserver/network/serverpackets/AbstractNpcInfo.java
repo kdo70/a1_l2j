@@ -2,6 +2,7 @@ package net.sf.l2j.gameserver.network.serverpackets;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.sql.ClanTable;
+import net.sf.l2j.gameserver.enums.TeamType;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -189,7 +190,8 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			writeD(_allyCrest);
 			
 			writeC(_npc.getMove().getMoveType().getId());
-			writeC(0x00);
+			// Champion mobs glow with a red team aura, like duel opponents.
+			writeC(_npc.isChampion() ? TeamType.RED.getId() : 0x00);
 			
 			writeF(_collisionRadius);
 			writeF(_collisionHeight);
