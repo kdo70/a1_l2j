@@ -77,9 +77,20 @@ runs:
         username: ${{ inputs.vps-username }}
         key: ${{ inputs.vps-ssh-key }}
         script: |
-          echo "🛑 Остановка текущих серверов..."
-          killall -9 java > /dev/null 2>&1 || true
-          sleep 3
+          echo "🛑 Остановка текущих серверов (мягкое завершение)..."
+          killall java > /dev/null 2>&1 || true
+
+          echo "⏳ Ожидание корректного завершения (до 15 сек)..."
+          for i in $(seq 1 15); do
+            pgrep -x java > /dev/null || break
+            sleep 1
+          done
+
+          if pgrep -x java > /dev/null; then
+            echo "⚠️ Процессы не завершились за 15 секунд, принудительная остановка..."
+            killall -9 java > /dev/null 2>&1 || true
+            sleep 2
+          fi
           echo "✅ Все Java-процессы остановлены"
 
           echo "💾 Резервное копирование важных файлов..."
