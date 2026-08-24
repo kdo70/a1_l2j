@@ -92,9 +92,11 @@ ant -f source\aCis_gameserver\build.xml
    остаётся в `/root/l2server.old` для отката.
 2. `configure-server`: подстановка секретов в `loginserver.properties` и
    `server.properties` на VPS, включая JDBC `URL`
-   (`jdbc:mariadb://DB_HOST:DB_PORT/DB_NAME_*`). Bind-адреса
-   (`LoginserverHostname`, `LoginHostname`, `GameserverHostname`) остаются
-   `*`, `LoginHost` — `127.0.0.1`; наружу отдаётся только `Hostname`.
+   (`jdbc:mariadb://DB_HOST:DB_PORT/DB_NAME_*`). Все адреса
+   (`Hostname`, `LoginserverHostname`, `LoginHostname`,
+   `GameserverHostname`, `LoginHost`) выставляются в `EXTERNAL_HOSTNAME` —
+   то есть он используется и как анонсируемый клиентам, и как bind-адрес,
+   поэтому VPS должен владеть этим IP напрямую (за NAT не заработает).
 3. `start-servers`: идемпотентный рестарт login и game серверов с ожиданием
    портов 2106, 9014 и 7777. Если порт не поднялся — шаг падает и выводит
    хвост соответствующего `stdout.log`.

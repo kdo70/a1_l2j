@@ -109,7 +109,6 @@ runs:
         port: ${{ inputs.vps-port }}
         fingerprint: ${{ inputs.vps-fingerprint }}
         envs: REMOTE_PATH
-        script_stop: true
         command_timeout: 15m
         script: |
           set -eu

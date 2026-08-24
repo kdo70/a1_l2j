@@ -66,7 +66,6 @@ runs:
         port: ${{ inputs.vps-port }}
         fingerprint: ${{ inputs.vps-fingerprint }}
         envs: REMOTE_PATH,DB_HOST,DB_PORT,DB_NAME_LOGIN,DB_NAME_GAME,DB_USER,DB_PASSWORD,EXTERNAL_HOSTNAME
-        script_stop: true
         command_timeout: 5m
         script: |
           set -e
@@ -100,21 +99,21 @@ runs:
           }
 
           echo "⚙️ Configuring the Login Server..."
-          # Hostname is announced to clients; the *Hostname bind addresses stay
-          # on "*" so the servers listen on every local interface (binding them
-          # to the public hostname breaks behind NAT).
+          # Every address is pinned to the public hostname: it is announced to
+          # clients and also used as the bind address, so the VPS must own that
+          # IP directly (this does not work behind NAT).
           set_prop "$LOGIN_CFG" 'Hostname'            "$EXTERNAL_HOSTNAME"
-          set_prop "$LOGIN_CFG" 'LoginserverHostname' '$EXTERNAL_HOSTNAME'
-          set_prop "$LOGIN_CFG" 'LoginHostname'       '$EXTERNAL_HOSTNAME'
+          set_prop "$LOGIN_CFG" 'LoginserverHostname' "$EXTERNAL_HOSTNAME"
+          set_prop "$LOGIN_CFG" 'LoginHostname'       "$EXTERNAL_HOSTNAME"
           set_prop "$LOGIN_CFG" 'URL'                 "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_LOGIN}"
           set_prop "$LOGIN_CFG" 'Login'               "$DB_USER"
           set_prop "$LOGIN_CFG" 'Password'            "$DB_PASSWORD"
 
           echo "⚙️ Configuring the Game Server..."
-          # LoginHost stays on loopback: the Login Server runs on this same VPS.
+          # LoginHost must match the address the Login Server binds above.
           set_prop "$GAME_CFG" 'Hostname'           "$EXTERNAL_HOSTNAME"
-          set_prop "$GAME_CFG" 'GameserverHostname' '$EXTERNAL_HOSTNAME'
-          set_prop "$GAME_CFG" 'LoginHost'          '$EXTERNAL_HOSTNAME'
+          set_prop "$GAME_CFG" 'GameserverHostname' "$EXTERNAL_HOSTNAME"
+          set_prop "$GAME_CFG" 'LoginHost'          "$EXTERNAL_HOSTNAME"
           set_prop "$GAME_CFG" 'URL'                "jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME_GAME}"
           set_prop "$GAME_CFG" 'Login'              "$DB_USER"
           set_prop "$GAME_CFG" 'Password'           "$DB_PASSWORD"
