@@ -1,6 +1,5 @@
 package net.sf.l2j.gameserver.model.gatekeeper;
 
-import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -77,6 +76,9 @@ public class GatekeeperPoint extends Location
 		return _priceId;
 	}
 
+	/**
+	 * @return The XML defined price, -1 when unset - which means the price is derived from the distance.
+	 */
 	public int getPrice()
 	{
 		return _price;
@@ -112,17 +114,10 @@ public class GatekeeperPoint extends Location
 
 	/**
 	 * @param player : The {@link Player} to test.
-	 * @return The price to pay, affected by Config.FREE_TELEPORT and the karma rate of {@link GatekeeperData}.
+	 * @return The price to pay, computed by {@link GatekeeperData#getCalculatedPrice(Player, GatekeeperPoint)}.
 	 */
 	public int getCalculatedPrice(Player player)
 	{
-		if (Config.FREE_TELEPORT || _price <= 0)
-			return 0;
-
-		final double karmaRate = GatekeeperData.getInstance().getKarmaPriceRate();
-		if (player.getKarma() > 0 && karmaRate > 1)
-			return (int) Math.min(_price * karmaRate, Integer.MAX_VALUE);
-
-		return _price;
+		return GatekeeperData.getInstance().getCalculatedPrice(player, this);
 	}
 }

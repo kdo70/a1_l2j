@@ -6,10 +6,10 @@
 		rowsPerPage      : amount of rows shown per page, on every generated list.
 		popularLimit     : amount of points kept on the "popular" tab.
 		popularMinCount  : minimum amount of teleports for a point to enter the "popular" tab.
-		karmaPriceRate   : price multiplier applied on chaotic (PK) players. 1 means no penalty.
 		defaultPriceId   : default currency, inherited by menus, tabs, areas and points.
-		defaultPrice     : default price of STANDARD points, inherited by menus, tabs, areas and points.
-		defaultNoblePrice: default price of NOBLE points, inherited the same way.
+		defaultPrice     : default price of STANDARD points, inherited by menus, tabs, areas and points. -1 means "computed by <pricing>".
+		defaultNoblePrice: default price of NOBLE points, inherited the same way. 0 keeps retail-like free noblesse teleports.
+		rowColor         : background color of the odd rows of the lists ; even rows stay transparent.
 		goLabel          : label of the teleport link, on the action column.
 		nobleLabel       : label shown instead of the link, when the point requires noblesse.
 		lockedLabel      : label shown instead of the link, when the point is out of reach.
@@ -17,6 +17,29 @@
 		emptyLabel       : label shown instead of an empty list.
 		backLabel        : label of the link leading back to the areas list.
 		teleportDelay    : casting time, in ms, of the /unstuck like animation played before the teleport. 0 disables it, 60000 is the maximum.
+
+	<pricing>
+		Dynamic price of the points which don't own an explicit price. Formula :
+			price = base * levelRate * karmaRate * nightRate, rounded to the "rounding" step,
+			base  = the XML price of the point when set, otherwise minPrice..maxPrice interpolated on the distance.
+		With the default values, a max level player teleporting by day, without karma, pays the raw distance
+		price : ~15k nearby, ~100k on the other side of the world.
+
+		enabled      : false makes the gatekeeper use XML prices only (unset prices become free).
+		rounding     : prices are rounded to that step, for the sake of readability. 1 disables the rounding.
+		distance     : false removes the distance base ; points without an explicit price become free.
+		minPrice     : price of a teleport on the spot.
+		maxPrice     : price of a teleport at maxDistance and beyond.
+		maxDistance  : distance, in game units, at which maxPrice is reached.
+		distanceCurve: exponent applied on the distance ratio. Above 1 keeps short trips cheaper.
+		level        : false removes the level modifier.
+		levelFrom / levelTo : level range on which the rate grows.
+		levelMinRate : rate applied at levelFrom, growing up to 1 at levelTo. 1 makes the level free of charge.
+		karma        : false removes the karma modifier.
+		karmaCap     : karma amount at which the maximum karma penalty is reached.
+		karmaRate    : extra rate at karmaCap. 1 means "twice the price", 0 means no penalty.
+		night        : false removes the day/night modifier.
+		nightRate    : rate applied during the game night.
 
 	<npc>
 		id / menu : binds a npc id to a menu id. Add a line to make any npc a gatekeeper.
@@ -42,9 +65,12 @@
 		x / y / z: destination.
 		castleId : optional, forbids the teleport while the castle siege is in progress.
 		minLevel / maxLevel : optional level restriction.
+		price    : optional. -1 (default) lets <pricing> compute it, 0 makes it free, any other value is a fixed base price.
 -->
 <list>
-	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" karmaPriceRate="2" defaultPriceId="57" defaultPrice="0" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" />
+	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" defaultPriceId="57" defaultPrice="-1" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" rowColor="000000" />
+
+	<pricing enabled="true" rounding="100" distance="true" minPrice="15000" maxPrice="100000" maxDistance="200000" distanceCurve="1.5" level="true" levelFrom="1" levelTo="80" levelMinRate="0.4" karma="true" karmaCap="10000" karmaRate="1.0" night="true" nightRate="1.25" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
@@ -273,7 +299,7 @@
 			</area>
 		</item>
 		<!-- A tab holding <loc> nodes directly : no area step, the points are shown right away. -->
-		<item name="Разное" price="2000">
+		<item name="Разное">
 			<loc id="168" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
 			<loc id="169" name="Coliseum" point="" type="STANDARD" x="146440" y="46723" z="-3400"/>
 			<loc id="170" name="Primeval Isle" point="Wharf" type="NOBLE" x="11320" y="-23504" z="-3640"/>

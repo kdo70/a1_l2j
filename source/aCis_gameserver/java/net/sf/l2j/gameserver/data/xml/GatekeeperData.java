@@ -8,12 +8,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import net.sf.l2j.commons.data.xml.IXmlReader;
 
+import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
+import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperMenu;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperPoint;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTab;
+import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -39,7 +42,6 @@ public class GatekeeperData implements IXmlReader
 	private int _rowsPerPage;
 	private int _popularLimit;
 	private int _popularMinCount;
-	private double _karmaPriceRate;
 	private int _defaultPriceId;
 	private int _defaultPrice;
 	private int _defaultNoblePrice;
@@ -51,6 +53,28 @@ public class GatekeeperData implements IXmlReader
 	private String _freeLabel;
 	private String _emptyLabel;
 	private String _backLabel;
+	private String _rowColor;
+
+	private boolean _isPricingEnabled;
+	private int _priceRounding;
+
+	private boolean _isDistancePriceEnabled;
+	private int _minDistancePrice;
+	private int _maxDistancePrice;
+	private double _maxDistance;
+	private double _distanceCurve;
+
+	private boolean _isLevelPriceEnabled;
+	private int _levelPriceFrom;
+	private int _levelPriceTo;
+	private double _levelPriceMinRate;
+
+	private boolean _isKarmaPriceEnabled;
+	private int _karmaPriceCap;
+	private double _karmaPriceRate;
+
+	private boolean _isNightPriceEnabled;
+	private double _nightPriceRate;
 
 	protected GatekeeperData()
 	{
@@ -78,10 +102,9 @@ public class GatekeeperData implements IXmlReader
 				_rowsPerPage = Math.max(1, parseInteger(attrs, "rowsPerPage", _rowsPerPage));
 				_popularLimit = Math.max(1, parseInteger(attrs, "popularLimit", _popularLimit));
 				_popularMinCount = Math.max(1, parseInteger(attrs, "popularMinCount", _popularMinCount));
-				_karmaPriceRate = Math.max(1, parseDouble(attrs, "karmaPriceRate", _karmaPriceRate));
 				_defaultPriceId = parseInteger(attrs, "defaultPriceId", _defaultPriceId);
-				_defaultPrice = Math.max(0, parseInteger(attrs, "defaultPrice", _defaultPrice));
-				_defaultNoblePrice = Math.max(0, parseInteger(attrs, "defaultNoblePrice", _defaultNoblePrice));
+				_defaultPrice = Math.max(-1, parseInteger(attrs, "defaultPrice", _defaultPrice));
+				_defaultNoblePrice = Math.max(-1, parseInteger(attrs, "defaultNoblePrice", _defaultNoblePrice));
 				_teleportDelay = Math.min(60000, Math.max(0, parseInteger(attrs, "teleportDelay", _teleportDelay)));
 
 				_goLabel = parseString(attrs, "goLabel", _goLabel);
@@ -90,6 +113,33 @@ public class GatekeeperData implements IXmlReader
 				_freeLabel = parseString(attrs, "freeLabel", _freeLabel);
 				_emptyLabel = parseString(attrs, "emptyLabel", _emptyLabel);
 				_backLabel = parseString(attrs, "backLabel", _backLabel);
+				_rowColor = parseString(attrs, "rowColor", _rowColor);
+			});
+
+			forEach(listNode, "pricing", pricingNode ->
+			{
+				final NamedNodeMap attrs = pricingNode.getAttributes();
+
+				_isPricingEnabled = parseBoolean(attrs, "enabled", _isPricingEnabled);
+				_priceRounding = Math.max(1, parseInteger(attrs, "rounding", _priceRounding));
+
+				_isDistancePriceEnabled = parseBoolean(attrs, "distance", _isDistancePriceEnabled);
+				_minDistancePrice = Math.max(0, parseInteger(attrs, "minPrice", _minDistancePrice));
+				_maxDistancePrice = Math.max(_minDistancePrice, parseInteger(attrs, "maxPrice", _maxDistancePrice));
+				_maxDistance = Math.max(1, parseDouble(attrs, "maxDistance", _maxDistance));
+				_distanceCurve = Math.max(0.1, parseDouble(attrs, "distanceCurve", _distanceCurve));
+
+				_isLevelPriceEnabled = parseBoolean(attrs, "level", _isLevelPriceEnabled);
+				_levelPriceFrom = Math.max(1, parseInteger(attrs, "levelFrom", _levelPriceFrom));
+				_levelPriceTo = Math.max(_levelPriceFrom, parseInteger(attrs, "levelTo", _levelPriceTo));
+				_levelPriceMinRate = Math.min(1, Math.max(0, parseDouble(attrs, "levelMinRate", _levelPriceMinRate)));
+
+				_isKarmaPriceEnabled = parseBoolean(attrs, "karma", _isKarmaPriceEnabled);
+				_karmaPriceCap = Math.max(1, parseInteger(attrs, "karmaCap", _karmaPriceCap));
+				_karmaPriceRate = Math.max(0, parseDouble(attrs, "karmaRate", _karmaPriceRate));
+
+				_isNightPriceEnabled = parseBoolean(attrs, "night", _isNightPriceEnabled);
+				_nightPriceRate = Math.max(0, parseDouble(attrs, "nightRate", _nightPriceRate));
 			});
 
 			forEach(listNode, "menu", menuNode -> parseMenu(menuNode));
@@ -234,7 +284,7 @@ public class GatekeeperData implements IXmlReader
 		final GatekeeperPointType type = parseEnum(attrs, GatekeeperPointType.class, "type", GatekeeperPointType.STANDARD);
 		final int defaultPrice = (type == GatekeeperPointType.NOBLE) ? areaNoblePrice : areaPrice;
 
-		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInteger(attrs, "priceId", areaPriceId), Math.max(0, parseInteger(attrs, "price", defaultPrice)), parseInteger(attrs, "castleId", 0), parseInteger(attrs, "minLevel", 1), parseInteger(attrs, "maxLevel", 127), parseInteger(attrs, "x", 0), parseInteger(attrs, "y", 0), parseInteger(attrs, "z", 0));
+		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInteger(attrs, "priceId", areaPriceId), Math.max(-1, parseInteger(attrs, "price", defaultPrice)), parseInteger(attrs, "castleId", 0), parseInteger(attrs, "minLevel", 1), parseInteger(attrs, "maxLevel", 127), parseInteger(attrs, "x", 0), parseInteger(attrs, "y", 0), parseInteger(attrs, "z", 0));
 
 		final GatekeeperPoint existing = _points.put(id, point);
 		if (existing != null)
@@ -334,11 +384,31 @@ public class GatekeeperData implements IXmlReader
 		_rowsPerPage = 12;
 		_popularLimit = 20;
 		_popularMinCount = 1;
-		_karmaPriceRate = 1;
 		_defaultPriceId = 57;
-		_defaultPrice = 0;
+		_defaultPrice = -1;
 		_defaultNoblePrice = 0;
 		_teleportDelay = 5000;
+
+		_isPricingEnabled = true;
+		_priceRounding = 100;
+
+		_isDistancePriceEnabled = true;
+		_minDistancePrice = 15000;
+		_maxDistancePrice = 100000;
+		_maxDistance = 200000;
+		_distanceCurve = 1.5;
+
+		_isLevelPriceEnabled = true;
+		_levelPriceFrom = 1;
+		_levelPriceTo = 80;
+		_levelPriceMinRate = 0.4;
+
+		_isKarmaPriceEnabled = true;
+		_karmaPriceCap = 10000;
+		_karmaPriceRate = 1;
+
+		_isNightPriceEnabled = true;
+		_nightPriceRate = 1.25;
 
 		_goLabel = "&gt;&gt;";
 		_nobleLabel = "noble";
@@ -346,6 +416,7 @@ public class GatekeeperData implements IXmlReader
 		_freeLabel = "0";
 		_emptyLabel = "-";
 		_backLabel = "&lt;&lt; back";
+		_rowColor = "000000";
 	}
 
 	public void reload()
@@ -413,9 +484,82 @@ public class GatekeeperData implements IXmlReader
 		return _popularMinCount;
 	}
 
-	public double getKarmaPriceRate()
+	/**
+	 * Compute the price to pay for a given {@link GatekeeperPoint}.<br>
+	 * <br>
+	 * The base price is either the one set on the XML, or - when unset - the one derived from the distance between the {@link Player} and the point. That base is then affected by the level, the
+	 * karma and the day/night rates. Every single modifier can be individually disabled from the XML pricing node.
+	 * @param player : The {@link Player} to test.
+	 * @param point : The {@link GatekeeperPoint} to reach.
+	 * @return The amount of {@link GatekeeperPoint#getPriceId()} items to pay.
+	 */
+	public int getCalculatedPrice(Player player, GatekeeperPoint point)
 	{
-		return _karmaPriceRate;
+		if (Config.FREE_TELEPORT)
+			return 0;
+
+		final int fixedPrice = point.getPrice();
+
+		// The whole dynamic pricing is disabled ; only XML defined prices are used.
+		if (!_isPricingEnabled)
+			return Math.max(0, fixedPrice);
+
+		double price = (fixedPrice >= 0) ? fixedPrice : getDistancePrice(player, point);
+		if (price <= 0)
+			return 0;
+
+		if (_isLevelPriceEnabled)
+			price *= getLevelPriceRate(player.getStatus().getLevel());
+
+		if (_isKarmaPriceEnabled)
+			price *= getKarmaPriceRate(player.getKarma());
+
+		if (_isNightPriceEnabled && GameTimeTaskManager.getInstance().isNight())
+			price *= _nightPriceRate;
+
+		// Round the result, but never turn a paying teleport into a free one.
+		return (int) Math.max(1, Math.min(Math.round(price / _priceRounding) * (long) _priceRounding, Integer.MAX_VALUE));
+	}
+
+	/**
+	 * @param player : The {@link Player} used as starting point.
+	 * @param point : The {@link GatekeeperPoint} to reach.
+	 * @return The base price of the teleport, interpolated between minPrice and maxPrice using the 2D distance.
+	 */
+	private double getDistancePrice(Player player, GatekeeperPoint point)
+	{
+		if (!_isDistancePriceEnabled)
+			return 0;
+
+		final double ratio = Math.min(1, point.distance2D(player.getX(), player.getY()) / _maxDistance);
+
+		return _minDistancePrice + (_maxDistancePrice - _minDistancePrice) * Math.pow(ratio, _distanceCurve);
+	}
+
+	/**
+	 * @param level : The level of the {@link Player}.
+	 * @return The level rate, from levelMinRate at levelFrom up to 1 at levelTo.
+	 */
+	private double getLevelPriceRate(int level)
+	{
+		if (_levelPriceTo <= _levelPriceFrom)
+			return 1;
+
+		final double ratio = Math.min(1, Math.max(0, (double) (level - _levelPriceFrom) / (_levelPriceTo - _levelPriceFrom)));
+
+		return _levelPriceMinRate + (1 - _levelPriceMinRate) * ratio;
+	}
+
+	/**
+	 * @param karma : The karma of the {@link Player}.
+	 * @return The karma rate, from 1 without karma up to 1 + karmaRate at karmaCap.
+	 */
+	private double getKarmaPriceRate(int karma)
+	{
+		if (karma <= 0)
+			return 1;
+
+		return 1 + _karmaPriceRate * Math.min(1, (double) karma / _karmaPriceCap);
 	}
 
 	/**
@@ -464,6 +608,14 @@ public class GatekeeperData implements IXmlReader
 	public String getBackLabel()
 	{
 		return _backLabel;
+	}
+
+	/**
+	 * @return The background color of the odd rows of the lists.
+	 */
+	public String getRowColor()
+	{
+		return _rowColor;
 	}
 
 	public static GatekeeperData getInstance()

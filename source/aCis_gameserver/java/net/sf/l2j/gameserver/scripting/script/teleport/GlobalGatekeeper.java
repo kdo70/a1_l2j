@@ -52,6 +52,8 @@ public class GlobalGatekeeper extends Quest
 	private static final int MENU_MAX_COLUMNS = 4;
 	private static final int MAX_SHOWN_PAGES = 10;
 
+	private static final String ROW_END = "</tr></table>";
+
 	/** The GM /unstuck skill, only used for its casting animation. */
 	private static final int ESCAPE_SKILL_ID = 2100;
 
@@ -219,17 +221,17 @@ public class GlobalGatekeeper extends Quest
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
-		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=290>");
+		final int first = page * perPage;
 
-		for (int i = page * perPage; i < Math.min(areas.size(), (page + 1) * perPage); i++)
+		final StringBuilder sb = new StringBuilder();
+
+		for (int i = first; i < Math.min(areas.size(), first + perPage); i++)
 		{
 			final GatekeeperArea area = areas.get(i);
 			final GatekeeperPoint main = area.getMainPoint();
 
-			StringUtil.append(sb, "<tr><td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55><font color=\"8F8F8F\">", area.getCapital(), "</font></td></tr>");
+			StringUtil.append(sb, getRowStart(i - first), "<td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55><font color=\"8F8F8F\">", area.getCapital(), "</font></td>", ROW_END);
 		}
-		sb.append("</table>");
 
 		String content = getHtmlText("areas.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
@@ -251,16 +253,16 @@ public class GlobalGatekeeper extends Quest
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
-		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=290>");
+		final int first = page * perPage;
 
-		for (int i = page * perPage; i < Math.min(points.size(), (page + 1) * perPage); i++)
+		final StringBuilder sb = new StringBuilder();
+
+		for (int i = first; i < Math.min(points.size(), first + perPage); i++)
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, "<tr><td width=110 height=17>", getNameText(point.getName(), point, player), "</td><td width=55><font color=\"8F8F8F\">", point.getPoint(), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=40 align=right>", getActionText(point, player, tab.getIndex(), area.getIndex(), page), "</td></tr>");
+			StringUtil.append(sb, getRowStart(i - first), "<td width=110 height=17>", getNameText(point.getName(), point, player), "</td><td width=55><font color=\"8F8F8F\">", point.getPoint(), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=40 align=right>", getActionText(point, player, tab.getIndex(), area.getIndex(), page), "</td>", ROW_END);
 		}
-		sb.append("</table>");
 
 		String content = getHtmlText("locations.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
@@ -288,19 +290,19 @@ public class GlobalGatekeeper extends Quest
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
+		final int first = page * perPage;
+
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<table width=290>");
 
 		if (points.isEmpty())
-			sb.append("<tr><td><font color=\"707070\">" + data.getEmptyLabel() + "</font></td></tr>");
+			StringUtil.append(sb, getRowStart(0), "<td height=17><font color=\"707070\">", data.getEmptyLabel(), "</font></td>", ROW_END);
 
-		for (int i = page * perPage; i < Math.min(points.size(), (page + 1) * perPage); i++)
+		for (int i = first; i < Math.min(points.size(), first + perPage); i++)
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, "<tr><td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), -1, page), "</td></tr>");
+			StringUtil.append(sb, getRowStart(i - first), "<td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), -1, page), "</td>", ROW_END);
 		}
-		sb.append("</table>");
 
 		String content = getHtmlText("popular.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
@@ -431,6 +433,16 @@ public class GlobalGatekeeper extends Quest
 		player.teleportTo(point, 20);
 
 		GatekeeperStatsManager.getInstance().increase(point.getId());
+	}
+
+	/**
+	 * Each row of a list is rendered as its own table, since the client only handles the bgcolor attribute on tables.
+	 * @param row : The index of the row on the current page, 0 being the first one.
+	 * @return The opening tags of a list row, alternating a transparent background with the header one.
+	 */
+	private static String getRowStart(int row)
+	{
+		return (row % 2 == 0) ? "<table width=" + MENU_WIDTH + "><tr>" : "<table width=" + MENU_WIDTH + " bgcolor=\"" + GatekeeperData.getInstance().getRowColor() + "\"><tr>";
 	}
 
 	/**
