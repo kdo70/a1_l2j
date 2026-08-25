@@ -29,8 +29,8 @@ public class ItemNameColorTable
 	/** Sent ahead of the table ; empties the client side one. */
 	private static final String RESET = TAG + "r";
 	
-	/** Entries per message, low enough for a message to stay well under the client's chat line limit. */
-	private static final int ENTRIES_PER_MESSAGE = 10;
+	/** Entries per message. 5 keeps a message under 100 characters, the longest chat line this server accepts from a client - the incoming limit is unknown, so that is the safe assumption. */
+	private static final int ENTRIES_PER_MESSAGE = 5;
 	
 	private volatile List<String> _messages;
 	
