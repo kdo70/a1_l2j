@@ -90,3 +90,7 @@ function HandleGMObservingClanMember( String a_Param )
 	HandleAddClanMember( a_Param );
 }
 
+defaultproperties
+{
+     m_WindowName="GMClanWnd.InnerWnd"
+}

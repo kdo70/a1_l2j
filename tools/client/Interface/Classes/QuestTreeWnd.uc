@@ -892,3 +892,7 @@ function HandleLanguageChanged()
 	}	
 }
 
+defaultproperties
+{
+     m_WindowName="QuestTreeWnd"
+}

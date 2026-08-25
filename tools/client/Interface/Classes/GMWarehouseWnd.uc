@@ -75,3 +75,7 @@ function MoveItemBottomToTop( int index, bool bAllItem )
 {
 }
 
+defaultproperties
+{
+     m_WindowName="GMWarehouseWnd"
+}

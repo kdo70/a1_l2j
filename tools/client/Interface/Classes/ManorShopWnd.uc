@@ -194,3 +194,7 @@ function HandleOKButton()
 	HideWindow(m_WindowName);
 }
 
+defaultproperties
+{
+     m_WindowName="ManorShopWnd"
+}

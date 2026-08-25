@@ -1696,3 +1696,7 @@ function ResetOpeningVariables()
 	m_currentactivestatus8 = false;
 }
 
+defaultproperties
+{
+     m_WindowName="ClanWnd"
+}

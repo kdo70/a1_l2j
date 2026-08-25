@@ -1259,3 +1259,7 @@ function bool IsArrow( ItemInfo a_Info )
 	return a_Info.bArrow;
 }
 
+defaultproperties
+{
+     m_WindowName="InventoryWnd"
+}

@@ -607,3 +607,7 @@ function UpdateWeightBar(int Value, int MaxValue)
 	class'UIAPI_WINDOW'.static.SetWindowSize(m_WindowName$".texWeight", Size, NSTATUS_BARHEIGHT);
 }
 
+defaultproperties
+{
+     m_WindowName="DetailStatusWnd"
+}

@@ -42,60 +42,118 @@ behaving like retail while the happy path stays one click.
 
 ## Rebuilding it
 
-You need `ucc.exe` **and** `editor.dll` for this engine build. The client ships `core.dll`, `engine.dll`,
-`window.dll`, `nwindow.dll` and friends, but not those two — they only come with L2 developer/tool kits, which
-you have to source yourself. Verify you got a matching pair by running `extract_interface_source.ps1` against
-whatever `ucc` produces: it must print **package version 123, licensee 30**. Anything else will not load.
+You need an **L2-capable** `ucc`. A stock UT2003 one won't do: it has to read the `Lineage2Ver111` container
+and it has to be built against L2's engine. Check any kit you're handed the same way this one was checked —
+`UCC.exe` must contain the strings `Lineage2111WindowsFileReader` / `Lineage2Ver111`, and `Engine.dll` must
+contain L2 class names such as `LineagePlayerController`:
 
-1. Extract the stock sources (already done for `Interface` and `NWindow` in this folder, redo it if your
-   client differs):
+```powershell
+$b=[IO.File]::ReadAllBytes('<kit>\UCC.exe'); [Text.Encoding]::Unicode.GetString($b) -match 'Lineage2Ver111'
+```
 
-   ```
-   powershell -File extract_interface_source.ps1 -Package "<client>\system\interface.u" -OutDir .\Interface
-   ```
+Such kits are 32 bit and link against the **Visual C++ 2013 x86 runtime** (`msvcr120.dll`). Without it `ucc`
+dies with exit code `0xC0000135` and prints nothing at all, which looks like a broken kit but isn't — install
+`vcredist_x86.exe` for Visual Studio 2013 first.
 
-2. Put `ucc.exe` and `editor.dll` next to a copy of the client's `system` folder, and point an ini at the
-   packages, `Interface` last:
+The scripts here are unsigned, so PowerShell's execution policy blocks them by default with
+`UnauthorizedAccess`. Pass `-ExecutionPolicy Bypass` on the command line — it applies to that one process
+only, needs no admin rights, and leaves the machine-wide policy alone.
 
-   ```
-   [Editor.EditorEngine]
-   EditPackages=Core
-   EditPackages=Engine
-   EditPackages=Fire
-   EditPackages=IpDrv
-   EditPackages=UWindow
-   EditPackages=NWindow
-   EditPackages=Interface
-   ```
+Then one command does everything — it builds in a throwaway tree and touches neither the client nor the kit:
 
-3. Delete the old `Interface.u` from that folder (`ucc` refuses to overwrite), then:
+```
+powershell -ExecutionPolicy Bypass -File build_interface.ps1 -KitDir "<kit>" -ClientSystemDir "<client>\system"
+```
 
-   ```
-   ucc make -ini=<your ini>
-   ```
+### The defaultproperties trap — read this first
 
-4. `ucc` writes a plain package. Try dropping it into the client's `system` as `interface.u` first — some
-   clients read unwrapped packages. If the client refuses it, wrap it back into the `Lineage2Ver111`
-   container:
+`ScriptText` holds the class **code only**. NCsoft does not store the `defaultproperties` block there, and
+none of the 142 extracted sources has one. Recompile straight from them and every class comes out with its
+defaults blank: `LoadingWnd` loses its textures, every window loses its `m_WindowName`, and the client comes
+up with no loading screen, an empty inventory, a dead status window and a stutter every few seconds. It looks
+like the compiler produced garbage; it did not, the code is byte-for-byte right and only the values are gone.
 
-   ```
-   powershell -File pack_l2_package.ps1 -In .\Interface.u ^
-       -Out "<client>\system\interface.u" ^
-       -TrailerFrom "<client>\system\interface.u.orig.bak"
-   ```
+The values are still in the package, at the tail of each `UClass` export as a tagged property list.
+`extract_defaults.ps1` reads them back and appends a real `defaultproperties` block to each source:
 
-   The 20 byte trailer is undocumented, so it is copied verbatim from a stock file rather than invented.
+```
+powershell -ExecutionPolicy Bypass -File extract_defaults.ps1 -Package "<client>\system\interface.u" -SourceDirs .\Interface,.\NWindow
+```
+
+Run it once after extracting the sources, before building. The sources in this folder already have it applied
+— 36 classes carry a recovered block.
+
+### What the build has to work around
+
+The kit is a genuine L2 set but from a different chronicle than the client, so the two cannot simply be
+mixed — the script handles all of this, it is written down here so the next person knows why:
+
+- **Packages come from the kit, not the client.** The kit's `Core.dll` binds only against the kit's own
+  packages; feeding it the client's `core.u` fails with `Can't find 'intUObjectexecRotator2Vector'`.
+- **`Core` is rebuilt** from the kit's class sources plus `ParamStack`, which Interlude's `Core` has and the
+  kit's lacks. Rebuilding it there is what makes the output import `Core.ParamStack` — the name the real
+  client resolves. `Split` is dropped from the stand-in `Object`, because the client's `Object` has none and
+  `UICommonAPI` declares its own, which ucc otherwise rejects as "specifiers differ from original".
+- **`NWindow` is rebuilt too, with `native` stripped.** The kit's engine crashes on the client's binary
+  `nwindow.u`, and the client's `nwindow.dll` cannot load in the kit's process. Its functions are unnumbered
+  natives, so calls to them compile to the same opcodes either way, and only its names and signatures matter.
+- **`dynamicrecompile` and `constructive`** postdate this ucc and are stripped from the sources.
+
+`ucc` stamps licensee 0 while every client package is licensee 30, so `pack_l2_package.ps1` rewrites that
+field by default.
+
+### Verifying
+
+Getting a build is not the same as getting one that loads. Compare the result against the client's real
+packages — every import has to resolve, or the client drops the package:
+
+```
+powershell -ExecutionPolicy Bypass -File verify_imports.ps1 -Package .\_build\System\Interface.u -ClientSystemDir "<client>\system"
+```
+
+Run it against the stock `interface.u.orig.bak` too and compare: the import counts should match. For this
+client both report 726 imports needing 29 Core / 1 Engine / 635 NWindow names, all resolved.
+
+The sharpest offline check, and the one that catches missing defaults, is comparing the size of every
+`UClass` export against the stock package. A faithful rebuild differs in exactly one class — the one you
+changed. Anything else means a class lost its defaults:
+
+```powershell
+# class blobs, stock vs built - only ItemEnchantWnd may differ
+$s = upkg -Mode exports stock   | ? { $_ -match 'class=None' }
+$b = upkg -Mode exports built   | ? { $_ -match 'class=None' }
+```
+
+Function bytecode sizes will differ by a byte here and there across unrelated classes. That is harmless:
+object and name references are stored as compact indices, and a rebuilt package orders its name table
+differently, so some references encode in one byte instead of two.
+
+Then install it. Try the plain package first, some clients read unwrapped ones; if the client refuses it,
+wrap it back into the container:
+
+```
+powershell -ExecutionPolicy Bypass -File pack_l2_package.ps1 -In .\_build\System\Interface.u ^
+    -Out "<client>\system\interface.u" ^
+    -TrailerFrom "<client>\system\interface.u.orig.bak"
+```
+
+The 20 byte trailer is undocumented, so it is copied verbatim from a stock file rather than invented. The
+kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 
 **Back up `interface.u` before replacing it.** A copy of the untouched original is at
 `<client>\system\interface.u.orig.bak`.
 
 ## Files here
 
+- `build_interface.ps1` — sets up a throwaway build tree and runs `ucc make`.
 - `extract_interface_source.ps1` — pulls the `.uc` sources out of any `Lineage2Ver111` package.
-- `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container.
+- `extract_defaults.ps1` — recovers the `defaultproperties` the sources don't carry. **Mandatory.**
+- `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container and stamps the licensee.
+- `verify_imports.ps1` — checks a built package's imports against the client's real packages.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc` rebuilt.
-- `NWindow/Classes/` — 87 classes from `nwindow.u`, kept for the native API declarations
-  (`ItemWindowHandle`, `WindowHandle`, `EnchantAPI`, …). Not needed to build, handy to read.
+- `NWindow/Classes/` — 87 classes from `nwindow.u`, compiled as a stand-in for the client's binary package.
+  Also the place to read the native API from (`ItemWindowHandle`, `WindowHandle`, `EnchantAPI`, …).
+- `Core/Classes/` — the kit's four Core classes plus `ParamStack` from the client, with `Split` removed.
 
 The extracted sources are NCsoft client code that came out of your own client files. Drop them from version
 control if you'd rather not carry them.

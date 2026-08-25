@@ -460,3 +460,7 @@ function HandleSetMaxCount( string param )
 	//debug("HandleStoreSetMaxCount " $ m_maxCount );
 }
 
+defaultproperties
+{
+     m_WindowName="WarehouseWnd"
+}

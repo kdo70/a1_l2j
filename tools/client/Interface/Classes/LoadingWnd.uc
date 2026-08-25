@@ -40,3 +40,9 @@ function OnEvent( int a_EventID, String a_Param )
 	}
 }
 
+defaultproperties
+{
+     LoadingTexture15="L2Font.loading03-k"
+     LoadingTexture18="L2Font.loading04-k"
+     LoadingTextureFree="L2Font.loading02-k"
+}

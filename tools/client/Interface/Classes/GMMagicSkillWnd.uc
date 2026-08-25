@@ -65,3 +65,7 @@ function OnClickItem( string strID, int index )
 {
 }
 
+defaultproperties
+{
+     m_WindowName="GMMagicSkillWnd.InnerWnd"
+}

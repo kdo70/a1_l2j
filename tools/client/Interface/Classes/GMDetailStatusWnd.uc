@@ -128,3 +128,7 @@ function float GetMyExpRate()
 	return GetExpRate( m_ObservingUserInfo.nCurExp, m_ObservingUserInfo.nLevel ) * 100.f;
 }
 
+defaultproperties
+{
+     m_WindowName="GMDetailStatusWnd.InnerWnd"
+}

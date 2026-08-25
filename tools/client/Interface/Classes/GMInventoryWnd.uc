@@ -243,3 +243,7 @@ function UpdateHennaInfo()
 	}
 }
 
+defaultproperties
+{
+     m_WindowName="GMInventoryWnd"
+}

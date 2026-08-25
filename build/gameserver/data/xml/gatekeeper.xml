@@ -102,7 +102,7 @@
 	<menu id="0">
 		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. -->
 		<item name="Города" bypass="Quest GlobalGatekeeper List 0">
-			<area name="Town of Dion" capital="Dion">
+			<area name="Dion" capital="Dion">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
 				<loc id="2" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
 				<loc id="3" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
@@ -116,7 +116,7 @@
 				<loc id="11" name="Execution Ground" point="" type="NOBLE" x="46165" y="150008" z="-3208"/>
 				<loc id="12" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
 			</area>
-			<area name="Town of Gludio" capital="Gludio">
+			<area name="Gludio" capital="Gludio">
 				<loc id="13" name="Town of Gludio" point="" type="STANDARD" x="-12739" y="122740" z="-3112" castleId="1"/>
 				<loc id="14" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
 				<loc id="15" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
@@ -124,7 +124,7 @@
 				<loc id="17" name="Windawood Manor" point="" type="STANDARD" x="-28327" y="155125" z="-3496"/>
 				<loc id="18" name="Evil Hunting Grounds" point="" type="NOBLE" x="-6989" y="109503" z="-3040"/>
 			</area>
-			<area name="Town of Giran" capital="Giran">
+			<area name="Giran" capital="Giran">
 				<loc id="19" name="Town of Giran" point="" type="STANDARD" x="83393" y="147975" z="-3400" castleId="3"/>
 				<loc id="20" name="Giran Harbor" point="" type="STANDARD" x="47938" y="186864" z="-3480"/>
 				<loc id="21" name="Hardin's Academy" point="" type="STANDARD" x="105918" y="109759" z="-3170"/>
@@ -139,7 +139,7 @@
 				<loc id="30" name="Breka's Stronghold" point="" type="STANDARD" x="85546" y="131328" z="-3672"/>
 				<loc id="31" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
 			</area>
-			<area name="Town of Goddard" capital="Goddard">
+			<area name="Goddard" capital="Goddard">
 				<loc id="32" name="Town of Goddard" point="" type="STANDARD" x="147964" y="-55305" z="-2728" castleId="7"/>
 				<loc id="33" name="Varka Silenos" point="Village" type="NOBLE" x="107929" y="-52248" z="-2408"/>
 				<loc id="34" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
@@ -160,7 +160,7 @@
 				<loc id="49" name="Forge of the Gods" point="Top Level" type="NOBLE" x="173436" y="-112725" z="-3680"/>
 				<loc id="50" name="Forge of the Gods" point="Lower Level" type="NOBLE" x="180260" y="-111913" z="-5851"/>
 			</area>
-			<area name="Town of Aden" capital="Aden">
+			<area name="Aden" capital="Aden">
 				<loc id="51" name="Town of Aden" point="" type="STANDARD" x="146811" y="25810" z="-2008" castleId="5"/>
 				<loc id="52" name="Forsaken Plains" point="" type="STANDARD" x="168217" y="37990" z="-4072"/>
 				<loc id="53" name="Seal of Shilen" point="" type="STANDARD" x="184742" y="19745" z="-3168"/>
@@ -181,7 +181,7 @@
 				<loc id="68" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112"/>
 				<loc id="69" name="Anghel Waterfall" point="" type="NOBLE" x="166182" y="91560" z="-3168"/>
 			</area>
-			<area name="Town of Schuttgart" capital="Schuttgart">
+			<area name="Schuttgart" capital="Schuttgart">
 				<loc id="70" name="Town of Schuttgard" point="" type="STANDARD" x="87053" y="-143387" z="-1288" castleId="9"/>
 				<loc id="71" name="Den of Evil" point="" type="STANDARD" x="68693" y="-110438" z="-1904"/>
 				<loc id="72" name="Plunderous Plains" point="" type="STANDARD" x="111965" y="-154172" z="-1528"/>
@@ -192,7 +192,7 @@
 				<loc id="77" name="Crypts of Disgrace" point="Center" type="NOBLE" x="44221" y="-114232" z="-2784"/>
 				<loc id="78" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
 			</area>
-			<area name="Town of Rune" capital="Rune">
+			<area name="Rune" capital="Rune">
 				<loc id="79" name="Town of Rune" point="" type="STANDARD" x="43831" y="-47748" z="-792" castleId="8"/>
 				<loc id="80" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
 				<loc id="81" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
@@ -205,7 +205,7 @@
 				<loc id="88" name="Cursed Village" point="" type="NOBLE" x="57670" y="-41672" z="-3154"/>
 				<loc id="89" name="Stakato Nest" point="" type="NOBLE" x="90355" y="-44088" z="-2144"/>
 			</area>
-			<area name="Town of Heine" capital="Heine">
+			<area name="Heine" capital="Heine">
 				<loc id="90" name="Town of Heine" point="" type="STANDARD" x="111385" y="219338" z="-3544" castleId="6"/>
 				<loc id="91" name="Giran Harbor" point="" type="STANDARD" x="47935" y="186810" z="-3420"/>
 				<loc id="92" name="Field of Silence" point="" type="STANDARD" x="91088" y="182384" z="-3192"/>
@@ -221,7 +221,7 @@
 				<loc id="102" name="Garden of Eva" point="4th level" type="NOBLE" x="78721" y="253309" z="-9840"/>
 				<loc id="103" name="Garden of Eva" point="5th level" type="NOBLE" x="82570" y="252464" z="-10592"/>
 			</area>
-			<area name="Town of Oren" capital="Oren">
+			<area name="Oren" capital="Oren">
 				<loc id="104" name="Town of Oren" point="" type="STANDARD" x="82917" y="53173" z="-1488" castleId="4"/>
 				<loc id="105" name="Ivory Tower" point="" type="STANDARD" x="85391" y="16228" z="-3640" castleId="4"/>
 				<loc id="106" name="Hunters Village" point="" type="STANDARD" x="117110" y="76883" z="-2670"/>

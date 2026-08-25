@@ -128,3 +128,7 @@ function HandleSkillList(string param)
 	
 }
 
+defaultproperties
+{
+     m_WindowName="MagicSkillWnd"
+}

@@ -55,7 +55,15 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 		
 		if (item == null || scroll == null)
 		{
-			player.cancelActiveEnchant();
+			// The client releases the scroll by asking to enchant object id -1 when it closes the window by
+			// itself. With ENCHANT_KEEP_WINDOW_OPENED that happens after every "Enchant" press, so the cancel
+			// is done quietly : the retail chat line and result packet would otherwise fire on every single
+			// successful enchant, and the window is already gone client side.
+			if (Config.ENCHANT_KEEP_WINDOW_OPENED)
+				player.setActiveEnchantItem(null);
+			else
+				player.cancelActiveEnchant();
+
 			return;
 		}
 		
@@ -109,24 +117,15 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 			// success
 			if (Rnd.nextDouble() < chance)
 			{
-				// announce the success
-				SystemMessage sm;
-				
-				if (item.getEnchantLevel() == 0)
-				{
-					sm = SystemMessage.getSystemMessage(SystemMessageId.S1_SUCCESSFULLY_ENCHANTED);
-					sm.addItemName(item.getItemId());
-					player.sendPacket(sm);
-				}
-				else
-				{
-					sm = SystemMessage.getSystemMessage(SystemMessageId.S1_S2_SUCCESSFULLY_ENCHANTED);
-					sm.addNumber(item.getEnchantLevel());
-					sm.addItemName(item.getItemId());
-					player.sendPacket(sm);
-				}
-				
+				// Raise the level first, so the announce below states the level the item now has rather
+				// than the one it is leaving behind.
 				item.setEnchantLevel(item.getEnchantLevel() + 1, player);
+
+				// announce the success
+				final SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.S1_S2_SUCCESSFULLY_ENCHANTED);
+				sm.addNumber(item.getEnchantLevel());
+				sm.addItemName(item.getItemId());
+				player.sendPacket(sm);
 				
 				// If item is equipped, verify the skill obtention (+4 duals, +6 armorset).
 				if (item.isEquipped())
@@ -290,6 +289,13 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 			return false;
 
 		player.setActiveEnchantItem(scroll);
+
+		// Flush the pending inventory update before asking the client to list the enchantable items. That
+		// update is normally posted by InventoryUpdateTaskManager on its own 333ms tick, and the client
+		// builds the list from its own inventory - so without this the window shows the enchant level the
+		// item had one attempt ago.
+		player.sendIU();
+
 		player.sendPacket(new ChooseInventoryItem(scroll.getItemId()));
 		return true;
 	}

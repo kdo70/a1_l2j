@@ -31,7 +31,10 @@
 param(
     [Parameter(Mandatory = $true)][string]$In,
     [Parameter(Mandatory = $true)][string]$Out,
-    [Parameter(Mandatory = $true)][string]$TrailerFrom
+    [Parameter(Mandatory = $true)][string]$TrailerFrom,
+    # ucc stamps licensee 0, while every package the client ships is licensee 30. Rewriting the field makes
+    # the package look like the rest ; pass 0 to keep whatever ucc wrote, if the client turns out not to care.
+    [int]$LicenseeVersion = 30
 )
 
 $ErrorActionPreference = 'Stop'
@@ -39,6 +42,12 @@ $ErrorActionPreference = 'Stop'
 $body = [System.IO.File]::ReadAllBytes($In)
 if (("{0:X8}" -f [BitConverter]::ToUInt32($body, 0)) -ne '9E2A83C1') {
     throw "$In is not a plain Unreal package (bad signature) - is it already wrapped?"
+}
+
+if ($LicenseeVersion -gt 0) {
+    $was = [BitConverter]::ToUInt16($body, 6)
+    [Array]::Copy([BitConverter]::GetBytes([uint16]$LicenseeVersion), 0, $body, 6, 2)
+    Write-Output ("licensee version {0} -> {1}" -f $was, $LicenseeVersion)
 }
 
 $ref = [System.IO.File]::ReadAllBytes($TrailerFrom)
@@ -49,11 +58,11 @@ $trailer = $ref[($ref.Length - 20)..($ref.Length - 1)]
 
 $header = [System.Text.Encoding]::Unicode.GetBytes('Lineage2Ver111')
 
-$out = New-Object byte[] ($header.Length + $body.Length + 20)
-[Array]::Copy($header, 0, $out, 0, $header.Length)
-for ($i = 0; $i -lt $body.Length; $i++) { $out[$header.Length + $i] = [byte]($body[$i] -bxor 0xAC) }
-[Array]::Copy($trailer, 0, $out, $header.Length + $body.Length, 20)
+$blob = New-Object byte[] ($header.Length + $body.Length + 20)
+[Array]::Copy($header, 0, $blob, 0, $header.Length)
+for ($i = 0; $i -lt $body.Length; $i++) { $blob[$header.Length + $i] = [byte]($body[$i] -bxor 0xAC) }
+[Array]::Copy($trailer, 0, $blob, $header.Length + $body.Length, 20)
 
-[System.IO.File]::WriteAllBytes($Out, $out)
-Write-Output ("wrapped {0} ({1} bytes) -> {2} ({3} bytes)" -f $In, $body.Length, $Out, $out.Length)
+[System.IO.File]::WriteAllBytes($Out, $blob)
+Write-Output ("wrapped {0} ({1} bytes) -> {2} ({3} bytes)" -f $In, $body.Length, $Out, $blob.Length)
 Write-Output ("trailer taken from {0}: {1}" -f $TrailerFrom, (($trailer | ForEach-Object { $_.ToString('X2') }) -join ' '))

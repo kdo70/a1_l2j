@@ -88,3 +88,7 @@ function HandleGMObservingQuestItem( String a_Param )
 	UpdateItemCount( ClassID, ItemCount );
 }
 
+defaultproperties
+{
+     m_WindowName="GMQuestWnd.InnerWnd"
+}

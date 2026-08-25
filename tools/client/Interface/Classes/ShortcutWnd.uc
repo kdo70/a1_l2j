@@ -703,3 +703,7 @@ function HandleExpandButton()
 	}
 }
 
+defaultproperties
+{
+     m_IsVertical=True
+}

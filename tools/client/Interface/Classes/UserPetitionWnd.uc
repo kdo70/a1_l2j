@@ -125,3 +125,25 @@ function Clear()
 	class'UIAPI_HTMLCTRL'.static.Clear( "UserPetitionWnd.HelpHtmlCtrl" );
 }
 
+defaultproperties
+{
+     PetitionCategoryCount=9
+     PetitionCategoryTitle=696
+     PetitionCategoryTitle(1)=697
+     PetitionCategoryTitle(2)=698
+     PetitionCategoryTitle(3)=699
+     PetitionCategoryTitle(4)=700
+     PetitionCategoryTitle(5)=701
+     PetitionCategoryTitle(6)=702
+     PetitionCategoryTitle(7)=703
+     PetitionCategoryTitle(8)=704
+     PetitionCategoryLink="pet_help_move.htm"
+     PetitionCategoryLink(1)="pet_help_recover.htm"
+     PetitionCategoryLink(2)="pet_help_bug.htm"
+     PetitionCategoryLink(3)="pet_help_quest.htm"
+     PetitionCategoryLink(4)="pet_help_report.htm"
+     PetitionCategoryLink(5)="pet_help_suggest.htm"
+     PetitionCategoryLink(6)="pet_help_game.htm"
+     PetitionCategoryLink(7)="pet_help_oprn.htm"
+     PetitionCategoryLink(8)="pet_help_etc.htm"
+}
