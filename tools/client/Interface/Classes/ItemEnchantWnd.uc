@@ -5,14 +5,20 @@ var WindowHandle		Me;
 var ItemWindowHandle	ItemWnd;
 var WindowHandle		RepeatBtn;
 
-// Set as soon as an enchant attempt comes back. While it is set, the next EV_EnchantShow is the server
-// carrying the same enchant run on with another scroll, so the item list is refreshed in place instead of
-// being rebuilt. Cleared by that show, or by the timer below when it never arrives - which is how the
-// window closes on its own once the run is over.
+// Which button started the attempt that is now in flight. "Enchant" is a one shot and closes the window,
+// "Repeat" keeps it up for the next scroll.
+var bool				bCloseOnResult;
+
+// Set while the server's follow-up item list is still on its way after a one shot attempt: that list must
+// not reopen the window we have just closed. Dropped by the show it swallows, or by the timer if none comes.
+var bool				bIgnoreNextShow;
+
+// Set as soon as an attempt comes back during a repeat run, so the next EV_EnchantShow refreshes the list
+// in place instead of rebuilding it. Cleared by that show, or by the timer when the run is over.
 var bool				bContinuing;
 
 // The item the last attempt was aimed at. Refreshing a list entry makes the item window forget its
-// selection and nothing can put it back, so btnRepeat works from this instead of from the selection.
+// selection and nothing can put it back, so "Repeat" works from this instead of from the selection.
 var int					LastServerID;
 
 const TIMER_ENDRUN			= 1;
@@ -29,11 +35,11 @@ function OnLoad()
 	Me = GetHandle( "ItemEnchantWnd" );
 	ItemWnd = ItemWindowHandle( GetHandle( "ItemEnchantWnd.ItemWnd" ) );
 
-	// A Button's caption is a system string id, and there is no id for this one, so the button carries a
+	// A Button's caption is a system string id and there is no id for this one, so the button carries a
 	// tooltip instead.
 	RepeatBtn = GetHandle( "ItemEnchantWnd.btnRepeat" );
 	if ( RepeatBtn != None )
-		RepeatBtn.SetTooltipText( "Enchant the same item again" );
+		RepeatBtn.SetTooltipText( "Enchant the same item again, keeping this window open" );
 }
 
 function OnEvent(int Event_ID, string param)
@@ -72,7 +78,7 @@ function OnClickButton( string strID )
 	}
 }
 
-// Retail behaviour: enchant whatever the player has selected.
+// Retail behaviour: enchant the selected item once, then the window goes away.
 function OnOKClick()
 {
 	local ItemInfo infItem;
@@ -81,15 +87,31 @@ function OnOKClick()
 	if (infItem.ServerID>0)
 	{
 		LastServerID = infItem.ServerID;
+		bCloseOnResult = true;
 		class'EnchantAPI'.static.RequestEnchantItem(infItem.ServerID);
 	}
 }
 
-// Aim at the same item as last time, no selection needed.
+// Aim at the same item as last time and stay open. The first press has nothing remembered yet, so it takes
+// the selection - after that the selection is free to disappear.
 function OnRepeatClick()
 {
-	if ( LastServerID > 0 )
-		class'EnchantAPI'.static.RequestEnchantItem( LastServerID );
+	local ItemInfo infItem;
+	local int ServerID;
+
+	ServerID = LastServerID;
+	if ( ServerID <= 0 )
+	{
+		ItemWnd.GetSelectedItem(infItem);
+		ServerID = infItem.ServerID;
+	}
+
+	if ( ServerID > 0 )
+	{
+		LastServerID = ServerID;
+		bCloseOnResult = false;
+		class'EnchantAPI'.static.RequestEnchantItem( ServerID );
+	}
 }
 
 function OnCancelClick()
@@ -108,6 +130,7 @@ function EndRun()
 {
 	Me.KillTimer( TIMER_ENDRUN );
 	bContinuing = false;
+	bCloseOnResult = false;
 	LastServerID = 0;
 	Me.HideWindow();
 	Clear();
@@ -118,6 +141,13 @@ function HandleEnchantShow(string param)
 	local int ClassID;
 
 	Me.KillTimer( TIMER_ENDRUN );
+
+	// The follow-up list of a one shot attempt: the window is closed and stays closed.
+	if ( bIgnoreNextShow )
+	{
+		bIgnoreNextShow = false;
+		return;
+	}
 
 	// A scroll used from scratch starts on a clean list and forgets the previous target. A continuation
 	// keeps both - the entries are refreshed one by one in HandleEnchantItemList.
@@ -154,7 +184,7 @@ function HandleEnchantItemList(string param)
 	ParamToItemInfo(param, infItem);
 
 	// Refresh in place so enchant levels stay correct. This costs the selection, which is exactly what
-	// btnRepeat exists to make unnecessary.
+	// "Repeat" exists to make unnecessary.
 	index = ItemWnd.FindItemWithServerID( infItem.ServerID );
 	if ( index >= 0 )
 		ItemWnd.SetItem( index, infItem );
@@ -164,6 +194,18 @@ function HandleEnchantItemList(string param)
 
 function HandleEnchantResult(string param)
 {
+	if ( bCloseOnResult )
+	{
+		// One shot. Hand the scroll the server lined up for a follow-up back to it, ignore the item list
+		// that is already on its way, and close. The timer is the fallback for when no list arrives at all -
+		// the item broke, or the scrolls ran out - so the ignore flag never survives into the next window.
+		bIgnoreNextShow = true;
+		class'EnchantAPI'.static.RequestEnchantItem(-1);
+		EndRun();
+		Me.SetTimer( TIMER_ENDRUN, TIMER_ENDRUN_DELAY );
+		return;
+	}
+
 	// Retail tears the window down right here. Instead we wait: the server states whether the run goes on
 	// by sending another "choose item" order, which lands well within the delay below. If none comes - the
 	// item broke, the scrolls ran out, the item hit the enchant limit - the timer closes the window.
@@ -174,5 +216,8 @@ function HandleEnchantResult(string param)
 function OnTimer(int TimerID)
 {
 	if ( TimerID == TIMER_ENDRUN )
+	{
+		bIgnoreNextShow = false;
 		EndRun();
+	}
 }

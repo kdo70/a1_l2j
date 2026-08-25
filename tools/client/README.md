@@ -145,6 +145,10 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 
 ## Files here
 
+- `add_repeat_button.groovy` — adds the Repeat button to `interface.xdat`, or updates its caption id. Runs on
+  the XDAT Editor's own jars (`java -cp <editor jars> groovy.ui.GroovyMain add_repeat_button.groovy <in> <out>
+  [captionId]`). The schema that reads an Interlude xdat is `ct0`, not `ct1`. A Button caption is a system
+  string id, so the id has to exist in the client's `sysstring` dat first — this server uses **1501**.
 - `build_interface.ps1` — sets up a throwaway build tree and runs `ucc make`.
 - `extract_interface_source.ps1` — pulls the `.uc` sources out of any `Lineage2Ver111` package.
 - `extract_defaults.ps1` — recovers the `defaultproperties` the sources don't carry. **Mandatory.**

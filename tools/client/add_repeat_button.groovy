@@ -30,8 +30,16 @@ src.withInputStream { xdat.read(it) }
 def wnd = xdat.windows.find { it.name == 'ItemEnchantWnd' }
 if (wnd == null) throw new IllegalStateException('ItemEnchantWnd not found')
 
-if (wnd.children.any { it.name == 'btnRepeat' }) {
-    println 'btnRepeat already present - nothing to do'
+// The caption is a system string id. Pass one on the command line once the string exists in the client's
+// sysstring dat; -1 leaves the button blank.
+int caption = args.length > 2 ? args[2] as int : -1
+
+def existing = wnd.children.find { it.name == 'btnRepeat' }
+if (existing != null) {
+    println "btnRepeat already present - caption ${existing.buttonName} -> ${caption}"
+    existing.buttonName = caption
+    dst.withOutputStream { xdat.write(it) }
+    println "written: ${dst} (${dst.length()} bytes, was ${src.length()})"
     return
 }
 
@@ -50,7 +58,7 @@ ok.write(buf)
 def repeat = new ct0.Button().read(new ByteArrayInputStream(buf.toByteArray()))
 
 repeat.name = 'btnRepeat'
-repeat.buttonName = -1          // no system string: the caption is handled by the script
+repeat.buttonName = caption
 
 // Three buttons of the same width, evenly spread inside the window.
 int w = ok.size_absolute_width

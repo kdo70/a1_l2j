@@ -114,6 +114,17 @@ ant -f source\aCis_gameserver\build.xml
 `*_loop.sh`), а не `killall java` — посторонние Java-процессы на VPS
 не затрагиваются.
 
+## Модификация клиента
+
+Клиент Interlude (`interface.u`, `interface.xdat`) правится из этого же
+репозитория: инструменты в `tools/client`, пошаговая инструкция —
+`tools/client/README.md`.
+
+Накопленные знания по форматам клиента, пересборке `interface.u` и найденным
+ловушкам (главная: `defaultproperties` не хранятся в `ScriptText`, и
+пересборка «как есть» ломает весь интерфейс) — в
+`docs/enchant-and-client-modding.md`. Читать **до** любых правок клиента.
+
 ## Стиль кода и коммиты
 
 - Стиль: Eclipse-настройки в `source/aCis_gameserver/.settings`
