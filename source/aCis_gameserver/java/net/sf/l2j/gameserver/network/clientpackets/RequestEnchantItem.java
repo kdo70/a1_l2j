@@ -5,7 +5,6 @@ import net.sf.l2j.commons.random.Rnd;
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.xml.ArmorSetData;
-import net.sf.l2j.gameserver.enums.EnchantWindowMode;
 import net.sf.l2j.gameserver.enums.Paperdoll;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.item.ArmorSet;
@@ -259,12 +258,13 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 	/**
 	 * Try to keep the enchant window opened, using another {@link ItemInstance} scroll of the very same item id.
 	 * <p>
-	 * It only happens if {@link Config#ENCHANT_WINDOW_MODE} is enabled, if the enchanted item survived the attempt and
-	 * can still be enchanted by that type of scroll, and if such a scroll is still owned.
+	 * It only happens if {@link Config#ENCHANT_KEEP_WINDOW_OPENED} is enabled, if the enchanted item survived the
+	 * attempt and can still be enchanted by that type of scroll, and if such a scroll is still owned. Not sending the
+	 * order is what closes the window, so every early return below doubles as "the run is over".
 	 * <p>
-	 * Under {@link EnchantWindowMode#REOPEN} we ask the client to open the window again, which makes it rebuild its
-	 * item list - the player has to select the item once more. Under {@link EnchantWindowMode#KEEP} we send nothing at
-	 * all : a patched client keeps the window and its selection alive, so pressing "Enchant" is enough.
+	 * A stock client rebuilds its item list upon reopening, which costs the player a new item selection. A client
+	 * whose ItemEnchantWnd was rebuilt from tools/client keeps the list and the selection, so pressing "Enchant"
+	 * again is enough.
 	 * @param player : The {@link Player} who made the enchant attempt.
 	 * @param scrollItemId : The item id of the scroll consumed by the enchant attempt.
 	 * @param item : The {@link ItemInstance} which was the target of the enchant attempt.
@@ -272,7 +272,7 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 	 */
 	private static boolean keepEnchantWindowOpened(Player player, int scrollItemId, ItemInstance item)
 	{
-		if (!Config.ENCHANT_WINDOW_MODE.isEnabled())
+		if (!Config.ENCHANT_KEEP_WINDOW_OPENED)
 			return false;
 
 		// The enchanted item must have survived the attempt ; a destroyed item isn't part of the inventory anymore.
@@ -290,10 +290,7 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 			return false;
 
 		player.setActiveEnchantItem(scroll);
-
-		if (Config.ENCHANT_WINDOW_MODE == EnchantWindowMode.REOPEN)
-			player.sendPacket(new ChooseInventoryItem(scroll.getItemId()));
-
+		player.sendPacket(new ChooseInventoryItem(scroll.getItemId()));
 		return true;
 	}
 }
