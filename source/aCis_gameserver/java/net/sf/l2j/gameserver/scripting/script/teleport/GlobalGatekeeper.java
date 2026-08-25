@@ -42,7 +42,7 @@ import net.sf.l2j.gameserver.scripting.Quest;
  * <li>Area &lt;tab&gt; &lt;area&gt; &lt;page&gt; : shows the teleport points of an area.</li>
  * <li>Popular &lt;tab&gt; &lt;page&gt; : shows the most used teleport points of the menu.</li>
  * <li>Page &lt;tab&gt; &lt;file&gt; : shows an additional datapack HTM.</li>
- * <li>Tp &lt;tab&gt; &lt;area&gt; &lt;page&gt; &lt;point&gt; : teleports the Player, area being -1 when fired from the popular tab.</li>
+ * <li>Tp &lt;tab&gt; &lt;area&gt; &lt;page&gt; &lt;point&gt; : teleports the Player, area being -1 from the popular tab and -2 from the capital column of the areas list.</li>
  * </ul>
  * The teleport itself is delayed by the "teleportDelay" setting, during which the /unstuck casting animation is played.
  */
@@ -53,6 +53,11 @@ public class GlobalGatekeeper extends Quest
 	private static final int MAX_SHOWN_PAGES = 10;
 
 	private static final String ROW_END = "</tr></table>";
+
+	/** Area index used by the Tp bypass, when it is fired from the popular tab. */
+	private static final int FROM_POPULAR = -1;
+	/** Area index used by the Tp bypass, when it is fired from the capital column of the areas list. */
+	private static final int FROM_AREAS = -2;
 
 	/** The GM /unstuck skill, only used for its casting animation. */
 	private static final int ESCAPE_SKILL_ID = 2100;
@@ -158,7 +163,9 @@ public class GlobalGatekeeper extends Quest
 						break;
 
 					// The teleport failed ; refresh the list the Player comes from.
-					if (areaIndex < 0)
+					if (areaIndex == FROM_AREAS)
+						showAreas(npc, player, menu, tab, page);
+					else if (areaIndex == FROM_POPULAR)
 						showPopular(npc, player, menu, tab, page);
 					else
 						showPoints(npc, player, menu, tab, tab.getArea(areaIndex), page);
@@ -230,7 +237,7 @@ public class GlobalGatekeeper extends Quest
 			final GatekeeperArea area = areas.get(i);
 			final GatekeeperPoint main = area.getMainPoint();
 
-			StringUtil.append(sb, getRowStart(i - first), "<td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55><font color=\"8F8F8F\">", area.getCapital(), "</font></td>", ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), "<td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55>", getCapitalText(area, player, tab.getIndex(), page), "</td>", ROW_END);
 		}
 
 		String content = getHtmlText("areas.htm");
@@ -301,7 +308,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), "<td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), -1, page), "</td>", ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), "<td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), FROM_POPULAR, page), "</td>", ROW_END);
 		}
 
 		String content = getHtmlText("popular.htm");
@@ -433,6 +440,26 @@ public class GlobalGatekeeper extends Quest
 		player.teleportTo(point, 20);
 
 		GatekeeperStatsManager.getInstance().increase(point.getId());
+	}
+
+	/**
+	 * @param area : The {@link GatekeeperArea} to render.
+	 * @param player : The {@link Player} used to test conditions.
+	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
+	 * @param page : The current page of the areas list, used to build the bypass.
+	 * @return The capital cell content, being a direct teleport link to the main point of the area.
+	 */
+	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page)
+	{
+		final String capital = area.getCapital();
+		if (capital.isEmpty())
+			return "";
+
+		final GatekeeperPoint main = area.getMainPoint();
+		if (main == null || !main.isAvailableFor(player))
+			return "<font color=\"707070\">" + capital + "</font>";
+
+		return "<a action=\"bypass -h Quest " + getName() + " Tp " + tabIndex + " " + FROM_AREAS + " " + page + " " + main.getId() + "\" msg=\"811;" + getPopupText(main, player) + "\">" + capital + "</a>";
 	}
 
 	/**

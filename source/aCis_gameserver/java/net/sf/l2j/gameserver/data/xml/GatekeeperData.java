@@ -59,9 +59,10 @@ public class GatekeeperData implements IXmlReader
 	private int _priceRounding;
 
 	private boolean _isDistancePriceEnabled;
-	private int _minDistancePrice;
-	private int _maxDistancePrice;
-	private double _maxDistance;
+	private int _nearPrice;
+	private int _farPrice;
+	private int _capPrice;
+	private double _refDistance;
 	private double _distanceCurve;
 
 	private boolean _isLevelPriceEnabled;
@@ -124,9 +125,10 @@ public class GatekeeperData implements IXmlReader
 				_priceRounding = Math.max(1, parseInteger(attrs, "rounding", _priceRounding));
 
 				_isDistancePriceEnabled = parseBoolean(attrs, "distance", _isDistancePriceEnabled);
-				_minDistancePrice = Math.max(0, parseInteger(attrs, "minPrice", _minDistancePrice));
-				_maxDistancePrice = Math.max(_minDistancePrice, parseInteger(attrs, "maxPrice", _maxDistancePrice));
-				_maxDistance = Math.max(1, parseDouble(attrs, "maxDistance", _maxDistance));
+				_nearPrice = Math.max(0, parseInteger(attrs, "nearPrice", _nearPrice));
+				_farPrice = Math.max(_nearPrice, parseInteger(attrs, "farPrice", _farPrice));
+				_capPrice = Math.max(0, parseInteger(attrs, "capPrice", _capPrice));
+				_refDistance = Math.max(1, parseDouble(attrs, "refDistance", _refDistance));
 				_distanceCurve = Math.max(0.1, parseDouble(attrs, "distanceCurve", _distanceCurve));
 
 				_isLevelPriceEnabled = parseBoolean(attrs, "level", _isLevelPriceEnabled);
@@ -393,10 +395,11 @@ public class GatekeeperData implements IXmlReader
 		_priceRounding = 100;
 
 		_isDistancePriceEnabled = true;
-		_minDistancePrice = 15000;
-		_maxDistancePrice = 100000;
-		_maxDistance = 200000;
-		_distanceCurve = 1.5;
+		_nearPrice = 15000;
+		_farPrice = 100000;
+		_capPrice = 200000;
+		_refDistance = 240000;
+		_distanceCurve = 1.35;
 
 		_isLevelPriceEnabled = true;
 		_levelPriceFrom = 1;
@@ -522,18 +525,21 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
+	 * The ratio isn't capped at refDistance, otherwise every point of a remote area would end up sharing the very same price.<br>
+	 * Only capPrice bounds the result, and it is meant to be high enough to rarely trigger.
 	 * @param player : The {@link Player} used as starting point.
 	 * @param point : The {@link GatekeeperPoint} to reach.
-	 * @return The base price of the teleport, interpolated between minPrice and maxPrice using the 2D distance.
+	 * @return The base price of the teleport, derived from the 2D distance : nearPrice on the spot, farPrice at refDistance, growing beyond.
 	 */
 	private double getDistancePrice(Player player, GatekeeperPoint point)
 	{
 		if (!_isDistancePriceEnabled)
 			return 0;
 
-		final double ratio = Math.min(1, point.distance2D(player.getX(), player.getY()) / _maxDistance);
+		final double ratio = point.distance2D(player.getX(), player.getY()) / _refDistance;
+		final double price = _nearPrice + (_farPrice - _nearPrice) * Math.pow(ratio, _distanceCurve);
 
-		return _minDistancePrice + (_maxDistancePrice - _minDistancePrice) * Math.pow(ratio, _distanceCurve);
+		return (_capPrice > 0) ? Math.min(price, _capPrice) : price;
 	}
 
 	/**

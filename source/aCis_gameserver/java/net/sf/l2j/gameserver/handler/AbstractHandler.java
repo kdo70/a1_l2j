@@ -45,11 +45,7 @@ public abstract class AbstractHandler<K, H>
 						if (!file.endsWith(".class"))
 							continue;
 						
-						final Class<?> clazz = Class.forName(packageName + "." + file.substring(0, file.length() - 6));
-						if (!handlerInterface.isAssignableFrom(clazz) || clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers()))
-							continue;
-						
-						registerHandler(handlerInterface.cast(clazz.getDeclaredConstructor().newInstance()));
+						loadHandler(handlerInterface, packageName + "." + file.substring(0, file.length() - 6));
 					}
 				}
 				// Handle regular JAR process.
@@ -67,11 +63,7 @@ public abstract class AbstractHandler<K, H>
 							if (!entryName.startsWith(packagePath) || !entryName.endsWith(".class"))
 								continue;
 							
-							final Class<?> clazz = Class.forName(entryName.replace('/', '.').replace(".class", ""));
-							if (!handlerInterface.isAssignableFrom(clazz) || clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers()))
-								continue;
-							
-							registerHandler(handlerInterface.cast(clazz.getDeclaredConstructor().newInstance()));
+							loadHandler(handlerInterface, entryName.replace('/', '.').replace(".class", ""));
 						}
 					}
 				}
@@ -80,6 +72,29 @@ public abstract class AbstractHandler<K, H>
 		catch (Exception e)
 		{
 			LOGGER.warn("Failed to load classes from package {}", e, packagePath);
+		}
+	}
+
+	/**
+	 * Instantiate and register a single handler.<br>
+	 * <br>
+	 * Failures are contained on that very handler ; a faulty class must not discard the handlers which aren't registered yet.
+	 * @param handlerInterface : The interface the class must implement to be registered.
+	 * @param className : The fully qualified name of the class to register.
+	 */
+	private void loadHandler(Class<H> handlerInterface, String className)
+	{
+		try
+		{
+			final Class<?> clazz = Class.forName(className);
+			if (!handlerInterface.isAssignableFrom(clazz) || clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers()))
+				return;
+
+			registerHandler(handlerInterface.cast(clazz.getDeclaredConstructor().newInstance()));
+		}
+		catch (Exception | LinkageError e)
+		{
+			LOGGER.error("Couldn't register the handler {}.", e, className);
 		}
 	}
 	

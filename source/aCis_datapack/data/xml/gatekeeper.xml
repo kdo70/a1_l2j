@@ -21,17 +21,21 @@
 	<pricing>
 		Dynamic price of the points which don't own an explicit price. Formula :
 			price = base * levelRate * karmaRate * nightRate, rounded to the "rounding" step,
-			base  = the XML price of the point when set, otherwise minPrice..maxPrice interpolated on the distance.
+			base  = the XML price of the point when set, otherwise nearPrice + (farPrice - nearPrice) * (distance / refDistance) ^ distanceCurve.
 		With the default values, a max level player teleporting by day, without karma, pays the raw distance
-		price : ~15k nearby, ~100k on the other side of the world.
+		price : ~18k nearby, ~100k on the other side of the continent.
+
+		The distance ratio isn't capped at refDistance - only capPrice bounds the result. Capping the ratio
+		would give the very same price to every single point of a remote area.
 
 		enabled      : false makes the gatekeeper use XML prices only (unset prices become free).
 		rounding     : prices are rounded to that step, for the sake of readability. 1 disables the rounding.
 		distance     : false removes the distance base ; points without an explicit price become free.
-		minPrice     : price of a teleport on the spot.
-		maxPrice     : price of a teleport at maxDistance and beyond.
-		maxDistance  : distance, in game units, at which maxPrice is reached.
+		nearPrice    : price of a teleport on the spot.
+		farPrice     : price of a teleport at refDistance.
+		refDistance  : reference distance, in game units. ~240k is a cross continent trip.
 		distanceCurve: exponent applied on the distance ratio. Above 1 keeps short trips cheaper.
+		capPrice     : absolute ceiling of the distance base, reached by the very extremities of the map. 0 removes it.
 		level        : false removes the level modifier.
 		levelFrom / levelTo : level range on which the rate grows.
 		levelMinRate : rate applied at levelFrom, growing up to 1 at levelTo. 1 makes the level free of charge.
@@ -70,7 +74,7 @@
 <list>
 	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" defaultPriceId="57" defaultPrice="-1" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" rowColor="000000" />
 
-	<pricing enabled="true" rounding="100" distance="true" minPrice="15000" maxPrice="100000" maxDistance="200000" distanceCurve="1.5" level="true" levelFrom="1" levelTo="80" levelMinRate="0.4" karma="true" karmaCap="10000" karmaRate="1.0" night="true" nightRate="1.25" />
+	<pricing enabled="true" rounding="100" distance="true" nearPrice="15000" farPrice="100000" refDistance="240000" distanceCurve="1.35" capPrice="200000" level="true" levelFrom="1" levelTo="80" levelMinRate="0.4" karma="true" karmaCap="10000" karmaRate="1.0" night="true" nightRate="1.25" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
@@ -93,6 +97,7 @@
 	<npc id="31964" menu="0" />
 
 	<menu id="0">
+		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. -->
 		<item name="Города" bypass="Quest GlobalGatekeeper List 0">
 			<area name="Town of Dion" capital="Dion" price="1300">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
