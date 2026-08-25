@@ -312,7 +312,7 @@ public abstract class Item
 	}
 	
 	/**
-	 * Parse the "name_color" item property, an hexadecimal RRGGBB color written the HTML way. Both "RRGGBB" and "#RRGGBB" are accepted.
+	 * Parse the "name_color" item property, 6 hexadecimal digits read as RRGGBB. The leading '#' of an HTML color can't be used here, the datapack parser reads it as a table reference.
 	 * @param value : The {@link String} to parse, or null when the item defines no color.
 	 * @return The color as a 0xRRGGBB int, or {@link #NO_NAME_COLOR} if there is none or the value can't be read.
 	 */
@@ -321,12 +321,11 @@ public abstract class Item
 		if (value == null || value.isEmpty())
 			return NO_NAME_COLOR;
 		
-		final String color = (value.charAt(0) == '#') ? value.substring(1) : value;
-		if (color.length() == 6)
+		if (value.length() == 6)
 		{
 			try
 			{
-				return Integer.parseInt(color, 16);
+				return Integer.parseInt(value, 16);
 			}
 			catch (NumberFormatException e)
 			{
@@ -334,7 +333,7 @@ public abstract class Item
 			}
 		}
 		
-		LOGGER.warn("Invalid name_color '{}' ; an hexadecimal RRGGBB value was expected.", value);
+		LOGGER.warn("Invalid name_color '{}' ; 6 hexadecimal digits (RRGGBB) were expected.", value);
 		return NO_NAME_COLOR;
 	}
 	

@@ -3,12 +3,21 @@ class Tooltip extends UICommonAPI;
 const TOOLTIP_MINIMUM_WIDTH = 144;
 const TOOLTIP_SETITEM_MAX = 3;
 
+// Item name colors handed out by the server (ItemNameColorTable server side). They ride on chat messages
+// tagged with ITEMCOLOR_TAG, which ChatWnd drops instead of printing, and are keyed by item class id.
+const ITEMCOLOR_TAG = "~ic~";
+const ITEMCOLOR_RESET = "r";
+
+var array<int> m_ItemColorID;
+var array<color> m_ItemColorValue;
+
 var CustomTooltip m_Tooltip;
 var DrawItemInfo m_Info;
 
 function OnLoad()
 {
 	RegisterEvent( EV_RequestTooltipInfo );
+	RegisterEvent( EV_ChatMessage );
 }
 
 function OnEvent(int Event_ID, string param)
@@ -18,7 +27,88 @@ function OnEvent(int Event_ID, string param)
 	case EV_RequestTooltipInfo:
 		HandleRequestTooltipInfo(param);
 		break;
+	case EV_ChatMessage:
+		HandleItemColorMessage(param);
+		break;
 	}
+}
+
+// A feed message is the tag followed by "id-r-g-b" groups separated by ";", or by a single "r" that empties
+// the table before the server sends a new one. Anything else is ordinary chat and is left alone.
+function HandleItemColorMessage(string param)
+{
+	local string text;
+	local int pos;
+
+	if (!ParseString(param, "Msg", text))
+		return;
+
+	pos = InStr(text, ITEMCOLOR_TAG);
+	if (pos < 0)
+		return;
+
+	ParseItemColors(Mid(text, pos + Len(ITEMCOLOR_TAG)));
+}
+
+function ParseItemColors(string data)
+{
+	local array<string> arrEntry;
+	local array<string> arrField;
+	local int count;
+	local int i;
+
+	if (data == ITEMCOLOR_RESET)
+	{
+		m_ItemColorID.Remove(0, m_ItemColorID.Length);
+		m_ItemColorValue.Remove(0, m_ItemColorValue.Length);
+		return;
+	}
+
+	count = Split(data, ";", arrEntry);
+	for (i = 0; i < count; i++)
+	{
+		arrField.Remove(0, arrField.Length);
+		if (Split(arrEntry[i], "-", arrField) != 4)
+			continue;
+
+		SetItemColor(int(arrField[0]), int(arrField[1]), int(arrField[2]), int(arrField[3]));
+	}
+}
+
+function SetItemColor(int ClassID, int R, int G, int B)
+{
+	local int idx;
+
+	if (ClassID <= 0)
+		return;
+
+	idx = FindItemColor(ClassID);
+	if (idx < 0)
+	{
+		idx = m_ItemColorID.Length;
+		m_ItemColorID.Insert(idx, 1);
+		m_ItemColorValue.Insert(idx, 1);
+		m_ItemColorID[idx] = ClassID;
+	}
+
+	m_ItemColorValue[idx].R = R;
+	m_ItemColorValue[idx].G = G;
+	m_ItemColorValue[idx].B = B;
+	m_ItemColorValue[idx].A = 255;
+}
+
+// Index of the color held for an item class id, or -1 when the server leaves that item to the client.
+function int FindItemColor(int ClassID)
+{
+	local int i;
+
+	for (i = 0; i < m_ItemColorID.Length; i++)
+	{
+		if (m_ItemColorID[i] == ClassID)
+			return i;
+	}
+
+	return -1;
 }
 
 function HandleRequestTooltipInfo(string param)
@@ -1846,10 +1936,18 @@ function AddTooltipItemEnchant(ItemInfo Item)
 //아이템 이름 + AdditionalName
 function AddTooltipItemName(string Name, ItemInfo Item)
 {
+	local int idx;
+
 	StartItem();
 	m_Info.eType = DIT_TEXT;
 	m_Info.t_bDrawOneLine = true;
 	m_Info.t_strText = Name;
+
+	// A color the server set for this item wins over the client's own, which is what StartItem leaves behind.
+	idx = FindItemColor(Item.ClassID);
+	if (idx >= 0)
+		m_Info.t_color = m_ItemColorValue[idx];
+
 	EndItem();
 	
 	//Additional Name

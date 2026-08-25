@@ -34,6 +34,10 @@ const CHAT_WINDOW_SYSTEM = 5;		// 시스템 메시지 창
 
 const CHAT_UNION_MAX = 35;			// 지휘채널 OnScreenMessage 한줄에 최대로 들어갈 수 있는 글자 수
 
+// Item name colors from the server ride on chat messages tagged like this. Tooltip reads them, this window
+// must not print them. See ItemNameColorTable server side.
+const ITEMCOLOR_TAG = "~ic~";
+
 //Handle List
 var ChatWindowHandle NormalChat;
 var ChatWindowHandle TradeChat;
@@ -398,6 +402,11 @@ function HandleChatmessage( String param )
 	type = EChatType(nTmp);
 	
 	ParseString(param, "Msg", text);
+
+	// Data, not chat : the item name color feed sent right after login.
+	if (InStr(text, ITEMCOLOR_TAG) >= 0)
+		return;
+
 	ParseInt(param, "ColorR", nTmp);
 	Color.R = nTmp;
 	ParseInt(param, "ColorG", nTmp);
