@@ -2,6 +2,7 @@ package net.sf.l2j.gameserver.network.clientpackets;
 
 import net.sf.l2j.commons.random.Rnd;
 
+import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.xml.ArmorSetData;
 import net.sf.l2j.gameserver.enums.Paperdoll;
@@ -12,6 +13,7 @@ import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
 import net.sf.l2j.gameserver.network.SystemMessageId;
+import net.sf.l2j.gameserver.network.serverpackets.ChooseInventoryItem;
 import net.sf.l2j.gameserver.network.serverpackets.EnchantResult;
 import net.sf.l2j.gameserver.network.serverpackets.SkillList;
 import net.sf.l2j.gameserver.network.serverpackets.SystemMessage;
@@ -61,7 +63,10 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 		final EnchantScroll scrollTemplate = getEnchantScroll(scroll);
 		if (scrollTemplate == null)
 			return;
-		
+
+		// Memorize the scroll item id, since the ItemInstance can be destroyed below.
+		final int scrollItemId = scroll.getItemId();
+
 		// first validation check
 		if (!scrollTemplate.isValid(item) || !isEnchantable(item))
 		{
@@ -243,7 +248,44 @@ public final class RequestEnchantItem extends AbstractEnchantPacket
 			}
 			
 			player.broadcastUserInfo();
-			player.setActiveEnchantItem(null);
+
+			// Feed the enchant window with another scroll, or simply close it.
+			if (!keepEnchantWindowOpened(player, scrollItemId, item))
+				player.setActiveEnchantItem(null);
 		}
+	}
+
+	/**
+	 * Try to keep the enchant window opened, using another {@link ItemInstance} scroll of the very same item id.
+	 * <p>
+	 * It only happens if {@link Config#ENCHANT_KEEP_WINDOW_OPENED} is enabled, if the enchanted item survived the
+	 * attempt and can still be enchanted by that type of scroll, and if such a scroll is still owned.
+	 * @param player : The {@link Player} who made the enchant attempt.
+	 * @param scrollItemId : The item id of the scroll consumed by the enchant attempt.
+	 * @param item : The {@link ItemInstance} which was the target of the enchant attempt.
+	 * @return True if the enchant window has been kept opened, false otherwise.
+	 */
+	private static boolean keepEnchantWindowOpened(Player player, int scrollItemId, ItemInstance item)
+	{
+		if (!Config.ENCHANT_KEEP_WINDOW_OPENED)
+			return false;
+
+		// The enchanted item must have survived the attempt ; a destroyed item isn't part of the inventory anymore.
+		if (player.getInventory().getItemByObjectId(item.getObjectId()) != item)
+			return false;
+
+		// We need another scroll of the very same type.
+		final ItemInstance scroll = player.getInventory().getItemByItemId(scrollItemId);
+		if (scroll == null)
+			return false;
+
+		// That scroll must still be able to enchant that item (enchant limits, notably).
+		final EnchantScroll scrollTemplate = getEnchantScroll(scroll);
+		if (scrollTemplate == null || !scrollTemplate.isValid(item) || !isEnchantable(item))
+			return false;
+
+		player.setActiveEnchantItem(scroll);
+		player.sendPacket(new ChooseInventoryItem(scroll.getItemId()));
+		return true;
 	}
 }

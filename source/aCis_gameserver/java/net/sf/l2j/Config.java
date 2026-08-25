@@ -300,7 +300,8 @@ public final class Config
 	public static int ENCHANT_MAX_ARMOR;
 	public static int ENCHANT_SAFE_MAX;
 	public static int ENCHANT_SAFE_MAX_FULL;
-	
+	public static boolean ENCHANT_KEEP_WINDOW_OPENED;
+
 	/** Augmentations */
 	public static int AUGMENTATION_NG_SKILL_CHANCE;
 	public static int AUGMENTATION_NG_GLOW_CHANCE;
@@ -863,6 +864,7 @@ public final class Config
 		ENCHANT_MAX_ARMOR = players.getProperty("EnchantMaxArmor", 0);
 		ENCHANT_SAFE_MAX = players.getProperty("EnchantSafeMax", 3);
 		ENCHANT_SAFE_MAX_FULL = players.getProperty("EnchantSafeMaxFull", 4);
+		ENCHANT_KEEP_WINDOW_OPENED = players.getProperty("EnchantKeepWindowOpened", false);
 		
 		AUGMENTATION_NG_SKILL_CHANCE = players.getProperty("AugmentationNGSkillChance", 15);
 		AUGMENTATION_NG_GLOW_CHANCE = players.getProperty("AugmentationNGGlowChance", 0);
