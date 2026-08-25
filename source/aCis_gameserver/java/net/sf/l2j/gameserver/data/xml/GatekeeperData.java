@@ -43,6 +43,7 @@ public class GatekeeperData implements IXmlReader
 	private int _defaultPriceId;
 	private int _defaultPrice;
 	private int _defaultNoblePrice;
+	private int _teleportDelay;
 
 	private String _goLabel;
 	private String _nobleLabel;
@@ -81,6 +82,7 @@ public class GatekeeperData implements IXmlReader
 				_defaultPriceId = parseInteger(attrs, "defaultPriceId", _defaultPriceId);
 				_defaultPrice = Math.max(0, parseInteger(attrs, "defaultPrice", _defaultPrice));
 				_defaultNoblePrice = Math.max(0, parseInteger(attrs, "defaultNoblePrice", _defaultNoblePrice));
+				_teleportDelay = Math.min(60000, Math.max(0, parseInteger(attrs, "teleportDelay", _teleportDelay)));
 
 				_goLabel = parseString(attrs, "goLabel", _goLabel);
 				_nobleLabel = parseString(attrs, "nobleLabel", _nobleLabel);
@@ -336,6 +338,7 @@ public class GatekeeperData implements IXmlReader
 		_defaultPriceId = 57;
 		_defaultPrice = 0;
 		_defaultNoblePrice = 0;
+		_teleportDelay = 5000;
 
 		_goLabel = "&gt;&gt;";
 		_nobleLabel = "noble";
@@ -390,6 +393,14 @@ public class GatekeeperData implements IXmlReader
 	public int getRowsPerPage()
 	{
 		return _rowsPerPage;
+	}
+
+	/**
+	 * @return The casting time, in milliseconds, of the teleport animation played before the actual teleport. 0 disables the animation.
+	 */
+	public int getTeleportDelay()
+	{
+		return _teleportDelay;
 	}
 
 	public int getPopularLimit()

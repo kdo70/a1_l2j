@@ -16,6 +16,7 @@
 		freeLabel        : label shown on the price column, when the teleport is free.
 		emptyLabel       : label shown instead of an empty list.
 		backLabel        : label of the link leading back to the areas list.
+		teleportDelay    : casting time, in ms, of the /unstuck like animation played before the teleport. 0 disables it, 60000 is the maximum.
 
 	<npc>
 		id / menu : binds a npc id to a menu id. Add a line to make any npc a gatekeeper.
@@ -43,7 +44,7 @@
 		minLevel / maxLevel : optional level restriction.
 -->
 <list>
-	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" karmaPriceRate="2" defaultPriceId="57" defaultPrice="0" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" />
+	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" karmaPriceRate="2" defaultPriceId="57" defaultPrice="0" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />

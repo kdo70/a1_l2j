@@ -1,9 +1,12 @@
 package net.sf.l2j.gameserver.scripting.script.teleport;
 
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
 
 import net.sf.l2j.commons.lang.StringUtil;
+import net.sf.l2j.commons.pool.ThreadPool;
 
 import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
@@ -12,6 +15,7 @@ import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
+import net.sf.l2j.gameserver.enums.GaugeColor;
 import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
@@ -22,7 +26,10 @@ import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.residence.castle.Castle;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
+import net.sf.l2j.gameserver.network.serverpackets.MagicSkillCanceled;
+import net.sf.l2j.gameserver.network.serverpackets.MagicSkillUse;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
+import net.sf.l2j.gameserver.network.serverpackets.SetupGauge;
 import net.sf.l2j.gameserver.scripting.Quest;
 
 /**
@@ -37,6 +44,7 @@ import net.sf.l2j.gameserver.scripting.Quest;
  * <li>Page &lt;tab&gt; &lt;file&gt; : shows an additional datapack HTM.</li>
  * <li>Tp &lt;tab&gt; &lt;area&gt; &lt;page&gt; &lt;point&gt; : teleports the Player, area being -1 when fired from the popular tab.</li>
  * </ul>
+ * The teleport itself is delayed by the "teleportDelay" setting, during which the /unstuck casting animation is played.
  */
 public class GlobalGatekeeper extends Quest
 {
@@ -44,6 +52,10 @@ public class GlobalGatekeeper extends Quest
 	private static final int MENU_MAX_COLUMNS = 4;
 	private static final int MAX_SHOWN_PAGES = 10;
 
+	/** The GM /unstuck skill, only used for its casting animation. */
+	private static final int ESCAPE_SKILL_ID = 2100;
+
+	private final Set<Integer> _pendingTeleports = ConcurrentHashMap.newKeySet();
 
 	public GlobalGatekeeper()
 	{
@@ -316,12 +328,19 @@ public class GlobalGatekeeper extends Quest
 	 * @param pointId : The {@link GatekeeperPoint} id to reach.
 	 * @return True if the {@link Player} has been teleported, false otherwise.
 	 */
-	private static boolean teleport(Player player, GatekeeperMenu menu, int pointId)
+	private boolean teleport(Player player, GatekeeperMenu menu, int pointId)
 	{
 		// The point must be reachable from this Npc menu.
 		final GatekeeperPoint point = menu.getPoint(pointId);
 		if (point == null)
 			return false;
+
+		// A teleport animation is already running ; don't take the price twice.
+		if (_pendingTeleports.contains(player.getObjectId()))
+		{
+			player.sendPacket(ActionFailed.STATIC_PACKET);
+			return true;
+		}
 
 		if (player.isDead() || player.isOperating() || player.isInOlympiadMode() || player.isInObserverMode() || player.isFestivalParticipant() || player.isCursedWeaponEquipped())
 		{
@@ -359,11 +378,59 @@ public class GlobalGatekeeper extends Quest
 			return false;
 		}
 
+		final int delay = GatekeeperData.getInstance().getTeleportDelay();
+		if (delay <= 0)
+		{
+			doTeleport(player, point);
+			return true;
+		}
+
+		final int objectId = player.getObjectId();
+
+		_pendingTeleports.add(objectId);
+
+		// Mimic the /unstuck cast, without actually casting the skill (which owns its own teleport effect).
+		final boolean wasImmobilized = player.isImmobilized();
+
+		player.abortAll(false);
+		player.setIsImmobilized(true);
+		player.broadcastPacket(new MagicSkillUse(player, player, ESCAPE_SKILL_ID, 1, delay, 0));
+		player.sendPacket(new SetupGauge(GaugeColor.BLUE, delay));
+
+		ThreadPool.schedule(() ->
+		{
+			_pendingTeleports.remove(objectId);
+
+			if (!wasImmobilized)
+				player.setIsImmobilized(false);
+
+			// The Player died or left the world meanwhile ; cancel the animation and refund the price.
+			if (player.isDead() || !player.isOnline())
+			{
+				player.broadcastPacket(new MagicSkillCanceled(objectId));
+
+				if (price > 0 && player.isOnline())
+					giveItems(player, point.getPriceId(), price);
+
+				return;
+			}
+
+			doTeleport(player, point);
+		}, delay);
+
+		return true;
+	}
+
+	/**
+	 * Teleport the {@link Player} and increment the teleport counter of the {@link GatekeeperPoint}.
+	 * @param player : The {@link Player} to teleport.
+	 * @param point : The {@link GatekeeperPoint} to reach.
+	 */
+	private static void doTeleport(Player player, GatekeeperPoint point)
+	{
 		player.teleportTo(point, 20);
 
 		GatekeeperStatsManager.getInstance().increase(point.getId());
-
-		return true;
 	}
 
 	/**
