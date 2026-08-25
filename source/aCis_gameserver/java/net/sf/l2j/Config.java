@@ -301,6 +301,9 @@ public final class Config
 	public static int ENCHANT_SAFE_MAX;
 	public static int ENCHANT_SAFE_MAX_FULL;
 	public static boolean ENCHANT_KEEP_WINDOW_OPENED;
+	
+	/** Item name colors */
+	public static boolean SEND_ITEM_NAME_COLORS;
 
 	/** Augmentations */
 	public static int AUGMENTATION_NG_SKILL_CHANCE;
@@ -865,6 +868,8 @@ public final class Config
 		ENCHANT_SAFE_MAX = players.getProperty("EnchantSafeMax", 3);
 		ENCHANT_SAFE_MAX_FULL = players.getProperty("EnchantSafeMaxFull", 4);
 		ENCHANT_KEEP_WINDOW_OPENED = players.getProperty("EnchantKeepWindowOpened", false);
+		
+		SEND_ITEM_NAME_COLORS = players.getProperty("SendItemNameColors", false);
 		
 		AUGMENTATION_NG_SKILL_CHANCE = players.getProperty("AugmentationNGSkillChance", 15);
 		AUGMENTATION_NG_GLOW_CHANCE = players.getProperty("AugmentationNGGlowChance", 0);

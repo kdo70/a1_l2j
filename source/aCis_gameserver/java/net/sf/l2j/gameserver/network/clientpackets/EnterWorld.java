@@ -4,6 +4,7 @@ import java.util.Map.Entry;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.communitybbs.manager.MailBBSManager;
+import net.sf.l2j.gameserver.data.ItemNameColorTable;
 import net.sf.l2j.gameserver.data.SkillTable.FrequentSkill;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.ClanHallManager;
@@ -215,6 +216,10 @@ public class EnterWorld extends L2GameClientPacket
 		
 		// Notify quest for enterworld event, if quest allows it.
 		player.getQuestList().getQuests(Quest::isTriggeredOnEnterWorld).forEach(q -> q.onEnterWorld(player));
+		
+		// Item name colors, ahead of the item list they apply to.
+		if (Config.SEND_ITEM_NAME_COLORS)
+			ItemNameColorTable.getInstance().sendTo(player);
 		
 		player.sendPacket(new QuestList(player));
 		player.sendPacket(new SkillList(player));

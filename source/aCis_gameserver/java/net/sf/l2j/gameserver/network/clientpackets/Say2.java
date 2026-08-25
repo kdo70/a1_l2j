@@ -5,6 +5,7 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.data.ItemNameColorTable;
 import net.sf.l2j.gameserver.enums.SayType;
 import net.sf.l2j.gameserver.handler.ChatHandler;
 import net.sf.l2j.gameserver.handler.IChatHandler;
@@ -79,6 +80,10 @@ public final class Say2 extends L2GameClientPacket
 			return;
 		
 		if (_text.isEmpty() || _text.length() > 100)
+			return;
+		
+		// Item name colors travel as chat messages ; a Player must not be able to feed his own table to others.
+		if (Config.SEND_ITEM_NAME_COLORS && _text.contains(ItemNameColorTable.TAG))
 			return;
 		
 		// The ".offline" command : disconnect the Player, but keep his shop opened in the world.

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.l2j.commons.data.StatSet;
+import net.sf.l2j.commons.logging.CLogger;
 
 import net.sf.l2j.gameserver.enums.items.ActionType;
 import net.sf.l2j.gameserver.enums.items.ArmorType;
@@ -33,6 +34,11 @@ import net.sf.l2j.gameserver.skills.conditions.Condition;
  */
 public abstract class Item
 {
+	private static final CLogger LOGGER = new CLogger(Item.class.getName());
+	
+	/** Returned by {@link #getNameColor()} when the item uses the client's own color. */
+	public static final int NO_NAME_COLOR = -1;
+	
 	public static final int TYPE1_WEAPON_RING_EARRING_NECKLACE = 0;
 	public static final int TYPE1_SHIELD_ARMOR = 1;
 	public static final int TYPE1_ITEM_QUESTITEM_ADENA = 4;
@@ -128,6 +134,8 @@ public abstract class Item
 	
 	private final ActionType _defaultAction;
 	
+	private final int _nameColor;
+	
 	protected List<FuncTemplate> _funcTemplates;
 	
 	protected List<Condition> _preConditions;
@@ -158,6 +166,7 @@ public abstract class Item
 		_isOlyRestricted = set.getBool("is_oly_restricted", false);
 		
 		_defaultAction = set.getEnum("default_action", ActionType.class, ActionType.none);
+		_nameColor = parseNameColor(set.getString("name_color", null));
 		
 		if (set.containsKey("item_skill"))
 			_skillHolder = set.getIntIntHolderArray("item_skill");
@@ -284,6 +293,49 @@ public abstract class Item
 	public final String getName()
 	{
 		return _name;
+	}
+	
+	/**
+	 * @return The color the client must paint this item name with, as a 0xRRGGBB int, or {@link #NO_NAME_COLOR} if the client keeps its own.
+	 */
+	public final int getNameColor()
+	{
+		return _nameColor;
+	}
+	
+	/**
+	 * @return True if this item name carries a server defined color.
+	 */
+	public final boolean hasNameColor()
+	{
+		return _nameColor != NO_NAME_COLOR;
+	}
+	
+	/**
+	 * Parse the "name_color" item property, an hexadecimal RRGGBB color written the HTML way. Both "RRGGBB" and "#RRGGBB" are accepted.
+	 * @param value : The {@link String} to parse, or null when the item defines no color.
+	 * @return The color as a 0xRRGGBB int, or {@link #NO_NAME_COLOR} if there is none or the value can't be read.
+	 */
+	private static int parseNameColor(String value)
+	{
+		if (value == null || value.isEmpty())
+			return NO_NAME_COLOR;
+		
+		final String color = (value.charAt(0) == '#') ? value.substring(1) : value;
+		if (color.length() == 6)
+		{
+			try
+			{
+				return Integer.parseInt(color, 16);
+			}
+			catch (NumberFormatException e)
+			{
+				// Handled by the warn below.
+			}
+		}
+		
+		LOGGER.warn("Invalid name_color '{}' ; an hexadecimal RRGGBB value was expected.", value);
+		return NO_NAME_COLOR;
 	}
 	
 	/**
