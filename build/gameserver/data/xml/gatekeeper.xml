@@ -8,7 +8,7 @@
 		popularMinCount  : minimum amount of teleports for a point to enter the "popular" tab.
 		defaultPriceId   : default currency, inherited by menus, tabs, areas and points.
 		defaultPrice     : default price of STANDARD points, inherited by menus, tabs, areas and points. -1 means "computed by <pricing>".
-		defaultNoblePrice: default price of NOBLE points, inherited the same way. 0 keeps retail-like free noblesse teleports.
+		defaultNoblePrice: default price of NOBLE points, inherited the same way. -1 prices them like STANDARD ones, 0 makes them free (retail-like).
 		rowColor         : background color of the odd rows of the lists ; even rows stay transparent.
 		goLabel          : label of the teleport link, on the action column.
 		nobleLabel       : label shown instead of the link, when the point requires noblesse.
@@ -51,6 +51,9 @@
 	<menu>
 		Holds the tabs of the dialog. Multiple npcs can share a menu. priceId / price / noblePrice
 		can be set on <menu>, <item>, <area> and <loc> - the closest definition wins.
+		Beware : setting price on a <menu>, <item> or <area> gives that very same fixed price to every
+		point below it, which disables the <pricing> formula for all of them. Leave it unset (-1) to
+		let each point be priced on its own distance.
 
 	<item> (a tab of the top bar)
 		- holding <area> nodes    : generates the areas list page (areas.htm).
@@ -72,7 +75,7 @@
 		price    : optional. -1 (default) lets <pricing> compute it, 0 makes it free, any other value is a fixed base price.
 -->
 <list>
-	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" defaultPriceId="57" defaultPrice="-1" defaultNoblePrice="0" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" rowColor="000000" />
+	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" defaultPriceId="57" defaultPrice="-1" defaultNoblePrice="-1" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" rowColor="000000" />
 
 	<pricing enabled="true" rounding="100" distance="true" nearPrice="15000" farPrice="100000" refDistance="240000" distanceCurve="1.35" capPrice="200000" level="true" levelFrom="1" levelTo="80" levelMinRate="0.4" karma="true" karmaCap="10000" karmaRate="1.0" night="true" nightRate="1.25" />
 
@@ -99,7 +102,7 @@
 	<menu id="0">
 		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. -->
 		<item name="Города" bypass="Quest GlobalGatekeeper List 0">
-			<area name="Town of Dion" capital="Dion" price="1300">
+			<area name="Town of Dion" capital="Dion">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
 				<loc id="2" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
 				<loc id="3" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
@@ -113,7 +116,7 @@
 				<loc id="11" name="Execution Ground" point="" type="NOBLE" x="46165" y="150008" z="-3208"/>
 				<loc id="12" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
 			</area>
-			<area name="Town of Gludio" capital="Gludio" price="1000">
+			<area name="Town of Gludio" capital="Gludio">
 				<loc id="13" name="Town of Gludio" point="" type="STANDARD" x="-12739" y="122740" z="-3112" castleId="1"/>
 				<loc id="14" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
 				<loc id="15" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
@@ -121,7 +124,7 @@
 				<loc id="17" name="Windawood Manor" point="" type="STANDARD" x="-28327" y="155125" z="-3496"/>
 				<loc id="18" name="Evil Hunting Grounds" point="" type="NOBLE" x="-6989" y="109503" z="-3040"/>
 			</area>
-			<area name="Town of Giran" capital="Giran" price="1600">
+			<area name="Town of Giran" capital="Giran">
 				<loc id="19" name="Town of Giran" point="" type="STANDARD" x="83393" y="147975" z="-3400" castleId="3"/>
 				<loc id="20" name="Giran Harbor" point="" type="STANDARD" x="47938" y="186864" z="-3480"/>
 				<loc id="21" name="Hardin's Academy" point="" type="STANDARD" x="105918" y="109759" z="-3170"/>
@@ -136,7 +139,7 @@
 				<loc id="30" name="Breka's Stronghold" point="" type="STANDARD" x="85546" y="131328" z="-3672"/>
 				<loc id="31" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
 			</area>
-			<area name="Town of Goddard" capital="Goddard" price="2600">
+			<area name="Town of Goddard" capital="Goddard">
 				<loc id="32" name="Town of Goddard" point="" type="STANDARD" x="147964" y="-55305" z="-2728" castleId="7"/>
 				<loc id="33" name="Varka Silenos" point="Village" type="NOBLE" x="107929" y="-52248" z="-2408"/>
 				<loc id="34" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
@@ -157,7 +160,7 @@
 				<loc id="49" name="Forge of the Gods" point="Top Level" type="NOBLE" x="173436" y="-112725" z="-3680"/>
 				<loc id="50" name="Forge of the Gods" point="Lower Level" type="NOBLE" x="180260" y="-111913" z="-5851"/>
 			</area>
-			<area name="Town of Aden" capital="Aden" price="2400">
+			<area name="Town of Aden" capital="Aden">
 				<loc id="51" name="Town of Aden" point="" type="STANDARD" x="146811" y="25810" z="-2008" castleId="5"/>
 				<loc id="52" name="Forsaken Plains" point="" type="STANDARD" x="168217" y="37990" z="-4072"/>
 				<loc id="53" name="Seal of Shilen" point="" type="STANDARD" x="184742" y="19745" z="-3168"/>
@@ -178,7 +181,7 @@
 				<loc id="68" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112"/>
 				<loc id="69" name="Anghel Waterfall" point="" type="NOBLE" x="166182" y="91560" z="-3168"/>
 			</area>
-			<area name="Town of Schuttgart" capital="Schuttgart" price="2600">
+			<area name="Town of Schuttgart" capital="Schuttgart">
 				<loc id="70" name="Town of Schuttgard" point="" type="STANDARD" x="87053" y="-143387" z="-1288" castleId="9"/>
 				<loc id="71" name="Den of Evil" point="" type="STANDARD" x="68693" y="-110438" z="-1904"/>
 				<loc id="72" name="Plunderous Plains" point="" type="STANDARD" x="111965" y="-154172" z="-1528"/>
@@ -189,7 +192,7 @@
 				<loc id="77" name="Crypts of Disgrace" point="Center" type="NOBLE" x="44221" y="-114232" z="-2784"/>
 				<loc id="78" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
 			</area>
-			<area name="Town of Rune" capital="Rune" price="2500">
+			<area name="Town of Rune" capital="Rune">
 				<loc id="79" name="Town of Rune" point="" type="STANDARD" x="43831" y="-47748" z="-792" castleId="8"/>
 				<loc id="80" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
 				<loc id="81" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
@@ -202,7 +205,7 @@
 				<loc id="88" name="Cursed Village" point="" type="NOBLE" x="57670" y="-41672" z="-3154"/>
 				<loc id="89" name="Stakato Nest" point="" type="NOBLE" x="90355" y="-44088" z="-2144"/>
 			</area>
-			<area name="Town of Heine" capital="Heine" price="1900">
+			<area name="Town of Heine" capital="Heine">
 				<loc id="90" name="Town of Heine" point="" type="STANDARD" x="111385" y="219338" z="-3544" castleId="6"/>
 				<loc id="91" name="Giran Harbor" point="" type="STANDARD" x="47935" y="186810" z="-3420"/>
 				<loc id="92" name="Field of Silence" point="" type="STANDARD" x="91088" y="182384" z="-3192"/>
@@ -218,7 +221,7 @@
 				<loc id="102" name="Garden of Eva" point="4th level" type="NOBLE" x="78721" y="253309" z="-9840"/>
 				<loc id="103" name="Garden of Eva" point="5th level" type="NOBLE" x="82570" y="252464" z="-10592"/>
 			</area>
-			<area name="Town of Oren" capital="Oren" price="2000">
+			<area name="Town of Oren" capital="Oren">
 				<loc id="104" name="Town of Oren" point="" type="STANDARD" x="82917" y="53173" z="-1488" castleId="4"/>
 				<loc id="105" name="Ivory Tower" point="" type="STANDARD" x="85391" y="16228" z="-3640" castleId="4"/>
 				<loc id="106" name="Hunters Village" point="" type="STANDARD" x="117110" y="76883" z="-2670"/>
@@ -233,10 +236,10 @@
 			</area>
 		</item>
 		<item name="Деревни" bypass="Quest GlobalGatekeeper List 1">
-			<area name="Floran Village" capital="Floran" price="900">
+			<area name="Floran Village" capital="Floran">
 				<loc id="115" name="Floran Village" point="" type="STANDARD" x="17430" y="170103" z="-3506" />
 			</area>
-			<area name="Gludin Village" capital="Gludin" price="1000">
+			<area name="Gludin Village" capital="Gludin">
 				<loc id="116" name="Gludin Village" point="" type="STANDARD" x="-80804" y="149833" z="-3040" />
 				<loc id="117" name="Lizardmen Dwellings" point="" type="STANDARD" x="-44763" y="203497" z="-3592" />
 				<loc id="118" name="Windmill Hill" point="" type="STANDARD" x="-75437" y="168800" z="-3632" />
@@ -250,7 +253,7 @@
 				<loc id="126" name="Wastelands" point="Western" type="NOBLE" x="-47506" y="179572" z="-3632" />
 				<loc id="127" name="Red Rock Ridge" point="" type="STANDARD" x="-42256" y="198333" z="-2800" />
 			</area>
-			<area name="Hunters Village" capital="Hunters" price="2100">
+			<area name="Hunters Village" capital="Hunters">
 				<loc id="128" name="Hunters Village" point="" type="STANDARD" x="117052" y="76905" z="-2704" />
 				<loc id="129" name="Hardin's Academy" point="" type="STANDARD" x="105846" y="109762" z="-3170" castleId="3" />
 				<loc id="130" name="Enchanted Valley" point="Southern" type="STANDARD" x="124904" y="61992" z="-3973" />
@@ -260,7 +263,7 @@
 				<loc id="134" name="Forest of Mirrors" point="Center" type="NOBLE" x="166080" y="75574" z="-2992" />
 				<loc id="135" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112" />
 			</area>
-			<area name="Talking Island Village" capital="Talking Island" price="1000">
+			<area name="Talking Island Village" capital="Talking Island">
 				<loc id="136" name="Talking Island Village" point="" type="STANDARD" x="-84153" y="244542" z="-3728" />
 				<loc id="137" name="Elven Ruins" point="" type="STANDARD" x="-112367" y="234703" z="-3688" />
 				<loc id="138" name="Elven Ruins" point="Center" type="NOBLE" x="49315" y="248452" z="-5960" />
@@ -268,14 +271,14 @@
 				<loc id="140" name="Western Territory" point="" type="STANDARD" x="-106696" y="214691" z="-3424" />
 				<loc id="141" name="Obelisk of Victory" point="" type="STANDARD" x="-99586" y="237637" z="-3568" />
 			</area>
-			<area name="Elven Village" capital="Elven" price="1200">
+			<area name="Elven Village" capital="Elven">
 				<loc id="142" name="Elven Village" point="" type="STANDARD" x="46874" y="51457" z="-2976" />
 				<loc id="143" name="Elven Forest" point="" type="STANDARD" x="21362" y="51122" z="-3688" />
 				<loc id="144" name="Elven Fortress" point="" type="STANDARD" x="29294" y="74968" z="-3776" />
 				<loc id="145" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
 				<loc id="146" name="Neutral Zone" point="Center" type="NOBLE" x="-10612" y="75881" z="-3592" />
 			</area>
-			<area name="Dark Elven Village" capital="Dark Elven" price="1200">
+			<area name="Dark Elven Village" capital="Dark Elven">
 				<loc id="147" name="Dark Elf Village" point="" type="STANDARD" x="9738" y="15567" z="-4568" />
 				<loc id="148" name="Dark Forest" point="" type="STANDARD" x="-22224" y="14168" z="-3232" />
 				<loc id="149" name="Dark Forest" point="Center" type="NOBLE" x="-22224" y="14168" z="-3232" />
@@ -285,7 +288,7 @@
 				<loc id="153" name="Neutral Zone" point="Center" type="NOBLE" x="-18415" y="85624" z="-3680" />
 				<loc id="154" name="School of Dark Arts" point="Center" type="NOBLE" x="-49185" y="49441" z="-5912" />
 			</area>
-			<area name="Orc Village" capital="Orc" price="1400">
+			<area name="Orc Village" capital="Orc">
 				<loc id="155" name="Orc Village" point="" type="STANDARD" x="-45177" y="-112512" z="-240" />
 				<loc id="156" name="The Immortal Plateau" point="" type="STANDARD" x="10983" y="-117484" z="-2464" />
 				<loc id="157" name="The Immortal Plateau" point="Southern" type="STANDARD" x="-4190" y="-80040" z="-2696" />
@@ -293,7 +296,7 @@
 				<loc id="159" name="Cave of Trials" point="" type="STANDARD" x="9340" y="-112509" z="-2536" />
 				<loc id="160" name="Frozen Waterfall" point="" type="STANDARD" x="8652" y="-139941" z="-1144" />
 			</area>
-			<area name="Dwarven Village" capital="Dwarven" price="1500">
+			<area name="Dwarven Village" capital="Dwarven">
 				<loc id="161" name="Dwarven Village" point="" type="STANDARD" x="115129" y="-178177" z="-912" />
 				<loc id="162" name="Mithril Mines" point="" type="STANDARD" x="171946" y="-173352" z="3440" />
 				<loc id="163" name="Mithril Mines" point="Center" type="NOBLE" x="175499" y="-181586" z="-904" />
