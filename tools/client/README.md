@@ -1,4 +1,14 @@
-# Client-side enchant window rebuild
+# Client-side interface rebuilds
+
+Two server features have a client half, and both live here — one rebuild of `interface.u` carries them
+together:
+
+| classes | goes with | why |
+|---|---|---|
+| `ItemEnchantWnd` | `EnchantKeepWindowOpened` | keeps the enchant list and its selection alive between attempts (below) |
+| `ToolTip`, `ChatWnd` | `SendItemNameColors` | paints item names with the color the server sends, and keeps the feed out of the chat — see [../../docs/item-name-colors.md](../../docs/item-name-colors.md) |
+
+## The enchant window
 
 Goes with `EnchantKeepWindowOpened` in `config/players.properties`.
 
@@ -39,6 +49,15 @@ The server states "the run goes on" simply by sending another *choose item* orde
 packet batch as the result. If none comes — item broke, scrolls ran out, enchant limit reached — the timer
 fires and `EndRun()` closes the window and empties the list. That is what keeps the three failure cases
 behaving like retail while the happy path stays one click.
+
+## Item name colors
+
+`ToolTip.uc` keeps a table of "item class id → color" and paints the item name in every tooltip it builds
+with it ; items the server said nothing about keep the color the client gives them. `ChatWnd.uc` drops the
+messages that table arrives in, so nothing of it shows up in chat.
+
+The table itself is a server side XML property fed through a chat channel — the whole design, and what it
+can and cannot color, is in [../../docs/item-name-colors.md](../../docs/item-name-colors.md).
 
 ## Rebuilding it
 
@@ -111,18 +130,24 @@ packages — every import has to resolve, or the client drops the package:
 powershell -ExecutionPolicy Bypass -File verify_imports.ps1 -Package .\_build\System\Interface.u -ClientSystemDir "<client>\system"
 ```
 
-Run it against the stock `interface.u.orig.bak` too and compare: the import counts should match. For this
-client both report 726 imports needing 29 Core / 1 Engine / 635 NWindow names, all resolved.
+Run it against the stock `interface.u.orig.bak` too and compare: the import counts should be all but equal.
+The stock package reports 726 imports needing 29 Core / 1 Engine / 635 NWindow names ; the current build
+reports 727 / 29 / 1 / 636, all resolved — new code referencing one more NWindow name is expected, missing
+names are not.
 
 The sharpest offline check, and the one that catches missing defaults, is comparing the size of every
-`UClass` export against the stock package. A faithful rebuild differs in exactly one class — the one you
-changed. Anything else means a class lost its defaults:
+`UClass` export against the stock package. A faithful rebuild differs only in the classes you changed —
+three of them today: `ItemEnchantWnd`, `ToolTip`, `ChatWnd`. Anything else means a class lost its defaults:
 
 ```powershell
-# class blobs, stock vs built - only ItemEnchantWnd may differ
+# class blobs, stock vs built - only the classes rebuilt on purpose may differ
 $s = upkg -Mode exports stock   | ? { $_ -match 'class=None' }
 $b = upkg -Mode exports built   | ? { $_ -match 'class=None' }
 ```
+
+A cheaper stand-in, when the stock package isn't at hand: run `extract_interface_source.ps1` on both the
+previous build and the new one and diff the two `Classes` folders. Only the classes you edited may come out
+different — it won't catch lost defaults, but it does catch a class you changed without meaning to.
 
 Function bytecode sizes will differ by a byte here and there across unrelated classes. That is harmless:
 object and name references are stored as compact indices, and a rebuilt package orders its name table
@@ -154,7 +179,8 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `extract_defaults.ps1` — recovers the `defaultproperties` the sources don't carry. **Mandatory.**
 - `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container and stamps the licensee.
 - `verify_imports.ps1` — checks a built package's imports against the client's real packages.
-- `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc` rebuilt.
+- `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
+  and `ChatWnd.uc` rebuilt.
 - `NWindow/Classes/` — 87 classes from `nwindow.u`, compiled as a stand-in for the client's binary package.
   Also the place to read the native API from (`ItemWindowHandle`, `WindowHandle`, `EnchantAPI`, …).
 - `Core/Classes/` — the kit's four Core classes plus `ParamStack` from the client, with `Split` removed.

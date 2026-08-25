@@ -125,6 +125,10 @@ ant -f source\aCis_gameserver\build.xml
 пересборка «как есть» ломает весь интерфейс) — в
 `docs/enchant-and-client-modding.md`. Читать **до** любых правок клиента.
 
+Цвет названий предметов задаётся в датапаке (`name_color` в
+`data/xml/items`) и уезжает на клиент отдельным каналом — устройство и
+ограничения в `docs/item-name-colors.md`.
+
 ## Стиль кода и коммиты
 
 - Стиль: Eclipse-настройки в `source/aCis_gameserver/.settings`

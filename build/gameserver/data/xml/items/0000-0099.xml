@@ -12,6 +12,7 @@
 		<set name="price" val="768" />
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
+		<set name="name_color" val="FFD700" />
 		<for>
 			<set stat="pAtk" val="8" />
 			<set stat="mAtk" val="6" />
