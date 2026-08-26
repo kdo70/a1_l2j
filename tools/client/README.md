@@ -149,13 +149,19 @@ reports 727 / 29 / 1 / 636, all resolved — new code referencing one more NWind
 names are not.
 
 The sharpest offline check, and the one that catches missing defaults, is comparing the size of every
-`UClass` export against the stock package. A faithful rebuild differs only in the classes you changed —
-three of them today: `ItemEnchantWnd`, `ToolTip`, `ChatWnd`. Anything else means a class lost its defaults:
+`UClass` export — the blob those defaults live in — against a package known to be good. It does not move when
+you only change code: the `ToolTip`/`ChatWnd` rebuild that carries `SendItemStats` leaves all 142 sizes
+identical to the build before it, which is exactly the result to want. Against **stock**, four differ:
+`ItemEnchantWnd` (rebuilt on purpose) and `GuideWnd`, `MinimapWnd`, `MinimapWnd_Expand` — +12, +19 and +18
+bytes, never touched, their recovered `defaultproperties` simply re-serialize a little longer. Those three
+differ in the build already running in the client as well ; a class showing up beyond them is the one that
+lost its defaults:
 
 ```powershell
-# class blobs, stock vs built - only the classes rebuilt on purpose may differ
-$s = upkg -Mode exports stock   | ? { $_ -match 'class=None' }
-$b = upkg -Mode exports built   | ? { $_ -match 'class=None' }
+# class blobs, one package against the other
+$s = .\dump_class_sizes.ps1 -Package '<client>\system\interface.u.orig.bak'
+$b = .\dump_class_sizes.ps1 -Package .\_build\System\Interface.u
+Compare-Object $s $b
 ```
 
 A cheaper stand-in, when the stock package isn't at hand: run `extract_interface_source.ps1` on both the
@@ -192,6 +198,7 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `extract_defaults.ps1` — recovers the `defaultproperties` the sources don't carry. **Mandatory.**
 - `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container and stamps the licensee.
 - `verify_imports.ps1` — checks a built package's imports against the client's real packages.
+- `dump_class_sizes.ps1` — lists the size of every `UClass` export, for the comparison above.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
   and `ChatWnd.uc` rebuilt.
 - `NWindow/Classes/` — 87 classes from `nwindow.u`, compiled as a stand-in for the client's binary package.
