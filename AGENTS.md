@@ -2,7 +2,7 @@
 
 ## Обзор проекта
 
-Сервер Lineage2 (Interlude) на базе aCis (L2J). Два серверных процесса:
+Сервер Lineage 2 (Interlude) на базе aCis (L2J). Два серверных процесса:
 Login Server (порт 2106) и Game Server (порт 7777). Стек: Java 21,
 Apache Ant, MariaDB/MySQL, Eclipse-проекты (без Maven/Gradle).
 
