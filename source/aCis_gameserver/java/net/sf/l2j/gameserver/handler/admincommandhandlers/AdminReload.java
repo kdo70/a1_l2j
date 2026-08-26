@@ -4,6 +4,7 @@ import java.util.StringTokenizer;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.ItemNameColorTable;
+import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.cache.CrestCache;
 import net.sf.l2j.gameserver.data.cache.HtmCache;
@@ -92,6 +93,7 @@ public class AdminReload implements IAdminCommandHandler
 				{
 					ItemData.getInstance().reload();
 					ItemNameColorTable.getInstance().reload();
+					ItemStatsTable.getInstance().reload();
 					player.sendMessage("Items' templates have been reloaded.");
 				}
 				else if (type.equals("multisell"))

@@ -17,6 +17,7 @@ public final class FuncTemplate
 	private final Condition _attachCond;
 	private final Condition _applyCond;
 	private final Constructor<?> _constructor;
+	private final String _function;
 	private final Stats _stat;
 	private final double _value;
 	
@@ -24,6 +25,7 @@ public final class FuncTemplate
 	{
 		_attachCond = attachCond;
 		_applyCond = applyCond;
+		_function = function;
 		_stat = stat;
 		_value = value;
 		
@@ -36,6 +38,30 @@ public final class FuncTemplate
 		{
 			throw new RuntimeException(e);
 		}
+	}
+	
+	/**
+	 * @return The {@link Stats} this template feeds.
+	 */
+	public Stats getStat()
+	{
+		return _stat;
+	}
+	
+	/**
+	 * @return The name of the {@link Func} this template builds, as spelled in the XML : "Set", "Add", "Sub"...
+	 */
+	public String getFunction()
+	{
+		return _function;
+	}
+	
+	/**
+	 * @return The value this template hands to the {@link Func} it builds.
+	 */
+	public double getValue()
+	{
+		return _value;
 	}
 	
 	/**

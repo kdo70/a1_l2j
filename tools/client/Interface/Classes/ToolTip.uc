@@ -11,6 +11,19 @@ const ITEMCOLOR_RESET = "r";
 var array<int> m_ItemColorID;
 var array<color> m_ItemColorValue;
 
+// Item statistics handed out by the server (ItemStatsTable server side). They replace the numbers the client
+// reads from its own weapongrp/armorgrp/etcitemgrp.dat, so item balance lives in the datapack alone. The
+// client asks for the items it is about to draw and the answers ride on chat messages tagged with
+// ITEMSTAT_TAG, which ChatWnd drops instead of printing.
+const ITEMSTAT_TAG = "~is~";
+const ITEMSTAT_RESET = "r";
+const ITEMSTAT_BYPASS = "_itemstats ";
+const ITEMSTAT_INVENTORY = "i";
+const ITEMSTAT_FIELDS = 14;
+
+var array<int> m_ItemStatID;
+var array<string> m_ItemStatRow;
+
 var CustomTooltip m_Tooltip;
 var DrawItemInfo m_Info;
 
@@ -18,6 +31,7 @@ function OnLoad()
 {
 	RegisterEvent( EV_RequestTooltipInfo );
 	RegisterEvent( EV_ChatMessage );
+	RegisterEvent( EV_InventoryItemListEnd );
 }
 
 function OnEvent(int Event_ID, string param)
@@ -29,6 +43,10 @@ function OnEvent(int Event_ID, string param)
 		break;
 	case EV_ChatMessage:
 		HandleItemColorMessage(param);
+		HandleItemStatMessage(param);
+		break;
+	case EV_InventoryItemListEnd:
+		RequestItemStatsInventory();
 		break;
 	}
 }
@@ -109,6 +127,130 @@ function int FindItemColor(int ClassID)
 	}
 
 	return -1;
+}
+
+// A stat message is the tag followed by rows separated by ";", or by a single "r" that empties the table
+// after the server reloaded its item templates. Anything else is ordinary chat and is left alone.
+function HandleItemStatMessage(string param)
+{
+	local string text;
+	local int pos;
+
+	if (!ParseString(param, "Msg", text))
+		return;
+
+	pos = InStr(text, ITEMSTAT_TAG);
+	if (pos < 0)
+		return;
+
+	ParseItemStats(Mid(text, pos + Len(ITEMSTAT_TAG)));
+}
+
+function ParseItemStats(string data)
+{
+	local array<string> arrEntry;
+	local array<string> arrField;
+	local int count;
+	local int i;
+
+	if (data == ITEMSTAT_RESET)
+	{
+		m_ItemStatID.Remove(0, m_ItemStatID.Length);
+		m_ItemStatRow.Remove(0, m_ItemStatRow.Length);
+		return;
+	}
+
+	count = Split(data, ";", arrEntry);
+	for (i = 0; i < count; i++)
+	{
+		arrField.Remove(0, arrField.Length);
+		if (Split(arrEntry[i], ",", arrField) != ITEMSTAT_FIELDS)
+			continue;
+
+		SetItemStats(int(arrField[0]), arrEntry[i]);
+	}
+}
+
+// The row is kept as it came and taken apart when a tooltip asks for it, which costs one split per drawn
+// tooltip and saves holding one array per field.
+function SetItemStats(int ClassID, string row)
+{
+	local int idx;
+
+	if (ClassID <= 0)
+		return;
+
+	idx = FindItemStats(ClassID);
+	if (idx < 0)
+	{
+		idx = m_ItemStatID.Length;
+		m_ItemStatID.Insert(idx, 1);
+		m_ItemStatRow.Insert(idx, 1);
+		m_ItemStatID[idx] = ClassID;
+	}
+
+	m_ItemStatRow[idx] = row;
+}
+
+// Index of the row held for an item class id, or -1 when that item was never asked for. An entry holding an
+// empty row is an item asked for and not answered - the answer is still on its way, or the server has no such
+// item and never will have one.
+function int FindItemStats(int ClassID)
+{
+	local int i;
+
+	for (i = 0; i < m_ItemStatID.Length; i++)
+	{
+		if (m_ItemStatID[i] == ClassID)
+			return i;
+	}
+
+	return -1;
+}
+
+// Replace the numbers read from the client files with the ones the server keeps. An item met for the first
+// time is asked for and drawn with the client numbers that once ; every tooltip after that one has the server
+// numbers. The inventory is asked for as a whole when its item list arrives, so that first draw only ever
+// happens on items seen elsewhere - a shop, a trade, a multisell.
+function ApplyItemStats(out ItemInfo Item)
+{
+	local array<string> arrField;
+	local int idx;
+
+	if (Item.ClassID <= 0)
+		return;
+
+	idx = FindItemStats(Item.ClassID);
+	if (idx < 0)
+	{
+		SetItemStats(Item.ClassID, "");
+		RequestBypassToServer(ITEMSTAT_BYPASS $ String(Item.ClassID));
+		return;
+	}
+
+	if (Split(m_ItemStatRow[idx], ",", arrField) != ITEMSTAT_FIELDS)
+		return;
+
+	Item.PhysicalDamage = int(arrField[1]);
+	Item.MagicalDamage = int(arrField[2]);
+	Item.AttackSpeed = int(arrField[3]);
+	Item.PhysicalDefense = int(arrField[4]);
+	Item.MagicalDefense = int(arrField[5]);
+	Item.ShieldDefense = int(arrField[6]);
+	Item.ShieldDefenseRate = int(arrField[7]);
+	Item.AvoidModify = int(arrField[8]);
+	Item.MpBonus = int(arrField[9]);
+	Item.MpConsume = int(arrField[10]);
+	Item.SoulshotCount = int(arrField[11]);
+	Item.SpiritshotCount = int(arrField[12]);
+	Item.Weight = int(arrField[13]);
+}
+
+// Asking for the whole inventory in one request is what keeps the server flood protection - one bypass every
+// 100 ms - out of the way at login, where a fresh inventory would otherwise be one request per item.
+function RequestItemStatsInventory()
+{
+	RequestBypassToServer(ITEMSTAT_BYPASS $ ITEMSTAT_INVENTORY);
 }
 
 function HandleRequestTooltipInfo(string param)
@@ -336,6 +478,7 @@ function ReturnTooltip_NTT_ITEM(string param, String TooltipType, ETooltipSource
 	if (eSourceType == NTST_ITEM)
 	{
 		ParamToItemInfo(param, Item);
+		ApplyItemStats(Item);
 		
 		eItemType = EItemType(Item.ItemType);
 		eEtcItemType = EEtcItemType(Item.ItemSubType);

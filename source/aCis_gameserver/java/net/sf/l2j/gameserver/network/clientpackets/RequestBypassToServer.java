@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.communitybbs.CommunityBoard;
+import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.enums.FloodProtector;
@@ -121,6 +122,12 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			{
 				// Do nothing.
 			}
+		}
+		// Item statistics a rebuilt client asks for ; see ItemStatsTable.
+		else if (_command.startsWith(ItemStatsTable.BYPASS))
+		{
+			if (Config.SEND_ITEM_STATS)
+				ItemStatsTable.getInstance().handleRequest(player, _command.substring(ItemStatsTable.BYPASS.length()));
 		}
 		// Navigate throught Manor windows
 		else if (_command.startsWith("manor_menu_select?"))

@@ -304,6 +304,9 @@ public final class Config
 	
 	/** Item name colors */
 	public static boolean SEND_ITEM_NAME_COLORS;
+	
+	/** Item statistics */
+	public static boolean SEND_ITEM_STATS;
 
 	/** Augmentations */
 	public static int AUGMENTATION_NG_SKILL_CHANCE;
@@ -870,6 +873,7 @@ public final class Config
 		ENCHANT_KEEP_WINDOW_OPENED = players.getProperty("EnchantKeepWindowOpened", false);
 		
 		SEND_ITEM_NAME_COLORS = players.getProperty("SendItemNameColors", false);
+		SEND_ITEM_STATS = players.getProperty("SendItemStats", false);
 		
 		AUGMENTATION_NG_SKILL_CHANCE = players.getProperty("AugmentationNGSkillChance", 15);
 		AUGMENTATION_NG_GLOW_CHANCE = players.getProperty("AugmentationNGGlowChance", 0);

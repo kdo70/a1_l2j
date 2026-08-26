@@ -178,6 +178,14 @@ public final class Weapon extends Item
 	}
 	
 	/**
+	 * @return the MP consumption of the {@link Weapon}, before the reduction chance is rolled.
+	 */
+	public int getBaseMpConsume()
+	{
+		return _mpConsume;
+	}
+	
+	/**
 	 * @return the MP consumption of the {@link Weapon}.
 	 */
 	public int getMpConsume()

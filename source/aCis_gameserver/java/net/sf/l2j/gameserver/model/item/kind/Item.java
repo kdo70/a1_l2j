@@ -16,6 +16,7 @@ import net.sf.l2j.gameserver.enums.items.EtcItemType;
 import net.sf.l2j.gameserver.enums.items.ItemType;
 import net.sf.l2j.gameserver.enums.items.MaterialType;
 import net.sf.l2j.gameserver.enums.items.WeaponType;
+import net.sf.l2j.gameserver.enums.skills.Stats;
 import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -447,6 +448,28 @@ public abstract class Item
 				funcs.add(func);
 		}
 		return funcs;
+	}
+	
+	/**
+	 * Retrieve the value this {@link Item} attaches to a {@link Stats}, as written in its "for" block. Meant for display purposes ; the way that value combines with the owner stats is the business of {@link Func}.
+	 * @param stat : The {@link Stats} to look for.
+	 * @return The value attached to the given {@link Stats}, negative for a substraction, or 0 if this {@link Item} doesn't touch it.
+	 */
+	public final double getStatValue(Stats stat)
+	{
+		if (_funcTemplates == null)
+			return 0;
+		
+		double value = 0;
+		
+		for (FuncTemplate template : _funcTemplates)
+		{
+			if (template.getStat() != stat)
+				continue;
+			
+			value += (template.getFunction().startsWith("Sub")) ? -template.getValue() : template.getValue();
+		}
+		return value;
 	}
 	
 	/**

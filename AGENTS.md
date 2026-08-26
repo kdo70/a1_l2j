@@ -129,6 +129,11 @@ ant -f source\aCis_gameserver\build.xml
 `data/xml/items`) и уезжает на клиент отдельным каналом — устройство и
 ограничения в `docs/item-name-colors.md`.
 
+Числа, которые клиент показывает в подсказке предмета (п. атака, м. атака,
+защита, вес и прочее), лежат в клиентских `weapongrp.dat`/`armorgrp.dat`, но
+могут приезжать с сервера из `data/xml/items` — клиент спрашивает их сам,
+устройство и ограничения в `docs/item-stats-from-server.md`.
+
 ## Стиль кода и коммиты
 
 - Стиль: Eclipse-настройки в `source/aCis_gameserver/.settings`

@@ -1,12 +1,13 @@
 # Client-side interface rebuilds
 
-Two server features have a client half, and both live here — one rebuild of `interface.u` carries them
-together:
+Three server features have a client half, and all of them live here — one rebuild of `interface.u` carries
+them together:
 
 | classes | goes with | why |
 |---|---|---|
 | `ItemEnchantWnd` | `EnchantKeepWindowOpened` | keeps the enchant list and its selection alive between attempts (below) |
 | `ToolTip`, `ChatWnd` | `SendItemNameColors` | paints item names with the color the server sends, and keeps the feed out of the chat — see [../../docs/item-name-colors.md](../../docs/item-name-colors.md) |
+| `ToolTip`, `ChatWnd` | `SendItemStats` | asks the server for the item numbers the client would read from its own `weapongrp.dat` and friends, and keeps that feed out of the chat too — see [../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md) |
 
 ## The enchant window
 
@@ -58,6 +59,18 @@ messages that table arrives in, so nothing of it shows up in chat.
 
 The table itself is a server side XML property fed through a chat channel — the whole design, and what it
 can and cannot color, is in [../../docs/item-name-colors.md](../../docs/item-name-colors.md).
+
+## Item statistics
+
+`ToolTip` also replaces the numbers it read from `weapongrp.dat` / `armorgrp.dat` / `etcitemgrp.dat` -
+P.Atk, M.Atk, defenses, attack speed, weight and the rest of the tooltip block - with the ones the server
+keeps in its item XMLs, so those files no longer have to be kept in sync with the datapack.
+
+This one is a pull, not a push : the client asks with `RequestBypassToServer("_itemstats ...")` - once for
+everything in its inventory, then item by item for whatever else it is about to draw - and the answers come
+back on the same tagged chat channel the colors use. Nothing reaches a client that did not ask, which is why
+`SendItemStats` is harmless to a stock one. The whole design is in
+[../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md).
 
 ## Rebuilding it
 

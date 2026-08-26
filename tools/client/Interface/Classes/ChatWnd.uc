@@ -38,6 +38,9 @@ const CHAT_UNION_MAX = 35;			// 지휘채널 OnScreenMessage 한줄에 최대로 들어갈 수
 // must not print them. See ItemNameColorTable server side.
 const ITEMCOLOR_TAG = "~ic~";
 
+// Item statistics do the same, on a tag of their own. See ItemStatsTable server side.
+const ITEMSTAT_TAG = "~is~";
+
 //Handle List
 var ChatWindowHandle NormalChat;
 var ChatWindowHandle TradeChat;
@@ -403,8 +406,9 @@ function HandleChatmessage( String param )
 	
 	ParseString(param, "Msg", text);
 
-	// Data, not chat : the item name color feed sent right after login.
-	if (InStr(text, ITEMCOLOR_TAG) >= 0)
+	// Data, not chat : the item name color feed sent right after login, and the item statistics the tooltip
+	// asked the server for.
+	if (InStr(text, ITEMCOLOR_TAG) >= 0 || InStr(text, ITEMSTAT_TAG) >= 0)
 		return;
 
 	ParseInt(param, "ColorR", nTmp);
