@@ -60,6 +60,18 @@ ant -f source\aCis_gameserver\build.xml
 
 ## Особенности, которые нужно знать
 
+- **Ядро пересобирается само при деплое — коммитить `l2jserver.jar` не нужно.**
+  `build-and-deploy` запускает ant по `source/aCis_gameserver/build.xml` и сам
+  подкладывает свежий `l2jserver.jar` в `build/login/libs` и
+  `build/gameserver/libs`. Локальный `build.bat` нужен только если хочется
+  проверить сборку целиком; для проверки правок достаточно
+  `ant -f source\aCis_gameserver\build.xml`.
+- **А вот датапак и конфиги CI не пересобирает** — они уезжают на VPS ровно
+  такими, какими лежат в закоммиченной папке `build/`. Любая правка в
+  `source/aCis_datapack/data/**` или `source/aCis_gameserver/config/**`
+  должна быть скопирована в `build/gameserver/data/**` /
+  `build/gameserver/config/**` в том же коммите, иначе на сервер она
+  не попадёт.
 - Папка `build/` закоммичена в git — это релизный артефакт. Не удалять её
   и не пересобирать полностью без необходимости; при изменении только
   Java-кода достаточно инкрементального режима (обновляется только

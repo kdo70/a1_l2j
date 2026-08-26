@@ -3,6 +3,7 @@ package net.sf.l2j.gameserver.data.xml;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,9 +14,11 @@ import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
+import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperColumn;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperMenu;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperPoint;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTab;
+import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTable;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
 
 import org.w3c.dom.Document;
@@ -25,7 +28,10 @@ import org.w3c.dom.Node;
 /**
  * This class loads and stores {@link GatekeeperMenu}s, used by the GlobalGatekeeper script.<br>
  * <br>
- * Every piece of content (Npc ids, menu tabs, areas, teleport points and their prices) is datapack driven ; the database only retains teleport counters, handled by
+ * Everything the player sees is datapack driven, on data/xml/gatekeeper.xml : the content (Npc ids, menu tabs, areas, teleport points and their prices), but also the whole appearance - column
+ * widths and captions (&lt;layout&gt;), colors (&lt;colors&gt;) and labels (&lt;labels&gt;).<br>
+ * <br>
+ * The behavior and the economy are server side instead, on config/gatekeeper.properties. The database only retains teleport counters, handled by
  * {@link net.sf.l2j.gameserver.data.manager.GatekeeperStatsManager}.
  */
 public class GatekeeperData implements IXmlReader
@@ -33,19 +39,45 @@ public class GatekeeperData implements IXmlReader
 	/** The script name, used to generate internal bypasses. Must match the GlobalGatekeeper class name. */
 	public static final String SCRIPT_NAME = "GlobalGatekeeper";
 
-	private static final String DEFAULT_TAB_COLOR = "FFFFFF";
+	/** Id of the &lt;table&gt; describing the areas list page. */
+	public static final String AREAS_TABLE = "areas";
+	/** Id of the &lt;table&gt; describing the teleport points list page. */
+	public static final String POINTS_TABLE = "points";
+	/** Id of the &lt;table&gt; describing the popular points list page. */
+	public static final String POPULAR_TABLE = "popular";
+
+	/** Fallback returned by {@link #getTable(String)}, so an unknown table id doesn't break the whole dialog. */
+	private static final GatekeeperTable EMPTY_TABLE = new GatekeeperTable("?");
 
 	private final Map<Integer, GatekeeperMenu> _menus = new HashMap<>();
 	private final Map<Integer, GatekeeperMenu> _npcs = new HashMap<>();
 	private final Map<Integer, GatekeeperPoint> _points = new HashMap<>();
+	private final Map<String, GatekeeperTable> _tables = new LinkedHashMap<>();
 
-	private int _rowsPerPage;
-	private int _popularLimit;
-	private int _popularMinCount;
-	private int _defaultPriceId;
-	private int _defaultPrice;
-	private int _defaultNoblePrice;
-	private int _teleportDelay;
+	private int _width;
+	private int _rowHeight;
+	private int _headerHeight;
+	private int _tabHeight;
+	private int _tabColumns;
+	private int _maxPages;
+	private String _ellipsis;
+	private boolean _fillPage;
+
+	private String _rowColor;
+	private String _altRowColor;
+	private String _headerColor;
+	private String _headerTextColor;
+	private String _titleColor;
+	private String _tabBarColor;
+	private String _tabColor;
+	private String _activeTabColor;
+	private String _nameColor;
+	private String _pointColor;
+	private String _priceColor;
+	private String _freeColor;
+	private String _disabledColor;
+	private String _pageColor;
+	private String _activePageColor;
 
 	private String _goLabel;
 	private String _nobleLabel;
@@ -53,29 +85,8 @@ public class GatekeeperData implements IXmlReader
 	private String _freeLabel;
 	private String _emptyLabel;
 	private String _backLabel;
-	private String _rowColor;
-
-	private boolean _isPricingEnabled;
-	private int _priceRounding;
-
-	private boolean _isDistancePriceEnabled;
-	private int _nearPrice;
-	private int _farPrice;
-	private int _capPrice;
-	private double _refDistance;
-	private double _distanceCurve;
-
-	private boolean _isLevelPriceEnabled;
-	private int _levelPriceFrom;
-	private int _levelPriceTo;
-	private double _levelPriceMinRate;
-
-	private boolean _isKarmaPriceEnabled;
-	private int _karmaPriceCap;
-	private double _karmaPriceRate;
-
-	private boolean _isNightPriceEnabled;
-	private double _nightPriceRate;
+	private String _prevPageLabel;
+	private String _nextPageLabel;
 
 	protected GatekeeperData()
 	{
@@ -85,7 +96,9 @@ public class GatekeeperData implements IXmlReader
 	@Override
 	public void load()
 	{
-		setDefaultSettings();
+		setDefaultLayout();
+		setDefaultColors();
+		setDefaultLabels();
 
 		parseFile("./data/xml/gatekeeper.xml");
 		LOGGER.info("Loaded {} gatekeeper menus, {} teleport points for {} npcs.", _menus.size(), _points.size(), _npcs.size());
@@ -96,52 +109,89 @@ public class GatekeeperData implements IXmlReader
 	{
 		forEach(doc, "list", listNode ->
 		{
-			forEach(listNode, "settings", settingsNode ->
+			forEach(listNode, "layout", layoutNode ->
 			{
-				final NamedNodeMap attrs = settingsNode.getAttributes();
+				final NamedNodeMap attrs = layoutNode.getAttributes();
 
-				_rowsPerPage = Math.max(1, parseInteger(attrs, "rowsPerPage", _rowsPerPage));
-				_popularLimit = Math.max(1, parseInteger(attrs, "popularLimit", _popularLimit));
-				_popularMinCount = Math.max(1, parseInteger(attrs, "popularMinCount", _popularMinCount));
-				_defaultPriceId = parseInteger(attrs, "defaultPriceId", _defaultPriceId);
-				_defaultPrice = Math.max(-1, parseInteger(attrs, "defaultPrice", _defaultPrice));
-				_defaultNoblePrice = Math.max(-1, parseInteger(attrs, "defaultNoblePrice", _defaultNoblePrice));
-				_teleportDelay = Math.min(60000, Math.max(0, parseInteger(attrs, "teleportDelay", _teleportDelay)));
+				_width = Math.max(1, parseInteger(attrs, "width", _width));
+				_rowHeight = Math.max(1, parseInteger(attrs, "rowHeight", _rowHeight));
+				_headerHeight = Math.max(1, parseInteger(attrs, "headerHeight", _headerHeight));
+				_tabHeight = Math.max(1, parseInteger(attrs, "tabHeight", _tabHeight));
+				_tabColumns = Math.max(1, parseInteger(attrs, "tabColumns", _tabColumns));
+				_maxPages = Math.max(1, parseInteger(attrs, "maxPages", _maxPages));
+				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
+				_fillPage = parseBoolean(attrs, "fillPage", _fillPage);
 
-				_goLabel = parseString(attrs, "goLabel", _goLabel);
-				_nobleLabel = parseString(attrs, "nobleLabel", _nobleLabel);
-				_lockedLabel = parseString(attrs, "lockedLabel", _lockedLabel);
-				_freeLabel = parseString(attrs, "freeLabel", _freeLabel);
-				_emptyLabel = parseString(attrs, "emptyLabel", _emptyLabel);
-				_backLabel = parseString(attrs, "backLabel", _backLabel);
-				_rowColor = parseString(attrs, "rowColor", _rowColor);
+				forEach(layoutNode, "table", tableNode ->
+				{
+					final String tableId = parseString(tableNode.getAttributes(), "id", "");
+					if (tableId.isEmpty())
+					{
+						LOGGER.warn("A gatekeeper layout table is missing its id.");
+						return;
+					}
+
+					final GatekeeperTable table = new GatekeeperTable(tableId);
+
+					forEach(tableNode, "column", columnNode ->
+					{
+						final NamedNodeMap columnAttrs = columnNode.getAttributes();
+						final String columnId = parseString(columnAttrs, "id", "");
+						if (columnId.isEmpty())
+						{
+							LOGGER.warn("A column of the gatekeeper layout table '{}' is missing its id.", tableId);
+							return;
+						}
+
+						table.addColumn(new GatekeeperColumn(columnId, parseString(columnAttrs, "header", ""), parseInteger(columnAttrs, "width", 1), parseInteger(columnAttrs, "maxChars", 0), parseString(columnAttrs, "align", "left")));
+					});
+
+					if (table.getColumns().isEmpty())
+					{
+						LOGGER.warn("The gatekeeper layout table '{}' doesn't hold any column ; the default one is kept.", tableId);
+						return;
+					}
+
+					if (table.getWidth() != _width)
+						LOGGER.warn("The columns of the gatekeeper layout table '{}' sum up to {} instead of the layout width {} ; the rows won't be aligned.", tableId, table.getWidth(), _width);
+
+					_tables.put(tableId, table);
+				});
 			});
 
-			forEach(listNode, "pricing", pricingNode ->
+			forEach(listNode, "colors", colorsNode ->
 			{
-				final NamedNodeMap attrs = pricingNode.getAttributes();
+				final NamedNodeMap attrs = colorsNode.getAttributes();
 
-				_isPricingEnabled = parseBoolean(attrs, "enabled", _isPricingEnabled);
-				_priceRounding = Math.max(1, parseInteger(attrs, "rounding", _priceRounding));
+				_rowColor = parseString(attrs, "row", _rowColor);
+				_altRowColor = parseString(attrs, "altRow", _altRowColor);
+				_headerColor = parseString(attrs, "header", _headerColor);
+				_headerTextColor = parseString(attrs, "headerText", _headerTextColor);
+				_titleColor = parseString(attrs, "title", _titleColor);
+				_tabBarColor = parseString(attrs, "tabBar", _tabBarColor);
+				_tabColor = parseString(attrs, "tab", _tabColor);
+				_activeTabColor = parseString(attrs, "activeTab", _activeTabColor);
+				_nameColor = parseString(attrs, "name", _nameColor);
+				_pointColor = parseString(attrs, "point", _pointColor);
+				_priceColor = parseString(attrs, "price", _priceColor);
+				_freeColor = parseString(attrs, "free", _freeColor);
+				_disabledColor = parseString(attrs, "disabled", _disabledColor);
+				_pageColor = parseString(attrs, "page", _pageColor);
+				_activePageColor = parseString(attrs, "activePage", _activePageColor);
+			});
 
-				_isDistancePriceEnabled = parseBoolean(attrs, "distance", _isDistancePriceEnabled);
-				_nearPrice = Math.max(0, parseInteger(attrs, "nearPrice", _nearPrice));
-				_farPrice = Math.max(_nearPrice, parseInteger(attrs, "farPrice", _farPrice));
-				_capPrice = Math.max(0, parseInteger(attrs, "capPrice", _capPrice));
-				_refDistance = Math.max(1, parseDouble(attrs, "refDistance", _refDistance));
-				_distanceCurve = Math.max(0.1, parseDouble(attrs, "distanceCurve", _distanceCurve));
+			forEach(listNode, "labels", labelsNode ->
+			{
+				final NamedNodeMap attrs = labelsNode.getAttributes();
 
-				_isLevelPriceEnabled = parseBoolean(attrs, "level", _isLevelPriceEnabled);
-				_levelPriceFrom = Math.max(1, parseInteger(attrs, "levelFrom", _levelPriceFrom));
-				_levelPriceTo = Math.max(_levelPriceFrom, parseInteger(attrs, "levelTo", _levelPriceTo));
-				_levelPriceMinRate = Math.min(1, Math.max(0, parseDouble(attrs, "levelMinRate", _levelPriceMinRate)));
-
-				_isKarmaPriceEnabled = parseBoolean(attrs, "karma", _isKarmaPriceEnabled);
-				_karmaPriceCap = Math.max(1, parseInteger(attrs, "karmaCap", _karmaPriceCap));
-				_karmaPriceRate = Math.max(0, parseDouble(attrs, "karmaRate", _karmaPriceRate));
-
-				_isNightPriceEnabled = parseBoolean(attrs, "night", _isNightPriceEnabled);
-				_nightPriceRate = Math.max(0, parseDouble(attrs, "nightRate", _nightPriceRate));
+				_goLabel = parseString(attrs, "go", _goLabel);
+				_nobleLabel = parseString(attrs, "noble", _nobleLabel);
+				_lockedLabel = parseString(attrs, "locked", _lockedLabel);
+				_freeLabel = parseString(attrs, "free", _freeLabel);
+				_emptyLabel = parseString(attrs, "empty", _emptyLabel);
+				_backLabel = parseString(attrs, "back", _backLabel);
+				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
+				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
 			});
 
 			forEach(listNode, "menu", menuNode -> parseMenu(menuNode));
@@ -169,9 +219,9 @@ public class GatekeeperData implements IXmlReader
 	{
 		final NamedNodeMap menuAttrs = menuNode.getAttributes();
 		final int menuId = parseInteger(menuAttrs, "id", 0);
-		final int menuPriceId = parseInteger(menuAttrs, "priceId", _defaultPriceId);
-		final int menuPrice = parseInteger(menuAttrs, "price", _defaultPrice);
-		final int menuNoblePrice = parseInteger(menuAttrs, "noblePrice", _defaultNoblePrice);
+		final int menuPriceId = parseInteger(menuAttrs, "priceId", Config.GATEKEEPER_DEFAULT_PRICE_ID);
+		final int menuPrice = parseInteger(menuAttrs, "price", Config.GATEKEEPER_DEFAULT_PRICE);
+		final int menuNoblePrice = parseInteger(menuAttrs, "noblePrice", Config.GATEKEEPER_DEFAULT_NOBLE_PRICE);
 
 		final GatekeeperMenu menu = new GatekeeperMenu(menuId);
 		final AtomicInteger tabIndex = new AtomicInteger();
@@ -180,7 +230,7 @@ public class GatekeeperData implements IXmlReader
 		{
 			final NamedNodeMap itemAttrs = itemNode.getAttributes();
 			final String name = parseString(itemAttrs, "name", "?");
-			final String color = parseString(itemAttrs, "color", DEFAULT_TAB_COLOR);
+			final String color = parseString(itemAttrs, "color", _tabColor);
 			final String bypass = parseString(itemAttrs, "bypass");
 			final int tabPriceId = parseInteger(itemAttrs, "priceId", menuPriceId);
 			final int tabPrice = parseInteger(itemAttrs, "price", menuPrice);
@@ -381,45 +431,74 @@ public class GatekeeperData implements IXmlReader
 		return page.endsWith(".htm") || page.endsWith(".html");
 	}
 
-	private void setDefaultSettings()
+	/**
+	 * Set the built-in layout, used as long as the XML doesn't override it. Every width sums up to {@link #getWidth()}, which is mandatory to keep the columns aligned.
+	 */
+	private void setDefaultLayout()
 	{
-		_rowsPerPage = 12;
-		_popularLimit = 20;
-		_popularMinCount = 1;
-		_defaultPriceId = 57;
-		_defaultPrice = -1;
-		_defaultNoblePrice = 0;
-		_teleportDelay = 5000;
+		_width = 280;
+		_rowHeight = 18;
+		_headerHeight = 18;
+		_tabHeight = 18;
+		_tabColumns = 4;
+		_maxPages = 10;
+		_ellipsis = "...";
+		_fillPage = true;
 
-		_isPricingEnabled = true;
-		_priceRounding = 100;
+		_tables.clear();
 
-		_isDistancePriceEnabled = true;
-		_nearPrice = 15000;
-		_farPrice = 100000;
-		_capPrice = 200000;
-		_refDistance = 240000;
-		_distanceCurve = 1.35;
+		final GatekeeperTable areas = new GatekeeperTable(AREAS_TABLE);
+		areas.addColumn(new GatekeeperColumn("name", "Name", 104, 16, "left"));
+		areas.addColumn(new GatekeeperColumn("price", "Price", 88, 0, "left"));
+		areas.addColumn(new GatekeeperColumn("capital", "Capital", 88, 14, "left"));
+		_tables.put(areas.getId(), areas);
 
-		_isLevelPriceEnabled = true;
-		_levelPriceFrom = 1;
-		_levelPriceTo = 80;
-		_levelPriceMinRate = 0.4;
+		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE);
+		points.addColumn(new GatekeeperColumn("name", "Location", 100, 16, "left"));
+		points.addColumn(new GatekeeperColumn("point", "Point", 56, 9, "left"));
+		points.addColumn(new GatekeeperColumn("price", "Price", 86, 0, "left"));
+		points.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
+		_tables.put(points.getId(), points);
 
-		_isKarmaPriceEnabled = true;
-		_karmaPriceCap = 10000;
-		_karmaPriceRate = 1;
+		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE);
+		popular.addColumn(new GatekeeperColumn("name", "Location", 156, 26, "left"));
+		popular.addColumn(new GatekeeperColumn("price", "Price", 86, 0, "left"));
+		popular.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
+		_tables.put(popular.getId(), popular);
+	}
 
-		_isNightPriceEnabled = true;
-		_nightPriceRate = 1.25;
+	/**
+	 * Set the built-in colors, used as long as the XML doesn't override them. An empty {@link String} disables the related tag - a transparent background, or a raw text without any font.
+	 */
+	private void setDefaultColors()
+	{
+		_rowColor = "000000";
+		_altRowColor = "";
+		_headerColor = "000000";
+		_headerTextColor = "9F9F9F";
+		_titleColor = "LEVEL";
+		_tabBarColor = "000000";
+		_tabColor = "FFFFFF";
+		_activeTabColor = "LEVEL";
+		_nameColor = "";
+		_pointColor = "8F8F8F";
+		_priceColor = "LEVEL";
+		_freeColor = "00FF00";
+		_disabledColor = "707070";
+		_pageColor = "";
+		_activePageColor = "LEVEL";
+	}
 
+	private void setDefaultLabels()
+	{
 		_goLabel = "&gt;&gt;";
 		_nobleLabel = "noble";
 		_lockedLabel = "-";
 		_freeLabel = "0";
 		_emptyLabel = "-";
 		_backLabel = "&lt;&lt; back";
-		_rowColor = "000000";
+		_prevPageLabel = "&lt;&lt;";
+		_nextPageLabel = "&gt;&gt;";
 	}
 
 	public void reload()
@@ -466,7 +545,7 @@ public class GatekeeperData implements IXmlReader
 
 	public int getRowsPerPage()
 	{
-		return _rowsPerPage;
+		return Config.GATEKEEPER_ROWS_PER_PAGE;
 	}
 
 	/**
@@ -474,24 +553,24 @@ public class GatekeeperData implements IXmlReader
 	 */
 	public int getTeleportDelay()
 	{
-		return _teleportDelay;
+		return Config.GATEKEEPER_TELEPORT_DELAY;
 	}
 
 	public int getPopularLimit()
 	{
-		return _popularLimit;
+		return Config.GATEKEEPER_POPULAR_LIMIT;
 	}
 
 	public int getPopularMinCount()
 	{
-		return _popularMinCount;
+		return Config.GATEKEEPER_POPULAR_MIN_COUNT;
 	}
 
 	/**
 	 * Compute the price to pay for a given {@link GatekeeperPoint}.<br>
 	 * <br>
 	 * The base price is either the one set on the XML, or - when unset - the one derived from the distance between the {@link Player} and the point. That base is then affected by the level, the
-	 * karma and the day/night rates. Every single modifier can be individually disabled from the XML pricing node.
+	 * karma and the day/night rates. Every single modifier can be individually disabled from config/gatekeeper.properties.
 	 * @param player : The {@link Player} to test.
 	 * @param point : The {@link GatekeeperPoint} to reach.
 	 * @return The amount of {@link GatekeeperPoint#getPriceId()} items to pay.
@@ -504,68 +583,228 @@ public class GatekeeperData implements IXmlReader
 		final int fixedPrice = point.getPrice();
 
 		// The whole dynamic pricing is disabled ; only XML defined prices are used.
-		if (!_isPricingEnabled)
+		if (!Config.GATEKEEPER_PRICING_ENABLED)
 			return Math.max(0, fixedPrice);
 
 		double price = (fixedPrice >= 0) ? fixedPrice : getDistancePrice(player, point);
 		if (price <= 0)
 			return 0;
 
-		if (_isLevelPriceEnabled)
+		if (Config.GATEKEEPER_LEVEL_PRICE_ENABLED)
 			price *= getLevelPriceRate(player.getStatus().getLevel());
 
-		if (_isKarmaPriceEnabled)
+		if (Config.GATEKEEPER_KARMA_PRICE_ENABLED)
 			price *= getKarmaPriceRate(player.getKarma());
 
-		if (_isNightPriceEnabled && GameTimeTaskManager.getInstance().isNight())
-			price *= _nightPriceRate;
+		if (Config.GATEKEEPER_NIGHT_PRICE_ENABLED && GameTimeTaskManager.getInstance().isNight())
+			price *= Config.GATEKEEPER_NIGHT_PRICE_RATE;
 
 		// Round the result, but never turn a paying teleport into a free one.
-		return (int) Math.max(1, Math.min(Math.round(price / _priceRounding) * (long) _priceRounding, Integer.MAX_VALUE));
+		return (int) Math.max(1, Math.min(Math.round(price / Config.GATEKEEPER_PRICE_ROUNDING) * (long) Config.GATEKEEPER_PRICE_ROUNDING, Integer.MAX_VALUE));
 	}
 
 	/**
-	 * The ratio isn't capped at refDistance, otherwise every point of a remote area would end up sharing the very same price.<br>
-	 * Only capPrice bounds the result, and it is meant to be high enough to rarely trigger.
+	 * The ratio isn't capped at RefDistance, otherwise every point of a remote area would end up sharing the very same price.<br>
+	 * Only CapPrice bounds the result, and it is meant to be high enough to rarely trigger.
 	 * @param player : The {@link Player} used as starting point.
 	 * @param point : The {@link GatekeeperPoint} to reach.
-	 * @return The base price of the teleport, derived from the 2D distance : nearPrice on the spot, farPrice at refDistance, growing beyond.
+	 * @return The base price of the teleport, derived from the 2D distance : NearPrice on the spot, FarPrice at RefDistance, growing beyond.
 	 */
-	private double getDistancePrice(Player player, GatekeeperPoint point)
+	private static double getDistancePrice(Player player, GatekeeperPoint point)
 	{
-		if (!_isDistancePriceEnabled)
+		if (!Config.GATEKEEPER_DISTANCE_PRICE_ENABLED)
 			return 0;
 
-		final double ratio = point.distance2D(player.getX(), player.getY()) / _refDistance;
-		final double price = _nearPrice + (_farPrice - _nearPrice) * Math.pow(ratio, _distanceCurve);
+		final double ratio = point.distance2D(player.getX(), player.getY()) / Config.GATEKEEPER_REF_DISTANCE;
+		final double price = Config.GATEKEEPER_NEAR_PRICE + (Config.GATEKEEPER_FAR_PRICE - Config.GATEKEEPER_NEAR_PRICE) * Math.pow(ratio, Config.GATEKEEPER_DISTANCE_CURVE);
 
-		return (_capPrice > 0) ? Math.min(price, _capPrice) : price;
+		return (Config.GATEKEEPER_CAP_PRICE > 0) ? Math.min(price, Config.GATEKEEPER_CAP_PRICE) : price;
 	}
 
 	/**
 	 * @param level : The level of the {@link Player}.
-	 * @return The level rate, from levelMinRate at levelFrom up to 1 at levelTo.
+	 * @return The level rate, from LevelPriceMinRate at LevelPriceFrom up to 1 at LevelPriceTo.
 	 */
-	private double getLevelPriceRate(int level)
+	private static double getLevelPriceRate(int level)
 	{
-		if (_levelPriceTo <= _levelPriceFrom)
+		if (Config.GATEKEEPER_LEVEL_PRICE_TO <= Config.GATEKEEPER_LEVEL_PRICE_FROM)
 			return 1;
 
-		final double ratio = Math.min(1, Math.max(0, (double) (level - _levelPriceFrom) / (_levelPriceTo - _levelPriceFrom)));
+		final double ratio = Math.min(1, Math.max(0, (double) (level - Config.GATEKEEPER_LEVEL_PRICE_FROM) / (Config.GATEKEEPER_LEVEL_PRICE_TO - Config.GATEKEEPER_LEVEL_PRICE_FROM)));
 
-		return _levelPriceMinRate + (1 - _levelPriceMinRate) * ratio;
+		return Config.GATEKEEPER_LEVEL_PRICE_MIN_RATE + (1 - Config.GATEKEEPER_LEVEL_PRICE_MIN_RATE) * ratio;
 	}
 
 	/**
 	 * @param karma : The karma of the {@link Player}.
-	 * @return The karma rate, from 1 without karma up to 1 + karmaRate at karmaCap.
+	 * @return The karma rate, from 1 without karma up to 1 + KarmaPriceRate at KarmaPriceCap.
 	 */
-	private double getKarmaPriceRate(int karma)
+	private static double getKarmaPriceRate(int karma)
 	{
 		if (karma <= 0)
 			return 1;
 
-		return 1 + _karmaPriceRate * Math.min(1, (double) karma / _karmaPriceCap);
+		return 1 + Config.GATEKEEPER_KARMA_PRICE_RATE * Math.min(1, (double) karma / Config.GATEKEEPER_KARMA_PRICE_CAP);
+	}
+
+	/**
+	 * @param id : The table id, being {@link #AREAS_TABLE}, {@link #POINTS_TABLE} or {@link #POPULAR_TABLE}.
+	 * @return The {@link GatekeeperTable} describing the columns of a generated list page, never null.
+	 */
+	public GatekeeperTable getTable(String id)
+	{
+		return _tables.getOrDefault(id, EMPTY_TABLE);
+	}
+
+	/**
+	 * @return The width, in pixels, of every generated table - the tab bar, the header and the rows of the lists.
+	 */
+	public int getWidth()
+	{
+		return _width;
+	}
+
+	/**
+	 * @return The height, in pixels, of a single row of a list. It also drives the filler pushing the page selector to the bottom of the dialog.
+	 */
+	public int getRowHeight()
+	{
+		return _rowHeight;
+	}
+
+	public int getHeaderHeight()
+	{
+		return _headerHeight;
+	}
+
+	public int getTabHeight()
+	{
+		return _tabHeight;
+	}
+
+	/**
+	 * @return The maximum amount of tabs shown on a single row of the tab bar ; above it, the tabs are spread on multiple rows.
+	 */
+	public int getTabColumns()
+	{
+		return _tabColumns;
+	}
+
+	/**
+	 * @return The maximum amount of page links shown by the page selector, centered on the current page.
+	 */
+	public int getMaxPages()
+	{
+		return _maxPages;
+	}
+
+	/**
+	 * @return The suffix appended to a shortened cell content.
+	 */
+	public String getEllipsis()
+	{
+		return _ellipsis;
+	}
+
+	/**
+	 * @return True if the lists are padded up to {@link #getRowsPerPage()} rows, which keeps the page selector pinned to the bottom of the dialog.
+	 */
+	public boolean isFillPage()
+	{
+		return _fillPage;
+	}
+
+	/**
+	 * @return The background color of the odd rows of the lists.
+	 */
+	public String getRowColor()
+	{
+		return _rowColor;
+	}
+
+	/**
+	 * @return The background color of the even rows of the lists ; empty means transparent.
+	 */
+	public String getAltRowColor()
+	{
+		return _altRowColor;
+	}
+
+	public String getHeaderColor()
+	{
+		return _headerColor;
+	}
+
+	public String getHeaderTextColor()
+	{
+		return _headerTextColor;
+	}
+
+	/**
+	 * @return The color of the headline of the dialogs, fed to the HTMs as %titleColor%.
+	 */
+	public String getTitleColor()
+	{
+		return _titleColor;
+	}
+
+	public String getTabBarColor()
+	{
+		return _tabBarColor;
+	}
+
+	/**
+	 * @return The default color of the tabs, overridden by the "color" attribute of a given tab.
+	 */
+	public String getTabColor()
+	{
+		return _tabColor;
+	}
+
+	public String getActiveTabColor()
+	{
+		return _activeTabColor;
+	}
+
+	/**
+	 * @return The color of the name column of the lists ; empty keeps the client default.
+	 */
+	public String getNameColor()
+	{
+		return _nameColor;
+	}
+
+	public String getPointColor()
+	{
+		return _pointColor;
+	}
+
+	public String getPriceColor()
+	{
+		return _priceColor;
+	}
+
+	public String getFreeColor()
+	{
+		return _freeColor;
+	}
+
+	/**
+	 * @return The color of everything the {@link Player} can't use - locked points, unreachable capitals, empty lists.
+	 */
+	public String getDisabledColor()
+	{
+		return _disabledColor;
+	}
+
+	public String getPageColor()
+	{
+		return _pageColor;
+	}
+
+	public String getActivePageColor()
+	{
+		return _activePageColor;
 	}
 
 	/**
@@ -617,11 +856,19 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The background color of the odd rows of the lists.
+	 * @return The label of the "previous page" link of the page selector.
 	 */
-	public String getRowColor()
+	public String getPrevPageLabel()
 	{
-		return _rowColor;
+		return _prevPageLabel;
+	}
+
+	/**
+	 * @return The label of the "next page" link of the page selector.
+	 */
+	public String getNextPageLabel()
+	{
+		return _nextPageLabel;
 	}
 
 	public static GatekeeperData getInstance()

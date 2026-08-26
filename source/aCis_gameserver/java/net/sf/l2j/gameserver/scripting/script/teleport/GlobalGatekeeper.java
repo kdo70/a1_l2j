@@ -19,9 +19,11 @@ import net.sf.l2j.gameserver.enums.GaugeColor;
 import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
+import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperColumn;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperMenu;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperPoint;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTab;
+import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperTable;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.residence.castle.Castle;
 import net.sf.l2j.gameserver.network.SystemMessageId;
@@ -35,8 +37,10 @@ import net.sf.l2j.gameserver.scripting.Quest;
 /**
  * A fully datapack driven Gatekeeper.<br>
  * <br>
- * Npc ids, menu tabs, areas, teleport points and prices are described on data/xml/gatekeeper.xml, while the dialog layout is described on generic HTMs, located on this script folder. Teleport
- * counters are handled by {@link GatekeeperStatsManager}.
+ * Npc ids, menu tabs, areas, teleport points, prices, but also every color, label and column of the dialog are described on data/xml/gatekeeper.xml, while the behavior and the economy live on
+ * config/gatekeeper.properties. The HTMs of this script folder only hold the static parts of the pages ; every table is generated here, so the header always matches the rows.<br>
+ * <br>
+ * Teleport counters are handled by {@link GatekeeperStatsManager}.
  * <ul>
  * <li>List &lt;tab&gt; &lt;page&gt; : shows the areas of a tab.</li>
  * <li>Area &lt;tab&gt; &lt;area&gt; &lt;page&gt; : shows the teleport points of an area.</li>
@@ -44,14 +48,10 @@ import net.sf.l2j.gameserver.scripting.Quest;
  * <li>Page &lt;tab&gt; &lt;file&gt; : shows an additional datapack HTM.</li>
  * <li>Tp &lt;tab&gt; &lt;area&gt; &lt;page&gt; &lt;point&gt; : teleports the Player, area being -1 from the popular tab and -2 from the capital column of the areas list.</li>
  * </ul>
- * The teleport itself is delayed by the "teleportDelay" setting, during which the /unstuck casting animation is played.
+ * The teleport itself is delayed by the "TeleportDelay" setting, during which the /unstuck casting animation is played.
  */
 public class GlobalGatekeeper extends Quest
 {
-	private static final int MENU_WIDTH = 290;
-	private static final int MENU_MAX_COLUMNS = 4;
-	private static final int MAX_SHOWN_PAGES = 10;
-
 	private static final String ROW_END = "</tr></table>";
 
 	/** Area index used by the Tp bypass, when it is fired from the popular tab. */
@@ -222,27 +222,36 @@ public class GlobalGatekeeper extends Quest
 		if (tab == null || tab.getType() != GatekeeperTabType.AREAS)
 			return;
 
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final GatekeeperTable table = data.getTable(GatekeeperData.AREAS_TABLE);
+		final GatekeeperColumn nameColumn = table.getColumn("name");
+		final GatekeeperColumn priceColumn = table.getColumn("price");
+		final GatekeeperColumn capitalColumn = table.getColumn("capital");
+
 		final List<GatekeeperArea> areas = tab.getAreas();
-		final int perPage = GatekeeperData.getInstance().getRowsPerPage();
+		final int perPage = data.getRowsPerPage();
 		final int pages = getPageCount(areas.size(), perPage);
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final int first = page * perPage;
+		final int last = Math.min(areas.size(), first + perPage);
 
 		final StringBuilder sb = new StringBuilder();
 
-		for (int i = first; i < Math.min(areas.size(), first + perPage); i++)
+		for (int i = first; i < last; i++)
 		{
 			final GatekeeperArea area = areas.get(i);
-			final GatekeeperPoint main = area.getMainPoint();
+			final String name = colorize(data.getNameColor(), truncate(area.getName(), nameColumn.getMaxChars()));
 
-			StringUtil.append(sb, getRowStart(i - first), "<td width=140 height=17><a action=\"bypass -h Quest ", getName(), " Area ", tab.getIndex(), " ", i, " 0\">", area.getName(), "</a></td><td width=95>", getPriceText(main, player), "</td><td width=55>", getCapitalText(area, player, tab.getIndex(), page), "</td>", ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), "<a action=\"bypass -h Quest " + getName() + " Area " + tab.getIndex() + " " + i + " 0\">" + name + "</a>"), priceColumn.getCell(0, getPriceText(area.getMainPoint(), player)), capitalColumn.getCell(0, getCapitalText(area, player, tab.getIndex(), page, capitalColumn)), ROW_END);
 		}
 
 		String content = getHtmlText("areas.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
+		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%list%", sb.toString());
+		content = content.replace("%filler%", getFiller(last - first, perPage));
 		content = content.replace("%pages%", getPages("Quest " + getName() + " List " + tab.getIndex(), page, pages));
 		content = content.replace("%pk%", (player.getKarma() > 0) ? getFragment("pk.htm") : "");
 
@@ -254,29 +263,39 @@ public class GlobalGatekeeper extends Quest
 		if (tab == null || area == null)
 			return;
 
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final GatekeeperTable table = data.getTable(GatekeeperData.POINTS_TABLE);
+		final GatekeeperColumn nameColumn = table.getColumn("name");
+		final GatekeeperColumn pointColumn = table.getColumn("point");
+		final GatekeeperColumn priceColumn = table.getColumn("price");
+		final GatekeeperColumn actionColumn = table.getColumn("action");
+
 		final List<GatekeeperPoint> points = area.getPoints();
-		final int perPage = GatekeeperData.getInstance().getRowsPerPage();
+		final int perPage = data.getRowsPerPage();
 		final int pages = getPageCount(points.size(), perPage);
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final int first = page * perPage;
+		final int last = Math.min(points.size(), first + perPage);
 
 		final StringBuilder sb = new StringBuilder();
 
-		for (int i = first; i < Math.min(points.size(), first + perPage); i++)
+		for (int i = first; i < last; i++)
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), "<td width=110 height=17>", getNameText(point.getName(), point, player), "</td><td width=55><font color=\"8F8F8F\">", point.getPoint(), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=40 align=right>", getActionText(point, player, tab.getIndex(), area.getIndex(), page), "</td>", ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getNameText(truncate(point.getName(), nameColumn.getMaxChars()), point, player)), pointColumn.getCell(0, colorize(data.getPointColor(), truncate(point.getPoint(), pointColumn.getMaxChars()))), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getActionText(point, player, tab.getIndex(), area.getIndex(), page)), ROW_END);
 		}
 
 		String content = getHtmlText("locations.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
 		content = content.replace("%area%", area.getName());
+		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
+		content = content.replace("%filler%", getFiller(last - first, perPage));
 		content = content.replace("%pages%", getPages("Quest " + getName() + " Area " + tab.getIndex() + " " + area.getIndex(), page, pages));
-		content = content.replace("%back%", (tab.isFlat()) ? "" : "<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + GatekeeperData.getInstance().getBackLabel() + "</a>");
+		content = content.replace("%back%", (tab.isFlat()) ? "" : getCenteredRow("<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + data.getBackLabel() + "</a>"));
 
 		sendHtml(npc, player, content);
 	}
@@ -289,6 +308,11 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final GatekeeperStatsManager stats = GatekeeperStatsManager.getInstance();
 
+		final GatekeeperTable table = data.getTable(GatekeeperData.POPULAR_TABLE);
+		final GatekeeperColumn nameColumn = table.getColumn("name");
+		final GatekeeperColumn priceColumn = table.getColumn("price");
+		final GatekeeperColumn actionColumn = table.getColumn("action");
+
 		// Keep the points of this menu only, above the minimum amount of uses, up to the configured limit.
 		final List<GatekeeperPoint> points = stats.getRanking().stream().filter(id -> stats.getCount(id) >= data.getPopularMinCount()).map(id -> menu.getPoint(id)).filter(point -> point != null).limit(data.getPopularLimit()).toList();
 
@@ -298,22 +322,25 @@ public class GlobalGatekeeper extends Quest
 		page = Math.min(Math.max(page, 0), pages - 1);
 
 		final int first = page * perPage;
+		final int last = Math.min(points.size(), first + perPage);
 
 		final StringBuilder sb = new StringBuilder();
 
 		if (points.isEmpty())
-			StringUtil.append(sb, getRowStart(0), "<td height=17><font color=\"707070\">", data.getEmptyLabel(), "</font></td>", ROW_END);
+			StringUtil.append(sb, getRowStart(0), "<td width=", data.getWidth(), " height=", data.getRowHeight(), ">", colorize(data.getDisabledColor(), data.getEmptyLabel()), "</td>", ROW_END);
 
-		for (int i = first; i < Math.min(points.size(), first + perPage); i++)
+		for (int i = first; i < last; i++)
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), "<td width=130 height=17>", getNameText(point.getFullName(), point, player), "</td><td width=30 align=center><font color=\"8F8F8F\">", stats.getCount(point.getId()), "</font></td><td width=85>", getPriceText(point, player), "</td><td width=45 align=right>", getActionText(point, player, tab.getIndex(), FROM_POPULAR, page), "</td>", ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getNameText(truncate(point.getFullName(), nameColumn.getMaxChars()), point, player)), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getActionText(point, player, tab.getIndex(), FROM_POPULAR, page)), ROW_END);
 		}
 
 		String content = getHtmlText("popular.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
+		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
+		content = content.replace("%filler%", getFiller(Math.max(1, last - first), perPage));
 		content = content.replace("%pages%", getPages("Quest " + getName() + " Popular " + tab.getIndex(), page, pages));
 
 		sendHtml(npc, player, content);
@@ -447,35 +474,78 @@ public class GlobalGatekeeper extends Quest
 	 * @param player : The {@link Player} used to test conditions.
 	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
 	 * @param page : The current page of the areas list, used to build the bypass.
+	 * @param column : The {@link GatekeeperColumn} holding the cell, used to shorten the capital name.
 	 * @return The capital cell content, being a direct teleport link to the main point of the area.
 	 */
-	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page)
+	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page, GatekeeperColumn column)
 	{
-		final String capital = area.getCapital();
-		if (capital.isEmpty())
+		if (area.getCapital().isEmpty())
 			return "";
+
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final String capital = truncate(area.getCapital(), column.getMaxChars());
 
 		final GatekeeperPoint main = area.getMainPoint();
 		if (main == null || !main.isAvailableFor(player))
-			return "<font color=\"707070\">" + capital + "</font>";
+			return colorize(data.getDisabledColor(), capital);
 
-		return "<a action=\"bypass -h Quest " + getName() + " Tp " + tabIndex + " " + FROM_AREAS + " " + page + " " + main.getId() + "\" msg=\"811;" + getPopupText(main, player) + "\">" + capital + "</a>";
+		return "<a action=\"bypass -h Quest " + getName() + " Tp " + tabIndex + " " + FROM_AREAS + " " + page + " " + main.getId() + "\" msg=\"811;" + getPopupText(main, player) + "\">" + colorize(data.getNameColor(), capital) + "</a>";
 	}
 
 	/**
 	 * Each row of a list is rendered as its own table, since the client only handles the bgcolor attribute on tables.
 	 * @param row : The index of the row on the current page, 0 being the first one.
-	 * @return The opening tags of a list row, alternating a transparent background with the header one.
+	 * @return The opening tags of a list row, alternating both row colors.
 	 */
 	private static String getRowStart(int row)
 	{
-		return (row % 2 == 0) ? "<table width=" + MENU_WIDTH + "><tr>" : "<table width=" + MENU_WIDTH + " bgcolor=\"" + GatekeeperData.getInstance().getRowColor() + "\"><tr>";
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final String color = (row % 2 == 0) ? data.getAltRowColor() : data.getRowColor();
+
+		return "<table width=" + data.getWidth() + ((color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"") + "><tr>";
+	}
+
+	/**
+	 * The header is generated out of the very same {@link GatekeeperColumn}s as the rows, which is the only way to keep both aligned whatever the datapack layout is.
+	 * @param table : The {@link GatekeeperTable} to render.
+	 * @return The header row of a list, replacing the %header% variable.
+	 */
+	private static String getHeader(GatekeeperTable table)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final StringBuilder sb = new StringBuilder(256);
+
+		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getHeaderColor().isEmpty()) ? "" : " bgcolor=\"" + data.getHeaderColor() + "\"", "><tr>");
+
+		for (GatekeeperColumn column : table.getColumns())
+			sb.append(column.getCell(data.getHeaderHeight(), colorize(data.getHeaderTextColor(), column.getHeader())));
+
+		sb.append(ROW_END);
+
+		return sb.toString();
+	}
+
+	/**
+	 * The dialog owns a fixed height, so padding the list up to a full page keeps the page selector at the very same spot - whatever the amount of shown rows.
+	 * @param shown : The amount of rows actually rendered on the current page.
+	 * @param perPage : The amount of rows a full page holds.
+	 * @return The spacer pushing the bottom of the page down, replacing the %filler% variable.
+	 */
+	private static String getFiller(int shown, int perPage)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+		if (!data.isFillPage())
+			return "";
+
+		final int missing = perPage - shown;
+
+		return (missing <= 0) ? "" : "<img height=" + (missing * data.getRowHeight()) + ">";
 	}
 
 	/**
 	 * @param menu : The {@link GatekeeperMenu} to render.
 	 * @param active : The currently shown {@link GatekeeperTab}.
-	 * @return The set of &lt;td&gt; used as menu bar, replacing the %menu% variable.
+	 * @return The whole tab bar, replacing the %menu% variable.
 	 */
 	private static String getMenu(GatekeeperMenu menu, GatekeeperTab active)
 	{
@@ -483,26 +553,38 @@ public class GlobalGatekeeper extends Quest
 		if (tabs.isEmpty())
 			return "";
 
-		// Spread the tabs on multiple rows, in order to keep them readable.
-		final int rows = getPageCount(tabs.size(), MENU_MAX_COLUMNS);
-		final int columns = getPageCount(tabs.size(), rows);
-		final int width = Math.max(MENU_WIDTH / columns, 1);
+		final GatekeeperData data = GatekeeperData.getInstance();
 
-		final StringBuilder sb = new StringBuilder();
+		// Spread the tabs on multiple rows, in order to keep them readable.
+		final int rows = getPageCount(tabs.size(), data.getTabColumns());
+		final int columns = getPageCount(tabs.size(), rows);
+		final int width = Math.max(data.getWidth() / columns, 1);
+
+		// The last column of a row absorbs the rounding, so the bar always spans the whole width.
+		final int lastWidth = Math.max(data.getWidth() - width * (columns - 1), 1);
+
+		final StringBuilder sb = new StringBuilder(256);
+
+		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getTabBarColor().isEmpty()) ? "" : " bgcolor=\"" + data.getTabBarColor() + "\"", "><tr>");
+
 		for (int i = 0; i < tabs.size(); i++)
 		{
 			if (i > 0 && i % columns == 0)
 				sb.append("</tr><tr>");
 
 			final GatekeeperTab tab = tabs.get(i);
+			final boolean isLast = (i % columns) == (columns - 1);
 
-			StringUtil.append(sb, "<td width=", width, " height=18 align=center><a action=\"bypass -h ", tab.getBypass(), "\"><font color=\"", (tab == active) ? "LEVEL" : tab.getColor(), "\">", tab.getName(), "</font></a></td>");
+			StringUtil.append(sb, "<td width=", (isLast) ? lastWidth : width, " height=", data.getTabHeight(), " align=center><a action=\"bypass -h ", tab.getBypass(), "\">", colorize((tab == active) ? data.getActiveTabColor() : tab.getColor(), tab.getName()), "</a></td>");
 		}
+
+		sb.append(ROW_END);
 
 		return sb.toString();
 	}
 
 	/**
+	 * The page selector is rendered as a single table row, since the client turns every link of a &lt;center&gt; block into its own line.
 	 * @param bypass : The bypass to fire, the page index being appended to it.
 	 * @param page : The currently shown page index.
 	 * @param pages : The total amount of pages.
@@ -513,31 +595,65 @@ public class GlobalGatekeeper extends Quest
 		if (pages <= 1)
 			return "";
 
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final int maxPages = data.getMaxPages();
+
 		// Center the shown window of pages on the current page.
-		int first = Math.max(0, page - MAX_SHOWN_PAGES / 2);
-		final int last = Math.min(pages, first + MAX_SHOWN_PAGES);
-		first = Math.max(0, last - MAX_SHOWN_PAGES);
+		int first = Math.max(0, page - maxPages / 2);
+		final int last = Math.min(pages, first + maxPages);
+		first = Math.max(0, last - maxPages);
 
-		final StringBuilder sb = new StringBuilder();
-		sb.append("<center>");
+		final boolean hasPrev = page > 0;
+		final boolean hasNext = page < pages - 1;
 
-		if (page > 0)
-			StringUtil.append(sb, "<a action=\"bypass -h ", bypass, " ", page - 1, "\">&lt;&lt;</a>&nbsp;");
+		// Every cell owns the same width, so the selector doesn't jump around while browsing the pages.
+		final int cellWidth = Math.max(1, data.getWidth() / (maxPages + 2));
+		final int cells = (last - first) + ((hasPrev) ? 1 : 0) + ((hasNext) ? 1 : 0);
+		final int lead = Math.max(0, (data.getWidth() - cells * cellWidth) / 2);
+		final int trail = Math.max(0, data.getWidth() - lead - cells * cellWidth);
+
+		final StringBuilder sb = new StringBuilder(512);
+
+		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr>");
+
+		if (lead > 0)
+			StringUtil.append(sb, "<td width=", lead, " height=", data.getRowHeight(), "></td>");
+
+		if (hasPrev)
+			StringUtil.append(sb, getPageCell(cellWidth, "<a action=\"bypass -h " + bypass + " " + (page - 1) + "\">" + colorize(data.getPageColor(), data.getPrevPageLabel()) + "</a>"));
 
 		for (int i = first; i < last; i++)
 		{
-			if (i == page)
-				StringUtil.append(sb, "<font color=\"LEVEL\">", i + 1, "</font>&nbsp;");
-			else
-				StringUtil.append(sb, "<a action=\"bypass -h ", bypass, " ", i, "\">", i + 1, "</a>&nbsp;");
+			final String label = String.valueOf(i + 1);
+
+			sb.append(getPageCell(cellWidth, (i == page) ? colorize(data.getActivePageColor(), label) : "<a action=\"bypass -h " + bypass + " " + i + "\">" + colorize(data.getPageColor(), label) + "</a>"));
 		}
 
-		if (page < pages - 1)
-			StringUtil.append(sb, "<a action=\"bypass -h ", bypass, " ", page + 1, "\">&gt;&gt;</a>");
+		if (hasNext)
+			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + bypass + " " + (page + 1) + "\">" + colorize(data.getPageColor(), data.getNextPageLabel()) + "</a>"));
 
-		sb.append("</center>");
+		if (trail > 0)
+			StringUtil.append(sb, "<td width=", trail, "></td>");
+
+		sb.append(ROW_END);
 
 		return sb.toString();
+	}
+
+	private static String getPageCell(int width, String content)
+	{
+		return "<td width=" + width + " height=" + GatekeeperData.getInstance().getRowHeight() + " align=center>" + content + "</td>";
+	}
+
+	/**
+	 * @param content : The already rendered content to center.
+	 * @return A single, full width and centered row - used by the %back% variable, which must stay on one line.
+	 */
+	private static String getCenteredRow(String content)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+
+		return "<table width=" + data.getWidth() + "><tr><td width=" + data.getWidth() + " height=" + data.getRowHeight() + " align=center>" + content + "</td>" + ROW_END;
 	}
 
 	/**
@@ -550,12 +666,14 @@ public class GlobalGatekeeper extends Quest
 		if (point == null)
 			return "";
 
+		final GatekeeperData data = GatekeeperData.getInstance();
+
 		final int price = point.getCalculatedPrice(player);
 		if (price <= 0)
-			return "<font color=\"00FF00\">" + GatekeeperData.getInstance().getFreeLabel() + "</font>";
+			return colorize(data.getFreeColor(), data.getFreeLabel());
 
 		// &#itemId; is replaced by the client with the localized item name.
-		return "<font color=\"LEVEL\">" + StringUtil.formatNumber(price) + "</font> &#" + point.getPriceId() + ";";
+		return colorize(data.getPriceColor(), StringUtil.formatNumber(price)) + " &#" + point.getPriceId() + ";";
 	}
 
 	/**
@@ -576,14 +694,16 @@ public class GlobalGatekeeper extends Quest
 	}
 
 	/**
-	 * @param name : The name to render.
+	 * @param name : The name to render, already shortened.
 	 * @param point : The {@link GatekeeperPoint} to test.
 	 * @param player : The {@link Player} used to test conditions.
 	 * @return The name cell content of a given {@link GatekeeperPoint}, greyed if the {@link Player} can't use it.
 	 */
 	private static String getNameText(String name, GatekeeperPoint point, Player player)
 	{
-		return (point.isAvailableFor(player)) ? name : "<font color=\"707070\">" + name + "</font>";
+		final GatekeeperData data = GatekeeperData.getInstance();
+
+		return colorize((point.isAvailableFor(player)) ? data.getNameColor() : data.getDisabledColor(), name);
 	}
 
 	/**
@@ -599,9 +719,43 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperData data = GatekeeperData.getInstance();
 
 		if (!point.isAvailableFor(player))
-			return "<font color=\"707070\">" + ((point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel()) + "</font>";
+			return colorize(data.getDisabledColor(), (point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel());
 
 		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + getPopupText(point, player) + "\">" + data.getGoLabel() + "</a>";
+	}
+
+	/**
+	 * @param color : The color to apply, an empty {@link String} keeping the client default.
+	 * @param text : The text to wrap.
+	 * @return The given text, wrapped into a font tag when a color is set.
+	 */
+	private static String colorize(String color, String text)
+	{
+		return (color.isEmpty() || text.isEmpty()) ? text : "<font color=\"" + color + "\">" + text + "</font>";
+	}
+
+	/**
+	 * Shorten a cell content which wouldn't fit its column, since a wrapped text makes the whole row taller than the others.<br>
+	 * The cut falls back on the last word boundary, but only when it keeps most of the room - otherwise a "Talking Island Village" would end up as a bare "Talking...".
+	 * @param text : The text to shorten.
+	 * @param maxChars : The maximum amount of characters, 0 disabling the shortening.
+	 * @return The given text, shortened and suffixed by the ellipsis when needed.
+	 */
+	private static String truncate(String text, int maxChars)
+	{
+		if (maxChars <= 0 || text.length() <= maxChars)
+			return text;
+
+		final String ellipsis = GatekeeperData.getInstance().getEllipsis();
+		final int cut = Math.max(1, maxChars - ellipsis.length());
+
+		String result = text.substring(0, cut);
+
+		final int space = result.lastIndexOf(' ');
+		if (space * 3 > cut * 2)
+			result = result.substring(0, space);
+
+		return result.stripTrailing() + ellipsis;
 	}
 
 	private static int getPageCount(int size, int perPage)
@@ -627,12 +781,15 @@ public class GlobalGatekeeper extends Quest
 	 */
 	private static void sendHtml(Npc npc, Player player, String content)
 	{
+		final GatekeeperData data = GatekeeperData.getInstance();
 		final String title = npc.getTitle();
 
 		content = content.replace("%objectId%", String.valueOf(npc.getObjectId()));
 		content = content.replace("%npcName%", npc.getName());
 		content = content.replace("%npcTitle%", (title == null) ? "" : title);
 		content = content.replace("%playerName%", player.getName());
+		content = content.replace("%width%", String.valueOf(data.getWidth()));
+		content = content.replace("%titleColor%", data.getTitleColor());
 
 		final NpcHtmlMessage html = new NpcHtmlMessage(npc.getObjectId());
 		html.setHtml(content);

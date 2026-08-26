@@ -1,58 +1,82 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
-	Global gatekeeper content, used by the script.teleport.GlobalGatekeeper script.
+	Global gatekeeper content and appearance, used by the script.teleport.GlobalGatekeeper script.
 
-	<settings>
-		rowsPerPage      : amount of rows shown per page, on every generated list.
-		popularLimit     : amount of points kept on the "popular" tab.
-		popularMinCount  : minimum amount of teleports for a point to enter the "popular" tab.
-		defaultPriceId   : default currency, inherited by menus, tabs, areas and points.
-		defaultPrice     : default price of STANDARD points, inherited by menus, tabs, areas and points. -1 means "computed by <pricing>".
-		defaultNoblePrice: default price of NOBLE points, inherited the same way. -1 prices them like STANDARD ones, 0 makes them free (retail-like).
-		rowColor         : background color of the odd rows of the lists ; even rows stay transparent.
-		goLabel          : label of the teleport link, on the action column.
-		nobleLabel       : label shown instead of the link, when the point requires noblesse.
-		lockedLabel      : label shown instead of the link, when the point is out of reach.
-		freeLabel        : label shown on the price column, when the teleport is free.
-		emptyLabel       : label shown instead of an empty list.
-		backLabel        : label of the link leading back to the areas list.
-		teleportDelay    : casting time, in ms, of the /unstuck like animation played before the teleport. 0 disables it, 60000 is the maximum.
+	Everything the player sees is defined here. The behavior and the economy (rows per page, teleport
+	delay, popular tab limits, default prices and the whole dynamic pricing formula) live server side,
+	on config/gatekeeper.properties.
 
-	<pricing>
-		Dynamic price of the points which don't own an explicit price. Formula :
-			price = base * levelRate * karmaRate * nightRate, rounded to the "rounding" step,
-			base  = the XML price of the point when set, otherwise nearPrice + (farPrice - nearPrice) * (distance / refDistance) ^ distanceCurve.
-		With the default values, a max level player teleporting by day, without karma, pays the raw distance
-		price : ~18k nearby, ~100k on the other side of the continent.
+	<layout>
+		Sizes of the generated tables. The header row and the list rows are generated out of the very
+		same <column> nodes, which is what keeps them aligned - never describe a header on a HTM.
 
-		The distance ratio isn't capped at refDistance - only capPrice bounds the result. Capping the ratio
-		would give the very same price to every single point of a remote area.
+		width       : width, in pixels, of every generated table (tab bar, header, rows, page selector).
+		              Fed to the HTMs as %width%. Keep it below 290, so the scrollbar doesn't eat the
+		              last column.
+		rowHeight   : height, in pixels, of a single row of a list. Rows never wrap (see maxChars), so
+		              every row of every page owns that exact height.
+		headerHeight: height, in pixels, of the header row of a list.
+		tabHeight   : height, in pixels, of a row of the tab bar.
+		tabColumns  : maximum amount of tabs shown on a single row of the tab bar. Above it, the tabs
+		              are spread on multiple rows, so their labels stay readable.
+		maxPages    : maximum amount of page links shown by the page selector, centered on the current
+		              page. The selector always stays on a single line.
+		ellipsis    : suffix appended to a shortened cell content.
+		fillPage    : true pads every list up to the "RowsPerPage" amount of rows, which pins the page
+		              selector to the bottom of the dialog - even on a page holding one single location.
 
-		enabled      : false makes the gatekeeper use XML prices only (unset prices become free).
-		rounding     : prices are rounded to that step, for the sake of readability. 1 disables the rounding.
-		distance     : false removes the distance base ; points without an explicit price become free.
-		nearPrice    : price of a teleport on the spot.
-		farPrice     : price of a teleport at refDistance.
-		refDistance  : reference distance, in game units. ~240k is a cross continent trip.
-		distanceCurve: exponent applied on the distance ratio. Above 1 keeps short trips cheaper.
-		capPrice     : absolute ceiling of the distance base, reached by the very extremities of the map. 0 removes it.
-		level        : false removes the level modifier.
-		levelFrom / levelTo : level range on which the rate grows.
-		levelMinRate : rate applied at levelFrom, growing up to 1 at levelTo. 1 makes the level free of charge.
-		karma        : false removes the karma modifier.
-		karmaCap     : karma amount at which the maximum karma penalty is reached.
-		karmaRate    : extra rate at karmaCap. 1 means "twice the price", 0 means no penalty.
-		night        : false removes the day/night modifier.
-		nightRate    : rate applied during the game night.
+		<table id="areas">   : columns of the areas list page. Ids : name, price, capital.
+		<table id="points">  : columns of the teleport points list page. Ids : name, point, price, action.
+		<table id="popular"> : columns of the most used points page. Ids : name, price, action.
+
+		<column>
+			id      : the column the script feeds ; an unknown id is simply ignored.
+			header  : caption shown on the header row. Empty generates an empty header cell.
+			width   : width, in pixels. The columns of a table must sum up to the layout width.
+			maxChars: amount of characters above which the content is shortened, on the last word
+			          boundary when possible. 0 never shortens - and lets a long name wrap, which makes
+			          its row taller than the others. Roughly width / 6.
+			align   : left, center or right.
+
+	<colors>
+		Every color of the dialog. An empty value keeps the client default : a transparent background
+		for a row, a plain white text for a label.
+
+		row / altRow  : background of the odd / even rows of the lists.
+		header        : background of the header row of the lists.
+		headerText    : text of the header row of the lists.
+		title         : headline of the pages, fed to the HTMs as %titleColor%.
+		tabBar        : background of the tab bar.
+		tab           : default color of a tab, overridden by the "color" attribute of a given <item>.
+		activeTab     : color of the currently shown tab.
+		name          : name column of the lists.
+		point         : sub-point column of the points list.
+		price         : price column of the lists.
+		free          : price column, when the teleport is free.
+		disabled      : everything out of reach - locked points, unreachable capitals, empty lists.
+		page / activePage : page selector links, and the current page.
+
+	<labels>
+		Every generated text of the dialog. The static texts live on the HTMs of
+		data/html/script/teleport/GlobalGatekeeper.
+
+		go       : label of the teleport link, on the action column.
+		noble    : label shown instead of the link, when the point requires noblesse.
+		locked   : label shown instead of the link, when the point is out of reach.
+		free     : label shown on the price column, when the teleport is free.
+		empty    : label shown instead of an empty list.
+		back     : label of the link leading back to the areas list.
+		prevPage / nextPage : labels of the page selector arrows.
 
 	<npc>
 		id / menu : binds a npc id to a menu id. Add a line to make any npc a gatekeeper.
 
 	<menu>
 		Holds the tabs of the dialog. Multiple npcs can share a menu. priceId / price / noblePrice
-		can be set on <menu>, <item>, <area> and <loc> - the closest definition wins.
+		can be set on <menu>, <item>, <area> and <loc> - the closest definition wins, the default being
+		the one of config/gatekeeper.properties.
 		Beware : setting price on a <menu>, <item> or <area> gives that very same fixed price to every
-		point below it, which disables the <pricing> formula for all of them. Leave it unset (-1) to
+		point below it, which disables the pricing formula for all of them. Leave it unset (-1) to
 		let each point be priced on its own distance.
 
 	<item> (a tab of the top bar)
@@ -61,8 +85,9 @@
 		- type="popular"          : generates the most used points page (popular.htm).
 		- page="somefile.htm"     : shows an additional datapack HTM of the script folder.
 		- bypass="..."            : any regular bypass, handled by the core (multisell, quest, ...).
-		name / color              : label and color of the tab. %objectId% is supported on bypasses.
-		Tabs are spread on multiple rows above 4 entries, so their labels stay readable.
+		name / color              : label and color of the tab, the default color being the "tab" one of
+		                            <colors>. %objectId% is supported on bypasses.
+		Tabs are spread on multiple rows above "tabColumns" entries, so their labels stay readable.
 
 	<loc>
 		id       : unique id, used as database key of the teleport counter. Never reuse it.
@@ -72,12 +97,31 @@
 		x / y / z: destination.
 		castleId : optional, forbids the teleport while the castle siege is in progress.
 		minLevel / maxLevel : optional level restriction.
-		price    : optional. -1 (default) lets <pricing> compute it, 0 makes it free, any other value is a fixed base price.
+		price    : optional. -1 (default) lets the pricing formula compute it, 0 makes it free, any other value is a fixed base price.
 -->
 <list>
-	<settings rowsPerPage="12" popularLimit="20" popularMinCount="1" defaultPriceId="57" defaultPrice="-1" defaultNoblePrice="-1" goLabel="Идти" nobleLabel="noble" lockedLabel="-" freeLabel="0" emptyLabel="Пока никто никуда не отправлялся." backLabel="&lt;&lt; К списку" teleportDelay="5000" rowColor="000000" />
+	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" ellipsis="..." fillPage="true">
+		<table id="areas">
+			<column id="name" header="Направление" width="106" maxChars="16" align="left" />
+			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
+			<column id="capital" header="Столица" width="82" maxChars="13" align="left" />
+		</table>
+		<table id="points">
+			<column id="name" header="Локация" width="96" maxChars="15" align="left" />
+			<column id="point" header="Точка" width="54" maxChars="9" align="left" />
+			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
+			<column id="action" header="" width="38" maxChars="0" align="right" />
+		</table>
+		<table id="popular">
+			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
+			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
+			<column id="action" header="" width="38" maxChars="0" align="right" />
+		</table>
+	</layout>
 
-	<pricing enabled="true" rounding="100" distance="true" nearPrice="15000" farPrice="100000" refDistance="240000" distanceCurve="1.35" capPrice="200000" level="true" levelFrom="1" levelTo="80" levelMinRate="0.4" karma="true" karmaCap="10000" karmaRate="1.0" night="true" nightRate="1.25" />
+	<colors row="000000" altRow="" header="000000" headerText="9F9F9F" title="LEVEL" tabBar="000000" tab="FFFFFF" activeTab="LEVEL" name="" point="8F8F8F" price="LEVEL" free="00FF00" disabled="707070" page="" activePage="LEVEL" />
+
+	<labels go="Идти" noble="noble" locked="-" free="0" empty="Пока никто никуда не отправлялся." back="&lt;&lt; К списку" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
