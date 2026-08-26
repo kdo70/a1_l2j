@@ -84,6 +84,23 @@ a timeout, which is the point: it is how an `interface.u` update is made mandato
 a package players have to pick up. Bump only the constant and everyone is turned away; bump only the setting
 and nobody is. The whole design is in [../../docs/client-version-check.md](../../docs/client-version-check.md).
 
+## Enchant level and stack count on the icon
+
+This one is not part of the `interface.u` rebuild at all — it is a binary patch of `nwindow.dll`, applied by
+`patch_nwindow.ps1`. It has to be, because the native `NCItemWnd::OnPaint` draws exactly one piece of text in
+the corner of an item icon, the stack count, and UnrealScript cannot change its format, colour or position:
+
+```
+powershell -ExecutionPolicy Bypass -File patch_nwindow.ps1 -In "<client>\system\nwindow.dll"
+```
+
+The patch adds a branch — `"+N"` for enchanted items, `"99+"` for counts past a cap, the stock `"%d"`
+otherwise — and takes `-EnchantColor`, `-CountColor`, `-EnchantOffsetX/Y`, `-CountOffsetX/Y` and `-CountCap`.
+It verifies the block it replaces byte for byte first, so it is a no-op on any other build, and it leaves
+`nwindow.dll.preench.bak` behind. To change the colours or the position, restore that backup and run it again.
+The whole disassembly, and the structure offsets it rests on, are in
+[../../docs/enchant-on-icon.md](../../docs/enchant-on-icon.md).
+
 ## Rebuilding it
 
 You need an **L2-capable** `ucc`. A stock UT2003 one won't do: it has to read the `Lineage2Ver111` container
@@ -211,6 +228,8 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container and stamps the licensee.
 - `verify_imports.ps1` — checks a built package's imports against the client's real packages.
 - `dump_class_sizes.ps1` — lists the size of every `UClass` export, for the comparison above.
+- `patch_nwindow.ps1` — the `nwindow.dll` patch that puts the enchant level on item icons and caps the stack
+  count. Nothing to do with the `interface.u` build.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
   and `ChatWnd.uc` rebuilt.
 - `NWindow/Classes/` — 87 classes from `nwindow.u`, compiled as a stand-in for the client's binary package.
