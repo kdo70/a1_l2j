@@ -87,6 +87,7 @@ public class GatekeeperData implements IXmlReader
 	private String _backLabel;
 	private String _prevPageLabel;
 	private String _nextPageLabel;
+	private String _popupSeparator;
 	private int _currencyChars;
 	private boolean _isCurrencyLowerCase;
 
@@ -204,6 +205,7 @@ public class GatekeeperData implements IXmlReader
 				_backLabel = parseString(attrs, "back", _backLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
+				_popupSeparator = parseString(attrs, "popupSeparator", _popupSeparator);
 				_currencyChars = Math.max(0, parseInt(attrs, "currencyChars", _currencyChars));
 				_isCurrencyLowerCase = parseBool(attrs, "currencyLowerCase", _isCurrencyLowerCase);
 			});
@@ -550,7 +552,7 @@ public class GatekeeperData implements IXmlReader
 		_tabHeight = 18;
 		_tabColumns = 4;
 		_maxPages = 10;
-		_pageHeight = 370;
+		_pageHeight = 390;
 		_ellipsis = "...";
 
 		_tables.clear();
@@ -561,13 +563,13 @@ public class GatekeeperData implements IXmlReader
 		areas.addColumn(new GatekeeperColumn("capital", "Capital", 82, 13, "left"));
 		_tables.put(areas.getId(), areas);
 
-		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE, 122);
+		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE, 96);
 		points.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
 		points.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
 		points.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
 		_tables.put(points.getId(), points);
 
-		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE, 112);
+		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE, 96);
 		popular.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
 		popular.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
 		popular.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
@@ -606,6 +608,7 @@ public class GatekeeperData implements IXmlReader
 		_backLabel = "<< back";
 		_prevPageLabel = "<<";
 		_nextPageLabel = ">>";
+		_popupSeparator = " -- ";
 		_currencyChars = 0;
 		_isCurrencyLowerCase = false;
 	}
@@ -971,6 +974,14 @@ public class GatekeeperData implements IXmlReader
 	public String getPrevPageLabel()
 	{
 		return _prevPageLabel;
+	}
+
+	/**
+	 * @return The text written between the destination and its price, on the confirmation box shown before a teleport.
+	 */
+	public String getPopupSeparator()
+	{
+		return _popupSeparator;
 	}
 
 	/**

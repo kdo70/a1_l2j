@@ -256,7 +256,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%list%", sb.toString());
 		content = content.replace("%filler%", getFiller(menu, table, last - first));
-		content = content.replace("%pages%", getPages("Quest " + getName() + " List " + tab.getIndex(), page, pages));
+		content = content.replace("%footer%", getFooter("", "Quest " + getName() + " List " + tab.getIndex(), page, pages));
 		content = content.replace("%pk%", (player.getKarma() > 0) ? getFragment("pk.htm") : "");
 
 		sendHtml(npc, player, content);
@@ -297,8 +297,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
 		content = content.replace("%filler%", getFiller(menu, table, last - first));
-		content = content.replace("%pages%", getPages("Quest " + getName() + " Area " + tab.getIndex() + " " + area.getIndex(), page, pages));
-		content = content.replace("%back%", (tab.isFlat()) ? "" : getCenteredRow("<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + escape(data.getBackLabel()) + "</a>"));
+		content = content.replace("%footer%", getFooter((tab.isFlat()) ? "" : "<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + escape(data.getBackLabel()) + "</a>", "Quest " + getName() + " Area " + tab.getIndex() + " " + area.getIndex(), page, pages));
 
 		sendHtml(npc, player, content);
 	}
@@ -344,7 +343,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
 		content = content.replace("%filler%", getFiller(menu, table, Math.max(1, last - first)));
-		content = content.replace("%pages%", getPages("Quest " + getName() + " Popular " + tab.getIndex(), page, pages));
+		content = content.replace("%footer%", getFooter("", "Quest " + getName() + " Popular " + tab.getIndex(), page, pages));
 
 		sendHtml(npc, player, content);
 	}
@@ -598,43 +597,50 @@ public class GlobalGatekeeper extends Quest
 	}
 
 	/**
-	 * The page selector is rendered as a single table row, since the client turns every link of a &lt;center&gt; block into its own line.
+	 * The bottom row of every list page : the back link on the left, the page selector on the right.<br>
+	 * <br>
+	 * It is rendered as a single table row - the client would otherwise turn every link of a &lt;center&gt; block into its own line - and it is always emitted, even empty. That last part matters :
+	 * an occasionally missing row would shorten a page by {@link GatekeeperData#getRowHeight()}, and pages without a scrollbar would show up again.
+	 * @param back : The already rendered back link, empty when the page doesn't own one.
 	 * @param bypass : The bypass to fire, the page index being appended to it.
 	 * @param page : The currently shown page index.
 	 * @param pages : The total amount of pages.
-	 * @return The page selector, replacing the %pages% variable - an empty {@link String} if a single page exists.
+	 * @return The footer row, replacing the %footer% variable.
 	 */
-	private static String getPages(String bypass, int page, int pages)
+	private static String getFooter(String back, String bypass, int page, int pages)
 	{
-		if (pages <= 1)
-			return "";
-
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final int maxPages = data.getMaxPages();
 
-		// Center the shown window of pages on the current page.
-		int first = Math.max(0, page - maxPages / 2);
-		final int last = Math.min(pages, first + maxPages);
-		first = Math.max(0, last - maxPages);
+		int first = 0;
+		int last = 0;
+		boolean hasPrev = false;
+		boolean hasNext = false;
 
-		final boolean hasPrev = page > 0;
-		final boolean hasNext = page < pages - 1;
+		if (pages > 1)
+		{
+			// Center the shown window of pages on the current page.
+			first = Math.max(0, page - maxPages / 2);
+			last = Math.min(pages, first + maxPages);
+			first = Math.max(0, last - maxPages);
+
+			hasPrev = page > 0;
+			hasNext = page < pages - 1;
+		}
 
 		// Every cell owns the same width, so the selector doesn't jump around while browsing the pages.
 		final int cellWidth = Math.max(1, data.getWidth() / (maxPages + 2));
 		final int cells = (last - first) + ((hasPrev) ? 1 : 0) + ((hasNext) ? 1 : 0);
-		final int lead = Math.max(0, (data.getWidth() - cells * cellWidth) / 2);
-		final int trail = Math.max(0, data.getWidth() - lead - cells * cellWidth);
+
+		// The back link takes whatever the selector leaves on the left, which pins the selector to the right edge.
+		final int backWidth = Math.max(1, data.getWidth() - cells * cellWidth);
 
 		final StringBuilder sb = new StringBuilder(512);
 
-		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr>");
-
-		if (lead > 0)
-			StringUtil.append(sb, "<td width=", lead, " height=", data.getRowHeight(), "></td>");
+		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr><td width=", backWidth, " height=", data.getRowHeight(), " align=left>", back, "</td>");
 
 		if (hasPrev)
-			StringUtil.append(sb, getPageCell(cellWidth, "<a action=\"bypass -h " + bypass + " " + (page - 1) + "\">" + colorize(data.getPageColor(), escape(data.getPrevPageLabel())) + "</a>"));
+			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + bypass + " " + (page - 1) + "\">" + colorize(data.getPageColor(), escape(data.getPrevPageLabel())) + "</a>"));
 
 		for (int i = first; i < last; i++)
 		{
@@ -646,9 +652,6 @@ public class GlobalGatekeeper extends Quest
 		if (hasNext)
 			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + bypass + " " + (page + 1) + "\">" + colorize(data.getPageColor(), escape(data.getNextPageLabel())) + "</a>"));
 
-		if (trail > 0)
-			StringUtil.append(sb, "<td width=", trail, "></td>");
-
 		sb.append(ROW_END);
 
 		return sb.toString();
@@ -657,17 +660,6 @@ public class GlobalGatekeeper extends Quest
 	private static String getPageCell(int width, String content)
 	{
 		return "<td width=" + width + " height=" + GatekeeperData.getInstance().getRowHeight() + " align=center>" + content + "</td>";
-	}
-
-	/**
-	 * @param content : The already rendered content to center.
-	 * @return A single, full width and centered row - used by the %back% variable, which must stay on one line.
-	 */
-	private static String getCenteredRow(String content)
-	{
-		final GatekeeperData data = GatekeeperData.getInstance();
-
-		return "<table width=" + data.getWidth() + "><tr><td width=" + data.getWidth() + " height=" + data.getRowHeight() + " align=center>" + content + "</td>" + ROW_END;
 	}
 
 	/**
@@ -725,7 +717,7 @@ public class GlobalGatekeeper extends Quest
 
 		final Item item = ItemData.getInstance().getTemplate(point.getPriceId());
 
-		return point.getFullName() + " (" + StringUtil.formatNumber(price) + ((item == null) ? "" : " " + item.getName()) + ")";
+		return point.getFullName() + GatekeeperData.getInstance().getPopupSeparator() + StringUtil.formatNumber(price) + ((item == null) ? "" : " " + item.getName());
 	}
 
 	/**
