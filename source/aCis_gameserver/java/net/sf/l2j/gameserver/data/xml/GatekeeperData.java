@@ -266,8 +266,15 @@ public class GatekeeperData implements IXmlReader
 				return;
 			}
 
+			String intro = parseToken(itemAttrs, "intro", null);
+			if (intro != null && !isValidPage(intro))
+			{
+				LOGGER.warn("Gatekeeper menu id {} holds the invalid intro '{}'.", menuId, intro);
+				intro = null;
+			}
+
 			final int index = tabIndex.getAndIncrement();
-			final GatekeeperTab tab = new GatekeeperTab(index, name, color, type, generateBypass(type, index, bypass, page), page);
+			final GatekeeperTab tab = new GatekeeperTab(index, name, color, type, generateBypass(type, index, bypass, page), page, intro, parseInt(itemAttrs, "introHeight", 0));
 
 			if (type == GatekeeperTabType.AREAS)
 			{

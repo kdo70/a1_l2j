@@ -253,9 +253,10 @@ public class GlobalGatekeeper extends Quest
 
 		String content = getHtmlText("areas.htm");
 		content = content.replace("%menu%", getMenu(menu, tab));
+		content = content.replace("%intro%", (tab.getIntro() == null) ? "" : getFragment(tab.getIntro()));
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%list%", sb.toString());
-		content = content.replace("%filler%", getFiller(menu, table, last - first));
+		content = content.replace("%filler%", getFiller(menu, table, last - first, (tab.getIntro() == null) ? 0 : tab.getIntroHeight()));
 		content = content.replace("%footer%", getFooter("", "Quest " + getName() + " List " + tab.getIndex(), page, pages));
 		content = content.replace("%pk%", (player.getKarma() > 0) ? getFragment("pk.htm") : "");
 
@@ -296,7 +297,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%area%", escape(area.getName()));
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
-		content = content.replace("%filler%", getFiller(menu, table, last - first));
+		content = content.replace("%filler%", getFiller(menu, table, last - first, 0));
 		content = content.replace("%footer%", getFooter((tab.isFlat()) ? "" : "<a action=\"bypass -h Quest " + getName() + " List " + tab.getIndex() + " 0\">" + escape(data.getBackLabel()) + "</a>", "Quest " + getName() + " Area " + tab.getIndex() + " " + area.getIndex(), page, pages));
 
 		sendHtml(npc, player, content);
@@ -342,7 +343,7 @@ public class GlobalGatekeeper extends Quest
 		content = content.replace("%menu%", getMenu(menu, tab));
 		content = content.replace("%header%", getHeader(table));
 		content = content.replace("%locations%", sb.toString());
-		content = content.replace("%filler%", getFiller(menu, table, Math.max(1, last - first)));
+		content = content.replace("%filler%", getFiller(menu, table, Math.max(1, last - first), 0));
 		content = content.replace("%footer%", getFooter("", "Quest " + getName() + " Popular " + tab.getIndex(), page, pages));
 
 		sendHtml(npc, player, content);
@@ -533,15 +534,16 @@ public class GlobalGatekeeper extends Quest
 	 * @param menu : The {@link GatekeeperMenu} being shown, whose tab bar height varies with its amount of tabs.
 	 * @param table : The {@link GatekeeperTable} of the page, holding the static height of its HTM.
 	 * @param shown : The amount of rows actually rendered on the current page.
-	 * @return The spacer pushing the bottom of the page down, replacing the %filler% variable.
+	 * @param extra : The height of the optional blocks the tab adds on top of the HTM, being the intro fragment.
+	 * @return The spacer filling the bottom of the page, replacing the %filler% variable.
 	 */
-	private static String getFiller(GatekeeperMenu menu, GatekeeperTable table, int shown)
+	private static String getFiller(GatekeeperMenu menu, GatekeeperTable table, int shown, int extra)
 	{
 		final GatekeeperData data = GatekeeperData.getInstance();
 		if (data.getPageHeight() <= 0)
 			return "";
 
-		final int missing = data.getPageHeight() - table.getOverhead() - getMenuRows(menu) * data.getTabHeight() - shown * data.getRowHeight();
+		final int missing = data.getPageHeight() - table.getOverhead() - extra - getMenuRows(menu) * data.getTabHeight() - shown * data.getRowHeight();
 
 		return (missing <= 0) ? "" : "<img height=" + missing + ">";
 	}

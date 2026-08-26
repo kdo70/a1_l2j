@@ -33,13 +33,15 @@
 		<table id="popular"> : columns of the most used points page. Ids : name, price, action.
 
 		overhead : height, in pixels, everything but the tab bar and the list rows takes on the HTM of
-		           that page - intro text, separators, headline, header row and the %footer% row.
-		           Substracted from pageHeight to know how much the list has to be padded with. Only
-		           worth touching after editing the HTM of the page. Rough guide : <br> 16, <br1> 8,
-		           a separator img 1, a header or footer row 18.
+		           that page - separators, headline, header row and the %footer% row. Substracted from
+		           pageHeight to know how much the list has to be padded with. Only worth touching after
+		           editing the HTM of the page. Rough guide : <br> 16, <br1> 8, a separator img 1,
+		           a header or footer row 18. The optional intro of a tab is counted apart, see the
+		           "introHeight" attribute of <item>.
 
-		The %footer% row holds the back link on the left and the page selector on the right. It is
-		always emitted, even when both are empty, so that every page keeps the very same height.
+		The %footer% row holds the back link on the left and the page selector on the right, and sits
+		right under the list. It is always emitted, even when both are empty, so that every page keeps
+		the very same height. %filler% comes after it, and fills whatever is left down to pageHeight.
 
 		<column>
 			id      : the column the script feeds ; an unknown id is simply ignored.
@@ -112,6 +114,11 @@
 		- bypass="..."            : any regular bypass, handled by the core (multisell, quest, ...).
 		name / color              : label and color of the tab, the default color being the "tab" one of
 		                            <colors>. %objectId% is supported on bypasses.
+		intro / introHeight       : optional HTM fragment of the script folder, shown above the tab bar
+		                            of the areas list page, and its height in pixels. Since the script
+		                            can't measure a text on its own, that height is what keeps the page
+		                            as tall as the tabs without an intro. Drop both attributes and the
+		                            tab simply shows no intro at all.
 		Tabs are spread on multiple rows above "tabColumns" entries, so their labels stay readable.
 
 	<loc>
@@ -126,7 +133,7 @@
 -->
 <list>
 	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="390" ellipsis="...">
-		<table id="areas" overhead="195">
+		<table id="areas" overhead="104">
 			<column id="name" header="Направление" width="150" maxChars="22" align="left" />
 			<column id="price" header="Цена" width="65" maxChars="0" align="left" />
 			<column id="capital" header="Столица" width="65" maxChars="13" align="right" />
@@ -169,7 +176,7 @@
 
 	<menu id="0">
 		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. -->
-		<item name="Города" bypass="Quest GlobalGatekeeper List 0">
+		<item name="Города" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 0">
 			<area name="Town of Dion" capital="Teleport">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
 				<loc id="2" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
@@ -303,7 +310,7 @@
 				<loc id="114" name="Altar of Rites" point="" type="NOBLE" x="-44566" y="77508" z="-3736"/>
 			</area>
 		</item>
-		<item name="Деревни" bypass="Quest GlobalGatekeeper List 1">
+		<item name="Деревни" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 1">
 			<area name="Floran Village" capital="Teleport">
 				<loc id="115" name="Floran Village" point="" type="STANDARD" x="17430" y="170103" z="-3506" />
 			</area>

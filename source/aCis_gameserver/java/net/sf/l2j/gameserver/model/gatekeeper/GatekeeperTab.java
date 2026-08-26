@@ -19,8 +19,10 @@ public class GatekeeperTab
 	private final GatekeeperTabType _type;
 	private final String _bypass;
 	private final String _page;
+	private final String _intro;
+	private final int _introHeight;
 
-	public GatekeeperTab(int index, String name, String color, GatekeeperTabType type, String bypass, String page)
+	public GatekeeperTab(int index, String name, String color, GatekeeperTabType type, String bypass, String page, String intro, int introHeight)
 	{
 		_index = index;
 		_name = name;
@@ -28,6 +30,8 @@ public class GatekeeperTab
 		_type = type;
 		_bypass = bypass;
 		_page = page;
+		_intro = intro;
+		_introHeight = introHeight;
 	}
 
 	@Override
@@ -70,6 +74,22 @@ public class GatekeeperTab
 	public String getPage()
 	{
 		return _page;
+	}
+
+	/**
+	 * @return The datapack HTM fragment shown above the tab bar of the areas list page, replacing its %intro% variable - null when this tab doesn't own one.
+	 */
+	public String getIntro()
+	{
+		return _intro;
+	}
+
+	/**
+	 * @return The height, in pixels, of the intro fragment. Added to the overhead of the page, since the script can't measure a text on its own.
+	 */
+	public int getIntroHeight()
+	{
+		return _introHeight;
 	}
 
 	public List<GatekeeperArea> getAreas()
