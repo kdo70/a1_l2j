@@ -118,16 +118,16 @@
 		price    : optional. -1 (default) lets the pricing formula compute it, 0 makes it free, any other value is a fixed base price.
 -->
 <list>
-	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="400" ellipsis="...">
+	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="370" ellipsis="...">
 		<table id="areas" overhead="195">
-			<column id="name" header="Направление" width="150" maxChars="22" align="left" />
-			<column id="price" header="Цена" width="150" maxChars="0" align="left" />
-			<column id="capital" header="Столица" width="60" maxChars="13" align="left" />
+			<column id="name" header="Направление" width="100" maxChars="22" align="left" />
+			<column id="price" header="Цена" width="100" maxChars="0" align="left" />
+			<column id="capital" header="Столица" width="80" maxChars="13" align="left" />
 		</table>
 		<table id="points" overhead="122">
 			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
 			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
-			<column id="action" header="" width="55 " maxChars="0" align="right" />
+			<column id="action" header="" width="55" maxChars="0" align="right" />
 		</table>
 		<table id="popular" overhead="112">
 			<column id="name" header="Локация" width="150" maxChars="25" align="left" />

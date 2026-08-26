@@ -102,7 +102,16 @@ public class GatekeeperData implements IXmlReader
 		setDefaultColors();
 		setDefaultLabels();
 
-		parseFile("./data/xml/gatekeeper.xml");
+		// IXmlReader only catches the parser exceptions ; without this, a single malformed attribute would abort the whole server startup.
+		try
+		{
+			parseFile("./data/xml/gatekeeper.xml");
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't fully read gatekeeper.xml ; the gatekeeper runs on whatever has been read so far.", e);
+		}
+
 		LOGGER.info("Loaded {} gatekeeper menus, {} teleport points for {} npcs.", _menus.size(), _points.size(), _npcs.size());
 	}
 
@@ -115,38 +124,38 @@ public class GatekeeperData implements IXmlReader
 			{
 				final NamedNodeMap attrs = layoutNode.getAttributes();
 
-				_width = Math.max(1, parseInteger(attrs, "width", _width));
-				_rowHeight = Math.max(1, parseInteger(attrs, "rowHeight", _rowHeight));
-				_headerHeight = Math.max(1, parseInteger(attrs, "headerHeight", _headerHeight));
-				_tabHeight = Math.max(1, parseInteger(attrs, "tabHeight", _tabHeight));
-				_tabColumns = Math.max(1, parseInteger(attrs, "tabColumns", _tabColumns));
-				_maxPages = Math.max(1, parseInteger(attrs, "maxPages", _maxPages));
-				_pageHeight = Math.max(0, parseInteger(attrs, "pageHeight", _pageHeight));
+				_width = Math.max(1, parseInt(attrs, "width", _width));
+				_rowHeight = Math.max(1, parseInt(attrs, "rowHeight", _rowHeight));
+				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
+				_tabHeight = Math.max(1, parseInt(attrs, "tabHeight", _tabHeight));
+				_tabColumns = Math.max(1, parseInt(attrs, "tabColumns", _tabColumns));
+				_maxPages = Math.max(1, parseInt(attrs, "maxPages", _maxPages));
+				_pageHeight = Math.max(0, parseInt(attrs, "pageHeight", _pageHeight));
 				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
 
 				forEach(layoutNode, "table", tableNode ->
 				{
 					final NamedNodeMap tableAttrs = tableNode.getAttributes();
-					final String tableId = parseString(tableAttrs, "id", "");
+					final String tableId = parseToken(tableAttrs, "id", "");
 					if (tableId.isEmpty())
 					{
 						LOGGER.warn("A gatekeeper layout table is missing its id.");
 						return;
 					}
 
-					final GatekeeperTable table = new GatekeeperTable(tableId, parseInteger(tableAttrs, "overhead", 0));
+					final GatekeeperTable table = new GatekeeperTable(tableId, parseInt(tableAttrs, "overhead", 0));
 
 					forEach(tableNode, "column", columnNode ->
 					{
 						final NamedNodeMap columnAttrs = columnNode.getAttributes();
-						final String columnId = parseString(columnAttrs, "id", "");
+						final String columnId = parseToken(columnAttrs, "id", "");
 						if (columnId.isEmpty())
 						{
 							LOGGER.warn("A column of the gatekeeper layout table '{}' is missing its id.", tableId);
 							return;
 						}
 
-						table.addColumn(new GatekeeperColumn(columnId, parseString(columnAttrs, "header", ""), parseInteger(columnAttrs, "width", 1), parseInteger(columnAttrs, "maxChars", 0), parseString(columnAttrs, "align", "left")));
+						table.addColumn(new GatekeeperColumn(columnId, parseString(columnAttrs, "header", ""), parseInt(columnAttrs, "width", 1), parseInt(columnAttrs, "maxChars", 0), parseToken(columnAttrs, "align", "left")));
 					});
 
 					if (table.getColumns().isEmpty())
@@ -166,21 +175,21 @@ public class GatekeeperData implements IXmlReader
 			{
 				final NamedNodeMap attrs = colorsNode.getAttributes();
 
-				_rowColor = parseString(attrs, "row", _rowColor);
-				_altRowColor = parseString(attrs, "altRow", _altRowColor);
-				_headerColor = parseString(attrs, "header", _headerColor);
-				_headerTextColor = parseString(attrs, "headerText", _headerTextColor);
-				_titleColor = parseString(attrs, "title", _titleColor);
-				_tabBarColor = parseString(attrs, "tabBar", _tabBarColor);
-				_tabColor = parseString(attrs, "tab", _tabColor);
-				_activeTabColor = parseString(attrs, "activeTab", _activeTabColor);
-				_nameColor = parseString(attrs, "name", _nameColor);
-				_pointColor = parseString(attrs, "point", _pointColor);
-				_priceColor = parseString(attrs, "price", _priceColor);
-				_freeColor = parseString(attrs, "free", _freeColor);
-				_disabledColor = parseString(attrs, "disabled", _disabledColor);
-				_pageColor = parseString(attrs, "page", _pageColor);
-				_activePageColor = parseString(attrs, "activePage", _activePageColor);
+				_rowColor = parseToken(attrs, "row", _rowColor);
+				_altRowColor = parseToken(attrs, "altRow", _altRowColor);
+				_headerColor = parseToken(attrs, "header", _headerColor);
+				_headerTextColor = parseToken(attrs, "headerText", _headerTextColor);
+				_titleColor = parseToken(attrs, "title", _titleColor);
+				_tabBarColor = parseToken(attrs, "tabBar", _tabBarColor);
+				_tabColor = parseToken(attrs, "tab", _tabColor);
+				_activeTabColor = parseToken(attrs, "activeTab", _activeTabColor);
+				_nameColor = parseToken(attrs, "name", _nameColor);
+				_pointColor = parseToken(attrs, "point", _pointColor);
+				_priceColor = parseToken(attrs, "price", _priceColor);
+				_freeColor = parseToken(attrs, "free", _freeColor);
+				_disabledColor = parseToken(attrs, "disabled", _disabledColor);
+				_pageColor = parseToken(attrs, "page", _pageColor);
+				_activePageColor = parseToken(attrs, "activePage", _activePageColor);
 			});
 
 			forEach(listNode, "labels", labelsNode ->
@@ -195,8 +204,8 @@ public class GatekeeperData implements IXmlReader
 				_backLabel = parseString(attrs, "back", _backLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
-				_currencyChars = Math.max(0, parseInteger(attrs, "currencyChars", _currencyChars));
-				_isCurrencyLowerCase = parseBoolean(attrs, "currencyLowerCase", _isCurrencyLowerCase);
+				_currencyChars = Math.max(0, parseInt(attrs, "currencyChars", _currencyChars));
+				_isCurrencyLowerCase = parseBool(attrs, "currencyLowerCase", _isCurrencyLowerCase);
 			});
 
 			forEach(listNode, "menu", menuNode -> parseMenu(menuNode));
@@ -204,8 +213,8 @@ public class GatekeeperData implements IXmlReader
 			forEach(listNode, "npc", npcNode ->
 			{
 				final NamedNodeMap attrs = npcNode.getAttributes();
-				final int npcId = parseInteger(attrs, "id", 0);
-				final int menuId = parseInteger(attrs, "menu", 0);
+				final int npcId = parseInt(attrs, "id", 0);
+				final int menuId = parseInt(attrs, "menu", 0);
 
 				final GatekeeperMenu menu = _menus.get(menuId);
 				if (menu == null)
@@ -223,10 +232,10 @@ public class GatekeeperData implements IXmlReader
 	private void parseMenu(Node menuNode)
 	{
 		final NamedNodeMap menuAttrs = menuNode.getAttributes();
-		final int menuId = parseInteger(menuAttrs, "id", 0);
-		final int menuPriceId = parseInteger(menuAttrs, "priceId", Config.GATEKEEPER_DEFAULT_PRICE_ID);
-		final int menuPrice = parseInteger(menuAttrs, "price", Config.GATEKEEPER_DEFAULT_PRICE);
-		final int menuNoblePrice = parseInteger(menuAttrs, "noblePrice", Config.GATEKEEPER_DEFAULT_NOBLE_PRICE);
+		final int menuId = parseInt(menuAttrs, "id", 0);
+		final int menuPriceId = parseInt(menuAttrs, "priceId", Config.GATEKEEPER_DEFAULT_PRICE_ID);
+		final int menuPrice = parseInt(menuAttrs, "price", Config.GATEKEEPER_DEFAULT_PRICE);
+		final int menuNoblePrice = parseInt(menuAttrs, "noblePrice", Config.GATEKEEPER_DEFAULT_NOBLE_PRICE);
 
 		final GatekeeperMenu menu = new GatekeeperMenu(menuId);
 		final AtomicInteger tabIndex = new AtomicInteger();
@@ -235,11 +244,11 @@ public class GatekeeperData implements IXmlReader
 		{
 			final NamedNodeMap itemAttrs = itemNode.getAttributes();
 			final String name = parseString(itemAttrs, "name", "?");
-			final String color = parseString(itemAttrs, "color", _tabColor);
+			final String color = parseToken(itemAttrs, "color", _tabColor);
 			final String bypass = parseString(itemAttrs, "bypass");
-			final int tabPriceId = parseInteger(itemAttrs, "priceId", menuPriceId);
-			final int tabPrice = parseInteger(itemAttrs, "price", menuPrice);
-			final int tabNoblePrice = parseInteger(itemAttrs, "noblePrice", menuNoblePrice);
+			final int tabPriceId = parseInt(itemAttrs, "priceId", menuPriceId);
+			final int tabPrice = parseInt(itemAttrs, "price", menuPrice);
+			final int tabNoblePrice = parseInt(itemAttrs, "noblePrice", menuNoblePrice);
 
 			String page = parseString(itemAttrs, "page");
 			if (page != null && !isValidPage(page))
@@ -271,9 +280,9 @@ public class GatekeeperData implements IXmlReader
 					{
 						final NamedNodeMap areaAttrs = child.getAttributes();
 						final String areaName = parseString(areaAttrs, "name", "?");
-						final int areaPriceId = parseInteger(areaAttrs, "priceId", tabPriceId);
-						final int areaPrice = parseInteger(areaAttrs, "price", tabPrice);
-						final int areaNoblePrice = parseInteger(areaAttrs, "noblePrice", tabNoblePrice);
+						final int areaPriceId = parseInt(areaAttrs, "priceId", tabPriceId);
+						final int areaPrice = parseInt(areaAttrs, "price", tabPrice);
+						final int areaNoblePrice = parseInt(areaAttrs, "noblePrice", tabNoblePrice);
 
 						final GatekeeperArea area = new GatekeeperArea(areaIndex.get(), areaName, parseString(areaAttrs, "capital", ""), false);
 
@@ -350,7 +359,7 @@ public class GatekeeperData implements IXmlReader
 	private GatekeeperPoint parsePoint(Node locNode, String areaName, int areaPriceId, int areaPrice, int areaNoblePrice)
 	{
 		final NamedNodeMap attrs = locNode.getAttributes();
-		final int id = parseInteger(attrs, "id", -1);
+		final int id = parseInt(attrs, "id", -1);
 		if (id < 0)
 		{
 			LOGGER.warn("A gatekeeper point of the area '{}' is missing its id.", areaName);
@@ -361,7 +370,7 @@ public class GatekeeperData implements IXmlReader
 		final GatekeeperPointType type = parseEnum(attrs, GatekeeperPointType.class, "type", GatekeeperPointType.STANDARD);
 		final int defaultPrice = (type == GatekeeperPointType.NOBLE) ? areaNoblePrice : areaPrice;
 
-		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInteger(attrs, "priceId", areaPriceId), Math.max(-1, parseInteger(attrs, "price", defaultPrice)), parseInteger(attrs, "castleId", 0), parseInteger(attrs, "minLevel", 1), parseInteger(attrs, "maxLevel", 127), parseInteger(attrs, "x", 0), parseInteger(attrs, "y", 0), parseInteger(attrs, "z", 0));
+		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
 
 		final GatekeeperPoint existing = _points.put(id, point);
 		if (existing != null)
@@ -442,6 +451,80 @@ public class GatekeeperData implements IXmlReader
 				return true;
 		}
 		return false;
+	}
+
+	/**
+	 * A tolerant {@link IXmlReader#parseInteger(NamedNodeMap, String, Integer)}, since this file is meant to be hand tuned : a stray space around a value would otherwise throw, and take the whole
+	 * server startup down with it.
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @param defaultValue : The value returned when the attribute is missing, empty or not a number.
+	 * @return The parsed value.
+	 */
+	private int parseInt(NamedNodeMap attrs, String name, int defaultValue)
+	{
+		final String value = parseTrimmed(attrs, name);
+		if (value == null)
+			return defaultValue;
+
+		try
+		{
+			return Integer.parseInt(value);
+		}
+		catch (NumberFormatException e)
+		{
+			LOGGER.warn("The gatekeeper attribute '{}' holds '{}', which isn't a number ; {} is used instead.", name, value, defaultValue);
+			return defaultValue;
+		}
+	}
+
+	/**
+	 * A tolerant {@link IXmlReader#parseBoolean(NamedNodeMap, String, Boolean)}, which doesn't silently read a spaced " true" as false.
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @param defaultValue : The value returned when the attribute is missing or empty.
+	 * @return The parsed value.
+	 */
+	private static boolean parseBool(NamedNodeMap attrs, String name, boolean defaultValue)
+	{
+		final String value = parseTrimmed(attrs, name);
+
+		return (value == null) ? defaultValue : Boolean.parseBoolean(value);
+	}
+
+	/**
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @return The trimmed value of the given attribute, null if it is missing or blank.
+	 */
+	/**
+	 * Same as {@link IXmlReader#parseString(NamedNodeMap, String, String)}, minus the surrounding spaces - which would leak into a color or an align attribute, and break the generated tag.
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @param defaultValue : The value returned when the attribute is missing. An explicitly empty attribute stays empty.
+	 * @return The trimmed value of the given attribute.
+	 */
+	private static String parseToken(NamedNodeMap attrs, String name, String defaultValue)
+	{
+		final Node node = attrs.getNamedItem(name);
+
+		return (node == null) ? defaultValue : node.getNodeValue().trim();
+	}
+
+	/**
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @return The trimmed value of the given attribute, null if it is missing or blank.
+	 */
+	private static String parseTrimmed(NamedNodeMap attrs, String name)
+	{
+		final Node node = attrs.getNamedItem(name);
+		if (node == null)
+			return null;
+
+		final String value = node.getNodeValue().trim();
+
+		return (value.isEmpty()) ? null : value;
 	}
 
 	/**
