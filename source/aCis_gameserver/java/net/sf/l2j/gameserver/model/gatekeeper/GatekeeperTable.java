@@ -19,21 +19,32 @@ public class GatekeeperTable
 	private final Map<String, GatekeeperColumn> _columns = new LinkedHashMap<>();
 
 	private final String _id;
+	private final int _overhead;
 
-	public GatekeeperTable(String id)
+	public GatekeeperTable(String id, int overhead)
 	{
 		_id = id;
+		_overhead = Math.max(0, overhead);
 	}
 
 	@Override
 	public String toString()
 	{
-		return "GatekeeperTable [_id=" + _id + ", _columns=" + _columns.keySet() + "]";
+		return "GatekeeperTable [_id=" + _id + ", _overhead=" + _overhead + ", _columns=" + _columns.keySet() + "]";
 	}
 
 	public String getId()
 	{
 		return _id;
+	}
+
+	/**
+	 * @return The height, in pixels, everything but the list rows and the tab bar takes on the HTM of this page - texts, separators, headline, header row and page selector included. Substracted
+	 *         from the layout page height to know how much the list has to be padded with.
+	 */
+	public int getOverhead()
+	{
+		return _overhead;
 	}
 
 	public void addColumn(GatekeeperColumn column)

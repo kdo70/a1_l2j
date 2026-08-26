@@ -47,7 +47,7 @@ public class GatekeeperData implements IXmlReader
 	public static final String POPULAR_TABLE = "popular";
 
 	/** Fallback returned by {@link #getTable(String)}, so an unknown table id doesn't break the whole dialog. */
-	private static final GatekeeperTable EMPTY_TABLE = new GatekeeperTable("?");
+	private static final GatekeeperTable EMPTY_TABLE = new GatekeeperTable("?", 0);
 
 	private final Map<Integer, GatekeeperMenu> _menus = new HashMap<>();
 	private final Map<Integer, GatekeeperMenu> _npcs = new HashMap<>();
@@ -60,8 +60,8 @@ public class GatekeeperData implements IXmlReader
 	private int _tabHeight;
 	private int _tabColumns;
 	private int _maxPages;
+	private int _pageHeight;
 	private String _ellipsis;
-	private boolean _fillPage;
 
 	private String _rowColor;
 	private String _altRowColor;
@@ -87,6 +87,8 @@ public class GatekeeperData implements IXmlReader
 	private String _backLabel;
 	private String _prevPageLabel;
 	private String _nextPageLabel;
+	private int _currencyChars;
+	private boolean _isCurrencyLowerCase;
 
 	protected GatekeeperData()
 	{
@@ -119,19 +121,20 @@ public class GatekeeperData implements IXmlReader
 				_tabHeight = Math.max(1, parseInteger(attrs, "tabHeight", _tabHeight));
 				_tabColumns = Math.max(1, parseInteger(attrs, "tabColumns", _tabColumns));
 				_maxPages = Math.max(1, parseInteger(attrs, "maxPages", _maxPages));
+				_pageHeight = Math.max(0, parseInteger(attrs, "pageHeight", _pageHeight));
 				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
-				_fillPage = parseBoolean(attrs, "fillPage", _fillPage);
 
 				forEach(layoutNode, "table", tableNode ->
 				{
-					final String tableId = parseString(tableNode.getAttributes(), "id", "");
+					final NamedNodeMap tableAttrs = tableNode.getAttributes();
+					final String tableId = parseString(tableAttrs, "id", "");
 					if (tableId.isEmpty())
 					{
 						LOGGER.warn("A gatekeeper layout table is missing its id.");
 						return;
 					}
 
-					final GatekeeperTable table = new GatekeeperTable(tableId);
+					final GatekeeperTable table = new GatekeeperTable(tableId, parseInteger(tableAttrs, "overhead", 0));
 
 					forEach(tableNode, "column", columnNode ->
 					{
@@ -192,6 +195,8 @@ public class GatekeeperData implements IXmlReader
 				_backLabel = parseString(attrs, "back", _backLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
+				_currencyChars = Math.max(0, parseInteger(attrs, "currencyChars", _currencyChars));
+				_isCurrencyLowerCase = parseBoolean(attrs, "currencyLowerCase", _isCurrencyLowerCase);
 			});
 
 			forEach(listNode, "menu", menuNode -> parseMenu(menuNode));
@@ -257,39 +262,59 @@ public class GatekeeperData implements IXmlReader
 			{
 				final AtomicInteger areaIndex = new AtomicInteger();
 
-				forEach(itemNode, "area", areaNode ->
+				// The children are walked in document order, so an area and a standalone point can be freely interleaved on the very same page.
+				for (Node child = itemNode.getFirstChild(); child != null; child = child.getNextSibling())
 				{
-					final NamedNodeMap areaAttrs = areaNode.getAttributes();
-					final String areaName = parseString(areaAttrs, "name", "?");
-					final int areaPriceId = parseInteger(areaAttrs, "priceId", tabPriceId);
-					final int areaPrice = parseInteger(areaAttrs, "price", tabPrice);
-					final int areaNoblePrice = parseInteger(areaAttrs, "noblePrice", tabNoblePrice);
+					final String childName = child.getNodeName();
 
-					final GatekeeperArea area = new GatekeeperArea(areaIndex.getAndIncrement(), areaName, parseString(areaAttrs, "capital", ""));
-
-					forEach(areaNode, "loc", locNode ->
+					if ("area".equals(childName))
 					{
-						final GatekeeperPoint point = parsePoint(locNode, areaName, areaPriceId, areaPrice, areaNoblePrice);
-						if (point == null)
-							return;
+						final NamedNodeMap areaAttrs = child.getAttributes();
+						final String areaName = parseString(areaAttrs, "name", "?");
+						final int areaPriceId = parseInteger(areaAttrs, "priceId", tabPriceId);
+						final int areaPrice = parseInteger(areaAttrs, "price", tabPrice);
+						final int areaNoblePrice = parseInteger(areaAttrs, "noblePrice", tabNoblePrice);
 
-						area.addPoint(point);
-						menu.addPoint(point);
-					});
+						final GatekeeperArea area = new GatekeeperArea(areaIndex.get(), areaName, parseString(areaAttrs, "capital", ""), false);
 
-					if (area.getPoints().isEmpty())
-					{
-						LOGGER.warn("Gatekeeper area '{}' of menu id {} doesn't hold any valid point.", areaName, menuId);
-						return;
+						forEach(child, "loc", locNode ->
+						{
+							final GatekeeperPoint point = parsePoint(locNode, areaName, areaPriceId, areaPrice, areaNoblePrice);
+							if (point == null)
+								return;
+
+							area.addPoint(point);
+							menu.addPoint(point);
+						});
+
+						if (area.getPoints().isEmpty())
+						{
+							LOGGER.warn("Gatekeeper area '{}' of menu id {} doesn't hold any valid point.", areaName, menuId);
+							continue;
+						}
+
+						areaIndex.incrementAndGet();
+						tab.addArea(area);
 					}
+					else if ("loc".equals(childName))
+					{
+						// A point written next to the areas becomes a row teleporting right away, instead of leading to a sub list.
+						final GatekeeperPoint point = parsePoint(child, name, tabPriceId, tabPrice, tabNoblePrice);
+						if (point == null)
+							continue;
 
-					tab.addArea(area);
-				});
+						final GatekeeperArea area = new GatekeeperArea(areaIndex.getAndIncrement(), point.getFullName(), parseString(child.getAttributes(), "capital", ""), true);
+						area.addPoint(point);
+
+						menu.addPoint(point);
+						tab.addArea(area);
+					}
+				}
 			}
 			else if (type == GatekeeperTabType.POINTS)
 			{
 				// The tab directly holds points ; wrap them into a single implicit area, named after the tab.
-				final GatekeeperArea area = new GatekeeperArea(0, name, parseString(itemAttrs, "capital", ""));
+				final GatekeeperArea area = new GatekeeperArea(0, name, parseString(itemAttrs, "capital", ""), false);
 
 				forEach(itemNode, "loc", locNode ->
 				{
@@ -442,27 +467,26 @@ public class GatekeeperData implements IXmlReader
 		_tabHeight = 18;
 		_tabColumns = 4;
 		_maxPages = 10;
+		_pageHeight = 370;
 		_ellipsis = "...";
-		_fillPage = true;
 
 		_tables.clear();
 
-		final GatekeeperTable areas = new GatekeeperTable(AREAS_TABLE);
-		areas.addColumn(new GatekeeperColumn("name", "Name", 104, 16, "left"));
-		areas.addColumn(new GatekeeperColumn("price", "Price", 88, 0, "left"));
-		areas.addColumn(new GatekeeperColumn("capital", "Capital", 88, 14, "left"));
+		final GatekeeperTable areas = new GatekeeperTable(AREAS_TABLE, 195);
+		areas.addColumn(new GatekeeperColumn("name", "Name", 106, 16, "left"));
+		areas.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
+		areas.addColumn(new GatekeeperColumn("capital", "Capital", 82, 13, "left"));
 		_tables.put(areas.getId(), areas);
 
-		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE);
-		points.addColumn(new GatekeeperColumn("name", "Location", 100, 16, "left"));
-		points.addColumn(new GatekeeperColumn("point", "Point", 56, 9, "left"));
-		points.addColumn(new GatekeeperColumn("price", "Price", 86, 0, "left"));
+		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE, 122);
+		points.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
+		points.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
 		points.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
 		_tables.put(points.getId(), points);
 
-		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE);
-		popular.addColumn(new GatekeeperColumn("name", "Location", 156, 26, "left"));
-		popular.addColumn(new GatekeeperColumn("price", "Price", 86, 0, "left"));
+		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE, 112);
+		popular.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
+		popular.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
 		popular.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
 		_tables.put(popular.getId(), popular);
 	}
@@ -496,9 +520,11 @@ public class GatekeeperData implements IXmlReader
 		_lockedLabel = "-";
 		_freeLabel = "0";
 		_emptyLabel = "-";
-		_backLabel = "&lt;&lt; back";
-		_prevPageLabel = "&lt;&lt;";
-		_nextPageLabel = "&gt;&gt;";
+		_backLabel = "<< back";
+		_prevPageLabel = "<<";
+		_nextPageLabel = ">>";
+		_currencyChars = 0;
+		_isCurrencyLowerCase = false;
 	}
 
 	public void reload()
@@ -707,11 +733,12 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return True if the lists are padded up to {@link #getRowsPerPage()} rows, which keeps the page selector pinned to the bottom of the dialog.
+	 * The dialog owns a fixed height ; padding every list up to that very same total keeps the page selector at one spot, and keeps the scrollbar shown on every single page.
+	 * @return The height, in pixels, a page is padded up to - the tab bar, the HTM overhead and the list rows included. 0 disables the padding.
 	 */
-	public boolean isFillPage()
+	public int getPageHeight()
 	{
-		return _fillPage;
+		return _pageHeight;
 	}
 
 	/**
@@ -861,6 +888,22 @@ public class GatekeeperData implements IXmlReader
 	public String getPrevPageLabel()
 	{
 		return _prevPageLabel;
+	}
+
+	/**
+	 * @return The amount of characters kept of the currency name, on the price column. 0 shows the whole name, localized by the client.
+	 */
+	public int getCurrencyChars()
+	{
+		return _currencyChars;
+	}
+
+	/**
+	 * @return True if the shortened currency name is lowercased.
+	 */
+	public boolean isCurrencyLowerCase()
+	{
+		return _isCurrencyLowerCase;
 	}
 
 	/**

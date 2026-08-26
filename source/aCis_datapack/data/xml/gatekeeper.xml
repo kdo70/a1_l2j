@@ -22,12 +22,20 @@
 		maxPages    : maximum amount of page links shown by the page selector, centered on the current
 		              page. The selector always stays on a single line.
 		ellipsis    : suffix appended to a shortened cell content.
-		fillPage    : true pads every list up to the "RowsPerPage" amount of rows, which pins the page
-		              selector to the bottom of the dialog - even on a page holding one single location.
+		pageHeight  : total height, in pixels, every page is padded up to - the tab bar, the "overhead"
+		              of the page and its list rows included. Since it is the very same on every page,
+		              the page selector always lands on the same spot ; and since it is set slightly
+		              above the height of the dialog, the scrollbar stays shown everywhere. 0 disables
+		              the padding. Raise it until the scrollbar shows up on every tab, no more.
 
 		<table id="areas">   : columns of the areas list page. Ids : name, price, capital.
-		<table id="points">  : columns of the teleport points list page. Ids : name, point, price, action.
+		<table id="points">  : columns of the teleport points list page. Ids : name, price, action.
 		<table id="popular"> : columns of the most used points page. Ids : name, price, action.
+
+		overhead : height, in pixels, everything but the tab bar and the list rows takes on the HTM of
+		           that page - intro text, separators, headline, header row, page selector, back link.
+		           Substracted from pageHeight to know how much the list has to be padded with. Only
+		           worth touching after editing the HTM of the page.
 
 		<column>
 			id      : the column the script feeds ; an unknown id is simply ignored.
@@ -50,7 +58,7 @@
 		tab           : default color of a tab, overridden by the "color" attribute of a given <item>.
 		activeTab     : color of the currently shown tab.
 		name          : name column of the lists.
-		point         : sub-point column of the points list.
+		point         : sub-point part of a name - the " - Center" of "Cruma Marshlands - Center".
 		price         : price column of the lists.
 		free          : price column, when the teleport is free.
 		disabled      : everything out of reach - locked points, unreachable capitals, empty lists.
@@ -67,6 +75,12 @@
 		empty    : label shown instead of an empty list.
 		back     : label of the link leading back to the areas list.
 		prevPage / nextPage : labels of the page selector arrows.
+		currencyChars     : amount of characters kept of the currency name, next to a price. 0 shows the
+		                    whole name, localized by the client ("57 000 Adena"). 1 shows "57 000 A".
+		currencyLowerCase : true lowercases the shortened currency name ("57 000 a").
+
+		Angle brackets are safe here : write them as &lt; / &gt;, the script feeds them back to the
+		client escaped, so a "&lt;&lt; back" label doesn't get read as a tag and swallowed.
 
 	<npc>
 		id / menu : binds a npc id to a menu id. Add a line to make any npc a gatekeeper.
@@ -80,8 +94,12 @@
 		let each point be priced on its own distance.
 
 	<item> (a tab of the top bar)
-		- holding <area> nodes    : generates the areas list page (areas.htm).
-		- holding <loc> nodes     : generates the points list page (locations.htm), without any area.
+		- holding <area> nodes    : generates the areas list page (areas.htm). A <loc> written next to
+		                            the areas becomes a row teleporting right away, instead of leading
+		                            to a sub list - so both kinds can be freely mixed, in the order
+		                            they are written. On such a row, the "capital" column holds the
+		                            teleport link, so name the column accordingly.
+		- holding <loc> nodes only: generates the points list page (locations.htm), without any area.
 		- type="popular"          : generates the most used points page (popular.htm).
 		- page="somefile.htm"     : shows an additional datapack HTM of the script folder.
 		- bypass="..."            : any regular bypass, handled by the core (multisell, quest, ...).
@@ -91,8 +109,8 @@
 
 	<loc>
 		id       : unique id, used as database key of the teleport counter. Never reuse it.
-		name     : location name, shown on the first column.
-		point    : optional sub-point name, shown on the second column.
+		name     : location name, shown on the name column.
+		point    : optional sub-point name, appended to the name after a " - " and colored apart.
 		type     : STANDARD or NOBLE (requires a noblesse player).
 		x / y / z: destination.
 		castleId : optional, forbids the teleport while the castle siege is in progress.
@@ -100,19 +118,18 @@
 		price    : optional. -1 (default) lets the pricing formula compute it, 0 makes it free, any other value is a fixed base price.
 -->
 <list>
-	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" ellipsis="..." fillPage="true">
-		<table id="areas">
+	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="370" ellipsis="...">
+		<table id="areas" overhead="195">
 			<column id="name" header="Направление" width="106" maxChars="16" align="left" />
 			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
 			<column id="capital" header="Столица" width="82" maxChars="13" align="left" />
 		</table>
-		<table id="points">
-			<column id="name" header="Локация" width="96" maxChars="15" align="left" />
-			<column id="point" header="Точка" width="54" maxChars="9" align="left" />
+		<table id="points" overhead="122">
+			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
 			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
 			<column id="action" header="" width="38" maxChars="0" align="right" />
 		</table>
-		<table id="popular">
+		<table id="popular" overhead="112">
 			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
 			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
 			<column id="action" header="" width="38" maxChars="0" align="right" />
@@ -121,7 +138,7 @@
 
 	<colors row="000000" altRow="" header="000000" headerText="9F9F9F" title="LEVEL" tabBar="000000" tab="FFFFFF" activeTab="LEVEL" name="" point="8F8F8F" price="LEVEL" free="00FF00" disabled="707070" page="" activePage="LEVEL" />
 
-	<labels go="Идти" noble="noble" locked="-" free="0" empty="Пока никто никуда не отправлялся." back="&lt;&lt; К списку" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels go="Идти" noble="noble" locked="-" free="0" empty="Пока никто никуда не отправлялся." back="&lt;&lt; К списку" prevPage="&lt;&lt;" nextPage="&gt;&gt;" currencyChars="1" currencyLowerCase="true" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
@@ -350,7 +367,23 @@
 				<loc id="167" name="Mining Zone" point="Western" type="STANDARD" x="136910" y="-205082" z="-3664" />
 			</area>
 		</item>
-		<!-- A tab holding <loc> nodes directly : no area step, the points are shown right away. -->
+		<!--
+			A tab holding <loc> nodes directly : no area step, the points are shown right away.
+
+			Adding an <area> here turns the tab into an areas list instead, where each <loc> keeps
+			teleporting right away while each <area> opens its own sub list - both kinds mixed, in the
+			order they are written. Rename the "capital" column of the layout before doing so, since it
+			then holds the teleport link of the direct rows :
+
+			<item name="Разное">
+				<loc id="168" name="Monster Derby Track" type="STANDARD" x="12661" y="181687" z="-3560"/>
+				<area name="Осадные лагеря" capital="">
+					<loc id="171" name="Aden" type="STANDARD" x="147450" y="7770" z="-462"/>
+					<loc id="172" name="Rune" type="STANDARD" x="12328" y="-49051" z="558"/>
+				</area>
+				<loc id="169" name="Coliseum" type="STANDARD" x="146440" y="46723" z="-3400"/>
+			</item>
+		-->
 		<item name="Разное">
 			<loc id="168" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
 			<loc id="169" name="Coliseum" point="" type="STANDARD" x="146440" y="46723" z="-3400"/>

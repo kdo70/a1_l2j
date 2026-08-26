@@ -12,6 +12,9 @@ import net.sf.l2j.gameserver.model.location.Location;
  */
 public class GatekeeperPoint extends Location
 {
+	/** Written between the name and the sub-point name of {@link #getFullName()}, and used by the script to color both halves apart. */
+	public static final String POINT_SEPARATOR = " - ";
+
 	private final int _id;
 	private final String _name;
 	private final String _point;
@@ -63,7 +66,7 @@ public class GatekeeperPoint extends Location
 	 */
 	public String getFullName()
 	{
-		return (_point.isEmpty()) ? _name : _name + " - " + _point;
+		return (_point.isEmpty()) ? _name : _name + POINT_SEPARATOR + _point;
 	}
 
 	public GatekeeperPointType getType()
