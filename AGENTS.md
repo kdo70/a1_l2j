@@ -134,6 +134,13 @@ ant -f source\aCis_gameserver\build.xml
 могут приезжать с сервера из `data/xml/items` — клиент спрашивает их сам,
 устройство и ограничения в `docs/item-stats-from-server.md`.
 
+Пересобранный клиент сообщает серверу свою версию, и сервер отключает тех, у
+кого она не совпала с `ClientVersion` в `config/server.properties`, — так
+раздаётся обязательное обновление `interface.u`. Устройство и ограничения в
+`docs/client-version-check.md`. При каждой пересборке `interface.u`, которую
+игроки обязаны забрать, поднимать `CLIENTVER_VALUE` в `ToolTip.uc` и
+`ClientVersion` **вместе**.
+
 ## Стиль кода и коммиты
 
 - Стиль: Eclipse-настройки в `source/aCis_gameserver/.settings`

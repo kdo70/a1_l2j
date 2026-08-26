@@ -8,6 +8,7 @@ them together:
 | `ItemEnchantWnd` | `EnchantKeepWindowOpened` | keeps the enchant list and its selection alive between attempts (below) |
 | `ToolTip`, `ChatWnd` | `SendItemNameColors` | paints item names with the color the server sends, and keeps the feed out of the chat — see [../../docs/item-name-colors.md](../../docs/item-name-colors.md) |
 | `ToolTip`, `ChatWnd` | `SendItemStats` | asks the server for the item numbers the client would read from its own `weapongrp.dat` and friends, and keeps that feed out of the chat too — see [../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md) |
+| `ToolTip` | `ClientVersion` | reports which build this is, so the server can turn away the clients that did not pick it up — see [../../docs/client-version-check.md](../../docs/client-version-check.md) |
 
 ## The enchant window
 
@@ -71,6 +72,17 @@ everything in its inventory, then item by item for whatever else it is about to 
 back on the same tagged chat channel the colors use. Nothing reaches a client that did not ask, which is why
 `SendItemStats` is harmless to a stock one. The whole design is in
 [../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md).
+
+## The client version
+
+`ToolTip.uc` also carries a `CLIENTVER_VALUE` constant and reports it to the server with
+`RequestBypassToServer("_ver ...")` on entering the world. The server compares it against its `ClientVersion`
+setting and disconnects whoever does not match — a stock client reports nothing at all and is disconnected on
+a timeout, which is the point: it is how an `interface.u` update is made mandatory.
+
+**Bump `CLIENTVER_VALUE` and the server's `ClientVersion` together**, in the same commit, whenever you rebuild
+a package players have to pick up. Bump only the constant and everyone is turned away; bump only the setting
+and nobody is. The whole design is in [../../docs/client-version-check.md](../../docs/client-version-check.md).
 
 ## Rebuilding it
 

@@ -24,6 +24,13 @@ const ITEMSTAT_FIELDS = 14;
 var array<int> m_ItemStatID;
 var array<string> m_ItemStatRow;
 
+// The version of this interface build (ClientVersionManager server side). It is reported on entering the
+// world, and the server disconnects the clients whose report does not match its ClientVersion setting - a
+// stock client reports nothing and is disconnected too. Bump this and that setting together on every
+// rebuild players have to pick up.
+const CLIENTVER_VALUE = "1";
+const CLIENTVER_BYPASS = "_ver ";
+
 var CustomTooltip m_Tooltip;
 var DrawItemInfo m_Info;
 
@@ -32,6 +39,7 @@ function OnLoad()
 	RegisterEvent( EV_RequestTooltipInfo );
 	RegisterEvent( EV_ChatMessage );
 	RegisterEvent( EV_InventoryItemListEnd );
+	RegisterEvent( EV_GamingStateEnter );
 }
 
 function OnEvent(int Event_ID, string param)
@@ -47,8 +55,20 @@ function OnEvent(int Event_ID, string param)
 		break;
 	case EV_InventoryItemListEnd:
 		RequestItemStatsInventory();
+		ReportClientVersion();
+		break;
+	case EV_GamingStateEnter:
+		ReportClientVersion();
 		break;
 	}
+}
+
+// Told twice on purpose : the server keeps the first report of a session and drops the rest, so the second
+// one costs nothing and covers the case of EV_GamingStateEnter not reaching this class. It is answered ahead
+// of the server flood protection, so it never takes the slot RequestItemStatsInventory needs.
+function ReportClientVersion()
+{
+	RequestBypassToServer(CLIENTVER_BYPASS $ CLIENTVER_VALUE);
 }
 
 // A feed message is the tag followed by "id-r-g-b" groups separated by ";", or by a single "r" that empties

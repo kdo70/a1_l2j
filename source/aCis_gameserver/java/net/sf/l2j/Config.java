@@ -422,6 +422,9 @@ public final class Config
 	/** clients related */
 	public static int DELETE_DAYS;
 	public static int MAXIMUM_ONLINE_USERS;
+	public static String CLIENT_VERSION;
+	public static int CLIENT_VERSION_TIMEOUT;
+	public static String CLIENT_VERSION_MESSAGE;
 	
 	/** Auto-loot */
 	public static boolean AUTO_LOOT;
@@ -1026,6 +1029,9 @@ public final class Config
 		
 		DELETE_DAYS = server.getProperty("DeleteCharAfterDays", 7);
 		MAXIMUM_ONLINE_USERS = server.getProperty("MaximumOnlineUsers", 100);
+		CLIENT_VERSION = server.getProperty("ClientVersion", "").trim();
+		CLIENT_VERSION_TIMEOUT = server.getProperty("ClientVersionTimeout", 10) * 1000;
+		CLIENT_VERSION_MESSAGE = server.getProperty("ClientVersionMessage", "Your game client is out of date. Please update it to play on this server.").trim();
 		
 		AUTO_LOOT = server.getProperty("AutoLoot", false);
 		AUTO_LOOT_HERBS = server.getProperty("AutoLootHerbs", false);

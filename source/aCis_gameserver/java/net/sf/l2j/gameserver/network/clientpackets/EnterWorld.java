@@ -8,6 +8,7 @@ import net.sf.l2j.gameserver.data.ItemNameColorTable;
 import net.sf.l2j.gameserver.data.SkillTable.FrequentSkill;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.ClanHallManager;
+import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
 import net.sf.l2j.gameserver.data.manager.CoupleManager;
 import net.sf.l2j.gameserver.data.manager.PetitionManager;
 import net.sf.l2j.gameserver.data.manager.SevenSignsManager;
@@ -257,6 +258,9 @@ public class EnterWorld extends L2GameClientPacket
 		}
 		
 		PetitionManager.getInstance().checkActivePetition(player);
+		
+		// From now on, the client has ClientVersionTimeout to report its version.
+		ClientVersionManager.getInstance().onEnterWorld(player);
 		
 		player.onPlayerEnter();
 		

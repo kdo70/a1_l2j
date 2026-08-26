@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.communitybbs.CommunityBoard;
 import net.sf.l2j.gameserver.data.ItemStatsTable;
+import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.enums.FloodProtector;
@@ -40,11 +41,19 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		if (_command.isEmpty())
 			return;
 		
-		if (!getClient().performAction(FloodProtector.SERVER_BYPASS))
-			return;
-		
 		final Player player = getClient().getPlayer();
 		if (player == null)
+			return;
+		
+		// The version a rebuilt client reports ; see ClientVersionManager. Answered ahead of the flood protector, since
+		// a report swallowed by another bypass sent in the same breath would cost that client its session.
+		if (_command.startsWith(ClientVersionManager.BYPASS))
+		{
+			ClientVersionManager.getInstance().onReport(getClient(), _command.substring(ClientVersionManager.BYPASS.length()).trim());
+			return;
+		}
+		
+		if (!getClient().performAction(FloodProtector.SERVER_BYPASS))
 			return;
 		
 		if (_command.startsWith("admin_"))
