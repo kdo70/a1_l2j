@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.enums.Paperdoll;
@@ -374,12 +376,16 @@ public class PcInventory extends Inventory
 		item = super.addItem(item);
 		if (item == null)
 			return null;
-		
+
 		if (item.getItemId() == ADENA_ID && !item.equals(_adena))
 			_adena = item;
 		else if (item.getItemId() == ANCIENT_ADENA_ID && !item.equals(_ancientAdena))
 			_ancientAdena = item;
-		
+
+		// What an item picked up, bought or traded carries ; the client only asked about what it held on login.
+		if (Config.SEND_ITEM_SKILLS && getOwner() instanceof Player player)
+			ItemSkillsTable.getInstance().sendTo(player, List.of(item));
+
 		return item;
 	}
 	

@@ -1,5 +1,9 @@
 package net.sf.l2j.gameserver.network.clientpackets;
 
+import java.util.List;
+
+import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
@@ -80,5 +84,9 @@ public final class AddTradeItem extends L2GameClientPacket
 		player.sendPacket(new TradeItemUpdate(tradeList, player));
 		
 		tradeList.getPartner().sendPacket(new TradeOtherAdd(tradeItem, _count));
+
+		// What that item carries, ahead of the tooltip the partner is about to draw ; see ItemSkillsTable.
+		if (Config.SEND_ITEM_SKILLS)
+			ItemSkillsTable.getInstance().sendTo(tradeList.getPartner(), List.of(item));
 	}
 }

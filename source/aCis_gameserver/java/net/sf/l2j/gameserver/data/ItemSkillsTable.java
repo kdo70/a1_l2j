@@ -1,6 +1,7 @@
 package net.sf.l2j.gameserver.data;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import net.sf.l2j.gameserver.enums.SayType;
@@ -63,13 +64,33 @@ public class ItemSkillsTable
 	}
 
 	/**
-	 * Send the row of a single {@link ItemInstance} to a {@link Player}, which is how a change made while he is online reaches his tooltips.
+	 * Send the row of a single {@link ItemInstance} to a {@link Player}, which is how a change made while he is online reaches his tooltips. Sent whether that item carries something or not, since it is also how the client learns it carries nothing anymore.
 	 * @param player : The {@link Player} to send the row to.
 	 * @param item : The {@link ItemInstance} to describe.
 	 */
 	public void sendTo(Player player, ItemInstance item)
 	{
 		send(player, List.of(generateRow(item)));
+	}
+
+	/**
+	 * Send the rows of a bunch of {@link ItemInstance}s to a {@link Player}, ahead of the window about to show them.<br>
+	 * <br>
+	 * The client asks by itself for what it doesn't know, but one item per drawn tooltip and through a flood protector - a store or a trade window is a dozen items met at once, which is the case that trip doesn't survive.
+	 * @param player : The {@link Player} to send the rows to.
+	 * @param items : The {@link ItemInstance}s to describe ; the ones carrying nothing are left out, they have nothing to show.
+	 */
+	public void sendTo(Player player, Collection<ItemInstance> items)
+	{
+		final List<String> rows = new ArrayList<>();
+
+		for (ItemInstance item : items)
+		{
+			if (item != null && hasCustomData(item))
+				rows.add(generateRow(item));
+		}
+
+		send(player, rows);
 	}
 
 	private static void send(Player player, List<String> rows)

@@ -17,7 +17,9 @@ public enum FloodProtector
 	GLOBAL_CHAT(10, Config.GLOBAL_CHAT_TIME),
 	TRADE_CHAT(11, Config.TRADE_CHAT_TIME),
 	SOCIAL(12, Config.SOCIAL_TIME),
-	ITEM_SKILLS(13, Config.SERVER_BYPASS_TIME);
+	// Tighter than the other bypasses on purpose : the client asks with it once per item it draws a tooltip for, so
+	// a mouse run over a store window is a dozen questions in a second, and each answer is one small chat line.
+	ITEM_SKILLS(13, 20);
 	
 	private final int _id;
 	private final int _reuseDelay;

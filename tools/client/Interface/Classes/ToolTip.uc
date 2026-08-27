@@ -487,7 +487,7 @@ function bool AddTooltipItemSkills(int ServerID)
 		m_Info.t_color.G = 217;
 		m_Info.t_color.B = 105;
 		m_Info.t_color.A = 255;
-		m_Info.t_strText = strName;
+		m_Info.t_strText = strName $ " ";
 		EndItem();
 
 		//ex) " Lv "

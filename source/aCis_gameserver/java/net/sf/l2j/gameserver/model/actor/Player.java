@@ -30,6 +30,7 @@ import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.LoginServerThread;
 import net.sf.l2j.gameserver.communitybbs.CommunityBoard;
 import net.sf.l2j.gameserver.communitybbs.model.Forum;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.SkillTable.FrequentSkill;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
@@ -2401,6 +2402,10 @@ public final class Player extends Playable
 			
 			setOperateType(OperateType.SELL_MANAGE);
 			sendPacket(new PrivateStoreManageListSell(this, isPackageSale));
+
+			// What the items about to be listed carry ; see ItemSkillsTable.
+			if (Config.SEND_ITEM_SKILLS)
+				ItemSkillsTable.getInstance().sendTo(this, getInventory().getItems());
 		}
 	}
 	
@@ -7082,6 +7087,10 @@ public final class Player extends Playable
 		{
 			case SELL, PACKAGE_SELL:
 				player.sendPacket(new PrivateStoreListSell(player, this));
+
+				// What those items carry, ahead of the tooltips about to show them ; see ItemSkillsTable.
+				if (Config.SEND_ITEM_SKILLS)
+					ItemSkillsTable.getInstance().sendTo(player, getSellList().stream().map(item -> getInventory().getItemByObjectId(item.getObjectId())).toList());
 				break;
 			
 			case BUY:
