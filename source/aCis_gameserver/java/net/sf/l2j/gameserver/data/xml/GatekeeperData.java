@@ -31,7 +31,7 @@ import org.w3c.dom.Node;
  * Everything the player sees is datapack driven, on data/xml/gatekeeper.xml : the content (Npc ids, menu tabs, areas, teleport points and their prices), but also the whole appearance - column
  * widths and captions (&lt;layout&gt;), colors (&lt;colors&gt;) and labels (&lt;labels&gt;).<br>
  * <br>
- * The behavior and the economy are server side instead, on config/gatekeeper.properties. The database only retains teleport counters, handled by
+ * The behavior and the economy are server side instead, on config/mods/gatekeeper.properties. The database only retains teleport counters, handled by
  * {@link net.sf.l2j.gameserver.data.manager.GatekeeperStatsManager}.
  */
 public class GatekeeperData implements IXmlReader
@@ -689,7 +689,7 @@ public class GatekeeperData implements IXmlReader
 	 * Compute the price to pay for a given {@link GatekeeperPoint}.<br>
 	 * <br>
 	 * The base price is either the one set on the XML, or - when unset - the one derived from the distance between the {@link Player} and the point. That base is then affected by the level, the
-	 * karma and the day/night rates. Every single modifier can be individually disabled from config/gatekeeper.properties.
+	 * karma and the day/night rates. Every single modifier can be individually disabled from config/mods/gatekeeper.properties.
 	 * @param player : The {@link Player} to test.
 	 * @param point : The {@link GatekeeperPoint} to reach.
 	 * @return The amount of {@link GatekeeperPoint#getPriceId()} items to pay.

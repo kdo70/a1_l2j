@@ -4,7 +4,7 @@
 
 	Everything the player sees is defined here. The behavior and the economy (rows per page, teleport
 	delay, popular tab limits, default prices and the whole dynamic pricing formula) live server side,
-	on config/gatekeeper.properties.
+	on config/mods/gatekeeper.properties.
 
 	<layout>
 		Sizes of the generated tables. The header row and the list rows are generated out of the very
@@ -97,7 +97,7 @@
 	<menu>
 		Holds the tabs of the dialog. Multiple npcs can share a menu. priceId / price / noblePrice
 		can be set on <menu>, <item>, <area> and <loc> - the closest definition wins, the default being
-		the one of config/gatekeeper.properties.
+		the one of config/mods/gatekeeper.properties.
 		Beware : setting price on a <menu>, <item> or <area> gives that very same fixed price to every
 		point below it, which disables the pricing formula for all of them. Leave it unset (-1) to
 		let each point be priced on its own distance.

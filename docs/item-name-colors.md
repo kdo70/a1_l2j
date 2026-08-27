@@ -11,7 +11,7 @@
 ## 1. Что сделано
 
 **Сервер.** У предмета появилось свойство `name_color` в `data/xml/items/*.xml`. Конфиг
-`SendItemNameColors` в `config/players.properties` (по умолчанию `False`) включает раздачу таблицы
+`SendItemNameColors` в `config/mods/client.properties` (по умолчанию `False`) включает раздачу таблицы
 цветов клиенту — она уходит один раз, при входе в мир, перед `ItemList`.
 
 **Клиент.** Пересобранный `interface.u`: `ToolTip` держит таблицу «id предмета → цвет» и красит ею имя
@@ -94,7 +94,7 @@
 | `network/clientpackets/EnterWorld.java` | отправка таблицы перед `ItemList` |
 | `network/clientpackets/Say2.java` | игрок не может отправить сообщение с тегом |
 | `handler/admincommandhandlers/AdminReload.java` | `//reload item` сбрасывает кэш таблицы |
-| `Config.java`, оба `players.properties` | `SendItemNameColors` |
+| `Config.java`, оба `mods/client.properties` | `SendItemNameColors` |
 
 Клиент (`tools/client/Interface/Classes/`):
 

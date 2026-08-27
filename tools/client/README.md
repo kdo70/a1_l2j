@@ -12,7 +12,7 @@ them together:
 
 ## The enchant window
 
-Goes with `EnchantKeepWindowOpened` in `config/players.properties`.
+Goes with `EnchantKeepWindowOpened` in `config/players/enchant.properties`.
 
 With that setting on, the server hands the enchant window the next scroll of the same type instead of closing
 it. A **stock client** handles that correctly but rebuilds its item list every time, so the player has to pick

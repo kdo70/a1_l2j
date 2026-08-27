@@ -17,7 +17,7 @@ import net.sf.l2j.gameserver.network.serverpackets.UserInfo;
 /**
  * Custom class allowing you to choose your class.<br>
  * <br>
- * You can customize class rewards as needed items. Check npc.properties for more informations.<br>
+ * You can customize class rewards as needed items. Check config/npcs/managers.properties for more informations.<br>
  * This NPC type got 2 differents ways to level:
  * <ul>
  * <li>the normal one, where you have to be at least of the good level.<br>

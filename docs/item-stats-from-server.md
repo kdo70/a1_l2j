@@ -13,7 +13,7 @@
 ## 1. Что сделано
 
 **Сервер.** Класс `data/ItemStatsTable.java` собирает по шаблону предмета строку с его числами и отдаёт её
-клиенту **по запросу**. Конфиг `SendItemStats` в `config/players.properties` (по умолчанию `False`) включает
+клиенту **по запросу**. Конфиг `SendItemStats` в `config/mods/client.properties` (по умолчанию `False`) включает
 ответы на такие запросы.
 
 **Клиент.** Пересобранный `interface.u`: `ToolTip` спрашивает у сервера числа тех предметов, для которых
@@ -113,7 +113,7 @@
 | `network/clientpackets/RequestBypassToServer.java` | ветка `_itemstats` |
 | `network/clientpackets/Say2.java` | игрок не может отправить сообщение с тегом |
 | `handler/admincommandhandlers/AdminReload.java` | `//reload item` сбрасывает таблицу |
-| `Config.java`, оба `players.properties` | `SendItemStats` |
+| `Config.java`, оба `mods/client.properties` | `SendItemStats` |
 
 Клиент (`tools/client/Interface/Classes/`):
 

@@ -12,8 +12,12 @@ Apache Ant, MariaDB/MySQL, Eclipse-проекты (без Maven/Gradle).
 source/aCis_gameserver/      Java-код серверов (основной проект)
   java/net/sf/l2j/           пакеты: gameserver, loginserver, commons,
                              accountmanager, gsregistering, Config.java
-  config/                    *.properties (server, loginserver, players,
-                             npcs, clans, siege, events, geoengine, ...)
+  config/                    *.properties: в корне общесерверные (server,
+                             rates, items, features, protection, development,
+                             clans, siege, geoengine, loginserver), дальше по
+                             папкам players/, npcs/, events/ и mods/ —
+                             в последней живут модификации сборки
+                             (gatekeeper, championmobs, offlineshop, client)
   lib/                       зависимости (mariadb-java-client-3.1.4.jar)
   dist/                      скрипты запуска (.sh/.bat), копируются в сборку
   build.xml                  Ant-сборка (цель по умолчанию: dist)
@@ -152,7 +156,7 @@ ant -f source\aCis_gameserver\build.xml
 имеет. Разбор и смещения — в `docs/enchant-on-icon.md`.
 
 Пересобранный клиент сообщает серверу свою версию, и сервер отключает тех, у
-кого она не совпала с `ClientVersion` в `config/server.properties`, — так
+кого она не совпала с `ClientVersion` в `config/mods/client.properties`, — так
 раздаётся обязательное обновление `interface.u`. Устройство и ограничения в
 `docs/client-version-check.md`. При каждой пересборке `interface.u`, которую
 игроки обязаны забрать, поднимать `CLIENTVER_VALUE` в `ToolTip.uc` и

@@ -38,7 +38,7 @@ import net.sf.l2j.gameserver.scripting.Quest;
  * A fully datapack driven Gatekeeper.<br>
  * <br>
  * Npc ids, menu tabs, areas, teleport points, prices, but also every color, label and column of the dialog are described on data/xml/gatekeeper.xml, while the behavior and the economy live on
- * config/gatekeeper.properties. The HTMs of this script folder only hold the static parts of the pages ; every table is generated here, so the header always matches the rows.<br>
+ * config/mods/gatekeeper.properties. The HTMs of this script folder only hold the static parts of the pages ; every table is generated here, so the header always matches the rows.<br>
  * <br>
  * Teleport counters are handled by {@link GatekeeperStatsManager}.
  * <ul>

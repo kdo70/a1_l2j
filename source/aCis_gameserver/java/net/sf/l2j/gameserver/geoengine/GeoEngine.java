@@ -92,7 +92,7 @@ public class GeoEngine
 		
 		if (failed > 0)
 		{
-			LOGGER.warn("Failed to load {} {} region files. Please consider to check your \"geodata.properties\" settings and location of your geodata files.", failed, Config.GEODATA_TYPE);
+			LOGGER.warn("Failed to load {} {} region files. Please consider to check your \"geoengine.properties\" settings and location of your geodata files.", failed, Config.GEODATA_TYPE);
 			System.exit(1);
 		}
 		

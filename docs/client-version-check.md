@@ -14,7 +14,7 @@
 ## 1. Что сделано
 
 **Сервер.** `data/manager/ClientVersionManager.java` ждёт от каждого вошедшего в мир клиента отчёт о версии.
-Три настройки в `config/server.properties`:
+Три настройки в `config/mods/client.properties`:
 
 | настройка | по умолчанию | что делает |
 |---|---|---|
@@ -69,10 +69,10 @@
 - **Проверка работает только после входа в мир.** Из UnrealScript единственный канал на сервер — байпасс, а
   байпасс без персонажа сервер не обрабатывает. На экране выбора персонажа проверить версию нечем.
 - **Исключений для GM нет.** Если выставить `ClientVersion` и не раздать новый `interface.u`, в игру не зайдёт
-  никто, включая администратора. Лечится правкой `config/server.properties` и рестартом.
+  никто, включая администратора. Лечится правкой `config/mods/client.properties` и рестартом.
 - **Это не защита от читов.** Значение версии — обычная строка в скрипте клиента; кто угодно может собрать
   свой `interface.u` и сообщать что угодно. Фича заставляет обновляться честных игроков, а не ловит нечестных.
-- **`server.properties` читается как ISO-8859-1.** Русский текст в `ClientVersionMessage` пишется
+- **`client.properties` читается как ISO-8859-1.** Русский текст в `ClientVersionMessage` пишется
   `\uXXXX`-экранированием.
 
 ---
@@ -86,7 +86,7 @@
 | `data/manager/ClientVersionManager.java` | ожидание отчёта, сверка, сообщение и дисконнект |
 | `network/clientpackets/RequestBypassToServer.java` | ветка `_ver` перед флудозащитой |
 | `network/clientpackets/EnterWorld.java` | запуск ожидания |
-| `Config.java`, оба `server.properties` | `ClientVersion`, `ClientVersionTimeout`, `ClientVersionMessage` |
+| `Config.java`, оба `mods/client.properties` | `ClientVersion`, `ClientVersionTimeout`, `ClientVersionMessage` |
 
 Клиент (`tools/client/Interface/Classes/`):
 

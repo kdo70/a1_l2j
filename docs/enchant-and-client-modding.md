@@ -11,7 +11,7 @@
 
 ## 1. Что сделано
 
-**Сервер.** Конфиг `EnchantKeepWindowOpened` в `config/players.properties`
+**Сервер.** Конфиг `EnchantKeepWindowOpened` в `config/players/enchant.properties`
 (по умолчанию `False`, читается только при старте). Когда включён, после
 удачной попытки сервер не закрывает окно заточки, а отдаёт клиенту следующий
 свиток того же id — если вещь уцелела, ещё точится этим свитком и свиток есть
@@ -27,7 +27,7 @@
 | `btnCancel` | 141 | отмена |
 
 Изменённые файлы сервера:
-`Config.java`, `RequestEnchantItem.java`, оба `players.properties`.
+`Config.java`, `RequestEnchantItem.java`, оба `players/enchant.properties`.
 
 ---
 
