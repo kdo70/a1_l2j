@@ -4,12 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
 import net.sf.l2j.commons.pool.ConnectionPool;
 import net.sf.l2j.commons.pool.ThreadPool;
 
+import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
+import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.enums.items.EtcItemType;
@@ -25,6 +29,7 @@ import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Playable;
 import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 import net.sf.l2j.gameserver.model.item.MercenaryTicket;
 import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.EtcItem;
@@ -70,7 +75,10 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 	private long _time;
 	
 	private Augmentation _augmentation;
-	
+
+	private IntIntHolder[] _skills;
+	private int _nameColor = Item.NO_NAME_COLOR;
+
 	private boolean _destroyProtected;
 	
 	private ScheduledFuture<?> _dropProtection;
@@ -119,7 +127,9 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 		_locationSlot = rs.getInt("loc_data");
 		_manaLeft = rs.getInt("mana_left");
 		_time = rs.getLong("time");
-		
+		_skills = parseSkills(rs.getString("skills"), getObjectId());
+		_nameColor = Item.parseNameColor(rs.getString("name_color"));
+
 		setName(_item.getName());
 	}
 	
@@ -647,6 +657,142 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 		updateState(player, ItemState.MODIFIED);
 	}
 	
+	/**
+	 * @return The skills this {@link ItemInstance} grants to its wearer while it is equipped, as the "skills" column of the items table holds them, or null if it grants none.
+	 */
+	public IntIntHolder[] getCustomSkills()
+	{
+		return _skills;
+	}
+
+	/**
+	 * Set the skills this {@link ItemInstance} grants while it is equipped. The item must be unequipped when this is called, otherwise the wearer keeps the previous skills until he takes it off.
+	 * @param value : "skillId:level" groups separated by ';', empty or null to grant none.
+	 * @param player : The {@link Player} to refresh inventory from, or null.
+	 */
+	public void setCustomSkills(String value, Player player)
+	{
+		_skills = parseSkills(value, getObjectId());
+
+		// List this item as database-friendly.
+		ItemInstanceTaskManager.getInstance().add(this);
+
+		// List this item as IU-friendly.
+		updateState(player, ItemState.MODIFIED);
+
+		if (player != null && Config.SEND_ITEM_SKILLS)
+			ItemSkillsTable.getInstance().sendTo(player, this);
+	}
+
+	/**
+	 * @return The color the client must paint this item name with, as a 0xRRGGBB int - the one of this very item if it carries one, the one of its {@link Item} template otherwise - or {@link Item#NO_NAME_COLOR} if the client keeps its own.
+	 */
+	public int getNameColor()
+	{
+		return (_nameColor != Item.NO_NAME_COLOR) ? _nameColor : _item.getNameColor();
+	}
+
+	/**
+	 * Set the color of this very item name, which wins over the one its {@link Item} template carries.
+	 * @param value : 6 hexadecimal digits read as RRGGBB, empty or null to fall back on the template.
+	 * @param player : The {@link Player} to refresh inventory from, or null.
+	 */
+	public void setNameColor(String value, Player player)
+	{
+		_nameColor = Item.parseNameColor(value);
+
+		// List this item as database-friendly.
+		ItemInstanceTaskManager.getInstance().add(this);
+
+		// List this item as IU-friendly.
+		updateState(player, ItemState.MODIFIED);
+
+		if (player != null && Config.SEND_ITEM_SKILLS)
+			ItemSkillsTable.getInstance().sendTo(player, this);
+	}
+
+	/**
+	 * @return The skills of this {@link ItemInstance} written back the way the items table holds them.
+	 */
+	public String getCustomSkillsString()
+	{
+		if (_skills == null)
+			return "";
+
+		final StringBuilder sb = new StringBuilder(16);
+
+		for (IntIntHolder skill : _skills)
+		{
+			if (sb.length() > 0)
+				sb.append(';');
+
+			sb.append(skill.getId()).append(':').append(skill.getValue());
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * @return The name color of this very {@link ItemInstance} written back the way the items table holds it, empty if it carries none.
+	 */
+	public String getNameColorString()
+	{
+		return (_nameColor == Item.NO_NAME_COLOR) ? "" : String.format("%06X", _nameColor);
+	}
+
+	/**
+	 * Parse the "skills" column of the items table, "skillId:level" groups separated by ';'. A group which isn't a known skill is dropped with a warn ; the other groups are kept.
+	 * @param value : The {@link String} to parse, empty or null when the item grants no skill.
+	 * @param objectId : The objectId of the item that value belongs to, for logging purposes.
+	 * @return The skills as an {@link IntIntHolder} array, or null if there is none.
+	 */
+	private static IntIntHolder[] parseSkills(String value, int objectId)
+	{
+		if (value == null || value.isBlank())
+			return null;
+
+		final List<IntIntHolder> skills = new ArrayList<>(1);
+
+		for (String group : value.split(";"))
+		{
+			if (group.isBlank())
+				continue;
+
+			final String[] pair = group.split(":");
+
+			int skillId = 0;
+			int level = 0;
+
+			if (pair.length == 2)
+			{
+				try
+				{
+					skillId = Integer.parseInt(pair[0].trim());
+					level = Integer.parseInt(pair[1].trim());
+				}
+				catch (NumberFormatException e)
+				{
+					// Handled by the warn below.
+				}
+			}
+
+			if (skillId <= 0 || level <= 0)
+			{
+				LOGGER.warn("Invalid skill '{}' on item {} ; 'skillId:level' was expected.", group, objectId);
+				continue;
+			}
+
+			if (SkillTable.getInstance().getInfo(skillId, level) == null)
+			{
+				LOGGER.warn("Unknown skill {}:{} on item {}.", skillId, level, objectId);
+				continue;
+			}
+
+			skills.add(new IntIntHolder(skillId, level));
+		}
+
+		return (skills.isEmpty()) ? null : skills.toArray(new IntIntHolder[skills.size()]);
+	}
+
 	private void restoreAttributes()
 	{
 		try (Connection con = ConnectionPool.getConnection();

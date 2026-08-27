@@ -313,11 +313,11 @@ public abstract class Item
 	}
 	
 	/**
-	 * Parse the "name_color" item property, 6 hexadecimal digits read as RRGGBB. The leading '#' of an HTML color can't be used here, the datapack parser reads it as a table reference.
-	 * @param value : The {@link String} to parse, or null when the item defines no color.
+	 * Parse a "name_color" value, 6 hexadecimal digits read as RRGGBB. The leading '#' of an HTML color can't be used here, the datapack parser reads it as a table reference.
+	 * @param value : The {@link String} to parse, or null when there is no color to read.
 	 * @return The color as a 0xRRGGBB int, or {@link #NO_NAME_COLOR} if there is none or the value can't be read.
 	 */
-	private static int parseNameColor(String value)
+	public static int parseNameColor(String value)
 	{
 		if (value == null || value.isEmpty())
 			return NO_NAME_COLOR;

@@ -44,19 +44,26 @@ public class ItemPassiveSkillsListener implements OnEquipListener
 			}
 		}
 		
-		final IntIntHolder[] skills = it.getSkills();
-		if (skills != null)
+		// The skills of the item template, then the ones this very item carries (see ItemInstance#getCustomSkills()).
+		for (IntIntHolder[] skills : new IntIntHolder[][]
 		{
+			it.getSkills(),
+			item.getCustomSkills()
+		})
+		{
+			if (skills == null)
+				continue;
+
 			for (IntIntHolder skillInfo : skills)
 			{
 				if (skillInfo == null)
 					continue;
-				
+
 				final L2Skill itemSkill = skillInfo.getSkill();
 				if (itemSkill != null)
 				{
 					player.addSkill(itemSkill, false);
-					
+
 					if (itemSkill.isActive())
 					{
 						if (!player.getReuseTimeStamp().containsKey(itemSkill.getReuseHashCode()))
@@ -74,7 +81,7 @@ public class ItemPassiveSkillsListener implements OnEquipListener
 				}
 			}
 		}
-		
+
 		if (update)
 		{
 			player.sendPacket(new SkillList(player));
@@ -110,41 +117,63 @@ public class ItemPassiveSkillsListener implements OnEquipListener
 			}
 		}
 		
-		final IntIntHolder[] skills = it.getSkills();
-		if (skills != null)
+		// The skills of the item template, then the ones this very item carries (see ItemInstance#getCustomSkills()).
+		for (IntIntHolder[] skills : new IntIntHolder[][]
 		{
+			it.getSkills(),
+			item.getCustomSkills()
+		})
+		{
+			if (skills == null)
+				continue;
+
 			for (IntIntHolder skillInfo : skills)
 			{
 				if (skillInfo == null)
 					continue;
-				
+
 				final L2Skill itemSkill = skillInfo.getSkill();
-				if (itemSkill != null)
+				if (itemSkill != null && !isStillGranted(player, itemSkill.getId()))
 				{
-					boolean found = false;
-					
-					for (ItemInstance pItem : player.getInventory().getPaperdollItems())
-					{
-						if (it.getItemId() == pItem.getItemId())
-						{
-							found = true;
-							break;
-						}
-					}
-					
-					if (!found)
-					{
-						player.removeSkill(itemSkill.getId(), false, itemSkill.isPassive() || itemSkill.isToggle());
-						update = true;
-					}
+					player.removeSkill(itemSkill.getId(), false, itemSkill.isPassive() || itemSkill.isToggle());
+					update = true;
 				}
 			}
 		}
-		
+
 		if (update)
 			player.sendPacket(new SkillList(player));
 	}
-	
+
+	/**
+	 * Test a skill against everything the {@link Player} still wears, which is what tells a skill to drop on unequip from a skill another item goes on granting. Levels are not compared : the equipped item granting the same skill on another level is the one which set the level the {@link Player} holds.
+	 * @param player : The {@link Player} to test, the unequipped item already out of his paperdoll.
+	 * @param skillId : The skill id to look for.
+	 * @return True if an equipped item still grants that skill, false otherwise.
+	 */
+	private static boolean isStillGranted(Player player, int skillId)
+	{
+		for (ItemInstance pItem : player.getInventory().getPaperdollItems())
+		{
+			for (IntIntHolder[] skills : new IntIntHolder[][]
+			{
+				pItem.getItem().getSkills(),
+				pItem.getCustomSkills()
+			})
+			{
+				if (skills == null)
+					continue;
+
+				for (IntIntHolder skillInfo : skills)
+				{
+					if (skillInfo != null && skillInfo.getId() == skillId)
+						return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public static final ItemPassiveSkillsListener getInstance()
 	{
 		return SingletonHolder.INSTANCE;

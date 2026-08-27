@@ -21,7 +21,7 @@ public class ItemInstanceTaskManager implements Runnable
 {
 	private static final CLogger LOGGER = new CLogger(ItemInstanceTaskManager.class.getName());
 	
-	private static final String INSERT_ITEM = "INSERT INTO items (owner_id,object_id,item_id,count,enchant_level,loc,loc_data,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE owner_id=VALUES(owner_id),count=VALUES(count),loc=VALUES(loc),loc_data=VALUES(loc_data),enchant_level=VALUES(enchant_level),custom_type1=VALUES(custom_type1),custom_type2=VALUES(custom_type2),mana_left=VALUES(mana_left),time=VALUES(time)";
+	private static final String INSERT_ITEM = "INSERT INTO items (owner_id,object_id,item_id,count,enchant_level,loc,loc_data,custom_type1,custom_type2,mana_left,time,skills,name_color) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE owner_id=VALUES(owner_id),count=VALUES(count),loc=VALUES(loc),loc_data=VALUES(loc_data),enchant_level=VALUES(enchant_level),custom_type1=VALUES(custom_type1),custom_type2=VALUES(custom_type2),mana_left=VALUES(mana_left),time=VALUES(time),skills=VALUES(skills),name_color=VALUES(name_color)";
 	private static final String DELETE_ITEM = "DELETE FROM items WHERE object_id=?";
 	
 	private static final String DELETE_PET_ITEM = "DELETE FROM pets WHERE item_obj_id=?";
@@ -134,6 +134,8 @@ public class ItemInstanceTaskManager implements Runnable
 				ps1.setInt(9, item.getCustomType2());
 				ps1.setInt(10, item.getManaLeft());
 				ps1.setLong(11, item.getTime());
+				ps1.setString(12, item.getCustomSkillsString());
+				ps1.setString(13, item.getNameColorString());
 				ps1.addBatch();
 				
 				// For Augmentation, verify only Weapons.

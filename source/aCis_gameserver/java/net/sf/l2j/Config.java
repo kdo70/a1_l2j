@@ -694,6 +694,9 @@ public final class Config
 	
 	/** Item statistics */
 	public static boolean SEND_ITEM_STATS;
+
+	/** Item skills */
+	public static boolean SEND_ITEM_SKILLS;
 	
 	// --------------------------------------------------
 	// Those "hidden" settings haven't configs to avoid admins to fuck their server
@@ -1510,6 +1513,7 @@ public final class Config
 		
 		SEND_ITEM_NAME_COLORS = client.getProperty("SendItemNameColors", false);
 		SEND_ITEM_STATS = client.getProperty("SendItemStats", false);
+		SEND_ITEM_SKILLS = client.getProperty("SendItemSkills", false);
 	}
 	
 	/**

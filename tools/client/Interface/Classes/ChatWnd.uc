@@ -41,6 +41,9 @@ const ITEMCOLOR_TAG = "~ic~";
 // Item statistics do the same, on a tag of their own. See ItemStatsTable server side.
 const ITEMSTAT_TAG = "~is~";
 
+// So do the skills an item grants and the color of its name. See ItemSkillsTable server side.
+const ITEMSKILL_TAG = "~ik~";
+
 //Handle List
 var ChatWindowHandle NormalChat;
 var ChatWindowHandle TradeChat;
@@ -408,7 +411,7 @@ function HandleChatmessage( String param )
 
 	// Data, not chat : the item name color feed sent right after login, and the item statistics the tooltip
 	// asked the server for.
-	if (InStr(text, ITEMCOLOR_TAG) >= 0 || InStr(text, ITEMSTAT_TAG) >= 0)
+	if (InStr(text, ITEMCOLOR_TAG) >= 0 || InStr(text, ITEMSTAT_TAG) >= 0 || InStr(text, ITEMSKILL_TAG) >= 0)
 		return;
 
 	ParseInt(param, "ColorR", nTmp);

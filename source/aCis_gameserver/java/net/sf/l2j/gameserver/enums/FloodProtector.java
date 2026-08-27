@@ -16,7 +16,8 @@ public enum FloodProtector
 	CHARACTER_SELECT(9, Config.CHARACTER_SELECT_TIME),
 	GLOBAL_CHAT(10, Config.GLOBAL_CHAT_TIME),
 	TRADE_CHAT(11, Config.TRADE_CHAT_TIME),
-	SOCIAL(12, Config.SOCIAL_TIME);
+	SOCIAL(12, Config.SOCIAL_TIME),
+	ITEM_SKILLS(13, Config.SERVER_BYPASS_TIME);
 	
 	private final int _id;
 	private final int _reuseDelay;

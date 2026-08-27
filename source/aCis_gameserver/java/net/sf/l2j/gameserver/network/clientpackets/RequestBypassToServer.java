@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.communitybbs.CommunityBoard;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
@@ -53,9 +54,19 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			return;
 		}
 		
+		// Item skills and name colors a rebuilt client asks for ; see ItemSkillsTable. It gets a flood protector of its
+		// own : it travels in the same breath as the item statistics request, and one of the two would lose that race.
+		if (_command.startsWith(ItemSkillsTable.BYPASS))
+		{
+			if (Config.SEND_ITEM_SKILLS && getClient().performAction(FloodProtector.ITEM_SKILLS))
+				ItemSkillsTable.getInstance().handleRequest(player, _command.substring(ItemSkillsTable.BYPASS.length()));
+
+			return;
+		}
+
 		if (!getClient().performAction(FloodProtector.SERVER_BYPASS))
 			return;
-		
+
 		if (_command.startsWith("admin_"))
 		{
 			String command = _command.split(" ")[0];

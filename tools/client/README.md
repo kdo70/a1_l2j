@@ -8,6 +8,7 @@ them together:
 | `ItemEnchantWnd` | `EnchantKeepWindowOpened` | keeps the enchant list and its selection alive between attempts (below) |
 | `ToolTip`, `ChatWnd` | `SendItemNameColors` | paints item names with the color the server sends, and keeps the feed out of the chat — see [../../docs/item-name-colors.md](../../docs/item-name-colors.md) |
 | `ToolTip`, `ChatWnd` | `SendItemStats` | asks the server for the item numbers the client would read from its own `weapongrp.dat` and friends, and keeps that feed out of the chat too — see [../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md) |
+| `ToolTip`, `ChatWnd` | `SendItemSkills` | shows the skills an item grants once equipped and paints its name with the color that very item carries — see [../../docs/item-skills.md](../../docs/item-skills.md) |
 | `ToolTip` | `ClientVersion` | reports which build this is, so the server can turn away the clients that did not pick it up — see [../../docs/client-version-check.md](../../docs/client-version-check.md) |
 
 ## The enchant window
@@ -72,6 +73,16 @@ everything in its inventory, then item by item for whatever else it is about to 
 back on the same tagged chat channel the colors use. Nothing reaches a client that did not ask, which is why
 `SendItemStats` is harmless to a stock one. The whole design is in
 [../../docs/item-stats-from-server.md](../../docs/item-stats-from-server.md).
+
+## Item skills
+
+`ToolTip` also asks the server what the items it draws carry on top of their class — the skills they grant to
+whoever equips them, and the color of their name — and draws both. Those live on the item itself, so the feed
+is keyed by server id: two Short Swords can carry different ones, and a color carried by the item wins over the
+one its class carries.
+
+It is a pull like the statistics, on a bypass and a tag of its own, and the answers come back on the same
+tagged chat channel. The whole design is in [../../docs/item-skills.md](../../docs/item-skills.md).
 
 ## The client version
 
@@ -231,7 +242,8 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `patch_nwindow.ps1` — the `nwindow.dll` patch that puts the enchant level on item icons and caps the stack
   count. Nothing to do with the `interface.u` build.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
-  and `ChatWnd.uc` rebuilt.
+  and `ChatWnd.uc` rebuilt. They are stored in the encoding they came out of the package with, Korean
+  comments and all: edit them with a tool that leaves the bytes it does not touch alone.
 - `NWindow/Classes/` — 87 classes from `nwindow.u`, compiled as a stand-in for the client's binary package.
   Also the place to read the native API from (`ItemWindowHandle`, `WindowHandle`, `EnchantAPI`, …).
 - `Core/Classes/` — the kit's four Core classes plus `ParamStack` from the client, with `Split` removed.

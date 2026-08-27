@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.ItemNameColorTable;
+import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.enums.SayType;
 import net.sf.l2j.gameserver.handler.ChatHandler;
@@ -90,7 +91,11 @@ public final class Say2 extends L2GameClientPacket
 		// Same story for item statistics.
 		if (Config.SEND_ITEM_STATS && _text.contains(ItemStatsTable.TAG))
 			return;
-		
+
+		// Same story for item skills and their name colors.
+		if (Config.SEND_ITEM_SKILLS && _text.contains(ItemSkillsTable.TAG))
+			return;
+
 		// The ".offline" command : disconnect the Player, but keep his shop opened in the world.
 		if (_text.equalsIgnoreCase(".offline"))
 		{

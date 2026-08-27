@@ -24,11 +24,26 @@ const ITEMSTAT_FIELDS = 14;
 var array<int> m_ItemStatID;
 var array<string> m_ItemStatRow;
 
+// Skills an item grants once equipped, and the color of its name, handed out by the server (ItemSkillsTable
+// server side). Both live on the item itself and not on its class, so they are keyed by server id : two Short
+// Swords can carry different ones. The client asks for what it holds and for the items it is about to draw,
+// and the answers ride on chat messages tagged with ITEMSKILL_TAG, which ChatWnd drops instead of printing.
+const ITEMSKILL_TAG = "~ik~";
+const ITEMSKILL_RESET = "r";
+const ITEMSKILL_BYPASS = "_itemskills ";
+const ITEMSKILL_INVENTORY = "i";
+const ITEMSKILL_NOCOLOR = "n";
+const ITEMSKILL_MAX_TRIES = 3;
+
+var array<int> m_ItemSkillOID;
+var array<string> m_ItemSkillRow;
+var array<int> m_ItemSkillAsked;
+
 // The version of this interface build (ClientVersionManager server side). It is reported on entering the
 // world, and the server disconnects the clients whose report does not match its ClientVersion setting - a
 // stock client reports nothing and is disconnected too. Bump this and that setting together on every
 // rebuild players have to pick up.
-const CLIENTVER_VALUE = "1";
+const CLIENTVER_VALUE = "2";
 const CLIENTVER_BYPASS = "_ver ";
 
 var CustomTooltip m_Tooltip;
@@ -52,9 +67,11 @@ function OnEvent(int Event_ID, string param)
 	case EV_ChatMessage:
 		HandleItemColorMessage(param);
 		HandleItemStatMessage(param);
+		HandleItemSkillMessage(param);
 		break;
 	case EV_InventoryItemListEnd:
 		RequestItemStatsInventory();
+		RequestItemSkillsInventory();
 		ReportClientVersion();
 		break;
 	case EV_GamingStateEnter:
@@ -271,6 +288,234 @@ function ApplyItemStats(out ItemInfo Item)
 function RequestItemStatsInventory()
 {
 	RequestBypassToServer(ITEMSTAT_BYPASS $ ITEMSTAT_INVENTORY);
+}
+
+// A skill message is the tag followed by rows separated by ";", or by a single "r" that empties the table.
+// Anything else is ordinary chat and is left alone.
+function HandleItemSkillMessage(string param)
+{
+	local string text;
+	local int pos;
+
+	if (!ParseString(param, "Msg", text))
+		return;
+
+	pos = InStr(text, ITEMSKILL_TAG);
+	if (pos < 0)
+		return;
+
+	ParseItemSkills(Mid(text, pos + Len(ITEMSKILL_TAG)));
+}
+
+function ParseItemSkills(string data)
+{
+	local array<string> arrEntry;
+	local array<string> arrField;
+	local int count;
+	local int i;
+
+	if (data == ITEMSKILL_RESET)
+	{
+		m_ItemSkillOID.Remove(0, m_ItemSkillOID.Length);
+		m_ItemSkillRow.Remove(0, m_ItemSkillRow.Length);
+		m_ItemSkillAsked.Remove(0, m_ItemSkillAsked.Length);
+		return;
+	}
+
+	count = Split(data, ";", arrEntry);
+	for (i = 0; i < count; i++)
+	{
+		arrField.Remove(0, arrField.Length);
+		if (Split(arrEntry[i], ",", arrField) < 2)
+			continue;
+
+		SetItemSkills(int(arrField[0]), arrEntry[i]);
+	}
+}
+
+// The row is kept as it came and taken apart when a tooltip asks for it, which costs one split per drawn
+// tooltip and saves holding one array per field.
+function SetItemSkills(int ServerID, string row)
+{
+	local int idx;
+
+	if (ServerID <= 0)
+		return;
+
+	idx = NewItemSkills(ServerID);
+	if (idx < 0)
+		return;
+
+	m_ItemSkillRow[idx] = row;
+}
+
+// Index of the entry held for a server id, adding an empty one when there is none. -1 on a server id which
+// can't hold anything.
+function int NewItemSkills(int ServerID)
+{
+	local int idx;
+
+	if (ServerID <= 0)
+		return -1;
+
+	idx = FindItemSkills(ServerID);
+	if (idx < 0)
+	{
+		idx = m_ItemSkillOID.Length;
+		m_ItemSkillOID.Insert(idx, 1);
+		m_ItemSkillRow.Insert(idx, 1);
+		m_ItemSkillAsked.Insert(idx, 1);
+		m_ItemSkillOID[idx] = ServerID;
+	}
+
+	return idx;
+}
+
+// Index of the entry held for a server id, or -1 when that item was never met. An entry holding an empty row
+// is an item asked about and not answered yet.
+function int FindItemSkills(int ServerID)
+{
+	local int i;
+
+	for (i = 0; i < m_ItemSkillOID.Length; i++)
+	{
+		if (m_ItemSkillOID[i] == ServerID)
+			return i;
+	}
+
+	return -1;
+}
+
+// Ask the server about an item met for the first time. It is drawn once without its skills and without its
+// color - the answer lands after this tooltip is built - and carries both from the next tooltip on. What the
+// inventory holds is asked for as a whole, so this only ever fires on items met elsewhere : a trade, a shop.
+//
+// The server answers every item it is asked about, carrying something or not, so an answer settles that item
+// for the session. A question can still go unanswered - the server flood protector drops the ones sent too
+// close to each other, and a server with the feature turned off never answers at all - hence a few tries and
+// no more : asking on every drawn tooltip forever would be a stream of packets for nothing.
+function RequestItemSkills(int ServerID)
+{
+	local int idx;
+
+	idx = NewItemSkills(ServerID);
+	if (idx < 0)
+		return;
+
+	if (Len(m_ItemSkillRow[idx]) > 0 || m_ItemSkillAsked[idx] >= ITEMSKILL_MAX_TRIES)
+		return;
+
+	m_ItemSkillAsked[idx] = m_ItemSkillAsked[idx] + 1;
+	RequestBypassToServer(ITEMSKILL_BYPASS $ String(ServerID));
+}
+
+function RequestItemSkillsInventory()
+{
+	RequestBypassToServer(ITEMSKILL_BYPASS $ ITEMSKILL_INVENTORY);
+}
+
+// The color this very item carries, which wins over the one its class carries. Returns false when the server
+// said nothing about that item, or when it left its name to the client.
+function bool GetItemSkillColor(int ServerID, out color Result)
+{
+	local array<string> arrField;
+	local array<string> arrRGB;
+	local int idx;
+
+	idx = FindItemSkills(ServerID);
+	if (idx < 0)
+		return false;
+
+	if (Split(m_ItemSkillRow[idx], ",", arrField) < 2)
+		return false;
+
+	if (arrField[1] == ITEMSKILL_NOCOLOR)
+		return false;
+
+	if (Split(arrField[1], "-", arrRGB) != 3)
+		return false;
+
+	Result.R = int(arrRGB[0]);
+	Result.G = int(arrRGB[1]);
+	Result.B = int(arrRGB[2]);
+	Result.A = 255;
+
+	return true;
+}
+
+// The skills this very item grants once equipped, one line each under a blank line, the way the augmentation
+// block reads. The names come from the client own skill data, so they show up in its own language.
+function bool AddTooltipItemSkills(int ServerID)
+{
+	local array<string> arrField;
+	local array<string> arrPair;
+	local int count;
+	local int idx;
+	local int i;
+	local bool bDrawn;
+	local string strName;
+
+	idx = FindItemSkills(ServerID);
+	if (idx < 0)
+		return false;
+
+	count = Split(m_ItemSkillRow[idx], ",", arrField);
+
+	for (i = 2; i < count; i++)
+	{
+		arrPair.Remove(0, arrPair.Length);
+		if (Split(arrField[i], "-", arrPair) != 2)
+			continue;
+
+		strName = class'UIDATA_SKILL'.static.GetName( int(arrPair[0]), int(arrPair[1]) );
+		if (Len(strName) == 0)
+			continue;
+
+		if (!bDrawn)
+		{
+			AddTooltipItemBlank(12);
+			bDrawn = true;
+		}
+
+		//Skill name
+		StartItem();
+		m_Info.eType = DIT_TEXT;
+		m_Info.nOffSetY = 6;
+		m_Info.bLineBreak = true;
+		m_Info.t_bDrawOneLine = true;
+		m_Info.t_color.R = 255;
+		m_Info.t_color.G = 217;
+		m_Info.t_color.B = 105;
+		m_Info.t_color.A = 255;
+		m_Info.t_strText = strName;
+		EndItem();
+
+		//ex) " Lv "
+		StartItem();
+		m_Info.eType = DIT_TEXT;
+		m_Info.nOffSetY = 6;
+		m_Info.t_bDrawOneLine = true;
+		m_Info.t_color.R = 163;
+		m_Info.t_color.G = 163;
+		m_Info.t_color.B = 163;
+		m_Info.t_color.A = 255;
+		m_Info.t_ID = 88;
+		EndItem();
+
+		//Skill level
+		StartItem();
+		m_Info.eType = DIT_TEXT;
+		m_Info.nOffSetY = 6;
+		m_Info.t_bDrawOneLine = true;
+		m_Info.t_color.R = 176;
+		m_Info.t_color.G = 155;
+		m_Info.t_color.B = 121;
+		m_Info.t_color.A = 255;
+		m_Info.t_strText = " " $ arrPair[1];
+		EndItem();
+	}
+
+	return bDrawn;
 }
 
 function HandleRequestTooltipInfo(string param)
@@ -499,6 +744,7 @@ function ReturnTooltip_NTT_ITEM(string param, String TooltipType, ETooltipSource
 	{
 		ParamToItemInfo(param, Item);
 		ApplyItemStats(Item);
+		RequestItemSkills(Item.ServerID);
 		
 		eItemType = EItemType(Item.ItemType);
 		eEtcItemType = EEtcItemType(Item.ItemSubType);
@@ -905,6 +1151,10 @@ function ReturnTooltip_NTT_ITEM(string param, String TooltipType, ETooltipSource
 		/////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////
 		
+		//Skills this very item grants once equipped
+		if (AddTooltipItemSkills(Item.ServerID))
+			bLargeWidth = true;
+
 		//내구도 아이템
 		if (Item.CurrentDurability >= 0 && Item.Durability > 0)
 		{
@@ -2100,6 +2350,7 @@ function AddTooltipItemEnchant(ItemInfo Item)
 function AddTooltipItemName(string Name, ItemInfo Item)
 {
 	local int idx;
+	local color ItemColor;
 
 	StartItem();
 	m_Info.eType = DIT_TEXT;
@@ -2110,6 +2361,10 @@ function AddTooltipItemName(string Name, ItemInfo Item)
 	idx = FindItemColor(Item.ClassID);
 	if (idx >= 0)
 		m_Info.t_color = m_ItemColorValue[idx];
+
+	// And a color carried by this very item wins over the one carried by its class.
+	if (GetItemSkillColor(Item.ServerID, ItemColor))
+		m_Info.t_color = ItemColor;
 
 	EndItem();
 	
