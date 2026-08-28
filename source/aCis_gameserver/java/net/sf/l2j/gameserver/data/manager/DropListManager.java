@@ -333,7 +333,7 @@ public class DropListManager
 
 		final String amount = (row.min() == row.max()) ? StringUtil.formatNumber(row.min()) : StringUtil.formatNumber(row.min()) + data.getCountRange() + StringUtil.formatNumber(row.max());
 
-		return data.getCountPrefix() + amount;
+		return escape(data.getCountPrefix() + amount);
 	}
 
 	/**
@@ -349,9 +349,9 @@ public class DropListManager
 
 		// Comparing against the formatted zero rather than against a threshold keeps this right whatever amount of decimals the pattern holds.
 		if (chance > 0 && text.equals(format.format(0)))
-			return data.getNearZeroLabel();
+			return escape(data.getNearZeroLabel());
 
-		return text + data.getChanceSuffix();
+		return escape(text + data.getChanceSuffix());
 	}
 
 	/**
@@ -495,6 +495,8 @@ public class DropListManager
 	}
 
 	/**
+	 * Every single datapack string goes through this on its way to the client, and none may skip it : the XML parser hands over decoded text, so a "&amp;lt;" of the XML reaches here as a bare "&lt;"
+	 * the client would then swallow as the start of a tag - which is what silently emptied the cell holding the "nearZero" label.
 	 * @param text : The datapack text to render.
 	 * @return The given text, with its angle brackets turned into entities the client renders as is.
 	 */

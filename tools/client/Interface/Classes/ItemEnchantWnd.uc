@@ -21,8 +21,16 @@ var bool				bContinuing;
 // selection and nothing can put it back, so "Repeat" works from this instead of from the selection.
 var int					LastServerID;
 
+// Window title without the level suffix, so the target's real level can be appended to it.
+var string				TitleBase;
+
 const TIMER_ENDRUN			= 1;
 const TIMER_ENDRUN_DELAY	= 400;
+
+// Overlay drawn on the item being enchanted. Refreshing an entry makes the item window drop its selection
+// and nothing can select one back, so the target is marked with a texture of our own instead - the same
+// trick stock PetWnd uses to flag equipped pet items.
+const TARGET_MARK_TEXTURE	= "l2ui_ch3.PetWnd.petitem_click";
 
 function OnLoad()
 {
@@ -99,12 +107,12 @@ function OnRepeatClick()
 	local ItemInfo infItem;
 	local int ServerID;
 
-	ServerID = LastServerID;
+	// A fresh selection wins, so the player can retarget by clicking another item. There is none after a
+	// refresh, and then the marked target carries over.
+	ItemWnd.GetSelectedItem(infItem);
+	ServerID = infItem.ServerID;
 	if ( ServerID <= 0 )
-	{
-		ItemWnd.GetSelectedItem(infItem);
-		ServerID = infItem.ServerID;
-	}
+		ServerID = LastServerID;
 
 	if ( ServerID > 0 )
 	{
@@ -158,7 +166,8 @@ function HandleEnchantShow(string param)
 	}
 
 	ParseInt(param, "ClassID", ClassID);
-	Me.SetWindowTitle(GetSystemString(1220) $ "(" $ class'UIDATA_ITEM'.static.GetItemName(ClassID) $ ")");
+	TitleBase = GetSystemString(1220) $ "(" $ class'UIDATA_ITEM'.static.GetItemName(ClassID) $ ")";
+	Me.SetWindowTitle(TitleBase);
 
 	// Showing and focusing a window that is already up buys nothing and can reset its controls, so only do
 	// it when the window is actually coming into view.
@@ -183,8 +192,19 @@ function HandleEnchantItemList(string param)
 
 	ParamToItemInfo(param, infItem);
 
-	// Refresh in place so enchant levels stay correct. This costs the selection, which is exactly what
-	// "Repeat" exists to make unnecessary.
+	// Mark the item being enchanted, and put its level in the title as well. The mark is what keeps the
+	// target visible: every entry is refreshed below so the levels stay right, and refreshing is exactly
+	// what wipes the window's own selection.
+	if ( LastServerID > 0 && infItem.ServerID == LastServerID )
+	{
+		infItem.ForeTexture = TARGET_MARK_TEXTURE;
+
+		if ( infItem.Enchanted > 0 )
+			Me.SetWindowTitle( TitleBase $ " " $ infItem.Name $ " +" $ string(infItem.Enchanted) );
+		else
+			Me.SetWindowTitle( TitleBase $ " " $ infItem.Name );
+	}
+
 	index = ItemWnd.FindItemWithServerID( infItem.ServerID );
 	if ( index >= 0 )
 		ItemWnd.SetItem( index, infItem );
