@@ -7,6 +7,8 @@
 Соседние фичи того же рода: навыки и цвет названия предмета — [item-skills.md](item-skills.md),
 характеристики с сервера — [item-stats-from-server.md](item-stats-from-server.md).
 
+Показ этого дропа игроку (shift+click по монстру) — [droplist-window.md](droplist-window.md).
+
 ---
 
 ## 1. Таблица

@@ -14,6 +14,7 @@ import net.sf.l2j.commons.random.Rnd;
 
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
+import net.sf.l2j.gameserver.data.manager.DropListManager;
 import net.sf.l2j.gameserver.enums.BossInfoType;
 import net.sf.l2j.gameserver.enums.DropType;
 import net.sf.l2j.gameserver.model.actor.Attackable;
@@ -63,7 +64,17 @@ public class Monster extends Attackable
 	{
 		super(objectId, template);
 	}
-	
+
+	@Override
+	public void onAction(Player player, boolean isCtrlPressed, boolean isShiftPressed)
+	{
+		// A shift click shows the drop list, but only to the Players allowed to see it ; the others keep the regular "attack without moving" behavior.
+		if (isShiftPressed && DropListManager.getInstance().onShiftClick(player, this))
+			return;
+
+		super.onAction(player, isCtrlPressed, isShiftPressed);
+	}
+
 	@Override
 	protected void calculateRewards(Creature creature)
 	{

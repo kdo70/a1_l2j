@@ -49,6 +49,7 @@ public final class Config
 	
 	private static final String MODS_CHAMPION_MOBS_FILE = "./config/mods/championmobs.properties";
 	private static final String MODS_CLIENT_FILE = "./config/mods/client.properties";
+	private static final String MODS_DROPLIST_FILE = "./config/mods/droplist.properties";
 	private static final String MODS_GATEKEEPER_FILE = "./config/mods/gatekeeper.properties";
 	private static final String MODS_OFFLINE_SHOP_FILE = "./config/mods/offlineshop.properties";
 	
@@ -193,6 +194,16 @@ public final class Config
 	public static int FISH_CHAMPIONSHIP_REWARD_4;
 	public static int FISH_CHAMPIONSHIP_REWARD_5;
 	
+	// --------------------------------------------------
+	// Mods - droplist window
+	// --------------------------------------------------
+
+	public static boolean DROPLIST_ENABLED;
+	public static int DROPLIST_SKILL_ID;
+	public static int DROPLIST_ROWS_PER_PAGE;
+	public static boolean DROPLIST_SHOW_SPOIL;
+	public static boolean DROPLIST_APPLY_RATES;
+
 	// --------------------------------------------------
 	// Mods - gatekeeper
 	// --------------------------------------------------
@@ -899,6 +910,22 @@ public final class Config
 	}
 	
 	/**
+	 * Loads the drop list window settings.<br>
+	 * <br>
+	 * Only the behavior lives here ; the whole appearance is datapack driven, on data/xml/droplist.xml.
+	 */
+	private static final void loadDropList()
+	{
+		final ExProperties droplist = initProperties(MODS_DROPLIST_FILE);
+
+		DROPLIST_ENABLED = droplist.getProperty("DropListEnabled", true);
+		DROPLIST_SKILL_ID = Math.max(0, droplist.getProperty("DropListSkillId", 0));
+		DROPLIST_ROWS_PER_PAGE = Math.max(1, droplist.getProperty("DropListRowsPerPage", 9));
+		DROPLIST_SHOW_SPOIL = droplist.getProperty("DropListShowSpoil", true);
+		DROPLIST_APPLY_RATES = droplist.getProperty("DropListApplyRates", true);
+	}
+
+	/**
 	 * Loads global gatekeeper settings.<br>
 	 * <br>
 	 * Only the behavior and the economy live here ; the content and the whole appearance are datapack driven, on data/xml/gatekeeper.xml.
@@ -1587,6 +1614,7 @@ public final class Config
 		// mods settings
 		loadChampionMobs();
 		loadClient();
+		loadDropList();
 		loadGatekeeper();
 		loadOfflineShop();
 		

@@ -8,6 +8,7 @@ import net.sf.l2j.gameserver.communitybbs.CommunityBoard;
 import net.sf.l2j.gameserver.data.ItemSkillsTable;
 import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
+import net.sf.l2j.gameserver.data.manager.DropListManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.enums.FloodProtector;
@@ -142,6 +143,14 @@ public final class RequestBypassToServer extends L2GameClientPacket
 			{
 				// Do nothing.
 			}
+		}
+		// Drop list window of a monster, opened by a shift click ; see DropListManager.
+		else if (_command.startsWith(DropListManager.BYPASS))
+		{
+			if (!player.validateBypass(_command))
+				return;
+
+			DropListManager.getInstance().handleBypass(player, _command.substring(DropListManager.BYPASS.length()));
 		}
 		// Item statistics a rebuilt client asks for ; see ItemStatsTable.
 		else if (_command.startsWith(ItemStatsTable.BYPASS))

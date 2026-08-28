@@ -52,12 +52,14 @@ import net.sf.l2j.gameserver.data.xml.AugmentationData;
 import net.sf.l2j.gameserver.data.xml.BoatData;
 import net.sf.l2j.gameserver.data.xml.ClanHallDecoData;
 import net.sf.l2j.gameserver.data.xml.DoorData;
+import net.sf.l2j.gameserver.data.xml.DropListData;
 import net.sf.l2j.gameserver.data.xml.FishData;
 import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.data.xml.HealSpsData;
 import net.sf.l2j.gameserver.data.xml.HennaData;
 import net.sf.l2j.gameserver.data.xml.InstantTeleportData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.data.xml.ItemIconData;
 import net.sf.l2j.gameserver.data.xml.ManorAreaData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
 import net.sf.l2j.gameserver.data.xml.NewbieBuffData;
@@ -161,6 +163,7 @@ public class GameServer
 		
 		StringUtil.printSection("Items");
 		ItemData.getInstance();
+		ItemIconData.getInstance();
 		SummonItemData.getInstance();
 		HennaData.getInstance();
 		BuyListManager.getInstance();
@@ -232,6 +235,7 @@ public class GameServer
 		BufferManager.getInstance();
 		NpcData.getInstance();
 		DropTable.getInstance();
+		DropListData.getInstance();
 		WalkerRouteData.getInstance();
 		StaticObjectData.getInstance();
 		SpawnManager.getInstance();

@@ -17,7 +17,8 @@ source/aCis_gameserver/      Java-код серверов (основной пр
                              clans, siege, geoengine, loginserver), дальше по
                              папкам players/, npcs/, events/ и mods/ —
                              в последней живут модификации сборки
-                             (gatekeeper, championmobs, offlineshop, client)
+                             (gatekeeper, droplist, championmobs, offlineshop,
+                             client)
   lib/                       зависимости (mariadb-java-client-3.1.4.jar)
   dist/                      скрипты запуска (.sh/.bat), копируются в сборку
   build.xml                  Ant-сборка (цель по умолчанию: dist)
@@ -95,6 +96,13 @@ ant -f source\aCis_gameserver\build.xml
   `<drops>` нет; их читает `DropTable` из таблицы `droplist`
   (`sql/droplist.sql`), правится она на живом сервере плюс `//reload drop`.
   Устройство, схема и конвертер — `docs/droplist-in-db.md`.
+- **Дроп-лист виден игроку по shift+click** по монстру или РБ, если это включено в
+  `config/mods/droplist.properties` (там же id навыка, который открывает
+  окно). Внешний вид — `data/xml/droplist.xml`, устройство —
+  `docs/droplist-window.md`.
+- **Иконки предметов лежат в датапаке** (`data/xml/itemIcons.xml`), потому что
+  Interlude держит их только на клиенте. Выгружаются из клиентских `*grp.dat`
+  скриптом `tools/icons/grp_to_icons.ps1`, устройство — `docs/item-icons.md`.
 
 ## CI/CD (.github)
 

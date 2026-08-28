@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+	Appearance of the drop list window, opened by shift clicking a monster or a raid boss.
+
+	Everything the player sees is defined here. The behavior (whether the window exists at all,
+	which skill unlocks it, how many rows a page holds, whether the spoil tab is shown and whether
+	the rates are folded into the chances) lives server side, on config/mods/droplist.properties.
+
+	The item icons come from data/xml/itemIcons.xml.
+
+	<layout>
+		Sizes of the generated tables. The header row and the list rows are generated out of the
+		very same widths, which is what keeps them aligned - never describe a header on the HTM.
+
+		width       : width, in pixels, of every generated table (tab bar, header, rows, page
+		              selector). Fed to the HTM as %width%. Keep it below 290, so the scrollbar
+		              doesn't eat the last column.
+		rowHeight   : height, in pixels, of a single row of the list. It has to leave room for the
+		              icon, so keep it above iconSize.
+		headerHeight: height, in pixels, of the header row and of the page selector row.
+		tabHeight   : height, in pixels, of the tab bar.
+		iconSize    : size, in pixels, the item icons are drawn at.
+		maxPages    : maximum amount of page links shown by the page selector, centered on the
+		              current page. The selector always stays on a single line.
+		nameChars   : amount of characters above which an item name is shortened, on the last word
+		              boundary when possible. 0 never shortens - and lets a long name wrap, which
+		              makes its row taller than the others. Roughly nameWidth / 6.
+		ellipsis    : suffix appended to a shortened item name.
+		overhead    : height, in pixels, everything but the tab bar and the list rows takes on the
+		              HTM - separators, headline, header row and the page selector row. Substracted
+		              from pageHeight to know how much the page has to be padded with. Only worth
+		              touching after editing the HTM. Rough guide : <br> 16, <br1> 8, a separator
+		              img 1, a header or selector row 18.
+		pageHeight  : total height, in pixels, every page is padded up to - the tab bar, the
+		              "overhead" and the list rows included. Since it is the very same on every
+		              page, the page selector always lands on the same spot ; and since it is set
+		              slightly above the height of the dialog, the scrollbar stays shown
+		              everywhere. 0 disables the padding. A full page is
+		              overhead + tabHeight + rows * rowHeight tall.
+
+		iconWidth / nameWidth / countWidth / chanceWidth : widths, in pixels, of the four columns.
+		They must sum up to the layout width, otherwise the rows won't be aligned.
+
+	<colors>
+		Every color of the dialog. An empty value keeps the client default : a transparent
+		background for a row, a plain white text for a label.
+
+		row / altRow       : background of the odd / even rows of the list.
+		header             : background of the header row.
+		headerText         : text of the header row.
+		title              : headline of the dialog, fed to the HTM as %titleColor%.
+		tabBar             : background of the tab bar.
+		tab / activeTab    : label of a tab / of the shown one.
+		name               : item names.
+		count              : dropped amounts.
+		highChance         : chance at or above "highChanceFrom".
+		mediumChance       : chance at or above "mediumChanceFrom".
+		lowChance          : anything below.
+		disabled           : the label shown instead of an empty list.
+		page / activePage  : page links / the current page.
+
+		highChanceFrom / mediumChanceFrom : the two thresholds, in percent.
+
+	<labels>
+		itemHeader / countHeader / chanceHeader : captions of the header row.
+		drop / currency / spoil / herb          : labels of the tabs. A monster only gets the tabs
+		                                          of the drop types it actually holds.
+		empty                                   : shown instead of an empty list.
+		prevPage / nextPage                     : labels of the page selector arrows.
+-->
+<list>
+	<layout width="280" rowHeight="36" headerHeight="18" tabHeight="18" iconSize="32" maxPages="10" nameChars="22" ellipsis="..." overhead="96" pageHeight="440" iconWidth="36" nameWidth="134" countWidth="56" chanceWidth="54" />
+
+	<colors row="000000" altRow="" header="000000" headerText="9F9F9F" title="LEVEL" tabBar="000000" tab="FFFFFF" activeTab="LEVEL" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
+
+	<labels itemHeader="Предмет" countHeader="Кол-во" chanceHeader="Шанс" drop="Дроп" currency="Адена" spoil="Спойл" herb="Травы" empty="Здесь ничего не выпадает" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+</list>

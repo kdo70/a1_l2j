@@ -16,9 +16,11 @@ import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.data.xml.AnnouncementData;
 import net.sf.l2j.gameserver.data.xml.BoatData;
 import net.sf.l2j.gameserver.data.xml.DoorData;
+import net.sf.l2j.gameserver.data.xml.DropListData;
 import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.data.xml.InstantTeleportData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.data.xml.ItemIconData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.ScriptData;
@@ -88,6 +90,8 @@ public class AdminReload implements IAdminCommandHandler
 				else if (type.startsWith("drop"))
 				{
 					DropTable.getInstance().reload();
+					DropListData.getInstance().reload();
+					ItemIconData.getInstance().reload();
 					player.sendMessage("The droplist has been reloaded.");
 				}
 				else if (type.startsWith("htm"))
