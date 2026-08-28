@@ -385,7 +385,7 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The background color of the odd rows of the list.
+	 * @return The background color of the odd rows of a group, the first row of a group being an odd one.
 	 */
 	public String getRowColor()
 	{
@@ -393,7 +393,7 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The background color of the even rows of the list ; empty means transparent.
+	 * @return The background color of the even rows of a group ; empty means transparent.
 	 */
 	public String getAltRowColor()
 	{

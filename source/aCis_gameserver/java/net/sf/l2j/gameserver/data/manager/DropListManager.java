@@ -171,8 +171,12 @@ public class DropListManager
 			sb.append(getGroupHeader(group));
 			shownGroups++;
 
+			// The rows are striped per group, not per page : that is what makes the first row of a group land on the plain background, right under its header.
 			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
-				sb.append(getRow(group.rows().get(i - start), shownRows++));
+			{
+				sb.append(getRow(group.rows().get(i - start), i - start));
+				shownRows++;
+			}
 		}
 
 		String content = HtmCache.getInstance().getHtmForce(HTM);
@@ -281,7 +285,7 @@ public class DropListManager
 
 	/**
 	 * @param row : The {@link DropRow} to render.
-	 * @param index : The index of the row on the current page, 0 being the first one.
+	 * @param index : The index of the row inside its group, 0 being the first one.
 	 * @return The whole row, rendered as its own table.
 	 */
 	private static String getRow(DropRow row, int index)
@@ -329,13 +333,13 @@ public class DropListManager
 
 	/**
 	 * Each row of the list is rendered as its own table, since the client only handles the bgcolor attribute on tables.
-	 * @param index : The index of the row on the current page, 0 being the first one.
-	 * @return The opening tags of a list row, alternating both row colors.
+	 * @param index : The index of the row inside its group, 0 being the first one.
+	 * @return The opening tags of a list row, alternating both row colors - the first row of a group taking the plain one.
 	 */
 	private static String getRowStart(int index)
 	{
 		final DropListData data = DropListData.getInstance();
-		final String color = (index % 2 == 0) ? data.getAltRowColor() : data.getRowColor();
+		final String color = (index % 2 == 0) ? data.getRowColor() : data.getAltRowColor();
 
 		return "<table width=" + data.getWidth() + ((color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"") + "><tr>";
 	}
