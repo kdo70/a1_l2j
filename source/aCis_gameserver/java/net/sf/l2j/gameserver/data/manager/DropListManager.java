@@ -31,8 +31,10 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * Generates the drop list window a {@link Player} opens by shift clicking a {@link Monster} - a raid boss being one.<br>
  * <br>
  * The window is a plain HTM dialog held by the monster itself : one single list, paged at the bottom, where every {@link DropCategory} of the monster shows up as a group - its own header row, holding
- * the label of its {@link DropType} and the chance the whole group rolls, followed by its items sorted by decreasing chance. The groups themselves are sorted by decreasing chance too, but the spoil
- * ones are pushed after the regular drops and the herb ones after the spoil : both are side rewards, and a player reads the list for what the monster actually drops.<br>
+ * its caption and the chance the whole group rolls, followed by its items sorted by decreasing chance. The groups themselves are sorted by decreasing chance too, but the spoil ones are pushed after
+ * the regular drops and the herb ones after the spoil : both are side rewards, and a player reads the list for what the monster actually drops.<br>
+ * <br>
+ * A regular group is simply numbered - a "drop" or an "adena" caption tells a player nothing he doesn't already read out of the items themselves - while the spoil and herb ones own a name.<br>
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100%.<br>
@@ -152,9 +154,14 @@ public class DropListManager
 		int shownGroups = 0;
 		int shownRows = 0;
 		int offset = 0;
+		int number = 0;
 
 		for (DropGroup group : groups)
 		{
+			// The regular groups are numbered - they hold no meaningful name to show - and the counter runs over the whole list, not over the current page only.
+			if (getRank(group.type()) == 0)
+				number++;
+
 			final int start = offset;
 			offset += group.rows().size();
 
@@ -162,7 +169,7 @@ public class DropListManager
 			if (offset <= first || start >= last)
 				continue;
 
-			sb.append(getGroupHeader(group));
+			sb.append(getGroupHeader(group, number));
 			shownGroups++;
 
 			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
@@ -177,7 +184,6 @@ public class DropListManager
 		content = content.replace("%npcLevel%", String.valueOf(monster.getStatus().getLevel()));
 		content = content.replace("%objectId%", String.valueOf(monster.getObjectId()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
-		content = content.replace("%titleColor%", data.getTitleColor());
 
 		final NpcHtmlMessage html = new NpcHtmlMessage(monster.getObjectId());
 		html.setHtml(content);
@@ -246,15 +252,16 @@ public class DropListManager
 	/**
 	 * The header of a group, generated out of the very same width as its rows.
 	 * @param group : The {@link DropGroup} to introduce.
-	 * @return The header row of the given group : the label of its {@link DropType} on the left, the chance the whole group rolls on the right.
+	 * @param number : The rank of the group among the regular ones, 1 being the first. Ignored by the spoil and herb groups, which own a name of their own.
+	 * @return The header row of the given group : its caption on the left, the chance the whole group rolls on the right.
 	 */
-	private static String getGroupHeader(DropGroup group)
+	private static String getGroupHeader(DropGroup group, int number)
 	{
 		final DropListData data = DropListData.getInstance();
 		final StringBuilder sb = new StringBuilder(256);
 
 		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getGroupColor().isEmpty()) ? "" : " bgcolor=\"" + data.getGroupColor() + "\"", "><tr>");
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type())))));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type(), number)))));
 		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(group.chance()), getChanceText(group.chance()))));
 		sb.append(ROW_END);
 
