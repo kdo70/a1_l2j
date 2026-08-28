@@ -67,7 +67,9 @@
 		background for a row, a plain white text for a label.
 
 		row / altRow       : background of the odd / even rows of a group. The stripes restart on every
-		                     group, so the first row sitting under a header always takes "row".
+		                     group, so the first row sitting under a header always takes "row". A
+		                     header landing right under a transparent row takes "row" as well, so two
+		                     see-through bands never stack up.
 		groupText          : caption of a group header row.
 		name               : item names.
 		count              : dropped amounts.

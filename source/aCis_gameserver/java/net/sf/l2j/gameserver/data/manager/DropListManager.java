@@ -34,8 +34,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * its caption and the chance the whole group rolls, followed by its items sorted by decreasing chance. The groups themselves are sorted by decreasing chance too, but the spoil ones are pushed after
  * the regular drops and the herb ones after the spoil : both are side rewards, and a player reads the list for what the monster actually drops.<br>
  * <br>
- * A group header is framed by the separator of the datapack rather than filled with a background color, and its caption only tells the one thing a player can't read out of the items themselves -
- * whether the group is a drop or a spoil one.<br>
+ * A group header is framed by the separator of the datapack rather than filled with a background color - it only takes one when the row right above it is a transparent one, so the stripes of the
+ * list never break on two see-through bands in a row - and its caption only tells the one thing a player can't read out of the items themselves : whether the group is a drop or a spoil one.<br>
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100%.<br>
@@ -159,6 +159,9 @@ public class DropListManager
 		int shownRows = 0;
 		int offset = 0;
 
+		// Index, inside its own group, of the last row drawn so far ; -1 as long as the page holds none.
+		int lastRow = -1;
+
 		for (DropGroup group : groups)
 		{
 			final int start = offset;
@@ -168,13 +171,16 @@ public class DropListManager
 			if (offset <= first || start >= last)
 				continue;
 
-			sb.append(getGroupHeader(group));
+			// A header landing right under a transparent row takes the plain background itself, so two see-through bands never stack up and the stripes keep reading as stripes.
+			sb.append(getGroupHeader(group, (lastRow >= 0 && getRowColor(lastRow).isEmpty()) ? data.getRowColor() : ""));
 			shownGroups++;
 
 			// The rows are striped per group, not per page : that is what makes the first row of a group land on the plain background, right under its header.
 			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
 			{
-				sb.append(getRow(group.rows().get(i - start), i - start));
+				lastRow = i - start;
+
+				sb.append(getRow(group.rows().get(lastRow), lastRow));
 				shownRows++;
 			}
 		}
@@ -256,15 +262,16 @@ public class DropListManager
 	 * The header of a group, generated out of the very same width as its rows and framed by the separator of the datapack - a background color would fight the alternating rows sitting right under
 	 * it, a pair of rules simply cuts the list into groups.
 	 * @param group : The {@link DropGroup} to introduce.
+	 * @param color : The background color of the header, empty keeping it see-through. It only ever holds one when the row right above it is a transparent one.
 	 * @return The header row of the given group : its caption on the left, the chance the whole group rolls on the right.
 	 */
-	private static String getGroupHeader(DropGroup group)
+	private static String getGroupHeader(DropGroup group, String color)
 	{
 		final DropListData data = DropListData.getInstance();
 		final StringBuilder sb = new StringBuilder(320);
 
 		sb.append(getSeparator());
-		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr>");
+		StringUtil.append(sb, "<table width=", data.getWidth(), (color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"", "><tr>");
 		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type())))));
 		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(group.chance()), getChanceText(group.chance()))));
 		sb.append(ROW_END);
@@ -338,10 +345,20 @@ public class DropListManager
 	 */
 	private static String getRowStart(int index)
 	{
-		final DropListData data = DropListData.getInstance();
-		final String color = (index % 2 == 0) ? data.getRowColor() : data.getAltRowColor();
+		final String color = getRowColor(index);
 
-		return "<table width=" + data.getWidth() + ((color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"") + "><tr>";
+		return "<table width=" + DropListData.getInstance().getWidth() + ((color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"") + "><tr>";
+	}
+
+	/**
+	 * @param index : The index of the row inside its group, 0 being the first one.
+	 * @return The background color of the given row, empty meaning transparent.
+	 */
+	private static String getRowColor(int index)
+	{
+		final DropListData data = DropListData.getInstance();
+
+		return (index % 2 == 0) ? data.getRowColor() : data.getAltRowColor();
 	}
 
 	/**
