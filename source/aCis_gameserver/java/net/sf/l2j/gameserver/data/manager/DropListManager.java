@@ -30,11 +30,14 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 /**
  * Generates the drop list window a {@link Player} opens by shift clicking a {@link Monster} - a raid boss being one.<br>
  * <br>
- * The window is a plain HTM dialog held by the monster itself, shaped after the global gatekeeper one : a tab bar on top, one generated row per drop, a page selector at the bottom. One tab is one
- * {@link DropType}, and only the types the monster actually holds are shown ; the rows of a tab are every drop of every {@link DropCategory} of that type, sorted by chance.<br>
+ * The window is a plain HTM dialog held by the monster itself : one single list, paged at the bottom, where every {@link DropCategory} of the monster shows up as a group - its own header row, holding
+ * the label of its {@link DropType} and the chance the whole group rolls, followed by its items sorted by decreasing chance. The groups themselves are sorted by decreasing chance too, but the spoil
+ * ones are pushed after the regular drops and the herb ones after the spoil : both are side rewards, and a player reads the list for what the monster actually drops.<br>
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100%.<br>
+ * <br>
+ * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
  * The behavior lives on config/mods/droplist.properties, the whole appearance on data/xml/droplist.xml, the item icons on data/xml/itemIcons.xml.
  */
@@ -42,21 +45,12 @@ public class DropListManager
 {
 	private static final CLogger LOGGER = new CLogger(DropListManager.class.getName());
 
-	/** The bypass fired by the generated links, followed by "objectId dropType page". */
+	/** The bypass fired by the generated links, followed by "objectId page". */
 	public static final String BYPASS = "_droplist ";
 
 	private static final String HTM = "./data/html/mods/droplist/list.htm";
 
 	private static final String ROW_END = "</tr></table>";
-
-	/** The order the tabs are shown in. A type the {@link Monster} doesn't hold doesn't get a tab. */
-	private static final DropType[] TAB_ORDER =
-	{
-		DropType.DROP,
-		DropType.CURRENCY,
-		DropType.SPOIL,
-		DropType.HERB
-	};
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse a list at once, so the formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols CHANCE_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
@@ -65,6 +59,11 @@ public class DropListManager
 
 	/** A single rendered drop : the whole draw chance of one {@link DropData}, and the amount it gives. */
 	private record DropRow(int itemId, double chance, int min, int max)
+	{
+	}
+
+	/** A single rendered {@link DropCategory} : the chance the group rolls, and its already sorted rows. */
+	private record DropGroup(DropType type, double chance, List<DropRow> rows)
 	{
 	}
 
@@ -86,7 +85,7 @@ public class DropListManager
 		if (player.getTarget() != monster)
 			player.setTarget(monster);
 
-		show(player, monster, null, 0);
+		show(player, monster, 0);
 
 		return true;
 	}
@@ -94,7 +93,7 @@ public class DropListManager
 	/**
 	 * Answer a link of an already shown drop list window.
 	 * @param player : The {@link Player} which clicked.
-	 * @param command : The bypass parameters, being "objectId dropType page".
+	 * @param command : The bypass parameters, being "objectId page".
 	 */
 	public void handleBypass(Player player, String command)
 	{
@@ -112,10 +111,7 @@ public class DropListManager
 			if (!(object instanceof Monster monster))
 				return;
 
-			final DropType type = Enum.valueOf(DropType.class, st.nextToken());
-			final int page = Integer.parseInt(st.nextToken());
-
-			show(player, monster, type, page);
+			show(player, monster, Integer.parseInt(st.nextToken()));
 		}
 		catch (Exception e)
 		{
@@ -127,40 +123,56 @@ public class DropListManager
 	 * Generate and send the drop list window.
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param monster : The {@link Monster} used as dialog holder.
-	 * @param type : The {@link DropType} tab to show, null to show the first one.
 	 * @param page : The page index to show.
 	 */
-	private static void show(Player player, Monster monster, DropType type, int page)
+	private static void show(Player player, Monster monster, int page)
 	{
 		final DropListData data = DropListData.getInstance();
 
-		final List<DropType> tabs = getTabs(monster);
-		final DropType active = (type != null && tabs.contains(type)) ? type : (tabs.isEmpty()) ? null : tabs.get(0);
+		final List<DropGroup> groups = getGroups(monster);
 
-		final List<DropRow> rows = (active == null) ? new ArrayList<>() : getRows(monster, active);
+		int total = 0;
+		for (DropGroup group : groups)
+			total += group.rows().size();
 
 		final int perPage = data.getRowsPerPage();
-		final int pages = getPageCount(rows.size(), perPage);
+		final int pages = getPageCount(total, perPage);
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
+		// A page holds a fixed amount of item rows ; the group headers are drawn on top of them, and the filler takes their height into account.
 		final int first = page * perPage;
-		final int last = Math.min(rows.size(), first + perPage);
+		final int last = Math.min(total, first + perPage);
 
 		final StringBuilder sb = new StringBuilder(2048);
 
-		if (rows.isEmpty())
+		if (total == 0)
 			StringUtil.append(sb, getRowStart(0), "<td width=", data.getWidth(), " height=", data.getRowHeight(), " align=center>", colorize(data.getDisabledColor(), escape(data.getEmptyLabel())), "</td>", ROW_END);
 
-		for (int i = first; i < last; i++)
-			sb.append(getRow(rows.get(i), i - first));
+		int shownGroups = 0;
+		int shownRows = 0;
+		int offset = 0;
+
+		for (DropGroup group : groups)
+		{
+			final int start = offset;
+			offset += group.rows().size();
+
+			// Only the groups owning a row of the current page are drawn ; a group spanning several pages gets its header again on each of them.
+			if (offset <= first || start >= last)
+				continue;
+
+			sb.append(getGroupHeader(group));
+			shownGroups++;
+
+			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
+				sb.append(getRow(group.rows().get(i - start), shownRows++));
+		}
 
 		String content = HtmCache.getInstance().getHtmForce(HTM);
-		content = content.replace("%menu%", getMenu(monster, tabs, active));
-		content = content.replace("%header%", getHeader());
 		content = content.replace("%list%", sb.toString());
-		content = content.replace("%filler%", getFiller(tabs.size(), Math.max(1, last - first)));
-		content = content.replace("%footer%", getFooter(monster, active, page, pages));
+		content = content.replace("%filler%", getFiller(shownGroups, Math.max(1, shownRows)));
+		content = content.replace("%footer%", getFooter(monster, page, pages));
 		content = content.replace("%npcName%", monster.getName());
 		content = content.replace("%npcLevel%", String.valueOf(monster.getStatus().getLevel()));
 		content = content.replace("%objectId%", String.valueOf(monster.getObjectId()));
@@ -176,56 +188,77 @@ public class DropListManager
 
 	/**
 	 * @param monster : The {@link Monster} to check.
-	 * @return The {@link DropType}s the given {@link Monster} actually drops, in {@link #TAB_ORDER}.
+	 * @return Every non empty {@link DropCategory} of the given {@link Monster}, turned into a {@link DropGroup} whose rows are sorted by decreasing chance. The groups themselves are sorted by
+	 *         decreasing chance, the spoil ones landing after the regular drops and the herb ones last.
 	 */
-	private static List<DropType> getTabs(Monster monster)
+	private static List<DropGroup> getGroups(Monster monster)
 	{
-		final List<DropCategory> categories = monster.getTemplate().getDropData();
-		final List<DropType> tabs = new ArrayList<>();
-
-		for (DropType type : TAB_ORDER)
-		{
-			if (type == DropType.SPOIL && !Config.DROPLIST_SHOW_SPOIL)
-				continue;
-
-			for (DropCategory category : categories)
-			{
-				if (category.getDropType() == type && !category.isEmpty())
-				{
-					tabs.add(type);
-					break;
-				}
-			}
-		}
-
-		return tabs;
-	}
-
-	/**
-	 * @param monster : The {@link Monster} to check.
-	 * @param type : The {@link DropType} to keep.
-	 * @return Every drop of the given {@link DropType}, sorted by decreasing chance.
-	 */
-	private static List<DropRow> getRows(Monster monster, DropType type)
-	{
-		final double rate = (Config.DROPLIST_APPLY_RATES) ? type.getDropRate(monster.isRaidBoss()) : 1;
-		final List<DropRow> rows = new ArrayList<>();
+		final List<DropGroup> groups = new ArrayList<>();
 
 		for (DropCategory category : monster.getTemplate().getDropData())
 		{
-			if (category.getDropType() != type)
+			if (category.isEmpty())
 				continue;
 
+			final DropType type = category.getDropType();
+			if (type == DropType.SPOIL && !Config.DROPLIST_SHOW_SPOIL)
+				continue;
+
+			final double rate = (Config.DROPLIST_APPLY_RATES) ? type.getDropRate(monster.isRaidBoss()) : 1;
+
 			// A rate is an amount of rolls of the category, not a multiplier of its chance ; a category rolled more than once is simply shown as a certain one.
-			final double categoryChance = Math.min(100, category.getChance() * rate);
+			final double chance = Math.min(100, category.getChance() * rate);
+
+			final List<DropRow> rows = new ArrayList<>(category.size());
 
 			for (DropData drop : category)
-				rows.add(new DropRow(drop.itemId(), Math.min(100, categoryChance * drop.chance() / 100), drop.minDrop(), drop.maxDrop()));
+				rows.add(new DropRow(drop.itemId(), Math.min(100, chance * drop.chance() / 100), drop.minDrop(), drop.maxDrop()));
+
+			rows.sort(Comparator.<DropRow> comparingDouble(DropRow::chance).reversed());
+
+			groups.add(new DropGroup(type, chance, rows));
 		}
 
-		rows.sort(Comparator.comparingDouble(DropRow::chance).reversed());
+		groups.sort(Comparator.comparingInt((DropGroup group) -> getRank(group.type())).thenComparing(Comparator.<DropGroup> comparingDouble(DropGroup::chance).reversed()));
 
-		return rows;
+		return groups;
+	}
+
+	/**
+	 * @param type : The {@link DropType} to rank.
+	 * @return The sort key pushing the spoil groups after the regular drops, and the herb ones after the spoil.
+	 */
+	private static int getRank(DropType type)
+	{
+		switch (type)
+		{
+			case SPOIL:
+				return 1;
+
+			case HERB:
+				return 2;
+
+			default:
+				return 0;
+		}
+	}
+
+	/**
+	 * The header of a group, generated out of the very same width as its rows.
+	 * @param group : The {@link DropGroup} to introduce.
+	 * @return The header row of the given group : the label of its {@link DropType} on the left, the chance the whole group rolls on the right.
+	 */
+	private static String getGroupHeader(DropGroup group)
+	{
+		final DropListData data = DropListData.getInstance();
+		final StringBuilder sb = new StringBuilder(256);
+
+		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getGroupColor().isEmpty()) ? "" : " bgcolor=\"" + data.getGroupColor() + "\"", "><tr>");
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type())))));
+		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(group.chance()), getChanceText(group.chance()))));
+		sb.append(ROW_END);
+
+		return sb.toString();
 	}
 
 	/**
@@ -239,18 +272,29 @@ public class DropListManager
 		final Item item = ItemData.getInstance().getTemplate(row.itemId());
 
 		final String name = (item == null) ? String.valueOf(row.itemId()) : truncate(item.getName(), data.getNameChars());
-		final String count = (row.min() == row.max()) ? StringUtil.formatNumber(row.min()) : StringUtil.formatNumber(row.min()) + "-" + StringUtil.formatNumber(row.max());
 
-		final StringBuilder sb = new StringBuilder(320);
+		final StringBuilder sb = new StringBuilder(384);
 
 		StringUtil.append(sb, getRowStart(index));
 		StringUtil.append(sb, getCell(data.getIconWidth(), data.getRowHeight(), "center", "<img src=\"" + ItemIconData.getInstance().getIcon(row.itemId()) + "\" width=" + data.getIconSize() + " height=" + data.getIconSize() + ">"));
-		StringUtil.append(sb, getCell(data.getNameWidth(), 0, "left", colorize(data.getNameColor(), escape(name))));
-		StringUtil.append(sb, getCell(data.getCountWidth(), 0, "center", colorize(data.getCountColor(), count)));
+
+		// The name owns a line and the amount the next one : an adena amount is way too long to sit next to a name on a single one.
+		StringUtil.append(sb, getCell(data.getNameWidth(), 0, "left", colorize(data.getNameColor(), escape(name)) + "<br1>" + colorize(data.getCountColor(), getCountText(row))));
 		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(row.chance()), getChanceText(row.chance()))));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
+	}
+
+	/**
+	 * @param row : The {@link DropRow} to render.
+	 * @return The amount cell content, a fixed amount being shown alone and a range as "min-max". The rate isn't folded in : it multiplies the amount of rolls, not the amount of a single one.
+	 */
+	private static String getCountText(DropRow row)
+	{
+		final String amount = (row.min() == row.max()) ? StringUtil.formatNumber(row.min()) : StringUtil.formatNumber(row.min()) + "-" + StringUtil.formatNumber(row.max());
+
+		return DropListData.getInstance().getCountPrefix() + amount;
 	}
 
 	/**
@@ -279,69 +323,14 @@ public class DropListManager
 	}
 
 	/**
-	 * The header is generated out of the very same widths as the rows, which is the only way to keep both aligned whatever the datapack layout is.
-	 * @return The header row of the list, replacing the %header% variable.
-	 */
-	private static String getHeader()
-	{
-		final DropListData data = DropListData.getInstance();
-		final StringBuilder sb = new StringBuilder(256);
-
-		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getHeaderColor().isEmpty()) ? "" : " bgcolor=\"" + data.getHeaderColor() + "\"", "><tr>");
-		StringUtil.append(sb, getCell(data.getIconWidth(), data.getHeaderHeight(), "center", ""));
-		StringUtil.append(sb, getCell(data.getNameWidth(), 0, "left", colorize(data.getHeaderTextColor(), escape(data.getItemHeader()))));
-		StringUtil.append(sb, getCell(data.getCountWidth(), 0, "center", colorize(data.getHeaderTextColor(), escape(data.getCountHeader()))));
-		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getHeaderTextColor(), escape(data.getChanceHeader()))));
-		sb.append(ROW_END);
-
-		return sb.toString();
-	}
-
-	/**
-	 * @param monster : The {@link Monster} used as dialog holder.
-	 * @param tabs : The {@link DropType}s the monster holds.
-	 * @param active : The currently shown {@link DropType}, can be null.
-	 * @return The whole tab bar, replacing the %menu% variable.
-	 */
-	private static String getMenu(Monster monster, List<DropType> tabs, DropType active)
-	{
-		if (tabs.isEmpty())
-			return "";
-
-		final DropListData data = DropListData.getInstance();
-
-		final int width = Math.max(data.getWidth() / tabs.size(), 1);
-
-		// The last tab absorbs the rounding, so the bar always spans the whole width.
-		final int lastWidth = Math.max(data.getWidth() - width * (tabs.size() - 1), 1);
-
-		final StringBuilder sb = new StringBuilder(256);
-
-		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getTabBarColor().isEmpty()) ? "" : " bgcolor=\"" + data.getTabBarColor() + "\"", "><tr>");
-
-		for (int i = 0; i < tabs.size(); i++)
-		{
-			final DropType type = tabs.get(i);
-			final boolean isLast = i == tabs.size() - 1;
-
-			StringUtil.append(sb, "<td width=", (isLast) ? lastWidth : width, " height=", data.getTabHeight(), " align=center><a action=\"bypass -h ", getBypass(monster, type, 0), "\">", colorize((type == active) ? data.getActiveTabColor() : data.getTabColor(), escape(data.getTabLabel(type))), "</a></td>");
-		}
-
-		sb.append(ROW_END);
-
-		return sb.toString();
-	}
-
-	/**
 	 * The bottom row of the page, holding the page selector. It is always emitted, even empty : an occasionally missing row would shorten a page by one row height, and pages without a scrollbar
 	 * would show up again.
 	 * @param monster : The {@link Monster} used as dialog holder.
-	 * @param type : The currently shown {@link DropType}, can be null.
 	 * @param page : The currently shown page index.
 	 * @param pages : The total amount of pages.
 	 * @return The footer row, replacing the %footer% variable.
 	 */
-	private static String getFooter(Monster monster, DropType type, int page, int pages)
+	private static String getFooter(Monster monster, int page, int pages)
 	{
 		final DropListData data = DropListData.getInstance();
 		final int maxPages = data.getMaxPages();
@@ -351,7 +340,7 @@ public class DropListManager
 		boolean hasPrev = false;
 		boolean hasNext = false;
 
-		if (type != null && pages > 1)
+		if (pages > 1)
 		{
 			// Center the shown window of pages on the current page.
 			first = Math.max(0, page - maxPages / 2);
@@ -371,20 +360,20 @@ public class DropListManager
 
 		final StringBuilder sb = new StringBuilder(512);
 
-		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr><td width=", leftWidth, " height=", data.getHeaderHeight(), " align=left></td>");
+		StringUtil.append(sb, "<table width=", data.getWidth(), "><tr><td width=", leftWidth, " height=", data.getGroupHeight(), " align=left></td>");
 
 		if (hasPrev)
-			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + getBypass(monster, type, page - 1) + "\">" + colorize(data.getPageColor(), escape(data.getPrevPageLabel())) + "</a>"));
+			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + getBypass(monster, page - 1) + "\">" + colorize(data.getPageColor(), escape(data.getPrevPageLabel())) + "</a>"));
 
 		for (int i = first; i < last; i++)
 		{
 			final String label = String.valueOf(i + 1);
 
-			sb.append(getPageCell(cellWidth, (i == page) ? colorize(data.getActivePageColor(), label) : "<a action=\"bypass -h " + getBypass(monster, type, i) + "\">" + colorize(data.getPageColor(), label) + "</a>"));
+			sb.append(getPageCell(cellWidth, (i == page) ? colorize(data.getActivePageColor(), label) : "<a action=\"bypass -h " + getBypass(monster, i) + "\">" + colorize(data.getPageColor(), label) + "</a>"));
 		}
 
 		if (hasNext)
-			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + getBypass(monster, type, page + 1) + "\">" + colorize(data.getPageColor(), escape(data.getNextPageLabel())) + "</a>"));
+			sb.append(getPageCell(cellWidth, "<a action=\"bypass -h " + getBypass(monster, page + 1) + "\">" + colorize(data.getPageColor(), escape(data.getNextPageLabel())) + "</a>"));
 
 		sb.append(ROW_END);
 
@@ -394,24 +383,24 @@ public class DropListManager
 	/**
 	 * The dialog owns a fixed height, so padding every page up to one single total keeps the page selector at the very same spot - and, the total being slightly above the dialog, keeps the
 	 * scrollbar shown everywhere.
-	 * @param tabs : The amount of tabs of the dialog, whose bar owns its own height.
-	 * @param shown : The amount of rows actually rendered on the current page.
+	 * @param groups : The amount of group headers actually rendered on the current page, each owning its own height.
+	 * @param rows : The amount of item rows actually rendered on the current page.
 	 * @return The spacer filling the bottom of the page, replacing the %filler% variable.
 	 */
-	private static String getFiller(int tabs, int shown)
+	private static String getFiller(int groups, int rows)
 	{
 		final DropListData data = DropListData.getInstance();
 		if (data.getPageHeight() <= 0)
 			return "";
 
-		final int missing = data.getPageHeight() - data.getOverhead() - ((tabs == 0) ? 0 : data.getTabHeight()) - shown * data.getRowHeight();
+		final int missing = data.getPageHeight() - data.getOverhead() - groups * data.getGroupHeight() - rows * data.getRowHeight();
 
 		return (missing <= 0) ? "" : "<img height=" + missing + ">";
 	}
 
 	private static String getPageCell(int width, String content)
 	{
-		return "<td width=" + width + " height=" + DropListData.getInstance().getHeaderHeight() + " align=center>" + content + "</td>";
+		return "<td width=" + width + " height=" + DropListData.getInstance().getGroupHeight() + " align=center>" + content + "</td>";
 	}
 
 	private static String getCell(int width, int height, String align, String content)
@@ -428,9 +417,9 @@ public class DropListManager
 		return sb.toString();
 	}
 
-	private static String getBypass(Monster monster, DropType type, int page)
+	private static String getBypass(Monster monster, int page)
 	{
-		return BYPASS + monster.getObjectId() + " " + type + " " + page;
+		return BYPASS + monster.getObjectId() + " " + page;
 	}
 
 	/**
