@@ -34,8 +34,9 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * its caption and the chance the whole group rolls, followed by its items sorted by decreasing chance. The groups themselves are sorted by decreasing chance too, but the spoil ones are pushed after
  * the regular drops and the herb ones after the spoil : both are side rewards, and a player reads the list for what the monster actually drops.<br>
  * <br>
- * A group header is framed by the separator of the datapack rather than filled with a background color - it only takes one when the row right above it is a transparent one, so the stripes of the
- * list never break on two see-through bands in a row - and its caption only tells the one thing a player can't read out of the items themselves : whether the group is a drop or a spoil one.<br>
+ * A group header is framed by the separator of the datapack, and it is striped along with the item rows - a header being a band like any other, the first one of a page takes the plain color and
+ * whatever sits under it the other one. Its caption only tells the one thing a player can't read out of the items themselves - whether the group is a drop or a spoil one - followed by the rank of
+ * the group among the ones sharing that caption, so a monster reads "Drop #1, Drop #2, Spoil #1".<br>
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100%.<br>
@@ -153,17 +154,24 @@ public class DropListManager
 		final StringBuilder sb = new StringBuilder(2048);
 
 		if (total == 0)
-			StringUtil.append(sb, getRowStart(0), "<td width=", data.getWidth(), " height=", data.getRowHeight(), " align=center>", colorize(data.getDisabledColor(), escape(data.getEmptyLabel())), "</td>", ROW_END);
+			StringUtil.append(sb, getRowStart(getBandColor(0)), "<td width=", data.getWidth(), " height=", data.getRowHeight(), " align=center>", colorize(data.getDisabledColor(), escape(data.getEmptyLabel())), "</td>", ROW_END);
 
 		int shownGroups = 0;
 		int shownRows = 0;
 		int offset = 0;
 
-		// Index, inside its own group, of the last row drawn so far ; -1 as long as the page holds none.
-		int lastRow = -1;
+		// The stripes run over the whole page, a group header being a band like any other : the first header of a page takes the plain color, whatever sits under it the other one.
+		int band = 0;
+
+		// The groups are numbered inside their own caption, so a monster reads "Drop #1, Drop #2, Spoil #1". Both counters run over the whole list, which keeps a number on one group whatever the
+		// page it is browsed from.
+		int drops = 0;
+		int spoils = 0;
 
 		for (DropGroup group : groups)
 		{
+			final int number = (group.type() == DropType.SPOIL) ? ++spoils : ++drops;
+
 			final int start = offset;
 			offset += group.rows().size();
 
@@ -171,16 +179,12 @@ public class DropListManager
 			if (offset <= first || start >= last)
 				continue;
 
-			// A header landing right under a transparent row takes the plain background itself, so two see-through bands never stack up and the stripes keep reading as stripes.
-			sb.append(getGroupHeader(group, (lastRow >= 0 && getRowColor(lastRow).isEmpty()) ? data.getRowColor() : ""));
+			sb.append(getGroupHeader(group, number, getBandColor(band++)));
 			shownGroups++;
 
-			// The rows are striped per group, not per page : that is what makes the first row of a group land on the plain background, right under its header.
 			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
 			{
-				lastRow = i - start;
-
-				sb.append(getRow(group.rows().get(lastRow), lastRow));
+				sb.append(getRow(group.rows().get(i - start), getBandColor(band++)));
 				shownRows++;
 			}
 		}
@@ -262,17 +266,18 @@ public class DropListManager
 	 * The header of a group, generated out of the very same width as its rows and framed by the separator of the datapack - a background color would fight the alternating rows sitting right under
 	 * it, a pair of rules simply cuts the list into groups.
 	 * @param group : The {@link DropGroup} to introduce.
-	 * @param color : The background color of the header, empty keeping it see-through. It only ever holds one when the row right above it is a transparent one.
+	 * @param number : The rank of the group among the ones sharing its caption, 1 being the first.
+	 * @param color : The background color of the header, empty keeping it see-through.
 	 * @return The header row of the given group : its caption on the left, the chance the whole group rolls on the right.
 	 */
-	private static String getGroupHeader(DropGroup group, String color)
+	private static String getGroupHeader(DropGroup group, int number, String color)
 	{
 		final DropListData data = DropListData.getInstance();
 		final StringBuilder sb = new StringBuilder(320);
 
 		sb.append(getSeparator());
 		StringUtil.append(sb, "<table width=", data.getWidth(), (color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"", "><tr>");
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type())))));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type(), number)))));
 		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(group.chance()), getChanceText(group.chance()))));
 		sb.append(ROW_END);
 		sb.append(getSeparator());
@@ -292,10 +297,10 @@ public class DropListManager
 
 	/**
 	 * @param row : The {@link DropRow} to render.
-	 * @param index : The index of the row inside its group, 0 being the first one.
+	 * @param color : The background color of the row, empty keeping it see-through.
 	 * @return The whole row, rendered as its own table.
 	 */
-	private static String getRow(DropRow row, int index)
+	private static String getRow(DropRow row, String color)
 	{
 		final DropListData data = DropListData.getInstance();
 		final Item item = ItemData.getInstance().getTemplate(row.itemId());
@@ -304,7 +309,7 @@ public class DropListManager
 
 		final StringBuilder sb = new StringBuilder(384);
 
-		StringUtil.append(sb, getRowStart(index));
+		StringUtil.append(sb, getRowStart(color));
 		StringUtil.append(sb, getCell(data.getIconWidth(), data.getRowHeight(), "center", "<img src=\"" + ItemIconData.getInstance().getIcon(row.itemId()) + "\" width=" + data.getIconSize() + " height=" + data.getIconSize() + ">"));
 
 		// The name owns a line and the amount the next one : an adena amount is way too long to sit next to a name on a single one.
@@ -340,21 +345,20 @@ public class DropListManager
 
 	/**
 	 * Each row of the list is rendered as its own table, since the client only handles the bgcolor attribute on tables.
-	 * @param index : The index of the row inside its group, 0 being the first one.
-	 * @return The opening tags of a list row, alternating both row colors - the first row of a group taking the plain one.
+	 * @param color : The background color of the row, empty keeping it see-through.
+	 * @return The opening tags of a list row.
 	 */
-	private static String getRowStart(int index)
+	private static String getRowStart(String color)
 	{
-		final String color = getRowColor(index);
-
 		return "<table width=" + DropListData.getInstance().getWidth() + ((color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"") + "><tr>";
 	}
 
 	/**
-	 * @param index : The index of the row inside its group, 0 being the first one.
-	 * @return The background color of the given row, empty meaning transparent.
+	 * The stripes of the page run over the group headers as well as over the item rows : a header is a band like any other, so the item sitting right under one always owns the opposite color.
+	 * @param index : The index of the band on the current page, headers and rows counted alike, 0 being the first one.
+	 * @return The background color of the given band, empty meaning transparent.
 	 */
-	private static String getRowColor(int index)
+	private static String getBandColor(int index)
 	{
 		final DropListData data = DropListData.getInstance();
 

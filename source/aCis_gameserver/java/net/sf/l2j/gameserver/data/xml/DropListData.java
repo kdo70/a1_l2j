@@ -54,6 +54,7 @@ public class DropListData implements IXmlReader
 
 	private String _dropLabel;
 	private String _spoilLabel;
+	private String _numberPrefix;
 	private String _countPrefix;
 	private String _emptyLabel;
 	private String _prevPageLabel;
@@ -137,6 +138,7 @@ public class DropListData implements IXmlReader
 
 				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
+				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
 				_countPrefix = parseString(attrs, "countPrefix", _countPrefix);
 				_emptyLabel = parseString(attrs, "empty", _emptyLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
@@ -191,6 +193,7 @@ public class DropListData implements IXmlReader
 	{
 		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
+		_numberPrefix = " #";
 		_countPrefix = "x";
 		_emptyLabel = "-";
 		_prevPageLabel = "<<";
@@ -259,13 +262,14 @@ public class DropListData implements IXmlReader
 
 	/**
 	 * A group is only ever captioned "drop" or "spoil" : whether an item is looted or spoiled is the one thing the items sitting under the header can't tell a player, and the currency and herb
-	 * groups are looted just like the regular ones.
+	 * groups are looted just like the regular ones. The rank of the group inside its own caption is appended, which is what tells two "drop" groups apart.
 	 * @param type : The {@link DropType} to name.
-	 * @return The caption of the header row of a group holding the given {@link DropType}.
+	 * @param number : The rank of the group among the ones sharing its caption, 1 being the first.
+	 * @return The caption of the header row of a group holding the given {@link DropType}, being "Drop #1" out of the box.
 	 */
-	public String getGroupLabel(DropType type)
+	public String getGroupLabel(DropType type, int number)
 	{
-		return (type == DropType.SPOIL) ? _spoilLabel : _dropLabel;
+		return ((type == DropType.SPOIL) ? _spoilLabel : _dropLabel) + _numberPrefix + number;
 	}
 
 	/**
