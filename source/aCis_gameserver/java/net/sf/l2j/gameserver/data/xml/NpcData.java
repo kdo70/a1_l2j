@@ -12,13 +12,10 @@ import net.sf.l2j.commons.data.StatSet;
 import net.sf.l2j.commons.data.xml.IXmlReader;
 
 import net.sf.l2j.gameserver.data.SkillTable;
-import net.sf.l2j.gameserver.enums.DropType;
 import net.sf.l2j.gameserver.enums.actors.NpcRace;
 import net.sf.l2j.gameserver.enums.actors.NpcSkillType;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.actor.template.PetTemplate;
-import net.sf.l2j.gameserver.model.item.DropCategory;
-import net.sf.l2j.gameserver.model.item.DropData;
 import net.sf.l2j.gameserver.model.memo.NpcMemo;
 import net.sf.l2j.gameserver.model.records.PetDataEntry;
 import net.sf.l2j.gameserver.model.records.PrivateData;
@@ -28,7 +25,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 
 /**
- * Loads and stores {@link NpcTemplate}s.
+ * Loads and stores {@link NpcTemplate}s.<br>
+ * <br>
+ * Drops aren't part of it ; they live in the "droplist" table and are loaded by {@link net.sf.l2j.gameserver.data.sql.DropTable}.
  */
 public class NpcData implements IXmlReader
 {
@@ -75,29 +74,6 @@ public class NpcData implements IXmlReader
 					aiParams.set(parseString(setAttrs, "name"), parseString(setAttrs, "val"));
 				});
 				set.set("aiParams", aiParams);
-			});
-			forEach(npcNode, "drops", dropsNode ->
-			{
-				final List<DropCategory> drops = new ArrayList<>();
-				forEach(dropsNode, "category", categoryNode ->
-				{
-					final NamedNodeMap categoryAttrs = categoryNode.getAttributes();
-					final DropCategory category = new DropCategory(parseEnum(categoryAttrs, DropType.class, "type"), parseDouble(categoryAttrs, "chance", 100.0));
-					forEach(categoryNode, "drop", dropNode ->
-					{
-						final NamedNodeMap dropAttrs = dropNode.getAttributes();
-						final DropData data = new DropData(parseInteger(dropAttrs, "itemid"), parseInteger(dropAttrs, "min"), parseInteger(dropAttrs, "max"), parseDouble(dropAttrs, "chance"));
-						
-						if (ItemData.getInstance().getTemplate(data.itemId()) == null)
-						{
-							LOGGER.warn("Droplist data for undefined itemId: {}.", data.itemId());
-							return;
-						}
-						category.add(data);
-					});
-					drops.add(category);
-				});
-				set.set("drops", drops);
 			});
 			forEach(npcNode, "privates", privatesNode ->
 			{

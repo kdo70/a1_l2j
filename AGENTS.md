@@ -91,6 +91,10 @@ ant -f source\aCis_gameserver\build.xml
 - БД: MariaDB. Установка схемы — `build/tools/database_installer.bat/.sh`
   (параметры БД задаются в начале скрипта; по умолчанию БД `acis`,
   пользователь `root`).
+- **Дроп монстров и РБ живёт в БД, а не в XML.** В `data/xml/npcs` блоков
+  `<drops>` нет; их читает `DropTable` из таблицы `droplist`
+  (`sql/droplist.sql`), правится она на живом сервере плюс `//reload drop`.
+  Устройство, схема и конвертер — `docs/droplist-in-db.md`.
 
 ## CI/CD (.github)
 

@@ -11,6 +11,7 @@ import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.BuyListManager;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.manager.ZoneManager;
+import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.data.xml.AnnouncementData;
 import net.sf.l2j.gameserver.data.xml.BoatData;
@@ -84,6 +85,11 @@ public class AdminReload implements IAdminCommandHandler
 					DoorData.getInstance().reload();
 					player.sendMessage("Doors instance has been reloaded.");
 				}
+				else if (type.startsWith("drop"))
+				{
+					DropTable.getInstance().reload();
+					player.sendMessage("The droplist has been reloaded.");
+				}
 				else if (type.startsWith("htm"))
 				{
 					HtmCache.getInstance().reload();
@@ -149,8 +155,8 @@ public class AdminReload implements IAdminCommandHandler
 	public void sendUsage(Player player)
 	{
 		player.sendMessage("Usage : //reload <admin|announcement|buylist|config>");
-		player.sendMessage("Usage : //reload <crest|cw|door|htm|item|multisell|npc>");
-		player.sendMessage("Usage : //reload <npcwalker|script|skill|teleport|zone>");
+		player.sendMessage("Usage : //reload <crest|cw|door|drop|htm|item|multisell>");
+		player.sendMessage("Usage : //reload <npc|npcwalker|script|skill|teleport|zone>");
 	}
 	
 	@Override

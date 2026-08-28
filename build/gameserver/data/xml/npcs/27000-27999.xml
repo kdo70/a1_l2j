@@ -96,35 +96,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -275,35 +246,6 @@
 			<set name="MoveAroundSocial1" val="72"/>
 			<set name="MoveAroundSocial2" val="72"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -354,35 +296,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -433,35 +346,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -512,35 +396,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -591,35 +446,6 @@
 			<set name="MoveAroundSocial1" val="104"/>
 			<set name="MoveAroundSocial2" val="104"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -722,35 +548,6 @@
 			<set name="MoveAroundSocial1" val="120"/>
 			<set name="MoveAroundSocial2" val="120"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4248" level="1" type="DD_MAGIC_SLOW"/>
@@ -858,35 +655,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -989,35 +757,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4278" level="1" type="PASSIVE"/>
 			<skill id="4333" level="5" type="PASSIVE"/>
@@ -1070,35 +809,6 @@
 			<set name="MoveAroundSocial1" val="110"/>
 			<set name="MoveAroundSocial2" val="110"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4278" level="1" type="PASSIVE"/>
 			<skill id="4333" level="5" type="PASSIVE"/>
@@ -1360,35 +1070,6 @@
 			<set name="MoveAroundSocial1" val="80"/>
 			<set name="MoveAroundSocial2" val="80"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1439,35 +1120,6 @@
 			<set name="MoveAroundSocial1" val="58"/>
 			<set name="MoveAroundSocial2" val="58"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1518,35 +1170,6 @@
 			<set name="MoveAroundSocial1" val="58"/>
 			<set name="MoveAroundSocial2" val="58"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1647,35 +1270,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1726,35 +1320,6 @@
 			<set name="MoveAroundSocial1" val="138"/>
 			<set name="MoveAroundSocial2" val="138"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1859,35 +1424,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -1940,35 +1476,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -2021,35 +1528,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="3" type="PASSIVE"/>
 		</skills>
@@ -2834,35 +2312,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -2915,35 +2364,6 @@
 			<set name="MoveAroundSocial1" val="104"/>
 			<set name="MoveAroundSocial2" val="104"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -2996,35 +2416,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -3181,35 +2572,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -3366,35 +2728,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -3551,35 +2884,6 @@
 			<set name="MoveAroundSocial1" val="75"/>
 			<set name="MoveAroundSocial2" val="75"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -5171,35 +4475,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="3" type="PASSIVE"/>
 		</skills>
@@ -5464,35 +4739,6 @@
 			<set name="MoveAroundSocial1" val="70"/>
 			<set name="MoveAroundSocial2" val="70"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
@@ -5543,35 +4789,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4278" level="1" type="PASSIVE"/>
 			<skill id="4333" level="5" type="PASSIVE"/>
@@ -5681,35 +4898,6 @@
 			<set name="MoveAroundSocial1" val="80"/>
 			<set name="MoveAroundSocial2" val="80"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4037" level="2" type="DEBUFF"/>
 			<skill id="4275" level="2" type="PASSIVE"/>
@@ -5870,35 +5058,6 @@
 			<set name="MoveAroundSocial1" val="60"/>
 			<set name="MoveAroundSocial2" val="60"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
@@ -7279,35 +6438,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
@@ -7460,35 +6590,6 @@
 			<set name="MoveAroundSocial1" val="60"/>
 			<set name="MoveAroundSocial2" val="20"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4279" level="1" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -9615,35 +8716,6 @@
 			<set name="MoveAroundSocial1" val="42"/>
 			<set name="MoveAroundSocial2" val="42"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>

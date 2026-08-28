@@ -49,58 +49,6 @@
 			<set name="MoveAroundSocial1" val="60"/>
 			<set name="MoveAroundSocial2" val="60"/>
 		</ai>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1806" min="1" max="1" chance="1.0868"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="765" max="1528" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.6947">
-				<drop itemid="4071" min="1" max="1" chance="23.2459"/>
-				<drop itemid="4070" min="1" max="1" chance="45.9444"/>
-				<drop itemid="4069" min="1" max="1" chance="30.2552"/>
-				<drop itemid="2406" min="1" max="1" chance="0.1137"/>
-				<drop itemid="2402" min="1" max="1" chance="0.2701"/>
-				<drop itemid="2397" min="1" max="1" chance="0.1707"/>
-			</category>
-			<category type="DROP" chance="48.6915">
-				<drop itemid="1889" min="1" max="1" chance="1.2209"/>
-				<drop itemid="1885" min="1" max="1" chance="1.5263"/>
-				<drop itemid="1878" min="1" max="1" chance="7.3256"/>
-				<drop itemid="1866" min="1" max="1" chance="12.2095"/>
-				<drop itemid="1864" min="1" max="1" chance="36.6284"/>
-				<drop itemid="1419" min="1" max="1" chance="41.0755"/>
-				<drop itemid="4197" min="1" max="1" chance="0.0138"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4002" level="6" type="DD_MAGIC2"/>
 			<skill id="4035" level="6" type="DEBUFF"/>
@@ -159,35 +107,6 @@
 			<set name="MoveAroundSocial1" val="60"/>
 			<set name="MoveAroundSocial2" val="60"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4002" level="6" type="DD_MAGIC2"/>
 			<skill id="4035" level="6" type="DEBUFF"/>
@@ -243,58 +162,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1871" min="1" max="1" chance="0.9797"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="8" max="12" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="100.0">
-				<drop itemid="57" min="5" max="7" chance="100.0"/>
-				<drop itemid="112" min="1" max="1" chance="2.3992"/>
-				<drop itemid="1871" min="1" max="1" chance="0.4898"/>
-				<drop itemid="1868" min="1" max="1" chance="0.9797"/>
-				<drop itemid="1095" min="1" max="1" chance="1.045"/>
-			</category>
-			<category type="DROP" chance="3.2603">
-				<drop itemid="426" min="1" max="1" chance="37.4045"/>
-				<drop itemid="462" min="1" max="1" chance="62.5955"/>
-			</category>
-			<category type="DROP" chance="3.6113">
-				<drop itemid="17" min="10" max="30" chance="60.1974"/>
-				<drop itemid="1786" min="1" max="1" chance="8.4678"/>
-				<drop itemid="1868" min="1" max="1" chance="25.4062"/>
-				<drop itemid="1873" min="1" max="1" chance="5.9286"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
@@ -441,35 +308,6 @@
 			<set name="MoveAroundSocial1" val="80"/>
 			<set name="MoveAroundSocial2" val="80"/>
 		</ai>
-		<drops>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4002" level="6" type="DD_MAGIC"/>
 			<skill id="4046" level="6" type="SLEEP_MAGIC"/>
@@ -528,59 +366,6 @@
 			<set name="MoveAroundSocial1" val="60"/>
 			<set name="MoveAroundSocial2" val="60"/>
 		</ai>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1807" min="1" max="1" chance="1.2195"/>
-				<drop itemid="1895" min="1" max="5" chance="87.0"/>
-				<drop itemid="5479" min="1" max="1" chance="5.2632"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="3680" max="7472" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.2117">
-				<drop itemid="5305" min="1" max="1" chance="0.6848"/>
-				<drop itemid="5489" min="1" max="1" chance="47.9822"/>
-				<drop itemid="5486" min="1" max="1" chance="21.21"/>
-				<drop itemid="5485" min="1" max="1" chance="30.123"/>
-			</category>
-			<category type="DROP" chance="9.7791">
-				<drop itemid="8730" min="1" max="1" chance="0.2147"/>
-				<drop itemid="4988" min="1" max="1" chance="1.8232"/>
-				<drop itemid="4401" min="1" max="1" chance="0.5512"/>
-				<drop itemid="4043" min="1" max="1" chance="8.5927"/>
-				<drop itemid="4042" min="1" max="1" chance="5.0372"/>
-				<drop itemid="4040" min="1" max="1" chance="4.8235"/>
-				<drop itemid="1895" min="1" max="1" chance="78.6611"/>
-				<drop itemid="8740" min="1" max="1" chance="0.2964"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4002" level="6" type="DD_MAGIC"/>
 			<skill id="4047" level="6" type="HOLD_MAGIC"/>
@@ -638,60 +423,6 @@
 			<set name="MoveAroundSocial1" val="140"/>
 			<set name="MoveAroundSocial2" val="140"/>
 		</ai>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="3035" min="1" max="1" chance="1.4286"/>
-				<drop itemid="4077" min="1" max="2" chance="50.0"/>
-				<drop itemid="4078" min="1" max="1" chance="16.6667"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="4318" max="8784" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="2.7759">
-				<drop itemid="5292" min="1" max="1" chance="0.4607"/>
-				<drop itemid="5289" min="1" max="1" chance="0.1545"/>
-				<drop itemid="5526" min="1" max="1" chance="30.7901"/>
-				<drop itemid="5525" min="1" max="1" chance="31.0569"/>
-				<drop itemid="5494" min="1" max="1" chance="37.5378"/>
-			</category>
-			<category type="DROP" chance="37.6963">
-				<drop itemid="1876" min="1" max="1" chance="16.5798"/>
-				<drop itemid="8730" min="1" max="1" chance="0.0679"/>
-				<drop itemid="1868" min="3" max="9" chance="26.5278"/>
-				<drop itemid="1873" min="1" max="1" chance="33.1602"/>
-				<drop itemid="5006" min="1" max="1" chance="0.0567"/>
-				<drop itemid="4042" min="1" max="1" chance="1.4988"/>
-				<drop itemid="1895" min="1" max="1" chance="22.0976"/>
-				<drop itemid="8740" min="1" max="1" chance="0.0112"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4047" level="7" type="HOLD_MAGIC"/>
 			<skill id="4071" level="5" type="PASSIVE"/>
@@ -807,11 +538,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="173" max="347" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -916,11 +642,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="148" max="293" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="3" type="DD_MAGIC"/>
@@ -975,11 +696,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="148" max="293" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="2" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="2" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -1037,11 +753,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="228" max="455" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="3" type="DD_MAGIC"/>
@@ -1097,11 +808,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="194" max="387" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="3" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -1207,11 +913,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="194" max="387" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="4" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -1264,11 +965,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="253" max="504" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="4" type="PHYSICAL_SPECIAL"/>
@@ -1380,11 +1076,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="305" max="611" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -1489,11 +1180,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="265" max="529" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="4" type="DD_MAGIC"/>
@@ -1548,11 +1234,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="265" max="529" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="4" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="4" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -1609,11 +1290,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="381" max="761" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="4" type="DD_MAGIC"/>
@@ -1670,11 +1346,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="335" max="669" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="4" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -1780,11 +1451,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="335" max="669" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="5" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -1837,11 +1503,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="414" max="829" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="5" type="PHYSICAL_SPECIAL"/>
@@ -1953,11 +1614,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="486" max="972" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -2062,11 +1718,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="431" max="863" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="5" type="DD_MAGIC"/>
@@ -2121,11 +1772,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="431" max="863" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="5" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="5" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -2183,11 +1829,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="585" max="1171" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="5" type="DD_MAGIC"/>
@@ -2244,11 +1885,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="525" max="1049" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="5" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -2354,11 +1990,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="525" max="1049" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="6" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -2411,11 +2042,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="629" max="1257" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="6" type="PHYSICAL_SPECIAL"/>
@@ -2527,11 +2153,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="721" max="1443" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -2636,11 +2257,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="651" max="1302" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="6" type="DD_MAGIC"/>
@@ -2695,11 +2311,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="651" max="1302" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="6" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="6" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -2757,11 +2368,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="848" max="1697" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="6" type="DD_MAGIC"/>
@@ -2818,11 +2424,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="770" max="1541" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="6" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -2928,11 +2529,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="770" max="1541" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="7" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -2985,11 +2581,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="7" type="PHYSICAL_SPECIAL"/>
@@ -3101,11 +2692,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -3210,11 +2796,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="7" type="DD_MAGIC"/>
@@ -3269,11 +2850,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="7" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="7" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -3331,11 +2907,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="7" type="DD_MAGIC"/>
@@ -3392,11 +2963,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="7" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -3502,11 +3068,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="7" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -3559,11 +3120,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="7" type="PHYSICAL_SPECIAL"/>
@@ -3675,11 +3231,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="173" max="347" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -3784,11 +3335,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="148" max="293" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="3" type="DD_MAGIC"/>
@@ -3843,11 +3389,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="148" max="293" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="2" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="2" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -3905,11 +3446,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="228" max="455" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="3" type="DD_MAGIC"/>
@@ -3966,11 +3502,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="194" max="387" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="3" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -4076,11 +3607,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="194" max="387" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="4" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -4133,11 +3659,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="253" max="504" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="4" type="PHYSICAL_SPECIAL"/>
@@ -4249,11 +3770,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="305" max="611" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -4358,11 +3874,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="265" max="529" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="4" type="DD_MAGIC"/>
@@ -4417,11 +3928,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="265" max="529" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="4" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="4" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -4479,11 +3985,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="381" max="761" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="4" type="DD_MAGIC"/>
@@ -4540,11 +4041,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="335" max="669" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="4" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -4650,11 +4146,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="335" max="669" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="5" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -4707,11 +4198,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="414" max="829" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="5" type="PHYSICAL_SPECIAL"/>
@@ -4823,11 +4309,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="486" max="972" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -4932,11 +4413,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="431" max="863" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="5" type="DD_MAGIC"/>
@@ -4991,11 +4467,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="431" max="863" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="5" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="5" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -5053,11 +4524,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="585" max="1171" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="5" type="DD_MAGIC"/>
@@ -5114,11 +4580,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="525" max="1049" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="5" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -5224,11 +4685,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="525" max="1049" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="6" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -5281,11 +4737,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="629" max="1257" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="6" type="PHYSICAL_SPECIAL"/>
@@ -5397,11 +4848,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="721" max="1443" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -5506,11 +4952,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="651" max="1302" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="6" type="DD_MAGIC"/>
@@ -5565,11 +5006,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="651" max="1302" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="6" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="6" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -5627,11 +5063,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="848" max="1697" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="7" type="DD_MAGIC"/>
@@ -5688,11 +5119,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="770" max="1541" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="6" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -5798,11 +5224,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="770" max="1541" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="7" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -5855,11 +5276,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="7" type="PHYSICAL_SPECIAL"/>
@@ -5971,11 +5387,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4414" level="3" type="PASSIVE"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -6080,11 +5491,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4087" level="9" type="DD_MAGIC"/>
@@ -6139,11 +5545,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4151" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 			<skill id="4160" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
@@ -6201,11 +5602,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4244" level="9" type="DD_MAGIC"/>
@@ -6262,11 +5658,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="8" type="PHYSICAL_SPECIAL"/>
 			<skill id="4225" level="5" type="PASSIVE"/>
@@ -6372,11 +5763,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4032" level="8" type="PHYSICAL_SPECIAL"/>
 			<skill id="4416" level="6" type="PASSIVE"/>
@@ -6429,11 +5815,6 @@
 			<set name="IsStrong" val="1"/>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="902" max="1804" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4071" level="5" type="PASSIVE"/>
 			<skill id="4073" level="9" type="PHYSICAL_SPECIAL"/>
@@ -6489,14 +5870,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="11.7">
-				<drop itemid="955" min="1" max="1" chance="1.7094"/>
-				<drop itemid="956" min="1" max="1" chance="12.8205"/>
-				<drop itemid="1060" min="1" max="1" chance="42.7351"/>
-				<drop itemid="1061" min="1" max="1" chance="42.735"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6550,15 +5923,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="11.35">
-				<drop itemid="951" min="1" max="1" chance="1.3215"/>
-				<drop itemid="952" min="1" max="1" chance="10.5726"/>
-				<drop itemid="1061" min="1" max="1" chance="44.0531"/>
-				<drop itemid="1832" min="1" max="1" chance="22.0264"/>
-				<drop itemid="1834" min="1" max="1" chance="22.0264"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6612,15 +5976,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="12.0">
-				<drop itemid="734" min="1" max="1" chance="20.8333"/>
-				<drop itemid="735" min="1" max="1" chance="20.8333"/>
-				<drop itemid="951" min="1" max="1" chance="1.6666"/>
-				<drop itemid="952" min="1" max="1" chance="15.0"/>
-				<drop itemid="1539" min="1" max="1" chance="41.6668"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6674,15 +6029,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="10.75">
-				<drop itemid="734" min="1" max="1" chance="23.2558"/>
-				<drop itemid="735" min="1" max="1" chance="23.2558"/>
-				<drop itemid="947" min="1" max="1" chance="0.4651"/>
-				<drop itemid="948" min="1" max="1" chance="6.5116"/>
-				<drop itemid="1539" min="1" max="1" chance="46.5117"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6736,15 +6082,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="10.28">
-				<drop itemid="729" min="1" max="1" chance="0.2918"/>
-				<drop itemid="730" min="1" max="1" chance="2.4319"/>
-				<drop itemid="734" min="1" max="1" chance="24.319"/>
-				<drop itemid="735" min="1" max="1" chance="24.319"/>
-				<drop itemid="1539" min="1" max="1" chance="48.6383"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6798,14 +6135,6 @@
 		<ai>
 			<set name="RoomIndex" val="1"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="11.7">
-				<drop itemid="955" min="1" max="1" chance="1.7094"/>
-				<drop itemid="956" min="1" max="1" chance="12.8205"/>
-				<drop itemid="1060" min="1" max="1" chance="42.7351"/>
-				<drop itemid="1061" min="1" max="1" chance="42.735"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6859,15 +6188,6 @@
 		<ai>
 			<set name="RoomIndex" val="2"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="11.35">
-				<drop itemid="951" min="1" max="1" chance="1.3215"/>
-				<drop itemid="952" min="1" max="1" chance="10.5726"/>
-				<drop itemid="1061" min="1" max="1" chance="44.0531"/>
-				<drop itemid="1832" min="1" max="1" chance="22.0264"/>
-				<drop itemid="1834" min="1" max="1" chance="22.0264"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6921,15 +6241,6 @@
 		<ai>
 			<set name="RoomIndex" val="3"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="12.0">
-				<drop itemid="734" min="1" max="1" chance="20.8333"/>
-				<drop itemid="735" min="1" max="1" chance="20.8333"/>
-				<drop itemid="951" min="1" max="1" chance="1.6666"/>
-				<drop itemid="952" min="1" max="1" chance="15.0"/>
-				<drop itemid="1539" min="1" max="1" chance="41.6668"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -6983,15 +6294,6 @@
 		<ai>
 			<set name="RoomIndex" val="4"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="10.75">
-				<drop itemid="734" min="1" max="1" chance="23.2558"/>
-				<drop itemid="735" min="1" max="1" chance="23.2558"/>
-				<drop itemid="947" min="1" max="1" chance="0.4651"/>
-				<drop itemid="948" min="1" max="1" chance="6.5116"/>
-				<drop itemid="1539" min="1" max="1" chance="46.5117"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -7045,15 +6347,6 @@
 		<ai>
 			<set name="RoomIndex" val="5"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="10.28">
-				<drop itemid="729" min="1" max="1" chance="0.2918"/>
-				<drop itemid="730" min="1" max="1" chance="2.4319"/>
-				<drop itemid="734" min="1" max="1" chance="24.319"/>
-				<drop itemid="735" min="1" max="1" chance="24.319"/>
-				<drop itemid="1539" min="1" max="1" chance="48.6383"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4413" level="17" type="PASSIVE"/>
@@ -15053,26 +14346,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1370" max="2743" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.1369">
-				<drop itemid="5545" min="1" max="1" chance="32.1438"/>
-				<drop itemid="5529" min="1" max="1" chance="32.1438"/>
-				<drop itemid="5546" min="1" max="1" chance="35.2848"/>
-				<drop itemid="2500" min="1" max="1" chance="0.1425"/>
-				<drop itemid="151" min="1" max="1" chance="0.1425"/>
-				<drop itemid="81" min="1" max="1" chance="0.1426"/>
-			</category>
-			<category type="DROP" chance="6.8309">
-				<drop itemid="1895" min="1" max="1" chance="80.3089"/>
-				<drop itemid="959" min="1" max="1" chance="0.0116"/>
-				<drop itemid="4042" min="1" max="1" chance="4.6859"/>
-				<drop itemid="4043" min="1" max="1" chance="9.3706"/>
-				<drop itemid="4040" min="1" max="1" chance="5.623"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -15487,20 +14760,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1864" min="1" max="1" chance="50.0"/>
-				<drop itemid="1869" min="1" max="1" chance="25.0"/>
-				<drop itemid="1926" min="1" max="1" chance="2.381"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="480" max="858" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.4902">
-				<drop itemid="955" min="1" max="1" chance="10.7157"/>
-				<drop itemid="956" min="1" max="1" chance="89.2843"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15546,20 +14805,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1928" min="1" max="1" chance="4.0"/>
-				<drop itemid="2151" min="1" max="1" chance="7.6923"/>
-				<drop itemid="2176" min="1" max="1" chance="12.5"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="483" max="891" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.5977">
-				<drop itemid="955" min="1" max="1" chance="10.7151"/>
-				<drop itemid="956" min="1" max="1" chance="89.2849"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15605,20 +14850,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1871" min="1" max="1" chance="33.3333"/>
-				<drop itemid="1899" min="1" max="1" chance="5.0"/>
-				<drop itemid="5220" min="1" max="1" chance="1.2658"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="484" max="932" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.6446">
-				<drop itemid="955" min="1" max="1" chance="10.7144"/>
-				<drop itemid="956" min="1" max="1" chance="89.2856"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15664,20 +14895,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1061" min="1" max="1" chance="20.0"/>
-				<drop itemid="1900" min="1" max="1" chance="4.0"/>
-				<drop itemid="2250" min="1" max="1" chance="9.0909"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="708" max="1417" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="5.4171">
-				<drop itemid="955" min="1" max="1" chance="10.7142"/>
-				<drop itemid="956" min="1" max="1" chance="89.2858"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15723,20 +14940,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1901" min="1" max="1" chance="5.8824"/>
-				<drop itemid="1938" min="1" max="1" chance="2.9412"/>
-				<drop itemid="2154" min="1" max="1" chance="4.7619"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="732" max="1465" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="5.5432">
-				<drop itemid="955" min="1" max="1" chance="10.7158"/>
-				<drop itemid="956" min="1" max="1" chance="89.2842"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15782,20 +14985,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1864" min="1" max="3" chance="51.0"/>
-				<drop itemid="1880" min="1" max="1" chance="5.0"/>
-				<drop itemid="1939" min="1" max="1" chance="4.5455"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="758" max="1520" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="5.752">
-				<drop itemid="955" min="1" max="1" chance="10.7145"/>
-				<drop itemid="956" min="1" max="1" chance="89.2855"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15841,20 +15030,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1902" min="1" max="1" chance="5.8824"/>
-				<drop itemid="2157" min="1" max="1" chance="5.0"/>
-				<drop itemid="2158" min="1" max="1" chance="7.1429"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="789" max="1572" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="5.9154">
-				<drop itemid="955" min="1" max="1" chance="10.7144"/>
-				<drop itemid="956" min="1" max="1" chance="89.2856"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15900,20 +15075,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1866" min="1" max="1" chance="50.0"/>
-				<drop itemid="1871" min="1" max="1" chance="69.0"/>
-				<drop itemid="1905" min="1" max="1" chance="6.6667"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1257" max="2519" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.8025">
-				<drop itemid="951" min="1" max="1" chance="11.9999"/>
-				<drop itemid="952" min="1" max="1" chance="88.0001"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -15959,20 +15120,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1908" min="1" max="1" chance="7.6923"/>
-				<drop itemid="2163" min="1" max="1" chance="4.0"/>
-				<drop itemid="4553" min="1" max="1" chance="0.3175"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1293" max="2582" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.836">
-				<drop itemid="951" min="1" max="1" chance="12.002"/>
-				<drop itemid="952" min="1" max="1" chance="87.998"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16018,20 +15165,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1966" min="1" max="1" chance="3.3333"/>
-				<drop itemid="1967" min="1" max="1" chance="5.0"/>
-				<drop itemid="2166" min="1" max="1" chance="3.0303"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1330" max="2656" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="3.8762">
-				<drop itemid="951" min="1" max="1" chance="12.0011"/>
-				<drop itemid="952" min="1" max="1" chance="87.9989"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16077,20 +15210,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1878" min="1" max="1" chance="50.0"/>
-				<drop itemid="1884" min="1" max="1" chance="63.0"/>
-				<drop itemid="4601" min="1" max="1" chance="0.2273"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1952" max="3909" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="5.5982">
-				<drop itemid="951" min="1" max="1" chance="12.0002"/>
-				<drop itemid="952" min="1" max="1" chance="87.9998"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16136,20 +15255,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1984" min="1" max="1" chance="2.439"/>
-				<drop itemid="1985" min="1" max="1" chance="4.0"/>
-				<drop itemid="4126" min="1" max="1" chance="1.8868"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1997" max="3995" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.0644">
-				<drop itemid="947" min="1" max="1" chance="13.7918"/>
-				<drop itemid="948" min="1" max="1" chance="86.2082"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16195,19 +15300,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="4049" min="1" max="1" chance="6.6667"/>
-				<drop itemid="4129" min="1" max="1" chance="1.3889"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="2049" max="4095" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.039">
-				<drop itemid="947" min="1" max="1" chance="13.7921"/>
-				<drop itemid="948" min="1" max="1" chance="86.2079"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16253,20 +15345,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1867" min="1" max="5" chance="64.0"/>
-				<drop itemid="1872" min="1" max="5" chance="64.0"/>
-				<drop itemid="4613" min="1" max="5" chance="0.1984"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="2683" max="5361" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.3609">
-				<drop itemid="947" min="1" max="1" chance="13.7923"/>
-				<drop itemid="948" min="1" max="1" chance="86.2077"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16312,20 +15390,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="4052" min="1" max="1" chance="5.5556"/>
-				<drop itemid="4053" min="1" max="1" chance="6.6667"/>
-				<drop itemid="5230" min="1" max="1" chance="0.2128"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="2736" max="5473" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.3885">
-				<drop itemid="947" min="1" max="1" chance="13.799"/>
-				<drop itemid="948" min="1" max="1" chance="86.201"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16371,19 +15435,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="4054" min="1" max="1" chance="3.4483"/>
-				<drop itemid="5550" min="1" max="1" chance="2.381"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="2790" max="5576" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.461">
-				<drop itemid="729" min="1" max="1" chance="11.7787"/>
-				<drop itemid="730" min="1" max="1" chance="88.2213"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16429,20 +15480,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1874" min="1" max="1" chance="12.5"/>
-				<drop itemid="5434" min="1" max="1" chance="0.0721"/>
-				<drop itemid="5478" min="1" max="1" chance="1.6393"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="2849" max="5701" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.4712">
-				<drop itemid="729" min="1" max="1" chance="11.7784"/>
-				<drop itemid="730" min="1" max="1" chance="88.2216"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16488,15 +15525,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="4009" max="8028" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.6635">
-				<drop itemid="729" min="1" max="1" chance="11.7709"/>
-				<drop itemid="730" min="1" max="1" chance="88.2291"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16542,18 +15570,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="1875" min="1" max="1" chance="16.6667"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="4078" max="8168" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.3146">
-				<drop itemid="959" min="1" max="1" chance="9.0909"/>
-				<drop itemid="960" min="1" max="1" chance="90.9091"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16599,15 +15615,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="4146" max="8295" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.3195">
-				<drop itemid="959" min="1" max="1" chance="9.1079"/>
-				<drop itemid="960" min="1" max="1" chance="90.8921"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16653,20 +15660,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="SPOIL" chance="100.0">
-				<drop itemid="4039" min="1" max="1" chance="9.0909"/>
-				<drop itemid="4041" min="1" max="1" chance="2.381"/>
-				<drop itemid="5487" min="1" max="1" chance="1.25"/>
-			</category>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="5312" max="10638" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.4097">
-				<drop itemid="959" min="1" max="1" chance="9.1042"/>
-				<drop itemid="960" min="1" max="1" chance="90.8958"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16712,15 +15705,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="5393" max="10798" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.4158">
-				<drop itemid="959" min="1" max="1" chance="9.0909"/>
-				<drop itemid="960" min="1" max="1" chance="90.9091"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
@@ -16768,15 +15752,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="186" max="372" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.4068">
-				<drop itemid="955" min="1" max="1" chance="10.7193"/>
-				<drop itemid="956" min="1" max="1" chance="89.2807"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -16825,15 +15800,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="207" max="413" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.5676">
-				<drop itemid="955" min="1" max="1" chance="10.7163"/>
-				<drop itemid="956" min="1" max="1" chance="89.2837"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -16882,15 +15848,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="308" max="617" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.9324">
-				<drop itemid="951" min="1" max="1" chance="12.0012"/>
-				<drop itemid="952" min="1" max="1" chance="87.9988"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -16939,15 +15896,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="338" max="676" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="1.0038">
-				<drop itemid="951" min="1" max="1" chance="12.0043"/>
-				<drop itemid="952" min="1" max="1" chance="87.9957"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -16996,15 +15944,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="472" max="944" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.2515">
-				<drop itemid="947" min="1" max="1" chance="13.7972"/>
-				<drop itemid="948" min="1" max="1" chance="86.2028"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17053,15 +15992,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="519" max="1010" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.2717">
-				<drop itemid="947" min="1" max="1" chance="13.8019"/>
-				<drop itemid="948" min="1" max="1" chance="86.1981"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17110,15 +16040,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="681" max="1361" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.1126">
-				<drop itemid="729" min="1" max="1" chance="11.8117"/>
-				<drop itemid="730" min="1" max="1" chance="88.1883"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17167,15 +16088,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="728" max="1457" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.1205">
-				<drop itemid="729" min="1" max="1" chance="11.7842"/>
-				<drop itemid="730" min="1" max="1" chance="88.2158"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17224,15 +16136,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="938" max="1879" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.1553">
-				<drop itemid="729" min="1" max="1" chance="11.7836"/>
-				<drop itemid="730" min="1" max="1" chance="88.2164"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17281,15 +16184,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="995" max="1993" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.0768">
-				<drop itemid="959" min="1" max="1" chance="9.1145"/>
-				<drop itemid="960" min="1" max="1" chance="90.8855"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17338,15 +16232,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1239" max="2481" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.0956">
-				<drop itemid="959" min="1" max="1" chance="9.1004"/>
-				<drop itemid="960" min="1" max="1" chance="90.8996"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -17395,15 +16280,6 @@
 		<set name="aggroRange" val="0"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="CURRENCY" chance="70.0">
-				<drop itemid="57" min="1301" max="2604" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="0.1004">
-				<drop itemid="959" min="1" max="1" chance="9.1633"/>
-				<drop itemid="960" min="1" max="1" chance="90.8367"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4045" level="1" type="PASSIVE"/>
 			<skill id="4416" level="2" type="PASSIVE"/>
@@ -18515,44 +17391,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.1159">
-				<drop itemid="6529" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="33.8151">
-				<drop itemid="6519" min="1" max="1" chance="25.7142"/>
-				<drop itemid="6522" min="1" max="1" chance="17.1428"/>
-				<drop itemid="6525" min="1" max="1" chance="21.4285"/>
-				<drop itemid="6535" min="12" max="36" chance="35.7145"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="1" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -18608,44 +17446,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.0527">
-				<drop itemid="6530" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="43.904">
-				<drop itemid="6519" min="1" max="1" chance="30.0001"/>
-				<drop itemid="6522" min="1" max="1" chance="20.0"/>
-				<drop itemid="6525" min="1" max="1" chance="24.9999"/>
-				<drop itemid="6536" min="12" max="36" chance="25.0"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="2" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -18701,44 +17501,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.02">
-				<drop itemid="6531" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="39.5842">
-				<drop itemid="6520" min="2" max="6" chance="8.4"/>
-				<drop itemid="6523" min="1" max="1" chance="27.9999"/>
-				<drop itemid="6526" min="1" max="1" chance="33.6001"/>
-				<drop itemid="6537" min="12" max="36" chance="30.0"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4290" level="1" type="PASSIVE"/>
 			<skill id="4382" level="3" type="PHYSICAL_SPECIAL"/>
@@ -18794,44 +17556,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.0108">
-				<drop itemid="6532" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="32.6944">
-				<drop itemid="6520" min="2" max="6" chance="20.6613"/>
-				<drop itemid="6523" min="1" max="1" chance="55.0965"/>
-				<drop itemid="6526" min="3" max="9" chance="11.0192"/>
-				<drop itemid="6538" min="15" max="45" chance="13.223"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="4" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -18887,44 +17611,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.0041">
-				<drop itemid="6533" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="48.4814">
-				<drop itemid="6521" min="2" max="6" chance="13.9536"/>
-				<drop itemid="6524" min="1" max="1" chance="41.8605"/>
-				<drop itemid="6527" min="2" max="6" chance="9.3023"/>
-				<drop itemid="6539" min="3" max="9" chance="34.8836"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="5" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -18980,44 +17666,6 @@
 			<set name="MoveAroundSocial1" val="80"/>
 			<set name="MoveAroundSocial2" val="80"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.0061">
-				<drop itemid="6533" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="58.4812">
-				<drop itemid="6521" min="2" max="6" chance="13.9535"/>
-				<drop itemid="6524" min="1" max="1" chance="41.8607"/>
-				<drop itemid="6527" min="2" max="6" chance="9.3023"/>
-				<drop itemid="6539" min="3" max="9" chance="34.8835"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="6" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -19073,44 +17721,6 @@
 			<set name="MoveAroundSocial1" val="120"/>
 			<set name="MoveAroundSocial2" val="120"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.0017">
-				<drop itemid="6534" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="47.1824">
-				<drop itemid="6521" min="2" max="6" chance="15.0"/>
-				<drop itemid="6524" min="1" max="1" chance="45.0"/>
-				<drop itemid="6527" min="2" max="6" chance="10.0001"/>
-				<drop itemid="6540" min="3" max="9" chance="29.9999"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="7" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -19166,44 +17776,6 @@
 			<set name="MoveAroundSocial1" val="120"/>
 			<set name="MoveAroundSocial2" val="120"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="0.003">
-				<drop itemid="6534" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="DROP" chance="57.1824">
-				<drop itemid="6521" min="2" max="6" chance="15.0"/>
-				<drop itemid="6524" min="1" max="1" chance="45.0001"/>
-				<drop itemid="6527" min="2" max="6" chance="10.0"/>
-				<drop itemid="6540" min="3" max="9" chance="29.9999"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4382" level="9" type="PHYSICAL_SPECIAL"/>
 			<skill id="4413" level="15" type="PASSIVE"/>
@@ -19639,11 +18211,6 @@
 		<set name="aggroRange" val="700"/>
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
-		<drops>
-			<category type="DROP" chance="100.0">
-				<drop itemid="8192" min="10" max="20" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4298" level="1" type="PASSIVE"/>
 			<skill id="4410" level="16" type="PASSIVE"/>
@@ -20073,38 +18640,6 @@
 			<set name="MoveAroundSocial1" val="0"/>
 			<set name="MoveAroundSocial2" val="0"/>
 		</ai>
-		<drops>
-			<category type="CURRENCY" chance="100.0">
-				<drop itemid="57" min="7" max="13" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="42.0">
-				<drop itemid="8600" min="1" max="1" chance="55.0"/>
-				<drop itemid="8601" min="1" max="1" chance="38.0"/>
-				<drop itemid="8602" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8607" min="1" max="1" chance="50.0"/>
-				<drop itemid="8609" min="1" max="1" chance="50.0"/>
-			</category>
-			<category type="HERB" chance="11.0">
-				<drop itemid="8603" min="1" max="1" chance="55.0"/>
-				<drop itemid="8604" min="1" max="1" chance="38.0"/>
-				<drop itemid="8605" min="1" max="1" chance="7.0"/>
-			</category>
-			<category type="HERB" chance="25.0">
-				<drop itemid="8606" min="1" max="1" chance="34.0"/>
-				<drop itemid="8608" min="1" max="1" chance="33.0"/>
-				<drop itemid="8610" min="1" max="1" chance="33.0"/>
-			</category>
-			<category type="HERB" chance="10.0">
-				<drop itemid="8611" min="1" max="1" chance="100.0"/>
-			</category>
-			<category type="HERB" chance="1.0">
-				<drop itemid="8612" min="1" max="1" chance="33.0"/>
-				<drop itemid="8613" min="1" max="1" chance="33.0"/>
-				<drop itemid="8614" min="1" max="1" chance="34.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
@@ -20256,11 +18791,6 @@
 			<set name="Social1" val="1"/>
 			<set name="Social1_Frame" val="2"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="25.0">
-				<drop itemid="8787" min="1" max="1" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4294" level="1" type="PASSIVE"/>
 			<skill id="5085" level="1" type="SELF_RANGE_DEBUFF1"/>
@@ -20312,11 +18842,6 @@
 			<set name="Social1" val="1"/>
 			<set name="Social1_Frame" val="2"/>
 		</ai>
-		<drops>
-			<category type="DROP" chance="25.0">
-				<drop itemid="8787" min="1" max="1" chance="100.0"/>
-			</category>
-		</drops>
 		<skills>
 			<skill id="4294" level="1" type="PASSIVE"/>
 			<skill id="5086" level="1" type="SELF_RANGE_DEBUFF1"/>

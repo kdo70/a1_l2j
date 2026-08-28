@@ -41,6 +41,7 @@ import net.sf.l2j.gameserver.data.manager.SpawnManager;
 import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.data.sql.BookmarkTable;
 import net.sf.l2j.gameserver.data.sql.ClanTable;
+import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.data.sql.OfflineTradersTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 import net.sf.l2j.gameserver.data.sql.ServerMemoTable;
@@ -230,6 +231,7 @@ public class GameServer
 		StringUtil.printSection("NPCs");
 		BufferManager.getInstance();
 		NpcData.getInstance();
+		DropTable.getInstance();
 		WalkerRouteData.getInstance();
 		StaticObjectData.getInstance();
 		SpawnManager.getInstance();

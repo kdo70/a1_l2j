@@ -11,6 +11,7 @@ import net.sf.l2j.commons.util.ArraysUtil;
 
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.ClanHallManager;
+import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.enums.EventHandler;
 import net.sf.l2j.gameserver.enums.actors.ClassId;
 import net.sf.l2j.gameserver.enums.actors.NpcRace;
@@ -64,7 +65,6 @@ public class NpcTemplate extends CreatureTemplate
 	private final boolean _canSeeThrough;
 	
 	private final NpcMemo _aiParams;
-	private final List<DropCategory> _categories;
 	private final List<PrivateData> _privateData;
 	
 	private final List<L2Skill> _passives;
@@ -121,7 +121,6 @@ public class NpcTemplate extends CreatureTemplate
 		_canSeeThrough = set.getBool("canSeeThrough", false);
 		
 		_aiParams = (set.containsKey("aiParams")) ? new NpcMemo(set.getMap("aiParams")) : NpcMemo.DUMMY_SET;
-		_categories = set.getList("drops");
 		_privateData = set.getList("privates");
 		
 		_passives = set.getList("passives");
@@ -344,20 +343,11 @@ public class NpcTemplate extends CreatureTemplate
 	}
 	
 	/**
-	 * @return the {@link List} of all {@link DropCategory}s of this {@link NpcTemplate}.
+	 * @return the {@link List} of all {@link DropCategory}s of this {@link NpcTemplate}, read from the "droplist" table through {@link DropTable}.
 	 */
 	public List<DropCategory> getDropData()
 	{
-		return _categories;
-	}
-	
-	/**
-	 * Add a {@link DropCategory} to drop list.
-	 * @param category : The {@link DropCategory} to be added.
-	 */
-	public void addDropData(DropCategory category)
-	{
-		_categories.add(category);
+		return DropTable.getInstance().getDrops(_npcId);
 	}
 	
 	/**

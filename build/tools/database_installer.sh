@@ -117,6 +117,7 @@ $MYG < ../sql/clanhall_flagwar_owner_npcs.sql &> /dev/null
 $MYG < ../sql/clanhall_functions.sql &> /dev/null
 $MYG < ../sql/clanhall_siege_attackers.sql &> /dev/null
 $MYG < ../sql/cursed_weapons.sql &> /dev/null
+$MYG < ../sql/droplist.sql &> /dev/null
 $MYG < ../sql/fishing_championship.sql &> /dev/null
 $MYG < ../sql/games.sql &> /dev/null
 $MYG < ../sql/gatekeeper_stats.sql &> /dev/null

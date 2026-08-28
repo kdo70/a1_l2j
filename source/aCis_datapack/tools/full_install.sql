@@ -41,6 +41,7 @@ DROP TABLE IF EXISTS clanhall_flagwar_owner_npcs;
 DROP TABLE IF EXISTS clanhall_functions;
 DROP TABLE IF EXISTS clanhall_siege_attackers;
 DROP TABLE IF EXISTS cursed_weapons;
+DROP TABLE IF EXISTS droplist;
 DROP TABLE IF EXISTS fishing_championship;
 DROP TABLE IF EXISTS games;
 DROP TABLE IF EXISTS gatekeeper_stats;
