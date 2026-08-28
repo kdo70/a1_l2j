@@ -483,12 +483,25 @@ public class Monster extends Attackable
 	{
 		if (!Config.DEEPBLUE_DROP_RULES)
 			return 1.;
-		
-		// Retrieve the highest attacker level, minus Monster level and a level limit (3 levels for raids, 6 for monsters).
-		int levelDiff = getAttackByList().stream().mapToInt(c -> c.getStatus().getLevel()).max().orElse(player.getStatus().getLevel());
-		levelDiff -= getStatus().getLevel();
-		levelDiff -= isRaidBoss() ? 2 : 5;
-		
+
+		// Retrieve the highest attacker level, and fallback on the Player one.
+		return getLevelMultiplier(getAttackByList().stream().mapToInt(c -> c.getStatus().getLevel()).max().orElse(player.getStatus().getLevel()));
+	}
+
+	/**
+	 * The very formula {@link #calculateLevelMultiplier(Player)} runs on, fed with a level rather than with the attackers of this instance - which is what lets the drop list window preview the
+	 * chances of one single {@link Player}, before any blow has been dealt.
+	 * @param attackerLevel : The level the drop is computed for.
+	 * @return The multiplier every drop chance of this {@link Monster} is scaled by, 1 meaning no penalty at all.
+	 */
+	public double getLevelMultiplier(int attackerLevel)
+	{
+		if (!Config.DEEPBLUE_DROP_RULES)
+			return 1.;
+
+		// Level gap between the attacker and this instance, minus a level limit (3 levels for raids, 6 for monsters).
+		final int levelDiff = attackerLevel - getStatus().getLevel() - (isRaidBoss() ? 2 : 5);
+
 		// Calculate the level multiplier based on the level difference. If the level difference is neutral or negative, there is no penalty.
 		return (levelDiff <= 0) ? 1. : Math.max(0.1, 1 - 0.18 * levelDiff);
 	}

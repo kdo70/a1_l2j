@@ -27,6 +27,7 @@ public class DropListData implements IXmlReader
 	private int _groupHeight;
 	private int _iconSize;
 	private int _maxPages;
+	private int _pageWidth;
 	private int _pageHeight;
 	private int _overhead;
 	private int _nameChars;
@@ -56,6 +57,10 @@ public class DropListData implements IXmlReader
 	private String _spoilLabel;
 	private String _numberPrefix;
 	private String _countPrefix;
+	private String _countRange;
+	private String _chancePattern;
+	private String _chanceSuffix;
+	private String _nearZeroLabel;
 	private String _emptyLabel;
 	private String _prevPageLabel;
 	private String _nextPageLabel;
@@ -97,6 +102,7 @@ public class DropListData implements IXmlReader
 				_groupHeight = Math.max(1, parseInt(attrs, "groupHeight", _groupHeight));
 				_iconSize = Math.max(1, parseInt(attrs, "iconSize", _iconSize));
 				_maxPages = Math.max(1, parseInt(attrs, "maxPages", _maxPages));
+				_pageWidth = Math.max(1, parseInt(attrs, "pageWidth", _pageWidth));
 				_pageHeight = Math.max(0, parseInt(attrs, "pageHeight", _pageHeight));
 				_overhead = Math.max(0, parseInt(attrs, "overhead", _overhead));
 				_nameChars = Math.max(0, parseInt(attrs, "nameChars", _nameChars));
@@ -140,6 +146,10 @@ public class DropListData implements IXmlReader
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
 				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
 				_countPrefix = parseString(attrs, "countPrefix", _countPrefix);
+				_countRange = parseString(attrs, "countRange", _countRange);
+				_chancePattern = parseToken(attrs, "chancePattern", _chancePattern);
+				_chanceSuffix = parseString(attrs, "chanceSuffix", _chanceSuffix);
+				_nearZeroLabel = parseString(attrs, "nearZero", _nearZeroLabel);
 				_emptyLabel = parseString(attrs, "empty", _emptyLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
@@ -157,6 +167,7 @@ public class DropListData implements IXmlReader
 		_groupHeight = 18;
 		_iconSize = 32;
 		_maxPages = 10;
+		_pageWidth = 26;
 		_pageHeight = 440;
 		_overhead = 43;
 		_nameChars = 30;
@@ -195,6 +206,10 @@ public class DropListData implements IXmlReader
 		_spoilLabel = "Spoil";
 		_numberPrefix = " #";
 		_countPrefix = "x";
+		_countRange = "-";
+		_chancePattern = "#0.##";
+		_chanceSuffix = "%";
+		_nearZeroLabel = "&lt;0.01%";
 		_emptyLabel = "-";
 		_prevPageLabel = "<<";
 		_nextPageLabel = ">>";
@@ -322,11 +337,19 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The maximum amount of page links shown by the page selector, centered on the current page.
+	 * @return The maximum amount of page links shown by the page selector, centered on the current page. Only ever lowers the amount the layout width can already hold.
 	 */
 	public int getMaxPages()
 	{
 		return _maxPages;
+	}
+
+	/**
+	 * @return The width, in pixels, of a single cell of the page selector - a page link or an arrow. It drives how many links fit one row, which is what keeps the selector from ever wrapping.
+	 */
+	public int getPageWidth()
+	{
+		return _pageWidth;
 	}
 
 	/**
@@ -449,6 +472,38 @@ public class DropListData implements IXmlReader
 	public String getCountPrefix()
 	{
 		return _countPrefix;
+	}
+
+	/**
+	 * @return The text sitting between the two bounds of a dropped amount which isn't a fixed one.
+	 */
+	public String getCountRange()
+	{
+		return _countRange;
+	}
+
+	/**
+	 * @return The {@link java.text.DecimalFormat} pattern a chance is rendered with, its amount of decimals included.
+	 */
+	public String getChancePattern()
+	{
+		return _chancePattern;
+	}
+
+	/**
+	 * @return The text appended to a rendered chance.
+	 */
+	public String getChanceSuffix()
+	{
+		return _chanceSuffix;
+	}
+
+	/**
+	 * @return The label shown instead of a chance the pattern would round down to a bare zero - which would read as "never" - suffix included.
+	 */
+	public String getNearZeroLabel()
+	{
+		return _nearZeroLabel;
 	}
 
 	/**

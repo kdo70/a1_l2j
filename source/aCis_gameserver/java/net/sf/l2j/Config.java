@@ -203,6 +203,7 @@ public final class Config
 	public static int DROPLIST_ROWS_PER_PAGE;
 	public static boolean DROPLIST_SHOW_SPOIL;
 	public static boolean DROPLIST_APPLY_RATES;
+	public static boolean DROPLIST_APPLY_LEVEL_PENALTY;
 
 	// --------------------------------------------------
 	// Mods - gatekeeper
@@ -923,6 +924,7 @@ public final class Config
 		DROPLIST_ROWS_PER_PAGE = Math.max(1, droplist.getProperty("DropListRowsPerPage", 9));
 		DROPLIST_SHOW_SPOIL = droplist.getProperty("DropListShowSpoil", true);
 		DROPLIST_APPLY_RATES = droplist.getProperty("DropListApplyRates", true);
+		DROPLIST_APPLY_LEVEL_PENALTY = droplist.getProperty("DropListApplyLevelPenalty", true);
 	}
 
 	/**

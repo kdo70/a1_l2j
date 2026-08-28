@@ -39,7 +39,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * the group among the ones sharing that caption, so a monster reads "Drop #1, Drop #2, Spoil #1".<br>
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
- * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100%.<br>
+ * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100% - and the deep blue penalty of the {@link Player} himself when
+ * "DropListApplyLevelPenalty" is, which is what makes the window tell what that very player gets rather than what the table holds.<br>
  * <br>
  * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
@@ -61,8 +62,6 @@ public class DropListManager
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse a list at once, so the formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols CHANCE_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
-
-	private static final String CHANCE_PATTERN = "#0.##";
 
 	/** A single rendered drop : the whole draw chance of one {@link DropData}, and the amount it gives. */
 	private record DropRow(int itemId, double chance, int min, int max)
@@ -136,7 +135,7 @@ public class DropListManager
 	{
 		final DropListData data = DropListData.getInstance();
 
-		final List<DropGroup> groups = getGroups(monster);
+		final List<DropGroup> groups = getGroups(player, monster);
 
 		int total = 0;
 		for (DropGroup group : groups)
@@ -206,12 +205,16 @@ public class DropListManager
 	}
 
 	/**
+	 * @param player : The {@link Player} the chances are computed for - the level gap penalty is his own.
 	 * @param monster : The {@link Monster} to check.
 	 * @return Every non empty {@link DropCategory} of the given {@link Monster}, turned into a {@link DropGroup} whose rows are sorted by decreasing chance. The groups themselves are sorted by
 	 *         decreasing chance, the spoil ones landing after the regular drops and the herb ones last.
 	 */
-	private static List<DropGroup> getGroups(Monster monster)
+	private static List<DropGroup> getGroups(Player player, Monster monster)
 	{
+		// The deep blue penalty of the engine reads the highest attacker level ; the window is a preview, so it reads the level of the very Player it is shown to.
+		final double levelMultiplier = (Config.DROPLIST_APPLY_LEVEL_PENALTY) ? monster.getLevelMultiplier(player.getStatus().getLevel()) : 1;
+
 		final List<DropGroup> groups = new ArrayList<>();
 
 		for (DropCategory category : monster.getTemplate().getDropData())
@@ -226,7 +229,7 @@ public class DropListManager
 			final double rate = (Config.DROPLIST_APPLY_RATES) ? type.getDropRate(monster.isRaidBoss()) : 1;
 
 			// A rate is an amount of rolls of the category, not a multiplier of its chance ; a category rolled more than once is simply shown as a certain one.
-			final double chance = Math.min(100, category.getChance() * rate);
+			final double chance = Math.min(100, category.getChance() * levelMultiplier * rate);
 
 			final List<DropRow> rows = new ArrayList<>(category.size());
 
@@ -326,21 +329,29 @@ public class DropListManager
 	 */
 	private static String getCountText(DropRow row)
 	{
-		final String amount = (row.min() == row.max()) ? StringUtil.formatNumber(row.min()) : StringUtil.formatNumber(row.min()) + "-" + StringUtil.formatNumber(row.max());
+		final DropListData data = DropListData.getInstance();
 
-		return DropListData.getInstance().getCountPrefix() + amount;
+		final String amount = (row.min() == row.max()) ? StringUtil.formatNumber(row.min()) : StringUtil.formatNumber(row.min()) + data.getCountRange() + StringUtil.formatNumber(row.max());
+
+		return data.getCountPrefix() + amount;
 	}
 
 	/**
 	 * @param chance : The already computed chance, in percent.
-	 * @return The chance cell content. A chance the format would round down to a bare "0" is shown as "&lt;0.01%" instead, since a shown 0% would read as "never".
+	 * @return The chance cell content. A chance the pattern of the datapack rounds down to a bare zero gets the "nearZero" label instead, since a shown 0% would read as "never".
 	 */
 	private static String getChanceText(double chance)
 	{
-		if (chance > 0 && chance < 0.01)
-			return "&lt;0.01%";
+		final DropListData data = DropListData.getInstance();
+		final DecimalFormat format = new DecimalFormat(data.getChancePattern(), CHANCE_SYMBOLS);
 
-		return new DecimalFormat(CHANCE_PATTERN, CHANCE_SYMBOLS).format(chance) + "%";
+		final String text = format.format(chance);
+
+		// Comparing against the formatted zero rather than against a threshold keeps this right whatever amount of decimals the pattern holds.
+		if (chance > 0 && text.equals(format.format(0)))
+			return data.getNearZeroLabel();
+
+		return text + data.getChanceSuffix();
 	}
 
 	/**
@@ -367,7 +378,10 @@ public class DropListManager
 
 	/**
 	 * The bottom row of the page, holding the page selector. It is always emitted, even empty : an occasionally missing row would shorten a page by one row height, and pages without a scrollbar
-	 * would show up again.
+	 * would show up again.<br>
+	 * <br>
+	 * The selector never wraps : a cell owns the width the datapack reserved for it, and the amount of shown links is whatever fits the layout width out of that - the "maxPages" of the datapack only
+	 * lowers it further. Sizing the cells out of "maxPages" instead, as an earlier take did, squeezes them under the width their own content needs, and the client then breaks the row in two.
 	 * @param monster : The {@link Monster} used as dialog holder.
 	 * @param page : The currently shown page index.
 	 * @param pages : The total amount of pages.
@@ -376,7 +390,9 @@ public class DropListManager
 	private static String getFooter(Monster monster, int page, int pages)
 	{
 		final DropListData data = DropListData.getInstance();
-		final int maxPages = data.getMaxPages();
+
+		// Every cell owns the same width, so the selector doesn't jump around while browsing the pages.
+		final int cellWidth = data.getPageWidth();
 
 		int first = 0;
 		int last = 0;
@@ -385,17 +401,19 @@ public class DropListManager
 
 		if (pages > 1)
 		{
-			// Center the shown window of pages on the current page.
-			first = Math.max(0, page - maxPages / 2);
-			last = Math.min(pages, first + maxPages);
-			first = Math.max(0, last - maxPages);
-
 			hasPrev = page > 0;
 			hasNext = page < pages - 1;
+
+			// Whatever the row can hold, the arrows taking a cell of their own.
+			final int room = data.getWidth() / cellWidth - ((hasPrev) ? 1 : 0) - ((hasNext) ? 1 : 0);
+			final int shown = Math.max(1, Math.min(data.getMaxPages(), room));
+
+			// Center the shown window of pages on the current page.
+			first = Math.max(0, page - shown / 2);
+			last = Math.min(pages, first + shown);
+			first = Math.max(0, last - shown);
 		}
 
-		// Every cell owns the same width, so the selector doesn't jump around while browsing the pages.
-		final int cellWidth = Math.max(1, data.getWidth() / (maxPages + 2));
 		final int cells = (last - first) + ((hasPrev) ? 1 : 0) + ((hasNext) ? 1 : 0);
 
 		// The left cell takes whatever the selector leaves, which pins the selector to the right edge.

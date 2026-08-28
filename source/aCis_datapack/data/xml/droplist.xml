@@ -2,9 +2,10 @@
 <!--
 	Appearance of the drop list window, opened by shift clicking a monster or a raid boss.
 
-	Everything the player sees is defined here. The behavior (whether the window exists at all,
-	which skill unlocks it, how many rows a page holds, whether the spoil groups are shown and
-	whether the rates are folded into the chances) lives server side, on
+	Everything the player sees is defined here - every single string included, so no player facing
+	text is left in the Java. The behavior (whether the window exists at all, which skill unlocks
+	it, how many rows a page holds, whether the spoil groups are shown, and whether the server rates
+	and the deep blue penalty are folded into the chances) lives server side, on
 	config/mods/droplist.properties.
 
 	The window is one single list, without any tab : each drop category of the monster shows up as
@@ -38,8 +39,13 @@
 		              icon and for the two stacked lines of text, so keep it above iconSize.
 		groupHeight : height, in pixels, of a group header row. The page selector row uses it too.
 		iconSize    : size, in pixels, the item icons are drawn at.
+		pageWidth   : width, in pixels, of a single cell of the page selector - a page link or an
+		              arrow. It is what keeps the selector on a single line : the amount of shown
+		              links is whatever fits "width" out of that, so a cell is never squeezed under
+		              the width its own content needs. Raise it if a selector ever wraps.
 		maxPages    : maximum amount of page links shown by the page selector, centered on the
-		              current page. The selector always stays on a single line.
+		              current page. It only ever lowers the amount "pageWidth" already allows, so
+		              setting it high simply lets the width decide.
 		nameChars   : amount of characters above which an item name is shortened, on the last word
 		              boundary when possible. 0 never shortens - and lets a long name wrap, which
 		              makes its row taller than the others. Roughly nameWidth / 6.
@@ -91,13 +97,22 @@
 		                      to the attribute, so any separator can be used.
 		countPrefix         : put in front of a dropped amount, which tells it apart from the item
 		                      name sitting right above it.
+		countRange          : sits between the two bounds of an amount which isn't a fixed one.
+		chancePattern       : DecimalFormat pattern a chance is rendered with, its amount of decimals
+		                      included. "#0.##" gives "8.25", "#0.#" gives "8.3", "#0" gives "8".
+		chanceSuffix        : appended to a rendered chance.
+		nearZero            : shown instead of a chance the pattern would round down to a bare zero,
+		                      which would read as "never". Holds its own suffix, and is worth
+		                      rewriting along with "chancePattern" - "&lt;0.01%" only matches a
+		                      pattern holding two decimals.
 		empty               : shown instead of an empty list.
-		prevPage / nextPage : labels of the page selector arrows.
+		prevPage / nextPage : labels of the page selector arrows. Both live in a "pageWidth" wide
+		                      cell, so keep them short.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="43" pageHeight="440" iconWidth="36" nameWidth="190" chanceWidth="54" />
+	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="43" pageHeight="440" iconWidth="36" nameWidth="190" chanceWidth="54" />
 
 	<colors row="000000" altRow="" groupText="LEVEL" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
 
-	<labels drop="Дроп" spoil="Спойл" numberPrefix=" #" countPrefix="x" empty="Здесь ничего не выпадает" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels drop="Дроп" spoil="Спойл" numberPrefix=" #" countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" empty="Здесь ничего не выпадает" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 </list>
