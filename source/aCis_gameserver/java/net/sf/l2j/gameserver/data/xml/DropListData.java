@@ -31,6 +31,7 @@ public class DropListData implements IXmlReader
 	private int _overhead;
 	private int _nameChars;
 	private String _ellipsis;
+	private String _separator;
 
 	private int _iconWidth;
 	private int _nameWidth;
@@ -41,7 +42,6 @@ public class DropListData implements IXmlReader
 
 	private String _rowColor;
 	private String _altRowColor;
-	private String _groupColor;
 	private String _groupTextColor;
 	private String _nameColor;
 	private String _countColor;
@@ -52,9 +52,8 @@ public class DropListData implements IXmlReader
 	private String _pageColor;
 	private String _activePageColor;
 
-	private String _categoryLabel;
+	private String _dropLabel;
 	private String _spoilLabel;
-	private String _herbLabel;
 	private String _countPrefix;
 	private String _emptyLabel;
 	private String _prevPageLabel;
@@ -101,6 +100,7 @@ public class DropListData implements IXmlReader
 				_overhead = Math.max(0, parseInt(attrs, "overhead", _overhead));
 				_nameChars = Math.max(0, parseInt(attrs, "nameChars", _nameChars));
 				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
+				_separator = parseToken(attrs, "separator", _separator);
 
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
@@ -120,7 +120,6 @@ public class DropListData implements IXmlReader
 
 				_rowColor = parseToken(attrs, "row", _rowColor);
 				_altRowColor = parseToken(attrs, "altRow", _altRowColor);
-				_groupColor = parseToken(attrs, "group", _groupColor);
 				_groupTextColor = parseToken(attrs, "groupText", _groupTextColor);
 				_nameColor = parseToken(attrs, "name", _nameColor);
 				_countColor = parseToken(attrs, "count", _countColor);
@@ -136,9 +135,8 @@ public class DropListData implements IXmlReader
 			{
 				final NamedNodeMap attrs = labelsNode.getAttributes();
 
-				_categoryLabel = parseString(attrs, "category", _categoryLabel);
+				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
-				_herbLabel = parseString(attrs, "herb", _herbLabel);
 				_countPrefix = parseString(attrs, "countPrefix", _countPrefix);
 				_emptyLabel = parseString(attrs, "empty", _emptyLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
@@ -158,9 +156,10 @@ public class DropListData implements IXmlReader
 		_iconSize = 32;
 		_maxPages = 10;
 		_pageHeight = 440;
-		_overhead = 44;
+		_overhead = 43;
 		_nameChars = 30;
 		_ellipsis = "...";
+		_separator = "L2UI.SquareGray";
 
 		_iconWidth = 36;
 		_nameWidth = 190;
@@ -177,7 +176,6 @@ public class DropListData implements IXmlReader
 
 		_rowColor = "000000";
 		_altRowColor = "";
-		_groupColor = "1E425A";
 		_groupTextColor = "LEVEL";
 		_nameColor = "";
 		_countColor = "B09878";
@@ -191,9 +189,8 @@ public class DropListData implements IXmlReader
 
 	private void setDefaultLabels()
 	{
-		_categoryLabel = "Category ";
+		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
-		_herbLabel = "Herbs";
 		_countPrefix = "x";
 		_emptyLabel = "-";
 		_prevPageLabel = "<<";
@@ -261,24 +258,14 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
+	 * A group is only ever captioned "drop" or "spoil" : whether an item is looted or spoiled is the one thing the items sitting under the header can't tell a player, and the currency and herb
+	 * groups are looted just like the regular ones.
 	 * @param type : The {@link DropType} to name.
-	 * @param number : The rank of the group among the regular ones, 1 being the first.
-	 * @return The caption of the header row of a group holding the given {@link DropType}. A regular group - a drop or a currency one - is only numbered : a "drop" or an "adena" caption tells a
-	 *         player nothing the items sitting right under it don't already tell him.
+	 * @return The caption of the header row of a group holding the given {@link DropType}.
 	 */
-	public String getGroupLabel(DropType type, int number)
+	public String getGroupLabel(DropType type)
 	{
-		switch (type)
-		{
-			case SPOIL:
-				return _spoilLabel;
-
-			case HERB:
-				return _herbLabel;
-
-			default:
-				return _categoryLabel + number;
-		}
+		return (type == DropType.SPOIL) ? _spoilLabel : _dropLabel;
 	}
 
 	/**
@@ -371,6 +358,14 @@ public class DropListData implements IXmlReader
 		return _ellipsis;
 	}
 
+	/**
+	 * @return The client texture of the hairline framing a group header, empty disabling the frame.
+	 */
+	public String getSeparator()
+	{
+		return _separator;
+	}
+
 	public int getIconWidth()
 	{
 		return _iconWidth;
@@ -403,14 +398,6 @@ public class DropListData implements IXmlReader
 	public String getAltRowColor()
 	{
 		return _altRowColor;
-	}
-
-	/**
-	 * @return The background color of a group header row.
-	 */
-	public String getGroupColor()
-	{
-		return _groupColor;
 	}
 
 	/**
