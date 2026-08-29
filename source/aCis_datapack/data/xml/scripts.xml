@@ -979,6 +979,7 @@
 	<script path="task.CastleTaxRefresh" schedule="DAILY" start="00:00:00" />
 	<script path="task.ClanLadderRefresh" schedule="DAILY" start="00:05:00" />
 	<script path="task.ClanLeaderTransfer" schedule="WEEKLY" start="TUE 16:55:00" />
+	<script path="task.RaidBookDailyReward" schedule="DAILY" start="00:10:00" />
 	<script path="task.RaidPointReset" schedule="MONTHLY_WEEK" start="TUE-1 00:00:00" />
 	<script path="task.RecommendationUpdate" schedule="DAILY" start="13:00:00" />
 	<!--	<script path="task.ServerRestart" schedule="WEEKLY" start="TUE 17:00:00"/> -->

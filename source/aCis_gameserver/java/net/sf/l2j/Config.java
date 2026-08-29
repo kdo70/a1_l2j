@@ -222,7 +222,9 @@ public final class Config
 	public static double RAIDBOOK_MAX_DAMAGE_BONUS;
 	public static int RAIDBOOK_POINTS_PER_KILL;
 	public static double RAIDBOOK_POINTS_PER_BOSS_LEVEL;
-	public static boolean RAIDBOOK_CREDIT_PARTY;
+	public static boolean RAIDBOOK_SCREEN_MESSAGES;
+	public static boolean RAIDBOOK_DAILY_ENABLED;
+	public static Map<Integer, List<IntIntHolder>> RAIDBOOK_DAILY_REWARDS;
 	public static int RAIDBOOK_HISTORY_SIZE;
 	public static int RAIDBOOK_RANKING_SIZE;
 	public static int RAIDBOOK_SHOWN_REWARDS;
@@ -979,7 +981,7 @@ public final class Config
 		RAIDBOOK_POINTS_PER_KILL = Math.max(0, raidbook.getProperty("RaidBookPointsPerKill", 10));
 		RAIDBOOK_POINTS_PER_BOSS_LEVEL = Math.max(0, raidbook.getProperty("RaidBookPointsPerBossLevel", 1.));
 
-		RAIDBOOK_CREDIT_PARTY = raidbook.getProperty("RaidBookCreditParty", true);
+		RAIDBOOK_SCREEN_MESSAGES = raidbook.getProperty("RaidBookScreenMessages", true);
 		RAIDBOOK_HISTORY_SIZE = Math.max(1, raidbook.getProperty("RaidBookHistorySize", 20));
 		RAIDBOOK_RANKING_SIZE = Math.max(1, raidbook.getProperty("RaidBookRankingSize", 100));
 		RAIDBOOK_SHOWN_REWARDS = Math.max(1, raidbook.getProperty("RaidBookShownRewards", 5));
@@ -988,11 +990,24 @@ public final class Config
 		RAIDBOOK_APPLY_LEVEL_PENALTY = raidbook.getProperty("RaidBookApplyLevelPenalty", true);
 
 		RAIDBOOK_DEFAULT_REWARD = parseRewardItems(raidbook.getProperty("RaidBookDefaultReward", ""));
+		RAIDBOOK_LEVEL_REWARDS = parseRewardMap(raidbook.getProperty("RaidBookLevelRewards", ""));
 
-		// "level:itemId,count[,itemId,count...]" entries, telling apart the first hunting levels from the endless ones the default reward answers for.
-		RAIDBOOK_LEVEL_REWARDS = new HashMap<>();
+		RAIDBOOK_DAILY_ENABLED = raidbook.getProperty("RaidBookDailyRewardEnabled", true);
+		RAIDBOOK_DAILY_REWARDS = parseRewardMap(raidbook.getProperty("RaidBookDailyRewards", ""));
+	}
 
-		for (String entry : raidbook.getProperty("RaidBookLevelRewards", "").split(";"))
+	/**
+	 * @param value : A "key:itemId,count[,itemId,count...];key:..." list, the key being a hunting level or a ranking position.
+	 * @return The parsed entries, an empty {@link Map} when the value is blank.
+	 */
+	private static final Map<Integer, List<IntIntHolder>> parseRewardMap(String value)
+	{
+		final Map<Integer, List<IntIntHolder>> entries = new HashMap<>();
+
+		if (value == null)
+			return entries;
+
+		for (String entry : value.split(";"))
 		{
 			if (entry.isBlank())
 				continue;
@@ -1000,23 +1015,25 @@ public final class Config
 			final String[] parts = entry.split(":", 2);
 			if (parts.length != 2)
 			{
-				LOGGER.warn("The raid book reward '{}' isn't written as 'level:itemId,count' ; it is dropped.", entry);
+				LOGGER.warn("The raid book reward '{}' isn't written as 'key:itemId,count' ; it is dropped.", entry);
 				continue;
 			}
 
 			try
 			{
-				final int level = Integer.parseInt(parts[0].trim());
+				final int key = Integer.parseInt(parts[0].trim());
 				final List<IntIntHolder> items = parseRewardItems(parts[1]);
 
-				if (level > 0 && !items.isEmpty())
-					RAIDBOOK_LEVEL_REWARDS.put(level, items);
+				if (key > 0 && !items.isEmpty())
+					entries.put(key, items);
 			}
 			catch (NumberFormatException e)
 			{
-				LOGGER.warn("The raid book reward '{}' holds a level which isn't a number ; it is dropped.", entry);
+				LOGGER.warn("The raid book reward '{}' holds a key which isn't a number ; it is dropped.", entry);
 			}
 		}
+
+		return entries;
 	}
 
 	/**

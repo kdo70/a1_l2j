@@ -11,6 +11,7 @@ import net.sf.l2j.gameserver.data.manager.ClanHallManager;
 import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
 import net.sf.l2j.gameserver.data.manager.CoupleManager;
 import net.sf.l2j.gameserver.data.manager.PetitionManager;
+import net.sf.l2j.gameserver.data.manager.RaidBookManager;
 import net.sf.l2j.gameserver.data.manager.SevenSignsManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.data.xml.AnnouncementData;
@@ -261,6 +262,9 @@ public class EnterWorld extends L2GameClientPacket
 		
 		// From now on, the client has ClientVersionTimeout to report its version.
 		ClientVersionManager.getInstance().onEnterWorld(player);
+
+		// Hand out whatever raid book daily reward has been waiting for this character.
+		RaidBookManager.getInstance().onEnterWorld(player);
 		
 		player.onPlayerEnter();
 		

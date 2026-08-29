@@ -59,6 +59,7 @@ DROP TABLE IF EXISTS olympiad_nobles;
 DROP TABLE IF EXISTS petition;
 DROP TABLE IF EXISTS petition_message;
 DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS raidboss_daily_rewards;
 DROP TABLE IF EXISTS raidboss_kill_history;
 DROP TABLE IF EXISTS rainbowsprings_attacker_list;
 DROP TABLE IF EXISTS server_memo;

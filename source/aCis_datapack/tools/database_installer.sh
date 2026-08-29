@@ -136,6 +136,7 @@ $MYG < ../sql/olympiad_nobles.sql&> /dev/null
 $MYG < ../sql/petition.sql &> /dev/null
 $MYG < ../sql/petition_message.sql &> /dev/null
 $MYG < ../sql/pets.sql &> /dev/null
+$MYG < ../sql/raidboss_daily_rewards.sql &> /dev/null
 $MYG < ../sql/raidboss_kill_history.sql &> /dev/null
 $MYG < ../sql/rainbowsprings_attacker_list.sql &> /dev/null
 $MYG < ../sql/server_memo.sql &> /dev/null

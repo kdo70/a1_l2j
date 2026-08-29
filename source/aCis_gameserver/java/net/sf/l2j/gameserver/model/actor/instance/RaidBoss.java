@@ -61,13 +61,14 @@ public class RaidBoss extends Monster
 		if (!super.doDie(killer))
 			return false;
 
+		// The book credits the kill by damage dealt rather than by killing blow, so it doesn't care who landed the last hit - the aggro list survives the death and holds everything it needs.
+		RaidBookManager.getInstance().onRaidBossKill(this);
+
 		if (killer != null)
 		{
 			final Player player = killer.getActingPlayer();
 			if (player != null)
 			{
-				RaidBookManager.getInstance().onRaidBossKill(this, player);
-
 				broadcastPacket(SystemMessage.getSystemMessage(SystemMessageId.RAID_WAS_SUCCESSFUL));
 				broadcastPacket(new PlaySound("systemmsg_e.1209"));
 				

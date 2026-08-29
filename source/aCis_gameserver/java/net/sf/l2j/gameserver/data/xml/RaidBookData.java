@@ -72,7 +72,10 @@ public class RaidBookData implements IXmlReader
 
 	private int _rankPosWidth;
 	private int _rankNameWidth;
+	private int _rankClanWidth;
 	private int _rankPointsWidth;
+
+	private int _screenTime;
 
 	private int _highChance;
 	private int _mediumChance;
@@ -80,6 +83,7 @@ public class RaidBookData implements IXmlReader
 	private String _rowColor;
 	private String _altRowColor;
 	private String _nameColor;
+	private String _groupTextColor;
 	private String _bossLevelColor;
 	private String _huntLevelColor;
 	private String _labelColor;
@@ -99,6 +103,15 @@ public class RaidBookData implements IXmlReader
 
 	private String _bookTitle;
 	private String _rankTitle;
+	private String _dailyTitle;
+	private String _dailyLabel;
+	private String _placeSuffix;
+	private String _dropGroupLabel;
+	private String _numberPrefix;
+	private String _killMessage;
+	private String _levelUpMessage;
+	private String _rewardMessage;
+	private String _dailyMessage;
 	private String _levelPrefix;
 	private String _huntLevelPrefix;
 	private String _detailsLabel;
@@ -217,13 +230,16 @@ public class RaidBookData implements IXmlReader
 
 				_rankPosWidth = Math.max(1, parseInt(attrs, "rankPosWidth", _rankPosWidth));
 				_rankNameWidth = Math.max(1, parseInt(attrs, "rankNameWidth", _rankNameWidth));
+				_rankClanWidth = Math.max(1, parseInt(attrs, "rankClanWidth", _rankClanWidth));
 				_rankPointsWidth = Math.max(1, parseInt(attrs, "rankPointsWidth", _rankPointsWidth));
+
+				_screenTime = Math.max(0, parseInt(attrs, "screenTime", _screenTime));
 
 				checkColumns("list", _listNameWidth + _listLevelWidth + _listButtonWidth);
 				checkColumns("drop", _dropIconWidth + _dropNameWidth + _dropChanceWidth);
 				checkColumns("reward", _rewardIconWidth + _rewardNameWidth + _rewardLevelWidth);
 				checkColumns("history", _historyNameWidth + _historyClanWidth + _historyTimeWidth);
-				checkColumns("rank", _rankPosWidth + _rankNameWidth + _rankPointsWidth);
+				checkColumns("rank", _rankPosWidth + _rankNameWidth + _rankClanWidth + _rankPointsWidth);
 			});
 
 			forEach(listNode, "colors", colorsNode ->
@@ -236,6 +252,7 @@ public class RaidBookData implements IXmlReader
 				_rowColor = parseToken(attrs, "row", _rowColor);
 				_altRowColor = parseToken(attrs, "altRow", _altRowColor);
 				_nameColor = parseToken(attrs, "name", _nameColor);
+				_groupTextColor = parseToken(attrs, "groupText", _groupTextColor);
 				_bossLevelColor = parseToken(attrs, "bossLevel", _bossLevelColor);
 				_huntLevelColor = parseToken(attrs, "huntLevel", _huntLevelColor);
 				_labelColor = parseToken(attrs, "label", _labelColor);
@@ -260,6 +277,15 @@ public class RaidBookData implements IXmlReader
 
 				_bookTitle = parseString(attrs, "bookTitle", _bookTitle);
 				_rankTitle = parseString(attrs, "rankTitle", _rankTitle);
+				_dailyTitle = parseString(attrs, "dailyTitle", _dailyTitle);
+				_dailyLabel = parseString(attrs, "daily", _dailyLabel);
+				_placeSuffix = parseString(attrs, "placeSuffix", _placeSuffix);
+				_dropGroupLabel = parseString(attrs, "dropGroup", _dropGroupLabel);
+				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
+				_killMessage = parseString(attrs, "msgKill", _killMessage);
+				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
+				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
+				_dailyMessage = parseString(attrs, "msgDaily", _dailyMessage);
 				_levelPrefix = parseString(attrs, "levelPrefix", _levelPrefix);
 				_huntLevelPrefix = parseString(attrs, "huntLevelPrefix", _huntLevelPrefix);
 				_detailsLabel = parseString(attrs, "details", _detailsLabel);
@@ -345,9 +371,9 @@ public class RaidBookData implements IXmlReader
 		_barFilled = "L2UI.SquareWhite";
 		_barEmpty = "L2UI.SquareGray";
 
-		_listNameWidth = 170;
-		_listLevelWidth = 46;
-		_listButtonWidth = 64;
+		_listNameWidth = 160;
+		_listLevelWidth = 54;
+		_listButtonWidth = 66;
 
 		_dropIconWidth = 36;
 		_dropNameWidth = 190;
@@ -361,9 +387,12 @@ public class RaidBookData implements IXmlReader
 		_historyClanWidth = 92;
 		_historyTimeWidth = 80;
 
-		_rankPosWidth = 36;
-		_rankNameWidth = 150;
-		_rankPointsWidth = 94;
+		_rankPosWidth = 30;
+		_rankNameWidth = 104;
+		_rankClanWidth = 78;
+		_rankPointsWidth = 68;
+
+		_screenTime = 5000;
 	}
 
 	private void setDefaultColors()
@@ -374,6 +403,7 @@ public class RaidBookData implements IXmlReader
 		_rowColor = "000000";
 		_altRowColor = "";
 		_nameColor = "";
+		_groupTextColor = "LEVEL";
 		_bossLevelColor = "B09878";
 		_huntLevelColor = "LEVEL";
 		_labelColor = "B09878";
@@ -396,6 +426,15 @@ public class RaidBookData implements IXmlReader
 	{
 		_bookTitle = "Raid Boss Book";
 		_rankTitle = "Ranking";
+		_dailyTitle = "Daily rewards";
+		_dailyLabel = "Daily rewards";
+		_placeSuffix = " place";
+		_dropGroupLabel = "Drop";
+		_numberPrefix = " #";
+		_killMessage = "%boss% : +%points% ranking points.";
+		_levelUpMessage = "Hunting level %level% reached on %boss% !";
+		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
+		_dailyMessage = "Daily reward for the %place% place : %item% x%count%.";
 		_levelPrefix = "Lv.";
 		_huntLevelPrefix = "Hunt ";
 		_detailsLabel = "Info";
@@ -693,9 +732,92 @@ public class RaidBookData implements IXmlReader
 		return _rankNameWidth;
 	}
 
+	public int getRankClanWidth()
+	{
+		return _rankClanWidth;
+	}
+
 	public int getRankPointsWidth()
 	{
 		return _rankPointsWidth;
+	}
+
+	/**
+	 * @return The time, in milliseconds, an informational message stays on the screen of the {@link net.sf.l2j.gameserver.model.actor.Player} it is sent to.
+	 */
+	public int getScreenTime()
+	{
+		return _screenTime;
+	}
+
+	/**
+	 * @return The color of the caption of a drop group header.
+	 */
+	public String getGroupTextColor()
+	{
+		return _groupTextColor;
+	}
+
+	public String getDailyTitle()
+	{
+		return _dailyTitle;
+	}
+
+	/**
+	 * @return The caption of the link leading from the ladder to the daily reward page.
+	 */
+	public String getDailyLabel()
+	{
+		return _dailyLabel;
+	}
+
+	/**
+	 * @return The text appended to a ranking position on the daily reward page, "1" reading as "1 place".
+	 */
+	public String getPlaceSuffix()
+	{
+		return _placeSuffix;
+	}
+
+	/**
+	 * @param number : The rank of the group among the ones sharing its caption, 1 being the first.
+	 * @return The caption of the header row of a drop group, being "Drop #1" out of the box.
+	 */
+	public String getDropGroupLabel(int number)
+	{
+		return _dropGroupLabel + _numberPrefix + number;
+	}
+
+	/**
+	 * @return The message sent on a raid boss kill, holding the %boss% and %points% variables.
+	 */
+	public String getKillMessage()
+	{
+		return _killMessage;
+	}
+
+	/**
+	 * @return The message sent when a hunting level is reached, holding the %boss% and %level% variables.
+	 */
+	public String getLevelUpMessage()
+	{
+		return _levelUpMessage;
+	}
+
+	/**
+	 * @return The message sent along a hunting level reward, holding the %level%, %item% and %count% variables.
+	 */
+	public String getRewardMessage()
+	{
+		return _rewardMessage;
+	}
+
+	/**
+	 * @return The message sent along a daily ranking reward, holding the %place%, %item% and %count% variables.
+	 */
+	public String getDailyMessage()
+	{
+		return _dailyMessage;
 	}
 
 	public String getRowColor()
