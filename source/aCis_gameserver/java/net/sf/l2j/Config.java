@@ -214,6 +214,7 @@ public final class Config
 	// --------------------------------------------------
 
 	public static boolean RAIDBOOK_ENABLED;
+	public static int RAIDBOOK_ITEM_ID;
 	public static int RAIDBOOK_ROWS_PER_PAGE;
 	public static int RAIDBOOK_TAB_ROWS_PER_PAGE;
 	public static int RAIDBOOK_KILLS_PER_LEVEL;
@@ -968,6 +969,7 @@ public final class Config
 		final ExProperties raidbook = initProperties(MODS_RAIDBOOK_FILE);
 
 		RAIDBOOK_ENABLED = raidbook.getProperty("RaidBookEnabled", true);
+		RAIDBOOK_ITEM_ID = Math.max(0, raidbook.getProperty("RaidBookItemId", 9300));
 		RAIDBOOK_ROWS_PER_PAGE = Math.max(1, raidbook.getProperty("RaidBookRowsPerPage", 8));
 		RAIDBOOK_TAB_ROWS_PER_PAGE = Math.max(1, raidbook.getProperty("RaidBookTabRowsPerPage", 4));
 

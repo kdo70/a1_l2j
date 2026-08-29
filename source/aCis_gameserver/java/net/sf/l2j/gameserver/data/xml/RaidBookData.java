@@ -121,6 +121,7 @@ public class RaidBookData implements IXmlReader
 	private String _levelUpMessage;
 	private String _rewardMessage;
 	private String _dailyMessage;
+	private String _bookGivenMessage;
 	private String _levelPrefix;
 	private String _huntLevelPrefix;
 	private String _detailsLabel;
@@ -304,6 +305,7 @@ public class RaidBookData implements IXmlReader
 				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
 				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
 				_dailyMessage = parseString(attrs, "msgDaily", _dailyMessage);
+				_bookGivenMessage = parseString(attrs, "msgBookGiven", _bookGivenMessage);
 				_levelPrefix = parseString(attrs, "levelPrefix", _levelPrefix);
 				_huntLevelPrefix = parseString(attrs, "huntLevelPrefix", _huntLevelPrefix);
 				_detailsLabel = parseString(attrs, "details", _detailsLabel);
@@ -462,6 +464,7 @@ public class RaidBookData implements IXmlReader
 		_levelUpMessage = "Hunting level %level% reached on %boss% !";
 		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
 		_dailyMessage = "Daily reward for the %place% place : %item% x%count%.";
+		_bookGivenMessage = "You have been handed the raid boss book.";
 		_levelPrefix = "Lv.";
 		_huntLevelPrefix = "Hunt ";
 		_detailsLabel = "Info";
@@ -924,6 +927,14 @@ public class RaidBookData implements IXmlReader
 	public String getDailyMessage()
 	{
 		return _dailyMessage;
+	}
+
+	/**
+	 * @return The message sent along the book itself, the first time its owner lays a hand on a raid boss.
+	 */
+	public String getBookGivenMessage()
+	{
+		return _bookGivenMessage;
 	}
 
 	public String getRowColor()

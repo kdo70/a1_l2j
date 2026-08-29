@@ -27,9 +27,11 @@
 
 	The bar is built out of table cells, one per half, and not out of two images written next to each
 	other : the client breaks the line right after an image, so two of them inside one single cell
-	land on two lines and the bar shows up cut in half. That is also why a row is two stacked tables
-	sharing one background color rather than one table - a bar can't share a table with text sitting
-	in columns of its own.
+	land on two lines and the bar shows up cut in half. Those cells carry no width of their own - the
+	image alone sizes them - because a cell declaring the very width of the image it holds leaves the
+	client no slack, and it wraps that image to the next line all the same. That is also why a row is
+	two stacked tables sharing one background color rather than one table : a bar can't share a table
+	with text sitting in columns of its own.
 
 	A detail page opens on the statistics of the boss, laid out the way the status window of a
 	character is - two blocks of two columns - then the hunting block, the buttons, and the four tabs :
@@ -119,10 +121,10 @@
 		              player it is sent to. The chat always gets those messages ; whether the screen
 		              gets them too is "RaidBookScreenMessages" of the properties.
 
-		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level. The bar owns
-		                       a line of its own and starts on the left edge, so barWidth only has to
-		                       leave room for the counter written right after it - the counter cell
-		                       takes (width - barWidth).
+		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level - barWidth is
+		                       what its two halves add up to. The bar owns a line of its own and
+		                       starts on the left edge, so it only has to leave room for the counter
+		                       written right after it, which takes whatever is left of the row.
 		barFilled / barEmpty : client textures the filled and the empty parts of that bar are drawn
 		                       with. They are the one place the bar gets its look from : swapping
 		                       them for the gauge textures of a rebuilt client is all it takes to
@@ -234,6 +236,8 @@
 		msgDaily              : sent along each item a daily ladder reward gives - on the spot when
 		                        the winner is online, on his next login otherwise. Holds %place%,
 		                        %item% and %count%.
+		msgBookGiven          : sent along the book itself, the first time its owner lays a hand on
+		                        a raid boss. Holds no variable.
 		countPrefix           : put in front of an amount, which tells it apart from the item name
 		                        sitting next to it.
 		countRange            : sits between the two bounds of a dropped amount which isn't fixed.
@@ -265,7 +269,7 @@
 
 	<colors row="000000" altRow="" name="" groupText="LEVEL" bossLevel="B09878" huntLevel="LEVEL" label="B09878" value="FFFFFF" count="B09878" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
 
-	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг охотников" dailyTitle="Ежедневные награды" daily="Награды дня" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очк." hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Дроп" numberPrefix=" #" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colTime="Когда" colReward="Награда" colPlace="Место" hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг охотников" dailyTitle="Ежедневные награды" daily="Награды дня" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очк." hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Дроп" numberPrefix=" #" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colTime="Когда" colReward="Награда" colPlace="Место" hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 
 	<filters>
 		<filter label="Все" min="0" max="0" />

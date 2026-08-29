@@ -114,6 +114,9 @@ public class RaidBookManager
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse the book at once, so a formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols NUMBER_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
 
+	/** The memo telling a character has already been handed the book. It is stored on character_memo, so it outlives whatever happens to the item itself. */
+	private static final String GIVEN_MEMO = "raidbook_given";
+
 	/** The tabs of a detail page, in the very order they are shown. */
 	private static final int TAB_REWARDS = 0;
 	private static final int TAB_DROP = 1;
@@ -234,6 +237,38 @@ public class RaidBookManager
 		{
 			LOGGER.error("Couldn't load the pending raid book daily rewards.", e);
 		}
+	}
+
+	/**
+	 * Hand the book over the first time a {@link Player} lays a hand on a raid boss - the moment the feature starts being worth anything to him, and the one moment he is bound to notice it.<br>
+	 * <br>
+	 * It is handed once and only once, whatever happens to the item afterwards : the marker lives on the character rather than on his inventory, so a book which somehow got destroyed isn't handed
+	 * again. The one case which does hand it again is a full inventory - nothing was given, so nothing is remembered.
+	 * @param attacker : The {@link Creature} which just hit the boss, its owner being the one handed the book.
+	 */
+	public void onRaidBossAttacked(Creature attacker)
+	{
+		if (!Config.RAIDBOOK_ENABLED || Config.RAIDBOOK_ITEM_ID <= 0 || attacker == null)
+			return;
+
+		final Player player = attacker.getActingPlayer();
+		if (player == null)
+			return;
+
+		// A hit lands on this path from several threads at once - the character, his servitor, a damage over time - so the marker is claimed atomically rather than tested and then set.
+		if (player.getMemos().putIfAbsent(GIVEN_MEMO, Boolean.TRUE.toString()) != null)
+			return;
+
+		if (player.addItem(Config.RAIDBOOK_ITEM_ID, 1, true) == null)
+		{
+			// The inventory was full. Nothing has been written to the database yet, so dropping the marker from memory is enough to try again on the next hit.
+			player.getMemos().remove(GIVEN_MEMO);
+			return;
+		}
+
+		player.getMemos().set(GIVEN_MEMO, true);
+
+		inform(player, RaidBookData.getInstance().getBookGivenMessage(), true);
 	}
 
 	/**
@@ -957,7 +992,7 @@ public class RaidBookManager
 
 		StringUtil.append(sb, getRowStart());
 		StringUtil.append(sb, getBarCells(kills, barHeight));
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getBarWidth()), 0, "left", colorize(data.getCountColor(), " " + getProgressText(kills))));
+		StringUtil.append(sb, getBarCounterCell(kills));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1139,7 +1174,7 @@ public class RaidBookManager
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
 		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight()));
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getBarWidth()), 0, "left", colorize(data.getCountColor(), " " + getProgressText(kills))));
+		StringUtil.append(sb, getBarCounterCell(kills));
 		StringUtil.append(sb, ROW_END);
 
 		sb.append(getSeparator());
@@ -1748,9 +1783,11 @@ public class RaidBookManager
 	 * The progress bar of a hunting level : the filled part of the current level, then whatever is left of it.<br>
 	 * <br>
 	 * Both halves are handed out as cells of their own rather than as two images written next to each other, because <b>the client breaks the line right after an image</b> - two of them inside one
-	 * single cell land on two lines, and the bar shows up cut in half with the row grown by a line. Sitting in two neighbouring cells, they are laid out side by side and nothing wraps.<br>
+	 * single cell land on two lines, and the bar shows up cut in half.<br>
 	 * <br>
-	 * The cells always sum up to {@link RaidBookData#getBarWidth()}, whatever the progress, so the caller only has to give the rest of the layout width to whatever it writes next to the bar.
+	 * Those cells carry <b>no width of their own</b> : the image alone sizes them. A cell declaring the very width of the image it holds leaves the client no slack, and it wraps that image to the next
+	 * line - which is the very thing this layout is meant to avoid. Every image grid of the datapack which actually works - the lottery window, the tutorial pages - is written that way, so this one is
+	 * too. The bar still measures {@link RaidBookData#getBarWidth()} in total, since that is what its two images add up to.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
 	 * @param height : The height, in pixels, of the row the bar sits on. It is written on the first emitted cell, the way every other row of the book does.
 	 * @return The cells holding the bar.
@@ -1765,13 +1802,23 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(320);
 
 		if (filled > 0)
-			sb.append(getCell(filled, height, "left", getBarImage(data.getBarFilled(), filled)));
+			sb.append(getBarCell(height, getBarImage(data.getBarFilled(), filled)));
 
 		// The height rides on the first emitted cell, so the empty half only carries it when the bar is completely empty.
 		if (filled < width)
-			sb.append(getCell(width - filled, (filled > 0) ? 0 : height, "left", getBarImage(data.getBarEmpty(), width - filled)));
+			sb.append(getBarCell((filled > 0) ? 0 : height, getBarImage(data.getBarEmpty(), width - filled)));
 
 		return sb.toString();
+	}
+
+	/**
+	 * @param height : The height, in pixels, to reserve, 0 leaving it to the image.
+	 * @param content : The image to hold.
+	 * @return One cell of the progress bar, sized by its own content.
+	 */
+	private static String getBarCell(int height, String content)
+	{
+		return "<td" + ((height > 0) ? " height=" + height : "") + ">" + content + "</td>";
 	}
 
 	/**
@@ -1782,6 +1829,18 @@ public class RaidBookManager
 	private static String getBarImage(String texture, int width)
 	{
 		return (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + width + " height=" + RaidBookData.getInstance().getBarHeight() + ">";
+	}
+
+	/**
+	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
+	 * @return The cell holding the counter written right after the bar. It carries no width either : the bar cells sitting in front of it don't declare one, so there is nothing left to compute it out
+	 *         of - the client simply gives it whatever the bar leaves of the row.
+	 */
+	private static String getBarCounterCell(int kills)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return "<td align=left>" + colorize(data.getCountColor(), " " + getProgressText(kills)) + "</td>";
 	}
 
 	/**

@@ -109,8 +109,10 @@ ant -f source\aCis_gameserver\build.xml
 - **Книга рейдбоссов** — предмет, открывающий окно со списком всех РБ, уровнями охоты
   (убийства → уровень → награда и % к урону по этому боссу), радаром, дропом, историей
   убийств и рейтингом. Поведение — `config/mods/raidbook.properties`, внешний вид —
-  `data/xml/raidbook.xml`, устройство — `docs/raidboss-book.md`. Привязана к предмету
-  атрибутом `handler="RaidBossBook"`, а не id в конфиге.
+  `data/xml/raidbook.xml`, устройство — `docs/raidboss-book.md`. Выдаётся сама за первый
+  удар по РБ (один раз, признак в `character_memo`), продавать/выбрасывать/передавать
+  нельзя. Окно открывает предмет с атрибутом `handler="RaidBossBook"`, а выдаётся тот,
+  что указан в `RaidBookItemId` — это две разные привязки.
 - **Иконки предметов лежат в датапаке** (`data/xml/itemIcons.xml`), потому что
   Interlude держит их только на клиенте. Выгружаются из клиентских `*grp.dat`
   скриптом `tools/icons/grp_to_icons.ps1`, устройство — `docs/item-icons.md`.

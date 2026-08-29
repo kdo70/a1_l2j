@@ -52,6 +52,9 @@ public class RaidBoss extends Monster
 	@Override
 	public void reduceCurrentHp(double damage, Creature attacker, boolean awake, boolean isDOT, L2Skill skill)
 	{
+		// The very first hit a character lands on a raid boss is what hands him the book.
+		RaidBookManager.getInstance().onRaidBossAttacked(attacker);
+
 		super.reduceCurrentHp(damage * RaidBookManager.getInstance().getDamageMultiplier(attacker, getNpcId()), attacker, awake, isDOT, skill);
 	}
 
