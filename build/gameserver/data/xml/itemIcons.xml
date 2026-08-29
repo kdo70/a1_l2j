@@ -9202,4 +9202,7 @@
 	<item id="9206" icon="etc_reagent_white_i00" />
 	<item id="9207" icon="etc_potion_gold_i00" />
 	<item id="9208" icon="accessary_mask_of_chaotic_i00" />
+
+	<!-- Raid boss book. It sits past the last id the client knows, so it survives a regeneration of this file - the extractor only ever writes what the client holds. -->
+	<item id="9300" icon="etc_spellbook_gray_i00" />
 </list>

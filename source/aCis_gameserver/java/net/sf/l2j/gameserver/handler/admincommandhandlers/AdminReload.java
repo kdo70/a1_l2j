@@ -10,6 +10,7 @@ import net.sf.l2j.gameserver.data.cache.CrestCache;
 import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.BuyListManager;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
+import net.sf.l2j.gameserver.data.manager.RaidBookManager;
 import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.data.xml.AdminData;
@@ -23,6 +24,7 @@ import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.data.xml.ItemIconData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
+import net.sf.l2j.gameserver.data.xml.RaidBookData;
 import net.sf.l2j.gameserver.data.xml.ScriptData;
 import net.sf.l2j.gameserver.data.xml.TeleportData;
 import net.sf.l2j.gameserver.data.xml.WalkerRouteData;
@@ -117,6 +119,12 @@ public class AdminReload implements IAdminCommandHandler
 					ScriptData.getInstance().reload();
 					player.sendMessage("NPCs templates and Scripts have been reloaded.");
 				}
+				else if (type.startsWith("raidbook"))
+				{
+					RaidBookData.getInstance().reload();
+					RaidBookManager.getInstance().reload();
+					player.sendMessage("The raid boss book has been reloaded.");
+				}
 				else if (type.startsWith("npcwalker"))
 				{
 					WalkerRouteData.getInstance().reload();
@@ -160,7 +168,7 @@ public class AdminReload implements IAdminCommandHandler
 	{
 		player.sendMessage("Usage : //reload <admin|announcement|buylist|config>");
 		player.sendMessage("Usage : //reload <crest|cw|door|drop|htm|item|multisell>");
-		player.sendMessage("Usage : //reload <npc|npcwalker|script|skill|teleport|zone>");
+		player.sendMessage("Usage : //reload <npc|npcwalker|raidbook|script|skill|teleport|zone>");
 	}
 	
 	@Override

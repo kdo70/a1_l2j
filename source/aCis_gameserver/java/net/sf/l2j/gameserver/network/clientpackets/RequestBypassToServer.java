@@ -10,6 +10,7 @@ import net.sf.l2j.gameserver.data.ItemStatsTable;
 import net.sf.l2j.gameserver.data.manager.ClientVersionManager;
 import net.sf.l2j.gameserver.data.manager.DropListManager;
 import net.sf.l2j.gameserver.data.manager.HeroManager;
+import net.sf.l2j.gameserver.data.manager.RaidBookManager;
 import net.sf.l2j.gameserver.data.xml.AdminData;
 import net.sf.l2j.gameserver.enums.FloodProtector;
 import net.sf.l2j.gameserver.handler.AdminCommandHandler;
@@ -151,6 +152,14 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				return;
 
 			DropListManager.getInstance().handleBypass(player, _command.substring(DropListManager.BYPASS.length()));
+		}
+		// Raid boss book, opened by the book item ; see RaidBookManager.
+		else if (_command.startsWith(RaidBookManager.BYPASS))
+		{
+			if (!player.validateBypass(_command))
+				return;
+
+			RaidBookManager.getInstance().handleBypass(player, _command.substring(RaidBookManager.BYPASS.length()));
 		}
 		// Item statistics a rebuilt client asks for ; see ItemStatsTable.
 		else if (_command.startsWith(ItemStatsTable.BYPASS))

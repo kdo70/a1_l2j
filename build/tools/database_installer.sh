@@ -97,6 +97,7 @@ $MYG < ../sql/character_offline_trade.sql &> /dev/null
 $MYG < ../sql/character_offline_trade_items.sql &> /dev/null
 $MYG < ../sql/character_quests.sql &> /dev/null
 $MYG < ../sql/character_raid_points.sql &> /dev/null
+$MYG < ../sql/character_raidboss_kills.sql &> /dev/null
 $MYG < ../sql/character_recipebook.sql &> /dev/null
 $MYG < ../sql/character_relations.sql &> /dev/null
 $MYG < ../sql/character_recommends.sql &> /dev/null
@@ -135,6 +136,7 @@ $MYG < ../sql/olympiad_nobles.sql&> /dev/null
 $MYG < ../sql/petition.sql &> /dev/null
 $MYG < ../sql/petition_message.sql &> /dev/null
 $MYG < ../sql/pets.sql &> /dev/null
+$MYG < ../sql/raidboss_kill_history.sql &> /dev/null
 $MYG < ../sql/rainbowsprings_attacker_list.sql &> /dev/null
 $MYG < ../sql/server_memo.sql &> /dev/null
 $MYG < ../sql/seven_signs.sql &> /dev/null

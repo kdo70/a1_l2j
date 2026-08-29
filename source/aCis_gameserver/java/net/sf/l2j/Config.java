@@ -52,6 +52,7 @@ public final class Config
 	private static final String MODS_DROPLIST_FILE = "./config/mods/droplist.properties";
 	private static final String MODS_GATEKEEPER_FILE = "./config/mods/gatekeeper.properties";
 	private static final String MODS_OFFLINE_SHOP_FILE = "./config/mods/offlineshop.properties";
+	private static final String MODS_RAIDBOOK_FILE = "./config/mods/raidbook.properties";
 	
 	private static final String NPCS_BOSSES_FILE = "./config/npcs/bosses.properties";
 	private static final String NPCS_MANAGERS_FILE = "./config/npcs/managers.properties";
@@ -207,6 +208,28 @@ public final class Config
 	public static boolean DROPLIST_SHOW_HEADER;
 	public static boolean DROPLIST_APPLY_RATES;
 	public static boolean DROPLIST_APPLY_LEVEL_PENALTY;
+
+	// --------------------------------------------------
+	// Mods - raid boss book
+	// --------------------------------------------------
+
+	public static boolean RAIDBOOK_ENABLED;
+	public static int RAIDBOOK_ROWS_PER_PAGE;
+	public static int RAIDBOOK_TAB_ROWS_PER_PAGE;
+	public static int RAIDBOOK_KILLS_PER_LEVEL;
+	public static int RAIDBOOK_MAX_LEVEL;
+	public static double RAIDBOOK_DAMAGE_PER_LEVEL;
+	public static double RAIDBOOK_MAX_DAMAGE_BONUS;
+	public static int RAIDBOOK_POINTS_PER_KILL;
+	public static double RAIDBOOK_POINTS_PER_BOSS_LEVEL;
+	public static boolean RAIDBOOK_CREDIT_PARTY;
+	public static int RAIDBOOK_HISTORY_SIZE;
+	public static int RAIDBOOK_RANKING_SIZE;
+	public static int RAIDBOOK_SHOWN_REWARDS;
+	public static boolean RAIDBOOK_APPLY_RATES;
+	public static boolean RAIDBOOK_APPLY_LEVEL_PENALTY;
+	public static Map<Integer, List<IntIntHolder>> RAIDBOOK_LEVEL_REWARDS;
+	public static List<IntIntHolder> RAIDBOOK_DEFAULT_REWARD;
 
 	// --------------------------------------------------
 	// Mods - gatekeeper
@@ -934,6 +957,107 @@ public final class Config
 	}
 
 	/**
+	 * Loads the raid boss book settings.<br>
+	 * <br>
+	 * Only the behavior lives here ; the whole appearance, the level ranges of the filter menu included, is datapack driven, on data/xml/raidbook.xml.
+	 */
+	private static final void loadRaidBook()
+	{
+		final ExProperties raidbook = initProperties(MODS_RAIDBOOK_FILE);
+
+		RAIDBOOK_ENABLED = raidbook.getProperty("RaidBookEnabled", true);
+		RAIDBOOK_ROWS_PER_PAGE = Math.max(1, raidbook.getProperty("RaidBookRowsPerPage", 8));
+		RAIDBOOK_TAB_ROWS_PER_PAGE = Math.max(1, raidbook.getProperty("RaidBookTabRowsPerPage", 4));
+
+		// A single kill per level would make the very first level - which is reached on the first kill - as long as any other one, and leave the progress bar of a fresh level already full.
+		RAIDBOOK_KILLS_PER_LEVEL = Math.max(2, raidbook.getProperty("RaidBookKillsPerLevel", 5));
+		RAIDBOOK_MAX_LEVEL = Math.max(0, raidbook.getProperty("RaidBookMaxLevel", 0));
+
+		RAIDBOOK_DAMAGE_PER_LEVEL = Math.max(0, raidbook.getProperty("RaidBookDamagePerLevel", 1.));
+		RAIDBOOK_MAX_DAMAGE_BONUS = Math.max(0, raidbook.getProperty("RaidBookMaxDamageBonus", 0.));
+
+		RAIDBOOK_POINTS_PER_KILL = Math.max(0, raidbook.getProperty("RaidBookPointsPerKill", 10));
+		RAIDBOOK_POINTS_PER_BOSS_LEVEL = Math.max(0, raidbook.getProperty("RaidBookPointsPerBossLevel", 1.));
+
+		RAIDBOOK_CREDIT_PARTY = raidbook.getProperty("RaidBookCreditParty", true);
+		RAIDBOOK_HISTORY_SIZE = Math.max(1, raidbook.getProperty("RaidBookHistorySize", 20));
+		RAIDBOOK_RANKING_SIZE = Math.max(1, raidbook.getProperty("RaidBookRankingSize", 100));
+		RAIDBOOK_SHOWN_REWARDS = Math.max(1, raidbook.getProperty("RaidBookShownRewards", 5));
+
+		RAIDBOOK_APPLY_RATES = raidbook.getProperty("RaidBookApplyRates", true);
+		RAIDBOOK_APPLY_LEVEL_PENALTY = raidbook.getProperty("RaidBookApplyLevelPenalty", true);
+
+		RAIDBOOK_DEFAULT_REWARD = parseRewardItems(raidbook.getProperty("RaidBookDefaultReward", ""));
+
+		// "level:itemId,count[,itemId,count...]" entries, telling apart the first hunting levels from the endless ones the default reward answers for.
+		RAIDBOOK_LEVEL_REWARDS = new HashMap<>();
+
+		for (String entry : raidbook.getProperty("RaidBookLevelRewards", "").split(";"))
+		{
+			if (entry.isBlank())
+				continue;
+
+			final String[] parts = entry.split(":", 2);
+			if (parts.length != 2)
+			{
+				LOGGER.warn("The raid book reward '{}' isn't written as 'level:itemId,count' ; it is dropped.", entry);
+				continue;
+			}
+
+			try
+			{
+				final int level = Integer.parseInt(parts[0].trim());
+				final List<IntIntHolder> items = parseRewardItems(parts[1]);
+
+				if (level > 0 && !items.isEmpty())
+					RAIDBOOK_LEVEL_REWARDS.put(level, items);
+			}
+			catch (NumberFormatException e)
+			{
+				LOGGER.warn("The raid book reward '{}' holds a level which isn't a number ; it is dropped.", entry);
+			}
+		}
+	}
+
+	/**
+	 * @param value : A flat "itemId,count[,itemId,count...]" list.
+	 * @return The parsed items, an empty {@link List} when the value is blank or malformed.
+	 */
+	private static final List<IntIntHolder> parseRewardItems(String value)
+	{
+		final List<IntIntHolder> items = new ArrayList<>();
+
+		if (value == null || value.isBlank())
+			return items;
+
+		final String[] tokens = value.trim().split(",");
+		if (tokens.length % 2 != 0)
+		{
+			LOGGER.warn("The raid book reward '{}' doesn't hold a count for every item ; it is dropped.", value);
+			return items;
+		}
+
+		try
+		{
+			for (int i = 0; i < tokens.length; i += 2)
+			{
+				final int itemId = Integer.parseInt(tokens[i].trim());
+				final int count = Integer.parseInt(tokens[i + 1].trim());
+
+				if (itemId > 0 && count > 0)
+					items.add(new IntIntHolder(itemId, count));
+			}
+		}
+		catch (NumberFormatException e)
+		{
+			LOGGER.warn("The raid book reward '{}' holds something which isn't a number ; it is dropped.", value);
+			items.clear();
+		}
+
+		return items;
+	}
+
+	/**
 	 * Loads global gatekeeper settings.<br>
 	 * <br>
 	 * Only the behavior and the economy live here ; the content and the whole appearance are datapack driven, on data/xml/gatekeeper.xml.
@@ -1625,6 +1749,7 @@ public final class Config
 		loadDropList();
 		loadGatekeeper();
 		loadOfflineShop();
+		loadRaidBook();
 		
 		// hexID
 		loadHexID();
