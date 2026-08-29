@@ -46,6 +46,7 @@ public class RaidBookData implements IXmlReader
 	private int _pageHeight;
 	private int _overhead;
 	private int _nameChars;
+	private int _bossNameChars;
 	private String _ellipsis;
 	private String _separator;
 
@@ -108,6 +109,14 @@ public class RaidBookData implements IXmlReader
 	private String _placeSuffix;
 	private String _dropGroupLabel;
 	private String _numberPrefix;
+	private String _colPosLabel;
+	private String _colNameLabel;
+	private String _colClanLabel;
+	private String _colPointsLabel;
+	private String _colKillsLabel;
+	private String _colTimeLabel;
+	private String _colRewardLabel;
+	private String _colPlaceLabel;
 	private String _killMessage;
 	private String _levelUpMessage;
 	private String _rewardMessage;
@@ -204,6 +213,7 @@ public class RaidBookData implements IXmlReader
 				_pageHeight = Math.max(0, parseInt(attrs, "pageHeight", _pageHeight));
 				_overhead = Math.max(0, parseInt(attrs, "overhead", _overhead));
 				_nameChars = Math.max(0, parseInt(attrs, "nameChars", _nameChars));
+				_bossNameChars = Math.max(0, parseInt(attrs, "bossNameChars", _bossNameChars));
 				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
 				_separator = parseToken(attrs, "separator", _separator);
 
@@ -282,6 +292,14 @@ public class RaidBookData implements IXmlReader
 				_placeSuffix = parseString(attrs, "placeSuffix", _placeSuffix);
 				_dropGroupLabel = parseString(attrs, "dropGroup", _dropGroupLabel);
 				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
+				_colPosLabel = parseString(attrs, "colPos", _colPosLabel);
+				_colNameLabel = parseString(attrs, "colName", _colNameLabel);
+				_colClanLabel = parseString(attrs, "colClan", _colClanLabel);
+				_colPointsLabel = parseString(attrs, "colPoints", _colPointsLabel);
+				_colKillsLabel = parseString(attrs, "colKills", _colKillsLabel);
+				_colTimeLabel = parseString(attrs, "colTime", _colTimeLabel);
+				_colRewardLabel = parseString(attrs, "colReward", _colRewardLabel);
+				_colPlaceLabel = parseString(attrs, "colPlace", _colPlaceLabel);
 				_killMessage = parseString(attrs, "msgKill", _killMessage);
 				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
 				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
@@ -352,7 +370,7 @@ public class RaidBookData implements IXmlReader
 	private void setDefaultLayout()
 	{
 		_width = 280;
-		_rowHeight = 34;
+		_rowHeight = 36;
 		_groupHeight = 18;
 		_headerHeight = 16;
 		_headerLabelWidth = 76;
@@ -363,6 +381,7 @@ public class RaidBookData implements IXmlReader
 		_pageHeight = 440;
 		_overhead = 27;
 		_nameChars = 24;
+		_bossNameChars = 17;
 		_ellipsis = "...";
 		_separator = "L2UI.SquareGray";
 
@@ -431,6 +450,14 @@ public class RaidBookData implements IXmlReader
 		_placeSuffix = " place";
 		_dropGroupLabel = "Drop";
 		_numberPrefix = " #";
+		_colPosLabel = "#";
+		_colNameLabel = "Name";
+		_colClanLabel = "Clan";
+		_colPointsLabel = "Points";
+		_colKillsLabel = "Kills";
+		_colTimeLabel = "Date";
+		_colRewardLabel = "Reward";
+		_colPlaceLabel = "Place";
 		_killMessage = "%boss% : +%points% ranking points.";
 		_levelUpMessage = "Hunting level %level% reached on %boss% !";
 		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
@@ -565,6 +592,11 @@ public class RaidBookData implements IXmlReader
 		return _width;
 	}
 
+	/**
+	 * A row of the main list is two stacked tables - the name line and the progress bar line - so this is the height of both of them together : the bar line takes whatever
+	 * {@link #getGroupHeight()} leaves of it.
+	 * @return The total height, in pixels, of a row of the main list.
+	 */
 	public int getRowHeight()
 	{
 		return _rowHeight;
@@ -621,6 +653,16 @@ public class RaidBookData implements IXmlReader
 	public int getNameChars()
 	{
 		return _nameChars;
+	}
+
+	/**
+	 * The name of a raid boss shares its line with the level of that boss, and a wrapped line makes its whole row taller than the ones around it - so it gets a limit of its own, tighter than the one
+	 * of the item and character names, which own their column whole.
+	 * @return The amount of characters above which the name of a raid boss is shortened. 0 never shortens.
+	 */
+	public int getBossNameChars()
+	{
+		return _bossNameChars;
 	}
 
 	public String getEllipsis()
@@ -786,6 +828,70 @@ public class RaidBookData implements IXmlReader
 	public String getDropGroupLabel(int number)
 	{
 		return _dropGroupLabel + _numberPrefix + number;
+	}
+
+	/**
+	 * @return The caption of the ranking position column.
+	 */
+	public String getColPosLabel()
+	{
+		return _colPosLabel;
+	}
+
+	/**
+	 * @return The caption of the character name column.
+	 */
+	public String getColNameLabel()
+	{
+		return _colNameLabel;
+	}
+
+	/**
+	 * @return The caption of the clan column.
+	 */
+	public String getColClanLabel()
+	{
+		return _colClanLabel;
+	}
+
+	/**
+	 * @return The caption of the score column of the server wide ladder.
+	 */
+	public String getColPointsLabel()
+	{
+		return _colPointsLabel;
+	}
+
+	/**
+	 * @return The caption of the score column of a per boss ladder, which counts kills rather than points.
+	 */
+	public String getColKillsLabel()
+	{
+		return _colKillsLabel;
+	}
+
+	/**
+	 * @return The caption of the kill date column of the history.
+	 */
+	public String getColTimeLabel()
+	{
+		return _colTimeLabel;
+	}
+
+	/**
+	 * @return The caption of the item column of the daily reward page.
+	 */
+	public String getColRewardLabel()
+	{
+		return _colRewardLabel;
+	}
+
+	/**
+	 * @return The caption of the ranking position column of the daily reward page.
+	 */
+	public String getColPlaceLabel()
+	{
+		return _colPlaceLabel;
 	}
 
 	/**
