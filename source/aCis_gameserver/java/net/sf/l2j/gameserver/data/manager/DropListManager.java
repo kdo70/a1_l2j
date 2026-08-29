@@ -21,6 +21,7 @@ import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.instance.Monster;
+import net.sf.l2j.gameserver.model.actor.status.AttackableStatus;
 import net.sf.l2j.gameserver.model.item.DropCategory;
 import net.sf.l2j.gameserver.model.item.DropData;
 import net.sf.l2j.gameserver.model.item.kind.Item;
@@ -43,8 +44,9 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * "DropListApplyLevelPenalty" is, which is what makes the window tell what that very player gets rather than what the table holds. The champion bonus of the monster rides along the rates, since it
  * is one : a champion simply rolls its categories more often.<br>
  * <br>
- * The first page carries a header telling what the kill itself is worth - the HP that has to be dealt, and the XP and the SP that very {@link Player} earns - the champion bonuses included. It eats
- * whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
+ * The first page carries a header laid out the way the status window of a {@link Player} is - two blocks of two columns - telling what the kill itself is worth and what the monster fights with : the
+ * HP that has to be dealt and the MP of the monster, the XP and the SP that very {@link Player} earns, then its physical and magical attack, defence and speed. Every number carries the champion
+ * bonuses. The header eats whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
  * <br>
  * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
@@ -64,8 +66,15 @@ public class DropListManager
 	/** Height, in pixels, of the rule framing a group header. The separator textures are hairlines, and the filler math relies on that height being fixed. */
 	private static final int SEPARATOR_HEIGHT = 1;
 
-	/** Amount of lines the header of the first page holds - the HP, the XP and the SP of the kill. The height it takes, and the amount of item rows it costs, are computed out of it. */
-	private static final int HEADER_ROWS = 3;
+	/**
+	 * Amount of lines the header of the first page holds : two for the reward block - HP and MP on the left column, XP and SP on the right one - and three for the combat one. Both blocks are two
+	 * columns wide, the way the status window of a {@link Player} is, so a line carries two stats instead of one. The height the header takes, and the amount of item rows it costs, are computed out
+	 * of it.
+	 */
+	private static final int HEADER_ROWS = 5;
+
+	/** Amount of rules the header of the first page draws : one cutting its two blocks apart, one closing it. */
+	private static final int HEADER_SEPARATORS = 2;
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse a list at once, so the formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols CHANCE_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
@@ -304,8 +313,12 @@ public class DropListManager
 	}
 
 	/**
-	 * The header of the first page, telling what the kill is worth rather than what the corpse holds : the HP that has to be dealt, and the XP and the SP that very {@link Player} is given. All three
-	 * carry the champion bonuses of the monster, the damage reduction standing in for an HP pool.
+	 * The header of the first page, telling what the list of the drops can't : what the kill is worth, and what the monster fights with. It is laid out the way the status window of a {@link Player}
+	 * is - two blocks of two columns, a caption on the left of a column and its value on the right - so a player reads a monster the same way he reads himself.<br>
+	 * <br>
+	 * The first block holds the pools on the left column and the rewards on the right one : the HP that has to be dealt and the MP of the monster, then the XP and the SP that very {@link Player} is
+	 * given. The second one holds the physical stats on the left column and the magical ones on the right : attack, defence and speed. Every number carries the champion bonuses of the monster - the
+	 * damage reduction standing in for an HP pool, the stat multipliers being folded in by {@link AttackableStatus} itself.
 	 * @param player : The {@link Player} the rewards are computed for - the level gap penalty is his own.
 	 * @param monster : The {@link Monster} to describe.
 	 * @return The header block, closed by the same rule which frames the group headers.
@@ -313,14 +326,21 @@ public class DropListManager
 	private static String getHeader(Player player, Monster monster)
 	{
 		final DropListData data = DropListData.getInstance();
+		final AttackableStatus status = monster.getStatus();
 		final long[] expSp = monster.getExpSpFor(player.getStatus().getLevel());
 
-		final StringBuilder sb = new StringBuilder(512);
+		final StringBuilder sb = new StringBuilder(1024);
 
-		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getRowColor().isEmpty()) ? "" : " bgcolor=\"" + data.getRowColor() + "\"", ">");
-		sb.append(getHeaderRow(data.getHpLabel(), monster.getEffectiveMaxHp()));
-		sb.append(getHeaderRow(data.getExpLabel(), expSp[0]));
-		sb.append(getHeaderRow(data.getSpLabel(), expSp[1]));
+		sb.append(getHeaderBlockStart());
+		sb.append(getHeaderRow(data.getHpLabel(), monster.getEffectiveMaxHp(), data.getExpLabel(), expSp[0]));
+		sb.append(getHeaderRow(data.getMpLabel(), status.getMaxMp(), data.getSpLabel(), expSp[1]));
+		sb.append("</table>");
+		sb.append(getSeparator());
+
+		sb.append(getHeaderBlockStart());
+		sb.append(getHeaderRow(data.getPAtkLabel(), status.getPAtk(null), data.getMAtkLabel(), status.getMAtk(null, null)));
+		sb.append(getHeaderRow(data.getPDefLabel(), status.getPDef(null), data.getMDefLabel(), status.getMDef(null, null)));
+		sb.append(getHeaderRow(data.getAtkSpdLabel(), status.getPAtkSpd(), data.getCastSpdLabel(), status.getMAtkSpd()));
 		sb.append("</table>");
 		sb.append(getSeparator());
 
@@ -328,35 +348,59 @@ public class DropListManager
 	}
 
 	/**
-	 * @param label : The caption of the line.
-	 * @param value : The number to show, rendered with the thousand separators - an XP amount is way too long to be read raw.
-	 * @return One line of the header, its caption on the left and its value on the right.
+	 * @return The opening tags of one block of the header, both of them being drawn on the plain band color of the list.
 	 */
-	private static String getHeaderRow(String label, long value)
+	private static String getHeaderBlockStart()
 	{
 		final DropListData data = DropListData.getInstance();
 
-		// The caption owns whatever the datapack reserved for it, the value the rest of the width.
-		final int labelWidth = Math.min(data.getHeaderLabelWidth(), data.getWidth() - 1);
+		return "<table width=" + data.getWidth() + ((data.getRowColor().isEmpty()) ? "" : " bgcolor=\"" + data.getRowColor() + "\"") + ">";
+	}
 
-		final StringBuilder sb = new StringBuilder(224);
+	/**
+	 * One line of the header, holding two stats side by side. Both values are rendered with their thousand separators - an XP amount is way too long to be read raw - and right aligned on the edge of
+	 * their own column, which is what keeps the numbers of a block readable whatever their magnitude.
+	 * @param leftLabel : The caption of the stat of the left column.
+	 * @param leftValue : The number shown on the left column.
+	 * @param rightLabel : The caption of the stat of the right column.
+	 * @param rightValue : The number shown on the right column.
+	 * @return One line of the header, as a pair of caption/value cells per column.
+	 */
+	private static String getHeaderRow(String leftLabel, long leftValue, String rightLabel, long rightValue)
+	{
+		final DropListData data = DropListData.getInstance();
+
+		// The gap sits between the two columns, so the caption of the right one never touches the value of the left one, which is right aligned on the column edge.
+		final int gap = Math.min(data.getHeaderGap(), data.getWidth() - 2);
+		final int columnWidth = Math.max(2, (data.getWidth() - gap) / 2);
+		final int labelWidth = Math.max(1, Math.min(data.getHeaderLabelWidth(), columnWidth - 1));
+
+		final StringBuilder sb = new StringBuilder(448);
 
 		sb.append("<tr>");
-		sb.append(getCell(labelWidth, data.getHeaderHeight(), "left", colorize(data.getHeaderTextColor(), escape(label))));
-		sb.append(getCell(data.getWidth() - labelWidth, 0, "right", colorize(data.getHeaderValueColor(), StringUtil.formatNumber(value))));
+		sb.append(getCell(labelWidth, data.getHeaderHeight(), "left", colorize(data.getHeaderTextColor(), escape(leftLabel))));
+		sb.append(getCell(columnWidth - labelWidth, 0, "right", colorize(data.getHeaderValueColor(), StringUtil.formatNumber(leftValue))));
+
+		if (gap > 0)
+			sb.append(getCell(gap, 0, "left", ""));
+
+		sb.append(getCell(labelWidth, 0, "left", colorize(data.getHeaderTextColor(), escape(rightLabel))));
+
+		// The last cell takes whatever is left of the layout width, which absorbs the rounding of an odd width.
+		sb.append(getCell(Math.max(1, data.getWidth() - columnWidth - gap - labelWidth), 0, "right", colorize(data.getHeaderValueColor(), StringUtil.formatNumber(rightValue))));
 		sb.append("</tr>");
 
 		return sb.toString();
 	}
 
 	/**
-	 * @return The height, in pixels, the header of the first page takes, the rule closing it included.
+	 * @return The height, in pixels, the header of the first page takes, the rules cutting its blocks apart and closing it included.
 	 */
 	private static int getHeaderHeight()
 	{
 		final DropListData data = DropListData.getInstance();
 
-		return HEADER_ROWS * data.getHeaderHeight() + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
+		return HEADER_ROWS * data.getHeaderHeight() + ((data.getSeparator().isEmpty()) ? 0 : HEADER_SEPARATORS * SEPARATOR_HEIGHT);
 	}
 
 	/**

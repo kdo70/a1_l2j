@@ -36,6 +36,7 @@ public class DropListData implements IXmlReader
 
 	private int _headerHeight;
 	private int _headerLabelWidth;
+	private int _headerGap;
 
 	private int _iconWidth;
 	private int _nameWidth;
@@ -61,8 +62,15 @@ public class DropListData implements IXmlReader
 	private String _dropLabel;
 	private String _spoilLabel;
 	private String _hpLabel;
+	private String _mpLabel;
 	private String _expLabel;
 	private String _spLabel;
+	private String _pAtkLabel;
+	private String _pDefLabel;
+	private String _atkSpdLabel;
+	private String _mAtkLabel;
+	private String _mDefLabel;
+	private String _castSpdLabel;
 	private String _numberPrefix;
 	private String _countPrefix;
 	private String _countRange;
@@ -119,6 +127,7 @@ public class DropListData implements IXmlReader
 
 				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
 				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
+				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
 
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
@@ -158,8 +167,15 @@ public class DropListData implements IXmlReader
 				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
 				_hpLabel = parseString(attrs, "hp", _hpLabel);
+				_mpLabel = parseString(attrs, "mp", _mpLabel);
 				_expLabel = parseString(attrs, "exp", _expLabel);
 				_spLabel = parseString(attrs, "sp", _spLabel);
+				_pAtkLabel = parseString(attrs, "pAtk", _pAtkLabel);
+				_pDefLabel = parseString(attrs, "pDef", _pDefLabel);
+				_atkSpdLabel = parseString(attrs, "atkSpd", _atkSpdLabel);
+				_mAtkLabel = parseString(attrs, "mAtk", _mAtkLabel);
+				_mDefLabel = parseString(attrs, "mDef", _mDefLabel);
+				_castSpdLabel = parseString(attrs, "castSpd", _castSpdLabel);
 				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
 				_countPrefix = parseString(attrs, "countPrefix", _countPrefix);
 				_countRange = parseString(attrs, "countRange", _countRange);
@@ -191,7 +207,8 @@ public class DropListData implements IXmlReader
 		_separator = "L2UI.SquareGray";
 
 		_headerHeight = 16;
-		_headerLabelWidth = 90;
+		_headerLabelWidth = 76;
+		_headerGap = 6;
 
 		_iconWidth = 36;
 		_nameWidth = 190;
@@ -226,8 +243,15 @@ public class DropListData implements IXmlReader
 		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
 		_hpLabel = "HP";
-		_expLabel = "EXP";
+		_mpLabel = "MP";
+		_expLabel = "Exp";
 		_spLabel = "SP";
+		_pAtkLabel = "P. Atk.";
+		_pDefLabel = "P. Def.";
+		_atkSpdLabel = "Atk. Spd.";
+		_mAtkLabel = "M. Atk.";
+		_mDefLabel = "M. Def.";
+		_castSpdLabel = "Casting Spd.";
 		_numberPrefix = " #";
 		_countPrefix = "x";
 		_countRange = "-";
@@ -361,11 +385,21 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The width, in pixels, of the caption column of the header of the first page - its value column takes whatever is left of the layout width.
+	 * The header is two columns wide, so this is the caption width of one single column - the value of that column takes whatever is left of it.
+	 * @return The width, in pixels, of a caption cell of the header of the first page.
 	 */
 	public int getHeaderLabelWidth()
 	{
 		return _headerLabelWidth;
+	}
+
+	/**
+	 * @return The width, in pixels, of the spacer sitting between the two columns of the header of the first page - without it, the caption of the right column would touch the value of the left one,
+	 *         which is right aligned on the column edge. 0 drops the spacer.
+	 */
+	public int getHeaderGap()
+	{
+		return _headerGap;
 	}
 
 	/**
@@ -523,7 +557,7 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The caption of the line telling how much HP has to be dealt to kill the monster.
+	 * @return The caption telling how much HP has to be dealt to kill the monster.
 	 */
 	public String getHpLabel()
 	{
@@ -531,7 +565,15 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The caption of the line telling the XP the kill is worth.
+	 * @return The caption telling the MP pool of the monster.
+	 */
+	public String getMpLabel()
+	{
+		return _mpLabel;
+	}
+
+	/**
+	 * @return The caption telling the XP the kill is worth.
 	 */
 	public String getExpLabel()
 	{
@@ -539,11 +581,59 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The caption of the line telling the SP the kill is worth.
+	 * @return The caption telling the SP the kill is worth.
 	 */
 	public String getSpLabel()
 	{
 		return _spLabel;
+	}
+
+	/**
+	 * @return The caption of the physical attack of the monster.
+	 */
+	public String getPAtkLabel()
+	{
+		return _pAtkLabel;
+	}
+
+	/**
+	 * @return The caption of the physical defence of the monster.
+	 */
+	public String getPDefLabel()
+	{
+		return _pDefLabel;
+	}
+
+	/**
+	 * @return The caption of the attack speed of the monster.
+	 */
+	public String getAtkSpdLabel()
+	{
+		return _atkSpdLabel;
+	}
+
+	/**
+	 * @return The caption of the magical attack of the monster.
+	 */
+	public String getMAtkLabel()
+	{
+		return _mAtkLabel;
+	}
+
+	/**
+	 * @return The caption of the magical defence of the monster.
+	 */
+	public String getMDefLabel()
+	{
+		return _mDefLabel;
+	}
+
+	/**
+	 * @return The caption of the casting speed of the monster.
+	 */
+	public String getCastSpdLabel()
+	{
+		return _castSpdLabel;
 	}
 
 	/**
