@@ -201,7 +201,7 @@ public class DropListData implements IXmlReader
 		_maxPages = 10;
 		_pageWidth = 26;
 		_pageHeight = 440;
-		_overhead = 43;
+		_overhead = 27;
 		_nameChars = 30;
 		_ellipsis = "...";
 		_separator = "L2UI.SquareGray";
@@ -226,8 +226,8 @@ public class DropListData implements IXmlReader
 		_rowColor = "000000";
 		_altRowColor = "";
 		_groupTextColor = "LEVEL";
-		_headerTextColor = "LEVEL";
-		_headerValueColor = "";
+		_headerTextColor = "B09878";
+		_headerValueColor = "FFFFFF";
 		_nameColor = "";
 		_countColor = "B09878";
 		_highChanceColor = "90EE90";
@@ -510,7 +510,8 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
-	 * @return The color of the captions of the header of the first page.
+	 * @return The color of the captions of the header of the first page - the tan the status window of a {@link net.sf.l2j.gameserver.model.actor.Player} writes its own captions with, the header
+	 *         being modelled on it.
 	 */
 	public String getHeaderTextColor()
 	{

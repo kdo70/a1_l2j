@@ -91,7 +91,8 @@
 		              the HTM - separators and the page selector row. Substracted from pageHeight to
 		              know how much the page has to be padded with. Only worth touching after
 		              editing the HTM. Rough guide : <br> 16, <br1> 8, a separator img 1, a selector
-		              row 18.
+		              row 18. The stock HTM adds up to 27 - the hairline above the selector 1, the
+		              selector row itself 18, the closing spacer 8.
 		pageHeight  : total height, in pixels, every page is padded up to - the "overhead", the
 		              group headers and the list rows included. Since it is the very same on every
 		              page, the page selector always lands on the same spot ; and since it is set
@@ -111,8 +112,11 @@
 		                     like any other, so the first header of a page takes "row", the item
 		                     sitting right under it "altRow", and so on down the page.
 		groupText          : caption of a group header row.
-		headerText         : captions of the header of the first page.
-		headerValue        : values of the header of the first page.
+		headerText         : captions of the header of the first page. The tan of the status window
+		                     of a character, which is what the header is modelled on - the same tan
+		                     "count" already uses for the dropped amounts.
+		headerValue        : values of the header of the first page - white, the way the status
+		                     window writes its own numbers.
 		name               : item names.
 		count              : dropped amounts.
 		highChance         : chance at or above "highChanceFrom".
@@ -160,9 +164,9 @@
 		                      cell, so keep them short.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="43" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" iconWidth="36" nameWidth="190" chanceWidth="54" />
+	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" iconWidth="36" nameWidth="190" chanceWidth="54" />
 
-	<colors row="000000" altRow="" groupText="LEVEL" headerText="LEVEL" headerValue="" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
+	<colors row="000000" altRow="" groupText="LEVEL" headerText="B09878" headerValue="FFFFFF" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
 
 	<labels drop="Дроп" spoil="Спойл" hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" numberPrefix=" #" countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" empty="Здесь ничего не выпадает" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 </list>
