@@ -40,7 +40,11 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * <br>
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100% - and the deep blue penalty of the {@link Player} himself when
- * "DropListApplyLevelPenalty" is, which is what makes the window tell what that very player gets rather than what the table holds.<br>
+ * "DropListApplyLevelPenalty" is, which is what makes the window tell what that very player gets rather than what the table holds. The champion bonus of the monster rides along the rates, since it
+ * is one : a champion simply rolls its categories more often.<br>
+ * <br>
+ * The first page carries a header telling what the kill itself is worth - the HP that has to be dealt, and the XP and the SP that very {@link Player} earns - the champion bonuses included. It eats
+ * whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
  * <br>
  * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
@@ -59,6 +63,9 @@ public class DropListManager
 
 	/** Height, in pixels, of the rule framing a group header. The separator textures are hairlines, and the filler math relies on that height being fixed. */
 	private static final int SEPARATOR_HEIGHT = 1;
+
+	/** Amount of lines the header of the first page holds - the HP, the XP and the SP of the kill. The height it takes, and the amount of item rows it costs, are computed out of it. */
+	private static final int HEADER_ROWS = 3;
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse a list at once, so the formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols CHANCE_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
@@ -142,13 +149,18 @@ public class DropListManager
 			total += group.rows().size();
 
 		final int perPage = data.getRowsPerPage();
-		final int pages = getPageCount(total, perPage);
+
+		// The header of the first page pays for itself in item rows, so every page keeps the height the filler pads it up to and the page selector never moves.
+		final int firstPageRows = (Config.DROPLIST_SHOW_HEADER) ? Math.max(1, perPage - getHeaderRowCost()) : perPage;
+		final int pages = getPageCount(total, firstPageRows, perPage);
 
 		page = Math.min(Math.max(page, 0), pages - 1);
 
+		final boolean hasHeader = Config.DROPLIST_SHOW_HEADER && page == 0;
+
 		// A page holds a fixed amount of item rows ; the group headers are drawn on top of them, and the filler takes their height into account.
-		final int first = page * perPage;
-		final int last = Math.min(total, first + perPage);
+		final int first = (page == 0) ? 0 : firstPageRows + (page - 1) * perPage;
+		final int last = Math.min(total, first + ((page == 0) ? firstPageRows : perPage));
 
 		final StringBuilder sb = new StringBuilder(2048);
 
@@ -159,8 +171,9 @@ public class DropListManager
 		int shownRows = 0;
 		int offset = 0;
 
-		// The stripes run over the whole page, a group header being a band like any other : the first header of a page takes the plain color, whatever sits under it the other one.
-		int band = 0;
+		// The stripes run over the whole page, a group header being a band like any other : the first header of a page takes the plain color, whatever sits under it the other one. The page header is
+		// a band too, so the list starts on the opposite color rather than stacking two plain blocks.
+		int band = (hasHeader) ? 1 : 0;
 
 		// The groups are numbered inside their own caption, so a monster reads "Drop #1, Drop #2, Spoil #1". Both counters run over the whole list, which keeps a number on one group whatever the
 		// page it is browsed from.
@@ -189,8 +202,9 @@ public class DropListManager
 		}
 
 		String content = HtmCache.getInstance().getHtmForce(HTM);
+		content = content.replace("%header%", (hasHeader) ? getHeader(player, monster) : "");
 		content = content.replace("%list%", sb.toString());
-		content = content.replace("%filler%", getFiller(shownGroups, Math.max(1, shownRows)));
+		content = content.replace("%filler%", getFiller(shownGroups, Math.max(1, shownRows), (hasHeader) ? getHeaderHeight() : 0));
 		content = content.replace("%footer%", getFooter(monster, page, pages));
 		content = content.replace("%npcName%", monster.getName());
 		content = content.replace("%npcLevel%", String.valueOf(monster.getStatus().getLevel()));
@@ -226,7 +240,8 @@ public class DropListManager
 			if (type == DropType.SPOIL && !Config.DROPLIST_SHOW_SPOIL)
 				continue;
 
-			final double rate = (Config.DROPLIST_APPLY_RATES) ? type.getDropRate(monster.isRaidBoss()) : 1;
+			// The champion bonus is a rate of its own - it multiplies the amount of rolls just the same - so it is folded in along the server ones, and dropped along them too.
+			final double rate = (Config.DROPLIST_APPLY_RATES) ? type.getDropRate(monster.isRaidBoss()) * monster.getChampionRateMultiplier(type) : 1;
 
 			// A rate is an amount of rolls of the category, not a multiplier of its chance ; a category rolled more than once is simply shown as a certain one.
 			final double chance = Math.min(100, category.getChance() * levelMultiplier * rate);
@@ -286,6 +301,73 @@ public class DropListManager
 		sb.append(getSeparator());
 
 		return sb.toString();
+	}
+
+	/**
+	 * The header of the first page, telling what the kill is worth rather than what the corpse holds : the HP that has to be dealt, and the XP and the SP that very {@link Player} is given. All three
+	 * carry the champion bonuses of the monster, the damage reduction standing in for an HP pool.
+	 * @param player : The {@link Player} the rewards are computed for - the level gap penalty is his own.
+	 * @param monster : The {@link Monster} to describe.
+	 * @return The header block, closed by the same rule which frames the group headers.
+	 */
+	private static String getHeader(Player player, Monster monster)
+	{
+		final DropListData data = DropListData.getInstance();
+		final long[] expSp = monster.getExpSpFor(player.getStatus().getLevel());
+
+		final StringBuilder sb = new StringBuilder(512);
+
+		StringUtil.append(sb, "<table width=", data.getWidth(), (data.getRowColor().isEmpty()) ? "" : " bgcolor=\"" + data.getRowColor() + "\"", ">");
+		sb.append(getHeaderRow(data.getHpLabel(), monster.getEffectiveMaxHp()));
+		sb.append(getHeaderRow(data.getExpLabel(), expSp[0]));
+		sb.append(getHeaderRow(data.getSpLabel(), expSp[1]));
+		sb.append("</table>");
+		sb.append(getSeparator());
+
+		return sb.toString();
+	}
+
+	/**
+	 * @param label : The caption of the line.
+	 * @param value : The number to show, rendered with the thousand separators - an XP amount is way too long to be read raw.
+	 * @return One line of the header, its caption on the left and its value on the right.
+	 */
+	private static String getHeaderRow(String label, long value)
+	{
+		final DropListData data = DropListData.getInstance();
+
+		// The caption owns whatever the datapack reserved for it, the value the rest of the width.
+		final int labelWidth = Math.min(data.getHeaderLabelWidth(), data.getWidth() - 1);
+
+		final StringBuilder sb = new StringBuilder(224);
+
+		sb.append("<tr>");
+		sb.append(getCell(labelWidth, data.getHeaderHeight(), "left", colorize(data.getHeaderTextColor(), escape(label))));
+		sb.append(getCell(data.getWidth() - labelWidth, 0, "right", colorize(data.getHeaderValueColor(), StringUtil.formatNumber(value))));
+		sb.append("</tr>");
+
+		return sb.toString();
+	}
+
+	/**
+	 * @return The height, in pixels, the header of the first page takes, the rule closing it included.
+	 */
+	private static int getHeaderHeight()
+	{
+		final DropListData data = DropListData.getInstance();
+
+		return HEADER_ROWS * data.getHeaderHeight() + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
+	}
+
+	/**
+	 * The header doesn't grow the first page, it takes the room of the item rows it covers - which is what keeps every page of the same height, and the page selector at one spot.
+	 * @return The amount of item rows the header of the first page costs, rounded up.
+	 */
+	private static int getHeaderRowCost()
+	{
+		final int rowHeight = DropListData.getInstance().getRowHeight();
+
+		return (getHeaderHeight() + rowHeight - 1) / rowHeight;
 	}
 
 	/**
@@ -446,16 +528,17 @@ public class DropListManager
 	 * scrollbar shown everywhere.
 	 * @param groups : The amount of group headers actually rendered on the current page, each owning its own height and the two rules framing it.
 	 * @param rows : The amount of item rows actually rendered on the current page.
+	 * @param headerHeight : The height, in pixels, the page header takes, 0 on the pages which don't carry one.
 	 * @return The spacer filling the bottom of the page, replacing the %filler% variable.
 	 */
-	private static String getFiller(int groups, int rows)
+	private static String getFiller(int groups, int rows, int headerHeight)
 	{
 		final DropListData data = DropListData.getInstance();
 		if (data.getPageHeight() <= 0)
 			return "";
 
 		final int groupHeight = data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
-		final int missing = data.getPageHeight() - data.getOverhead() - groups * groupHeight - rows * data.getRowHeight();
+		final int missing = data.getPageHeight() - data.getOverhead() - headerHeight - groups * groupHeight - rows * data.getRowHeight();
 
 		return (missing <= 0) ? "" : "<img height=" + missing + ">";
 	}
@@ -528,9 +611,18 @@ public class DropListManager
 		return result.stripTrailing() + ellipsis;
 	}
 
-	private static int getPageCount(int size, int perPage)
+	/**
+	 * @param size : The total amount of item rows to page.
+	 * @param firstPageRows : The amount of rows the first page holds, which is lowered by the header it carries.
+	 * @param perPage : The amount of rows every other page holds.
+	 * @return The amount of pages the list spans, 1 at the very least.
+	 */
+	private static int getPageCount(int size, int firstPageRows, int perPage)
 	{
-		return Math.max(1, (size + perPage - 1) / perPage);
+		if (size <= firstPageRows)
+			return 1;
+
+		return 1 + (size - firstPageRows + perPage - 1) / perPage;
 	}
 
 	public static DropListManager getInstance()

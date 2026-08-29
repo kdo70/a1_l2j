@@ -373,6 +373,71 @@ public class Monster extends Attackable
 		_isChampion = value;
 	}
 	
+	/**
+	 * The champion bonus applied on the drop rates, which are amounts of rolls of a category rather than chance multipliers - so a x2 is a category rolled twice as often, not a doubled chance.<br>
+	 * <br>
+	 * The currency categories are left alone, since the adena of a champion is already scaled by {@link Config#CHAMPION_MOBS_ADENA_MULTIPLIER}, and so are the herbs.
+	 * @param type : The {@link DropType} of the evaluated {@link DropCategory}.
+	 * @return The multiplier applied on the Config rate of the given {@link DropType}, 1 when this instance isn't a champion.
+	 */
+	public double getChampionRateMultiplier(DropType type)
+	{
+		if (!isChampion())
+			return 1.;
+		
+		switch (type)
+		{
+			case DROP:
+				return Config.CHAMPION_MOBS_DROP_MULTIPLIER;
+			
+			case SPOIL:
+				return Config.CHAMPION_MOBS_SPOIL_MULTIPLIER;
+			
+			default:
+				return 1.;
+		}
+	}
+	
+	/**
+	 * A champion doesn't own a bigger HP pool ; it takes reduced damages instead (see {@link Creature#reduceCurrentHp}), which acts as one.
+	 * @return The amount of HP that has to be dealt to kill this {@link Monster}, the champion damage reduction folded in.
+	 */
+	public long getEffectiveMaxHp()
+	{
+		final long maxHp = getStatus().getMaxHp();
+		
+		return (isChampion() && Config.CHAMPION_MOBS_HP_MULTIPLIER > 1) ? maxHp * Config.CHAMPION_MOBS_HP_MULTIPLIER : maxHp;
+	}
+	
+	/**
+	 * The very reward path of {@link #calculateRewards(Creature)}, fed with a level rather than with the attackers of this instance - which is what lets the drop list window preview what a single
+	 * {@link Player} earns, before any blow has been dealt.<br>
+	 * <br>
+	 * It assumes a solo kill dealing the whole damage, without any over-hit nor servitor penalty : the champion bonus and the level gap penalty are the only modifiers left.
+	 * @param attackerLevel : The level the rewards are computed for.
+	 * @return An array holding the XP and the SP such a killer is given.
+	 */
+	public long[] getExpSpFor(int attackerLevel)
+	{
+		final int[] expSp = calculateExpAndSp(attackerLevel - getStatus().getLevel(), 1., 1.);
+		
+		long exp = expSp[0];
+		long sp = expSp[1];
+		
+		// Champion mobs give more XP/SP.
+		if (isChampion())
+		{
+			exp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+			sp *= Config.CHAMPION_MOBS_XPSP_MULTIPLIER;
+		}
+		
+		return new long[]
+		{
+			exp,
+			sp
+		};
+	}
+	
 	public OverhitState getOverhitState()
 	{
 		return _overhitState;
@@ -545,7 +610,7 @@ public class Monster extends Attackable
 				continue;
 			
 			// Calculate drops of this category.
-			final Map<Integer, Integer> drops = category.calculateDrop(levelMultiplier, isRaid);
+			final Map<Integer, Integer> drops = category.calculateDrop(levelMultiplier, isRaid, getChampionRateMultiplier(type));
 			for (Entry<Integer, Integer> drop : drops.entrySet())
 			{
 				if (type == DropType.SPOIL)

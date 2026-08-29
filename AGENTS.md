@@ -99,7 +99,13 @@ ant -f source\aCis_gameserver\build.xml
 - **Дроп-лист виден игроку по shift+click** по монстру или РБ, если это включено в
   `config/mods/droplist.properties` (там же id навыка, который открывает
   окно). Внешний вид — `data/xml/droplist.xml`, устройство —
-  `docs/droplist-window.md`.
+  `docs/droplist-window.md`. На первой странице — шапка с HP монстра и опытом/SP
+  за убийство.
+- **У чемпионов свои рейты дропа и спойла** — `ChampionMobsDropMultiplier` и
+  `ChampionMobsSpoilMultiplier` в `config/mods/championmobs.properties` (по
+  умолчанию x2), домножаются к серверным рейтам. Множитель живёт в
+  `Monster.getChampionRateMultiplier` и берётся оттуда и движком дропа, и окном
+  дроп-листа — так shift+click по чемпиону показывает его реальные шансы.
 - **Иконки предметов лежат в датапаке** (`data/xml/itemIcons.xml`), потому что
   Interlude держит их только на клиенте. Выгружаются из клиентских `*grp.dat`
   скриптом `tools/icons/grp_to_icons.ps1`, устройство — `docs/item-icons.md`.

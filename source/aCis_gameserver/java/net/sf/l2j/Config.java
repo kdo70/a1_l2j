@@ -82,6 +82,8 @@ public final class Config
 	public static double CHAMPION_MOBS_MDEF_MULTIPLIER;
 	public static int CHAMPION_MOBS_XPSP_MULTIPLIER;
 	public static double CHAMPION_MOBS_ADENA_MULTIPLIER;
+	public static double CHAMPION_MOBS_DROP_MULTIPLIER;
+	public static double CHAMPION_MOBS_SPOIL_MULTIPLIER;
 	public static int CHAMPION_MOBS_REWARD_ITEM_ID;
 	public static int CHAMPION_MOBS_REWARD_ITEM_QTY;
 	public static int CHAMPION_MOBS_REWARD_CHANCE;
@@ -202,6 +204,7 @@ public final class Config
 	public static int DROPLIST_SKILL_ID;
 	public static int DROPLIST_ROWS_PER_PAGE;
 	public static boolean DROPLIST_SHOW_SPOIL;
+	public static boolean DROPLIST_SHOW_HEADER;
 	public static boolean DROPLIST_APPLY_RATES;
 	public static boolean DROPLIST_APPLY_LEVEL_PENALTY;
 
@@ -780,6 +783,8 @@ public final class Config
 		
 		CHAMPION_MOBS_XPSP_MULTIPLIER = championMobs.getProperty("ChampionMobsXpSpMultiplier", 1);
 		CHAMPION_MOBS_ADENA_MULTIPLIER = championMobs.getProperty("ChampionMobsAdenaMultiplier", 1.);
+		CHAMPION_MOBS_DROP_MULTIPLIER = Math.max(0., championMobs.getProperty("ChampionMobsDropMultiplier", 2.));
+		CHAMPION_MOBS_SPOIL_MULTIPLIER = Math.max(0., championMobs.getProperty("ChampionMobsSpoilMultiplier", 2.));
 		
 		CHAMPION_MOBS_REWARD_ITEM_ID = championMobs.getProperty("ChampionMobsRewardItemId", 0);
 		CHAMPION_MOBS_REWARD_ITEM_QTY = championMobs.getProperty("ChampionMobsRewardItemQty", 1);
@@ -923,6 +928,7 @@ public final class Config
 		DROPLIST_SKILL_ID = Math.max(0, droplist.getProperty("DropListSkillId", 0));
 		DROPLIST_ROWS_PER_PAGE = Math.max(1, droplist.getProperty("DropListRowsPerPage", 9));
 		DROPLIST_SHOW_SPOIL = droplist.getProperty("DropListShowSpoil", true);
+		DROPLIST_SHOW_HEADER = droplist.getProperty("DropListShowHeader", true);
 		DROPLIST_APPLY_RATES = droplist.getProperty("DropListApplyRates", true);
 		DROPLIST_APPLY_LEVEL_PENALTY = droplist.getProperty("DropListApplyLevelPenalty", true);
 	}

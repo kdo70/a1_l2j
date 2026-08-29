@@ -34,6 +34,9 @@ public class DropListData implements IXmlReader
 	private String _ellipsis;
 	private String _separator;
 
+	private int _headerHeight;
+	private int _headerLabelWidth;
+
 	private int _iconWidth;
 	private int _nameWidth;
 	private int _chanceWidth;
@@ -44,6 +47,8 @@ public class DropListData implements IXmlReader
 	private String _rowColor;
 	private String _altRowColor;
 	private String _groupTextColor;
+	private String _headerTextColor;
+	private String _headerValueColor;
 	private String _nameColor;
 	private String _countColor;
 	private String _highChanceColor;
@@ -55,6 +60,9 @@ public class DropListData implements IXmlReader
 
 	private String _dropLabel;
 	private String _spoilLabel;
+	private String _hpLabel;
+	private String _expLabel;
+	private String _spLabel;
 	private String _numberPrefix;
 	private String _countPrefix;
 	private String _countRange;
@@ -109,6 +117,9 @@ public class DropListData implements IXmlReader
 				_ellipsis = parseString(attrs, "ellipsis", _ellipsis);
 				_separator = parseToken(attrs, "separator", _separator);
 
+				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
+				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
+
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
 				_chanceWidth = Math.max(1, parseInt(attrs, "chanceWidth", _chanceWidth));
@@ -128,6 +139,8 @@ public class DropListData implements IXmlReader
 				_rowColor = parseToken(attrs, "row", _rowColor);
 				_altRowColor = parseToken(attrs, "altRow", _altRowColor);
 				_groupTextColor = parseToken(attrs, "groupText", _groupTextColor);
+				_headerTextColor = parseToken(attrs, "headerText", _headerTextColor);
+				_headerValueColor = parseToken(attrs, "headerValue", _headerValueColor);
 				_nameColor = parseToken(attrs, "name", _nameColor);
 				_countColor = parseToken(attrs, "count", _countColor);
 				_highChanceColor = parseToken(attrs, "highChance", _highChanceColor);
@@ -144,6 +157,9 @@ public class DropListData implements IXmlReader
 
 				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
+				_hpLabel = parseString(attrs, "hp", _hpLabel);
+				_expLabel = parseString(attrs, "exp", _expLabel);
+				_spLabel = parseString(attrs, "sp", _spLabel);
 				_numberPrefix = parseString(attrs, "numberPrefix", _numberPrefix);
 				_countPrefix = parseString(attrs, "countPrefix", _countPrefix);
 				_countRange = parseString(attrs, "countRange", _countRange);
@@ -174,6 +190,9 @@ public class DropListData implements IXmlReader
 		_ellipsis = "...";
 		_separator = "L2UI.SquareGray";
 
+		_headerHeight = 16;
+		_headerLabelWidth = 90;
+
 		_iconWidth = 36;
 		_nameWidth = 190;
 		_chanceWidth = 54;
@@ -190,6 +209,8 @@ public class DropListData implements IXmlReader
 		_rowColor = "000000";
 		_altRowColor = "";
 		_groupTextColor = "LEVEL";
+		_headerTextColor = "LEVEL";
+		_headerValueColor = "";
 		_nameColor = "";
 		_countColor = "B09878";
 		_highChanceColor = "90EE90";
@@ -204,6 +225,9 @@ public class DropListData implements IXmlReader
 	{
 		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
+		_hpLabel = "HP";
+		_expLabel = "EXP";
+		_spLabel = "SP";
 		_numberPrefix = " #";
 		_countPrefix = "x";
 		_countRange = "-";
@@ -329,6 +353,22 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
+	 * @return The height, in pixels, of a single line of the header of the first page.
+	 */
+	public int getHeaderHeight()
+	{
+		return _headerHeight;
+	}
+
+	/**
+	 * @return The width, in pixels, of the caption column of the header of the first page - its value column takes whatever is left of the layout width.
+	 */
+	public int getHeaderLabelWidth()
+	{
+		return _headerLabelWidth;
+	}
+
+	/**
 	 * @return The size, in pixels, the item icons are drawn at.
 	 */
 	public int getIconSize()
@@ -436,6 +476,22 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
+	 * @return The color of the captions of the header of the first page.
+	 */
+	public String getHeaderTextColor()
+	{
+		return _headerTextColor;
+	}
+
+	/**
+	 * @return The color of the values of the header of the first page ; empty keeps the client default.
+	 */
+	public String getHeaderValueColor()
+	{
+		return _headerValueColor;
+	}
+
+	/**
 	 * @return The color of the item names ; empty keeps the client default.
 	 */
 	public String getNameColor()
@@ -464,6 +520,30 @@ public class DropListData implements IXmlReader
 	public String getActivePageColor()
 	{
 		return _activePageColor;
+	}
+
+	/**
+	 * @return The caption of the line telling how much HP has to be dealt to kill the monster.
+	 */
+	public String getHpLabel()
+	{
+		return _hpLabel;
+	}
+
+	/**
+	 * @return The caption of the line telling the XP the kill is worth.
+	 */
+	public String getExpLabel()
+	{
+		return _expLabel;
+	}
+
+	/**
+	 * @return The caption of the line telling the SP the kill is worth.
+	 */
+	public String getSpLabel()
+	{
+		return _spLabel;
 	}
 
 	/**

@@ -43,16 +43,17 @@ public class DropCategory extends ArrayList<DropData>
 	 * Calculates drops of this {@link DropCategory}.
 	 * @param levelMultiplier : The input level modifier of the last attacker.
 	 * @param raid : The NPC is raid boss.
+	 * @param rateMultiplier : An extra multiplier applied on the Config rate, 1 leaving it alone. A champion monster feeds its own drop or spoil multiplier in.
 	 * @return The list of {@link IntIntHolder} holding item ID and item count.
 	 */
-	public Map<Integer, Integer> calculateDrop(double levelMultiplier, boolean raid)
+	public Map<Integer, Integer> calculateDrop(double levelMultiplier, boolean raid, double rateMultiplier)
 	{
 		// If base chance or multiplier is 0, return directly.
 		if (_chance == 0. || levelMultiplier == 0.)
 			return Collections.emptyMap();
 		
 		// Retrieve the Config rate. If rate is 0, return directly.
-		final double rate = getDropType().getDropRate(raid);
+		final double rate = getDropType().getDropRate(raid) * rateMultiplier;
 		if (rate == 0.)
 			return Collections.emptyMap();
 		
