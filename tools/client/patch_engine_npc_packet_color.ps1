@@ -10,21 +10,27 @@
 # on its own.
 #
 # How the colour travels : the server appends one dword, 0xC0RRGGBB, to the very
-# end of NpcInfo, and only for the NPCs that have a colour. The client's parser
-# reads a packet through a format string ("ddddddddddddddddddffffdddcccccSSddd"
-# and then "dddddccffdd" for NpcInfo) and bounds-checks every field against the
-# end of the packet, so the four extra bytes are simply never read by a stock
-# client - it keeps working, it just shows white names.
+# end of NpcInfo, and only for the NPCs that have a colour. The client parses a
+# packet through format strings ("ddddddddddddddddddffffdddcccccSSddd" and then
+# "dddddccffdd" for NpcInfo) and bounds-checks every field against the end of the
+# packet, so the four extra bytes are never read by a stock client - it keeps
+# working, it just shows white names.
 #
-# The patched client reads them where the packet ends. The tag byte 0xC0 is what
-# tells a colour from the last dword of an untouched packet, which is isFlying,
-# 0 or 1 - so a patched client talking to a server that sends nothing also keeps
-# working.
+# The patched client reads them **from the cursor the parser returns**, which
+# points at the first byte it did not parse - that is exactly our dword. Reading
+# from the end of the packet instead does not work : whatever [reader+4EF8h]
+# counts, it is not the last payload byte, and the tag never matched.
 #
-# The patch is 10 bytes in place - three instructions of the NpcInfo handler
-# moved into a cave - plus ~50 bytes in the 0xCC padding behind that handler.
-# Like the other one it holds no absolute addresses, so it needs no .reloc entry
-# and no section flag.
+# Two cuts, both into the 0xCC padding behind the NpcInfo handler:
+#
+#   - right after the second parse call, where the cursor is still in eax and the
+#     packet reader is still the first argument on the stack. It checks that at
+#     least four bytes are left, reads them, and parks the value in the cave.
+#   - where the handler starts filling the User, esi being the User. It picks the
+#     value back up, checks the tag and writes User::UniqueNameColor.
+#
+# The value is parked in the cave itself, addressed off a call/pop, so the patch
+# still holds no absolute address and needs no .reloc entry.
 #
 # See ../../docs/npc-name-colors.md.
 #
@@ -35,34 +41,67 @@
 param(
 	[Parameter(Mandatory = $true)][string] $In,
 	[string] $OutFile,
-	[switch] $NoBackup
+	# Diagnostics. Normally an NPC the server said nothing about gets -1, "no colour",
+	# and falls through to whatever patch_engine_npc_name_color.ps1 gives it. Pass an
+	# RRGGBB here and it gets that colour instead, which answers in one relog whether
+	# the second cut runs at all and whether User+308h is the right field:
+	#
+	#   every NPC turns that colour  -> the cut runs, the field is right, the tag never matched
+	#   nothing changes              -> the cut never runs, or the field is wrong
+	[string] $Diagnose,
+	# Second half of the same trick, one level up: this colour is parked when the
+	# packet had fewer than four bytes left, i.e. when the server appended nothing.
+	# Tagged, so it comes out of the check as a real colour. With both set, one relog
+	# separates the three cases that otherwise all look the same:
+	#
+	#   every NPC in -DiagnoseEmpty  -> nothing was appended : the server side
+	#   every NPC in -Diagnose       -> bytes were read, but not ours : the cursor
+	#   the coloured NPC is coloured -> it works
+	[string] $DiagnoseEmpty,
+	# Third and bluntest: drop the tag check and paint the name with whatever dword
+	# was read, so the bytes themselves become visible. The colour is the low three
+	# bytes of it, so an NPC the server sent 0xC0FF3030 for comes out red.
+	#
+	#   the coloured NPC is its colour -> the read is right, only the tag check is not
+	#   white                          -> fewer than four bytes were there : the server
+	#   anything else                  -> the cursor points somewhere else
+	[switch] $DiagnoseRaw
 )
 
 $ErrorActionPreference = 'Stop'
 
 # ---------------------------------------------------------------- known file --
 # File offsets into the Interlude engine.dll this patch was written against.
-# .code is mapped at RVA = fileOffset + 0xC00.
-#
-# The NpcInfo handler of UNetworkHandler starts at 0x139870. It parses the
-# packet with two calls to the format parser, looks the User up by object id,
-# and from 0x139B3E on copies the parsed fields into it. That is where this
-# patch cuts in: esi is the User, ebp still the frame pointer.
-$OFF_SITE  = 0x139B3E   # mov [esi+8],edi / mov edx,[esp+50h] / mov [esi+0Ch],edx
-$LEN_SITE  = 10
-$OFF_CONT  = 0x139B48   # ... and where they fall through to
-$OFF_CAVE  = 0x13A710   # 0xCC padding behind the handler (934 bytes of it)
-$LEN_CAVE  = 0x80       # only this much is claimed
+# .code is mapped at RVA = fileOffset + 0xC00. The NpcInfo handler of
+# UNetworkHandler starts at 0x139870.
+$OFF_READ     = 0x139A8F   # "add esp,0D8h", right after the second parse call
+$LEN_READ     = 6
+$OFF_READ_RET = 0x139A95   # ... and where it falls through to
 
-# From "mov esi,[eax+4]" - where the User lands - through the three instructions
-# being moved and the one after them. Refuses to touch anything else.
-$SIG_AT   = 0x139B37
-$SIG      = '8B7004EB0233F6897E088B54245089560C899E94000000'
+# The handler fills the User from two places - one per way it got hold of it -
+# and both carry the same three instructions. Both have to be cut, or the NPCs
+# that come down the other one are missed, which is exactly what happened first.
+$OFF_FILL      = 0x139B3E  # mov [esi+8],edi / mov edx,[esp+50h] / mov [esi+0Ch],edx
+$LEN_FILL      = 10
+$OFF_FILL_RET  = 0x139B48  # ... and where they fall through to
+
+$OFF_FILL2     = 0x13A02F  # the same three instructions on the other path
+$LEN_FILL2     = 10
+$OFF_FILL2_RET = 0x13A039
+
+$OFF_CAVE     = 0x13A710   # 0xCC padding behind the handler (934 bytes of it)
+$LEN_CAVE     = 0xE0
+
+# Both cut sites, byte for byte. Refuses to touch anything else.
+$SIG_READ_AT = 0x139A84
+$SIG_READ    = 'E85C8EECFF8B3538F5B11081C4D80000003BF3'      # call / mov esi,[..] / add esp / cmp
+$SIG_FILL_AT = 0x139B37
+$SIG_FILL    = '8B7004EB0233F6897E088B54245089560C899E94000000'
+$SIG_FILL2_AT = 0x13A022
+$SIG_FILL2    = '8BF0EB0233F68B4C2418894E18897E088B54245089560C89'
 
 $FLD_UNIQUECOLOR = 0x308    # User::GetUniqueNameColor returns exactly this
-$OFF_HANDLER_ARG = 0x08     # [ebp+8], the object whose +0x48 is the packet reader
-$FLD_READER      = 0x48
-$FLD_PACKET_END  = 0x4EF8   # the parser bounds-checks every field against this
+$FLD_PACKET_END  = 0x4EF8   # what the parser bounds-checks every field against
 $TAG             = 0xC0     # top byte of the appended dword
 
 # ------------------------------------------------------------------ helpers --
@@ -72,19 +111,24 @@ function Get-Hex([byte[]] $bytes, [int] $at, [int] $len)
 }
 
 $code = New-Object System.Collections.ArrayList
+$shortFixups = @()
 function Emit([byte[]] $v) { [void]$code.AddRange($v) }
 function EmitU32([uint32] $v) { [void]$code.AddRange([BitConverter]::GetBytes($v)) }
+function EmitI32([int] $v) { [void]$code.AddRange([BitConverter]::GetBytes($v)) }
 
 # ------------------------------------------------------------------- checks --
 if (!(Test-Path $In)) { throw "No such file: $In" }
 $bytes = [System.IO.File]::ReadAllBytes($In)
 
-$found = Get-Hex $bytes $SIG_AT ($SIG.Length / 2)
-if ($found -ne $SIG)
+foreach ($s in @(@($SIG_READ_AT, $SIG_READ, 'the parse tail'), @($SIG_FILL_AT, $SIG_FILL, 'the first User fill'), @($SIG_FILL2_AT, $SIG_FILL2, 'the second User fill')))
 {
-	Write-Host "expected : $SIG"
-	Write-Host "found    : $found"
-	throw "The NpcInfo handler does not look like the build this patch was written for. Nothing changed."
+	$found = Get-Hex $bytes $s[0] ($s[1].Length / 2)
+	if ($found -ne $s[1])
+	{
+		Write-Host "expected : $($s[1])"
+		Write-Host "found    : $found"
+		throw "$($s[2]) of the NpcInfo handler does not look like the build this patch was written for. Nothing changed."
+	}
 }
 
 foreach ($i in 0..($LEN_CAVE - 1))
@@ -96,69 +140,175 @@ foreach ($i in 0..($LEN_CAVE - 1))
 }
 
 # --------------------------------------------------------------------- code --
-# On entry esi is the User and ebp the frame pointer, both of which the moved
-# instructions already rely on. eax and edx are scratch here: the stock code
-# reloads edx right away and eax is dead until the next call.
+$OPAQUE = [Convert]::ToUInt32('FF000000', 16)   # 0xFF000000 is a negative Int32 to PowerShell
 
-# --- the three instructions being moved out of the way -----------------------
-Emit @(0x89, 0x7E, 0x08)                    # mov [esi+8],edi
-Emit @(0x8B, 0x54, 0x24, 0x50)              # mov edx,[esp+50h]
-Emit @(0x89, 0x56, 0x0C)                    # mov [esi+0Ch],edx
+# What an NPC without a colour from the server gets. -1 hands it back to the stock
+# path (and to the other patch) ; a diagnostic colour paints every such NPC instead.
+$noColor = [Convert]::ToUInt32('FFFFFFFF', 16)
+if ($Diagnose)
+{
+	$t = $Diagnose -replace '^0[xX]', ''
+	if ($t -notmatch '^[0-9a-fA-F]{6}$') { throw "-Diagnose wants RRGGBB, got '$Diagnose'." }
+	$noColor = $OPAQUE -bor [Convert]::ToUInt32($t, 16)
+	Write-Host "DIAGNOSTIC BUILD : every NPC the server sends no colour for is painted $t."
+}
 
-# --- the last dword of the packet --------------------------------------------
-Emit @(0x8B, 0x45, [byte]$OFF_HANDLER_ARG)  # mov eax,[ebp+8]
-Emit @(0x8B, 0x40, [byte]$FLD_READER)       # mov eax,[eax+48h]        ; the reader
-Emit @(0x8B, 0x80)                          # mov eax,[eax+4EF8h]      ; end of packet
+# What gets parked when the packet held nothing extra. -1 means "no colour" and is
+# what the tag check turns into the fallback above ; a diagnostic value is tagged,
+# so it comes out as a colour of its own and tells the two cases apart.
+$emptyValue = [Convert]::ToUInt32('FFFFFFFF', 16)
+if ($DiagnoseEmpty)
+{
+	$t = $DiagnoseEmpty -replace '^0[xX]', ''
+	if ($t -notmatch '^[0-9a-fA-F]{6}$') { throw "-DiagnoseEmpty wants RRGGBB, got '$DiagnoseEmpty'." }
+	$emptyValue = ([uint32]$TAG -shl 24) -bor [Convert]::ToUInt32($t, 16)
+	Write-Host "DIAGNOSTIC BUILD : an NpcInfo with nothing appended is painted $t."
+}
+
+# ============================== cave 1 : read ================================
+# Entry: eax = the cursor the parser returned, [esp] = its first argument, the
+# packet reader, because the arguments of both calls are still on the stack.
+# edx is dead here - the stock code reloads it before its next use.
+$cave1 = 0
+
+Emit @(0x8B, 0x14, 0x24)                    # mov edx,[esp]            ; the reader
+Emit @(0x8B, 0x92)                          # mov edx,[edx+4EF8h]      ; end of packet
 EmitU32 ([uint32]$FLD_PACKET_END)
-Emit @(0x8B, 0x40, 0xFC)                    # mov eax,[eax-4]
+Emit @(0x2B, 0xD0)                          # sub edx,eax              ; bytes left
+Emit @(0x83, 0xFA, 0x04)                    # cmp edx,4
+$jbAt = $code.Count
+Emit @(0x72, 0x00)                          # jb none                  ; nothing appended
+Emit @(0x8B, 0x00)                          # mov eax,[eax]            ; the appended dword
+$jmpParkAt = $code.Count
+Emit @(0xEB, 0x00)                          # jmp park
 
-# --- tagged ? -----------------------------------------------------------------
-Emit @(0x8B, 0xD0)                          # mov edx,eax
-Emit @(0xC1, 0xEA, 0x18)                    # shr edx,18h
-Emit @(0x83, 0xFA, [byte]$TAG)              # cmp edx,0C0h
-$jeAt = $code.Count
-Emit @(0x74, 0x00)                          # je tagged
-Emit @(0xB8, 0xFF, 0xFF, 0xFF, 0xFF)        # mov eax,-1               ; "no colour"
-$jmpStoreAt = $code.Count
-Emit @(0xEB, 0x00)                          # jmp store
+$labelNone = $code.Count
+Emit @(0xB8)                                # mov eax,<nothing appended>
+EmitU32 $emptyValue
 
-$labelTagged = $code.Count
-Emit @(0x25)                                # and eax,00FFFFFFh
-EmitU32 ([uint32]0x00FFFFFF)
-Emit @(0x0D)                                # or eax,FF000000h         ; opaque
-EmitU32 ([Convert]::ToUInt32('FF000000', 16))
+$labelPark = $code.Count
+Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)        # call $+5                 \ position independent
+$parkOrigin = $code.Count                   # "call $+5" pushed the address of the pop below,
+Emit @(0x5A)                                # pop edx                  / so that is what edx holds
+$parkFixup = $code.Count
+Emit @(0x89, 0x82)                          # mov [edx+<slot>],eax
+EmitU32 0
 
-$labelStore = $code.Count
-Emit @(0x89, 0x86)                          # mov [esi+308h],eax
-EmitU32 ([uint32]$FLD_UNIQUECOLOR)
-
-$jmpBackAt = $code.Count
+Emit @(0x81, 0xC4)                          # add esp,0D8h             ; the displaced instruction
+EmitU32 ([uint32]0xD8)
+$jmpBack1At = $code.Count
 Emit @(0xE9, 0, 0, 0, 0)                    # jmp <back>
 
-if ($code.Count -gt $LEN_CAVE) { throw "The code is $($code.Count) bytes, only $LEN_CAVE claimed." }
+# ============================ caves 2, 3 : store =============================
+# Entry: esi is the User, and the three instructions moved out of the way go
+# first so the stock code is unchanged from here on.
+#
+# There are TWO of these, because the handler has two near identical paths that
+# fill the User - one per way it got hold of it - and they carry the very same
+# three instructions. Patching only the first one does nothing at all: NPCs in a
+# town go down the second.
+$stores = @()
+$picks = @()
+$jmpBacks = @()
 
+foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
+{
+	$stores += $code.Count
+
+	Emit @(0x89, 0x7E, 0x08)                # mov [esi+8],edi
+	Emit @(0x8B, 0x54, 0x24, 0x50)          # mov edx,[esp+50h]
+	Emit @(0x89, 0x56, 0x0C)                # mov [esi+0Ch],edx
+
+	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
+	$picks += @{ Origin = $code.Count }
+	Emit @(0x58)                            # pop eax
+	$picks[-1].Fixup = $code.Count
+	Emit @(0x8B, 0x80)                      # mov eax,[eax+<slot>]
+	EmitU32 0
+
+	if (!$DiagnoseRaw)
+	{
+		Emit @(0x8B, 0xD0)                  # mov edx,eax
+		Emit @(0xC1, 0xEA, 0x18)            # shr edx,18h
+		# imm32, NOT the short "83 /7 ib" form : that one sign-extends, and 0C0h
+		# would be compared as 0FFFFFFC0h, which never matches. Cost a full round of
+		# diagnostics.
+		Emit @(0x81, 0xFA)                  # cmp edx,0C0h
+		EmitU32 ([uint32]$TAG)
+		$jeAt = $code.Count
+		Emit @(0x74, 0x00)                  # je tagged
+		Emit @(0xB8)                        # mov eax,<"no colour", or the diagnostic colour>
+		EmitU32 $noColor
+		$jmpStoreAt = $code.Count
+		Emit @(0xEB, 0x00)                  # jmp store
+
+		$labelTagged = $code.Count
+		$shortFixups += @{ At = $jeAt; To = $labelTagged }
+	}
+
+	Emit @(0x25)                            # and eax,00FFFFFFh
+	EmitU32 ([uint32]0x00FFFFFF)
+	Emit @(0x0D)                            # or eax,FF000000h         ; opaque
+	EmitU32 $OPAQUE
+
+	$labelStore = $code.Count
+	if (!$DiagnoseRaw) { $shortFixups += @{ At = $jmpStoreAt; To = $labelStore } }
+	Emit @(0x89, 0x86)                      # mov [esi+308h],eax
+	EmitU32 ([uint32]$FLD_UNIQUECOLOR)
+	$jmpBacks += @{ At = $code.Count; Ret = $ret }
+	Emit @(0xE9, 0, 0, 0, 0)                # jmp <back>
+}
+
+# ============================== the parked value =============================
+while ($code.Count % 4 -ne 0) { Emit @(0x90) }
+$slot = $code.Count
+EmitU32 ([Convert]::ToUInt32('FFFFFFFF', 16))
+
+if ($code.Count -gt $LEN_CAVE) { throw "The code is $($code.Count) bytes, only $LEN_CAVE claimed." }
 $blob = [byte[]]$code.ToArray()
 
-$d = $labelTagged - ($jeAt + 2)
-if ($d -lt 0 -or $d -gt 127) { throw "je out of reach ($d)." }
-$blob[$jeAt + 1] = [byte]$d
+# ------------------------------------------------------------------ fixups --
+function FixShort([int] $at, [int] $target)
+{
+	$d = $target - ($at + 2)
+	if ($d -lt -128 -or $d -gt 127) { throw "short branch at $at out of reach ($d)." }
+	$blob[$at + 1] = [byte]($d -band 0xFF)
+}
+function FixRel32([int] $at, [int] $targetFileOff)
+{
+	$rel = $targetFileOff - ($OFF_CAVE + $at + 5)
+	[Array]::Copy([BitConverter]::GetBytes([int]$rel), 0, $blob, $at + 1, 4)
+}
 
-$d = $labelStore - ($jmpStoreAt + 2)
-if ($d -lt 0 -or $d -gt 127) { throw "jmp out of reach ($d)." }
-$blob[$jmpStoreAt + 1] = [byte]$d
+FixShort $jbAt $labelNone
+FixShort $jmpParkAt $labelPark
+foreach ($f in $shortFixups) { FixShort $f.At $f.To }
+FixRel32 $jmpBack1At $OFF_READ_RET
+foreach ($j in $jmpBacks) { FixRel32 $j.At $j.Ret }
 
-$rel = $OFF_CONT - ($OFF_CAVE + $jmpBackAt + 5)
-[Array]::Copy([BitConverter]::GetBytes([int]$rel), 0, $blob, $jmpBackAt + 1, 4)
+# the parked dword, addressed off whatever call/pop left in the register
+[Array]::Copy([BitConverter]::GetBytes([int]($slot - $parkOrigin)), 0, $blob, $parkFixup + 2, 4)
+foreach ($p in $picks) { [Array]::Copy([BitConverter]::GetBytes([int]($slot - $p.Origin)), 0, $blob, $p.Fixup + 2, 4) }
 
-# --- and the jump out to it ---------------------------------------------------
-$site = New-Object byte[] $LEN_SITE
-$site[0] = 0xE9
-[Array]::Copy([BitConverter]::GetBytes([int]($OFF_CAVE - ($OFF_SITE + 5))), 0, $site, 1, 4)
-for ($i = 5; $i -lt $LEN_SITE; $i++) { $site[$i] = 0x90 }
+# ------------------------------------------------------------ the two jumps --
+function Site([int] $len, [int] $from, [int] $to)
+{
+	$s = New-Object byte[] $len
+	$s[0] = 0xE9
+	[Array]::Copy([BitConverter]::GetBytes([int]($to - ($from + 5))), 0, $s, 1, 4)
+	for ($i = 5; $i -lt $len; $i++) { $s[$i] = 0x90 }
+	return $s
+}
+
+$siteRead = Site $LEN_READ $OFF_READ ($OFF_CAVE + $cave1)
+$siteFill = Site $LEN_FILL $OFF_FILL ($OFF_CAVE + $stores[0])
+$siteFill2 = Site $LEN_FILL2 $OFF_FILL2 ($OFF_CAVE + $stores[1])
 
 # -------------------------------------------------------------------- write --
 [Array]::Copy($blob, 0, $bytes, $OFF_CAVE, $blob.Length)
-[Array]::Copy($site, 0, $bytes, $OFF_SITE, $site.Length)
+[Array]::Copy($siteRead, 0, $bytes, $OFF_READ, $siteRead.Length)
+[Array]::Copy($siteFill, 0, $bytes, $OFF_FILL, $siteFill.Length)
+[Array]::Copy($siteFill2, 0, $bytes, $OFF_FILL2, $siteFill2.Length)
 
 if ($OutFile)
 {
@@ -177,5 +327,7 @@ else
 	Write-Host "Patched $In."
 }
 
-Write-Host ("  site : 0x{0:X} .. 0x{1:X} -> jmp 0x{2:X}" -f $OFF_SITE, ($OFF_SITE + $LEN_SITE - 1), $OFF_CAVE)
-Write-Host ("  cave : 0x{0:X} .. 0x{1:X}, {2} bytes" -f $OFF_CAVE, ($OFF_CAVE + $blob.Length - 1), $blob.Length)
+Write-Host ("  read  : 0x{0:X} -> cave+0x{1:X}" -f $OFF_READ, $cave1)
+Write-Host ("  fill  : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL, $stores[0])
+Write-Host ("  fill2 : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL2, $stores[1])
+Write-Host ("  cave  : 0x{0:X} .. 0x{1:X}, {2} of {3} bytes, parked value at +0x{4:X}" -f $OFF_CAVE, ($OFF_CAVE + $blob.Length - 1), $blob.Length, $LEN_CAVE, $slot)

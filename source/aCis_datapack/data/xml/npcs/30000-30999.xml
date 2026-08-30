@@ -252,6 +252,7 @@
 	</npc>
 	<npc id="30006" name="Roxxy" title="Gatekeeper" alias="rapunzel">
 		<set name="type" val="Gatekeeper"/>
+		<set name="nameColor" val="FFD700"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="25.0"/>

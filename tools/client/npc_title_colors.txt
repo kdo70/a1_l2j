@@ -1,16 +1,23 @@
 # Colors of the title an NPC carries above its head, applied to the client's
-# npcname-e.dat by npc_title_colors.ps1.
+# npcname-e.dat by npc_title_colors.ps1. With patch_engine_npc_name_color.ps1 in
+# the client, the name takes the same color.
 #
 #   <npcId> <RRGGBB>
 #
-# The stock client only ever uses three of them :
+# The stock client only ever uses three of them, and those three are the ones the
+# engine patch treats as "not a color anybody chose", so they cannot be used here :
 #
 #   A9E89C   everything - the pale green a title is normally drawn in
 #   FE8B3F   "Raid Boss" / "Raid Fighter"
 #   FF8000   "Quest Monster"
+#   FFFF77   not in the file, but reserved too - the title color aCis sends a player
 #
-# The text itself is not set here : it comes from npcname-e.dat, or from the
-# server when the npc XML carries usingServerSideTitle. Only the color is.
-# See ../../docs/npc-title-colors.md.
+# Anything else is fair game. A color the SERVER sends for an NPC wins over the one
+# set here, so this file is for the colors that belong to an npc id rather than to a
+# spawned NPC - see docs/npc-name-colors.md.
+#
+# The text itself is not set here : it comes from npcname-e.dat, or from the server
+# when ServerSideNpcName / ServerSideNpcTitle is on, or when the npc XML carries
+# usingServerSideName / usingServerSideTitle. Only the color is.
 
-30006	FFD700		# Roxxy, Gludio gatekeeper - gold
+# (nothing - Roxxy's gold moved to data/xml/npcs, where the server sends it)

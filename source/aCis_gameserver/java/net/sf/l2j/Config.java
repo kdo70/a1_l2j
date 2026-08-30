@@ -331,6 +331,8 @@ public final class Config
 	public static boolean SHOW_NPC_LVL;
 	public static boolean SHOW_NPC_CREST;
 	public static boolean SHOW_SUMMON_CREST;
+	public static boolean SERVER_SIDE_NPC_NAME;
+	public static boolean SERVER_SIDE_NPC_TITLE;
 	
 	/** AI */
 	public static boolean GUARD_ATTACK_AGGRO_MOB;
@@ -1208,6 +1210,8 @@ public final class Config
 		SHOW_NPC_LVL = npcs.getProperty("ShowNpcLevel", false);
 		SHOW_NPC_CREST = npcs.getProperty("ShowNpcCrest", false);
 		SHOW_SUMMON_CREST = npcs.getProperty("ShowSummonCrest", false);
+		SERVER_SIDE_NPC_NAME = npcs.getProperty("ServerSideNpcName", false);
+		SERVER_SIDE_NPC_TITLE = npcs.getProperty("ServerSideNpcTitle", false);
 		
 		GUARD_ATTACK_AGGRO_MOB = npcs.getProperty("GuardAttackAggroMob", false);
 		MOB_AGGRO_IN_PEACEZONE = npcs.getProperty("MobAggroInPeaceZone", true);
