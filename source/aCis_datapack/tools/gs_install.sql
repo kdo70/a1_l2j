@@ -1,3 +1,10 @@
 DROP TABLE IF EXISTS castle;
 DROP TABLE IF EXISTS droplist;
 DROP TABLE IF EXISTS spawn_data;
+DROP TABLE IF EXISTS spawnlist_npc_privates;
+DROP TABLE IF EXISTS spawnlist_npc_params;
+DROP TABLE IF EXISTS spawnlist_npcs;
+DROP TABLE IF EXISTS spawnlist_maker_params;
+DROP TABLE IF EXISTS spawnlist_makers;
+DROP TABLE IF EXISTS spawnlist_territory_nodes;
+DROP TABLE IF EXISTS spawnlist_territories;

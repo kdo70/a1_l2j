@@ -177,7 +177,19 @@ public class AdminSpawn implements IAdminCommandHandler
 			{
 				final String cmd = st.nextToken();
 				final String idOrName = st.nextToken();
-				final int respawnTime = (st.hasMoreTokens()) ? Integer.parseInt(st.nextToken()) : 60;
+				
+				int respawnTime = 60;
+				boolean isTemporary = false;
+				
+				// Remaining parameters are the respawn delay and the "temp" flag, in any order.
+				while (st.hasMoreTokens())
+				{
+					final String token = st.nextToken();
+					if (token.equalsIgnoreCase("temp"))
+						isTemporary = true;
+					else
+						respawnTime = Integer.parseInt(token);
+				}
 				
 				final WorldObject targetWorldObject = getTarget(WorldObject.class, player, true);
 				
@@ -195,10 +207,20 @@ public class AdminSpawn implements IAdminCommandHandler
 					final Spawn spawn = new Spawn(template);
 					spawn.setLoc(targetWorldObject.getPosition());
 					spawn.setRespawnDelay(respawnTime);
-					spawn.doSpawn(false);
 					
-					player.sendMessage("You spawned " + template.getName() + ". - Cmd: " + cmd);
+					if (spawn.doSpawn(false) == null)
+					{
+						player.sendPacket(SystemMessageId.APPLICANT_INFORMATION_INCORRECT);
+						return;
+					}
 					
+					// A regular //spawn is stored in database and comes back on restart ; //spawn <id> temp doesn't.
+					if (isTemporary)
+						player.sendMessage("You spawned " + template.getName() + " until next restart. - Cmd: " + cmd);
+					else if (SpawnManager.getInstance().addCustomSpawn(spawn, player.getName()))
+						player.sendMessage("You spawned " + template.getName() + ", saved in database. - Cmd: " + cmd);
+					else
+						player.sendMessage("You spawned " + template.getName() + ", but it couldn't be saved in database. - Cmd: " + cmd);
 				}
 				catch (Exception e)
 				{
@@ -234,8 +256,12 @@ public class AdminSpawn implements IAdminCommandHandler
 			// Delete the Spawn entry.
 			SpawnManager.getInstance().deleteSpawn((Spawn) spawn);
 			
+			// Drop the database row aswell, if that Spawn was a stored //spawn.
+			final boolean wasStored = ((Spawn) spawn).getDbId() > 0;
+			SpawnManager.getInstance().deleteCustomSpawn((Spawn) spawn);
+			
 			// Send Player log.
-			player.sendMessage("You deleted " + targetNpc.getName() + ".");
+			player.sendMessage("You deleted " + targetNpc.getName() + (wasStored ? ", database entry included." : "."));
 		}
 	}
 	

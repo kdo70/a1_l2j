@@ -24,6 +24,9 @@ public final class Spawn extends ASpawn
 	private Npc _npc;
 	private boolean _disableTerritoryCheck;
 	
+	/** Row id in the "spawnlist_custom" table ; 0 for the script and quest spawns, which aren't persisted. */
+	private int _dbId;
+	
 	public Spawn(NpcTemplate template, boolean disableTerritoryCheck) throws SecurityException, ClassNotFoundException, NoSuchMethodException, InvalidClassException
 	{
 		super(template);
@@ -222,5 +225,22 @@ public final class Spawn extends ASpawn
 	public int getHeading()
 	{
 		return _loc.getHeading();
+	}
+	
+	/**
+	 * @return the "spawnlist_custom" row id backing this {@link Spawn}, 0 when it isn't persisted.
+	 */
+	public int getDbId()
+	{
+		return _dbId;
+	}
+	
+	/**
+	 * Sets the "spawnlist_custom" row id backing this {@link Spawn}. Only {@link net.sf.l2j.gameserver.data.manager.SpawnManager} is expected to call it ; a non-zero id makes {@code //delete} drop the database row aswell.
+	 * @param dbId : The row id, 0 to unlink.
+	 */
+	public void setDbId(int dbId)
+	{
+		_dbId = dbId;
 	}
 }

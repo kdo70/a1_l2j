@@ -1,21 +1,22 @@
 package net.sf.l2j.gameserver.data.manager;
 
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.sf.l2j.commons.data.StatSet;
-import net.sf.l2j.commons.data.xml.IXmlReader;
 import net.sf.l2j.commons.geometry.Triangle;
 import net.sf.l2j.commons.geometry.algorithm.Kong;
-import net.sf.l2j.commons.lang.StringUtil;
+import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.pool.ConnectionPool;
 
 import net.sf.l2j.Config;
@@ -36,26 +37,45 @@ import net.sf.l2j.gameserver.model.spawn.SpawnData;
 import net.sf.l2j.gameserver.model.spawn.Territory;
 import net.sf.l2j.gameserver.scripting.Quest;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-
 /**
  * Loads spawn list based on {@link Territory}s and {@link NpcMaker}s.<br>
  * Handles spawn/respawn/despawn of various {@link Npc} in the game using events.<br>
  * Locally stores individual {@link Spawn}s (e.g. quests, temporary spawned {@link Npc}s).<br>
- * Loads/stores {@link Npc}s' {@link SpawnData} to/from database.
+ * Loads/stores {@link Npc}s' {@link SpawnData} to/from database.<br>
+ * <br>
+ * The whole spawn list lives in the database, spread over six tables : "spawnlist_territories" and
+ * "spawnlist_territory_nodes" describe the polygons, "spawnlist_makers" and "spawnlist_maker_params" the spawn groups,
+ * "spawnlist_npcs" (with "spawnlist_npc_params" and "spawnlist_npc_privates") the spawns themselves. A seventh table,
+ * "spawnlist_custom", holds the {@link Spawn}s a GM created with //spawn ; those are the only individual {@link Spawn}s
+ * which survive a restart.
  */
-public class SpawnManager implements IXmlReader
+public class SpawnManager
 {
+	private static final CLogger LOGGER = new CLogger(SpawnManager.class.getName());
+	
 	private static final String LOAD_SPAWN_DATAS = "SELECT * FROM spawn_data ORDER BY name";
 	private static final String TRUNCATE_SPAWN_DATAS = "TRUNCATE spawn_data";
 	private static final String SAVE_SPAWN_DATAS = "INSERT INTO spawn_data (name, status, current_hp, current_mp, loc_x, loc_y, loc_z, heading, db_value, respawn_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	
+	private static final String LOAD_TERRITORIES = "SELECT name, min_z, max_z FROM spawnlist_territories";
+	private static final String LOAD_TERRITORY_NODES = "SELECT territory, x, y FROM spawnlist_territory_nodes ORDER BY territory, order_id";
+	private static final String LOAD_MAKERS = "SELECT name, territory, ban_territory, maximum_npcs, maker_type, event, spawn_time FROM spawnlist_makers WHERE enabled > 0 ORDER BY name";
+	private static final String LOAD_MAKER_PARAMS = "SELECT maker, name, val FROM spawnlist_maker_params";
+	private static final String LOAD_NPCS = "SELECT maker, order_id, npc_id, total, respawn, respawn_rand, pos, db_name FROM spawnlist_npcs WHERE enabled > 0 ORDER BY maker, order_id";
+	private static final String LOAD_NPC_PARAMS = "SELECT maker, npc_order, name, val FROM spawnlist_npc_params";
+	private static final String LOAD_NPC_PRIVATES = "SELECT maker, npc_order, npc_id, weight, respawn FROM spawnlist_npc_privates ORDER BY maker, npc_order, order_id";
+	
+	private static final String LOAD_CUSTOM_SPAWNS = "SELECT id, npc_id, loc_x, loc_y, loc_z, heading, respawn_delay, respawn_random FROM spawnlist_custom WHERE enabled > 0 ORDER BY id";
+	private static final String ADD_CUSTOM_SPAWN = "INSERT INTO spawnlist_custom (npc_id, loc_x, loc_y, loc_z, heading, respawn_delay, respawn_random, created_by, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String DELETE_CUSTOM_SPAWN = "DELETE FROM spawnlist_custom WHERE id = ?";
 	
 	private final Map<String, SpawnData> _spawnData = new ConcurrentHashMap<>();
 	
 	private final Set<Territory> _territories = ConcurrentHashMap.newKeySet();
 	private final Set<NpcMaker> _makers = ConcurrentHashMap.newKeySet();
 	private final Set<Spawn> _spawns = ConcurrentHashMap.newKeySet();
+	
+	private final List<Spawn> _customSpawns = new CopyOnWriteArrayList<>();
 	
 	private int _dynamicGroupId = 0;
 	
@@ -64,66 +84,165 @@ public class SpawnManager implements IXmlReader
 		load();
 	}
 	
-	@Override
 	public void load()
 	{
 		loadSpawnData();
 		LOGGER.info("Loaded {} spawn data.", _spawnData.size());
 		
-		parseFile("./data/xml/spawnlist/");
+		loadTerritories();
 		LOGGER.info("Loaded {} territories.", _territories.size());
+		
+		loadMakers();
 		LOGGER.info("Loaded {} NPC makers.", _makers.size());
+		
+		loadCustomSpawns();
+		LOGGER.info("Loaded {} custom spawns.", _customSpawns.size());
 	}
 	
-	@Override
-	public void parseDocument(Document doc, Path path)
+	/**
+	 * Load all {@link Territory}s from database. Nodes are read first and grouped by {@link Territory} name, hence the ORDER BY : the order of nodes is the order the polygon is walked, and triangulation depends on it.
+	 */
+	private void loadTerritories()
 	{
-		final List<Point2D> coords = new ArrayList<>();
-		forEach(doc, "list", listNode ->
+		final Map<String, List<Point2D>> nodes = new HashMap<>();
+		
+		try (Connection con = ConnectionPool.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(LOAD_TERRITORY_NODES))
 		{
-			forEach(listNode, "territory", territoryNode ->
+			while (rs.next())
+				nodes.computeIfAbsent(rs.getString("territory"), k -> new ArrayList<>()).add(new Point2D(rs.getInt("x"), rs.getInt("y")));
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't load territory nodes.", e);
+			return;
+		}
+		
+		try (Connection con = ConnectionPool.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(LOAD_TERRITORIES))
+		{
+			while (rs.next())
 			{
-				final NamedNodeMap terr = territoryNode.getAttributes();
+				final String name = rs.getString("name");
 				
-				// Get Territory name and Z limits.
-				final String name = parseString(terr, "name");
-				int minZ = parseInteger(terr, "minZ");
-				int maxZ = parseInteger(terr, "maxZ");
-				
-				// Get Territory coordinates.
-				forEach(territoryNode, "node", locationNode ->
+				final List<Point2D> coords = nodes.get(name);
+				if (coords == null)
 				{
-					// load X, Y, min Z, max Z and add them to coordinate and limits to lists
-					final NamedNodeMap loc = locationNode.getAttributes();
-					coords.add(new Point2D(parseInteger(loc, "x"), parseInteger(loc, "y")));
-				});
+					LOGGER.warn("Territory \"{}\" holds no node.", name);
+					continue;
+				}
 				
-				// Create Territory and store it in the List.
 				try
 				{
-					_territories.add(new Territory(name, Kong.doTriangulation(coords), minZ, maxZ));
+					_territories.add(new Territory(name, Kong.doTriangulation(coords), rs.getInt("min_z"), rs.getInt("max_z")));
 				}
 				catch (Exception e)
 				{
 					LOGGER.warn("Cannot load territory \"{}\", {}", name, e.getMessage());
 				}
-				
-				// Clear coordinates.
-				coords.clear();
-			});
-			
-			// Parse and feed NpcMakers.
-			forEach(listNode, "npcmaker", npcmakerNode ->
+			}
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't load territories.", e);
+		}
+	}
+	
+	/**
+	 * Load all {@link NpcMaker}s and their {@link MultiSpawn}s from database. Every satellite table is read as a whole and indexed by maker name first, so the makers themselves are built in a single pass.
+	 */
+	private void loadMakers()
+	{
+		final Map<String, Map<String, String>> makerParams = new HashMap<>();
+		final Map<String, Map<Integer, SpawnMemo>> npcParams = new HashMap<>();
+		final Map<String, Map<Integer, List<PrivateData>>> npcPrivates = new HashMap<>();
+		final Map<String, List<StatSet>> npcs = new HashMap<>();
+		
+		try (Connection con = ConnectionPool.getConnection();
+			Statement st = con.createStatement())
+		{
+			// Maker AI parameters. "@" is a datapack marker of a referenced value, it isn't part of the value itself.
+			try (ResultSet rs = st.executeQuery(LOAD_MAKER_PARAMS))
 			{
-				final StatSet set = parseAttributes(npcmakerNode);
+				while (rs.next())
+					makerParams.computeIfAbsent(rs.getString("maker"), k -> new HashMap<>()).put(rs.getString("name"), rs.getString("val").replace("@", ""));
+			}
+			
+			// Spawn AI parameters.
+			try (ResultSet rs = st.executeQuery(LOAD_NPC_PARAMS))
+			{
+				while (rs.next())
+					npcParams.computeIfAbsent(rs.getString("maker"), k -> new HashMap<>()).computeIfAbsent(rs.getInt("npc_order"), k -> new SpawnMemo()).put(rs.getString("name"), rs.getString("val"));
+			}
+			
+			// Spawn privates.
+			try (ResultSet rs = st.executeQuery(LOAD_NPC_PRIVATES))
+			{
+				while (rs.next())
+					npcPrivates.computeIfAbsent(rs.getString("maker"), k -> new HashMap<>()).computeIfAbsent(rs.getInt("npc_order"), k -> new ArrayList<>()).add(new PrivateData(rs.getInt("npc_id"), rs.getInt("weight"), rs.getInt("respawn")));
+			}
+			
+			// Spawns.
+			try (ResultSet rs = st.executeQuery(LOAD_NPCS))
+			{
+				while (rs.next())
+				{
+					final StatSet set = new StatSet();
+					set.set("order", rs.getInt("order_id"));
+					set.set("npcId", rs.getInt("npc_id"));
+					set.set("total", rs.getInt("total"));
+					set.set("respawn", rs.getInt("respawn"));
+					set.set("respawnRand", rs.getInt("respawn_rand"));
+					
+					final String pos = rs.getString("pos");
+					if (pos != null)
+						set.set("pos", pos);
+					
+					final String dbName = rs.getString("db_name");
+					if (dbName != null)
+						set.set("dbName", dbName);
+					
+					npcs.computeIfAbsent(rs.getString("maker"), k -> new ArrayList<>()).add(set);
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't load NPC makers content.", e);
+			return;
+		}
+		
+		try (Connection con = ConnectionPool.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(LOAD_MAKERS))
+		{
+			while (rs.next())
+			{
+				final String name = rs.getString("name");
+				
+				final StatSet set = new StatSet();
+				set.set("name", name);
+				set.set("maximumNpcs", rs.getInt("maximum_npcs"));
+				set.set("maker", rs.getString("maker_type"));
+				set.set("aiParams", makerParams.getOrDefault(name, Collections.emptyMap()));
+				
+				final String event = rs.getString("event");
+				if (event != null)
+					set.set("event", event);
+				
+				final String spawnTime = rs.getString("spawn_time");
+				if (spawnTime != null)
+					set.set("spawnTime", spawnTime);
 				
 				// Retrieve the Territory.
-				Territory territory = findTerritory(set.getString("territory"));
+				Territory territory = findTerritory(rs.getString("territory"));
 				if (territory != null)
 					set.put("t", territory);
 				
 				// Retrieve the banned Territory, if any.
-				final String banName = set.getString("ban", null);
+				final String banName = rs.getString("ban_territory");
 				if (banName != null)
 				{
 					territory = findTerritory(banName);
@@ -131,115 +250,89 @@ public class SpawnManager implements IXmlReader
 						set.put("bt", territory);
 				}
 				
-				// Build the Maker AI parameters.
-				final Map<String, String> makerAIParams = new HashMap<>();
-				
-				forEach(npcmakerNode, "ai", aiNode ->
-				{
-					// Set this Maker type.
-					set.put("maker", parseString(aiNode.getAttributes(), "type"));
-					
-					forEach(aiNode, "set", paramNode ->
-					{
-						final NamedNodeMap paramAttrs = paramNode.getAttributes();
-						makerAIParams.put(parseString(paramAttrs, "name"), parseString(paramAttrs, "val").replace("@", ""));
-					});
-				});
-				
-				set.put("aiParams", makerAIParams);
-				
 				final NpcMaker maker = new NpcMaker(set);
 				
 				// Feed MultiSpawn List.
 				final List<MultiSpawn> spawns = new ArrayList<>();
-				forEach(npcmakerNode, "npc", npcNode ->
+				for (StatSet npc : npcs.getOrDefault(name, Collections.emptyList()))
 				{
-					final NamedNodeMap npc = npcNode.getAttributes();
-					
 					// Get related NpcTemplate.
-					final int npcId = parseInteger(npc, "id");
+					final int npcId = npc.getInteger("npcId");
 					final NpcTemplate template = NpcData.getInstance().getTemplate(npcId);
 					if (template == null)
 					{
-						LOGGER.warn("NpcTemplate was not found for NPC id {} in NpcMaker name {}.", npcId, maker.getName());
-						return;
+						LOGGER.warn("NpcTemplate was not found for NPC id {} in NpcMaker name {}.", npcId, name);
+						continue;
 					}
 					
-					// Get the total amount of npcs.
-					final int total = parseInteger(npc, "total");
-					
-					// Get the respawn data.
-					final int respawnDelay = StringUtil.getTimeStamp(parseString(npc, "respawn", null));
-					final int respawnRandom = StringUtil.getTimeStamp(parseString(npc, "respawnRand", null));
-					
-					// Build NpcMaker privates.
-					final List<PrivateData> privateData = new ArrayList<>();
-					forEach(npcNode, "privates", privatesNode -> forEach(privatesNode, "private", privateNode -> privateData.add(new PrivateData(parseAttributes(privateNode)))));
-					
-					// Build SpawnMemo.
-					final SpawnMemo spawnMemo = new SpawnMemo();
-					forEach(npcNode, "ai", aiNode -> forEach(aiNode, "set", paramNode ->
-					{
-						final NamedNodeMap paramAttrs = paramNode.getAttributes();
-						spawnMemo.put(parseString(paramAttrs, "name"), parseString(paramAttrs, "val"));
-					}));
-					
-					// Get the position coordinates.
-					int[][] coords2 = null;
-					final String pos = parseString(npc, "pos", null);
-					if (pos != null)
-					{
-						String[] loc = pos.split(";");
-						if (loc.length < 5)
-						{
-							// Fixed position (X, Y, Z, heading).
-							coords2 = new int[1][4];
-							coords2[0][0] = Integer.parseInt(loc[0]);
-							coords2[0][1] = Integer.parseInt(loc[1]);
-							coords2[0][2] = Integer.parseInt(loc[2]);
-							coords2[0][3] = Integer.parseInt(loc[3]);
-						}
-						else
-						{
-							// Random position with chance (N x [X, Y, Z, heading, chance]).
-							coords2 = new int[loc.length / 5][5];
-							for (int i = 0; i < loc.length / 5; i++)
-							{
-								coords2[i][0] = Integer.parseInt(loc[i * 5]);
-								coords2[i][1] = Integer.parseInt(loc[i * 5 + 1]);
-								coords2[i][2] = Integer.parseInt(loc[i * 5 + 2]);
-								coords2[i][3] = Integer.parseInt(loc[i * 5 + 3]);
-								coords2[i][4] = Integer.parseInt(loc[i * 5 + 4].split("%")[0]);
-							}
-						}
-					}
-					
-					// Get the SpawnData name.
-					final String dbName = parseString(npc, "dbName", null);
+					final int order = npc.getInteger("order");
 					
 					// Get the SpawnData or create a new one, if it doesn't exist.
 					SpawnData spawnData = null;
+					
+					final String dbName = npc.getString("dbName", null);
 					if (dbName != null)
 						spawnData = _spawnData.computeIfAbsent(dbName, sd -> new SpawnData(dbName));
 					
-					// Create a new MultiSpawn and add it to the List.
 					try
 					{
-						spawns.add(new MultiSpawn(maker, template, total, respawnDelay, respawnRandom, privateData, spawnMemo, coords2, spawnData));
+						spawns.add(new MultiSpawn(maker, template, npc.getInteger("total"), npc.getInteger("respawn"), npc.getInteger("respawnRand"), npcPrivates.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, Collections.emptyList()), npcParams.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, new SpawnMemo()), parseCoords(npc.getString("pos", null)), spawnData));
 					}
 					catch (Exception e)
 					{
-						LOGGER.error("Can't create MultiSpawn for maker {}, npc id {}", e, maker.getName(), npcId);
+						LOGGER.error("Can't create MultiSpawn for maker {}, npc id {}", e, name, npcId);
 					}
-				});
+				}
 				
 				// Set spawns on the NpcMaker.
 				maker.setSpawns(spawns);
 				
 				// Create a new NpcMaker and add it to the List.
 				_makers.add(maker);
-			});
-		});
+			}
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't load NPC makers.", e);
+		}
+	}
+	
+	/**
+	 * Parse the "pos" column of a spawn row.
+	 * @param pos : Either "X;Y;Z;heading" for a fixed spawn, or N times "X;Y;Z;heading;chance" for a random pick among fixed positions. Null means the spawn is random over the {@link NpcMaker} {@link Territory}.
+	 * @return The coordinates set, null when no position is defined.
+	 */
+	private static int[][] parseCoords(String pos)
+	{
+		if (pos == null || pos.isEmpty())
+			return null;
+		
+		final String[] loc = pos.split(";");
+		
+		// Fixed position (X, Y, Z, heading).
+		if (loc.length < 5)
+		{
+			final int[][] coords = new int[1][4];
+			coords[0][0] = Integer.parseInt(loc[0]);
+			coords[0][1] = Integer.parseInt(loc[1]);
+			coords[0][2] = Integer.parseInt(loc[2]);
+			coords[0][3] = Integer.parseInt(loc[3]);
+			
+			return coords;
+		}
+		
+		// Random position with chance (N x [X, Y, Z, heading, chance]).
+		final int[][] coords = new int[loc.length / 5][5];
+		for (int i = 0; i < loc.length / 5; i++)
+		{
+			coords[i][0] = Integer.parseInt(loc[i * 5]);
+			coords[i][1] = Integer.parseInt(loc[i * 5 + 1]);
+			coords[i][2] = Integer.parseInt(loc[i * 5 + 2]);
+			coords[i][3] = Integer.parseInt(loc[i * 5 + 3]);
+			coords[i][4] = Integer.parseInt(loc[i * 5 + 4].split("%")[0]);
+		}
+		
+		return coords;
 	}
 	
 	public SpawnData getSpawnData(String name)
@@ -260,6 +353,7 @@ public class SpawnManager implements IXmlReader
 		_territories.clear();
 		_makers.clear();
 		_spawns.clear();
+		_customSpawns.clear();
 		
 		// Load and spawn.
 		load();
@@ -343,6 +437,113 @@ public class SpawnManager implements IXmlReader
 	}
 	
 	/**
+	 * Load all GM-made {@link Spawn}s from database. They are only built here ; the actual spawn happens in {@link #spawn()}, since {@link NpcTemplate}s must already be loaded and the world ready.
+	 */
+	private final void loadCustomSpawns()
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(LOAD_CUSTOM_SPAWNS))
+		{
+			while (rs.next())
+			{
+				final int id = rs.getInt("id");
+				final int npcId = rs.getInt("npc_id");
+				
+				final NpcTemplate template = NpcData.getInstance().getTemplate(npcId);
+				if (template == null)
+				{
+					LOGGER.warn("NpcTemplate was not found for NPC id {} in custom spawn id {}.", npcId, id);
+					continue;
+				}
+				
+				try
+				{
+					final Spawn spawn = new Spawn(template);
+					spawn.setDbId(id);
+					spawn.setLoc(rs.getInt("loc_x"), rs.getInt("loc_y"), rs.getInt("loc_z"), rs.getInt("heading"));
+					spawn.setRespawnDelay(rs.getInt("respawn_delay"));
+					spawn.setRespawnRandom(rs.getInt("respawn_random"));
+					
+					_customSpawns.add(spawn);
+				}
+				catch (Exception e)
+				{
+					LOGGER.error("Can't create custom Spawn id {}, npc id {}", e, id, npcId);
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't load custom spawns.", e);
+		}
+	}
+	
+	/**
+	 * Store a GM-made {@link Spawn} into database, so it survives a restart, and register its row id on it.
+	 * @param spawn : The {@link Spawn} to store. Its {@link Npc} is expected to be already spawned.
+	 * @param creator : The name of the {@link net.sf.l2j.gameserver.model.actor.Player} who created it.
+	 * @return True if the {@link Spawn} has been stored, false otherwise.
+	 */
+	public boolean addCustomSpawn(Spawn spawn, String creator)
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(ADD_CUSTOM_SPAWN, Statement.RETURN_GENERATED_KEYS))
+		{
+			ps.setInt(1, spawn.getNpcId());
+			ps.setInt(2, spawn.getLocX());
+			ps.setInt(3, spawn.getLocY());
+			ps.setInt(4, spawn.getLocZ());
+			ps.setInt(5, spawn.getHeading());
+			ps.setInt(6, spawn.getRespawnDelay());
+			ps.setInt(7, spawn.getRespawnRandom());
+			ps.setString(8, creator);
+			ps.setLong(9, System.currentTimeMillis());
+			ps.executeUpdate();
+			
+			try (ResultSet rs = ps.getGeneratedKeys())
+			{
+				if (rs.next())
+					spawn.setDbId(rs.getInt(1));
+			}
+			
+			_customSpawns.add(spawn);
+			return true;
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't store custom spawn of NPC id {}.", e, spawn.getNpcId());
+			return false;
+		}
+	}
+	
+	/**
+	 * Drop a GM-made {@link Spawn} from database. Does nothing on a {@link Spawn} which was never stored (script and quest spawns).
+	 * @param spawn : The {@link Spawn} to drop.
+	 */
+	public void deleteCustomSpawn(Spawn spawn)
+	{
+		_customSpawns.remove(spawn);
+		
+		final int dbId = spawn.getDbId();
+		if (dbId == 0)
+			return;
+		
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(DELETE_CUSTOM_SPAWN))
+		{
+			ps.setInt(1, dbId);
+			ps.executeUpdate();
+			
+			spawn.setDbId(0);
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't delete custom spawn id {}.", e, dbId);
+		}
+	}
+	
+	/**
 	 * Spawn all possible {@link Npc} to the world at server start.<br>
 	 * Native, day/night, events allowed on start, Seven Signs, etc.
 	 */
@@ -350,12 +551,16 @@ public class SpawnManager implements IXmlReader
 	{
 		if (Config.NO_SPAWNS)
 			return;
-			
+		
 		// Spawn native NPCs (where on-start condition is met):
 		// 1) without "event"
 		// 2) with "event" + "onStart=true"
 		long total = _makers.stream().filter(NpcMaker::isOnStart).mapToInt(NpcMaker::spawnAll).sum();
 		LOGGER.info("Spawned {} NPCs.", total);
+		
+		// Spawn GM-made NPCs. doSpawn registers them back into the individual spawns set.
+		long custom = _customSpawns.stream().filter(spawn -> spawn.doSpawn(false) != null).count();
+		LOGGER.info("Spawned {} custom NPCs.", custom);
 		
 		// Spawn event NPCs.
 		for (String event : Config.SPAWN_EVENTS)

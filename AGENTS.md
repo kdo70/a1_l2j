@@ -96,6 +96,12 @@ ant -f source\aCis_gameserver\build.xml
   `<drops>` нет; их читает `DropTable` из таблицы `droplist`
   (`sql/droplist.sql`), правится она на живом сервере плюс `//reload drop`.
   Устройство, схема и конвертер — `docs/droplist-in-db.md`.
+- **Спавн-лист тоже живёт в БД, а не в XML.** Каталога `data/xml/spawnlist`
+  нет; территории и npcmaker'ы читает `SpawnManager` из таблиц `spawnlist_*`
+  (`sql/spawnlist.sql`), правятся они на живом сервере плюс `//reload spawn`.
+  Ручной `//spawn` GM-а пишется в `spawnlist_custom` и переживает рестарт
+  (`//spawn <id> temp` — не пишется, `//delete` убирает и строку в БД).
+  Устройство, схема и конвертер — `docs/spawnlist-in-db.md`.
 - **Дроп-лист виден игроку по shift+click** по монстру или РБ, если это включено в
   `config/mods/droplist.properties` (там же id навыка, который открывает
   окно). Внешний вид — `data/xml/droplist.xml`, устройство —

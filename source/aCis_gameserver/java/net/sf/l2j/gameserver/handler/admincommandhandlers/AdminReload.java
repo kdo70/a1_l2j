@@ -11,6 +11,7 @@ import net.sf.l2j.gameserver.data.cache.HtmCache;
 import net.sf.l2j.gameserver.data.manager.BuyListManager;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.manager.RaidBookManager;
+import net.sf.l2j.gameserver.data.manager.SpawnManager;
 import net.sf.l2j.gameserver.data.manager.ZoneManager;
 import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.data.xml.AdminData;
@@ -29,6 +30,7 @@ import net.sf.l2j.gameserver.data.xml.ScriptData;
 import net.sf.l2j.gameserver.data.xml.TeleportData;
 import net.sf.l2j.gameserver.data.xml.WalkerRouteData;
 import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
+import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Player;
 
 public class AdminReload implements IAdminCommandHandler
@@ -140,6 +142,14 @@ public class AdminReload implements IAdminCommandHandler
 					SkillTable.getInstance().reload();
 					player.sendMessage("Skills' XMLs have been reloaded.");
 				}
+				else if (type.startsWith("spawn"))
+				{
+					// Same sequence as //respawnall : the spawn list is rebuilt from database, so the current NPCs must go first.
+					SpawnManager.getInstance().despawn();
+					World.getInstance().deleteVisibleNpcSpawns();
+					SpawnManager.getInstance().reload();
+					player.sendMessage("The spawn list has been reloaded.");
+				}
 				else if (type.startsWith("teleport"))
 				{
 					InstantTeleportData.getInstance().reload();
@@ -168,7 +178,8 @@ public class AdminReload implements IAdminCommandHandler
 	{
 		player.sendMessage("Usage : //reload <admin|announcement|buylist|config>");
 		player.sendMessage("Usage : //reload <crest|cw|door|drop|htm|item|multisell>");
-		player.sendMessage("Usage : //reload <npc|npcwalker|raidbook|script|skill|teleport|zone>");
+		player.sendMessage("Usage : //reload <npc|npcwalker|raidbook|script|skill>");
+		player.sendMessage("Usage : //reload <spawn|teleport|zone>");
 	}
 	
 	@Override
