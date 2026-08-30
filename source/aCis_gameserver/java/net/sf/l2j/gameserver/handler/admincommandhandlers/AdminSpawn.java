@@ -17,7 +17,9 @@ import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.instance.Fence;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
+import net.sf.l2j.gameserver.model.location.SpawnLocation;
 import net.sf.l2j.gameserver.model.spawn.ASpawn;
+import net.sf.l2j.gameserver.model.spawn.MultiSpawn;
 import net.sf.l2j.gameserver.model.spawn.Spawn;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -30,6 +32,7 @@ public class AdminSpawn implements IAdminCommandHandler
 		"admin_list_spawns",
 		"admin_spawn",
 		"admin_delete",
+		"admin_recall_npc",
 		"admin_unspawnall",
 		"admin_respawnall",
 		"admin_spawnfence",
@@ -242,27 +245,95 @@ public class AdminSpawn implements IAdminCommandHandler
 				return;
 			}
 			
-			// Npc ASpawn must be Spawn type.
+			final String name = targetNpc.getName();
 			final ASpawn spawn = targetNpc.getSpawn();
-			if (!(spawn instanceof Spawn))
+			
+			// Individual spawn : GM-made ones own a "spawnlist_custom" row, script and quest ones own nothing.
+			if (spawn instanceof Spawn individualSpawn)
+			{
+				final boolean wasStored = individualSpawn.getDbId() > 0;
+				
+				targetNpc.deleteMe();
+				
+				SpawnManager.getInstance().deleteSpawn(individualSpawn);
+				SpawnManager.getInstance().deleteCustomSpawn(individualSpawn);
+				
+				player.sendMessage("You deleted " + name + (wasStored ? ", spawn list entry included." : ". It wasn't in the spawn list."));
+			}
+			// NpcMaker spawn : one NPC less on its "spawnlist_npcs" row, the row itself going away with the last one.
+			else if (spawn instanceof MultiSpawn multiSpawn)
+			{
+				// Detach the Npc first, so the NpcMaker doesn't recognize it on decay and schedule a respawn.
+				multiSpawn.removeNpc(targetNpc);
+				targetNpc.cancelRespawn();
+				targetNpc.deleteMe();
+				
+				if (SpawnManager.getInstance().deleteMakerSpawn(multiSpawn))
+					player.sendMessage("You deleted " + name + " from the spawn list of " + multiSpawn.getNpcMaker().getName() + ".");
+				else
+					player.sendMessage("You deleted " + name + ", but the spawn list couldn't be updated.");
+			}
+			else
+				player.sendPacket(SystemMessageId.INVALID_TARGET);
+		}
+		else if (command.startsWith("admin_recall_npc"))
+		{
+			// Target must be a Npc.
+			final WorldObject targetWorldObject = player.getTarget();
+			if (!(targetWorldObject instanceof Npc targetNpc))
 			{
 				player.sendPacket(SystemMessageId.INVALID_TARGET);
 				return;
 			}
 			
-			// Delete the Npc.
-			targetNpc.deleteMe();
-			
-			// Delete the Spawn entry.
-			SpawnManager.getInstance().deleteSpawn((Spawn) spawn);
-			
-			// Drop the database row aswell, if that Spawn was a stored //spawn.
-			final boolean wasStored = ((Spawn) spawn).getDbId() > 0;
-			SpawnManager.getInstance().deleteCustomSpawn((Spawn) spawn);
-			
-			// Send Player log.
-			player.sendMessage("You deleted " + targetNpc.getName() + (wasStored ? ", database entry included." : "."));
+			recallNpc(player, targetNpc);
 		}
+	}
+	
+	/**
+	 * Move a {@link Npc} to a {@link Player} position and make it its new spawn point, so it respawns there.<br>
+	 * <br>
+	 * The move is stored in the spawn list when it is unambiguous : a GM-made {@link Spawn} owns its "spawnlist_custom" row, and a {@link MultiSpawn} owns its "spawnlist_npcs" row as long as that row holds a single NPC. Otherwise the move only lasts until next restart, since every NPC of a row shares its position.<br>
+	 * <br>
+	 * Note: a {@link MultiSpawn} NPC keeps walking around its NpcMaker territory, which the new position isn't part of - drop it far away and it will head back.
+	 * @param player : The {@link Player} whose position is used.
+	 * @param npc : The {@link Npc} to move.
+	 */
+	public static void recallNpc(Player player, Npc npc)
+	{
+		final SpawnLocation loc = player.getPosition().clone();
+		
+		npc.teleportTo(loc, 0);
+		
+		// Z is validated against geodata upon teleport ; keep where the Npc actually landed.
+		loc.set(npc.getX(), npc.getY(), npc.getZ(), loc.getHeading());
+		npc.setSpawnLocation(loc);
+		
+		final String name = npc.getName();
+		final ASpawn spawn = npc.getSpawn();
+		
+		if (spawn instanceof Spawn individualSpawn)
+		{
+			individualSpawn.setLoc(loc);
+			
+			if (individualSpawn.getDbId() == 0)
+				player.sendMessage("You moved " + name + " here. It isn't in the spawn list, so the move lasts until next restart.");
+			else if (SpawnManager.getInstance().updateCustomSpawnLoc(individualSpawn))
+				player.sendMessage("You moved " + name + " here, spawn list updated.");
+			else
+				player.sendMessage("You moved " + name + " here, but the spawn list couldn't be updated.");
+		}
+		else if (spawn instanceof MultiSpawn multiSpawn)
+		{
+			if (multiSpawn.getTotal() != 1)
+				player.sendMessage("You moved " + name + " here. Its spawn list entry holds " + multiSpawn.getTotal() + " NPCs sharing one position, so the move lasts until it respawns.");
+			else if (SpawnManager.getInstance().updateMakerSpawnPos(multiSpawn, loc))
+				player.sendMessage("You moved " + name + " here, spawn list updated.");
+			else
+				player.sendMessage("You moved " + name + " here, but the spawn list couldn't be updated.");
+		}
+		else
+			player.sendMessage("You moved " + name + " here. It has no spawn, so the move lasts until it respawns.");
 	}
 	
 	@Override

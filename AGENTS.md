@@ -99,8 +99,11 @@ ant -f source\aCis_gameserver\build.xml
 - **Спавн-лист тоже живёт в БД, а не в XML.** Каталога `data/xml/spawnlist`
   нет; территории и npcmaker'ы читает `SpawnManager` из таблиц `spawnlist_*`
   (`sql/spawnlist.sql`), правятся они на живом сервере плюс `//reload spawn`.
-  Ручной `//spawn` GM-а пишется в `spawnlist_custom` и переживает рестарт
-  (`//spawn <id> temp` — не пишется, `//delete` убирает и строку в БД).
+  GM правит спавн-лист прямо из игры: `//spawn` пишет NPC в `spawnlist_custom`
+  и он переживает рестарт (`//spawn <id> temp` — не пишет), `//delete` убирает
+  NPC и из мира, и из спавн-листа (у npcmaker'а уменьшает `total` строки),
+  `//recall_npc` переносит NPC к себе и делает это его точкой спавна. Кнопки
+  `Del. NPC` и `Recall NPC` — на главной странице админки.
   Устройство, схема и конвертер — `docs/spawnlist-in-db.md`.
 - **Дроп-лист виден игроку по shift+click** по монстру или РБ, если это включено в
   `config/mods/droplist.properties` (там же id навыка, который открывает

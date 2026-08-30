@@ -128,7 +128,8 @@
 	<aCar name="admin_spawnfence" accessLevel="7" params="" desc=""/>
 	<aCar name="admin_deletefence" accessLevel="7" params="" desc=""/>
 	<aCar name="admin_listfence" accessLevel="7" params="" desc=""/>
-	<aCar name="admin_delete" accessLevel="7" params="" desc=""/>
+	<aCar name="admin_delete" accessLevel="7" params="" desc="Delete the targeted NPC from the world and from the spawn list."/>
+	<aCar name="admin_recall_npc" accessLevel="7" params="" desc="Move the targeted NPC to you and make it its new spawn point."/>
 
 	<!-- SPAWN -->
 	<aCar name="admin_maker" accessLevel="7" params="[delete|respawn|switch|scripts|spawn [name]]" desc="Open the Maker panel."/>
@@ -147,7 +148,7 @@
 
 	<!-- TELEPORT -->
 	<aCar name="admin_instant_move" accessLevel="7" params="[0|1|2]" desc="Teleport you on mouse click (0 stop, 1 once, 2 forever)."/>
-	<aCar name="admin_recall" accessLevel="7" params="[party|clan] name" desc="Recall the Player (can be also Party / Clan) to you."/>
+	<aCar name="admin_recall" accessLevel="7" params="[party|clan] name" desc="Recall the Player (can be also Party / Clan) to you. Without a name, recalls the targeted NPC."/>
 	<aCar name="admin_sendhome" accessLevel="7" params="[name]" desc="Send the Player (name, target or you) to nearest town."/>
 	<aCar name="admin_tele" accessLevel="7" params="" desc="Open the Teleport panel."/>
 	<aCar name="admin_teleport" accessLevel="7" params="X Y [Z]" desc="Teleport you to coords. If no Z is set, calculate it."/>

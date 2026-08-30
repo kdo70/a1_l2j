@@ -27,6 +27,7 @@ import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.location.Location;
 import net.sf.l2j.gameserver.model.location.Point2D;
+import net.sf.l2j.gameserver.model.location.SpawnLocation;
 import net.sf.l2j.gameserver.model.memo.SpawnMemo;
 import net.sf.l2j.gameserver.model.records.PrivateData;
 import net.sf.l2j.gameserver.model.spawn.ASpawn;
@@ -65,8 +66,15 @@ public class SpawnManager
 	private static final String LOAD_NPC_PARAMS = "SELECT maker, npc_order, name, val FROM spawnlist_npc_params";
 	private static final String LOAD_NPC_PRIVATES = "SELECT maker, npc_order, npc_id, weight, respawn FROM spawnlist_npc_privates ORDER BY maker, npc_order, order_id";
 	
+	private static final String UPDATE_MAKER_SPAWN_TOTAL = "UPDATE spawnlist_npcs SET total = ? WHERE maker = ? AND order_id = ?";
+	private static final String UPDATE_MAKER_SPAWN_POS = "UPDATE spawnlist_npcs SET pos = ? WHERE maker = ? AND order_id = ?";
+	private static final String DELETE_MAKER_SPAWN = "DELETE FROM spawnlist_npcs WHERE maker = ? AND order_id = ?";
+	private static final String DELETE_MAKER_SPAWN_PARAMS = "DELETE FROM spawnlist_npc_params WHERE maker = ? AND npc_order = ?";
+	private static final String DELETE_MAKER_SPAWN_PRIVATES = "DELETE FROM spawnlist_npc_privates WHERE maker = ? AND npc_order = ?";
+	
 	private static final String LOAD_CUSTOM_SPAWNS = "SELECT id, npc_id, loc_x, loc_y, loc_z, heading, respawn_delay, respawn_random FROM spawnlist_custom WHERE enabled > 0 ORDER BY id";
 	private static final String ADD_CUSTOM_SPAWN = "INSERT INTO spawnlist_custom (npc_id, loc_x, loc_y, loc_z, heading, respawn_delay, respawn_random, created_by, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String UPDATE_CUSTOM_SPAWN = "UPDATE spawnlist_custom SET loc_x = ?, loc_y = ?, loc_z = ?, heading = ? WHERE id = ?";
 	private static final String DELETE_CUSTOM_SPAWN = "DELETE FROM spawnlist_custom WHERE id = ?";
 	
 	private final Map<String, SpawnData> _spawnData = new ConcurrentHashMap<>();
@@ -276,7 +284,10 @@ public class SpawnManager
 					
 					try
 					{
-						spawns.add(new MultiSpawn(maker, template, npc.getInteger("total"), npc.getInteger("respawn"), npc.getInteger("respawnRand"), npcPrivates.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, Collections.emptyList()), npcParams.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, new SpawnMemo()), parseCoords(npc.getString("pos", null)), spawnData));
+						final MultiSpawn multiSpawn = new MultiSpawn(maker, template, npc.getInteger("total"), npc.getInteger("respawn"), npc.getInteger("respawnRand"), npcPrivates.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, Collections.emptyList()), npcParams.getOrDefault(name, Collections.emptyMap()).getOrDefault(order, new SpawnMemo()), parseCoords(npc.getString("pos", null)), spawnData);
+						multiSpawn.setDbOrder(order);
+						
+						spawns.add(multiSpawn);
 					}
 					catch (Exception e)
 					{
@@ -540,6 +551,126 @@ public class SpawnManager
 		catch (Exception e)
 		{
 			LOGGER.warn("Couldn't delete custom spawn id {}.", e, dbId);
+		}
+	}
+	
+	/**
+	 * Drop one NPC from a {@link MultiSpawn}, both in memory and in the "spawnlist_npcs" table. The row holds an amount of NPCs, so it is decremented ; the last one takes the whole row away, AI parameters and privates included.<br>
+	 * The {@link Npc} itself isn't touched, the caller is expected to have deleted it already.
+	 * @param spawn : The {@link MultiSpawn} to shrink.
+	 * @return True if the spawn list has been updated, false otherwise.
+	 */
+	public boolean deleteMakerSpawn(MultiSpawn spawn)
+	{
+		final String maker = spawn.getNpcMaker().getName();
+		final int order = spawn.getDbOrder();
+		final int total = spawn.getTotal() - 1;
+		
+		try (Connection con = ConnectionPool.getConnection())
+		{
+			if (total > 0)
+			{
+				try (PreparedStatement ps = con.prepareStatement(UPDATE_MAKER_SPAWN_TOTAL))
+				{
+					ps.setInt(1, total);
+					ps.setString(2, maker);
+					ps.setInt(3, order);
+					ps.executeUpdate();
+				}
+			}
+			else
+			{
+				for (String query : new String[]
+				{
+					DELETE_MAKER_SPAWN_PRIVATES,
+					DELETE_MAKER_SPAWN_PARAMS,
+					DELETE_MAKER_SPAWN
+				})
+				{
+					try (PreparedStatement ps = con.prepareStatement(query))
+					{
+						ps.setString(1, maker);
+						ps.setInt(2, order);
+						ps.executeUpdate();
+					}
+				}
+			}
+			
+			spawn.decreaseTotal();
+			return true;
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't delete spawn of NPC id {} from maker {}.", e, spawn.getNpcId(), maker);
+			return false;
+		}
+	}
+	
+	/**
+	 * Pin a {@link MultiSpawn} to given {@link SpawnLocation}, both in memory and in the "spawnlist_npcs" table.<br>
+	 * All NPCs of a row share its position, so this is only called on a row holding a single NPC.
+	 * @param spawn : The {@link MultiSpawn} to move.
+	 * @param loc : The new {@link SpawnLocation}.
+	 * @return True if the spawn list has been updated, false otherwise.
+	 */
+	public boolean updateMakerSpawnPos(MultiSpawn spawn, SpawnLocation loc)
+	{
+		final String maker = spawn.getNpcMaker().getName();
+		final int order = spawn.getDbOrder();
+		
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(UPDATE_MAKER_SPAWN_POS))
+		{
+			ps.setString(1, loc.getX() + ";" + loc.getY() + ";" + loc.getZ() + ";" + loc.getHeading());
+			ps.setString(2, maker);
+			ps.setInt(3, order);
+			ps.executeUpdate();
+			
+			spawn.setCoords(new int[][]
+			{
+				{
+					loc.getX(),
+					loc.getY(),
+					loc.getZ(),
+					loc.getHeading()
+				}
+			});
+			return true;
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't move spawn of NPC id {} from maker {}.", e, spawn.getNpcId(), maker);
+			return false;
+		}
+	}
+	
+	/**
+	 * Store the current {@link SpawnLocation} of a GM-made {@link Spawn} back into the "spawnlist_custom" table.
+	 * @param spawn : The {@link Spawn} to update. Its location is expected to be set already.
+	 * @return True if the row has been updated, false otherwise.
+	 */
+	public boolean updateCustomSpawnLoc(Spawn spawn)
+	{
+		final int dbId = spawn.getDbId();
+		if (dbId == 0)
+			return false;
+		
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(UPDATE_CUSTOM_SPAWN))
+		{
+			ps.setInt(1, spawn.getLocX());
+			ps.setInt(2, spawn.getLocY());
+			ps.setInt(3, spawn.getLocZ());
+			ps.setInt(4, spawn.getHeading());
+			ps.setInt(5, dbId);
+			ps.executeUpdate();
+			
+			return true;
+		}
+		catch (Exception e)
+		{
+			LOGGER.warn("Couldn't move custom spawn id {}.", e, dbId);
+			return false;
 		}
 	}
 	

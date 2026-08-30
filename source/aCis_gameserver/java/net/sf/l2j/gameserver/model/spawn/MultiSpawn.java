@@ -34,8 +34,12 @@ public final class MultiSpawn extends ASpawn
 	private static final int RANDOM_WALK_LOOP_LIMIT = 3;
 	
 	private final NpcMaker _npcMaker;
-	private final int _total;
-	private final int[][] _coords;
+	
+	private int _total;
+	private int[][] _coords;
+	
+	/** Value of "order_id" in the "spawnlist_npcs" row this {@link MultiSpawn} was built from. */
+	private int _dbOrder;
 	
 	private final Set<Npc> _npcs = ConcurrentHashMap.newKeySet();
 	
@@ -268,9 +272,53 @@ public final class MultiSpawn extends ASpawn
 		return _coords;
 	}
 	
+	/**
+	 * Pin this {@link MultiSpawn} to a fixed set of coordinates. Only makes sense on a single NPC spawn, since every NPC of this spawn shares them.
+	 * @param coords : The coordinates, as built from the "pos" column. Null makes the spawn random over the {@link NpcMaker} {@link Territory} again.
+	 */
+	public void setCoords(int[][] coords)
+	{
+		_coords = coords;
+	}
+	
 	public int getTotal()
 	{
 		return _total;
+	}
+	
+	/**
+	 * Drop one NPC out of the amount this {@link MultiSpawn} maintains, so the {@link NpcMaker} stops spawning it back.
+	 */
+	public void decreaseTotal()
+	{
+		if (_total > 0)
+			_total--;
+	}
+	
+	/**
+	 * @return the "spawnlist_npcs" order_id of this {@link MultiSpawn}, unique together with the {@link NpcMaker} name.
+	 */
+	public int getDbOrder()
+	{
+		return _dbOrder;
+	}
+	
+	/**
+	 * Sets the "spawnlist_npcs" order_id of this {@link MultiSpawn}. Only {@link net.sf.l2j.gameserver.data.manager.SpawnManager} is expected to call it, right after construction.
+	 * @param dbOrder : The order_id of the row.
+	 */
+	public void setDbOrder(int dbOrder)
+	{
+		_dbOrder = dbOrder;
+	}
+	
+	/**
+	 * Detach a {@link Npc} from this {@link MultiSpawn} without deleting it. The {@link NpcMaker} won't recognize it anymore, which notably means no respawn is scheduled when it decays.
+	 * @param npc : The {@link Npc} to detach.
+	 */
+	public void removeNpc(Npc npc)
+	{
+		_npcs.remove(npc);
 	}
 	
 	public Set<Npc> getNpcs()

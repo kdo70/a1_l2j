@@ -7,6 +7,7 @@ import net.sf.l2j.gameserver.enums.TeleportMode;
 import net.sf.l2j.gameserver.geoengine.GeoEngine;
 import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
 import net.sf.l2j.gameserver.model.World;
+import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.group.Party;
 import net.sf.l2j.gameserver.model.pledge.Clan;
@@ -61,9 +62,14 @@ public class AdminTeleport implements IAdminCommandHandler
 		}
 		else if (command.startsWith("admin_recall"))
 		{
+			// No name given : this is the Npc form of the command, see AdminSpawn.
 			if (!st.hasMoreTokens())
 			{
-				player.sendPacket(SystemMessageId.INVALID_TARGET);
+				if (player.getTarget() instanceof Npc npc)
+					AdminSpawn.recallNpc(player, npc);
+				else
+					player.sendPacket(SystemMessageId.INVALID_TARGET);
+				
 				return;
 			}
 			
