@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.l2j.commons.data.StatSet;
+import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.util.ArraysUtil;
 
 import net.sf.l2j.gameserver.data.manager.CastleManager;
@@ -28,6 +29,11 @@ import net.sf.l2j.gameserver.skills.L2Skill;
 
 public class NpcTemplate extends CreatureTemplate
 {
+	private static final CLogger LOGGER = new CLogger(NpcTemplate.class.getName());
+
+	/** Returned by {@link #getNameColor()} when the NPC's name keeps the color the client gives it. */
+	public static final int NO_NAME_COLOR = -1;
+
 	private final int _npcId;
 	private final int _idTemplate;
 	
@@ -37,6 +43,7 @@ public class NpcTemplate extends CreatureTemplate
 	
 	private final boolean _usingServerSideName;
 	private final boolean _usingServerSideTitle;
+	private final int _nameColor;
 	
 	private final String _type;
 	private final byte _level;
@@ -93,6 +100,7 @@ public class NpcTemplate extends CreatureTemplate
 		
 		_usingServerSideName = set.getBool("usingServerSideName", false);
 		_usingServerSideTitle = set.getBool("usingServerSideTitle", false);
+		_nameColor = parseNameColor(set.getString("nameColor", null));
 		
 		_type = set.getString("type");
 		_level = set.getByte("level", (byte) 1);
@@ -201,6 +209,40 @@ public class NpcTemplate extends CreatureTemplate
 	public boolean isUsingServerSideTitle()
 	{
 		return _usingServerSideTitle;
+	}
+
+	/**
+	 * @return the color this NPC's name is painted with, as RRGGBB, or {@link #NO_NAME_COLOR}.
+	 */
+	public int getNameColor()
+	{
+		return _nameColor;
+	}
+
+	/**
+	 * Reads a "nameColor" property, six hexadecimal digits (RRGGBB).
+	 * @param value : the raw property, or null when the NPC carries none.
+	 * @return the color, or {@link #NO_NAME_COLOR} when there is none or it doesn't parse.
+	 */
+	public static int parseNameColor(String value)
+	{
+		if (value == null || value.isEmpty())
+			return NO_NAME_COLOR;
+
+		if (value.length() == 6)
+		{
+			try
+			{
+				return Integer.parseInt(value, 16);
+			}
+			catch (NumberFormatException e)
+			{
+				// Handled by the warn below.
+			}
+		}
+
+		LOGGER.warn("Invalid nameColor '{}' ; 6 hexadecimal digits (RRGGBB) were expected.", value);
+		return NO_NAME_COLOR;
 	}
 	
 	public String getType()

@@ -64,14 +64,19 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 	 */
 	public static class NpcInfo extends AbstractNpcInfo
 	{
+		/** Top byte of the trailing name color dword, so a client can tell it from a stock packet. */
+		private static final int NAME_COLOR_TAG = 0xC0000000;
+
 		private final Npc _npc;
-		
+		private final int _nameColor;
+
 		public NpcInfo(Npc npc, Player attacker)
 		{
 			super(npc);
-			
+
 			_npc = npc;
-			
+			_nameColor = npc.getNameColor();
+
 			_enchantEffect = _npc.getEnchantEffect();
 			_isAttackable = _npc.isAttackableWithoutForceBy(attacker);
 			
@@ -198,6 +203,14 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			
 			writeD(_enchantEffect);
 			writeD(_npc.isFlying() ? 1 : 0);
+
+			// Interlude has no color field for an NPC name, so a rebuilt engine.dll reads one from
+			// the very end of this packet - tagged, because the last dword of an untouched packet is
+			// isFlying. Sent only for the NPCs that carry a color : the client reads every field
+			// against the packet's end, so four bytes it does not expect are simply never read, and a
+			// stock client keeps working. See docs/npc-name-colors.md.
+			if (_nameColor != NpcTemplate.NO_NAME_COLOR)
+				writeD(NAME_COLOR_TAG | (_nameColor & 0x00FFFFFF));
 		}
 	}
 	

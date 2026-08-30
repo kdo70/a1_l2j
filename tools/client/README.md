@@ -112,6 +112,49 @@ It verifies the block it replaces byte for byte first, so it is a no-op on any o
 The whole disassembly, and the structure offsets it rests on, are in
 [../../docs/enchant-on-icon.md](../../docs/enchant-on-icon.md).
 
+## Colored titles above NPCs
+
+Also not part of the `interface.u` rebuild — `npc_title_colors.ps1` rewrites the client's
+`npcname-e.dat`, whose per-npc `FColor` is the one arbitrary color an NPC owns:
+
+```
+powershell -ExecutionPolicy Bypass -File npc_title_colors.ps1 -ClientSystemDir "<client>\system"
+```
+
+The **name** of an NPC carries no color anywhere — not in the packet, not in the client's data —
+and it is the engine that draws it. The colored slot is the title, the line above the name, and
+that one takes any RGB. Which colors go on which npc id is `npc_title_colors.txt`; the text itself
+can still come from the server through `usingServerSideTitle`. The whole reasoning, the file
+format and the checks the script runs on itself are in
+[../../docs/npc-title-colors.md](../../docs/npc-title-colors.md).
+
+`patch_engine_npc_name_color.ps1` then makes the **name** take that same color, by patching
+`engine.dll`:
+
+```
+powershell -ExecutionPolicy Bypass -File patch_engine_npc_name_color.ps1 -In "<client>\system\engine.dll"
+```
+
+`User::GetNameColor` already returns any RGB an object carries in `UniqueNameColor` — players get
+one from `CharInfo`, NPCs never do. The patch adds one step in front of the level tint that stands
+in for it: an NPC whose title color is not one of the stock ones wears it on its name too. One byte
+in place plus 60 bytes in the padding behind the function, no absolute addresses, no `.reloc`. See
+[../../docs/npc-name-colors.md](../../docs/npc-name-colors.md).
+
+`patch_engine_npc_packet_color.ps1` goes one further and lets the **server** pick the color, per
+spawned NPC:
+
+```
+powershell -ExecutionPolicy Bypass -File patch_engine_npc_packet_color.ps1 -In "<client>\system\engine.dll"
+```
+
+The server appends one tagged dword to `NpcInfo` for the NPCs whose XML carries `nameColor`, and the
+patch drops it straight into `UniqueNameColor` — which wins over the color the other patch takes
+from `npcname-e.dat`. The client checks every packet field against the packet's end, so a stock
+client never reads those four bytes and keeps working; the tag byte covers the other direction, a
+patched client against a server that sends nothing. Both patches are independent, and both are in
+[../../docs/npc-name-colors.md](../../docs/npc-name-colors.md).
+
 ## Rebuilding it
 
 You need an **L2-capable** `ucc`. A stock UT2003 one won't do: it has to read the `Lineage2Ver111` container
@@ -241,6 +284,11 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `dump_class_sizes.ps1` — lists the size of every `UClass` export, for the comparison above.
 - `patch_nwindow.ps1` — the `nwindow.dll` patch that puts the enchant level on item icons and caps the stack
   count. Nothing to do with the `interface.u` build.
+- `npc_title_colors.ps1` / `npc_title_colors.txt` — the `npcname-e.dat` rewrite that colors the title an NPC
+  carries above its head. Also nothing to do with the `interface.u` build.
+- `patch_engine_npc_name_color.ps1` — the `engine.dll` patch that makes an NPC's name take that color too.
+- `patch_engine_npc_packet_color.ps1` — the `engine.dll` patch that reads an NPC's name color out of the
+  `NpcInfo` packet, so the server owns it per spawned NPC.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
   and `ChatWnd.uc` rebuilt. They are stored in the encoding they came out of the package with, Korean
   comments and all: edit them with a tool that leaves the bytes it does not touch alone.

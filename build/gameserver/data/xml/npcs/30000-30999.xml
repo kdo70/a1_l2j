@@ -3121,6 +3121,7 @@
 	</npc>
 	<npc id="30080" name="Clarissa" title="Gatekeeper" alias="clavier">
 		<set name="type" val="Gatekeeper"/>
+		<set name="nameColor" val="FF3030"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="25.0"/>

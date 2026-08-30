@@ -109,6 +109,8 @@ public class Npc extends Creature
 	private int _shotsMask = 0;
 	
 	private int _scriptValue = 0;
+
+	private int _nameColor;
 	
 	private Residence _residence;
 	
@@ -186,6 +188,9 @@ public class Npc extends Creature
 		// initialize the "current" collisions
 		_currentCollisionHeight = template.getCollisionHeight();
 		_currentCollisionRadius = template.getCollisionRadius();
+
+		// the template color is only a starting point ; a script may repaint this very NPC
+		_nameColor = template.getNameColor();
 		
 		// Set the name of the Creature
 		setName(template.getName());
@@ -937,6 +942,24 @@ public class Npc extends Creature
 	public void setScriptValue(int val)
 	{
 		_scriptValue = val;
+	}
+
+	/**
+	 * @return the color this NPC's name is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR}.
+	 */
+	public int getNameColor()
+	{
+		return _nameColor;
+	}
+
+	/**
+	 * Repaint this very NPC's name. It only reaches the players who already see the NPC on the next
+	 * NpcInfo, so follow it with broadcastPacket(new NpcInfo(this, null)) to make it immediate.
+	 * @param nameColor : RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR} to hand the name back to the client.
+	 */
+	public void setNameColor(int nameColor)
+	{
+		_nameColor = nameColor;
 	}
 	
 	public boolean isScriptValue(int val)
