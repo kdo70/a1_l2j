@@ -10615,6 +10615,8 @@
 	</npc>
 	<npc id="30320" name="Richlin" title="Gatekeeper" alias="gatekeeper_richlin">
 		<set name="type" val="Gatekeeper"/>
+		<!-- Sample of a permanent visual effect bound to a NPC : a light beam with its rune circle. See docs/npc-visual-effects.md -->
+		<set name="visualEffect" val="magiccircle"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="25.0"/>

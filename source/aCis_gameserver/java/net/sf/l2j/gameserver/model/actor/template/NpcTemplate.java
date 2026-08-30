@@ -17,6 +17,7 @@ import net.sf.l2j.gameserver.enums.EventHandler;
 import net.sf.l2j.gameserver.enums.actors.ClassId;
 import net.sf.l2j.gameserver.enums.actors.NpcRace;
 import net.sf.l2j.gameserver.enums.actors.NpcSkillType;
+import net.sf.l2j.gameserver.enums.skills.AbnormalEffect;
 import net.sf.l2j.gameserver.model.item.DropCategory;
 import net.sf.l2j.gameserver.model.memo.NpcMemo;
 import net.sf.l2j.gameserver.model.records.PrivateData;
@@ -34,6 +35,12 @@ public class NpcTemplate extends CreatureTemplate
 	/** Returned by {@link #getNameColor()} when the NPC's name keeps the color the client gives it. */
 	public static final int NO_NAME_COLOR = -1;
 
+	/** Returned by {@link #getVisualEffect()} and {@link #getVisualSkillId()} when the NPC carries no permanent visual. */
+	public static final int NO_VISUAL_EFFECT = 0;
+
+	/** Delay, in ms, between two replays of a visual skill, when the template doesn't set one. */
+	public static final int DEFAULT_VISUAL_SKILL_PERIOD = 3000;
+
 	private final int _npcId;
 	private final int _idTemplate;
 	
@@ -44,7 +51,11 @@ public class NpcTemplate extends CreatureTemplate
 	private final boolean _usingServerSideName;
 	private final boolean _usingServerSideTitle;
 	private final int _nameColor;
-	
+	private final int _visualEffect;
+	private final int _visualSkillId;
+	private final int _visualSkillLevel;
+	private final int _visualSkillPeriod;
+
 	private final String _type;
 	private final byte _level;
 	private final double _hitTimeFactor;
@@ -101,7 +112,13 @@ public class NpcTemplate extends CreatureTemplate
 		_usingServerSideName = set.getBool("usingServerSideName", false);
 		_usingServerSideTitle = set.getBool("usingServerSideTitle", false);
 		_nameColor = parseNameColor(set.getString("nameColor", null));
-		
+		_visualEffect = parseVisualEffect(set.getString("visualEffect", null));
+
+		final int[] visualSkill = parseVisualSkill(set.getString("visualSkill", null));
+		_visualSkillId = visualSkill[0];
+		_visualSkillLevel = visualSkill[1];
+		_visualSkillPeriod = visualSkill[2];
+
 		_type = set.getString("type");
 		_level = set.getByte("level", (byte) 1);
 		_hitTimeFactor = set.getDouble("hitTimeFactor", 0.);
@@ -243,6 +260,106 @@ public class NpcTemplate extends CreatureTemplate
 
 		LOGGER.warn("Invalid nameColor '{}' ; 6 hexadecimal digits (RRGGBB) were expected.", value);
 		return NO_NAME_COLOR;
+	}
+
+	/**
+	 * @return the {@link AbnormalEffect} mask this NPC permanently wears, or {@link #NO_VISUAL_EFFECT}.
+	 */
+	public int getVisualEffect()
+	{
+		return _visualEffect;
+	}
+
+	/**
+	 * @return the id of the skill whose cast visual is replayed on this NPC, or {@link #NO_VISUAL_EFFECT}.
+	 */
+	public int getVisualSkillId()
+	{
+		return _visualSkillId;
+	}
+
+	/**
+	 * @return the level of the skill whose cast visual is replayed on this NPC.
+	 */
+	public int getVisualSkillLevel()
+	{
+		return _visualSkillLevel;
+	}
+
+	/**
+	 * @return the delay, in ms, between two replays of the visual skill.
+	 */
+	public int getVisualSkillPeriod()
+	{
+		return _visualSkillPeriod;
+	}
+
+	/**
+	 * Reads a "visualEffect" property : {@link AbnormalEffect} names or "0x" masks, separated by ';'.
+	 * @param value : the raw property, or null when the NPC carries none.
+	 * @return the mask to OR to the NPC abnormal effects, or {@link #NO_VISUAL_EFFECT}.
+	 */
+	public static int parseVisualEffect(String value)
+	{
+		if (value == null || value.isEmpty())
+			return NO_VISUAL_EFFECT;
+
+		int mask = NO_VISUAL_EFFECT;
+
+		for (String token : value.split(";"))
+		{
+			token = token.trim();
+			if (token.isEmpty())
+				continue;
+
+			try
+			{
+				mask |= (token.startsWith("0x") || token.startsWith("0X")) ? Integer.decode(token) : AbnormalEffect.getByName(token).getMask();
+			}
+			catch (Exception e)
+			{
+				LOGGER.warn("Invalid visualEffect '{}' ; an AbnormalEffect name or a 0x mask was expected.", token);
+			}
+		}
+		return mask;
+	}
+
+	/**
+	 * Reads a "visualSkill" property, written as "id", "id;level" or "id;level;period".
+	 * @param value : the raw property, or null when the NPC carries none.
+	 * @return an array holding the skill id, its level and the replay period in ms. The id is {@link #NO_VISUAL_EFFECT} when there is none, or it doesn't parse.
+	 */
+	public static int[] parseVisualSkill(String value)
+	{
+		final int[] visualSkill =
+		{
+			NO_VISUAL_EFFECT,
+			1,
+			DEFAULT_VISUAL_SKILL_PERIOD
+		};
+
+		if (value == null || value.isEmpty())
+			return visualSkill;
+
+		final String[] tokens = value.split(";");
+
+		try
+		{
+			visualSkill[0] = Integer.parseInt(tokens[0].trim());
+
+			if (tokens.length > 1)
+				visualSkill[1] = Integer.parseInt(tokens[1].trim());
+
+			if (tokens.length > 2)
+				visualSkill[2] = Math.max(500, Integer.parseInt(tokens[2].trim()));
+		}
+		catch (NumberFormatException e)
+		{
+			LOGGER.warn("Invalid visualSkill '{}' ; 'id', 'id;level' or 'id;level;period' were expected.", value);
+
+			visualSkill[0] = NO_VISUAL_EFFECT;
+		}
+		return visualSkill;
 	}
 	
 	public String getType()

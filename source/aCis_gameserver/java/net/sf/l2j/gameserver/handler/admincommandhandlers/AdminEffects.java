@@ -16,6 +16,7 @@ import net.sf.l2j.gameserver.model.actor.Npc;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.Summon;
 import net.sf.l2j.gameserver.model.actor.instance.Chest;
+import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.Earthquake;
 import net.sf.l2j.gameserver.network.serverpackets.ExRedSky;
@@ -42,6 +43,7 @@ public class AdminEffects implements IAdminCommandHandler
 		"admin_hide",
 		"admin_invul",
 		"admin_jukebox",
+		"admin_npc_effect",
 		"admin_para",
 		"admin_play_sound",
 		"admin_social",
@@ -276,6 +278,72 @@ public class AdminEffects implements IAdminCommandHandler
 				{
 					player.updateEffectIcons();
 				}
+			}
+			else if (command.startsWith("admin_npc_effect"))
+			{
+				if (!(player.getTarget() instanceof Npc npc))
+				{
+					player.sendPacket(SystemMessageId.INVALID_TARGET);
+					return;
+				}
+
+				if (!st.hasMoreTokens())
+				{
+					player.sendMessage(npc.getName() + " : visual effect 0x" + Integer.toHexString(npc.getVisualEffect()) + ", visual skill " + npc.getVisualSkillId() + "-" + npc.getVisualSkillLevel() + " each " + npc.getVisualSkillPeriod() + "ms.");
+					player.sendMessage("Usage: //npc_effect none|0xmask|name [name ...]");
+					player.sendMessage("Usage: //npc_effect skill none|id [level] [period]");
+					return;
+				}
+
+				final String type = st.nextToken();
+
+				// The visual skill, replayed over and over on the NPC.
+				if (type.equalsIgnoreCase("skill"))
+				{
+					try
+					{
+						final String skillId = st.nextToken();
+
+						if (skillId.equalsIgnoreCase("none"))
+						{
+							npc.setVisualSkill(NpcTemplate.NO_VISUAL_EFFECT, 1, NpcTemplate.DEFAULT_VISUAL_SKILL_PERIOD);
+							player.sendMessage("The visual skill of " + npc.getName() + " has been removed.");
+						}
+						else
+						{
+							npc.setVisualSkill(Integer.parseInt(skillId), (st.hasMoreTokens()) ? Integer.parseInt(st.nextToken()) : 1, (st.hasMoreTokens()) ? Integer.parseInt(st.nextToken()) : NpcTemplate.DEFAULT_VISUAL_SKILL_PERIOD);
+							player.sendMessage(npc.getName() + " now replays the skill " + npc.getVisualSkillId() + "-" + npc.getVisualSkillLevel() + " each " + npc.getVisualSkillPeriod() + "ms.");
+						}
+					}
+					catch (Exception e)
+					{
+						player.sendMessage("Usage: //npc_effect skill none|id [level] [period]");
+					}
+					return;
+				}
+
+				// The permanent AbnormalEffect mask, worn by the NPC.
+				if (type.equalsIgnoreCase("none"))
+				{
+					npc.setVisualEffect(NpcTemplate.NO_VISUAL_EFFECT);
+					player.sendMessage("The visual effect of " + npc.getName() + " has been removed.");
+					return;
+				}
+
+				// Several names can be given at once ; parseVisualEffect awaits them as one ';' separated String.
+				final StringBuilder sb = new StringBuilder(type);
+				while (st.hasMoreTokens())
+					sb.append(';').append(st.nextToken());
+
+				final int mask = NpcTemplate.parseVisualEffect(sb.toString());
+				if (mask == NpcTemplate.NO_VISUAL_EFFECT)
+				{
+					player.sendMessage("Usage: //npc_effect none|0xmask|name [name ...]");
+					return;
+				}
+
+				npc.setVisualEffect(mask);
+				player.sendMessage(npc.getName() + " now wears the visual effect 0x" + Integer.toHexString(mask) + ".");
 			}
 			else if (command.startsWith("admin_para"))
 			{

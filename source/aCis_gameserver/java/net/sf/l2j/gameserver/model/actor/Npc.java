@@ -80,6 +80,7 @@ import net.sf.l2j.gameserver.scripting.script.ai.individual.DefaultNpc;
 import net.sf.l2j.gameserver.skills.L2Skill;
 import net.sf.l2j.gameserver.taskmanager.AiTaskManager;
 import net.sf.l2j.gameserver.taskmanager.DecayTaskManager;
+import net.sf.l2j.gameserver.taskmanager.NpcVisualEffectTaskManager;
 
 /**
  * An instance type extending {@link Creature}, which represents a Non Playable Character (or NPC) in the world.
@@ -111,7 +112,12 @@ public class Npc extends Creature
 	private int _scriptValue = 0;
 
 	private int _nameColor;
-	
+
+	private int _visualEffect;
+	private int _visualSkillId;
+	private int _visualSkillLevel;
+	private int _visualSkillPeriod;
+
 	private Residence _residence;
 	
 	private Creature _lastAttacker;
@@ -191,6 +197,12 @@ public class Npc extends Creature
 
 		// the template color is only a starting point ; a script may repaint this very NPC
 		_nameColor = template.getNameColor();
+
+		// same for the permanent visual effect ; a script or a GM may give it to this very NPC
+		_visualEffect = template.getVisualEffect();
+		_visualSkillId = template.getVisualSkillId();
+		_visualSkillLevel = template.getVisualSkillLevel();
+		_visualSkillPeriod = template.getVisualSkillPeriod();
 		
 		// Set the name of the Creature
 		setName(template.getName());
@@ -272,6 +284,13 @@ public class Npc extends Creature
 	public void updateAbnormalEffect()
 	{
 		forEachKnownType(Player.class, this::sendInfo);
+	}
+
+	@Override
+	public int getAbnormalEffect()
+	{
+		// The permanent visual is added on top, so no effect cleanup can wipe it.
+		return super.getAbnormalEffect() | _visualEffect;
 	}
 	
 	@Override
@@ -583,7 +602,11 @@ public class Npc extends Creature
 		
 		for (Quest quest : getTemplate().getEventQuests(EventHandler.CREATED))
 			quest.onCreated(this);
-		
+
+		// Start replaying the visual skill, if this NPC carries one.
+		if (_visualSkillId > 0)
+			NpcVisualEffectTaskManager.getInstance().add(this);
+
 		if (_spawn != null)
 			_spawn.onSpawn(this);
 	}
@@ -595,8 +618,12 @@ public class Npc extends Creature
 			return;
 		
 		setIsDead(true);
-		
+
 		setDecayed(true);
+
+		// Stop replaying the visual skill, if this NPC carries one.
+		if (_visualSkillId > 0)
+			NpcVisualEffectTaskManager.getInstance().remove(this);
 		
 		for (Quest quest : getTemplate().getEventQuests(EventHandler.DECAYED))
 			quest.onDecayed(this);
@@ -960,6 +987,58 @@ public class Npc extends Creature
 	public void setNameColor(int nameColor)
 	{
 		_nameColor = nameColor;
+	}
+
+	/**
+	 * @return the {@link net.sf.l2j.gameserver.enums.skills.AbnormalEffect} mask this NPC permanently wears, on top of its actual effects.
+	 */
+	public int getVisualEffect()
+	{
+		return _visualEffect;
+	}
+
+	/**
+	 * Dress this very NPC with a permanent {@link net.sf.l2j.gameserver.enums.skills.AbnormalEffect} mask. Unlike {@link #startAbnormalEffect(int)}, it survives an effect cleanup and a respawn.
+	 * @param mask : The mask to wear, or {@link NpcTemplate#NO_VISUAL_EFFECT} to drop it.
+	 */
+	public void setVisualEffect(int mask)
+	{
+		_visualEffect = mask;
+
+		updateAbnormalEffect();
+	}
+
+	public int getVisualSkillId()
+	{
+		return _visualSkillId;
+	}
+
+	public int getVisualSkillLevel()
+	{
+		return _visualSkillLevel;
+	}
+
+	public int getVisualSkillPeriod()
+	{
+		return _visualSkillPeriod;
+	}
+
+	/**
+	 * Replay a skill cast visual on this very NPC, over and over, for the effects the client only knows as a skill animation.
+	 * @param skillId : The skill id to replay, or {@link NpcTemplate#NO_VISUAL_EFFECT} to stop it.
+	 * @param skillLevel : The skill level to replay.
+	 * @param period : The delay, in ms, between two replays.
+	 */
+	public void setVisualSkill(int skillId, int skillLevel, int period)
+	{
+		_visualSkillId = skillId;
+		_visualSkillLevel = skillLevel;
+		_visualSkillPeriod = Math.max(500, period);
+
+		if (_visualSkillId > 0 && !isDecayed())
+			NpcVisualEffectTaskManager.getInstance().add(this);
+		else
+			NpcVisualEffectTaskManager.getInstance().remove(this);
 	}
 	
 	public boolean isScriptValue(int val)

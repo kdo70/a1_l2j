@@ -46,6 +46,7 @@
 	<aCar name="admin_hide" accessLevel="7" params="" desc="Toggle your hide state."/>
 	<aCar name="admin_invul" accessLevel="7" params="" desc="Toggle your invincible state - effects are denied."/>
 	<aCar name="admin_jukebox" accessLevel="7" params="" desc="Open the jukebox panel."/>
+	<aCar name="admin_npc_effect" accessLevel="7" params="[none|0xmask|name|skill id [level] [period]]" desc="Give a permanent visual effect to the targeted NPC."/>
 	<aCar name="admin_para" accessLevel="7" params="" desc="Paralyze on/off your target."/>
 	<aCar name="admin_play_sound" accessLevel="7" params="soundFile" desc=">Broadcast the associated client music."/>
 	<aCar name="admin_social" accessLevel="7" params="id" desc="Affect your target (or you) with the social animation."/>

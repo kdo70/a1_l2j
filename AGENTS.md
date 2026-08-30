@@ -122,6 +122,11 @@ ant -f source\aCis_gameserver\build.xml
   удар по РБ (один раз, признак в `character_memo`), продавать/выбрасывать/передавать
   нельзя. Окно открывает предмет с атрибутом `handler="RaidBossBook"`, а выдаётся тот,
   что указан в `RaidBookItemId` — это две разные привязки.
+- **Постоянный визуальный эффект NPC** (столб света и прочее) вешается из датапака:
+  `visualEffect` (маска `AbnormalEffect`, уезжает в `NpcInfo`) или `visualSkill`
+  (повтор анимации каста) в `data/xml/npcs`. Подбор живьём — `//npc_effect` по
+  выделенному NPC, устройство и таблица масок — `docs/npc-visual-effects.md`.
+  Пример привязки — гейткипер Richlin (30320).
 - **Иконки предметов лежат в датапаке** (`data/xml/itemIcons.xml`), потому что
   Interlude держит их только на клиенте. Выгружаются из клиентских `*grp.dat`
   скриптом `tools/icons/grp_to_icons.ps1`, устройство — `docs/item-icons.md`.
