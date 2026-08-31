@@ -180,19 +180,10 @@ public class AdminItem implements IAdminCommandHandler
 		}
 		else if (command.equals("admin_clear_inventory"))
 		{
-			// No parameter means the confirmation page, which carries the target name over to the actual wipe.
-			if (!st.hasMoreTokens())
-			{
-				showClearConfirmation(player, targetPlayer);
-				return;
-			}
-			
-			st.nextToken();
-			
 			final Player toClear = (st.hasMoreTokens()) ? getTargetPlayer(player, st.nextToken(), false) : targetPlayer;
 			if (toClear == null)
 			{
-				player.sendMessage("That player isn't online anymore.");
+				player.sendMessage("That player isn't online.");
 				return;
 			}
 			
@@ -253,27 +244,6 @@ public class AdminItem implements IAdminCommandHandler
 		final NpcHtmlMessage html = new NpcHtmlMessage(0);
 		html.setFile("data/html/admin/itemsets.htm");
 		html.replace("%sets%", sb.toString());
-		player.sendPacket(html);
-	}
-	
-	/**
-	 * Renders data/html/admin/clearinventory.htm : a confirmation page, since the wipe can't be undone.
-	 * @param player : The {@link Player} to send the page to.
-	 * @param targetPlayer : The {@link Player} whose inventory would be wiped.
-	 */
-	private static void showClearConfirmation(Player player, Player targetPlayer)
-	{
-		int count = 0;
-		for (ItemInstance item : targetPlayer.getInventory().getItems())
-		{
-			if (isClearable(targetPlayer, item))
-				count++;
-		}
-		
-		final NpcHtmlMessage html = new NpcHtmlMessage(0);
-		html.setFile("data/html/admin/clearinventory.htm");
-		html.replace("%name%", targetPlayer.getName());
-		html.replace("%count%", count);
 		player.sendPacket(html);
 	}
 	

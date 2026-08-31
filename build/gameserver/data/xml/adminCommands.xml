@@ -64,7 +64,7 @@
 	<!-- ITEM -->
 	<aCar name="admin_give" accessLevel="7" params="itemId" desc="Create an Item for the selected Player."/>
 	<aCar name="admin_item" accessLevel="7" params="[coin|set]" desc="Create an Item for the selected Player."/>
-	<aCar name="admin_clear_inventory" accessLevel="7" params="[confirm name]" desc="Destroy all Items of the selected Player."/>
+	<aCar name="admin_clear_inventory" accessLevel="7" params="[name]" desc="Destroy all Items of the selected Player."/>
 
 	<!-- GEOENGINE -->
 	<aCar name="admin_geo" accessLevel="7" params="bug|pos|see|move|fly" desc="Run one of the geoengine related checks."/>
