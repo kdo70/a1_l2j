@@ -188,8 +188,6 @@ public class AdminItem implements IAdminCommandHandler
 			}
 			
 			clearInventory(player, toClear);
-			
-			sendFile(player, "itemcreation.htm");
 		}
 	}
 	
