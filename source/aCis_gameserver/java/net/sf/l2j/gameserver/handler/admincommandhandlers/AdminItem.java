@@ -1,5 +1,8 @@
 package net.sf.l2j.gameserver.handler.admincommandhandlers;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import net.sf.l2j.commons.lang.StringUtil;
@@ -19,6 +22,18 @@ public class AdminItem implements IAdminCommandHandler
 		"admin_give",
 		"admin_item"
 	};
+	
+	private static final String[] GRADES =
+	{
+		"No Grade",
+		"D Grade",
+		"C Grade",
+		"B Grade",
+		"A Grade",
+		"S Grade"
+	};
+	
+	private static final int SETS_PER_PAGE = 20;
 	
 	@Override
 	public void useAdminCommand(String command, Player player)
@@ -94,59 +109,67 @@ public class AdminItem implements IAdminCommandHandler
 						break;
 					
 					case "set":
-						// More tokens means you try to use the command directly with a chestId.
+					{
+						// Every look exists in all six grades, which is far too many sets for one
+						// page : browse them grade by grade, "//item set grade <1-6> [page]".
+						int grade = 0;
+						int page = 0;
+						
 						if (st.hasMoreTokens())
 						{
-							try
+							final String token = st.nextToken();
+							if (token.equals("grade"))
 							{
-								final ArmorSet armorSet = ArmorSetData.getInstance().getSet(Integer.parseInt(st.nextToken()));
-								if (armorSet == null)
+								try
 								{
-									player.sendMessage("This chest has no set.");
+									grade = Integer.parseInt(st.nextToken());
+									if (st.hasMoreTokens())
+										page = Integer.parseInt(st.nextToken());
+								}
+								catch (Exception e)
+								{
+									player.sendMessage("Usage: //item set grade [1-6] [page]");
 									return;
 								}
-								
-								for (int itemId : armorSet.getSetItemsId())
-								{
-									if (itemId > 0)
-										targetPlayer.getInventory().addItem(itemId, 1);
-								}
-								
-								if (armorSet.getShield() > 0)
-									targetPlayer.getInventory().addItem(armorSet.getShield(), 1);
-								
-								if (player != targetPlayer)
-									player.sendMessage("You have spawned " + armorSet.toString() + " in " + targetPlayer.getName() + "'s inventory.");
 							}
-							catch (Exception e)
+							// A chestId hands the whole set over, then comes back to its own page.
+							else
 							{
-								player.sendMessage("Usage: //item set [chestId]");
+								try
+								{
+									final ArmorSet armorSet = ArmorSetData.getInstance().getSet(Integer.parseInt(token));
+									if (armorSet == null)
+									{
+										player.sendMessage("This chest has no set.");
+										return;
+									}
+									
+									for (int itemId : armorSet.getSetItemsId())
+									{
+										if (itemId > 0)
+											targetPlayer.getInventory().addItem(itemId, 1);
+									}
+									
+									if (armorSet.getShield() > 0)
+										targetPlayer.getInventory().addItem(armorSet.getShield(), 1);
+									
+									if (player != targetPlayer)
+										player.sendMessage("You have spawned " + armorSet.toString() + " in " + targetPlayer.getName() + "'s inventory.");
+									
+									grade = armorSet.getSkillLvl();
+									if (st.hasMoreTokens())
+										page = Integer.parseInt(st.nextToken());
+								}
+								catch (Exception e)
+								{
+									player.sendMessage("Usage: //item set [chestId]");
+								}
 							}
 						}
 						
-						// Regular case (first HTM with all possible sets).
-						int i = 0;
-						
-						final StringBuilder sb = new StringBuilder();
-						for (ArmorSet armorSet : ArmorSetData.getInstance().getSets())
-						{
-							final boolean isNextLine = i % 2 == 0;
-							if (isNextLine)
-								sb.append("<tr>");
-							
-							sb.append("<td><a action=\"bypass -h admin_item set " + armorSet.getSetItemsId()[0] + "\">" + armorSet.toString() + "</a></td>");
-							
-							if (isNextLine)
-								sb.append("</tr>");
-							
-							i++;
-						}
-						
-						final NpcHtmlMessage html = new NpcHtmlMessage(0);
-						html.setFile("data/html/admin/itemsets.htm");
-						html.replace("%sets%", sb.toString());
-						player.sendPacket(html);
+						showArmorSets(player, grade, page);
 						break;
+					}
 				}
 			}
 		}
@@ -156,6 +179,54 @@ public class AdminItem implements IAdminCommandHandler
 	public String[] getAdminCommandList()
 	{
 		return ADMIN_COMMANDS;
+	}
+	
+	/**
+	 * Renders data/html/admin/itemsets.htm : the six grades, or one page of the sets of a grade.
+	 * @param player : The {@link Player} to send the page to.
+	 * @param grade : The set skill level, 1 for No Grade up to 6 for S ; 0 shows the grade index.
+	 * @param page : Which page of that grade, zero based.
+	 */
+	private static void showArmorSets(Player player, int grade, int page)
+	{
+		final StringBuilder sb = new StringBuilder();
+		
+		if (grade < 1 || grade > GRADES.length)
+		{
+			for (int i = 0; i < GRADES.length; i++)
+				StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set grade ", i + 1, "\">", GRADES[i], "</a></td></tr>");
+		}
+		else
+		{
+			final List<ArmorSet> sets = new ArrayList<>();
+			for (ArmorSet armorSet : ArmorSetData.getInstance().getSets())
+			{
+				if (armorSet.getSkillLvl() == grade)
+					sets.add(armorSet);
+			}
+			sets.sort(Comparator.comparing(ArmorSet::toString));
+			
+			final int pages = Math.max(1, (sets.size() + SETS_PER_PAGE - 1) / SETS_PER_PAGE);
+			page = Math.min(Math.max(page, 0), pages - 1);
+			
+			StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set\">Back to grades</a></td><td align=right>", GRADES[grade - 1], "</td></tr>");
+			
+			for (int i = page * SETS_PER_PAGE; i < Math.min((page + 1) * SETS_PER_PAGE, sets.size()); i++)
+			{
+				final ArmorSet armorSet = sets.get(i);
+				StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set ", armorSet.getSetItemsId()[0], " ", page, "\">", armorSet.toString(), "</a></td></tr>");
+			}
+			
+			sb.append("<tr><td>");
+			for (int i = 0; i < pages; i++)
+				StringUtil.append(sb, "<a action=\"bypass -h admin_item set grade ", grade, " ", i, "\">", (i == page) ? "[" + (i + 1) + "]" : i + 1, "</a>&nbsp;");
+			sb.append("</td></tr>");
+		}
+		
+		final NpcHtmlMessage html = new NpcHtmlMessage(0);
+		html.setFile("data/html/admin/itemsets.htm");
+		html.replace("%sets%", sb.toString());
+		player.sendPacket(html);
 	}
 	
 	private static void createItem(Player player, Player targetPlayer, int id, int num, int radius)

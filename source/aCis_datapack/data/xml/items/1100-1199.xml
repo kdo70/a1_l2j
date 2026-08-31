@@ -8,7 +8,7 @@
 		<set name="weight" val="2120" />
 		<set name="price" val="2430" />
 		<for>
-			<baseadd stat="pDef" val="21" />
+			<baseadd stat="pDef" val="34" />
 			<add stat="maxMp" val="38" />
 		</for>
 	</item>
@@ -20,7 +20,7 @@
 		<set name="weight" val="2090" />
 		<set name="price" val="20300" />
 		<for>
-			<baseadd stat="pDef" val="30" />
+			<baseadd stat="pDef" val="34" />
 			<add stat="maxMp" val="67" />
 		</for>
 	</item>
@@ -56,7 +56,7 @@
 		<set name="weight" val="1040" />
 		<set name="price" val="12700" />
 		<for>
-			<baseadd stat="pDef" val="19" />
+			<baseadd stat="pDef" val="22" />
 			<add stat="maxMp" val="42" />
 		</for>
 	</item>
@@ -68,7 +68,7 @@
 		<set name="weight" val="1030" />
 		<set name="price" val="23000" />
 		<for>
-			<baseadd stat="pDef" val="21" />
+			<baseadd stat="pDef" val="22" />
 			<add stat="maxMp" val="54" />
 		</for>
 	</item>
@@ -219,7 +219,7 @@
 		<set name="weight" val="1320" />
 		<set name="price" val="7" />
 		<for>
-			<baseadd stat="pDef" val="8" />
+			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
 	<item id="1122" type="Armor" name="Cotton Shoes">
@@ -229,7 +229,7 @@
 		<set name="weight" val="1320" />
 		<set name="price" val="607" />
 		<for>
-			<baseadd stat="pDef" val="11" />
+			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
 	<item id="1123" type="Armor" name="Blue Buckskin Boots">
@@ -483,7 +483,7 @@
 		<set name="is_dropable" val="false" />
 		<set name="is_sellable" val="false" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="53" />
 		</for>
 	</item>
 	<item id="1147" type="Armor" name="Squire's Pants">
@@ -497,7 +497,7 @@
 		<set name="is_dropable" val="false" />
 		<set name="is_sellable" val="false" />
 		<for>
-			<baseadd stat="pDef" val="20" />
+			<baseadd stat="pDef" val="33" />
 		</for>
 	</item>
 	<item id="1148" type="Armor" name="Hard Leather Helmet">

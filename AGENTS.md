@@ -126,10 +126,26 @@ ant -f source\aCis_gameserver\build.xml
   `visualEffect` (маска `AbnormalEffect`, уезжает в `NpcInfo`) или `visualSkill`
   (повтор анимации каста) в `data/xml/npcs`. Подбор живьём — `//npc_effect` по
   выделенному NPC, устройство и таблица масок — `docs/npc-visual-effects.md`.
-  Пример привязки — гейткипер Richlin (30320).
+  Пример привязки — гейткипер Richlin (30320). Там же разведка по клиенту (какие
+  864 эффекта есть в `LineageEffect.u`, как имя класса эффекта связано со скиллом,
+  чем распаковываются dat'ы) и открытый вопрос: у скиллового варианта NPC
+  изображает каст.
 - **Иконки предметов лежат в датапаке** (`data/xml/itemIcons.xml`), потому что
   Interlude держит их только на клиенте. Выгружаются из клиентских `*grp.dat`
   скриптом `tools/icons/grp_to_icons.ps1`, устройство — `docs/item-icons.md`.
+- **Броня, сеты и их скиллы сгенерированы, а не написаны руками.** Каждый из 130
+  внешних видов брони существует шестью комплектами (No Grade, D, C, B, A, S) —
+  780 сетов, 2664 части, id новых предметов `10000..12219`, скиллы сетов
+  `9500..9629`. Источник — таблица `tools/armorsets/families.csv`, генератор —
+  `tools/armorsets/generate.ps1` (пишет `data/xml/items`, `armorSets.xml`,
+  `data/xml/skills/9*.xml`, байлисты GM-магазина и копию в `build/`), клиентская
+  половина — `tools/armorsets/patch_client.ps1`. Правки `data/xml/armorSets.xml`
+  и сгенерированных файлов руками не переживут следующий прогон — править надо
+  `families.csv`. Устройство, таблицы характеристик и последствия —
+  `docs/armor-sets-all-grades.md`.
+- **Один скилл сета обслуживает все шесть грейдов** — `<armorset skillLvl="...">`
+  выбирает уровень, `ArmorSetListener` берёт скилл этим уровнем (а не первым, как
+  в стоковом aCis). Тем же уровнем берётся и скилл «весь сет заточен на +6».
 
 ## CI/CD (.github)
 
@@ -193,6 +209,14 @@ ant -f source\aCis_gameserver\build.xml
 защита, вес и прочее), лежат в клиентских `weapongrp.dat`/`armorgrp.dat`, но
 могут приезжать с сервера из `data/xml/items` — клиент спрашивает их сам,
 устройство и ограничения в `docs/item-stats-from-server.md`.
+
+Имя, иконку, грейд и модель предмета клиент берёт только из своих
+`system\*.dat`, поэтому предметы с новыми id ему надо дописывать туда —
+`tools/armorsets/patch_client.ps1` делает это для брони всех грейдов
+(`armorgrp.dat`, `itemname-e.dat`, `skillgrp.dat`, `skillname-e.dat`) через
+`l2encdec`/`l2disasm`/`l2asm` из L2 File Editor, с проверкой побайтового
+round trip и бэкапами `*.presets.bak`. Пересборка `interface.u` для этого не
+нужна. Устройство — `docs/armor-sets-all-grades.md`.
 
 Уровень заточки и количество на иконке предмета рисует не скрипт, а нативный
 код клиента — это бинарный патч `nwindow.dll`

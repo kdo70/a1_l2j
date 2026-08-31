@@ -860,15 +860,10 @@
 	<item id="7850" type="Armor" name="Clan Oath Helm">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="640" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="37" />
+			<baseadd stat="pDef" val="26" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -876,45 +871,30 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="9870" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="158" />
+			<baseadd stat="pDef" val="111" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7852" type="Armor" name="Clan Oath Gauntlets - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="640" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7853" type="Armor" name="Clan Oath Sabaton - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="1280" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -922,45 +902,30 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="5400" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="119" />
+			<baseadd stat="pDef" val="86" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7855" type="Armor" name="Clan Oath Leather Gloves - Light Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="640" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7856" type="Armor" name="Clan Oath Boots - Light Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="1280" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -968,15 +933,10 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="2450" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="79" />
+			<baseadd stat="pDef" val="56" />
 			<add stat="maxMp" val="239" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -984,44 +944,30 @@
 	<item id="7858" type="Armor" name="Clan Oath Padded Gloves - Robe">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="640" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7859" type="Armor" name="Clan Oath Sandals - Robe">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="D" />
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="1280" />
-		<set name="equip_condition" val="{{ec_academy;1}}" />
-		<cond msgId="1518">
-			<player pledgeClass="1" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="24" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7860" type="Armor" name="Apella Helm">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="570" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="69" />
+			<baseadd stat="pDef" val="26" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1029,42 +975,30 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="9780" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="278" />
+			<baseadd stat="pDef" val="111" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7862" type="Armor" name="Apella Gauntlet - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7863" type="Armor" name="Apella Solleret - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1072,42 +1006,30 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="5400" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="209" />
+			<baseadd stat="pDef" val="86" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7865" type="Armor" name="Apella Leather Gloves - Light Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7866" type="Armor" name="Apella Boots - Light Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1115,14 +1037,10 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="2450" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="139" />
+			<baseadd stat="pDef" val="56" />
 			<add stat="maxMp" val="665" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -1130,28 +1048,20 @@
 	<item id="7868" type="Armor" name="Apella Silk Gloves - Robe">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="7869" type="Armor" name="Apella Sandals - Robe">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
-		<cond msgId="1518">
-			<player pledgeClass="4" />
-		</cond>
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="20" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

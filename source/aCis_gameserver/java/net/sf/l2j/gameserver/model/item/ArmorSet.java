@@ -13,6 +13,7 @@ public final class ArmorSet
 	private final int[] _set = new int[5];
 	
 	private final int _skillId;
+	private final int _skillLvl;
 	private final int _shield;
 	private final int _shieldSkillId;
 	private final int _enchant6Skill;
@@ -28,6 +29,8 @@ public final class ArmorSet
 		_set[4] = set.getInteger("feet");
 		
 		_skillId = set.getInteger("skillId");
+		// The same look exists in every grade ; one skill with one level per grade serves them all.
+		_skillLvl = set.getInteger("skillLvl", 1);
 		_shield = set.getInteger("shield");
 		_shieldSkillId = set.getInteger("shieldSkillId");
 		_enchant6Skill = set.getInteger("enchant6Skill");
@@ -53,6 +56,11 @@ public final class ArmorSet
 	public int getSkillId()
 	{
 		return _skillId;
+	}
+	
+	public int getSkillLvl()
+	{
+		return _skillLvl;
 	}
 	
 	public int getShieldSkillId()

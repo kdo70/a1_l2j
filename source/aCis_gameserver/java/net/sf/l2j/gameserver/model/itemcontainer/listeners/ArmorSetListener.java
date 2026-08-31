@@ -43,7 +43,7 @@ public class ArmorSetListener implements OnEquipListener
 		{
 			if (armorSet.containsAll(player))
 			{
-				L2Skill skill = SkillTable.getInstance().getInfo(armorSet.getSkillId(), 1);
+				L2Skill skill = SkillTable.getInstance().getInfo(armorSet.getSkillId(), armorSet.getSkillLvl());
 				if (skill != null)
 				{
 					player.addSkill(SkillTable.getInstance().getInfo(3006, 1), false);
@@ -66,7 +66,7 @@ public class ArmorSetListener implements OnEquipListener
 					int skillId = armorSet.getEnchant6skillId();
 					if (skillId > 0)
 					{
-						L2Skill skille = SkillTable.getInstance().getInfo(skillId, 1);
+						L2Skill skille = SkillTable.getInstance().getInfo(skillId, armorSet.getSkillLvl());
 						if (skille != null)
 						{
 							player.addSkill(skille, false);

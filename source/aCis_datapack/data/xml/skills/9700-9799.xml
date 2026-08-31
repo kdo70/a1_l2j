@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<skill id="9700" levels="6" name="Enchant Heavy Armor" >
+		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
+		<table name="#v1"> 15 25 38 44 50 56 </table>
+		<table name="#v2"> 2 2 2 2 2 2 </table>
+		<set name="target" val="SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="PASSIVE" />
+		<set name="magicLvl" val="#magicLvl" />
+		<for>
+			<add stat="pDef" val="#v1" />
+			<add stat="regMp" val="#v2" />
+		</for>
+	</skill>
+	<skill id="9701" levels="6" name="Enchant Light Armor" >
+		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
+		<table name="#v1"> 1 2 2 2 2 2 </table>
+		<table name="#v2"> 7 12 20 24 28 32 </table>
+		<set name="target" val="SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="PASSIVE" />
+		<set name="magicLvl" val="#magicLvl" />
+		<for>
+			<add stat="rEvas" val="#v1" />
+			<add stat="mDef" val="#v2" />
+		</for>
+	</skill>
+	<skill id="9702" levels="6" name="Enchant Robe" >
+		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
+		<table name="#v1"> 10 16 24 28 32 36 </table>
+		<table name="#v2"> 6 10 14 18 22 26 </table>
+		<set name="target" val="SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="PASSIVE" />
+		<set name="magicLvl" val="#magicLvl" />
+		<for>
+			<add stat="pDef" val="#v1" />
+			<add stat="mDef" val="#v2" />
+		</for>
+	</skill>
+</list>

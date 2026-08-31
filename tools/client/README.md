@@ -282,6 +282,10 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `pack_l2_package.ps1` — wraps a plain `ucc` package back into that container and stamps the licensee.
 - `verify_imports.ps1` — checks a built package's imports against the client's real packages.
 - `dump_class_sizes.ps1` — lists the size of every `UClass` export, for the comparison above.
+- `dump_package.ps1` — lists what any `Lineage2Ver111` package holds (names, imports, exports and their full
+  paths). Written to survey the client's effects — `LineageEffect.u` ships 864 of them — see
+  [../../docs/npc-visual-effects.md](../../docs/npc-visual-effects.md). Nothing to do with the `interface.u`
+  build either.
 - `patch_nwindow.ps1` — the `nwindow.dll` patch that puts the enchant level on item icons and caps the stack
   count. Nothing to do with the `interface.u` build.
 - `npc_title_colors.ps1` / `npc_title_colors.txt` — the `npcname-e.dat` rewrite that colors the title an NPC

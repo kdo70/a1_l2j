@@ -151,3 +151,122 @@
   NPC период меньше 2–3 секунд лучше не ставить.
 - Правка через `//npc_effect` не сохраняется: перезапуск сервера вернёт то,
   что написано в XML.
+
+---
+
+## 7. Что из эффектов вообще есть в клиенте
+
+Разведка по клиенту (`E:\client`), чтобы не гадать, какой скилл какую картинку
+даёт.
+
+### Где они лежат
+
+`system/LineageEffect.u` — пакет Unreal 2 (version 123, licensee 30), в нём
+**864 класса эффектов**, собранных из 2411 `SpriteEmitter`, 1232 `MeshEmitter`,
+36 `VertMeshEmitter`, **29 `BeamEmitter`** и 1 `RibbonEmitter`. Ещё эффекты
+живут в `LineageMonster*.u`, `LineageNpc*.u`, но там они привязаны к моделям.
+
+Список классов снимается своим парсером пакетов:
+
+```
+powershell -ExecutionPolicy Bypass -File tools/client/dump_package.ps1 ^
+    -Package "<client>\system\LineageEffect.u" -ClassesOnly
+```
+
+### Как скилл выбирает эффект
+
+Имя класса собирается как `<категория>_<имя скилла в snake_case>_<ca|ta>`, где
+категория — префикс из колонки `desc` в `skillgrp.dat`, `ca` играет на кастере,
+`ta` — на цели. Проверено на трёх независимых парах:
+
+| скилл | `desc` в skillgrp | класс в LineageEffect.u |
+|---|---|---|
+| 1043 Holy Weapon | `skill.white.1043` | `wh_holy_weapon_ta` |
+| 1172 Aura Burn | `skill.el.1172` | `el_aura_burn_ca` / `_ta` |
+| 277 Dance of Light | `skill.phenomenon.277` | `ph_dance_of_light_ta` |
+
+Для NPC кастер и цель — он сам, поэтому любой такой класс поднимается сервером
+через `visualSkill` / `//npc_effect skill <id>`, **не трогая клиент вообще**.
+
+### Кандидаты на луч
+
+864 класса отфильтрованы по наличию `BeamEmitter` и сопоставлены с
+`skillname-e.dat`:
+
+| skill id | скилл | класс эффекта |
+|---|---|---|
+| 1011 | Heal | `wh_heal_ta` |
+| 1013 | Recharge | `wh_recharge_ta` |
+| 1044 | Regeneration | `wh_regeneration_ta` |
+| 1335 | Balance Life | `wh_balance_life_ta` |
+| 1016 | Resurrection | `wh_resurrection_ta` |
+| 1031 | Disrupt Undead | `wh_disrupt_undead_ta` |
+| 1043 | Holy Weapon | `wh_holy_weapon_ta` |
+| 1231 | Aura Flare | `el_aura_flare_ta` |
+| 1172 | Aura Burn | `el_aura_burn_ca` |
+| 277 | Dance of Light | `ph_dance_of_light_ta` |
+
+**1011 (Heal) визуально подошёл** — это и есть столб света; открытый вопрос по
+нему в разделе 8.
+
+### Чего скиллом не достать
+
+`e_u061_beam`, `s_u805_channeling` / `s_u806_channeling_beam` (по имени — как
+раз постоянный луч-канал), `m_u*`, `mb_frintessa_field_*` — у них нет имени
+скилла, значит через `MagicSkillUse` они не поднимаются. У NPC-скиллов своя
+таблица `mobskillanimgrp.dat` (`npc_id` + `skill_id` → имя эффекта, 506 разных
+имён) — туда можно дописать строку под свой npc id, но это уже правка dat'а.
+
+### Инструменты, которыми это снималось
+
+- **dat'ы этого клиента перешифрованы «новой» RSA-парой l2encdec**, а не
+  оригинальными ключами NCsoft: `l2encdec -l` падает на распаковке, работает
+  `-d`. Обратно — `-e 413`.
+  ```
+  E:\l2encdec\l2encdec.exe -d skillgrp.dat skillgrp.dec
+  ```
+- `l2disasm` + готовые определения Interlude превращают dat в TSV (и `l2asm`
+  собирает обратно):
+  ```
+  E:\L2FileEditor\data\l2asm-disasm\l2disasm.exe ^
+      -d DAT_defs\Interlude\skillgrp.ddf skillgrp.dec skillgrp.txt
+  ```
+  Так сняты `skillgrp` (30 599 строк), `skillname-e` (2117 скиллов),
+  `mobskillanimgrp`.
+- `tools/client/dump_package.ps1` — разбор таблиц имён/импортов/экспортов
+  любого `Lineage2Ver111` пакета.
+- `E:\UnrealEditor\System\UCC.exe` — L2-кит с ucc и UnrealEd на месте, то есть
+  свой класс эффекта (наследник `Emitter` с системой частиц в
+  `defaultproperties`) можно собрать в отдельный пакет, если готовых не хватит.
+
+---
+
+## 8. Открытый вопрос: NPC изображает каст
+
+`//npc_effect skill 1011 1 1500` даёт нужный столб света, **но NPC при этом
+стоит в позе каста** — а он должен просто стоять.
+
+Причина двойная:
+
+1. `skillgrp.dat` держит для скилла букву анимации каста — у 1011 это
+   `ani_char = 'D'`, клиент её и проигрывает.
+2. Наш `MagicSkillUse` шлёт `hitTime` равным периоду (это сделано, чтобы луч не
+   мигал между повторами) — то есть поза каста растянута на весь период.
+
+Зацепки, по возрастанию цены, ни одна пока не проверена:
+
+- **`hitTime`.** Послать 0 или что-то маленькое и посмотреть, что станет с
+  анимацией и не начнёт ли моргать сам луч. Правка в одну строку в
+  `NpcVisualEffectTaskManager`.
+- **Скилл без анимации.** В `skillgrp` **10 661 строка из 30 599 с пустым
+  `ani_char`** — у таких скиллов анимации каста нет вообще. Найти среди них тот,
+  чей эффект похож на 1011, и брать его.
+- **`MagicSkillLaunched` вместо `MagicSkillUse`.** Проверить, играет ли клиент
+  эффект попадания сам по себе, без анимации каста.
+- **Своя строка в `skillgrp.dat`** (уровень «правка клиентских данных»): копия
+  строки 1011 под свободным id, с пустым `ani_char` и своим `hit_time` — эффект
+  тот же, NPC стоит смирно. Собирается `l2asm` + `l2encdec -e 413`, игроки
+  забирают новый `skillgrp.dat`, значит `CLIENTVER_VALUE` и `ClientVersion`
+  поднимаются вместе.
+- **Маска абнормала** (`magiccircle`, уже работает) анимации не даёт вовсе — но
+  выбор ограничен 24 битами из раздела 3.
