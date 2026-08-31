@@ -7,12 +7,16 @@ import java.util.StringTokenizer;
 
 import net.sf.l2j.commons.lang.StringUtil;
 
+import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.xml.ArmorSetData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.item.ArmorSet;
+import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Item;
+import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
+import net.sf.l2j.gameserver.network.serverpackets.ItemList;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class AdminItem implements IAdminCommandHandler
@@ -20,7 +24,8 @@ public class AdminItem implements IAdminCommandHandler
 	private static final String[] ADMIN_COMMANDS =
 	{
 		"admin_give",
-		"admin_item"
+		"admin_item",
+		"admin_clear_inventory"
 	};
 	
 	private static final String[] GRADES =
@@ -173,6 +178,28 @@ public class AdminItem implements IAdminCommandHandler
 				}
 			}
 		}
+		else if (command.equals("admin_clear_inventory"))
+		{
+			// No parameter means the confirmation page, which carries the target name over to the actual wipe.
+			if (!st.hasMoreTokens())
+			{
+				showClearConfirmation(player, targetPlayer);
+				return;
+			}
+			
+			st.nextToken();
+			
+			final Player toClear = (st.hasMoreTokens()) ? getTargetPlayer(player, st.nextToken(), false) : targetPlayer;
+			if (toClear == null)
+			{
+				player.sendMessage("That player isn't online anymore.");
+				return;
+			}
+			
+			clearInventory(player, toClear);
+			
+			sendFile(player, "itemcreation.htm");
+		}
 	}
 	
 	@Override
@@ -227,6 +254,78 @@ public class AdminItem implements IAdminCommandHandler
 		html.setFile("data/html/admin/itemsets.htm");
 		html.replace("%sets%", sb.toString());
 		player.sendPacket(html);
+	}
+	
+	/**
+	 * Renders data/html/admin/clearinventory.htm : a confirmation page, since the wipe can't be undone.
+	 * @param player : The {@link Player} to send the page to.
+	 * @param targetPlayer : The {@link Player} whose inventory would be wiped.
+	 */
+	private static void showClearConfirmation(Player player, Player targetPlayer)
+	{
+		int count = 0;
+		for (ItemInstance item : targetPlayer.getInventory().getItems())
+		{
+			if (isClearable(targetPlayer, item))
+				count++;
+		}
+		
+		final NpcHtmlMessage html = new NpcHtmlMessage(0);
+		html.setFile("data/html/admin/clearinventory.htm");
+		html.replace("%name%", targetPlayer.getName());
+		html.replace("%count%", count);
+		player.sendPacket(html);
+	}
+	
+	/**
+	 * Destroy every {@link ItemInstance} of a {@link Player} inventory, equipped ones included.
+	 * @param player : The {@link Player} who fired the command.
+	 * @param targetPlayer : The {@link Player} whose inventory is wiped.
+	 */
+	private static void clearInventory(Player player, Player targetPlayer)
+	{
+		if (targetPlayer.isProcessingTransaction() || targetPlayer.isOperating())
+		{
+			player.sendMessage(targetPlayer.getName() + " is currently trading or running a store.");
+			return;
+		}
+		
+		int count = 0;
+		for (ItemInstance item : targetPlayer.getInventory().getItems())
+		{
+			if (!isClearable(targetPlayer, item))
+				continue;
+			
+			if (targetPlayer.destroyItem(item, false))
+				count++;
+		}
+		
+		// Paperdoll slots were emptied one by one ; refresh what depends on them, then hand a whole new item list over.
+		targetPlayer.refreshExpertisePenalty();
+		targetPlayer.refreshWeightPenalty();
+		targetPlayer.broadcastUserInfo();
+		targetPlayer.sendPacket(new ItemList(targetPlayer, false));
+		targetPlayer.sendPacket(new ExStorageMaxCount(targetPlayer));
+		
+		player.sendMessage("You destroyed " + count + " item(s) from " + ((player == targetPlayer) ? "your" : targetPlayer.getName() + "'s") + " inventory.");
+	}
+	
+	/**
+	 * @param player : The owner of the {@link ItemInstance}.
+	 * @param item : The {@link ItemInstance} to test.
+	 * @return True if the {@link ItemInstance} can be safely destroyed, false if it is a cursed weapon or the control item of an active pet or mount.
+	 */
+	private static boolean isClearable(Player player, ItemInstance item)
+	{
+		// Cursed weapons own their lifecycle ; destroying one here would desynchronize CursedWeaponManager.
+		if (CursedWeaponManager.getInstance().isCursed(item.getItemId()))
+			return false;
+		
+		// Don't orphan a summoned pet, nor the mount currently being ridden.
+		if (item.isSummonItem() && ((player.getSummon() != null && player.getSummon().getControlItemId() == item.getObjectId()) || (player.isMounted() && player.getMountObjectId() == item.getObjectId())))
+			return false;
+		
+		return true;
 	}
 	
 	private static void createItem(Player player, Player targetPlayer, int id, int num, int radius)
