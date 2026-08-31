@@ -5,12 +5,12 @@ id	level	name	desc	kind	iconFrom
 9500	4	Shirt Set	Evasion +3.	set	21
 9500	5	Shirt Set	Evasion +4.	set	21
 9500	6	Shirt Set	Evasion +5.	set	21
-9501	1	Leather Set	P. Def. +1.8%, Casting Spd. +5.2%.	set	22
-9501	2	Leather Set	P. Def. +2.6%, Casting Spd. +7.5%.	set	22
-9501	3	Leather Set	P. Def. +3.6%, Casting Spd. +10.2%.	set	22
-9501	4	Leather Set	P. Def. +4.4%, Casting Spd. +12.7%.	set	22
-9501	5	Leather Set	P. Def. +5.2%, Casting Spd. +15%.	set	22
-9501	6	Leather Set	P. Def. +6.2%, Casting Spd. +17.7%.	set	22
+9501	1	Leather Shirt Set	P. Def. +1.8%, Casting Spd. +5.2%.	set	22
+9501	2	Leather Shirt Set	P. Def. +2.6%, Casting Spd. +7.5%.	set	22
+9501	3	Leather Shirt Set	P. Def. +3.6%, Casting Spd. +10.2%.	set	22
+9501	4	Leather Shirt Set	P. Def. +4.4%, Casting Spd. +12.7%.	set	22
+9501	5	Leather Shirt Set	P. Def. +5.2%, Casting Spd. +15%.	set	22
+9501	6	Leather Shirt Set	P. Def. +6.2%, Casting Spd. +17.7%.	set	22
 9502	1	Wooden Set	P. Def. +2%, Max HP +41.	set	23
 9502	2	Wooden Set	P. Def. +2.9%, Max HP +59.	set	23
 9502	3	Wooden Set	P. Def. +3.9%, Max HP +80.	set	23
@@ -227,12 +227,12 @@ id	level	name	desc	kind	iconFrom
 9537	4	Dragon Scale Set	HP recovery +3.4%, Paralysis resistance +42%, STR -2, CON +2.	set	375
 9537	5	Dragon Scale Set	HP recovery +4%, Paralysis resistance +50%, STR -2, CON +2.	set	375
 9537	6	Dragon Scale Set	HP recovery +4.7%, Paralysis resistance +59%, STR -2, CON +2.	set	375
-9538	1	Cotton Set	M. Def. +1.8%, Weight limit +2028.	set	390
-9538	2	Cotton Set	M. Def. +2.6%, Weight limit +2898.	set	390
-9538	3	Cotton Set	M. Def. +3.6%, Weight limit +3941.	set	390
-9538	4	Cotton Set	M. Def. +4.5%, Weight limit +4926.	set	390
-9538	5	Cotton Set	M. Def. +5.2%, Weight limit +5795.	set	390
-9538	6	Cotton Set	M. Def. +6.2%, Weight limit +6838.	set	390
+9538	1	Cotton Shirt Set	M. Def. +1.8%, Weight limit +2028.	set	390
+9538	2	Cotton Shirt Set	M. Def. +2.6%, Weight limit +2898.	set	390
+9538	3	Cotton Shirt Set	M. Def. +3.6%, Weight limit +3941.	set	390
+9538	4	Cotton Shirt Set	M. Def. +4.5%, Weight limit +4926.	set	390
+9538	5	Cotton Shirt Set	M. Def. +5.2%, Weight limit +5795.	set	390
+9538	6	Cotton Shirt Set	M. Def. +6.2%, Weight limit +6838.	set	390
 9539	1	Puma Skin Set	MP regeneration +2.8%, Max MP +78, MEN +2, WIT -2.	set	391
 9539	2	Puma Skin Set	MP regeneration +4%, Max MP +111, MEN +2, WIT -2.	set	391
 9539	3	Puma Skin Set	MP regeneration +5.4%, Max MP +151, MEN +2, WIT -2.	set	391
@@ -371,24 +371,24 @@ id	level	name	desc	kind	iconFrom
 9561	4	Tunic Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	426
 9561	5	Tunic Set	Casting Spd. +15%, M. Def. +8%.	set	426
 9561	6	Tunic Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	426
-9562	1	Cotton Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	427
-9562	2	Cotton Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	427
-9562	3	Cotton Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	427
-9562	4	Cotton Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	427
-9562	5	Cotton Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	427
-9562	6	Cotton Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	427
+9562	1	Cotton Robe Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	427
+9562	2	Cotton Robe Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	427
+9562	3	Cotton Robe Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	427
+9562	4	Cotton Robe Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	427
+9562	5	Cotton Robe Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	427
+9562	6	Cotton Robe Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	427
 9563	1	Feriotic Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	428
 9563	2	Feriotic Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	428
 9563	3	Feriotic Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	428
 9563	4	Feriotic Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	428
 9563	5	Feriotic Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	428
 9563	6	Feriotic Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	428
-9564	1	Leather Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	429
-9564	2	Leather Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	429
-9564	3	Leather Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	429
-9564	4	Leather Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	429
-9564	5	Leather Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	429
-9564	6	Leather Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	429
+9564	1	Leather Tunic Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	429
+9564	2	Leather Tunic Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	429
+9564	3	Leather Tunic Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	429
+9564	4	Leather Tunic Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	429
+9564	5	Leather Tunic Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	429
+9564	6	Leather Tunic Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	429
 9565	1	Robe of Devotion Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	430
 9565	2	Robe of Devotion Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	430
 9565	3	Robe of Devotion Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	430
@@ -437,12 +437,12 @@ id	level	name	desc	kind	iconFrom
 9572	4	Mithril Robe Set	Speed +12, WIT +1, INT -1.	set	437
 9572	5	Mithril Robe Set	Speed +14, WIT +1, INT -1.	set	437
 9572	6	Mithril Robe Set	Speed +17, WIT +1, INT -1.	set	437
-9573	1	Sage's Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
-9573	2	Sage's Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
-9573	3	Sage's Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
-9573	4	Sage's Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
-9573	5	Sage's Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
-9573	6	Sage's Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
+9573	1	Sage's Rag Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
+9573	2	Sage's Rag Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
+9573	3	Sage's Rag Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
+9573	4	Sage's Rag Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
+9573	5	Sage's Rag Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
+9573	6	Sage's Rag Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
 9574	1	Karmian Set	P. Def. +2.7%, Casting Spd. +7.7%.	set	439
 9574	2	Karmian Set	P. Def. +3.8%, Casting Spd. +11%.	set	439
 9574	3	Karmian Set	P. Def. +5.2%, Casting Spd. +15%.	set	439
@@ -473,12 +473,12 @@ id	level	name	desc	kind	iconFrom
 9578	4	Tunic of Mana Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	443
 9578	5	Tunic of Mana Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	443
 9578	6	Tunic of Mana Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	443
-9579	1	Sage's Set	Max CP +62, CP regeneration +14%.	set	444
-9579	2	Sage's Set	Max CP +88, CP regeneration +20%.	set	444
-9579	3	Sage's Set	Max CP +120, CP regeneration +27.2%.	set	444
-9579	4	Sage's Set	Max CP +150, CP regeneration +34%.	set	444
-9579	5	Sage's Set	Max CP +177, CP regeneration +40%.	set	444
-9579	6	Sage's Set	Max CP +209, CP regeneration +47.2%.	set	444
+9579	1	Sage's Robe Set	Max CP +62, CP regeneration +14%.	set	444
+9579	2	Sage's Robe Set	Max CP +88, CP regeneration +20%.	set	444
+9579	3	Sage's Robe Set	Max CP +120, CP regeneration +27.2%.	set	444
+9579	4	Sage's Robe Set	Max CP +150, CP regeneration +34%.	set	444
+9579	5	Sage's Robe Set	Max CP +177, CP regeneration +40%.	set	444
+9579	6	Sage's Robe Set	Max CP +209, CP regeneration +47.2%.	set	444
 9580	1	Paradia Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	445
 9580	2	Paradia Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	445
 9580	3	Paradia Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	445
@@ -575,12 +575,12 @@ id	level	name	desc	kind	iconFrom
 9595	4	The Set	Max CP +150, CP regeneration +34%.	set	460
 9595	5	The Set	Max CP +177, CP regeneration +40%.	set	460
 9595	6	The Set	Max CP +209, CP regeneration +47.2%.	set	460
-9596	1	Cotton Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	1100
-9596	2	Cotton Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	1100
-9596	3	Cotton Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	1100
-9596	4	Cotton Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	1100
-9596	5	Cotton Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	1100
-9596	6	Cotton Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	1100
+9596	1	Cotton Tunic Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	1100
+9596	2	Cotton Tunic Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	1100
+9596	3	Cotton Tunic Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	1100
+9596	4	Cotton Tunic Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	1100
+9596	5	Cotton Tunic Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	1100
+9596	6	Cotton Tunic Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	1100
 9597	1	Devotion Set	Casting Spd. +15%.	set	1101
 9597	2	Devotion Set	Casting Spd. +21.4%.	set	1101
 9597	3	Devotion Set	Casting Spd. +29.1%.	set	1101

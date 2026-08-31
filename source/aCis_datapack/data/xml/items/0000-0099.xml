@@ -638,33 +638,39 @@
 	<item id="45" type="Armor" name="Bone Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="56" />
 		<set name="material" val="BONE" />
 		<set name="weight" val="640" />
 		<set name="price" val="31300" />
 		<for>
-			<baseadd stat="pDef" val="26" />
+			<baseadd stat="pDef" val="44" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="46" type="Armor" name="Bronze Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="90" />
 		<set name="material" val="BRONZE" />
 		<set name="weight" val="630" />
 		<set name="price" val="50000" />
 		<for>
-			<baseadd stat="pDef" val="26" />
+			<baseadd stat="pDef" val="44" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="47" type="Armor" name="Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="138" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="640" />
 		<set name="price" val="76200" />
 		<for>
-			<baseadd stat="pDef" val="26" />
+			<baseadd stat="pDef" val="44" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -767,11 +773,13 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="332" />
 		<set name="material" val="MITHRIL" />
 		<set name="weight" val="8670" />
 		<set name="price" val="183000" />
 		<for>
-			<baseadd stat="pDef" val="68" />
+			<baseadd stat="pDef" val="103" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -779,11 +787,13 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="230" />
 		<set name="material" val="MITHRIL" />
 		<set name="weight" val="3830" />
 		<set name="price" val="127000" />
 		<for>
-			<baseadd stat="pDef" val="43" />
+			<baseadd stat="pDef" val="64" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -791,55 +801,65 @@
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="576" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="10980" />
 		<set name="price" val="1440000" />
 		<for>
-			<baseadd stat="pDef" val="111" />
+			<baseadd stat="pDef" val="239" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="61" type="Armor" name="Mithril Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="177" />
 		<set name="material" val="MITHRIL" />
 		<set name="weight" val="630" />
 		<set name="price" val="97800" />
 		<for>
-			<baseadd stat="pDef" val="20" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="62" type="Armor" name="Mithril Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="50" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="1230" />
 		<set name="price" val="126000" />
 		<for>
-			<baseadd stat="pDef" val="20" />
+			<baseadd stat="pDef" val="39" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="63" type="Armor" name="Gauntlets">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="92" />
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="640" />
 		<set name="price" val="50800" />
 		<for>
-			<baseadd stat="pDef" val="20" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
 	<item id="64" type="Armor" name="Composite Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="98" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="1220" />
 		<set name="price" val="245000" />
 		<for>
-			<baseadd stat="pDef" val="20" />
+			<baseadd stat="pDef" val="39" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

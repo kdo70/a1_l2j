@@ -175,9 +175,10 @@ try
 		$cells = $grp.rows[$byId[$donor]].Split("`t")
 		$icons[$donor] = $cells[$icC]
 
+		# An original keeps the grade it always had ; only its P. Def. is levelled.
 		if ($it.mode -eq 'update')
 		{
-			$cells[$ctC] = '0'
+			if ($cells[$ctC] -ne $it.gradeIdx) { throw "armorgrp.dat says item $donor is grade $($cells[$ctC]), the datapack says $($it.gradeIdx)" }
 			$cells[$pdC] = $it.pdef
 			$grp.rows[$byId[$donor]] = $cells -join "`t"
 			continue

@@ -1,20 +1,31 @@
 <#
 .SYNOPSIS
-	Builds every armor set of the datapack in all six grades, out of tools/armorsets/families.csv.
+	Gives every armor set of the datapack a ladder up to S grade, out of tools/armorsets/families.csv.
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
 	and boots. families.csv holds 130 of them, one row per chest item of data/xml/items.
 
-	For each family this script writes six sets - No Grade, D, C, B, A, S :
+	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
-	  * the No Grade set reuses the original item ids, which are rewritten in place (crystal type
-	    dropped, P. Def. lowered to the No Grade row of the table below) ;
-	  * the five other grades get freshly minted items, cloned from those very originals, in
+	    a No Grade set exists as  NG D C B A S
+	    a D grade set as             D C B A S
+	    a C grade set as               C B A S
+	    ... and an S grade set is left exactly as it is.
+
+	So Zubei's, a B grade set, gains an A and an S version ; Imperial Crusader, already S, gains
+	nothing at all. What this script writes :
+
+	  * the original items are left at their own grade - only their P. Def. is levelled onto the
+	    table below, so that every set of a grade is worth the same ;
+	  * every grade above that gets freshly minted items, cloned from those very originals, in
 	    data/xml/items/10000-*.xml and up ;
-	  * data/xml/armorSets.xml is regenerated whole, six <armorset> per family ;
-	  * every family gets one passive skill of six levels - one per grade - in
-	    data/xml/skills/9500-*.xml, plus three "+6 enchanted" skills, one per armor type.
+	  * data/xml/armorSets.xml is regenerated whole, one <armorset> per family per grade it reaches ;
+	  * every family gets one passive skill of six levels - one per grade, level 6 always being S -
+	    in data/xml/skills/9500-*.xml, plus three "+6 enchanted" skills, one per armor type.
+
+	The ladder is only the items : upgrading one grade into the next is somebody else's feature, and
+	the ids it needs are laid out in generated\upgrade_chain.tsv.
 
 	Nothing is granted to anybody : no drop, no shop and no multisell is touched, the new items only
 	exist. They are handed out the same way the old ones are.
@@ -53,6 +64,8 @@ $null = New-Item -ItemType Directory -Force -Path $outDir
 # ---------------------------------------------------------------------------
 
 $GRADES = @('NG', 'D', 'C', 'B', 'A', 'S')
+$GRADE_IDX = @{ NG = 0; D = 1; C = 2; B = 3; A = 4; S = 5 }
+$TOP_GRADE = 5
 $FIRST_ITEM_ID = 10000
 $FIRST_SKILL_ID = 9500
 $ENCHANT_SKILL = @{ HEAVY = 9700; LIGHT = 9701; MAGIC = 9702 }
@@ -86,12 +99,12 @@ $CRYSTALS = @{
 	feet      = @{ NG = 0; D = 80;  C = 110; B = 140; A = 165; S = 200 }
 }
 $PRICES = @{
-	fullarmor = @{ D = 429000; C = 1570000; B = 5080000; A = 7730000; S = 17400000 }
-	chest     = @{ D = 152000; C = 505000;  B = 2410000; A = 4630000; S = 14300000 }
-	legs      = @{ D = 95200;  C = 316000;  B = 1510000; A = 2890000; S = 8960000 }
-	head      = @{ D = 76200;  C = 536000;  B = 1210000; A = 2640000; S = 5370000 }
-	gloves    = @{ D = 74700;  C = 245000;  B = 804000;  A = 1760000; S = 3580000 }
-	feet      = @{ D = 74700;  C = 245000;  B = 804000;  A = 1760000; S = 3580000 }
+	fullarmor = @{ NG = 60000; D = 429000; C = 1570000; B = 5080000; A = 7730000; S = 17400000 }
+	chest     = @{ NG = 30000; D = 152000; C = 505000;  B = 2410000; A = 4630000; S = 14300000 }
+	legs      = @{ NG = 18000; D = 95200;  C = 316000;  B = 1510000; A = 2890000; S = 8960000 }
+	head      = @{ NG = 12000; D = 76200;  C = 536000;  B = 1210000; A = 2640000; S = 5370000 }
+	gloves    = @{ NG = 8000;  D = 74700;  C = 245000;  B = 804000;  A = 1760000; S = 3580000 }
+	feet      = @{ NG = 8000;  D = 74700;  C = 245000;  B = 804000;  A = 1760000; S = 3580000 }
 }
 
 # How hard a set bonus hits, per grade. 1.0 is A grade : a retail bonus is read as the value of its
@@ -153,11 +166,35 @@ $ENCHANT_ROWS = @{
 # The item files, as lines, plus an index of where each item block sits.
 # ---------------------------------------------------------------------------
 
+# Datapack files carry no trailing newline ; adding one would show up as a diff on files whose
+# content this script didn't actually change.
+function Test-EndsWithNewline([string]$path)
+{
+	if (-not (Test-Path $path)) { return $false }
+	$fs = [System.IO.File]::OpenRead($path)
+	try
+	{
+		if ($fs.Length -eq 0) { return $false }
+		$null = $fs.Seek(-1, [System.IO.SeekOrigin]::End)
+		return ($fs.ReadByte() -eq 10)
+	}
+	finally { $fs.Dispose() }
+}
+
+function Write-Datapack([string]$path, [string[]]$body, [string]$eol, [bool]$endsNl)
+{
+	$text = ($body -join $eol)
+	if ($endsNl) { $text += $eol }
+	[System.IO.File]::WriteAllText($path, $text, (New-Object System.Text.UTF8Encoding $false))
+}
+
 $files = @{}
 $index = @{}
+$endsNl = @{}
 foreach ($f in Get-ChildItem $itemsDir -Filter *.xml)
 {
 	$lines = [System.IO.File]::ReadAllLines($f.FullName)
+	$endsNl[$f.Name] = Test-EndsWithNewline $f.FullName
 	$files[$f.Name] = [System.Collections.Generic.List[string]]::new()
 	foreach ($l in $lines) { $null = $files[$f.Name].Add($l) }
 
@@ -206,20 +243,31 @@ if ($families.Count -eq 0) { throw 'families.csv is empty.' }
 
 $SLOTS = @('head', 'chest', 'legs', 'gloves', 'feet')
 
-# donor id -> { slot ; armor type of the donor itself ; bodypart }. A plain hashtable, not an
-# ordered one : an OrderedDictionary indexed by an int goes by position, not by key.
+# donor id -> what has to be minted out of it. A plain hashtable, not an ordered one : an
+# OrderedDictionary indexed by an int goes by position, not by key.
+#
+#   own   : the grade the donor item itself carries, which is left alone
+#   floor : the lowest grade any family asks this piece for. Pieces are shared - helmet 503 is worn
+#           by Zubei heavy, light and robe alike - so the floor is the lowest of all of them.
 $pieces = @{}
 foreach ($fam in $families)
 {
+	$famGrade = $GRADE_IDX[$fam.origGrade]
 	foreach ($slot in $SLOTS)
 	{
 		$donor = [int]$fam.$slot
 		if ($donor -eq 0) { continue }
-		if ($pieces.ContainsKey($donor)) { continue }
+
+		if ($pieces.ContainsKey($donor))
+		{
+			if ($famGrade -lt $pieces[$donor].floor) { $pieces[$donor].floor = $famGrade }
+			continue
+		}
 
 		$block = Get-ItemBlock $donor
 		$bodypart = Get-ItemField $block 'bodypart'
 		if ($bodypart -eq '') { throw "item $donor has no bodypart" }
+		$crystal = Get-ItemField $block 'crystal_type'
 		$pieces[$donor] = @{
 			slot     = $slot
 			bodypart = $bodypart
@@ -227,17 +275,26 @@ foreach ($fam in $families)
 			name     = Get-ItemName $block
 			block    = $block
 			gated    = ($CLAN_ARMOR -contains $donor)
+			own      = $(if ($crystal -eq '') { 0 } else { $GRADE_IDX[$crystal] })
+			floor    = $famGrade
 		}
 	}
 }
 
-# Five new ids per piece, in donor id order, so a rerun gives the very same numbers.
+# One new id per grade a piece is missing, in donor id order, so a rerun gives the very same
+# numbers. A piece whose own grade sits inside its ladder uses the original item for that rung.
 $ids = @{}
 $next = $FIRST_ITEM_ID
 foreach ($donor in ($pieces.Keys | Sort-Object))
 {
-	$ids[$donor] = @{ NG = $donor }
-	foreach ($g in $GRADES[1..5]) { $ids[$donor][$g] = $next ; $next++ }
+	$piece = $pieces[$donor]
+	$ids[$donor] = @{}
+	for ($gi = $piece.floor; $gi -le $TOP_GRADE; $gi++)
+	{
+		if ($gi -eq $piece.own) { $ids[$donor][$GRADES[$gi]] = $donor ; continue }
+		$ids[$donor][$GRADES[$gi]] = $next
+		$next++
+	}
 }
 $lastItemId = $next - 1
 
@@ -270,12 +327,22 @@ function New-ItemBlock($piece, [string]$grade, [int]$newId)
 	$src = $piece.block
 	$pdef = Get-PDef $piece $grade
 	$name = ConvertTo-XmlText ("{0} ({1})" -f $piece.name, $grade)
+	$crystals = $CRYSTALS[$piece.bodypart][$grade]
+	$price = $PRICES[$piece.bodypart][$grade]
 
-	$grades = @(
-		"`t`t<set name=`"crystal_type`" val=`"$grade`" />"
-		"`t`t<set name=`"crystal_count`" val=`"$($CRYSTALS[$piece.bodypart][$grade])`" />"
-		"`t`t<set name=`"price`" val=`"$($PRICES[$piece.bodypart][$grade])`" />"
-	)
+	# A hole in one of the tables would otherwise ship as val="" and the item would silently fail
+	# to load.
+	foreach ($v in $pdef, $crystals, $price) { if ($null -eq $v) { throw "no $($piece.bodypart) / $grade row in the stat tables (item $newId, from $($piece.name))" } }
+
+	# No Grade armor has no crystal type at all - CrystalType.NONE is what an absent line means, and
+	# there is no "NG" to write.
+	$grades = @()
+	if ($grade -ne 'NG')
+	{
+		$grades += "`t`t<set name=`"crystal_type`" val=`"$grade`" />"
+		$grades += "`t`t<set name=`"crystal_count`" val=`"$crystals`" />"
+	}
+	$grades += "`t`t<set name=`"price`" val=`"$price`" />"
 
 	$out = [System.Collections.Generic.List[string]]::new()
 	$null = $out.Add("`t<item id=`"$newId`" type=`"Armor`" name=`"$name`">")
@@ -306,30 +373,39 @@ function New-ItemBlock($piece, [string]$grade, [int]$newId)
 }
 
 # ---------------------------------------------------------------------------
-# The five graded copies of every piece.
+# The graded copies of every piece.
 # ---------------------------------------------------------------------------
 
 $clientItems = [System.Collections.Generic.List[string]]::new()
 $null = $clientItems.Add("id`tdonor`tgrade`tgradeIdx`tpdef`tname`taddName`tmode`tclearDesc")
 
 $buckets = @{}
+$minted = 0
 foreach ($donor in ($pieces.Keys | Sort-Object))
 {
 	$piece = $pieces[$donor]
-
-	$ngPdef = Get-PDef $piece 'NG'
 	$clear = $(if ($piece.gated) { '1' } else { '0' })
-	$null = $clientItems.Add("$donor`t$donor`tNG`t0`t$ngPdef`t$($piece.name)`t`tupdate`t$clear")
 
-	foreach ($g in $GRADES[1..5])
+	for ($gi = $piece.floor; $gi -le $TOP_GRADE; $gi++)
 	{
-		$newId = $ids[$donor][$g]
-		$bucket = [int][math]::Floor($newId / $ITEMS_PER_FILE) * $ITEMS_PER_FILE
-		if (-not $buckets.ContainsKey($bucket)) { $buckets[$bucket] = [System.Collections.Generic.List[string]]::new() }
-		foreach ($l in (New-ItemBlock $piece $g $newId)) { $null = $buckets[$bucket].Add($l) }
+		$g = $GRADES[$gi]
+		$id = $ids[$donor][$g]
+		$pdef = Get-PDef $piece $g
 
-		$gi = [array]::IndexOf($GRADES, $g)
-		$null = $clientItems.Add("$newId`t$donor`t$g`t$gi`t$(Get-PDef $piece $g)`t$($piece.name)`t$g-Grade`tadd`t$clear")
+		# The rung the original item already sits on : it keeps its id, its name and its grade, and
+		# only its P. Def. is levelled onto the table.
+		if ($id -eq $donor)
+		{
+			$null = $clientItems.Add("$donor`t$donor`t$g`t$gi`t$pdef`t$($piece.name)`t`tupdate`t$clear")
+			continue
+		}
+
+		$bucket = [int][math]::Floor($id / $ITEMS_PER_FILE) * $ITEMS_PER_FILE
+		if (-not $buckets.ContainsKey($bucket)) { $buckets[$bucket] = [System.Collections.Generic.List[string]]::new() }
+		foreach ($l in (New-ItemBlock $piece $g $id)) { $null = $buckets[$bucket].Add($l) }
+		$minted++
+
+		$null = $clientItems.Add("$id`t$donor`t$g`t$gi`t$pdef`t$($piece.name)`t$g-Grade`tadd`t$clear")
 	}
 }
 
@@ -337,18 +413,30 @@ foreach ($bucket in ($buckets.Keys | Sort-Object))
 {
 	$path = Join-Path $itemsDir ("{0}-{1}.xml" -f $bucket, ($bucket + $ITEMS_PER_FILE - 1))
 	$body = @('<?xml version="1.0" encoding="UTF-8"?>', '<list>') + $buckets[$bucket] + @('</list>')
-	[System.IO.File]::WriteAllText($path, ($body -join "`r`n") + "`r`n", (New-Object System.Text.UTF8Encoding $false))
+	Write-Datapack $path $body "`r`n" $false
 }
 Write-Host "wrote $($buckets.Count) item files"
 
 # ---------------------------------------------------------------------------
-# The No Grade originals, rewritten where they stand. Bottom up, so that removing lines out of one
-# block doesn't move the next one.
+# The originals that are a rung of their own ladder, rewritten where they stand. Their grade, their
+# price and their crystals are left alone - only P. Def. is levelled, and clan armor is ungated.
+# Bottom up, so that removing lines out of one block doesn't move the next one.
 # ---------------------------------------------------------------------------
 
 $byFile = @{}
-foreach ($donor in $pieces.Keys) { $f = $index[$donor].file ; if (-not $byFile.ContainsKey($f)) { $byFile[$f] = @() } ; $byFile[$f] += $donor }
+foreach ($donor in $pieces.Keys)
+{
+	$piece = $pieces[$donor]
+	# A donor whose own grade is below the lowest grade anybody asks it for is never worn as itself :
+	# every rung of its ladder is a copy, so the original stays exactly as retail left it.
+	if ($piece.own -lt $piece.floor) { continue }
 
+	$f = $index[$donor].file
+	if (-not $byFile.ContainsKey($f)) { $byFile[$f] = @() }
+	$byFile[$f] += $donor
+}
+
+$rewritten = 0
 foreach ($f in $byFile.Keys)
 {
 	$lines = $files[$f]
@@ -356,7 +444,7 @@ foreach ($f in $byFile.Keys)
 	{
 		$e = $index[$donor]
 		$piece = $pieces[$donor]
-		$pdef = Get-PDef $piece 'NG'
+		$pdef = Get-PDef $piece $GRADES[$piece.own]
 		$keep = [System.Collections.Generic.List[string]]::new()
 		$inCond = $false
 
@@ -364,21 +452,24 @@ foreach ($f in $byFile.Keys)
 		{
 			$l = $lines[$i]
 
-			if ($inCond) { if ($l -match '</cond>') { $inCond = $false } ; continue }
-			if ($l -match '<cond\b') { if ($l -notmatch '/>\s*$' -and $l -notmatch '</cond>') { $inCond = $true } ; continue }
+			if ($piece.gated)
+			{
+				if ($inCond) { if ($l -match '</cond>') { $inCond = $false } ; continue }
+				if ($l -match '<cond\b') { if ($l -notmatch '/>\s*$' -and $l -notmatch '</cond>') { $inCond = $true } ; continue }
+				if ($l -match '<set\s+name="equip_condition"') { continue }
+			}
 
-			if ($l -match '<set\s+name="(crystal_type|crystal_count|equip_condition)"') { continue }
 			if ($l -match '<baseadd\s+stat="pDef"') { $l = $l -replace 'val="[^"]*"', "val=`"$pdef`"" }
 			$null = $keep.Add($l)
 		}
 
 		$lines.RemoveRange($e.start, $e.end - $e.start + 1)
 		$lines.InsertRange($e.start, $keep)
+		$rewritten++
 	}
-	$path = Join-Path $itemsDir $f
-	[System.IO.File]::WriteAllText($path, ($lines -join "`r`n") + "`r`n", (New-Object System.Text.UTF8Encoding $false))
+	Write-Datapack (Join-Path $itemsDir $f) $lines "`r`n" $endsNl[$f]
 }
-Write-Host "rewrote $($pieces.Count) originals as No Grade in $($byFile.Count) files"
+Write-Host "minted $minted items, levelled $rewritten originals in $($byFile.Count) files"
 
 # ---------------------------------------------------------------------------
 # Set bonuses. One skill per family, one level per grade.
@@ -581,7 +672,7 @@ foreach ($bucket in ($skillBuckets.Keys | Sort-Object))
 Write-Host "wrote $($families.Count) set skills + 3 enchant skills in $($skillBuckets.Count) files"
 
 # ---------------------------------------------------------------------------
-# armorSets.xml, six rows per family, and what the client has to say about them.
+# armorSets.xml, one row per family per grade it reaches, and what the client has to say about them.
 # ---------------------------------------------------------------------------
 
 $sets = [System.Collections.Generic.List[string]]::new()
@@ -590,7 +681,7 @@ $null = $clientSets.Add("chest`tmembers`tbonus`textraId`textraDesc")
 
 foreach ($fam in $families)
 {
-	for ($gi = 0; $gi -lt 6; $gi++)
+	for ($gi = $GRADE_IDX[$fam.origGrade]; $gi -le $TOP_GRADE; $gi++)
 	{
 		$g = $GRADES[$gi]
 		$slotIds = @{}
@@ -620,17 +711,19 @@ foreach ($fam in $families)
 
 $armorSetsPath = Join-Path $dataDir 'armorSets.xml'
 $body = @("<?xml version='1.0' encoding='utf-8'?>", '<list>') + $sets + @('</list>')
-[System.IO.File]::WriteAllText($armorSetsPath, ($body -join "`r`n") + "`r`n", (New-Object System.Text.UTF8Encoding $false))
+Write-Datapack $armorSetsPath $body "`r`n" (Test-EndsWithNewline $armorSetsPath)
 Write-Host "wrote $($sets.Count) armor sets"
 
-# One line per look : the six ids the same piece wears, No Grade to S. Whoever builds the "upgrade
-# this set one grade" feature reads its ladder out of here rather than guessing at id arithmetic.
+# One line per look : the ids the same piece wears from its own grade up to S, an empty cell for the
+# grades it doesn't reach. Whoever builds the "upgrade this set one grade" feature reads its ladder
+# out of here rather than guessing at id arithmetic.
 $chain = [System.Collections.Generic.List[string]]::new()
-$null = $chain.Add("piece`tbodypart`tarmorType`t" + ($GRADES -join "`t"))
+$null = $chain.Add("piece`tbodypart`tarmorType`tfrom`t" + ($GRADES -join "`t"))
 foreach ($donor in ($pieces.Keys | Sort-Object))
 {
 	$p = $pieces[$donor]
-	$null = $chain.Add("$($p.name)`t$($p.bodypart)`t$($p.type)`t" + (($GRADES | ForEach-Object { $ids[$donor][$_] }) -join "`t"))
+	$rungs = $GRADES | ForEach-Object { $(if ($ids[$donor].ContainsKey($_)) { $ids[$donor][$_] } else { '' }) }
+	$null = $chain.Add("$($p.name)`t$($p.bodypart)`t$($p.type)`t$($GRADES[$p.floor])`t" + ($rungs -join "`t"))
 }
 [System.IO.File]::WriteAllText((Join-Path $outDir 'upgrade_chain.tsv'), (($chain -join "`n") + "`n"), (New-Object System.Text.UTF8Encoding $false))
 
@@ -641,11 +734,11 @@ Write-Host "wrote generated\client_items.tsv ($($clientItems.Count - 1)), client
 
 # ---------------------------------------------------------------------------
 # The GM shop. //gmshop -> Armors -> <grade> reads one buy list per grade and body part
-# (data/html/admin/gmshop/*gradea.htm) ; every piece has to move to the list of the grade it now
-# carries, or a B grade breastplate that turned No Grade stays filed under B.
+# (data/html/admin/gmshop/*gradea.htm) ; the minted copies have to be filed under the grade they
+# carry, next to the original they were cloned from.
 #
-# Only the ids this script owns are shuffled around : whatever else those lists hold - sealed and
-# shadow armor, shields, cloaks, underwear - is left where it is.
+# Only the ids this script owns are touched : whatever else those lists hold - sealed and shadow
+# armor, shields, cloaks, underwear - is left where it is.
 # ---------------------------------------------------------------------------
 
 $BUYLISTS = @{
@@ -664,6 +757,7 @@ foreach ($donor in $pieces.Keys)
 	$bodypart = $pieces[$donor].bodypart
 	foreach ($g in $GRADES)
 	{
+		if (-not $ids[$donor].ContainsKey($g)) { continue }
 		$id = $ids[$donor][$g]
 		$null = $owned.Add($id)
 		$list = $BUYLISTS[$bodypart][$g]
@@ -673,6 +767,7 @@ foreach ($donor in $pieces.Keys)
 }
 
 $buyListsPath = Join-Path $dataDir 'buyLists.xml'
+$buyListsEndsNl = Test-EndsWithNewline $buyListsPath
 $buyLines = [System.Collections.Generic.List[string]]::new()
 foreach ($l in [System.IO.File]::ReadAllLines($buyListsPath)) { $null = $buyLines.Add($l) }
 
@@ -709,7 +804,7 @@ foreach ($b in ($blocks | Sort-Object { $_.start } -Descending))
 }
 
 if ($touched -ne 36) { throw "expected 36 GM shop armor buy lists, refilled $touched" }
-[System.IO.File]::WriteAllText($buyListsPath, ($buyLines -join "`r`n") + "`r`n", (New-Object System.Text.UTF8Encoding $false))
+Write-Datapack $buyListsPath $buyLines "`r`n" $buyListsEndsNl
 Write-Host "refilled $touched GM shop buy lists with $($owned.Count) pieces"
 
 # ---------------------------------------------------------------------------

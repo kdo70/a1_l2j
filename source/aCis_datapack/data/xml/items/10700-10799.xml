@@ -1,1487 +1,1327 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10700" type="Armor" name="Tunic of Grace (D)">
+	<item id="10700" type="Armor" name="Sage's Boots (D)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1150" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10701" type="Armor" name="Sage's Boots (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1150" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10702" type="Armor" name="Sage's Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1150" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10703" type="Armor" name="Sage's Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1150" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10704" type="Armor" name="Paradia Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CHRYSOLITE" />
+		<set name="weight" val="1140" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10705" type="Armor" name="Paradia Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CHRYSOLITE" />
+		<set name="weight" val="1140" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10706" type="Armor" name="Boots of Solar Eclipse (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1180" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10707" type="Armor" name="Boots of Solar Eclipse (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1180" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10708" type="Armor" name="Boots of Black Ore (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="DAMASCUS" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10709" type="Armor" name="Boots of Black Ore (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="DAMASCUS" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10710" type="Armor" name="Boots of Summoning (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1170" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10711" type="Armor" name="Boots of Summoning (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1170" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10712" type="Armor" name="Otherworldly Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10713" type="Armor" name="Otherworldly Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10714" type="Armor" name="Elemental Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="MITHRIL" />
+		<set name="weight" val="1130" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10715" type="Armor" name="Elemental Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="MITHRIL" />
+		<set name="weight" val="1130" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10716" type="Armor" name="Boots of Phantom (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10717" type="Armor" name="Boots of Phantom (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10718" type="Armor" name="Boots of Grace (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="MITHRIL" />
+		<set name="weight" val="1130" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10719" type="Armor" name="Boots of Grace (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="MITHRIL" />
+		<set name="weight" val="1130" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10720" type="Armor" name="Boots of Holy Spirit (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CHRYSOLITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10721" type="Armor" name="Boots of Holy Spirit (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CHRYSOLITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10722" type="Armor" name="Phoenix Boots (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10723" type="Armor" name="Phoenix Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10724" type="Armor" name="Cerberus Boots (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="DAMASCUS" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10725" type="Armor" name="Cerberus Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="DAMASCUS" />
+		<set name="weight" val="1120" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10726" type="Armor" name="Boots of Aid (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10727" type="Armor" name="Boots of Aid (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10728" type="Armor" name="Boots of Blessing (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1160" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10729" type="Armor" name="Boots of Blessing (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1160" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10730" type="Armor" name="Divine Boots (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10731" type="Armor" name="Divine Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10732" type="Armor" name="Divine Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ADAMANTAITE" />
+		<set name="weight" val="1200" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10733" type="Armor" name="Saint Knight's Gauntlets (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="6400" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10734" type="Armor" name="Saint Knight's Gauntlets (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="6400" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10735" type="Armor" name="Cotton Tunic (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1930" />
+		<set name="weight" val="2120" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="250" />
 		<set name="price" val="152000" />
 		<for>
 			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="38" />
 		</for>
 	</item>
-	<item id="10701" type="Armor" name="Tunic of Grace (C)">
+	<item id="10736" type="Armor" name="Cotton Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1930" />
+		<set name="weight" val="2120" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="350" />
 		<set name="price" val="505000" />
 		<for>
 			<baseadd stat="pDef" val="74" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="38" />
 		</for>
 	</item>
-	<item id="10702" type="Armor" name="Tunic of Grace (B)">
+	<item id="10737" type="Armor" name="Cotton Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1930" />
+		<set name="weight" val="2120" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="440" />
 		<set name="price" val="2410000" />
 		<for>
 			<baseadd stat="pDef" val="83" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="38" />
 		</for>
 	</item>
-	<item id="10703" type="Armor" name="Tunic of Grace (A)">
+	<item id="10738" type="Armor" name="Cotton Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1930" />
+		<set name="weight" val="2120" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="520" />
 		<set name="price" val="4630000" />
 		<for>
 			<baseadd stat="pDef" val="91" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="38" />
 		</for>
 	</item>
-	<item id="10704" type="Armor" name="Tunic of Grace (S)">
+	<item id="10739" type="Armor" name="Cotton Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1930" />
+		<set name="weight" val="2120" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="630" />
 		<set name="price" val="14300000" />
 		<for>
 			<baseadd stat="pDef" val="102" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="38" />
 		</for>
 	</item>
-	<item id="10705" type="Armor" name="Robe of Holy Spirit (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10706" type="Armor" name="Robe of Holy Spirit (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
-		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10707" type="Armor" name="Robe of Holy Spirit (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
-		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10708" type="Armor" name="Robe of Holy Spirit (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
-		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10709" type="Armor" name="Robe of Holy Spirit (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="1000" />
-		<set name="price" val="17400000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10710" type="Armor" name="Phoenix Tunic (D)">
+	<item id="10740" type="Armor" name="Tunic of Devotion (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1950" />
+		<set name="weight" val="2090" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="250" />
 		<set name="price" val="152000" />
 		<for>
 			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="67" />
 		</for>
 	</item>
-	<item id="10711" type="Armor" name="Phoenix Tunic (C)">
+	<item id="10741" type="Armor" name="Tunic of Devotion (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1950" />
+		<set name="weight" val="2090" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="350" />
 		<set name="price" val="505000" />
 		<for>
 			<baseadd stat="pDef" val="74" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="67" />
 		</for>
 	</item>
-	<item id="10712" type="Armor" name="Phoenix Tunic (B)">
+	<item id="10742" type="Armor" name="Tunic of Devotion (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1950" />
+		<set name="weight" val="2090" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="440" />
 		<set name="price" val="2410000" />
 		<for>
 			<baseadd stat="pDef" val="83" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="67" />
 		</for>
 	</item>
-	<item id="10713" type="Armor" name="Phoenix Tunic (A)">
+	<item id="10743" type="Armor" name="Tunic of Devotion (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1950" />
+		<set name="weight" val="2090" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="520" />
 		<set name="price" val="4630000" />
 		<for>
 			<baseadd stat="pDef" val="91" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="67" />
 		</for>
 	</item>
-	<item id="10714" type="Armor" name="Phoenix Tunic (S)">
+	<item id="10744" type="Armor" name="Tunic of Devotion (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1950" />
+		<set name="weight" val="2090" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="630" />
 		<set name="price" val="14300000" />
 		<for>
 			<baseadd stat="pDef" val="102" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="67" />
 		</for>
 	</item>
-	<item id="10715" type="Armor" name="Cerberus Tunic (D)">
+	<item id="10745" type="Armor" name="Tunic of Magic (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1870" />
+		<set name="weight" val="2080" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="250" />
 		<set name="price" val="152000" />
 		<for>
 			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="409" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="86" />
 		</for>
 	</item>
-	<item id="10716" type="Armor" name="Cerberus Tunic (C)">
+	<item id="10746" type="Armor" name="Tunic of Magic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1870" />
+		<set name="weight" val="2080" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="350" />
 		<set name="price" val="505000" />
 		<for>
 			<baseadd stat="pDef" val="74" />
-			<add stat="maxMp" val="409" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="86" />
 		</for>
 	</item>
-	<item id="10717" type="Armor" name="Cerberus Tunic (B)">
+	<item id="10747" type="Armor" name="Tunic of Magic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1870" />
+		<set name="weight" val="2080" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="440" />
 		<set name="price" val="2410000" />
 		<for>
 			<baseadd stat="pDef" val="83" />
-			<add stat="maxMp" val="409" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="86" />
 		</for>
 	</item>
-	<item id="10718" type="Armor" name="Cerberus Tunic (A)">
+	<item id="10748" type="Armor" name="Tunic of Magic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1870" />
+		<set name="weight" val="2080" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="520" />
 		<set name="price" val="4630000" />
 		<for>
 			<baseadd stat="pDef" val="91" />
-			<add stat="maxMp" val="409" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="86" />
 		</for>
 	</item>
-	<item id="10719" type="Armor" name="Cerberus Tunic (S)">
+	<item id="10749" type="Armor" name="Tunic of Magic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1870" />
+		<set name="weight" val="2080" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="630" />
 		<set name="price" val="14300000" />
 		<for>
 			<baseadd stat="pDef" val="102" />
-			<add stat="maxMp" val="409" />
-			<enchant stat="pDef" val="0" />
+			<add stat="maxMp" val="86" />
 		</for>
 	</item>
-	<item id="10720" type="Armor" name="Tunic of Aid (D)">
+	<item id="10750" type="Armor" name="Stockings of Devotion (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1040" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="33" />
+			<add stat="maxMp" val="42" />
+		</for>
+	</item>
+	<item id="10751" type="Armor" name="Stockings of Devotion (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1040" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="46" />
+			<add stat="maxMp" val="42" />
+		</for>
+	</item>
+	<item id="10752" type="Armor" name="Stockings of Devotion (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1040" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="52" />
+			<add stat="maxMp" val="42" />
+		</for>
+	</item>
+	<item id="10753" type="Armor" name="Stockings of Devotion (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1040" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="56" />
+			<add stat="maxMp" val="42" />
+		</for>
+	</item>
+	<item id="10754" type="Armor" name="Stockings of Devotion (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1040" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="64" />
+			<add stat="maxMp" val="42" />
+		</for>
+	</item>
+	<item id="10755" type="Armor" name="Stockings of Magic (D)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1030" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="33" />
+			<add stat="maxMp" val="54" />
+		</for>
+	</item>
+	<item id="10756" type="Armor" name="Stockings of Magic (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1030" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="46" />
+			<add stat="maxMp" val="54" />
+		</for>
+	</item>
+	<item id="10757" type="Armor" name="Stockings of Magic (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1030" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="52" />
+			<add stat="maxMp" val="54" />
+		</for>
+	</item>
+	<item id="10758" type="Armor" name="Stockings of Magic (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1030" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="56" />
+			<add stat="maxMp" val="54" />
+		</for>
+	</item>
+	<item id="10759" type="Armor" name="Stockings of Magic (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1030" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="64" />
+			<add stat="maxMp" val="54" />
+		</for>
+	</item>
+	<item id="10760" type="Armor" name="Apprentice's Shoes (D)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+		</for>
+	</item>
+	<item id="10761" type="Armor" name="Apprentice's Shoes (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+		</for>
+	</item>
+	<item id="10762" type="Armor" name="Apprentice's Shoes (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+		</for>
+	</item>
+	<item id="10763" type="Armor" name="Apprentice's Shoes (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+		</for>
+	</item>
+	<item id="10764" type="Armor" name="Apprentice's Shoes (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+		</for>
+	</item>
+	<item id="10765" type="Armor" name="Cotton Shoes (D)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+		</for>
+	</item>
+	<item id="10766" type="Armor" name="Cotton Shoes (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+		</for>
+	</item>
+	<item id="10767" type="Armor" name="Cotton Shoes (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+		</for>
+	</item>
+	<item id="10768" type="Armor" name="Cotton Shoes (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+		</for>
+	</item>
+	<item id="10769" type="Armor" name="Cotton Shoes (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+		</for>
+	</item>
+	<item id="10770" type="Armor" name="Squire's Shirt (D)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1910" />
+		<set name="weight" val="3301" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="250" />
 		<set name="price" val="152000" />
 		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="77" />
 		</for>
 	</item>
-	<item id="10721" type="Armor" name="Tunic of Aid (C)">
+	<item id="10771" type="Armor" name="Squire's Shirt (C)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1910" />
+		<set name="weight" val="3301" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="350" />
 		<set name="price" val="505000" />
 		<for>
-			<baseadd stat="pDef" val="74" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="110" />
 		</for>
 	</item>
-	<item id="10722" type="Armor" name="Tunic of Aid (B)">
+	<item id="10772" type="Armor" name="Squire's Shirt (B)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1910" />
+		<set name="weight" val="3301" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="440" />
 		<set name="price" val="2410000" />
 		<for>
-			<baseadd stat="pDef" val="83" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="124" />
 		</for>
 	</item>
-	<item id="10723" type="Armor" name="Tunic of Aid (A)">
+	<item id="10773" type="Armor" name="Squire's Shirt (A)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1910" />
+		<set name="weight" val="3301" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="520" />
 		<set name="price" val="4630000" />
 		<for>
-			<baseadd stat="pDef" val="91" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="136" />
 		</for>
 	</item>
-	<item id="10724" type="Armor" name="Tunic of Aid (S)">
+	<item id="10774" type="Armor" name="Squire's Shirt (S)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1910" />
+		<set name="weight" val="3301" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="630" />
 		<set name="price" val="14300000" />
 		<for>
-			<baseadd stat="pDef" val="102" />
-			<add stat="maxMp" val="377" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="153" />
 		</for>
 	</item>
-	<item id="10725" type="Armor" name="Robe of Blessing (D)">
+	<item id="10775" type="Armor" name="Squire's Pants (D)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
+		<set name="weight" val="1750" />
 		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
 		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="48" />
 		</for>
 	</item>
-	<item id="10726" type="Armor" name="Robe of Blessing (C)">
+	<item id="10776" type="Armor" name="Squire's Pants (C)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
+		<set name="weight" val="1750" />
 		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
 		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="665" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="69" />
 		</for>
 	</item>
-	<item id="10727" type="Armor" name="Robe of Blessing (B)">
+	<item id="10777" type="Armor" name="Squire's Pants (B)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
 		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
+		<set name="weight" val="1750" />
 		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
 		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="665" />
+			<baseadd stat="pDef" val="78" />
+		</for>
+	</item>
+	<item id="10778" type="Armor" name="Squire's Pants (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1750" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="84" />
+		</for>
+	</item>
+	<item id="10779" type="Armor" name="Squire's Pants (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1750" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="96" />
+		</for>
+	</item>
+	<item id="10780" type="Armor" name="Hard Leather Helmet (D)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="100" />
+		<set name="price" val="76200" />
+		<for>
+			<baseadd stat="pDef" val="44" />
+		</for>
+	</item>
+	<item id="10781" type="Armor" name="Hard Leather Helmet (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="536000" />
+		<for>
+			<baseadd stat="pDef" val="58" />
+		</for>
+	</item>
+	<item id="10782" type="Armor" name="Hard Leather Helmet (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="175" />
+		<set name="price" val="1210000" />
+		<for>
+			<baseadd stat="pDef" val="67" />
+		</for>
+	</item>
+	<item id="10783" type="Armor" name="Hard Leather Helmet (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+		</for>
+	</item>
+	<item id="10784" type="Armor" name="Hard Leather Helmet (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+		</for>
+	</item>
+	<item id="10785" type="Armor" name="Avadon Breastplate (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="7920" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="520" />
+		<set name="price" val="4630000" />
+		<for>
+			<baseadd stat="pDef" val="180" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10728" type="Armor" name="Robe of Blessing (A)">
+	<item id="10786" type="Armor" name="Avadon Breastplate (S)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="7920" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="630" />
+		<set name="price" val="14300000" />
+		<for>
+			<baseadd stat="pDef" val="205" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10787" type="Armor" name="Brigandine Gaiters (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3820" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="92" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10788" type="Armor" name="Brigandine Gaiters (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3820" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="104" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10789" type="Armor" name="Brigandine Gaiters (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3820" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="113" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10790" type="Armor" name="Brigandine Gaiters (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3820" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="128" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10791" type="Armor" name="Avadon Gaiters (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3520" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="113" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10792" type="Armor" name="Avadon Gaiters (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3520" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="128" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10793" type="Armor" name="Blue Wolf Gaiters (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3370" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="113" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10794" type="Armor" name="Blue Wolf Gaiters (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3370" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="128" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10795" type="Armor" name="Doom Plate Armor (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="9980" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="830" />
 		<set name="price" val="7730000" />
 		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="665" />
+			<baseadd stat="pDef" val="293" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10729" type="Armor" name="Robe of Blessing (S)">
+	<item id="10796" type="Armor" name="Doom Plate Armor (S)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1600" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="9980" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="1000" />
 		<set name="price" val="17400000" />
 		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="665" />
+			<baseadd stat="pDef" val="333" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10730" type="Armor" name="Dasparion's Robe (D)">
+	<item id="10797" type="Armor" name="Tallum Plate Armor (S)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1200" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="718" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10731" type="Armor" name="Dasparion's Robe (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1200" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
-		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="718" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10732" type="Armor" name="Dasparion's Robe (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1200" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
-		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="718" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10733" type="Armor" name="Dasparion's Robe (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1200" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
-		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="718" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10734" type="Armor" name="Dasparion's Robe (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1200" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="9780" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="1000" />
 		<set name="price" val="17400000" />
 		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="718" />
+			<baseadd stat="pDef" val="333" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10735" type="Armor" name="The Robe (D)">
+	<item id="10798" type="Armor" name="Majestic Plate Armor (S)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
+		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2300" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="773" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10736" type="Armor" name="The Robe (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2300" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
-		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="773" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10737" type="Armor" name="The Robe (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2300" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
-		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="773" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10738" type="Armor" name="The Robe (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2300" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
-		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="773" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10739" type="Armor" name="The Robe (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2300" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="9200" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="1000" />
 		<set name="price" val="17400000" />
 		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="773" />
+			<baseadd stat="pDef" val="333" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10740" type="Armor" name="Apprentice's Stockings (D)">
+	<item id="10799" type="Armor" name="Zubei's Leather Shirt (A)">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1100" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="10" />
-		</for>
-	</item>
-	<item id="10741" type="Armor" name="Apprentice's Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1100" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="10" />
-		</for>
-	</item>
-	<item id="10742" type="Armor" name="Apprentice's Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1100" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="10" />
-		</for>
-	</item>
-	<item id="10743" type="Armor" name="Apprentice's Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1100" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4330" />
 		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
+		<set name="crystal_count" val="520" />
+		<set name="price" val="4630000" />
 		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="10" />
-		</for>
-	</item>
-	<item id="10744" type="Armor" name="Apprentice's Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1100" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="10" />
-		</for>
-	</item>
-	<item id="10745" type="Armor" name="Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1080" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="15" />
-		</for>
-	</item>
-	<item id="10746" type="Armor" name="Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1080" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="15" />
-		</for>
-	</item>
-	<item id="10747" type="Armor" name="Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1080" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="15" />
-		</for>
-	</item>
-	<item id="10748" type="Armor" name="Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1080" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="15" />
-		</for>
-	</item>
-	<item id="10749" type="Armor" name="Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1080" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="15" />
-		</for>
-	</item>
-	<item id="10750" type="Armor" name="Feriotic Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1070" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="23" />
-		</for>
-	</item>
-	<item id="10751" type="Armor" name="Feriotic Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1070" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="23" />
-		</for>
-	</item>
-	<item id="10752" type="Armor" name="Feriotic Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1070" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="23" />
-		</for>
-	</item>
-	<item id="10753" type="Armor" name="Feriotic Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1070" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="23" />
-		</for>
-	</item>
-	<item id="10754" type="Armor" name="Feriotic Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1070" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="23" />
-		</for>
-	</item>
-	<item id="10755" type="Armor" name="Cursed Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1020" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="66" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10756" type="Armor" name="Cursed Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1020" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="66" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10757" type="Armor" name="Cursed Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1020" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="66" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10758" type="Armor" name="Cursed Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1020" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="66" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10759" type="Armor" name="Cursed Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1020" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="66" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10760" type="Armor" name="Elven Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1010" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10761" type="Armor" name="Elven Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1010" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10762" type="Armor" name="Elven Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1010" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10763" type="Armor" name="Elven Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1010" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10764" type="Armor" name="Elven Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1010" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10765" type="Armor" name="Mystic's Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="990" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10766" type="Armor" name="Mystic's Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="990" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10767" type="Armor" name="Mystic's Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="990" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10768" type="Armor" name="Mystic's Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="990" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10769" type="Armor" name="Mystic's Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="990" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="79" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10770" type="Armor" name="Stockings of Knowledge (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1000" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10771" type="Armor" name="Stockings of Knowledge (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1000" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10772" type="Armor" name="Stockings of Knowledge (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1000" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10773" type="Armor" name="Stockings of Knowledge (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1000" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10774" type="Armor" name="Stockings of Knowledge (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1000" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10775" type="Armor" name="Mithril Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10776" type="Armor" name="Mithril Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10777" type="Armor" name="Mithril Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10778" type="Armor" name="Mithril Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10779" type="Armor" name="Mithril Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10780" type="Armor" name="Karmian Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="970" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="141" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10781" type="Armor" name="Karmian Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="970" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="141" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10782" type="Armor" name="Karmian Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="970" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="141" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10783" type="Armor" name="Karmian Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="970" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="141" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10784" type="Armor" name="Karmian Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="970" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="141" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10785" type="Armor" name="Demon's Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="177" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10786" type="Armor" name="Demon's Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="177" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10787" type="Armor" name="Demon's Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="177" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10788" type="Armor" name="Demon's Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="177" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10789" type="Armor" name="Demon's Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="980" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="177" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10790" type="Armor" name="Divine Stockings (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="960" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="196" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10791" type="Armor" name="Divine Stockings (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="960" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="196" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10792" type="Armor" name="Divine Stockings (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="960" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="196" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10793" type="Armor" name="Divine Stockings (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="960" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="196" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10794" type="Armor" name="Divine Stockings (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="960" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="196" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10795" type="Armor" name="Stockings of Mana (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2400" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="33" />
-			<add stat="maxMp" val="236" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10796" type="Armor" name="Stockings of Mana (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2400" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<add stat="maxMp" val="236" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10797" type="Armor" name="Stockings of Mana (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2400" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<add stat="maxMp" val="236" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10798" type="Armor" name="Stockings of Mana (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2400" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="56" />
-			<add stat="maxMp" val="236" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10799" type="Armor" name="Stockings of Mana (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2400" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="64" />
-			<add stat="maxMp" val="236" />
+			<baseadd stat="pDef" val="136" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
