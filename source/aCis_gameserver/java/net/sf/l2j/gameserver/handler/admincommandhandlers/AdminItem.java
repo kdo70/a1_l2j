@@ -10,10 +10,12 @@ import net.sf.l2j.commons.lang.StringUtil;
 import net.sf.l2j.gameserver.data.manager.CursedWeaponManager;
 import net.sf.l2j.gameserver.data.xml.ArmorSetData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
+import net.sf.l2j.gameserver.enums.items.ArmorType;
 import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.item.ArmorSet;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
+import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
 import net.sf.l2j.gameserver.network.serverpackets.ItemList;
@@ -36,6 +38,21 @@ public class AdminItem implements IAdminCommandHandler
 		"B Grade",
 		"A Grade",
 		"S Grade"
+	};
+	
+	/** The three kinds of armor a set is made of, in the order the sets page lists them. */
+	private static final ArmorType[] SET_TYPES =
+	{
+		ArmorType.MAGIC,
+		ArmorType.LIGHT,
+		ArmorType.HEAVY
+	};
+	
+	private static final String[] SET_TYPE_NAMES =
+	{
+		"Robe",
+		"Light",
+		"Heavy"
 	};
 	
 	private static final int SETS_PER_PAGE = 20;
@@ -116,8 +133,10 @@ public class AdminItem implements IAdminCommandHandler
 					case "set":
 					{
 						// Every look exists in all six grades, which is far too many sets for one
-						// page : browse them grade by grade, "//item set grade <1-6> [page]".
+						// page : browse them grade by grade and then robe / light / heavy,
+						// "//item set grade <1-6> [0-2] [page]".
 						int grade = 0;
+						int type = -1;
 						int page = 0;
 						
 						if (st.hasMoreTokens())
@@ -129,11 +148,13 @@ public class AdminItem implements IAdminCommandHandler
 								{
 									grade = Integer.parseInt(st.nextToken());
 									if (st.hasMoreTokens())
+										type = Integer.parseInt(st.nextToken());
+									if (st.hasMoreTokens())
 										page = Integer.parseInt(st.nextToken());
 								}
 								catch (Exception e)
 								{
-									player.sendMessage("Usage: //item set grade [1-6] [page]");
+									player.sendMessage("Usage: //item set grade [1-6] [0-2] [page]");
 									return;
 								}
 							}
@@ -142,7 +163,8 @@ public class AdminItem implements IAdminCommandHandler
 							{
 								try
 								{
-									final ArmorSet armorSet = ArmorSetData.getInstance().getSet(Integer.parseInt(token));
+									final int chestId = Integer.parseInt(token);
+									final ArmorSet armorSet = ArmorSetData.getInstance().getSet(chestId);
 									if (armorSet == null)
 									{
 										player.sendMessage("This chest has no set.");
@@ -162,6 +184,7 @@ public class AdminItem implements IAdminCommandHandler
 										player.sendMessage("You have spawned " + armorSet.toString() + " in " + targetPlayer.getName() + "'s inventory.");
 									
 									grade = armorSet.getSkillLvl();
+									type = getSetTypeIndex(chestId);
 									if (st.hasMoreTokens())
 										page = Integer.parseInt(st.nextToken());
 								}
@@ -172,7 +195,7 @@ public class AdminItem implements IAdminCommandHandler
 							}
 						}
 						
-						showArmorSets(player, grade, page);
+						showArmorSets(player, grade, type, page);
 						break;
 					}
 				}
@@ -198,12 +221,14 @@ public class AdminItem implements IAdminCommandHandler
 	}
 	
 	/**
-	 * Renders data/html/admin/itemsets.htm : the six grades, or one page of the sets of a grade.
+	 * Renders data/html/admin/itemsets.htm : the six grades, the three armor types of one grade, or
+	 * one page of the sets of a grade and a type.
 	 * @param player : The {@link Player} to send the page to.
 	 * @param grade : The set skill level, 1 for No Grade up to 6 for S ; 0 shows the grade index.
-	 * @param page : Which page of that grade, zero based.
+	 * @param type : An index into {@link #SET_TYPES} ; anything outside it shows the type index.
+	 * @param page : Which page of that grade and type, zero based.
 	 */
-	private static void showArmorSets(Player player, int grade, int page)
+	private static void showArmorSets(Player player, int grade, int type, int page)
 	{
 		final StringBuilder sb = new StringBuilder();
 		
@@ -212,20 +237,21 @@ public class AdminItem implements IAdminCommandHandler
 			for (int i = 0; i < GRADES.length; i++)
 				StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set grade ", i + 1, "\">", GRADES[i], "</a></td></tr>");
 		}
+		else if (type < 0 || type >= SET_TYPES.length)
+		{
+			StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set\">Back to grades</a></td><td align=right>", GRADES[grade - 1], "</td></tr>");
+			
+			for (int i = 0; i < SET_TYPES.length; i++)
+				StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set grade ", grade, " ", i, "\">", SET_TYPE_NAMES[i], "</a></td><td align=right>", getArmorSets(grade, i).size(), "</td></tr>");
+		}
 		else
 		{
-			final List<ArmorSet> sets = new ArrayList<>();
-			for (ArmorSet armorSet : ArmorSetData.getInstance().getSets())
-			{
-				if (armorSet.getSkillLvl() == grade)
-					sets.add(armorSet);
-			}
-			sets.sort(Comparator.comparing(ArmorSet::toString));
+			final List<ArmorSet> sets = getArmorSets(grade, type);
 			
 			final int pages = Math.max(1, (sets.size() + SETS_PER_PAGE - 1) / SETS_PER_PAGE);
 			page = Math.min(Math.max(page, 0), pages - 1);
 			
-			StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set\">Back to grades</a></td><td align=right>", GRADES[grade - 1], "</td></tr>");
+			StringUtil.append(sb, "<tr><td><a action=\"bypass -h admin_item set grade ", grade, "\">Back to types</a></td><td align=right>", GRADES[grade - 1], " ", SET_TYPE_NAMES[type], "</td></tr>");
 			
 			for (int i = page * SETS_PER_PAGE; i < Math.min((page + 1) * SETS_PER_PAGE, sets.size()); i++)
 			{
@@ -235,7 +261,7 @@ public class AdminItem implements IAdminCommandHandler
 			
 			sb.append("<tr><td>");
 			for (int i = 0; i < pages; i++)
-				StringUtil.append(sb, "<a action=\"bypass -h admin_item set grade ", grade, " ", i, "\">", (i == page) ? "[" + (i + 1) + "]" : i + 1, "</a>&nbsp;");
+				StringUtil.append(sb, "<a action=\"bypass -h admin_item set grade ", grade, " ", type, " ", i, "\">", (i == page) ? "[" + (i + 1) + "]" : i + 1, "</a>&nbsp;");
 			sb.append("</td></tr>");
 		}
 		
@@ -243,6 +269,43 @@ public class AdminItem implements IAdminCommandHandler
 		html.setFile("data/html/admin/itemsets.htm");
 		html.replace("%sets%", sb.toString());
 		player.sendPacket(html);
+	}
+	
+	/**
+	 * @param grade : The set skill level, 1 for No Grade up to 6 for S.
+	 * @param type : An index into {@link #SET_TYPES}.
+	 * @return The {@link ArmorSet}s of that grade whose chest is of that armor type, by name.
+	 */
+	private static List<ArmorSet> getArmorSets(int grade, int type)
+	{
+		final List<ArmorSet> sets = new ArrayList<>();
+		for (ArmorSet armorSet : ArmorSetData.getInstance().getSets())
+		{
+			if (armorSet.getSkillLvl() == grade && getSetTypeIndex(armorSet.getSetItemsId()[0]) == type)
+				sets.add(armorSet);
+		}
+		sets.sort(Comparator.comparing(ArmorSet::toString));
+		return sets;
+	}
+	
+	/**
+	 * A set is robe, light or heavy according to its chest, the one piece it always has.
+	 * @param chestId : The chest item id of an {@link ArmorSet}.
+	 * @return The index of that chest's {@link ArmorType} in {@link #SET_TYPES}, or -1.
+	 */
+	private static int getSetTypeIndex(int chestId)
+	{
+		final Item item = ItemData.getInstance().getTemplate(chestId);
+		if (!(item instanceof Armor))
+			return -1;
+		
+		final ArmorType armorType = ((Armor) item).getItemType();
+		for (int i = 0; i < SET_TYPES.length; i++)
+		{
+			if (SET_TYPES[i] == armorType)
+				return i;
+		}
+		return -1;
 	}
 	
 	/**
