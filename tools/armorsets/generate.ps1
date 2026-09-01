@@ -4,7 +4,7 @@
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
-	and boots. families.csv holds 122 of them, one row per chest item of data/xml/items.
+	and boots. families.csv holds 79 of them, one row per chest item of data/xml/items.
 
 	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
@@ -25,7 +25,7 @@
 	What this script writes :
 
 	  * every rung of every family, minted into data/xml/items/10000-*.xml and up ;
-	  * the 122 chests keep their id and their grade - only their P. Def. is levelled onto the table
+	  * the 79 chests keep their id and their grade - only their P. Def. is levelled onto the table
 	    below, so that every set of a grade is worth the same ;
 	  * data/xml/armorSets.xml is regenerated whole, one <armorset> per family per grade it reaches ;
 	  * every family gets one passive skill of six levels - one per grade, level 6 always being S -
@@ -193,6 +193,21 @@ function Write-Datapack([string]$path, [string[]]$body, [string]$eol, [bool]$end
 	$text = ($body -join $eol)
 	if ($endsNl) { $text += $eol }
 	[System.IO.File]::WriteAllText($path, $text, (New-Object System.Text.UTF8Encoding $false))
+}
+
+# A table that shrank leaves its top buckets behind, and the server would happily go on loading the
+# orphans out of them. Every "<from>-<to>.xml" of our own id range that this run didn't write goes.
+function Remove-StaleBuckets([string]$dir, [int]$firstId, $written)
+{
+	$dropped = 0
+	foreach ($f in Get-ChildItem $dir -Filter *.xml)
+	{
+		if ($f.Name -notmatch '^(\d+)-\d+\.xml$') { continue }
+		if ([int]$Matches[1] -lt $firstId -or $written.ContainsKey($f.Name)) { continue }
+		Remove-Item $f.FullName -Force
+		$dropped++
+	}
+	$dropped
 }
 
 $files = @{}
@@ -451,16 +466,7 @@ foreach ($bucket in ($buckets.Keys | Sort-Object))
 	Write-Datapack (Join-Path $itemsDir $name) $body "`r`n" $false
 }
 
-# A table that shrank leaves the top bucket behind, and the server would happily go on loading the
-# orphans out of it. Every file of our own id range that this run didn't write goes.
-$dropped = 0
-foreach ($f in Get-ChildItem $itemsDir -Filter *.xml)
-{
-	if ($f.Name -notmatch '^(\d+)-\d+\.xml$') { continue }
-	if ([int]$Matches[1] -lt $FIRST_ITEM_ID -or $mintedFiles.ContainsKey($f.Name)) { continue }
-	Remove-Item $f.FullName -Force
-	$dropped++
-}
+$dropped = Remove-StaleBuckets $itemsDir $FIRST_ITEM_ID $mintedFiles
 Write-Host "wrote $($buckets.Count) item files$(if ($dropped) { ", removed $dropped stale" })"
 
 # ---------------------------------------------------------------------------
@@ -708,13 +714,16 @@ foreach ($type in @('HEAVY', 'LIGHT', 'MAGIC'))
 	}
 }
 
+$writtenSkills = @{}
 foreach ($bucket in ($skillBuckets.Keys | Sort-Object))
 {
-	$path = Join-Path $skillsDir ("{0}-{1}.xml" -f $bucket, ($bucket + 99))
+	$name = "{0}-{1}.xml" -f $bucket, ($bucket + 99)
+	$writtenSkills[$name] = $true
 	$body = @('<?xml version="1.0" encoding="UTF-8"?>', '<list>') + $skillBuckets[$bucket] + @('</list>')
-	[System.IO.File]::WriteAllText($path, ($body -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
+	[System.IO.File]::WriteAllText((Join-Path $skillsDir $name), ($body -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
 }
-Write-Host "wrote $($families.Count) set skills + 3 enchant skills in $($skillBuckets.Count) files"
+$dropped = Remove-StaleBuckets $skillsDir $FIRST_SKILL_ID $writtenSkills
+Write-Host "wrote $($families.Count) set skills + 3 enchant skills in $($skillBuckets.Count) files$(if ($dropped) { ", removed $dropped stale" })"
 
 # ---------------------------------------------------------------------------
 # armorSets.xml, one row per family per grade it reaches, and what the client has to say about them.

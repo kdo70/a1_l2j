@@ -12,7 +12,7 @@
 	                  rewritten in place.
 	  itemname-e.dat  the name of every new piece - taken from the chest of its set, with an empty
 	                  title, because the grade already shows on the icon - plus the set tooltip
-	                  (members, bonus, shield) on all 438 chests.
+	                  (members, bonus, shield) on all 313 chests.
 	  skillgrp.dat    one row per set skill level, wearing the icon of its own chest piece.
 	  skillname-e.dat the name and the bonus text of every set skill level.
 

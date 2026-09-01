@@ -1,7 +1,7 @@
 # A ladder up to S grade for every armor set
 
-`generate.ps1` gives each of the 122 armor looks of the datapack a ladder from the grade it already has up
-to S — **438 sets, 1924 minted items** — and `patch_client.ps1` teaches the client those new ids.
+`generate.ps1` gives each of the 79 armor looks of the datapack a ladder from the grade it already has up
+to S — **313 sets, 1410 minted items** — and `patch_client.ps1` teaches the client those new ids.
 
 Every set owns its pieces : head, legs, gloves and boots are minted for that one set on every rung, named
 after its chest (`Tunic of Zubei Boots`) and shared with nobody. Retail items are clone sources only.

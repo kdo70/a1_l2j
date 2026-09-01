@@ -1198,7 +1198,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10290" type="Armor" name="Dwarven Scale Mail Helmet">
+	<item id="10290" type="Armor" name="Blast Plate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -1211,12 +1211,12 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10291" type="Armor" name="Dwarven Scale Mail Gaiters">
+	<item id="10291" type="Armor" name="Blast Plate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3840" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3870" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="150" />
 		<set name="price" val="95200" />
@@ -1225,11 +1225,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10292" type="Armor" name="Dwarven Scale Mail Gloves">
+	<item id="10292" type="Armor" name="Blast Plate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
+		<set name="weight" val="630" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="80" />
 		<set name="price" val="74700" />
@@ -1238,11 +1238,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10293" type="Armor" name="Dwarven Scale Mail Boots">
+	<item id="10293" type="Armor" name="Blast Plate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
+		<set name="weight" val="1250" />
 		<set name="crystal_type" val="D" />
 		<set name="crystal_count" val="80" />
 		<set name="price" val="74700" />
@@ -1251,7 +1251,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10294" type="Armor" name="Dwarven Scale Mail Helmet">
+	<item id="10294" type="Armor" name="Blast Plate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -1264,12 +1264,12 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10295" type="Armor" name="Dwarven Scale Mail">
+	<item id="10295" type="Armor" name="Blast Plate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
 		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8540" />
+		<set name="weight" val="8420" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="350" />
 		<set name="price" val="505000" />
@@ -1278,12 +1278,12 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10296" type="Armor" name="Dwarven Scale Mail Gaiters">
+	<item id="10296" type="Armor" name="Blast Plate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3840" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="3870" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="210" />
 		<set name="price" val="316000" />
@@ -1292,11 +1292,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10297" type="Armor" name="Dwarven Scale Mail Gloves">
+	<item id="10297" type="Armor" name="Blast Plate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
+		<set name="weight" val="630" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="110" />
 		<set name="price" val="245000" />
@@ -1305,11 +1305,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10298" type="Armor" name="Dwarven Scale Mail Boots">
+	<item id="10298" type="Armor" name="Blast Plate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
+		<set name="weight" val="1250" />
 		<set name="crystal_type" val="C" />
 		<set name="crystal_count" val="110" />
 		<set name="price" val="245000" />
@@ -1318,7 +1318,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10299" type="Armor" name="Dwarven Scale Mail Helmet">
+	<item id="10299" type="Armor" name="Blast Plate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />

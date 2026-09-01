@@ -1,73 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10400" type="Armor" name="Chain Mail Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="250" />
-		<set name="price" val="5370000" />
-		<for>
-			<baseadd stat="pDef" val="83" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10401" type="Armor" name="Chain Mail Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8120" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="205" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10402" type="Armor" name="Chain Mail Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3680" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="128" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10403" type="Armor" name="Chain Mail Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="620" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10404" type="Armor" name="Chain Mail Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1220" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10405" type="Armor" name="Dwarven Chain Mail Shirt Helmet">
+	<item id="10400" type="Armor" name="Full Plate Armor Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -80,21 +13,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10406" type="Armor" name="Dwarven Chain Mail Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3620" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="92" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10407" type="Armor" name="Dwarven Chain Mail Shirt Gloves">
+	<item id="10401" type="Armor" name="Full Plate Armor Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -107,247 +26,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10408" type="Armor" name="Dwarven Chain Mail Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1210" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="110" />
-		<set name="price" val="245000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10409" type="Armor" name="Dwarven Chain Mail Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="175" />
-		<set name="price" val="1210000" />
-		<for>
-			<baseadd stat="pDef" val="67" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10410" type="Armor" name="Dwarven Chain Mail Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="440" />
-		<set name="price" val="2410000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10411" type="Armor" name="Dwarven Chain Mail Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3620" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="104" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10412" type="Armor" name="Dwarven Chain Mail Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="600" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10413" type="Armor" name="Dwarven Chain Mail Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1210" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10414" type="Armor" name="Dwarven Chain Mail Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="2640000" />
-		<for>
-			<baseadd stat="pDef" val="73" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10415" type="Armor" name="Dwarven Chain Mail Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10416" type="Armor" name="Dwarven Chain Mail Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3620" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="113" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10417" type="Armor" name="Dwarven Chain Mail Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="600" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="165" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10418" type="Armor" name="Dwarven Chain Mail Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1210" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="165" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10419" type="Armor" name="Dwarven Chain Mail Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="250" />
-		<set name="price" val="5370000" />
-		<for>
-			<baseadd stat="pDef" val="83" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10420" type="Armor" name="Dwarven Chain Mail Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="205" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10421" type="Armor" name="Dwarven Chain Mail Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3620" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="128" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10422" type="Armor" name="Dwarven Chain Mail Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="600" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10423" type="Armor" name="Dwarven Chain Mail Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1210" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10424" type="Armor" name="Full Plate Armor Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="536000" />
-		<for>
-			<baseadd stat="pDef" val="58" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10425" type="Armor" name="Full Plate Armor Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="600" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="110" />
-		<set name="price" val="245000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10426" type="Armor" name="Full Plate Armor Boots">
+	<item id="10402" type="Armor" name="Full Plate Armor Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -360,7 +39,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10427" type="Armor" name="Full Plate Armor Helmet">
+	<item id="10403" type="Armor" name="Full Plate Armor Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -373,7 +52,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10428" type="Armor" name="Full Plate Armor">
+	<item id="10404" type="Armor" name="Full Plate Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -387,7 +66,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10429" type="Armor" name="Full Plate Armor Gloves">
+	<item id="10405" type="Armor" name="Full Plate Armor Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -400,7 +79,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10430" type="Armor" name="Full Plate Armor Boots">
+	<item id="10406" type="Armor" name="Full Plate Armor Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -413,7 +92,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10431" type="Armor" name="Full Plate Armor Helmet">
+	<item id="10407" type="Armor" name="Full Plate Armor Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -426,7 +105,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10432" type="Armor" name="Full Plate Armor">
+	<item id="10408" type="Armor" name="Full Plate Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -440,7 +119,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10433" type="Armor" name="Full Plate Armor Gloves">
+	<item id="10409" type="Armor" name="Full Plate Armor Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -453,7 +132,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10434" type="Armor" name="Full Plate Armor Boots">
+	<item id="10410" type="Armor" name="Full Plate Armor Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -466,7 +145,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10435" type="Armor" name="Full Plate Armor Helmet">
+	<item id="10411" type="Armor" name="Full Plate Armor Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -479,7 +158,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10436" type="Armor" name="Full Plate Armor">
+	<item id="10412" type="Armor" name="Full Plate Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -493,7 +172,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10437" type="Armor" name="Full Plate Armor Gloves">
+	<item id="10413" type="Armor" name="Full Plate Armor Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -506,7 +185,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10438" type="Armor" name="Full Plate Armor Boots">
+	<item id="10414" type="Armor" name="Full Plate Armor Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -519,7 +198,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10439" type="Armor" name="Zubei's Breastplate Helmet">
+	<item id="10415" type="Armor" name="Zubei's Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -532,7 +211,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10440" type="Armor" name="Zubei's Breastplate Gaiters">
+	<item id="10416" type="Armor" name="Zubei's Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -546,7 +225,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10441" type="Armor" name="Zubei's Breastplate Gloves">
+	<item id="10417" type="Armor" name="Zubei's Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -559,7 +238,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10442" type="Armor" name="Zubei's Breastplate Boots">
+	<item id="10418" type="Armor" name="Zubei's Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="MITHRIL" />
@@ -572,7 +251,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10443" type="Armor" name="Zubei's Breastplate Helmet">
+	<item id="10419" type="Armor" name="Zubei's Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -585,7 +264,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10444" type="Armor" name="Zubei's Breastplate">
+	<item id="10420" type="Armor" name="Zubei's Breastplate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -599,7 +278,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10445" type="Armor" name="Zubei's Breastplate Gaiters">
+	<item id="10421" type="Armor" name="Zubei's Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -613,7 +292,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10446" type="Armor" name="Zubei's Breastplate Gloves">
+	<item id="10422" type="Armor" name="Zubei's Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -626,7 +305,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10447" type="Armor" name="Zubei's Breastplate Boots">
+	<item id="10423" type="Armor" name="Zubei's Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="MITHRIL" />
@@ -639,7 +318,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10448" type="Armor" name="Zubei's Breastplate Helmet">
+	<item id="10424" type="Armor" name="Zubei's Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -652,7 +331,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10449" type="Armor" name="Zubei's Breastplate">
+	<item id="10425" type="Armor" name="Zubei's Breastplate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -666,7 +345,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10450" type="Armor" name="Zubei's Breastplate Gaiters">
+	<item id="10426" type="Armor" name="Zubei's Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -680,7 +359,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10451" type="Armor" name="Zubei's Breastplate Gloves">
+	<item id="10427" type="Armor" name="Zubei's Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -693,7 +372,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10452" type="Armor" name="Zubei's Breastplate Boots">
+	<item id="10428" type="Armor" name="Zubei's Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="MITHRIL" />
@@ -706,7 +385,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10453" type="Armor" name="Blue Wolf Breastplate Helmet">
+	<item id="10429" type="Armor" name="Blue Wolf Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -719,7 +398,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10454" type="Armor" name="Blue Wolf Breastplate Gaiters">
+	<item id="10430" type="Armor" name="Blue Wolf Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -733,7 +412,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10455" type="Armor" name="Blue Wolf Breastplate Gloves">
+	<item id="10431" type="Armor" name="Blue Wolf Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -746,7 +425,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10456" type="Armor" name="Blue Wolf Breastplate Boots">
+	<item id="10432" type="Armor" name="Blue Wolf Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -759,7 +438,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10457" type="Armor" name="Blue Wolf Breastplate Helmet">
+	<item id="10433" type="Armor" name="Blue Wolf Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -772,7 +451,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10458" type="Armor" name="Blue Wolf Breastplate">
+	<item id="10434" type="Armor" name="Blue Wolf Breastplate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -786,7 +465,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10459" type="Armor" name="Blue Wolf Breastplate Gaiters">
+	<item id="10435" type="Armor" name="Blue Wolf Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -800,7 +479,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10460" type="Armor" name="Blue Wolf Breastplate Gloves">
+	<item id="10436" type="Armor" name="Blue Wolf Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -813,7 +492,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10461" type="Armor" name="Blue Wolf Breastplate Boots">
+	<item id="10437" type="Armor" name="Blue Wolf Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -826,7 +505,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10462" type="Armor" name="Blue Wolf Breastplate Helmet">
+	<item id="10438" type="Armor" name="Blue Wolf Breastplate Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -839,7 +518,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10463" type="Armor" name="Blue Wolf Breastplate">
+	<item id="10439" type="Armor" name="Blue Wolf Breastplate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -853,7 +532,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10464" type="Armor" name="Blue Wolf Breastplate Gaiters">
+	<item id="10440" type="Armor" name="Blue Wolf Breastplate Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -867,7 +546,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10465" type="Armor" name="Blue Wolf Breastplate Gloves">
+	<item id="10441" type="Armor" name="Blue Wolf Breastplate Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -880,7 +559,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10466" type="Armor" name="Blue Wolf Breastplate Boots">
+	<item id="10442" type="Armor" name="Blue Wolf Breastplate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -893,7 +572,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10467" type="Armor" name="Shining Dragon Armor Helmet">
+	<item id="10443" type="Armor" name="Armor of Victory Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -906,11 +585,25 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10468" type="Armor" name="Shining Dragon Armor Gloves">
+	<item id="10444" type="Armor" name="Armor of Victory Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="2240" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="104" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10445" type="Armor" name="Armor of Victory Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="6400" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="140" />
 		<set name="price" val="804000" />
@@ -919,11 +612,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10469" type="Armor" name="Shining Dragon Armor Boots">
+	<item id="10446" type="Armor" name="Armor of Victory Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="1180" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="140" />
 		<set name="price" val="804000" />
@@ -932,7 +625,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10470" type="Armor" name="Shining Dragon Armor Helmet">
+	<item id="10447" type="Armor" name="Armor of Victory Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -945,25 +638,39 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10471" type="Armor" name="Shining Dragon Armor">
+	<item id="10448" type="Armor" name="Armor of Victory">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="6400" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="3360" />
 		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
+		<set name="crystal_count" val="520" />
+		<set name="price" val="4630000" />
 		<for>
-			<baseadd stat="pDef" val="293" />
+			<baseadd stat="pDef" val="180" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10472" type="Armor" name="Shining Dragon Armor Gloves">
+	<item id="10449" type="Armor" name="Armor of Victory Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="2240" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="113" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10450" type="Armor" name="Armor of Victory Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="6400" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="165" />
 		<set name="price" val="1760000" />
@@ -972,11 +679,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10473" type="Armor" name="Shining Dragon Armor Boots">
+	<item id="10451" type="Armor" name="Armor of Victory Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="1180" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="165" />
 		<set name="price" val="1760000" />
@@ -985,7 +692,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10474" type="Armor" name="Shining Dragon Armor Helmet">
+	<item id="10452" type="Armor" name="Armor of Victory Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -998,12 +705,238 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10475" type="Armor" name="Shining Dragon Armor">
+	<item id="10453" type="Armor" name="Armor of Victory">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="3360" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="630" />
+		<set name="price" val="14300000" />
+		<for>
+			<baseadd stat="pDef" val="205" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10454" type="Armor" name="Armor of Victory Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="2240" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="128" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10455" type="Armor" name="Armor of Victory Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="6400" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10456" type="Armor" name="Armor of Victory Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="ORIHARUKON" />
+		<set name="weight" val="1180" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10457" type="Armor" name="Dark Crystal Breastplate Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="570" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10458" type="Armor" name="Dark Crystal Breastplate Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CRYSTAL" />
+		<set name="weight" val="3320" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="113" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10459" type="Armor" name="Dark Crystal Breastplate Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10460" type="Armor" name="Dark Crystal Breastplate Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CRYSTAL" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10461" type="Armor" name="Dark Crystal Breastplate Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="570" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10462" type="Armor" name="Dark Crystal Breastplate">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="CRYSTAL" />
+		<set name="weight" val="7700" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="630" />
+		<set name="price" val="14300000" />
+		<for>
+			<baseadd stat="pDef" val="205" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10463" type="Armor" name="Dark Crystal Breastplate Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CRYSTAL" />
+		<set name="weight" val="3320" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="128" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10464" type="Armor" name="Dark Crystal Breastplate Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10465" type="Armor" name="Dark Crystal Breastplate Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="CRYSTAL" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10466" type="Armor" name="Armor of Nightmare Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="570" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10467" type="Armor" name="Armor of Nightmare Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="550" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10468" type="Armor" name="Armor of Nightmare Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10469" type="Armor" name="Armor of Nightmare Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="570" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10470" type="Armor" name="Armor of Nightmare">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="6400" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="9580" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="1000" />
 		<set name="price" val="17400000" />
@@ -1012,11 +945,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10476" type="Armor" name="Shining Dragon Armor Gloves">
+	<item id="10471" type="Armor" name="Armor of Nightmare Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
+		<set name="weight" val="550" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="200" />
 		<set name="price" val="3580000" />
@@ -1025,11 +958,11 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10477" type="Armor" name="Shining Dragon Armor Boots">
+	<item id="10472" type="Armor" name="Armor of Nightmare Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
+		<set name="weight" val="1110" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="200" />
 		<set name="price" val="3580000" />
@@ -1038,11 +971,179 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10478" type="Armor" name="Armor of Victory Helmet">
+	<item id="10473" type="Armor" name="Cotton Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="price" val="12000" />
+		<for>
+			<baseadd stat="pDef" val="26" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10474" type="Armor" name="Cotton Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
+		<set name="price" val="18000" />
+		<for>
+			<baseadd stat="pDef" val="33" />
+		</for>
+	</item>
+	<item id="10475" type="Armor" name="Cotton Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="660" />
+		<set name="price" val="8000" />
+		<for>
+			<baseadd stat="pDef" val="20" />
+		</for>
+	</item>
+	<item id="10476" type="Armor" name="Cotton Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="price" val="8000" />
+		<for>
+			<baseadd stat="pDef" val="20" />
+		</for>
+	</item>
+	<item id="10477" type="Armor" name="Cotton Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="100" />
+		<set name="price" val="76200" />
+		<for>
+			<baseadd stat="pDef" val="44" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10478" type="Armor" name="Cotton Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="4770" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="152000" />
+		<for>
+			<baseadd stat="pDef" val="77" />
+		</for>
+	</item>
+	<item id="10479" type="Armor" name="Cotton Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="48" />
+		</for>
+	</item>
+	<item id="10480" type="Armor" name="Cotton Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+		</for>
+	</item>
+	<item id="10481" type="Armor" name="Cotton Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+		</for>
+	</item>
+	<item id="10482" type="Armor" name="Cotton Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="536000" />
+		<for>
+			<baseadd stat="pDef" val="58" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10483" type="Armor" name="Cotton Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="4770" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="350" />
+		<set name="price" val="505000" />
+		<for>
+			<baseadd stat="pDef" val="110" />
+		</for>
+	</item>
+	<item id="10484" type="Armor" name="Cotton Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="69" />
+		</for>
+	</item>
+	<item id="10485" type="Armor" name="Cotton Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+		</for>
+	</item>
+	<item id="10486" type="Armor" name="Cotton Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+		</for>
+	</item>
+	<item id="10487" type="Armor" name="Cotton Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="175" />
 		<set name="price" val="1210000" />
@@ -1051,51 +1152,61 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10479" type="Armor" name="Armor of Victory Gaiters">
+	<item id="10488" type="Armor" name="Cotton Shirt">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="4770" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="440" />
+		<set name="price" val="2410000" />
+		<for>
+			<baseadd stat="pDef" val="124" />
+		</for>
+	</item>
+	<item id="10489" type="Armor" name="Cotton Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="2240" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="260" />
 		<set name="price" val="1510000" />
 		<for>
-			<baseadd stat="pDef" val="104" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="78" />
 		</for>
 	</item>
-	<item id="10480" type="Armor" name="Armor of Victory Gloves">
+	<item id="10490" type="Armor" name="Cotton Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="6400" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="660" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="140" />
 		<set name="price" val="804000" />
 		<for>
 			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10481" type="Armor" name="Armor of Victory Boots">
+	<item id="10491" type="Armor" name="Cotton Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="1180" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="140" />
 		<set name="price" val="804000" />
 		<for>
 			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10482" type="Armor" name="Armor of Victory Helmet">
+	<item id="10492" type="Armor" name="Cotton Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="210" />
 		<set name="price" val="2640000" />
@@ -1104,65 +1215,61 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10483" type="Armor" name="Armor of Victory">
+	<item id="10493" type="Armor" name="Cotton Shirt">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="3360" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="4770" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="520" />
 		<set name="price" val="4630000" />
 		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="136" />
 		</for>
 	</item>
-	<item id="10484" type="Armor" name="Armor of Victory Gaiters">
+	<item id="10494" type="Armor" name="Cotton Shirt Gaiters">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="2240" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="310" />
 		<set name="price" val="2890000" />
 		<for>
-			<baseadd stat="pDef" val="113" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="84" />
 		</for>
 	</item>
-	<item id="10485" type="Armor" name="Armor of Victory Gloves">
+	<item id="10495" type="Armor" name="Cotton Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="6400" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="660" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="165" />
 		<set name="price" val="1760000" />
 		<for>
 			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10486" type="Armor" name="Armor of Victory Boots">
+	<item id="10496" type="Armor" name="Cotton Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="1180" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1320" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="165" />
 		<set name="price" val="1760000" />
 		<for>
 			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10487" type="Armor" name="Armor of Victory Helmet">
+	<item id="10497" type="Armor" name="Cotton Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="250" />
 		<set name="price" val="5370000" />
@@ -1171,165 +1278,30 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10488" type="Armor" name="Armor of Victory">
+	<item id="10498" type="Armor" name="Cotton Shirt">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="3360" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="4770" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="630" />
 		<set name="price" val="14300000" />
 		<for>
-			<baseadd stat="pDef" val="205" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="153" />
 		</for>
 	</item>
-	<item id="10489" type="Armor" name="Armor of Victory Gaiters">
+	<item id="10499" type="Armor" name="Cotton Shirt Gaiters">
 		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
+		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="2240" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1630" />
 		<set name="crystal_type" val="S" />
 		<set name="crystal_count" val="370" />
 		<set name="price" val="8960000" />
 		<for>
-			<baseadd stat="pDef" val="128" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10490" type="Armor" name="Armor of Victory Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="6400" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10491" type="Armor" name="Armor of Victory Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="1180" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10492" type="Armor" name="Breastplate of Valor Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="175" />
-		<set name="price" val="1210000" />
-		<for>
-			<baseadd stat="pDef" val="67" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10493" type="Armor" name="Breastplate of Valor Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="2240" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="104" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10494" type="Armor" name="Breastplate of Valor Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="6400" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10495" type="Armor" name="Breastplate of Valor Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="1150" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10496" type="Armor" name="Breastplate of Valor Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="570" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="2640000" />
-		<for>
-			<baseadd stat="pDef" val="73" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10497" type="Armor" name="Breastplate of Valor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="3360" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10498" type="Armor" name="Breastplate of Valor Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="2240" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="113" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10499" type="Armor" name="Breastplate of Valor Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="6400" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="165" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
+			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
 </list>
