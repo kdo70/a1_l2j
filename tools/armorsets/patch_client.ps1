@@ -12,7 +12,7 @@
 	                  rewritten in place.
 	  itemname-e.dat  the name of every new piece - taken from the chest of its set, with an empty
 	                  title, because the grade already shows on the icon - plus the set tooltip
-	                  (members, bonus, shield) on all 447 chests.
+	                  (members, bonus, shield) on all 438 chests.
 	  skillgrp.dat    one row per set skill level, wearing the icon of its own chest piece.
 	  skillname-e.dat the name and the bonus text of every set skill level.
 
@@ -255,6 +255,33 @@ try
 		$cells[$sedC] = Get-Prefixed $cells[$sedC] $ENCHANT_TEXT
 		$nam.rows[$at] = $cells -join "`t"
 	}
+
+	# A chest dropped out of families.csv keeps whatever the stock client said about it, and for the
+	# handful retail shipped a set for - Mithril Breastplate is the one so far - that is a tooltip
+	# promising a bonus the datapack no longer grants. Only the chests retired.csv names are wiped :
+	# the client also carries set tooltips this datapack never modelled (Dynasty, DragonFire), and
+	# those are somebody else's content.
+	$retiredPath = Join-Path $GeneratedDir '..\retired.csv'
+	if (Test-Path $retiredPath)
+	{
+		$wiped = 0
+		foreach ($r in (Import-Csv $retiredPath))
+		{
+			$chest = [int]$r.chest
+			if (-not $byId.ContainsKey($chest)) { continue }
+			$at = $byId[$chest]
+			$cells = $nam.rows[$at].Split("`t")
+			if ($cells[$siC] -eq (Get-Prefixed $cells[$siC] '')) { continue }
+
+			foreach ($c in $siC, $sbC, $xiC, $xdC) { $cells[$c] = Get-Prefixed $cells[$c] '' }
+			$cells[$seaC] = '0'
+			$cells[$sedC] = Get-Prefixed $cells[$sedC] ''
+			$nam.rows[$at] = $cells -join "`t"
+			$wiped++
+		}
+		Write-Host "itemname-e : wiped the stock set tooltip off $wiped retired chest(s)"
+	}
+
 	Save-Dat $nam
 
 	# -----------------------------------------------------------------------

@@ -4,7 +4,7 @@
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
-	and boots. families.csv holds 124 of them, one row per chest item of data/xml/items.
+	and boots. families.csv holds 122 of them, one row per chest item of data/xml/items.
 
 	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
@@ -25,7 +25,7 @@
 	What this script writes :
 
 	  * every rung of every family, minted into data/xml/items/10000-*.xml and up ;
-	  * the 124 chests keep their id and their grade - only their P. Def. is levelled onto the table
+	  * the 122 chests keep their id and their grade - only their P. Def. is levelled onto the table
 	    below, so that every set of a grade is worth the same ;
 	  * data/xml/armorSets.xml is regenerated whole, one <armorset> per family per grade it reaches ;
 	  * every family gets one passive skill of six levels - one per grade, level 6 always being S -

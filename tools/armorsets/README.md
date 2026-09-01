@@ -1,7 +1,7 @@
 # A ladder up to S grade for every armor set
 
-`generate.ps1` gives each of the 124 armor looks of the datapack a ladder from the grade it already has up
-to S — **447 sets, 1963 minted items** — and `patch_client.ps1` teaches the client those new ids.
+`generate.ps1` gives each of the 122 armor looks of the datapack a ladder from the grade it already has up
+to S — **438 sets, 1924 minted items** — and `patch_client.ps1` teaches the client those new ids.
 
 Every set owns its pieces : head, legs, gloves and boots are minted for that one set on every rung, named
 after its chest (`Tunic of Zubei Boots`) and shared with nobody. Retail items are clone sources only.
@@ -39,6 +39,7 @@ once, so a change to `families.csv` is applied by simply running both again.
 | file | what |
 |---|---|
 | `families.csv` | the table everything is generated from — one row per chest item, the pieces that go with it, and which set bonus it carries. Hand curated ; see below. |
+| `retired.csv` | the chests that used to be a set and are not one any more. `patch_client.ps1` wipes the stock set tooltip off them ; without it a removed retail set goes on promising its bonus in game. Explicit on purpose — the client also carries set tooltips this datapack never modelled (Dynasty, DragonFire) and those must stay. |
 | `generate.ps1` | datapack side : items, `armorSets.xml`, set skills, GM shop buy lists, and a copy into `build\`. |
 | `patch_client.ps1` | client side : `armorgrp.dat`, `itemname-e.dat`, `skillgrp.dat`, `skillname-e.dat`. |
 | `generated/client_items.tsv` | every piece, its name, its grade, its P. Def. and the item it was cloned from. |
@@ -69,6 +70,9 @@ One row per chest (or fullarmor) item of `data/xml/items`. Columns:
 The table was seeded by matching piece names against each other (idf weighted token overlap), then overlaid
 with the retail composition out of `armorSets.xml`, then hand fixed. It is **data, not output** — edit it and
 rerun, don't regenerate it.
+
+Removing a row means adding its chest to `retired.csv`, or the client keeps whatever set tooltip the stock
+game shipped for it.
 
 Adding, removing or reordering a row renumbers every id minted after it. That is fine as long as both
 scripts are rerun, but it does invalidate items already in players' inventories, so treat the table as

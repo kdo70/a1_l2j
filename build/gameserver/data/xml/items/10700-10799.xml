@@ -1,324 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10700" type="Armor" name="Cotton Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="1630" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="96" />
-		</for>
-	</item>
-	<item id="10701" type="Armor" name="Cotton Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="660" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-		</for>
-	</item>
-	<item id="10702" type="Armor" name="Cotton Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1320" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="200" />
-		<set name="price" val="3580000" />
-		<for>
-			<baseadd stat="pDef" val="55" />
-		</for>
-	</item>
-	<item id="10703" type="Armor" name="Puma Skin Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="100" />
-		<set name="price" val="76200" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10704" type="Armor" name="Puma Skin Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10705" type="Armor" name="Puma Skin Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="650" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="80" />
-		<set name="price" val="74700" />
-		<for>
-			<baseadd stat="pDef" val="29" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10706" type="Armor" name="Puma Skin Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1300" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="80" />
-		<set name="price" val="74700" />
-		<for>
-			<baseadd stat="pDef" val="29" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10707" type="Armor" name="Puma Skin Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="536000" />
-		<for>
-			<baseadd stat="pDef" val="58" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10708" type="Armor" name="Puma Skin Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4700" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="350" />
-		<set name="price" val="505000" />
-		<for>
-			<baseadd stat="pDef" val="110" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10709" type="Armor" name="Puma Skin Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="69" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10710" type="Armor" name="Puma Skin Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="650" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="110" />
-		<set name="price" val="245000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10711" type="Armor" name="Puma Skin Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1300" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="110" />
-		<set name="price" val="245000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10712" type="Armor" name="Puma Skin Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="175" />
-		<set name="price" val="1210000" />
-		<for>
-			<baseadd stat="pDef" val="67" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10713" type="Armor" name="Puma Skin Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4700" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="440" />
-		<set name="price" val="2410000" />
-		<for>
-			<baseadd stat="pDef" val="124" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10714" type="Armor" name="Puma Skin Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="78" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10715" type="Armor" name="Puma Skin Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="650" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10716" type="Armor" name="Puma Skin Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1300" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10717" type="Armor" name="Puma Skin Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="2640000" />
-		<for>
-			<baseadd stat="pDef" val="73" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10718" type="Armor" name="Puma Skin Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4700" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="136" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10719" type="Armor" name="Puma Skin Shirt Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1600" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="84" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10720" type="Armor" name="Puma Skin Shirt Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="650" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="165" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10721" type="Armor" name="Puma Skin Shirt Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1300" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="165" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10722" type="Armor" name="Puma Skin Shirt Helmet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="250" />
-		<set name="price" val="5370000" />
-		<for>
-			<baseadd stat="pDef" val="83" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10723" type="Armor" name="Puma Skin Shirt">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4700" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="153" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10724" type="Armor" name="Puma Skin Shirt Gaiters">
+	<item id="10700" type="Armor" name="Puma Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -332,7 +14,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10725" type="Armor" name="Puma Skin Shirt Gloves">
+	<item id="10701" type="Armor" name="Puma Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -345,7 +27,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10726" type="Armor" name="Puma Skin Shirt Boots">
+	<item id="10702" type="Armor" name="Puma Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -358,7 +40,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10727" type="Armor" name="Lion Skin Shirt Helmet">
+	<item id="10703" type="Armor" name="Lion Skin Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -371,7 +53,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10728" type="Armor" name="Lion Skin Shirt Gaiters">
+	<item id="10704" type="Armor" name="Lion Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -385,7 +67,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10729" type="Armor" name="Lion Skin Shirt Gloves">
+	<item id="10705" type="Armor" name="Lion Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -398,7 +80,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10730" type="Armor" name="Lion Skin Shirt Boots">
+	<item id="10706" type="Armor" name="Lion Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -411,7 +93,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10731" type="Armor" name="Lion Skin Shirt Helmet">
+	<item id="10707" type="Armor" name="Lion Skin Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -424,7 +106,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10732" type="Armor" name="Lion Skin Shirt">
+	<item id="10708" type="Armor" name="Lion Skin Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -438,7 +120,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10733" type="Armor" name="Lion Skin Shirt Gaiters">
+	<item id="10709" type="Armor" name="Lion Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -452,7 +134,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10734" type="Armor" name="Lion Skin Shirt Gloves">
+	<item id="10710" type="Armor" name="Lion Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -465,7 +147,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10735" type="Armor" name="Lion Skin Shirt Boots">
+	<item id="10711" type="Armor" name="Lion Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -478,7 +160,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10736" type="Armor" name="Lion Skin Shirt Helmet">
+	<item id="10712" type="Armor" name="Lion Skin Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -491,7 +173,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10737" type="Armor" name="Lion Skin Shirt">
+	<item id="10713" type="Armor" name="Lion Skin Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -505,7 +187,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10738" type="Armor" name="Lion Skin Shirt Gaiters">
+	<item id="10714" type="Armor" name="Lion Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -519,7 +201,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10739" type="Armor" name="Lion Skin Shirt Gloves">
+	<item id="10715" type="Armor" name="Lion Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -532,7 +214,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10740" type="Armor" name="Lion Skin Shirt Boots">
+	<item id="10716" type="Armor" name="Lion Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -545,7 +227,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10741" type="Armor" name="Lion Skin Shirt Helmet">
+	<item id="10717" type="Armor" name="Lion Skin Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -558,7 +240,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10742" type="Armor" name="Lion Skin Shirt">
+	<item id="10718" type="Armor" name="Lion Skin Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -572,7 +254,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10743" type="Armor" name="Lion Skin Shirt Gaiters">
+	<item id="10719" type="Armor" name="Lion Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -586,7 +268,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10744" type="Armor" name="Lion Skin Shirt Gloves">
+	<item id="10720" type="Armor" name="Lion Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -599,7 +281,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10745" type="Armor" name="Lion Skin Shirt Boots">
+	<item id="10721" type="Armor" name="Lion Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -612,7 +294,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10746" type="Armor" name="Lion Skin Shirt Helmet">
+	<item id="10722" type="Armor" name="Lion Skin Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -625,7 +307,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10747" type="Armor" name="Lion Skin Shirt">
+	<item id="10723" type="Armor" name="Lion Skin Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -639,7 +321,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10748" type="Armor" name="Lion Skin Shirt Gaiters">
+	<item id="10724" type="Armor" name="Lion Skin Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -653,7 +335,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10749" type="Armor" name="Lion Skin Shirt Gloves">
+	<item id="10725" type="Armor" name="Lion Skin Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -666,7 +348,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10750" type="Armor" name="Lion Skin Shirt Boots">
+	<item id="10726" type="Armor" name="Lion Skin Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -679,7 +361,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10751" type="Armor" name="Mithril Banded Mail Helmet">
+	<item id="10727" type="Armor" name="Mithril Banded Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -692,7 +374,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10752" type="Armor" name="Mithril Banded Mail Gaiters">
+	<item id="10728" type="Armor" name="Mithril Banded Mail Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -706,7 +388,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10753" type="Armor" name="Mithril Banded Mail Gloves">
+	<item id="10729" type="Armor" name="Mithril Banded Mail Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -719,7 +401,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10754" type="Armor" name="Mithril Banded Mail Boots">
+	<item id="10730" type="Armor" name="Mithril Banded Mail Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -732,7 +414,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10755" type="Armor" name="Mithril Banded Mail Helmet">
+	<item id="10731" type="Armor" name="Mithril Banded Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -745,7 +427,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10756" type="Armor" name="Mithril Banded Mail">
+	<item id="10732" type="Armor" name="Mithril Banded Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -759,7 +441,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10757" type="Armor" name="Mithril Banded Mail Gaiters">
+	<item id="10733" type="Armor" name="Mithril Banded Mail Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -773,7 +455,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10758" type="Armor" name="Mithril Banded Mail Gloves">
+	<item id="10734" type="Armor" name="Mithril Banded Mail Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -786,7 +468,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10759" type="Armor" name="Mithril Banded Mail Boots">
+	<item id="10735" type="Armor" name="Mithril Banded Mail Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -799,7 +481,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10760" type="Armor" name="Mithril Banded Mail Helmet">
+	<item id="10736" type="Armor" name="Mithril Banded Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -812,7 +494,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10761" type="Armor" name="Mithril Banded Mail">
+	<item id="10737" type="Armor" name="Mithril Banded Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -826,7 +508,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10762" type="Armor" name="Mithril Banded Mail Gaiters">
+	<item id="10738" type="Armor" name="Mithril Banded Mail Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -840,7 +522,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10763" type="Armor" name="Mithril Banded Mail Gloves">
+	<item id="10739" type="Armor" name="Mithril Banded Mail Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -853,7 +535,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10764" type="Armor" name="Mithril Banded Mail Boots">
+	<item id="10740" type="Armor" name="Mithril Banded Mail Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -866,7 +548,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10765" type="Armor" name="Mithril Banded Mail Helmet">
+	<item id="10741" type="Armor" name="Mithril Banded Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -879,7 +561,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10766" type="Armor" name="Mithril Banded Mail">
+	<item id="10742" type="Armor" name="Mithril Banded Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -893,7 +575,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10767" type="Armor" name="Mithril Banded Mail Gaiters">
+	<item id="10743" type="Armor" name="Mithril Banded Mail Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -907,7 +589,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10768" type="Armor" name="Mithril Banded Mail Gloves">
+	<item id="10744" type="Armor" name="Mithril Banded Mail Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -920,7 +602,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10769" type="Armor" name="Mithril Banded Mail Boots">
+	<item id="10745" type="Armor" name="Mithril Banded Mail Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -933,7 +615,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10770" type="Armor" name="Mithril Banded Mail Helmet">
+	<item id="10746" type="Armor" name="Mithril Banded Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -946,7 +628,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10771" type="Armor" name="Mithril Banded Mail">
+	<item id="10747" type="Armor" name="Mithril Banded Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -960,7 +642,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10772" type="Armor" name="Mithril Banded Mail Gaiters">
+	<item id="10748" type="Armor" name="Mithril Banded Mail Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -974,7 +656,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10773" type="Armor" name="Mithril Banded Mail Gloves">
+	<item id="10749" type="Armor" name="Mithril Banded Mail Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -987,7 +669,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10774" type="Armor" name="Mithril Banded Mail Boots">
+	<item id="10750" type="Armor" name="Mithril Banded Mail Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -1000,7 +682,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10775" type="Armor" name="Reinforced Leather Shirt Helmet">
+	<item id="10751" type="Armor" name="Reinforced Leather Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1013,7 +695,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10776" type="Armor" name="Reinforced Leather Shirt Gaiters">
+	<item id="10752" type="Armor" name="Reinforced Leather Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -1027,7 +709,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10777" type="Armor" name="Reinforced Leather Shirt Gloves">
+	<item id="10753" type="Armor" name="Reinforced Leather Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -1040,7 +722,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10778" type="Armor" name="Reinforced Leather Shirt Boots">
+	<item id="10754" type="Armor" name="Reinforced Leather Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -1053,7 +735,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10779" type="Armor" name="Reinforced Leather Shirt Helmet">
+	<item id="10755" type="Armor" name="Reinforced Leather Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1066,7 +748,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10780" type="Armor" name="Reinforced Leather Shirt">
+	<item id="10756" type="Armor" name="Reinforced Leather Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -1080,7 +762,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10781" type="Armor" name="Reinforced Leather Shirt Gaiters">
+	<item id="10757" type="Armor" name="Reinforced Leather Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -1094,7 +776,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10782" type="Armor" name="Reinforced Leather Shirt Gloves">
+	<item id="10758" type="Armor" name="Reinforced Leather Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -1107,7 +789,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10783" type="Armor" name="Reinforced Leather Shirt Boots">
+	<item id="10759" type="Armor" name="Reinforced Leather Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -1120,7 +802,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10784" type="Armor" name="Reinforced Leather Shirt Helmet">
+	<item id="10760" type="Armor" name="Reinforced Leather Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1133,7 +815,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10785" type="Armor" name="Reinforced Leather Shirt">
+	<item id="10761" type="Armor" name="Reinforced Leather Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -1147,7 +829,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10786" type="Armor" name="Reinforced Leather Shirt Gaiters">
+	<item id="10762" type="Armor" name="Reinforced Leather Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -1161,7 +843,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10787" type="Armor" name="Reinforced Leather Shirt Gloves">
+	<item id="10763" type="Armor" name="Reinforced Leather Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -1174,7 +856,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10788" type="Armor" name="Reinforced Leather Shirt Boots">
+	<item id="10764" type="Armor" name="Reinforced Leather Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -1187,7 +869,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10789" type="Armor" name="Reinforced Leather Shirt Helmet">
+	<item id="10765" type="Armor" name="Reinforced Leather Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1200,7 +882,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10790" type="Armor" name="Reinforced Leather Shirt">
+	<item id="10766" type="Armor" name="Reinforced Leather Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -1214,7 +896,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10791" type="Armor" name="Reinforced Leather Shirt Gaiters">
+	<item id="10767" type="Armor" name="Reinforced Leather Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -1228,7 +910,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10792" type="Armor" name="Reinforced Leather Shirt Gloves">
+	<item id="10768" type="Armor" name="Reinforced Leather Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -1241,7 +923,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10793" type="Armor" name="Reinforced Leather Shirt Boots">
+	<item id="10769" type="Armor" name="Reinforced Leather Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -1254,7 +936,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10794" type="Armor" name="Reinforced Leather Shirt Helmet">
+	<item id="10770" type="Armor" name="Reinforced Leather Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1267,7 +949,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10795" type="Armor" name="Reinforced Leather Shirt">
+	<item id="10771" type="Armor" name="Reinforced Leather Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -1281,7 +963,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10796" type="Armor" name="Reinforced Leather Shirt Gaiters">
+	<item id="10772" type="Armor" name="Reinforced Leather Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -1295,7 +977,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10797" type="Armor" name="Reinforced Leather Shirt Gloves">
+	<item id="10773" type="Armor" name="Reinforced Leather Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -1308,7 +990,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10798" type="Armor" name="Reinforced Leather Shirt Boots">
+	<item id="10774" type="Armor" name="Reinforced Leather Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -1321,7 +1003,328 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10799" type="Armor" name="Manticore Skin Shirt Helmet">
+	<item id="10775" type="Armor" name="Manticore Skin Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="100" />
+		<set name="price" val="76200" />
+		<for>
+			<baseadd stat="pDef" val="44" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10776" type="Armor" name="Manticore Skin Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1550" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="48" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10777" type="Armor" name="Manticore Skin Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="630" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10778" type="Armor" name="Manticore Skin Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1260" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10779" type="Armor" name="Manticore Skin Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="536000" />
+		<for>
+			<baseadd stat="pDef" val="58" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10780" type="Armor" name="Manticore Skin Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4520" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="350" />
+		<set name="price" val="505000" />
+		<for>
+			<baseadd stat="pDef" val="110" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10781" type="Armor" name="Manticore Skin Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1550" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="69" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10782" type="Armor" name="Manticore Skin Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="630" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10783" type="Armor" name="Manticore Skin Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1260" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10784" type="Armor" name="Manticore Skin Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="175" />
+		<set name="price" val="1210000" />
+		<for>
+			<baseadd stat="pDef" val="67" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10785" type="Armor" name="Manticore Skin Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4520" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="440" />
+		<set name="price" val="2410000" />
+		<for>
+			<baseadd stat="pDef" val="124" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10786" type="Armor" name="Manticore Skin Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1550" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="78" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10787" type="Armor" name="Manticore Skin Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="630" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="44" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10788" type="Armor" name="Manticore Skin Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1260" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10789" type="Armor" name="Manticore Skin Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10790" type="Armor" name="Manticore Skin Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4520" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="520" />
+		<set name="price" val="4630000" />
+		<for>
+			<baseadd stat="pDef" val="136" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10791" type="Armor" name="Manticore Skin Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1550" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="84" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10792" type="Armor" name="Manticore Skin Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="630" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10793" type="Armor" name="Manticore Skin Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1260" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10794" type="Armor" name="Manticore Skin Shirt Helmet">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="580" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10795" type="Armor" name="Manticore Skin Shirt">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="4520" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="630" />
+		<set name="price" val="14300000" />
+		<for>
+			<baseadd stat="pDef" val="153" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10796" type="Armor" name="Manticore Skin Shirt Gaiters">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1550" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="96" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10797" type="Armor" name="Manticore Skin Shirt Gloves">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="630" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10798" type="Armor" name="Manticore Skin Shirt Boots">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1260" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10799" type="Armor" name="Salamander Skin Mail Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
