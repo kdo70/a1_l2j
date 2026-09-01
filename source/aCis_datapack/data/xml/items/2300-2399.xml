@@ -823,7 +823,7 @@
 		<set name="weight" val="3520" />
 		<set name="price" val="1300000" />
 		<for>
-			<baseadd stat="pDef" val="104" />
+			<baseadd stat="pDef" val="98" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -919,7 +919,7 @@
 		<set name="weight" val="1670" />
 		<set name="price" val="4970" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
 	<item id="2387" type="Armor" name="Tempered Mithril Gaiters">
@@ -932,7 +932,7 @@
 		<set name="weight" val="1530" />
 		<set name="price" val="237000" />
 		<for>
-			<baseadd stat="pDef" val="69" />
+			<baseadd stat="pDef" val="56" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -946,7 +946,7 @@
 		<set name="weight" val="1480" />
 		<set name="price" val="973000" />
 		<for>
-			<baseadd stat="pDef" val="78" />
+			<baseadd stat="pDef" val="73" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -960,7 +960,7 @@
 		<set name="weight" val="1480" />
 		<set name="price" val="2170000" />
 		<for>
-			<baseadd stat="pDef" val="84" />
+			<baseadd stat="pDef" val="80" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

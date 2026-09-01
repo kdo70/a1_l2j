@@ -1,434 +1,579 @@
-piece	bodypart	armorType	from	NG	D	C	B	A	S
-Shirt	chest	LIGHT	NG	21	10000	10001	10002	10003	10004
-Leather Shirt	chest	LIGHT	NG	22	10005	10006	10007	10008	10009
-Wooden Breastplate	chest	LIGHT	NG	23	10010	10011	10012	10013	10014
-Bone Breastplate	chest	LIGHT	NG	24	10015	10016	10017	10018	10019
-Piece Bone Breastplate	chest	HEAVY	NG	25	10020	10021	10022	10023	10024
-Bronze Breastplate	chest	HEAVY	NG	26	10025	10026	10027	10028	10029
-Hard Leather Shirt	chest	LIGHT	NG	27	10030	10031	10032	10033	10034
-Pants	legs	LIGHT	NG	28	10035	10036	10037	10038	10039
-Leather Pants	legs	LIGHT	NG	29	10040	10041	10042	10043	10044
-Bone Gaiters	legs	LIGHT	NG	31	10045	10046	10047	10048	10049
-Piece Bone Gaiters	legs	HEAVY	NG	32	10050	10051	10052	10053	10054
-Hard Leather Gaiters	legs	LIGHT	NG	33	10055	10056	10057	10058	10059
-Bronze Gaiters	legs	HEAVY	NG	34	10060	10061	10062	10063	10064
-Cloth Shoes	feet		NG	35	10065	10066	10067	10068	10069
-Leather Sandals	feet		NG	36	10070	10071	10072	10073	10074
-Leather Shoes	feet		NG	37	10075	10076	10077	10078	10079
-Low Boots	feet		NG	38	10080	10081	10082	10083	10084
-Boots	feet		NG	39	10085	10086	10087	10088	10089
-Leather Boots	feet		D		40	10090	10091	10092	10093
-Cloth Cap	head		NG	41	10094	10095	10096	10097	10098
-Leather Cap	head		NG	42	10099	10100	10101	10102	10103
-Wooden Helmet	head		NG	43	10104	10105	10106	10107	10108
-Leather Helmet	head		NG	44	10109	10110	10111	10112	10113
-Bone Helmet	head		NG	10114	45	10115	10116	10117	10118
-Bronze Helmet	head		NG	10119	46	10120	10121	10122	10123
-Helmet	head		D		47	10124	10125	10126	10127
-Short Gloves	gloves		NG	48	10128	10129	10130	10131	10132
-Gloves	gloves		NG	49	10133	10134	10135	10136	10137
-Leather Gloves	gloves		NG	50	10138	10139	10140	10141	10142
-Bracer	gloves		NG	51	10143	10144	10145	10146	10147
-Mithril Breastplate	chest	HEAVY	D		58	10148	10149	10150	10151
-Mithril Gaiters	legs	HEAVY	D		59	10152	10153	10154	10155
-Composite Armor	fullarmor	HEAVY	C			60	10156	10157	10158
-Mithril Gloves	gloves		D		61	10159	10160	10161	10162
-Mithril Boots	feet		D		10163	62	10164	10165	10166
-Gauntlets	gloves		NG	10167	63	10168	10169	10170	10171
-Composite Boots	feet		C			64	10172	10173	10174
-Ring Mail Breastplate	chest	HEAVY	D		347	10175	10176	10177	10178
-Scale Mail	chest	HEAVY	D		348	10179	10180	10181	10182
-Compound Scale Mail	chest	HEAVY	D		349	10183	10184	10185	10186
-Dwarven Scale Mail	chest	HEAVY	D		350	10187	10188	10189	10190
-Blast Plate	chest	HEAVY	D		351	10191	10192	10193	10194
-Brigandine Tunic	chest	HEAVY	D		352	10195	10196	10197	10198
-Half Plate Armor	chest	HEAVY	D		353	10199	10200	10201	10202
-Chain Mail Shirt	chest	HEAVY	C			354	10203	10204	10205
-Dwarven Chain Mail Shirt	chest	HEAVY	C			355	10206	10207	10208
-Full Plate Armor	fullarmor	HEAVY	C			356	10209	10210	10211
-Zubei's Breastplate	chest	HEAVY	B				357	10212	10213
-Blue Wolf Breastplate	chest	HEAVY	B				358	10214	10215
-Shining Dragon Armor	fullarmor	HEAVY	B				359	10216	10217
-Armor of Victory	chest	HEAVY	B				360	10218	10219
-Breastplate of Valor	chest	HEAVY	B				361	10220	10221
-Glorious Armor	fullarmor	HEAVY	B				362	10222	10223
-Red Flame Armor	fullarmor	HEAVY	B				363	10224	10225
-Elven Crystal Breastplate	chest	HEAVY	B				364	10226	10227
-Dark Crystal Breastplate	chest	HEAVY	A					365	10228
-Implosion Armor	fullarmor	HEAVY	B				366	10229	10230
-Dark Dragon Armor	fullarmor	HEAVY	B				367	10231	10232
-Elven Vagian Armor	fullarmor	HEAVY	B				368	10233	10234
-Dark Vagian Armor	fullarmor	HEAVY	B				369	10235	10236
-Complete Set of Plate Armor	fullarmor	HEAVY	B				370	10237	10238
-Hell Plate	fullarmor	HEAVY	B				371	10239	10240
-Art of Plate	fullarmor	HEAVY	B				372	10241	10242
-Masterpiece Armor	fullarmor	HEAVY	B				373	10243	10244
-Armor of Nightmare	fullarmor	HEAVY	A					374	10245
-Dragon Scale Mail	chest	HEAVY	S						375
-Iron Plate Gaiters	legs	HEAVY	D		376	10246	10247	10248	10249
-Scale Gaiters	legs	HEAVY	D		377	10250	10251	10252	10253
-Compound Scale Gaiters	legs	HEAVY	D		378	10254	10255	10256	10257
-Dwarven Scale Gaiters	legs	HEAVY	D		379	10258	10259	10260	10261
-Plate Gaiters	legs	HEAVY	D		380	10262	10263	10264	10265
-Chain Gaiters	legs	HEAVY	C			381	10266	10267	10268
-Dwarven Chain Gaiters	legs	HEAVY	C			382	10269	10270	10271
-Zubei's Gaiters	legs	HEAVY	B				383	10272	10273
-Gaiters of Victory	legs	HEAVY	B				385	10274	10275
-Gaiters of Valor	legs	HEAVY	B				386	10276	10277
-Elven Crystal Gaiters	legs	HEAVY	B				387	10278	10279
-Dark Crystal Gaiters	legs	HEAVY	A					388	10280
-Dragon Scale Gaiters	legs	HEAVY	S						389
-Cotton Shirt	chest	LIGHT	NG	390	10281	10282	10283	10284	10285
-Puma Skin Shirt	chest	LIGHT	D		391	10286	10287	10288	10289
-Lion Skin Shirt	chest	LIGHT	D		392	10290	10291	10292	10293
-Mithril Banded Mail	chest	LIGHT	D		393	10294	10295	10296	10297
-Reinforced Leather Shirt	chest	LIGHT	D		394	10298	10299	10300	10301
-Manticore Skin Shirt	chest	LIGHT	D		395	10302	10303	10304	10305
-Salamander Skin Mail	fullarmor	LIGHT	D		396	10306	10307	10308	10309
-Mithril Shirt	chest	LIGHT	C			397	10310	10311	10312
-Plated Leather	chest	LIGHT	C			398	10313	10314	10315
-Rind Leather Armor	chest	LIGHT	C			399	10316	10317	10318
-Theca Leather Armor	chest	LIGHT	C			400	10319	10320	10321
-Drake Leather Armor	fullarmor	LIGHT	C			401	10322	10323	10324
-Chain Mail of Silence	fullarmor	LIGHT	B				402	10325	10326
-Gust Chain Mail	fullarmor	LIGHT	B				403	10327	10328
-Prairie Leather Armor	chest	LIGHT	B				404	10329	10330
-Leather Armor of The Underworld	chest	LIGHT	B				405	10331	10332
-Leather Suit of Concentration	fullarmor	LIGHT	B				406	10333	10334
-Ace's Leather Armor	fullarmor	LIGHT	B				407	10335	10336
-Guardian's Leather Armor	chest	LIGHT	B				408	10337	10338
-Marksman's Leather Armor	chest	LIGHT	B				409	10339	10340
-Unicorn Leather Armor	fullarmor	LIGHT	A					410	10341
-Dragon Leather Armor	fullarmor	LIGHT	S						411
-Cotton Pants	legs	LIGHT	NG	412	10342	10343	10344	10345	10346
-Puma Skin Gaiters	legs	LIGHT	D		413	10347	10348	10349	10350
-Lion Skin Gaiters	legs	LIGHT	D		414	10351	10352	10353	10354
-Mithril Banded Gaiters	legs	LIGHT	D		415	10355	10356	10357	10358
-Reinforced Leather Gaiters	legs	LIGHT	D		416	10359	10360	10361	10362
-Manticore Skin Gaiters	legs	LIGHT	D		417	10363	10364	10365	10366
-Plated Leather Gaiters	legs	LIGHT	C			418	10367	10368	10369
-Rind Leather Gaiters	legs	LIGHT	C			419	10370	10371	10372
-Theca Leather Gaiters	legs	LIGHT	C			420	10373	10374	10375
-Prairie Leather Gaiters	legs	LIGHT	B				421	10376	10377
-Gaiters of The Underworld	legs	LIGHT	B				422	10378	10379
-Guardian's Leather Gaiters	legs	LIGHT	B				423	10380	10381
-Marksman's Leather Gaiters	legs	LIGHT	B				424	10382	10383
-Apprentice's Tunic	chest	MAGIC	NG	425	10384	10385	10386	10387	10388
-Tunic	chest	MAGIC	NG	426	10389	10390	10391	10392	10393
-Feriotic Tunic	chest	MAGIC	NG	428	10394	10395	10396	10397	10398
-Leather Tunic	chest	MAGIC	NG	429	10399	10400	10401	10402	10403
-Cursed Tunic	chest	MAGIC	D		432	10404	10405	10406	10407
-Elven Tunic	chest	MAGIC	D		433	10408	10409	10410	10411
-White Tunic	chest	MAGIC	D		434	10412	10413	10414	10415
-Mystic's Tunic	chest	MAGIC	D		435	10416	10417	10418	10419
-Tunic of Knowledge	chest	MAGIC	D		436	10420	10421	10422	10423
-Mithril Tunic	chest	MAGIC	D		437	10424	10425	10426	10427
-Sage's Rag	fullarmor	MAGIC	D		438	10428	10429	10430	10431
-Karmian Tunic	chest	MAGIC	C			439	10432	10433	10434
-Robe of Seal	fullarmor	MAGIC	C			440	10435	10436	10437
-Demon's Tunic	chest	MAGIC	C			441	10438	10439	10440
-Divine Tunic	chest	MAGIC	C			442	10441	10442	10443
-Tunic of Mana	chest	MAGIC	B				443	10444	10445
-Sage's Robe	fullarmor	MAGIC	B				444	10446	10447
-Paradia Tunic	chest	MAGIC	B				445	10448	10449
-Inferno Tunic	chest	MAGIC	B				446	10450	10451
-Tunic of Solar Eclipse	chest	MAGIC	B				447	10452	10453
-Robe of Black Ore	fullarmor	MAGIC	B				448	10454	10455
-Tunic of Summoning	chest	MAGIC	B				449	10456	10457
-Otherworldly Robe	fullarmor	MAGIC	B				450	10458	10459
-Elemental Tunic	chest	MAGIC	B				451	10460	10461
-Tunic of Phantom	chest	MAGIC	B				452	10462	10463
-Tunic of Grace	chest	MAGIC	B				453	10464	10465
-Robe of Holy Spirit	fullarmor	MAGIC	B				454	10466	10467
-Phoenix Tunic	chest	MAGIC	B				455	10468	10469
-Cerberus Tunic	chest	MAGIC	B				456	10470	10471
-Tunic of Aid	chest	MAGIC	B				457	10472	10473
-Robe of Blessing	fullarmor	MAGIC	B				458	10474	10475
-Dasparion's Robe	fullarmor	MAGIC	A					459	10476
-The Robe	fullarmor	MAGIC	S						460
-Apprentice's Stockings	legs	MAGIC	NG	461	10477	10478	10479	10480	10481
-Stockings	legs	MAGIC	NG	462	10482	10483	10484	10485	10486
-Feriotic Stockings	legs	MAGIC	NG	463	10487	10488	10489	10490	10491
-Leather Stockings	legs	MAGIC	NG	464	10492	10493	10494	10495	10496
-Cursed Stockings	legs	MAGIC	D		465	10497	10498	10499	10500
-Elven Stockings	legs	MAGIC	D		466	10501	10502	10503	10504
-Dark Stockings	legs	MAGIC	D		467	10505	10506	10507	10508
-Mystic's Stockings	legs	MAGIC	D		468	10509	10510	10511	10512
-Stockings of Knowledge	legs	MAGIC	D		469	10513	10514	10515	10516
-Mithril Stockings	legs	MAGIC	D		470	10517	10518	10519	10520
-Karmian Stockings	legs	MAGIC	C			471	10521	10522	10523
-Demon's Stockings	legs	MAGIC	C			472	10524	10525	10526
-Divine Stockings	legs	MAGIC	C			473	10527	10528	10529
-Chain Helmet	head		C			497	10530	10531	10532
-Mithril Helmet	head		D		10533	499	10534	10535	10536
-Zubei's Helmet	head		B				503	10537	10538
-Dragon Helmet	head		S						504
-Shining Dragon Helmet	head		B				506	10539	10540
-Helmet of Victory	head		B				507	10541	10542
-Helmet of Valor	head		B				508	10543	10544
-Glorious Helmet	head		B				10545	509	10546
-Red Flame Helmet	head		B				10547	510	10548
-Elven Crystal Helmet	head		D		10549	10550	511	10551	10552
-Dark Crystal Helmet	head		A					512	10553
-Implosion Helmet	head		B				513	10554	10555
-Dark Dragon Helmet	head		B				514	10556	10557
-Elven Vagian Helm	head		B				10558	515	10559
-Dark Vagian Helm	head		B				10560	516	10561
-Composite Helmet	head		C			517	10562	10563	10564
-Hell Helm	head		B				10565	518	10566
-Art of Helmet	head		B				519	10567	10568
-Masterpiece Helm	head		B				10569	520	10570
-Helmet of Silence	head		B				521	10571	10572
-Gust Helmet	head		B				522	10573	10574
-Prairie Helmet	head		B				523	10575	10576
-Helm of The Underworld	head		B				524	10577	10578
-Helmet of Concentration	head		B				525	10579	10580
-Ace's Helmet	head		B				526	10581	10582
-Guardian's Helmet	head		B				527	10583	10584
-Marksman Helmet	head		B				528	10585	10586
-Cap of Mana	head		C			529	10587	10588	10589
-Sage's Cap	head		D		10590	10591	530	10592	10593
-Paradia Hood	head		B				10594	10595	10596
-Inferno Hood	head		B				532	10597	10598
-Hood of Solar Eclipse	head		B				10599	10600	10601
-Hood of Black Ore	head		B				534	10602	10603
-Hood of Summoning	head		B				10604	10605	10606
-Otherworldly Hood	head		B				536	10607	10608
-Elemental Hood	head		B				10609	10610	10611
-Hood of Phantom	head		B				538	10612	10613
-Hood of Grace	head		B				10614	10615	10616
-Hood of Holy Spirit	head		B				540	10617	10618
-Phoenix Hood	head		B				10619	10620	10621
-Cerberus Hood	head		B				542	10622	10623
-Hood of Aid	head		B				10624	10625	10626
-Hood of Blessing	head		B				544	10627	10628
-Tallum Helm	head		A					547	10629
-Divine Helm	head		C			10630	552	10631	10632
-Iron Boots	feet		D		553	10633	10634	10635	10636
-Boots of Victory	feet		B				558	10637	10638
-Boots of Valor	feet		B				559	10639	10640
-Red Flame Boots	feet		D		10641	10642	10643	561	10644
-Elven Crystal Boots	feet		B				562	10645	10646
-Gust Boots	feet		B				10647	573	10648
-Prairie Boots	feet		B				574	10649	10650
-Boots of The Underworld	feet		B				10651	575	10652
-Guardian's Boots	feet		B				578	10653	10654
-Marksman Boots	feet		B				579	10655	10656
-Boots of Mana	feet		B				580	10657	10658
-Sage's Boots	feet		B				581	10659	10660
-Paradia Boots	feet		B				582	10661	10662
-Boots of Solar Eclipse	feet		B				584	10663	10664
-Boots of Black Ore	feet		B				585	10665	10666
-Boots of Summoning	feet		B				586	10667	10668
-Otherworldly Boots	feet		B				587	10669	10670
-Elemental Boots	feet		B				588	10671	10672
-Boots of Phantom	feet		B				10673	589	10674
-Boots of Grace	feet		B				590	10675	10676
-Boots of Holy Spirit	feet		B				591	10677	10678
-Phoenix Boots	feet		B				10679	592	10680
-Cerberus Boots	feet		B				10681	593	10682
-Boots of Aid	feet		B				594	10683	10684
-Boots of Blessing	feet		B				595	10685	10686
-Crafted Leather Gloves	gloves		D		604	10687	10688	10689	10690
-Leather Gauntlets	gloves		D		605	10691	10692	10693	10694
-Rip Gauntlets	gloves		D		606	10695	10696	10697	10698
-Ogre Power Gauntlets	gloves		D		607	10699	10700	10701	10702
-Saint Knight's Gauntlets	gloves		B				610	10703	10704
-Cotton Tunic	chest	MAGIC	NG	1100	10705	10706	10707	10708	10709
-Tunic of Devotion	chest	MAGIC	NG	1101	10710	10711	10712	10713	10714
-Tunic of Magic	chest	MAGIC	NG	1102	10715	10716	10717	10718	10719
-Cotton Stockings	legs	MAGIC	NG	1103	10720	10721	10722	10723	10724
-Stockings of Devotion	legs	MAGIC	NG	1104	10725	10726	10727	10728	10729
-Stockings of Magic	legs	MAGIC	NG	1105	10730	10731	10732	10733	10734
-Short Leather Gloves	gloves		NG	1119	10735	10736	10737	10738	10739
-Apprentice's Shoes	feet		NG	1121	10740	10741	10742	10743	10744
-Cotton Shoes	feet		NG	1122	10745	10746	10747	10748	10749
-Blue Buckskin Boots	feet		D		1123	10750	10751	10752	10753
-Boots of Power	feet		D		1124	10754	10755	10756	10757
-Assault Boots	feet		D		1125	10758	10759	10760	10761
-Crimson Boots	feet		C			1126	10762	10763	10764
-Crude Leather Shoes	feet		NG	1129	10765	10766	10767	10768	10769
-Squire's Shirt	chest	LIGHT	NG	1146	10770	10771	10772	10773	10774
-Squire's Pants	legs	LIGHT	NG	1147	10775	10776	10777	10778	10779
-Hard Leather Helmet	head		NG	1148	10780	10781	10782	10783	10784
-Avadon Breastplate	chest	HEAVY	B				2376	10785	10786
-Mithril Scale Gaiters	legs	HEAVY	D		2377	10787	10788	10789	10790
-Brigandine Gaiters	legs	HEAVY	D		2378	10791	10792	10793	10794
-Avadon Gaiters	legs	HEAVY	B				2379	10795	10796
-Blue Wolf Gaiters	legs	HEAVY	B				2380	10797	10798
-Doom Plate Armor	fullarmor	HEAVY	B				2381	10799	10800
-Tallum Plate Armor	fullarmor	HEAVY	A					2382	10801
-Majestic Plate Armor	fullarmor	HEAVY	A					2383	10802
-Zubei's Leather Shirt	chest	LIGHT	B				2384	10803	10804
-Dark Crystal Leather Armor	chest	LIGHT	A					2385	10805
-Wooden Gaiters	legs	LIGHT	NG	2386	10806	10807	10808	10809	10810
-Tempered Mithril Gaiters	legs	LIGHT	C			2387	10811	10812	10813
-Zubei's Leather Gaiters	legs	LIGHT	B				2388	10814	10815
-Dark Crystal Leggings	legs	LIGHT	A					2389	10816
-Avadon Leather Armor	fullarmor	LIGHT	B				2390	10817	10818
-Blue Wolf Leather Armor	fullarmor	LIGHT	B				2391	10819	10820
-Leather Armor of Doom	fullarmor	LIGHT	B				2392	10821	10822
-Tallum Leather Armor	fullarmor	LIGHT	A					2393	10823
-Nightmarish Leather Armor	fullarmor	LIGHT	A					2394	10824
-Majestic Leather Armor	fullarmor	LIGHT	A					2395	10825
-Elven Mithril Tunic	chest	MAGIC	D		2396	10826	10827	10828	10829
-Tunic of Zubei	chest	MAGIC	B				2397	10830	10831
-Blue Wolf Tunic	chest	MAGIC	B				2398	10832	10833
-Tunic of Doom	chest	MAGIC	B				2399	10834	10835
-Tallum Tunic	chest	MAGIC	A					2400	10836
-Elven Mithril Stockings	legs	MAGIC	D		2401	10837	10838	10839	10840
-Stockings of Zubei	legs	MAGIC	B				2402	10841	10842
-Blue Wolf Stockings	legs	MAGIC	B				2403	10843	10844
-Stockings of Doom	legs	MAGIC	B				2404	10845	10846
-Tallum Stockings	legs	MAGIC	A					2405	10847
-Avadon Robe	fullarmor	MAGIC	B				2406	10848	10849
-Dark Crystal Robe	fullarmor	MAGIC	A					2407	10850
-Nightmare Robe	fullarmor	MAGIC	A					2408	10851
-Majestic Robe	fullarmor	MAGIC	A					2409	10852
-Brigandine Helmet	head		D		2411	10853	10854	10855	10856
-Plate Helmet	head		D		2412	10857	10858	10859	10860
-Chain Hood	head		C			2413	10861	10862	10863
-Full Plate Helmet	head		C			2414	10864	10865	10866
-Avadon Circlet	head		B				2415	10867	10868
-Blue Wolf Helmet	head		B				2416	10869	10870
-Doom Helmet	head		B				2417	10871	10872
-Helm of Nightmare	head		A					2418	10873
-Majestic Circlet	head		A					2419	10874
-Dragon Headgear	head		S						2420
-The Hood	head		S						2421
-Reinforced Leather Boots	feet		D		2422	10875	10876	10877	10878
-Boots of Knowledge	feet		D		2423	10879	10880	10881	10882
-Manticore Skin Boots	feet		D		2424	10883	10884	10885	10886
-Brigandine Boots	feet		D		2425	10887	10888	10889	10890
-Elven Mithril Boots	feet		D		2426	10891	10892	10893	10894
-Salamander Skin Boots	feet		D		2427	10895	10896	10897	10898
-Plate Boots	feet		D		2428	10899	10900	10901	10902
-Chain Boots	feet		C			2429	10903	10904	10905
-Karmian Boots	feet		C			2430	10906	10907	10908
-Plated Leather Boots	feet		C			2431	10909	10910	10911
-Dwarven Chain Boots	feet		C			2432	10912	10913	10914
-Boots of Seal	feet		C			2433	10915	10916	10917
-Rind Leather Boots	feet		C			2434	10918	10919	10920
-Demon's Boots	feet		C			2435	10921	10922	10923
-Theca Leather Boots	feet		C			2436	10924	10925	10926
-Drake Leather Boots	feet		C			2437	10927	10928	10929
-Full Plate Boots	feet		C			2438	10930	10931	10932
-Dark Legion Boots	feet		B				10933	2441	10934
-Dasparion's Boots	feet		A					2442	10935
-Dragon Leather Boots	feet		B				10936	10937	2443
-The Boots	feet		S						2444
-Dragon Scale Boots	feet		D		10938	10939	10940	2445	10941
-Reinforced Leather Gloves	gloves		D		2446	10942	10943	10944	10945
-Gloves of Knowledge	gloves		D		2447	10946	10947	10948	10949
-Manticore Skin Gloves	gloves		D		2448	10950	10951	10952	10953
-Brigandine Gauntlets	gloves		D		2449	10954	10955	10956	10957
-Elven Mithril Gloves	gloves		D		2450	10958	10959	10960	10961
-Sage's Worn Gloves	gloves		D		2451	10962	10963	10964	10965
-Reinforced Mithril Gloves	gloves		C			2452	10966	10967	10968
-Chain Gloves	gloves		C			2453	10969	10970	10971
-Karmian Gloves	gloves		C			2454	10972	10973	10974
-Plated Leather Gloves	gloves		C			2455	10975	10976	10977
-Dwarven Chain Gloves	gloves		C			2456	10978	10979	10980
-Gloves of Seal	gloves		C			2457	10981	10982	10983
-Rind Leather Gloves	gloves		C			2458	10984	10985	10986
-Demon's Gloves	gloves		C			2459	10987	10988	10989
-Theca Leather Gloves	gloves		C			2460	10990	10991	10992
-Drake Leather Gloves	gloves		C			2461	10993	10994	10995
-Full Plate Gauntlets	gloves		C			2462	10996	10997	10998
-Divine Gloves	gloves		C			2463	10999	11000	11001
-Guardian's Gloves	gloves		B				2466	11002	11003
-Gloves of Blessing	gloves		B				2467	11004	11005
-Gloves of The Underworld	gloves		B				11006	2469	11007
-Gloves of Phantom	gloves		B				11008	2470	11009
-Dark Legion Gloves	gloves		B				11010	2471	11011
-The Gloves	gloves		S						2473
-Dasparion's Gloves	gloves		A					2474	11012
-Dragon Gauntlets	gloves		S						2476
-Dragon Leather Gloves	gloves		B				11013	11014	2477
-Elemental Gloves	gloves		D		11015	11016	2480	11017	11018
-Gloves of Grace	gloves		B				2481	11019	11020
-Cerberus Gloves	gloves		B				11021	2484	11022
-Paradia Gloves	gloves		B				2486	11023	11024
-Phoenix Gloves	gloves		B				11025	2488	11026
-Gloves of Black Ore	gloves		D		11027	11028	11029	2489	11030
-Zubei's Gauntlets - Heavy Armor	gloves		B				5710	11031	11032
-Zubei's Gauntlets - Light Armor	gloves		B				5711	11033	11034
-Zubei's Gauntlets - Robe	gloves		B				5712	11035	11036
-Avadon Gloves - Heavy Armor	gloves		B				5714	11037	11038
-Avadon Gloves - Light Armor	gloves		B				5715	11039	11040
-Avadon Gloves - Robe	gloves		B				5716	11041	11042
-Blue Wolf Gloves - Heavy Armor	gloves		B				5718	11043	11044
-Blue Wolf Gloves - Light Armor	gloves		B				5719	11045	11046
-Blue Wolf Gloves - Robe	gloves		B				5720	11047	11048
-Doom Gloves - Heavy Armor	gloves		B				5722	11049	11050
-Doom Gloves - Light Armor	gloves		B				5723	11051	11052
-Doom Gloves - Robe	gloves		B				5724	11053	11054
-Zubei's Boots - Heavy Armor	feet		B				5726	11055	11056
-Zubei's Boots - Light Armor	feet		B				5727	11057	11058
-Zubei's Boots - Robe	feet		B				5728	11059	11060
-Avadon Boots - Heavy Armor	feet		B				5730	11061	11062
-Avadon Boots - Light Armor	feet		B				5731	11063	11064
-Avadon Boots - Robe	feet		B				5732	11065	11066
-Blue Wolf Boots - Heavy Armor	feet		B				5734	11067	11068
-Blue Wolf Boots - Light Armor	feet		B				5735	11069	11070
-Blue Wolf Boots - Robe	feet		B				5736	11071	11072
-Doom Boots - Heavy Armor	feet		B				5738	11073	11074
-Doom Boots - Light Armor	feet		B				5739	11075	11076
-Doom Boots - Robe	feet		B				5740	11077	11078
-Dark Crystal Gloves - Heavy Armor	gloves		A					5765	11079
-Dark Crystal Gloves - Light Armor	gloves		A					5766	11080
-Dark Crystal Gloves - Robe	gloves		A					5767	11081
-Tallum Gloves - Heavy Armor	gloves		A					5768	11082
-Tallum Gloves - Light Armor	gloves		A					5769	11083
-Tallum Gloves - Robe	gloves		A					5770	11084
-Gauntlets of Nightmare - Heavy Armor	gloves		A					5771	11085
-Gauntlets of Nightmare - Light Armor	gloves		A					5772	11086
-Gauntlets of Nightmare - Robe	gloves		A					5773	11087
-Majestic Gauntlets - Heavy Armor	gloves		A					5774	11088
-Majestic Gauntlets - Light Armor	gloves		A					5775	11089
-Majestic Gauntlets - Robe	gloves		A					5776	11090
-Dark Crystal Boots - Heavy Armor	feet		A					5777	11091
-Dark Crystal Boots - Light Armor	feet		A					5778	11092
-Dark Crystal Boots - Robe	feet		A					5779	11093
-Tallum Boots - Heavy Armor	feet		A					5780	11094
-Tallum Boots - Light Armor	feet		A					5781	11095
-Tallum Boots - Robe	feet		A					5782	11096
-Boots of Nightmare - Heavy Armor	feet		A					5783	11097
-Boots of Nightmare - Light Armor	feet		A					5784	11098
-Boots of Nightmare - Robe	feet		A					5785	11099
-Majestic Boots - Heavy Armor	feet		A					5786	11100
-Majestic Boots - Light Armor	feet		A					5787	11101
-Majestic Boots - Robe	feet		A					5788	11102
-Imperial Crusader Breastplate	chest	HEAVY	S						6373
-Imperial Crusader Gaiters	legs	HEAVY	S						6374
-Imperial Crusader Gauntlets	gloves		S						6375
-Imperial Crusader Boots	feet		S						6376
-Imperial Crusader Helmet	head		S						6378
-Draconic Leather Armor	fullarmor	LIGHT	S						6379
-Draconic Leather Gloves	gloves		S						6380
-Draconic Leather Boots	feet		S						6381
-Draconic Leather Helmet	head		S						6382
-Major Arcana Robe	fullarmor	MAGIC	S						6383
-Major Arcana Gloves	gloves		S						6384
-Major Arcana Boots	feet		S						6385
-Major Arcana Circlet	head		S						6386
-Clan Oath Helm	head		D		7850	11103	11104	11105	11106
-Clan Oath Armor	fullarmor	HEAVY	D		7851	11107	11108	11109	11110
-Clan Oath Gauntlets - Heavy Armor	gloves		D		7852	11111	11112	11113	11114
-Clan Oath Sabaton - Heavy Armor	feet		D		7853	11115	11116	11117	11118
-Clan Oath Brigandine	fullarmor	LIGHT	D		7854	11119	11120	11121	11122
-Clan Oath Leather Gloves - Light Armor	gloves		D		7855	11123	11124	11125	11126
-Clan Oath Boots - Light Armor	feet		D		7856	11127	11128	11129	11130
-Clan Oath Aketon	fullarmor	MAGIC	D		7857	11131	11132	11133	11134
-Clan Oath Padded Gloves - Robe	gloves		D		7858	11135	11136	11137	11138
-Clan Oath Sandals - Robe	feet		D		7859	11139	11140	11141	11142
-Apella Helm	head		A					7860	11143
-Apella Plate Armor	fullarmor	HEAVY	A					7861	11144
-Apella Gauntlet - Heavy Armor	gloves		A					7862	11145
-Apella Solleret - Heavy Armor	feet		A					7863	11146
-Apella Brigandine	fullarmor	LIGHT	A					7864	11147
-Apella Leather Gloves - Light Armor	gloves		A					7865	11148
-Apella Boots - Light Armor	feet		A					7866	11149
-Apella Doublet	fullarmor	MAGIC	A					7867	11150
-Apella Silk Gloves - Robe	gloves		A					7868	11151
-Apella Sandals - Robe	feet		A					7869	11152
+set	piece	slot	bodypart	armorType	from	NG	D	C	B	A	S
+Shirt Set	Shirt Helmet	head	head		NG	10000	10004	10009	10014	10019	10024
+Shirt Set	Shirt	chest	chest	LIGHT	NG	21	10005	10010	10015	10020	10025
+Shirt Set	Shirt Gaiters	legs	legs	LIGHT	NG	10001	10006	10011	10016	10021	10026
+Shirt Set	Shirt Gloves	gloves	gloves		NG	10002	10007	10012	10017	10022	10027
+Shirt Set	Shirt Boots	feet	feet		NG	10003	10008	10013	10018	10023	10028
+Leather Shirt Set	Leather Shirt Helmet	head	head		NG	10029	10033	10038	10043	10048	10053
+Leather Shirt Set	Leather Shirt	chest	chest	LIGHT	NG	22	10034	10039	10044	10049	10054
+Leather Shirt Set	Leather Shirt Gaiters	legs	legs	LIGHT	NG	10030	10035	10040	10045	10050	10055
+Leather Shirt Set	Leather Shirt Gloves	gloves	gloves		NG	10031	10036	10041	10046	10051	10056
+Leather Shirt Set	Leather Shirt Boots	feet	feet		NG	10032	10037	10042	10047	10052	10057
+Wooden Set	Wooden Breastplate Helmet	head	head		NG	10058	10062	10067	10072	10077	10082
+Wooden Set	Wooden Breastplate	chest	chest	LIGHT	NG	23	10063	10068	10073	10078	10083
+Wooden Set	Wooden Breastplate Gaiters	legs	legs	LIGHT	NG	10059	10064	10069	10074	10079	10084
+Wooden Set	Wooden Breastplate Gloves	gloves	gloves		NG	10060	10065	10070	10075	10080	10085
+Wooden Set	Wooden Breastplate Boots	feet	feet		NG	10061	10066	10071	10076	10081	10086
+Bone Set	Bone Breastplate Helmet	head	head		NG	10087	10091	10096	10101	10106	10111
+Bone Set	Bone Breastplate	chest	chest	LIGHT	NG	24	10092	10097	10102	10107	10112
+Bone Set	Bone Breastplate Gaiters	legs	legs	LIGHT	NG	10088	10093	10098	10103	10108	10113
+Bone Set	Bone Breastplate Gloves	gloves	gloves		NG	10089	10094	10099	10104	10109	10114
+Bone Set	Bone Breastplate Boots	feet	feet		NG	10090	10095	10100	10105	10110	10115
+Piece Bone Set	Piece Bone Breastplate Helmet	head	head		NG	10116	10120	10125	10130	10135	10140
+Piece Bone Set	Piece Bone Breastplate	chest	chest	HEAVY	NG	25	10121	10126	10131	10136	10141
+Piece Bone Set	Piece Bone Breastplate Gaiters	legs	legs	HEAVY	NG	10117	10122	10127	10132	10137	10142
+Piece Bone Set	Piece Bone Breastplate Gloves	gloves	gloves		NG	10118	10123	10128	10133	10138	10143
+Piece Bone Set	Piece Bone Breastplate Boots	feet	feet		NG	10119	10124	10129	10134	10139	10144
+Bronze Set	Bronze Breastplate Helmet	head	head		NG	10145	10149	10154	10159	10164	10169
+Bronze Set	Bronze Breastplate	chest	chest	HEAVY	NG	26	10150	10155	10160	10165	10170
+Bronze Set	Bronze Breastplate Gaiters	legs	legs	HEAVY	NG	10146	10151	10156	10161	10166	10171
+Bronze Set	Bronze Breastplate Gloves	gloves	gloves		NG	10147	10152	10157	10162	10167	10172
+Bronze Set	Bronze Breastplate Boots	feet	feet		NG	10148	10153	10158	10163	10168	10173
+Hard Leather Set	Hard Leather Shirt Helmet	head	head		NG	10174	10178	10183	10188	10193	10198
+Hard Leather Set	Hard Leather Shirt	chest	chest	LIGHT	NG	27	10179	10184	10189	10194	10199
+Hard Leather Set	Hard Leather Shirt Gaiters	legs	legs	LIGHT	NG	10175	10180	10185	10190	10195	10200
+Hard Leather Set	Hard Leather Shirt Gloves	gloves	gloves		NG	10176	10181	10186	10191	10196	10201
+Hard Leather Set	Hard Leather Shirt Boots	feet	feet		NG	10177	10182	10187	10192	10197	10202
+Mithril Heavy Set	Mithril Breastplate Helmet	head	head		D		10203	10207	10212	10217	10222
+Mithril Heavy Set	Mithril Breastplate	chest	chest	HEAVY	D		58	10208	10213	10218	10223
+Mithril Heavy Set	Mithril Breastplate Gaiters	legs	legs	HEAVY	D		10204	10209	10214	10219	10224
+Mithril Heavy Set	Mithril Breastplate Gloves	gloves	gloves		D		10205	10210	10215	10220	10225
+Mithril Heavy Set	Mithril Breastplate Boots	feet	feet		D		10206	10211	10216	10221	10226
+Composite Set	Composite Armor Helmet	head	head		C			10227	10230	10234	10238
+Composite Set	Composite Armor	chest	fullarmor	HEAVY	C			60	10231	10235	10239
+Composite Set	Composite Armor Gloves	gloves	gloves		C			10228	10232	10236	10240
+Composite Set	Composite Armor Boots	feet	feet		C			10229	10233	10237	10241
+Ring Mail Set	Ring Mail Breastplate Helmet	head	head		D		10242	10246	10251	10256	10261
+Ring Mail Set	Ring Mail Breastplate	chest	chest	HEAVY	D		347	10247	10252	10257	10262
+Ring Mail Set	Ring Mail Breastplate Gaiters	legs	legs	HEAVY	D		10243	10248	10253	10258	10263
+Ring Mail Set	Ring Mail Breastplate Gloves	gloves	gloves		D		10244	10249	10254	10259	10264
+Ring Mail Set	Ring Mail Breastplate Boots	feet	feet		D		10245	10250	10255	10260	10265
+Scale Set	Scale Mail Helmet	head	head		D		10266	10270	10275	10280	10285
+Scale Set	Scale Mail	chest	chest	HEAVY	D		348	10271	10276	10281	10286
+Scale Set	Scale Mail Gaiters	legs	legs	HEAVY	D		10267	10272	10277	10282	10287
+Scale Set	Scale Mail Gloves	gloves	gloves		D		10268	10273	10278	10283	10288
+Scale Set	Scale Mail Boots	feet	feet		D		10269	10274	10279	10284	10289
+Compound Scale Set	Compound Scale Mail Helmet	head	head		D		10290	10294	10299	10304	10309
+Compound Scale Set	Compound Scale Mail	chest	chest	HEAVY	D		349	10295	10300	10305	10310
+Compound Scale Set	Compound Scale Mail Gaiters	legs	legs	HEAVY	D		10291	10296	10301	10306	10311
+Compound Scale Set	Compound Scale Mail Gloves	gloves	gloves		D		10292	10297	10302	10307	10312
+Compound Scale Set	Compound Scale Mail Boots	feet	feet		D		10293	10298	10303	10308	10313
+Dwarven Scale Set	Dwarven Scale Mail Helmet	head	head		D		10314	10318	10323	10328	10333
+Dwarven Scale Set	Dwarven Scale Mail	chest	chest	HEAVY	D		350	10319	10324	10329	10334
+Dwarven Scale Set	Dwarven Scale Mail Gaiters	legs	legs	HEAVY	D		10315	10320	10325	10330	10335
+Dwarven Scale Set	Dwarven Scale Mail Gloves	gloves	gloves		D		10316	10321	10326	10331	10336
+Dwarven Scale Set	Dwarven Scale Mail Boots	feet	feet		D		10317	10322	10327	10332	10337
+Blast Set	Blast Plate Helmet	head	head		D		10338	10342	10347	10352	10357
+Blast Set	Blast Plate	chest	chest	HEAVY	D		351	10343	10348	10353	10358
+Blast Set	Blast Plate Gaiters	legs	legs	HEAVY	D		10339	10344	10349	10354	10359
+Blast Set	Blast Plate Gloves	gloves	gloves		D		10340	10345	10350	10355	10360
+Blast Set	Blast Plate Boots	feet	feet		D		10341	10346	10351	10356	10361
+Brigandine Set	Brigandine Tunic Helmet	head	head		D		10362	10366	10371	10376	10381
+Brigandine Set	Brigandine Tunic	chest	chest	HEAVY	D		352	10367	10372	10377	10382
+Brigandine Set	Brigandine Tunic Gaiters	legs	legs	HEAVY	D		10363	10368	10373	10378	10383
+Brigandine Set	Brigandine Tunic Gloves	gloves	gloves		D		10364	10369	10374	10379	10384
+Brigandine Set	Brigandine Tunic Boots	feet	feet		D		10365	10370	10375	10380	10385
+Half Plate Set	Half Plate Armor Helmet	head	head		D		10386	10390	10395	10400	10405
+Half Plate Set	Half Plate Armor	chest	chest	HEAVY	D		353	10391	10396	10401	10406
+Half Plate Set	Half Plate Armor Gaiters	legs	legs	HEAVY	D		10387	10392	10397	10402	10407
+Half Plate Set	Half Plate Armor Gloves	gloves	gloves		D		10388	10393	10398	10403	10408
+Half Plate Set	Half Plate Armor Boots	feet	feet		D		10389	10394	10399	10404	10409
+Chain Mail Set	Chain Mail Shirt Helmet	head	head		C			10410	10414	10419	10424
+Chain Mail Set	Chain Mail Shirt	chest	chest	HEAVY	C			354	10415	10420	10425
+Chain Mail Set	Chain Mail Shirt Gaiters	legs	legs	HEAVY	C			10411	10416	10421	10426
+Chain Mail Set	Chain Mail Shirt Gloves	gloves	gloves		C			10412	10417	10422	10427
+Chain Mail Set	Chain Mail Shirt Boots	feet	feet		C			10413	10418	10423	10428
+Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Helmet	head	head		C			10429	10433	10438	10443
+Dwarven Chain Mail Set	Dwarven Chain Mail Shirt	chest	chest	HEAVY	C			355	10434	10439	10444
+Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Gaiters	legs	legs	HEAVY	C			10430	10435	10440	10445
+Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Gloves	gloves	gloves		C			10431	10436	10441	10446
+Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Boots	feet	feet		C			10432	10437	10442	10447
+Full Plate Set	Full Plate Armor Helmet	head	head		C			10448	10451	10455	10459
+Full Plate Set	Full Plate Armor	chest	fullarmor	HEAVY	C			356	10452	10456	10460
+Full Plate Set	Full Plate Armor Gloves	gloves	gloves		C			10449	10453	10457	10461
+Full Plate Set	Full Plate Armor Boots	feet	feet		C			10450	10454	10458	10462
+Zubei Heavy Set	Zubei's Breastplate Helmet	head	head		B				10463	10467	10472
+Zubei Heavy Set	Zubei's Breastplate	chest	chest	HEAVY	B				357	10468	10473
+Zubei Heavy Set	Zubei's Breastplate Gaiters	legs	legs	HEAVY	B				10464	10469	10474
+Zubei Heavy Set	Zubei's Breastplate Gloves	gloves	gloves		B				10465	10470	10475
+Zubei Heavy Set	Zubei's Breastplate Boots	feet	feet		B				10466	10471	10476
+Blue Wolf Heavy Set	Blue Wolf Breastplate Helmet	head	head		B				10477	10481	10486
+Blue Wolf Heavy Set	Blue Wolf Breastplate	chest	chest	HEAVY	B				358	10482	10487
+Blue Wolf Heavy Set	Blue Wolf Breastplate Gaiters	legs	legs	HEAVY	B				10478	10483	10488
+Blue Wolf Heavy Set	Blue Wolf Breastplate Gloves	gloves	gloves		B				10479	10484	10489
+Blue Wolf Heavy Set	Blue Wolf Breastplate Boots	feet	feet		B				10480	10485	10490
+Shining Dragon Set	Shining Dragon Armor Helmet	head	head		B				10491	10494	10498
+Shining Dragon Set	Shining Dragon Armor	chest	fullarmor	HEAVY	B				359	10495	10499
+Shining Dragon Set	Shining Dragon Armor Gloves	gloves	gloves		B				10492	10496	10500
+Shining Dragon Set	Shining Dragon Armor Boots	feet	feet		B				10493	10497	10501
+Armor of Victory Set	Armor of Victory Helmet	head	head		B				10502	10506	10511
+Armor of Victory Set	Armor of Victory	chest	chest	HEAVY	B				360	10507	10512
+Armor of Victory Set	Armor of Victory Gaiters	legs	legs	HEAVY	B				10503	10508	10513
+Armor of Victory Set	Armor of Victory Gloves	gloves	gloves		B				10504	10509	10514
+Armor of Victory Set	Armor of Victory Boots	feet	feet		B				10505	10510	10515
+Breastplate of Valor Set	Breastplate of Valor Helmet	head	head		B				10516	10520	10525
+Breastplate of Valor Set	Breastplate of Valor	chest	chest	HEAVY	B				361	10521	10526
+Breastplate of Valor Set	Breastplate of Valor Gaiters	legs	legs	HEAVY	B				10517	10522	10527
+Breastplate of Valor Set	Breastplate of Valor Gloves	gloves	gloves		B				10518	10523	10528
+Breastplate of Valor Set	Breastplate of Valor Boots	feet	feet		B				10519	10524	10529
+Glorious Set	Glorious Armor Helmet	head	head		B				10530	10533	10537
+Glorious Set	Glorious Armor	chest	fullarmor	HEAVY	B				362	10534	10538
+Glorious Set	Glorious Armor Gloves	gloves	gloves		B				10531	10535	10539
+Glorious Set	Glorious Armor Boots	feet	feet		B				10532	10536	10540
+Red Flame Set	Red Flame Armor Helmet	head	head		B				10541	10544	10548
+Red Flame Set	Red Flame Armor	chest	fullarmor	HEAVY	B				363	10545	10549
+Red Flame Set	Red Flame Armor Gloves	gloves	gloves		B				10542	10546	10550
+Red Flame Set	Red Flame Armor Boots	feet	feet		B				10543	10547	10551
+Elven Crystal Set	Elven Crystal Breastplate Helmet	head	head		B				10552	10556	10561
+Elven Crystal Set	Elven Crystal Breastplate	chest	chest	HEAVY	B				364	10557	10562
+Elven Crystal Set	Elven Crystal Breastplate Gaiters	legs	legs	HEAVY	B				10553	10558	10563
+Elven Crystal Set	Elven Crystal Breastplate Gloves	gloves	gloves		B				10554	10559	10564
+Elven Crystal Set	Elven Crystal Breastplate Boots	feet	feet		B				10555	10560	10565
+Dark Crystal Heavy Set	Dark Crystal Breastplate Helmet	head	head		A					10566	10570
+Dark Crystal Heavy Set	Dark Crystal Breastplate	chest	chest	HEAVY	A					365	10571
+Dark Crystal Heavy Set	Dark Crystal Breastplate Gaiters	legs	legs	HEAVY	A					10567	10572
+Dark Crystal Heavy Set	Dark Crystal Breastplate Gloves	gloves	gloves		A					10568	10573
+Dark Crystal Heavy Set	Dark Crystal Breastplate Boots	feet	feet		A					10569	10574
+Implosion Set	Implosion Armor Helmet	head	head		B				10575	10578	10582
+Implosion Set	Implosion Armor	chest	fullarmor	HEAVY	B				366	10579	10583
+Implosion Set	Implosion Armor Gloves	gloves	gloves		B				10576	10580	10584
+Implosion Set	Implosion Armor Boots	feet	feet		B				10577	10581	10585
+Dark Dragon Set	Dark Dragon Armor Helmet	head	head		B				10586	10589	10593
+Dark Dragon Set	Dark Dragon Armor	chest	fullarmor	HEAVY	B				367	10590	10594
+Dark Dragon Set	Dark Dragon Armor Gloves	gloves	gloves		B				10587	10591	10595
+Dark Dragon Set	Dark Dragon Armor Boots	feet	feet		B				10588	10592	10596
+Elven Vagian Set	Elven Vagian Armor Helmet	head	head		B				10597	10600	10604
+Elven Vagian Set	Elven Vagian Armor	chest	fullarmor	HEAVY	B				368	10601	10605
+Elven Vagian Set	Elven Vagian Armor Gloves	gloves	gloves		B				10598	10602	10606
+Elven Vagian Set	Elven Vagian Armor Boots	feet	feet		B				10599	10603	10607
+Dark Vagian Set	Dark Vagian Armor Helmet	head	head		B				10608	10611	10615
+Dark Vagian Set	Dark Vagian Armor	chest	fullarmor	HEAVY	B				369	10612	10616
+Dark Vagian Set	Dark Vagian Armor Gloves	gloves	gloves		B				10609	10613	10617
+Dark Vagian Set	Dark Vagian Armor Boots	feet	feet		B				10610	10614	10618
+Complete Set of Plate Set	Complete Set of Plate Armor Helmet	head	head		B				10619	10622	10626
+Complete Set of Plate Set	Complete Set of Plate Armor	chest	fullarmor	HEAVY	B				370	10623	10627
+Complete Set of Plate Set	Complete Set of Plate Armor Gloves	gloves	gloves		B				10620	10624	10628
+Complete Set of Plate Set	Complete Set of Plate Armor Boots	feet	feet		B				10621	10625	10629
+Hell Set	Hell Plate Helmet	head	head		B				10630	10633	10637
+Hell Set	Hell Plate	chest	fullarmor	HEAVY	B				371	10634	10638
+Hell Set	Hell Plate Gloves	gloves	gloves		B				10631	10635	10639
+Hell Set	Hell Plate Boots	feet	feet		B				10632	10636	10640
+Art of Set	Art of Plate Helmet	head	head		B				10641	10644	10648
+Art of Set	Art of Plate	chest	fullarmor	HEAVY	B				372	10645	10649
+Art of Set	Art of Plate Gloves	gloves	gloves		B				10642	10646	10650
+Art of Set	Art of Plate Boots	feet	feet		B				10643	10647	10651
+Masterpiece Set	Masterpiece Armor Helmet	head	head		B				10652	10655	10659
+Masterpiece Set	Masterpiece Armor	chest	fullarmor	HEAVY	B				373	10656	10660
+Masterpiece Set	Masterpiece Armor Gloves	gloves	gloves		B				10653	10657	10661
+Masterpiece Set	Masterpiece Armor Boots	feet	feet		B				10654	10658	10662
+Nightmare Heavy Set	Armor of Nightmare Helmet	head	head		A					10663	10666
+Nightmare Heavy Set	Armor of Nightmare	chest	fullarmor	HEAVY	A					374	10667
+Nightmare Heavy Set	Armor of Nightmare Gloves	gloves	gloves		A					10664	10668
+Nightmare Heavy Set	Armor of Nightmare Boots	feet	feet		A					10665	10669
+Dragon Scale Set	Dragon Scale Mail Helmet	head	head		S						10670
+Dragon Scale Set	Dragon Scale Mail	chest	chest	HEAVY	S						375
+Dragon Scale Set	Dragon Scale Mail Gaiters	legs	legs	HEAVY	S						10671
+Dragon Scale Set	Dragon Scale Mail Gloves	gloves	gloves		S						10672
+Dragon Scale Set	Dragon Scale Mail Boots	feet	feet		S						10673
+Cotton Shirt Set	Cotton Shirt Helmet	head	head		NG	10674	10678	10683	10688	10693	10698
+Cotton Shirt Set	Cotton Shirt	chest	chest	LIGHT	NG	390	10679	10684	10689	10694	10699
+Cotton Shirt Set	Cotton Shirt Gaiters	legs	legs	LIGHT	NG	10675	10680	10685	10690	10695	10700
+Cotton Shirt Set	Cotton Shirt Gloves	gloves	gloves		NG	10676	10681	10686	10691	10696	10701
+Cotton Shirt Set	Cotton Shirt Boots	feet	feet		NG	10677	10682	10687	10692	10697	10702
+Puma Skin Set	Puma Skin Shirt Helmet	head	head		D		10703	10707	10712	10717	10722
+Puma Skin Set	Puma Skin Shirt	chest	chest	LIGHT	D		391	10708	10713	10718	10723
+Puma Skin Set	Puma Skin Shirt Gaiters	legs	legs	LIGHT	D		10704	10709	10714	10719	10724
+Puma Skin Set	Puma Skin Shirt Gloves	gloves	gloves		D		10705	10710	10715	10720	10725
+Puma Skin Set	Puma Skin Shirt Boots	feet	feet		D		10706	10711	10716	10721	10726
+Lion Skin Set	Lion Skin Shirt Helmet	head	head		D		10727	10731	10736	10741	10746
+Lion Skin Set	Lion Skin Shirt	chest	chest	LIGHT	D		392	10732	10737	10742	10747
+Lion Skin Set	Lion Skin Shirt Gaiters	legs	legs	LIGHT	D		10728	10733	10738	10743	10748
+Lion Skin Set	Lion Skin Shirt Gloves	gloves	gloves		D		10729	10734	10739	10744	10749
+Lion Skin Set	Lion Skin Shirt Boots	feet	feet		D		10730	10735	10740	10745	10750
+Mithril Banded Set	Mithril Banded Mail Helmet	head	head		D		10751	10755	10760	10765	10770
+Mithril Banded Set	Mithril Banded Mail	chest	chest	LIGHT	D		393	10756	10761	10766	10771
+Mithril Banded Set	Mithril Banded Mail Gaiters	legs	legs	LIGHT	D		10752	10757	10762	10767	10772
+Mithril Banded Set	Mithril Banded Mail Gloves	gloves	gloves		D		10753	10758	10763	10768	10773
+Mithril Banded Set	Mithril Banded Mail Boots	feet	feet		D		10754	10759	10764	10769	10774
+Reinforced Leather Set	Reinforced Leather Shirt Helmet	head	head		D		10775	10779	10784	10789	10794
+Reinforced Leather Set	Reinforced Leather Shirt	chest	chest	LIGHT	D		394	10780	10785	10790	10795
+Reinforced Leather Set	Reinforced Leather Shirt Gaiters	legs	legs	LIGHT	D		10776	10781	10786	10791	10796
+Reinforced Leather Set	Reinforced Leather Shirt Gloves	gloves	gloves		D		10777	10782	10787	10792	10797
+Reinforced Leather Set	Reinforced Leather Shirt Boots	feet	feet		D		10778	10783	10788	10793	10798
+Manticore Skin Set	Manticore Skin Shirt Helmet	head	head		D		10799	10803	10808	10813	10818
+Manticore Skin Set	Manticore Skin Shirt	chest	chest	LIGHT	D		395	10804	10809	10814	10819
+Manticore Skin Set	Manticore Skin Shirt Gaiters	legs	legs	LIGHT	D		10800	10805	10810	10815	10820
+Manticore Skin Set	Manticore Skin Shirt Gloves	gloves	gloves		D		10801	10806	10811	10816	10821
+Manticore Skin Set	Manticore Skin Shirt Boots	feet	feet		D		10802	10807	10812	10817	10822
+Salamander Skin Set	Salamander Skin Mail Helmet	head	head		D		10823	10826	10830	10834	10838
+Salamander Skin Set	Salamander Skin Mail	chest	fullarmor	LIGHT	D		396	10827	10831	10835	10839
+Salamander Skin Set	Salamander Skin Mail Gloves	gloves	gloves		D		10824	10828	10832	10836	10840
+Salamander Skin Set	Salamander Skin Mail Boots	feet	feet		D		10825	10829	10833	10837	10841
+Mithril Light Set	Mithril Shirt Helmet	head	head		C			10842	10846	10851	10856
+Mithril Light Set	Mithril Shirt	chest	chest	LIGHT	C			397	10847	10852	10857
+Mithril Light Set	Mithril Shirt Gaiters	legs	legs	LIGHT	C			10843	10848	10853	10858
+Mithril Light Set	Mithril Shirt Gloves	gloves	gloves		C			10844	10849	10854	10859
+Mithril Light Set	Mithril Shirt Boots	feet	feet		C			10845	10850	10855	10860
+Plated Leather Set	Plated Leather Helmet	head	head		C			10861	10865	10870	10875
+Plated Leather Set	Plated Leather	chest	chest	LIGHT	C			398	10866	10871	10876
+Plated Leather Set	Plated Leather Gaiters	legs	legs	LIGHT	C			10862	10867	10872	10877
+Plated Leather Set	Plated Leather Gloves	gloves	gloves		C			10863	10868	10873	10878
+Plated Leather Set	Plated Leather Boots	feet	feet		C			10864	10869	10874	10879
+Rind Leather Set	Rind Leather Armor Helmet	head	head		C			10880	10884	10889	10894
+Rind Leather Set	Rind Leather Armor	chest	chest	LIGHT	C			399	10885	10890	10895
+Rind Leather Set	Rind Leather Armor Gaiters	legs	legs	LIGHT	C			10881	10886	10891	10896
+Rind Leather Set	Rind Leather Armor Gloves	gloves	gloves		C			10882	10887	10892	10897
+Rind Leather Set	Rind Leather Armor Boots	feet	feet		C			10883	10888	10893	10898
+Theca Leather Set	Theca Leather Armor Helmet	head	head		C			10899	10903	10908	10913
+Theca Leather Set	Theca Leather Armor	chest	chest	LIGHT	C			400	10904	10909	10914
+Theca Leather Set	Theca Leather Armor Gaiters	legs	legs	LIGHT	C			10900	10905	10910	10915
+Theca Leather Set	Theca Leather Armor Gloves	gloves	gloves		C			10901	10906	10911	10916
+Theca Leather Set	Theca Leather Armor Boots	feet	feet		C			10902	10907	10912	10917
+Drake Leather Set	Drake Leather Armor Helmet	head	head		C			10918	10921	10925	10929
+Drake Leather Set	Drake Leather Armor	chest	fullarmor	LIGHT	C			401	10922	10926	10930
+Drake Leather Set	Drake Leather Armor Gloves	gloves	gloves		C			10919	10923	10927	10931
+Drake Leather Set	Drake Leather Armor Boots	feet	feet		C			10920	10924	10928	10932
+Chain Mail of Silence Set	Chain Mail of Silence Helmet	head	head		B				10933	10936	10940
+Chain Mail of Silence Set	Chain Mail of Silence	chest	fullarmor	LIGHT	B				402	10937	10941
+Chain Mail of Silence Set	Chain Mail of Silence Gloves	gloves	gloves		B				10934	10938	10942
+Chain Mail of Silence Set	Chain Mail of Silence Boots	feet	feet		B				10935	10939	10943
+Gust Chain Set	Gust Chain Mail Helmet	head	head		B				10944	10947	10951
+Gust Chain Set	Gust Chain Mail	chest	fullarmor	LIGHT	B				403	10948	10952
+Gust Chain Set	Gust Chain Mail Gloves	gloves	gloves		B				10945	10949	10953
+Gust Chain Set	Gust Chain Mail Boots	feet	feet		B				10946	10950	10954
+Prairie Leather Set	Prairie Leather Armor Helmet	head	head		B				10955	10959	10964
+Prairie Leather Set	Prairie Leather Armor	chest	chest	LIGHT	B				404	10960	10965
+Prairie Leather Set	Prairie Leather Armor Gaiters	legs	legs	LIGHT	B				10956	10961	10966
+Prairie Leather Set	Prairie Leather Armor Gloves	gloves	gloves		B				10957	10962	10967
+Prairie Leather Set	Prairie Leather Armor Boots	feet	feet		B				10958	10963	10968
+Leather Armor of The Underworld Set	Leather Armor of The Underworld Helmet	head	head		B				10969	10973	10978
+Leather Armor of The Underworld Set	Leather Armor of The Underworld	chest	chest	LIGHT	B				405	10974	10979
+Leather Armor of The Underworld Set	Leather Armor of The Underworld Gaiters	legs	legs	LIGHT	B				10970	10975	10980
+Leather Armor of The Underworld Set	Leather Armor of The Underworld Gloves	gloves	gloves		B				10971	10976	10981
+Leather Armor of The Underworld Set	Leather Armor of The Underworld Boots	feet	feet		B				10972	10977	10982
+Leather Suit of Concentration Set	Leather Suit of Concentration Helmet	head	head		B				10983	10986	10990
+Leather Suit of Concentration Set	Leather Suit of Concentration	chest	fullarmor	LIGHT	B				406	10987	10991
+Leather Suit of Concentration Set	Leather Suit of Concentration Gloves	gloves	gloves		B				10984	10988	10992
+Leather Suit of Concentration Set	Leather Suit of Concentration Boots	feet	feet		B				10985	10989	10993
+Ace's Leather Set	Ace's Leather Armor Helmet	head	head		B				10994	10997	11001
+Ace's Leather Set	Ace's Leather Armor	chest	fullarmor	LIGHT	B				407	10998	11002
+Ace's Leather Set	Ace's Leather Armor Gloves	gloves	gloves		B				10995	10999	11003
+Ace's Leather Set	Ace's Leather Armor Boots	feet	feet		B				10996	11000	11004
+Guardian's Leather Set	Guardian's Leather Armor Helmet	head	head		B				11005	11009	11014
+Guardian's Leather Set	Guardian's Leather Armor	chest	chest	LIGHT	B				408	11010	11015
+Guardian's Leather Set	Guardian's Leather Armor Gaiters	legs	legs	LIGHT	B				11006	11011	11016
+Guardian's Leather Set	Guardian's Leather Armor Gloves	gloves	gloves		B				11007	11012	11017
+Guardian's Leather Set	Guardian's Leather Armor Boots	feet	feet		B				11008	11013	11018
+Marksman's Leather Set	Marksman's Leather Armor Helmet	head	head		B				11019	11023	11028
+Marksman's Leather Set	Marksman's Leather Armor	chest	chest	LIGHT	B				409	11024	11029
+Marksman's Leather Set	Marksman's Leather Armor Gaiters	legs	legs	LIGHT	B				11020	11025	11030
+Marksman's Leather Set	Marksman's Leather Armor Gloves	gloves	gloves		B				11021	11026	11031
+Marksman's Leather Set	Marksman's Leather Armor Boots	feet	feet		B				11022	11027	11032
+Unicorn Leather Set	Unicorn Leather Armor Helmet	head	head		A					11033	11036
+Unicorn Leather Set	Unicorn Leather Armor	chest	fullarmor	LIGHT	A					410	11037
+Unicorn Leather Set	Unicorn Leather Armor Gloves	gloves	gloves		A					11034	11038
+Unicorn Leather Set	Unicorn Leather Armor Boots	feet	feet		A					11035	11039
+Dragon Leather Set	Dragon Leather Armor Helmet	head	head		S						11040
+Dragon Leather Set	Dragon Leather Armor	chest	fullarmor	LIGHT	S						411
+Dragon Leather Set	Dragon Leather Armor Gloves	gloves	gloves		S						11041
+Dragon Leather Set	Dragon Leather Armor Boots	feet	feet		S						11042
+Tunic Set	Tunic Helmet	head	head		NG	11043	11047	11052	11057	11062	11067
+Tunic Set	Tunic	chest	chest	MAGIC	NG	426	11048	11053	11058	11063	11068
+Tunic Set	Tunic Stockings	legs	legs	MAGIC	NG	11044	11049	11054	11059	11064	11069
+Tunic Set	Tunic Gloves	gloves	gloves		NG	11045	11050	11055	11060	11065	11070
+Tunic Set	Tunic Boots	feet	feet		NG	11046	11051	11056	11061	11066	11071
+Feriotic Set	Feriotic Tunic Helmet	head	head		NG	11072	11076	11081	11086	11091	11096
+Feriotic Set	Feriotic Tunic	chest	chest	MAGIC	NG	428	11077	11082	11087	11092	11097
+Feriotic Set	Feriotic Tunic Stockings	legs	legs	MAGIC	NG	11073	11078	11083	11088	11093	11098
+Feriotic Set	Feriotic Tunic Gloves	gloves	gloves		NG	11074	11079	11084	11089	11094	11099
+Feriotic Set	Feriotic Tunic Boots	feet	feet		NG	11075	11080	11085	11090	11095	11100
+Leather Tunic Set	Leather Tunic Helmet	head	head		NG	11101	11105	11110	11115	11120	11125
+Leather Tunic Set	Leather Tunic	chest	chest	MAGIC	NG	429	11106	11111	11116	11121	11126
+Leather Tunic Set	Leather Tunic Stockings	legs	legs	MAGIC	NG	11102	11107	11112	11117	11122	11127
+Leather Tunic Set	Leather Tunic Gloves	gloves	gloves		NG	11103	11108	11113	11118	11123	11128
+Leather Tunic Set	Leather Tunic Boots	feet	feet		NG	11104	11109	11114	11119	11124	11129
+Cursed Set	Cursed Tunic Helmet	head	head		D		11130	11134	11139	11144	11149
+Cursed Set	Cursed Tunic	chest	chest	MAGIC	D		432	11135	11140	11145	11150
+Cursed Set	Cursed Tunic Stockings	legs	legs	MAGIC	D		11131	11136	11141	11146	11151
+Cursed Set	Cursed Tunic Gloves	gloves	gloves		D		11132	11137	11142	11147	11152
+Cursed Set	Cursed Tunic Boots	feet	feet		D		11133	11138	11143	11148	11153
+Elven Set	Elven Tunic Helmet	head	head		D		11154	11158	11163	11168	11173
+Elven Set	Elven Tunic	chest	chest	MAGIC	D		433	11159	11164	11169	11174
+Elven Set	Elven Tunic Stockings	legs	legs	MAGIC	D		11155	11160	11165	11170	11175
+Elven Set	Elven Tunic Gloves	gloves	gloves		D		11156	11161	11166	11171	11176
+Elven Set	Elven Tunic Boots	feet	feet		D		11157	11162	11167	11172	11177
+White Set	White Tunic Helmet	head	head		D		11178	11182	11187	11192	11197
+White Set	White Tunic	chest	chest	MAGIC	D		434	11183	11188	11193	11198
+White Set	White Tunic Stockings	legs	legs	MAGIC	D		11179	11184	11189	11194	11199
+White Set	White Tunic Gloves	gloves	gloves		D		11180	11185	11190	11195	11200
+White Set	White Tunic Boots	feet	feet		D		11181	11186	11191	11196	11201
+Mystic's Set	Mystic's Tunic Helmet	head	head		D		11202	11206	11211	11216	11221
+Mystic's Set	Mystic's Tunic	chest	chest	MAGIC	D		435	11207	11212	11217	11222
+Mystic's Set	Mystic's Tunic Stockings	legs	legs	MAGIC	D		11203	11208	11213	11218	11223
+Mystic's Set	Mystic's Tunic Gloves	gloves	gloves		D		11204	11209	11214	11219	11224
+Mystic's Set	Mystic's Tunic Boots	feet	feet		D		11205	11210	11215	11220	11225
+Knowledge Set	Tunic of Knowledge Helmet	head	head		D		11226	11230	11235	11240	11245
+Knowledge Set	Tunic of Knowledge	chest	chest	MAGIC	D		436	11231	11236	11241	11246
+Knowledge Set	Tunic of Knowledge Stockings	legs	legs	MAGIC	D		11227	11232	11237	11242	11247
+Knowledge Set	Tunic of Knowledge Gloves	gloves	gloves		D		11228	11233	11238	11243	11248
+Knowledge Set	Tunic of Knowledge Boots	feet	feet		D		11229	11234	11239	11244	11249
+Mithril Robe Set	Mithril Tunic Helmet	head	head		D		11250	11254	11259	11264	11269
+Mithril Robe Set	Mithril Tunic	chest	chest	MAGIC	D		437	11255	11260	11265	11270
+Mithril Robe Set	Mithril Tunic Stockings	legs	legs	MAGIC	D		11251	11256	11261	11266	11271
+Mithril Robe Set	Mithril Tunic Gloves	gloves	gloves		D		11252	11257	11262	11267	11272
+Mithril Robe Set	Mithril Tunic Boots	feet	feet		D		11253	11258	11263	11268	11273
+Sage's Rag Set	Sage's Rag Helmet	head	head		D		11274	11277	11281	11285	11289
+Sage's Rag Set	Sage's Rag	chest	fullarmor	MAGIC	D		438	11278	11282	11286	11290
+Sage's Rag Set	Sage's Rag Gloves	gloves	gloves		D		11275	11279	11283	11287	11291
+Sage's Rag Set	Sage's Rag Boots	feet	feet		D		11276	11280	11284	11288	11292
+Karmian Set	Karmian Tunic Helmet	head	head		C			11293	11297	11302	11307
+Karmian Set	Karmian Tunic	chest	chest	MAGIC	C			439	11298	11303	11308
+Karmian Set	Karmian Tunic Stockings	legs	legs	MAGIC	C			11294	11299	11304	11309
+Karmian Set	Karmian Tunic Gloves	gloves	gloves		C			11295	11300	11305	11310
+Karmian Set	Karmian Tunic Boots	feet	feet		C			11296	11301	11306	11311
+Robe of Seal Set	Robe of Seal Helmet	head	head		C			11312	11315	11319	11323
+Robe of Seal Set	Robe of Seal	chest	fullarmor	MAGIC	C			440	11316	11320	11324
+Robe of Seal Set	Robe of Seal Gloves	gloves	gloves		C			11313	11317	11321	11325
+Robe of Seal Set	Robe of Seal Boots	feet	feet		C			11314	11318	11322	11326
+Demon Set	Demon's Tunic Helmet	head	head		C			11327	11331	11336	11341
+Demon Set	Demon's Tunic	chest	chest	MAGIC	C			441	11332	11337	11342
+Demon Set	Demon's Tunic Stockings	legs	legs	MAGIC	C			11328	11333	11338	11343
+Demon Set	Demon's Tunic Gloves	gloves	gloves		C			11329	11334	11339	11344
+Demon Set	Demon's Tunic Boots	feet	feet		C			11330	11335	11340	11345
+Divine Set	Divine Tunic Helmet	head	head		C			11346	11350	11355	11360
+Divine Set	Divine Tunic	chest	chest	MAGIC	C			442	11351	11356	11361
+Divine Set	Divine Tunic Stockings	legs	legs	MAGIC	C			11347	11352	11357	11362
+Divine Set	Divine Tunic Gloves	gloves	gloves		C			11348	11353	11358	11363
+Divine Set	Divine Tunic Boots	feet	feet		C			11349	11354	11359	11364
+Tunic of Mana Set	Tunic of Mana Helmet	head	head		B				11365	11369	11374
+Tunic of Mana Set	Tunic of Mana	chest	chest	MAGIC	B				443	11370	11375
+Tunic of Mana Set	Tunic of Mana Stockings	legs	legs	LIGHT	B				11366	11371	11376
+Tunic of Mana Set	Tunic of Mana Gloves	gloves	gloves		B				11367	11372	11377
+Tunic of Mana Set	Tunic of Mana Boots	feet	feet		B				11368	11373	11378
+Sage's Robe Set	Sage's Robe Helmet	head	head		B				11379	11382	11386
+Sage's Robe Set	Sage's Robe	chest	fullarmor	MAGIC	B				444	11383	11387
+Sage's Robe Set	Sage's Robe Gloves	gloves	gloves		B				11380	11384	11388
+Sage's Robe Set	Sage's Robe Boots	feet	feet		B				11381	11385	11389
+Paradia Set	Paradia Tunic Helmet	head	head		B				11390	11394	11399
+Paradia Set	Paradia Tunic	chest	chest	MAGIC	B				445	11395	11400
+Paradia Set	Paradia Tunic Stockings	legs	legs	LIGHT	B				11391	11396	11401
+Paradia Set	Paradia Tunic Gloves	gloves	gloves		B				11392	11397	11402
+Paradia Set	Paradia Tunic Boots	feet	feet		B				11393	11398	11403
+Inferno Set	Inferno Tunic Helmet	head	head		B				11404	11408	11413
+Inferno Set	Inferno Tunic	chest	chest	MAGIC	B				446	11409	11414
+Inferno Set	Inferno Tunic Stockings	legs	legs	LIGHT	B				11405	11410	11415
+Inferno Set	Inferno Tunic Gloves	gloves	gloves		B				11406	11411	11416
+Inferno Set	Inferno Tunic Boots	feet	feet		B				11407	11412	11417
+Tunic of Solar Eclipse Set	Tunic of Solar Eclipse Helmet	head	head		B				11418	11422	11427
+Tunic of Solar Eclipse Set	Tunic of Solar Eclipse	chest	chest	MAGIC	B				447	11423	11428
+Tunic of Solar Eclipse Set	Tunic of Solar Eclipse Stockings	legs	legs	LIGHT	B				11419	11424	11429
+Tunic of Solar Eclipse Set	Tunic of Solar Eclipse Gloves	gloves	gloves		B				11420	11425	11430
+Tunic of Solar Eclipse Set	Tunic of Solar Eclipse Boots	feet	feet		B				11421	11426	11431
+Robe of Black Ore Set	Robe of Black Ore Helmet	head	head		B				11432	11435	11439
+Robe of Black Ore Set	Robe of Black Ore	chest	fullarmor	MAGIC	B				448	11436	11440
+Robe of Black Ore Set	Robe of Black Ore Gloves	gloves	gloves		B				11433	11437	11441
+Robe of Black Ore Set	Robe of Black Ore Boots	feet	feet		B				11434	11438	11442
+Tunic of Summoning Set	Tunic of Summoning Helmet	head	head		B				11443	11447	11452
+Tunic of Summoning Set	Tunic of Summoning	chest	chest	MAGIC	B				449	11448	11453
+Tunic of Summoning Set	Tunic of Summoning Stockings	legs	legs	LIGHT	B				11444	11449	11454
+Tunic of Summoning Set	Tunic of Summoning Gloves	gloves	gloves		B				11445	11450	11455
+Tunic of Summoning Set	Tunic of Summoning Boots	feet	feet		B				11446	11451	11456
+Otherworldly Set	Otherworldly Robe Helmet	head	head		B				11457	11460	11464
+Otherworldly Set	Otherworldly Robe	chest	fullarmor	MAGIC	B				450	11461	11465
+Otherworldly Set	Otherworldly Robe Gloves	gloves	gloves		B				11458	11462	11466
+Otherworldly Set	Otherworldly Robe Boots	feet	feet		B				11459	11463	11467
+Elemental Set	Elemental Tunic Helmet	head	head		B				11468	11472	11477
+Elemental Set	Elemental Tunic	chest	chest	MAGIC	B				451	11473	11478
+Elemental Set	Elemental Tunic Stockings	legs	legs	LIGHT	B				11469	11474	11479
+Elemental Set	Elemental Tunic Gloves	gloves	gloves		B				11470	11475	11480
+Elemental Set	Elemental Tunic Boots	feet	feet		B				11471	11476	11481
+Tunic of Phantom Set	Tunic of Phantom Helmet	head	head		B				11482	11486	11491
+Tunic of Phantom Set	Tunic of Phantom	chest	chest	MAGIC	B				452	11487	11492
+Tunic of Phantom Set	Tunic of Phantom Stockings	legs	legs	LIGHT	B				11483	11488	11493
+Tunic of Phantom Set	Tunic of Phantom Gloves	gloves	gloves		B				11484	11489	11494
+Tunic of Phantom Set	Tunic of Phantom Boots	feet	feet		B				11485	11490	11495
+Tunic of Grace Set	Tunic of Grace Helmet	head	head		B				11496	11500	11505
+Tunic of Grace Set	Tunic of Grace	chest	chest	MAGIC	B				453	11501	11506
+Tunic of Grace Set	Tunic of Grace Stockings	legs	legs	LIGHT	B				11497	11502	11507
+Tunic of Grace Set	Tunic of Grace Gloves	gloves	gloves		B				11498	11503	11508
+Tunic of Grace Set	Tunic of Grace Boots	feet	feet		B				11499	11504	11509
+Robe of Holy Spirit Set	Robe of Holy Spirit Helmet	head	head		B				11510	11513	11517
+Robe of Holy Spirit Set	Robe of Holy Spirit	chest	fullarmor	MAGIC	B				454	11514	11518
+Robe of Holy Spirit Set	Robe of Holy Spirit Gloves	gloves	gloves		B				11511	11515	11519
+Robe of Holy Spirit Set	Robe of Holy Spirit Boots	feet	feet		B				11512	11516	11520
+Phoenix Set	Phoenix Tunic Helmet	head	head		B				11521	11525	11530
+Phoenix Set	Phoenix Tunic	chest	chest	MAGIC	B				455	11526	11531
+Phoenix Set	Phoenix Tunic Stockings	legs	legs	LIGHT	B				11522	11527	11532
+Phoenix Set	Phoenix Tunic Gloves	gloves	gloves		B				11523	11528	11533
+Phoenix Set	Phoenix Tunic Boots	feet	feet		B				11524	11529	11534
+Cerberus Set	Cerberus Tunic Helmet	head	head		B				11535	11539	11544
+Cerberus Set	Cerberus Tunic	chest	chest	MAGIC	B				456	11540	11545
+Cerberus Set	Cerberus Tunic Stockings	legs	legs	LIGHT	B				11536	11541	11546
+Cerberus Set	Cerberus Tunic Gloves	gloves	gloves		B				11537	11542	11547
+Cerberus Set	Cerberus Tunic Boots	feet	feet		B				11538	11543	11548
+Tunic of Aid Set	Tunic of Aid Helmet	head	head		B				11549	11553	11558
+Tunic of Aid Set	Tunic of Aid	chest	chest	MAGIC	B				457	11554	11559
+Tunic of Aid Set	Tunic of Aid Stockings	legs	legs	LIGHT	B				11550	11555	11560
+Tunic of Aid Set	Tunic of Aid Gloves	gloves	gloves		B				11551	11556	11561
+Tunic of Aid Set	Tunic of Aid Boots	feet	feet		B				11552	11557	11562
+Robe of Blessing Set	Robe of Blessing Helmet	head	head		B				11563	11566	11570
+Robe of Blessing Set	Robe of Blessing	chest	fullarmor	MAGIC	B				458	11567	11571
+Robe of Blessing Set	Robe of Blessing Gloves	gloves	gloves		B				11564	11568	11572
+Robe of Blessing Set	Robe of Blessing Boots	feet	feet		B				11565	11569	11573
+Dasparion's Set	Dasparion's Robe Helmet	head	head		A					11574	11577
+Dasparion's Set	Dasparion's Robe	chest	fullarmor	MAGIC	A					459	11578
+Dasparion's Set	Dasparion's Robe Gloves	gloves	gloves		A					11575	11579
+Dasparion's Set	Dasparion's Robe Boots	feet	feet		A					11576	11580
+The Set	The Robe Helmet	head	head		S						11581
+The Set	The Robe	chest	fullarmor	MAGIC	S						460
+The Set	The Robe Gloves	gloves	gloves		S						11582
+The Set	The Robe Boots	feet	feet		S						11583
+Cotton Tunic Set	Cotton Tunic Helmet	head	head		NG	11584	11588	11593	11598	11603	11608
+Cotton Tunic Set	Cotton Tunic	chest	chest	MAGIC	NG	1100	11589	11594	11599	11604	11609
+Cotton Tunic Set	Cotton Tunic Stockings	legs	legs	MAGIC	NG	11585	11590	11595	11600	11605	11610
+Cotton Tunic Set	Cotton Tunic Gloves	gloves	gloves		NG	11586	11591	11596	11601	11606	11611
+Cotton Tunic Set	Cotton Tunic Boots	feet	feet		NG	11587	11592	11597	11602	11607	11612
+Devotion Set	Tunic of Devotion Helmet	head	head		NG	11613	11617	11622	11627	11632	11637
+Devotion Set	Tunic of Devotion	chest	chest	MAGIC	NG	1101	11618	11623	11628	11633	11638
+Devotion Set	Tunic of Devotion Stockings	legs	legs	MAGIC	NG	11614	11619	11624	11629	11634	11639
+Devotion Set	Tunic of Devotion Gloves	gloves	gloves		NG	11615	11620	11625	11630	11635	11640
+Devotion Set	Tunic of Devotion Boots	feet	feet		NG	11616	11621	11626	11631	11636	11641
+Tunic of Magic Set	Tunic of Magic Helmet	head	head		NG	11642	11646	11651	11656	11661	11666
+Tunic of Magic Set	Tunic of Magic	chest	chest	MAGIC	NG	1102	11647	11652	11657	11662	11667
+Tunic of Magic Set	Tunic of Magic Stockings	legs	legs	MAGIC	NG	11643	11648	11653	11658	11663	11668
+Tunic of Magic Set	Tunic of Magic Gloves	gloves	gloves		NG	11644	11649	11654	11659	11664	11669
+Tunic of Magic Set	Tunic of Magic Boots	feet	feet		NG	11645	11650	11655	11660	11665	11670
+Squire's Set	Squire's Shirt Helmet	head	head		NG	11671	11675	11680	11685	11690	11695
+Squire's Set	Squire's Shirt	chest	chest	LIGHT	NG	1146	11676	11681	11686	11691	11696
+Squire's Set	Squire's Shirt Gaiters	legs	legs	LIGHT	NG	11672	11677	11682	11687	11692	11697
+Squire's Set	Squire's Shirt Gloves	gloves	gloves		NG	11673	11678	11683	11688	11693	11698
+Squire's Set	Squire's Shirt Boots	feet	feet		NG	11674	11679	11684	11689	11694	11699
+Avadon Heavy Set	Avadon Breastplate Helmet	head	head		B				11700	11704	11709
+Avadon Heavy Set	Avadon Breastplate	chest	chest	HEAVY	B				2376	11705	11710
+Avadon Heavy Set	Avadon Breastplate Gaiters	legs	legs	HEAVY	B				11701	11706	11711
+Avadon Heavy Set	Avadon Breastplate Gloves	gloves	gloves		B				11702	11707	11712
+Avadon Heavy Set	Avadon Breastplate Boots	feet	feet		B				11703	11708	11713
+Doom Heavy Set	Doom Plate Armor Helmet	head	head		B				11714	11717	11721
+Doom Heavy Set	Doom Plate Armor	chest	fullarmor	HEAVY	B				2381	11718	11722
+Doom Heavy Set	Doom Plate Armor Gloves	gloves	gloves		B				11715	11719	11723
+Doom Heavy Set	Doom Plate Armor Boots	feet	feet		B				11716	11720	11724
+Tallum Heavy Set	Tallum Plate Armor Helmet	head	head		A					11725	11728
+Tallum Heavy Set	Tallum Plate Armor	chest	fullarmor	HEAVY	A					2382	11729
+Tallum Heavy Set	Tallum Plate Armor Gloves	gloves	gloves		A					11726	11730
+Tallum Heavy Set	Tallum Plate Armor Boots	feet	feet		A					11727	11731
+Majestic Heavy Set	Majestic Plate Armor Helmet	head	head		A					11732	11735
+Majestic Heavy Set	Majestic Plate Armor	chest	fullarmor	HEAVY	A					2383	11736
+Majestic Heavy Set	Majestic Plate Armor Gloves	gloves	gloves		A					11733	11737
+Majestic Heavy Set	Majestic Plate Armor Boots	feet	feet		A					11734	11738
+Zubei Light Set	Zubei's Leather Shirt Helmet	head	head		B				11739	11743	11748
+Zubei Light Set	Zubei's Leather Shirt	chest	chest	LIGHT	B				2384	11744	11749
+Zubei Light Set	Zubei's Leather Shirt Gaiters	legs	legs	LIGHT	B				11740	11745	11750
+Zubei Light Set	Zubei's Leather Shirt Gloves	gloves	gloves		B				11741	11746	11751
+Zubei Light Set	Zubei's Leather Shirt Boots	feet	feet		B				11742	11747	11752
+Dark Crystal Light Set	Dark Crystal Leather Armor Helmet	head	head		A					11753	11757
+Dark Crystal Light Set	Dark Crystal Leather Armor	chest	chest	LIGHT	A					2385	11758
+Dark Crystal Light Set	Dark Crystal Leather Armor Gaiters	legs	legs	LIGHT	A					11754	11759
+Dark Crystal Light Set	Dark Crystal Leather Armor Gloves	gloves	gloves		A					11755	11760
+Dark Crystal Light Set	Dark Crystal Leather Armor Boots	feet	feet		A					11756	11761
+Avadon Light Set	Avadon Leather Armor Helmet	head	head		B				11762	11765	11769
+Avadon Light Set	Avadon Leather Armor	chest	fullarmor	LIGHT	B				2390	11766	11770
+Avadon Light Set	Avadon Leather Armor Gloves	gloves	gloves		B				11763	11767	11771
+Avadon Light Set	Avadon Leather Armor Boots	feet	feet		B				11764	11768	11772
+Blue Wolf Light Set	Blue Wolf Leather Armor Helmet	head	head		B				11773	11776	11780
+Blue Wolf Light Set	Blue Wolf Leather Armor	chest	fullarmor	LIGHT	B				2391	11777	11781
+Blue Wolf Light Set	Blue Wolf Leather Armor Gloves	gloves	gloves		B				11774	11778	11782
+Blue Wolf Light Set	Blue Wolf Leather Armor Boots	feet	feet		B				11775	11779	11783
+Doom Light Set	Leather Armor of Doom Helmet	head	head		B				11784	11787	11791
+Doom Light Set	Leather Armor of Doom	chest	fullarmor	LIGHT	B				2392	11788	11792
+Doom Light Set	Leather Armor of Doom Gloves	gloves	gloves		B				11785	11789	11793
+Doom Light Set	Leather Armor of Doom Boots	feet	feet		B				11786	11790	11794
+Tallum Light Set	Tallum Leather Armor Helmet	head	head		A					11795	11798
+Tallum Light Set	Tallum Leather Armor	chest	fullarmor	LIGHT	A					2393	11799
+Tallum Light Set	Tallum Leather Armor Gloves	gloves	gloves		A					11796	11800
+Tallum Light Set	Tallum Leather Armor Boots	feet	feet		A					11797	11801
+Nightmare Light Set	Nightmarish Leather Armor Helmet	head	head		A					11802	11805
+Nightmare Light Set	Nightmarish Leather Armor	chest	fullarmor	LIGHT	A					2394	11806
+Nightmare Light Set	Nightmarish Leather Armor Gloves	gloves	gloves		A					11803	11807
+Nightmare Light Set	Nightmarish Leather Armor Boots	feet	feet		A					11804	11808
+Majestic Leather Set	Majestic Leather Armor Helmet	head	head		A					11809	11812
+Majestic Leather Set	Majestic Leather Armor	chest	fullarmor	LIGHT	A					2395	11813
+Majestic Leather Set	Majestic Leather Armor Gloves	gloves	gloves		A					11810	11814
+Majestic Leather Set	Majestic Leather Armor Boots	feet	feet		A					11811	11815
+Elven Mithril Set	Elven Mithril Tunic Helmet	head	head		D		11816	11820	11825	11830	11835
+Elven Mithril Set	Elven Mithril Tunic	chest	chest	MAGIC	D		2396	11821	11826	11831	11836
+Elven Mithril Set	Elven Mithril Tunic Stockings	legs	legs	MAGIC	D		11817	11822	11827	11832	11837
+Elven Mithril Set	Elven Mithril Tunic Gloves	gloves	gloves		D		11818	11823	11828	11833	11838
+Elven Mithril Set	Elven Mithril Tunic Boots	feet	feet		D		11819	11824	11829	11834	11839
+Zubei Robe Set	Tunic of Zubei Helmet	head	head		B				11840	11844	11849
+Zubei Robe Set	Tunic of Zubei	chest	chest	MAGIC	B				2397	11845	11850
+Zubei Robe Set	Tunic of Zubei Stockings	legs	legs	MAGIC	B				11841	11846	11851
+Zubei Robe Set	Tunic of Zubei Gloves	gloves	gloves		B				11842	11847	11852
+Zubei Robe Set	Tunic of Zubei Boots	feet	feet		B				11843	11848	11853
+Blue Wolf Robe Set	Blue Wolf Tunic Helmet	head	head		B				11854	11858	11863
+Blue Wolf Robe Set	Blue Wolf Tunic	chest	chest	MAGIC	B				2398	11859	11864
+Blue Wolf Robe Set	Blue Wolf Tunic Stockings	legs	legs	MAGIC	B				11855	11860	11865
+Blue Wolf Robe Set	Blue Wolf Tunic Gloves	gloves	gloves		B				11856	11861	11866
+Blue Wolf Robe Set	Blue Wolf Tunic Boots	feet	feet		B				11857	11862	11867
+Doom Robe Set	Tunic of Doom Helmet	head	head		B				11868	11872	11877
+Doom Robe Set	Tunic of Doom	chest	chest	MAGIC	B				2399	11873	11878
+Doom Robe Set	Tunic of Doom Stockings	legs	legs	MAGIC	B				11869	11874	11879
+Doom Robe Set	Tunic of Doom Gloves	gloves	gloves		B				11870	11875	11880
+Doom Robe Set	Tunic of Doom Boots	feet	feet		B				11871	11876	11881
+Tallum Robe Set	Tallum Tunic Helmet	head	head		A					11882	11886
+Tallum Robe Set	Tallum Tunic	chest	chest	MAGIC	A					2400	11887
+Tallum Robe Set	Tallum Tunic Stockings	legs	legs	MAGIC	A					11883	11888
+Tallum Robe Set	Tallum Tunic Gloves	gloves	gloves		A					11884	11889
+Tallum Robe Set	Tallum Tunic Boots	feet	feet		A					11885	11890
+Avadon Robe Set	Avadon Robe Helmet	head	head		B				11891	11894	11898
+Avadon Robe Set	Avadon Robe	chest	fullarmor	MAGIC	B				2406	11895	11899
+Avadon Robe Set	Avadon Robe Gloves	gloves	gloves		B				11892	11896	11900
+Avadon Robe Set	Avadon Robe Boots	feet	feet		B				11893	11897	11901
+Dark Crystal Robe Set	Dark Crystal Robe Helmet	head	head		A					11902	11905
+Dark Crystal Robe Set	Dark Crystal Robe	chest	fullarmor	MAGIC	A					2407	11906
+Dark Crystal Robe Set	Dark Crystal Robe Gloves	gloves	gloves		A					11903	11907
+Dark Crystal Robe Set	Dark Crystal Robe Boots	feet	feet		A					11904	11908
+Nightmare Robe Set	Nightmare Robe Helmet	head	head		A					11909	11912
+Nightmare Robe Set	Nightmare Robe	chest	fullarmor	MAGIC	A					2408	11913
+Nightmare Robe Set	Nightmare Robe Gloves	gloves	gloves		A					11910	11914
+Nightmare Robe Set	Nightmare Robe Boots	feet	feet		A					11911	11915
+Majestic Robe Set	Majestic Robe Helmet	head	head		A					11916	11919
+Majestic Robe Set	Majestic Robe	chest	fullarmor	MAGIC	A					2409	11920
+Majestic Robe Set	Majestic Robe Gloves	gloves	gloves		A					11917	11921
+Majestic Robe Set	Majestic Robe Boots	feet	feet		A					11918	11922
+Imperial Crusader Set	Imperial Crusader Breastplate Helmet	head	head		S						11923
+Imperial Crusader Set	Imperial Crusader Breastplate	chest	chest	HEAVY	S						6373
+Imperial Crusader Set	Imperial Crusader Breastplate Gaiters	legs	legs	HEAVY	S						11924
+Imperial Crusader Set	Imperial Crusader Breastplate Gloves	gloves	gloves		S						11925
+Imperial Crusader Set	Imperial Crusader Breastplate Boots	feet	feet		S						11926
+Draconic Leather Set	Draconic Leather Armor Helmet	head	head		S						11927
+Draconic Leather Set	Draconic Leather Armor	chest	fullarmor	LIGHT	S						6379
+Draconic Leather Set	Draconic Leather Armor Gloves	gloves	gloves		S						11928
+Draconic Leather Set	Draconic Leather Armor Boots	feet	feet		S						11929
+Major Arcana Set	Major Arcana Robe Helmet	head	head		S						11930
+Major Arcana Set	Major Arcana Robe	chest	fullarmor	MAGIC	S						6383
+Major Arcana Set	Major Arcana Robe Gloves	gloves	gloves		S						11931
+Major Arcana Set	Major Arcana Robe Boots	feet	feet		S						11932
+Clan Oath Heavy Set	Clan Oath Armor Helmet	head	head		D		11933	11936	11940	11944	11948
+Clan Oath Heavy Set	Clan Oath Armor	chest	fullarmor	HEAVY	D		7851	11937	11941	11945	11949
+Clan Oath Heavy Set	Clan Oath Armor Gloves	gloves	gloves		D		11934	11938	11942	11946	11950
+Clan Oath Heavy Set	Clan Oath Armor Boots	feet	feet		D		11935	11939	11943	11947	11951
+Clan Oath Light Set	Clan Oath Brigandine Helmet	head	head		D		11952	11955	11959	11963	11967
+Clan Oath Light Set	Clan Oath Brigandine	chest	fullarmor	LIGHT	D		7854	11956	11960	11964	11968
+Clan Oath Light Set	Clan Oath Brigandine Gloves	gloves	gloves		D		11953	11957	11961	11965	11969
+Clan Oath Light Set	Clan Oath Brigandine Boots	feet	feet		D		11954	11958	11962	11966	11970
+Clan Oath Robe Set	Clan Oath Aketon Helmet	head	head		D		11971	11974	11978	11982	11986
+Clan Oath Robe Set	Clan Oath Aketon	chest	fullarmor	MAGIC	D		7857	11975	11979	11983	11987
+Clan Oath Robe Set	Clan Oath Aketon Gloves	gloves	gloves		D		11972	11976	11980	11984	11988
+Clan Oath Robe Set	Clan Oath Aketon Boots	feet	feet		D		11973	11977	11981	11985	11989
+Apella Heavy Set	Apella Plate Armor Helmet	head	head		A					11990	11993
+Apella Heavy Set	Apella Plate Armor	chest	fullarmor	HEAVY	A					7861	11994
+Apella Heavy Set	Apella Plate Armor Gloves	gloves	gloves		A					11991	11995
+Apella Heavy Set	Apella Plate Armor Boots	feet	feet		A					11992	11996
+Apella Light Set	Apella Brigandine Helmet	head	head		A					11997	12000
+Apella Light Set	Apella Brigandine	chest	fullarmor	LIGHT	A					7864	12001
+Apella Light Set	Apella Brigandine Gloves	gloves	gloves		A					11998	12002
+Apella Light Set	Apella Brigandine Boots	feet	feet		A					11999	12003
+Apella Robe Set	Apella Doublet Helmet	head	head		A					12004	12007
+Apella Robe Set	Apella Doublet	chest	fullarmor	MAGIC	A					7867	12008
+Apella Robe Set	Apella Doublet Gloves	gloves	gloves		A					12005	12009
+Apella Robe Set	Apella Doublet Boots	feet	feet		A					12006	12010

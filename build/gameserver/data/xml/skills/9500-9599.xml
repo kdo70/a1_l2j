@@ -828,20 +828,7 @@
 			<add stat="weightLimit" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9560" levels="6" name="Apprentice's Set" >
-		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
-		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
-		<table name="#v2"> 0.9825 0.975 0.966 0.9575 0.95 0.941 </table>
-		<set name="target" val="SELF" />
-		<set name="skillType" val="BUFF" />
-		<set name="operateType" val="PASSIVE" />
-		<set name="magicLvl" val="#magicLvl" />
-		<for>
-			<mul stat="mAtk" val="#v1" />
-			<mul stat="regMp" val="#v2" />
-		</for>
-	</skill>
-	<skill id="9561" levels="6" name="Tunic Set" >
+	<skill id="9560" levels="6" name="Tunic Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -854,7 +841,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9562" levels="6" name="Feriotic Set" >
+	<skill id="9561" levels="6" name="Feriotic Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -869,7 +856,7 @@
 			<add stat="runSpd" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9563" levels="6" name="Leather Tunic Set" >
+	<skill id="9562" levels="6" name="Leather Tunic Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0595 1.085 1.1156 1.1445 1.17 1.2006 </table>
 		<table name="#v2"> 2 4 5 6 7 8 </table>
@@ -884,7 +871,7 @@
 			<add stat="weightLimit" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9564" levels="6" name="Cursed Set" >
+	<skill id="9563" levels="6" name="Cursed Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -899,7 +886,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9565" levels="6" name="Elven Set" >
+	<skill id="9564" levels="6" name="Elven Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 0.9825 0.975 0.966 0.9575 0.95 0.941 </table>
@@ -912,7 +899,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9566" levels="6" name="White Set" >
+	<skill id="9565" levels="6" name="White Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -925,7 +912,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9567" levels="6" name="Mystic's Set" >
+	<skill id="9566" levels="6" name="Mystic's Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 72 103 140 175 206 243 </table>
 		<table name="#v2"> 1.0184 1.0263 1.0358 1.0447 1.0526 1.0621 </table>
@@ -940,7 +927,7 @@
 			<sub stat="INT" val="2" />
 		</for>
 	</skill>
-	<skill id="9568" levels="6" name="Knowledge Set" >
+	<skill id="9567" levels="6" name="Knowledge Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.07 1.1 1.136 1.17 1.2 1.236 </table>
 		<table name="#v2"> 0.965 0.95 0.932 0.915 0.9 0.882 </table>
@@ -953,7 +940,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9569" levels="6" name="Mithril Robe Set" >
+	<skill id="9568" levels="6" name="Mithril Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 5 7 10 12 14 17 </table>
 		<set name="target" val="SELF" />
@@ -966,7 +953,7 @@
 			<sub stat="INT" val="1" />
 		</for>
 	</skill>
-	<skill id="9570" levels="6" name="Sage's Rag Set" >
+	<skill id="9569" levels="6" name="Sage's Rag Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -981,7 +968,7 @@
 			<add stat="runSpd" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9571" levels="6" name="Karmian Set" >
+	<skill id="9570" levels="6" name="Karmian Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.027 1.0385 1.0524 1.0655 1.0771 1.0909 </table>
 		<table name="#v2"> 1.0772 1.1103 1.15 1.1875 1.2206 1.2603 </table>
@@ -994,7 +981,7 @@
 			<mul stat="mAtkSpd" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9572" levels="6" name="Robe of Seal Set" >
+	<skill id="9571" levels="6" name="Robe of Seal Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0595 1.085 1.1156 1.1445 1.17 1.2006 </table>
 		<table name="#v2"> 2 4 5 6 7 8 </table>
@@ -1009,7 +996,7 @@
 			<add stat="weightLimit" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9573" levels="6" name="Demon Set" >
+	<skill id="9572" levels="6" name="Demon Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 139 199 270 337 397 469 </table>
 		<set name="target" val="SELF" />
@@ -1022,7 +1009,7 @@
 			<sub stat="WIT" val="1" />
 		</for>
 	</skill>
-	<skill id="9574" levels="6" name="Divine Set" >
+	<skill id="9573" levels="6" name="Divine Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.027 1.0385 1.0524 1.0655 1.0771 1.0909 </table>
 		<table name="#v2"> 88 126 171 214 251 297 </table>
@@ -1037,7 +1024,7 @@
 			<add stat="WIT" val="1" />
 		</for>
 	</skill>
-	<skill id="9575" levels="6" name="Tunic of Mana Set" >
+	<skill id="9574" levels="6" name="Tunic of Mana Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 84 120 163 204 240 283 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1052,7 +1039,7 @@
 			<mul stat="regMp" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9576" levels="6" name="Sage's Robe Set" >
+	<skill id="9575" levels="6" name="Sage's Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 62 88 120 150 177 209 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -1065,7 +1052,7 @@
 			<mul stat="regCp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9577" levels="6" name="Paradia Set" >
+	<skill id="9576" levels="6" name="Paradia Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -1080,7 +1067,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9578" levels="6" name="Inferno Set" >
+	<skill id="9577" levels="6" name="Inferno Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 0.9825 0.975 0.966 0.9575 0.95 0.941 </table>
@@ -1093,7 +1080,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9579" levels="6" name="Tunic of Solar Eclipse Set" >
+	<skill id="9578" levels="6" name="Tunic of Solar Eclipse Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -1106,7 +1093,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9580" levels="6" name="Robe of Black Ore Set" >
+	<skill id="9579" levels="6" name="Robe of Black Ore Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 72 103 140 175 206 243 </table>
 		<table name="#v2"> 1.0184 1.0263 1.0358 1.0447 1.0526 1.0621 </table>
@@ -1121,7 +1108,7 @@
 			<sub stat="INT" val="2" />
 		</for>
 	</skill>
-	<skill id="9581" levels="6" name="Tunic of Summoning Set" >
+	<skill id="9580" levels="6" name="Tunic of Summoning Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1136,7 +1123,7 @@
 			<add stat="runSpd" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9582" levels="6" name="Otherworldly Set" >
+	<skill id="9581" levels="6" name="Otherworldly Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0595 1.085 1.1156 1.1445 1.17 1.2006 </table>
 		<table name="#v2"> 2 4 5 6 7 8 </table>
@@ -1151,7 +1138,7 @@
 			<add stat="weightLimit" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9583" levels="6" name="Elemental Set" >
+	<skill id="9582" levels="6" name="Elemental Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 84 120 163 204 240 283 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1166,7 +1153,7 @@
 			<mul stat="regMp" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9584" levels="6" name="Tunic of Phantom Set" >
+	<skill id="9583" levels="6" name="Tunic of Phantom Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 62 88 120 150 177 209 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -1179,7 +1166,7 @@
 			<mul stat="regCp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9585" levels="6" name="Tunic of Grace Set" >
+	<skill id="9584" levels="6" name="Tunic of Grace Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -1194,7 +1181,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9586" levels="6" name="Robe of Holy Spirit Set" >
+	<skill id="9585" levels="6" name="Robe of Holy Spirit Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 0.9825 0.975 0.966 0.9575 0.95 0.941 </table>
@@ -1207,7 +1194,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9587" levels="6" name="Phoenix Set" >
+	<skill id="9586" levels="6" name="Phoenix Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -1220,7 +1207,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9588" levels="6" name="Cerberus Set" >
+	<skill id="9587" levels="6" name="Cerberus Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 72 103 140 175 206 243 </table>
 		<table name="#v2"> 1.0184 1.0263 1.0358 1.0447 1.0526 1.0621 </table>
@@ -1235,7 +1222,7 @@
 			<sub stat="INT" val="2" />
 		</for>
 	</skill>
-	<skill id="9589" levels="6" name="Tunic of Aid Set" >
+	<skill id="9588" levels="6" name="Tunic of Aid Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1250,7 +1237,7 @@
 			<add stat="runSpd" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9590" levels="6" name="Robe of Blessing Set" >
+	<skill id="9589" levels="6" name="Robe of Blessing Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0595 1.085 1.1156 1.1445 1.17 1.2006 </table>
 		<table name="#v2"> 2 4 5 6 7 8 </table>
@@ -1265,7 +1252,7 @@
 			<add stat="weightLimit" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9591" levels="6" name="Dasparion's Set" >
+	<skill id="9590" levels="6" name="Dasparion's Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 84 120 163 204 240 283 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1280,7 +1267,7 @@
 			<mul stat="regMp" val="#v3" />
 		</for>
 	</skill>
-	<skill id="9592" levels="6" name="The Set" >
+	<skill id="9591" levels="6" name="The Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 62 88 120 150 177 209 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -1293,7 +1280,7 @@
 			<mul stat="regCp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9593" levels="6" name="Cotton Tunic Set" >
+	<skill id="9592" levels="6" name="Cotton Tunic Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -1308,7 +1295,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9594" levels="6" name="Devotion Set" >
+	<skill id="9593" levels="6" name="Devotion Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.15 1.2143 1.2914 1.3643 1.4286 1.5057 </table>
 		<set name="target" val="SELF" />
@@ -1319,7 +1306,7 @@
 			<mul stat="mAtkSpd" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9595" levels="6" name="Tunic of Magic Set" >
+	<skill id="9594" levels="6" name="Tunic of Magic Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 0.9825 0.975 0.966 0.9575 0.95 0.941 </table>
@@ -1332,7 +1319,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9596" levels="6" name="Squire's Set" >
+	<skill id="9595" levels="6" name="Squire's Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0184 1.0263 1.0357 1.0446 1.0525 1.062 </table>
 		<table name="#v2"> 2028 2898 3941 4926 5795 6838 </table>
@@ -1345,7 +1332,7 @@
 			<add stat="weightLimit" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9597" levels="6" name="Avadon Heavy Set" >
+	<skill id="9596" levels="6" name="Avadon Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 121 173 235 294 346 408 </table>
 		<set name="target" val="SELF" />
@@ -1356,7 +1343,7 @@
 			<add stat="maxHp" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9598" levels="6" name="Doom Heavy Set" >
+	<skill id="9597" levels="6" name="Doom Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 132 188 256 320 376 444 </table>
 		<table name="#v2"> 82 118 160 200 235 278 </table>
@@ -1371,7 +1358,7 @@
 			<add stat="CON" val="3" />
 		</for>
 	</skill>
-	<skill id="9599" levels="6" name="Tallum Heavy Set" >
+	<skill id="9598" levels="6" name="Tallum Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 2016 2880 3916 4895 5759 6796 </table>
@@ -1386,6 +1373,23 @@
 			<add stat="weightLimit" val="#v2" />
 			<addMul stat="poisonVuln" val="#v3" />
 			<addMul stat="bleedVuln" val="#v4" />
+			<add stat="STR" val="2" />
+			<sub stat="CON" val="2" />
+		</for>
+	</skill>
+	<skill id="9599" levels="6" name="Majestic Heavy Set" >
+		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
+		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
+		<table name="#v2"> 1 2 2 3 3 4 </table>
+		<table name="#v3"> 18 25 34 42 50 59 </table>
+		<set name="target" val="SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="PASSIVE" />
+		<set name="magicLvl" val="#magicLvl" />
+		<for>
+			<mul stat="pAtk" val="#v1" />
+			<add stat="accCombat" val="#v2" />
+			<addMul stat="stunVuln" val="#v3" />
 			<add stat="STR" val="2" />
 			<sub stat="CON" val="2" />
 		</for>

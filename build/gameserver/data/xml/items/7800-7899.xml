@@ -864,7 +864,7 @@
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="640" />
 		<for>
-			<baseadd stat="pDef" val="44" />
+			<baseadd stat="pDef" val="37" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -887,7 +887,7 @@
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="640" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -898,7 +898,7 @@
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="1280" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -921,7 +921,7 @@
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="640" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -932,7 +932,7 @@
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="1280" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -956,7 +956,7 @@
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="640" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -967,7 +967,7 @@
 		<set name="material" val="CLOTH" />
 		<set name="weight" val="1280" />
 		<for>
-			<baseadd stat="pDef" val="29" />
+			<baseadd stat="pDef" val="24" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -978,7 +978,7 @@
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="570" />
 		<for>
-			<baseadd stat="pDef" val="73" />
+			<baseadd stat="pDef" val="69" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1001,7 +1001,7 @@
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1012,7 +1012,7 @@
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1035,7 +1035,7 @@
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1046,7 +1046,7 @@
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1070,7 +1070,7 @@
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="580" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1081,7 +1081,7 @@
 		<set name="material" val="BLOOD_STEEL" />
 		<set name="weight" val="1130" />
 		<for>
-			<baseadd stat="pDef" val="49" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

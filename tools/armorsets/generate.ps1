@@ -4,7 +4,7 @@
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
-	and boots. families.csv holds 127 of them, one row per chest item of data/xml/items.
+	and boots. families.csv holds 126 of them, one row per chest item of data/xml/items.
 
 	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
@@ -14,12 +14,19 @@
 	    ... and an S grade set is left exactly as it is.
 
 	So Zubei's, a B grade set, gains an A and an S version ; Imperial Crusader, already S, gains
-	nothing at all. What this script writes :
+	nothing at all.
 
-	  * the original items are left at their own grade - only their P. Def. is levelled onto the
-	    table below, so that every set of a grade is worth the same ;
-	  * every grade above that gets freshly minted items, cloned from those very originals, in
-	    data/xml/items/10000-*.xml and up ;
+	Every set owns its pieces. Head, legs, gloves and boots are minted for that one family on every
+	rung of its ladder and named after its chest - "Tunic of Zubei Boots" - so no piece is ever worn
+	by two sets. The items families.csv names are clone sources : they give their mesh, texture,
+	icon, weight and material, and are not touched. The one exception is the chest, which is the
+	family's key and unique to it : on the rung of its own grade the original item is used as is.
+
+	What this script writes :
+
+	  * every rung of every family, minted into data/xml/items/10000-*.xml and up ;
+	  * the 126 chests keep their id and their grade - only their P. Def. is levelled onto the table
+	    below, so that every set of a grade is worth the same ;
 	  * data/xml/armorSets.xml is regenerated whole, one <armorset> per family per grade it reaches ;
 	  * every family gets one passive skill of six levels - one per grade, level 6 always being S -
 	    in data/xml/skills/9500-*.xml, plus three "+6 enchanted" skills, one per armor type.
@@ -243,62 +250,73 @@ if ($families.Count -eq 0) { throw 'families.csv is empty.' }
 
 $SLOTS = @('head', 'chest', 'legs', 'gloves', 'feet')
 
-# donor id -> what has to be minted out of it. A plain hashtable, not an ordered one : an
-# OrderedDictionary indexed by an int goes by position, not by key.
-#
-#   own   : the grade the donor item itself carries, which is left alone
-#   floor : the lowest grade any family asks this piece for. Pieces are shared - helmet 503 is worn
-#           by Zubei heavy, light and robe alike - so the floor is the lowest of all of them.
-$pieces = @{}
+# What a slot is called once the piece is named after its chest : "Tunic of Zubei Helmet". Legs are
+# stockings on a robe and gaiters on anything else, the way retail names them.
+$SLOT_WORD = @{ head = 'Helmet'; gloves = 'Gloves'; feet = 'Boots' }
+function Get-SlotWord([string]$slot, [string]$type)
+{
+	if ($slot -eq 'legs') { return $(if ($type -eq 'MAGIC') { 'Stockings' } else { 'Gaiters' }) }
+	$SLOT_WORD[$slot]
+}
+
+# Donors are clone sources and nothing else : nobody wears one as a set piece except a chest, on its
+# own rung. What is read off them is the look - mesh, texture, icon, weight, material - plus the
+# body part and the grade the item itself carries.
+$donors = @{}
 foreach ($fam in $families)
 {
-	$famGrade = $GRADE_IDX[$fam.origGrade]
 	foreach ($slot in $SLOTS)
 	{
 		$donor = [int]$fam.$slot
-		if ($donor -eq 0) { continue }
-
-		if ($pieces.ContainsKey($donor))
-		{
-			if ($famGrade -lt $pieces[$donor].floor) { $pieces[$donor].floor = $famGrade }
-			continue
-		}
+		if ($donor -eq 0 -or $donors.ContainsKey($donor)) { continue }
 
 		$block = Get-ItemBlock $donor
 		$bodypart = Get-ItemField $block 'bodypart'
 		if ($bodypart -eq '') { throw "item $donor has no bodypart" }
 		$crystal = Get-ItemField $block 'crystal_type'
-		$pieces[$donor] = @{
-			slot     = $slot
+		$donors[$donor] = @{
 			bodypart = $bodypart
 			type     = Get-ItemField $block 'armor_type'
 			name     = Get-ItemName $block
 			block    = $block
 			gated    = ($CLAN_ARMOR -contains $donor)
 			own      = $(if ($crystal -eq '') { 0 } else { $GRADE_IDX[$crystal] })
-			floor    = $famGrade
 		}
 	}
 }
 
-# One new id per grade a piece is missing, in donor id order, so a rerun gives the very same
-# numbers. A piece whose own grade sits inside its ladder uses the original item for that rung.
-$ids = @{}
+# Every set owns its pieces. A helmet that says "Tunic of Zubei" on it cannot also be worn by the
+# heavy and the light Zubei, so nothing is shared any more : each family gets its own head, legs,
+# gloves and boots minted on every rung of its ladder. Only the chest, which is the family's key and
+# is unique to it anyway, keeps its original item on the rung of its own grade.
+#
+# Numbering runs family by family in chest id order and, inside a family, bottom grade up, so a
+# rerun gives the very same ids.
+$famIds = @{}
 $next = $FIRST_ITEM_ID
-foreach ($donor in ($pieces.Keys | Sort-Object))
+foreach ($fam in ($families | Sort-Object { [int]$_.chest }))
 {
-	$piece = $pieces[$donor]
-	$ids[$donor] = @{}
-	for ($gi = $piece.floor; $gi -le $TOP_GRADE; $gi++)
+	$lo = $GRADE_IDX[$fam.origGrade]
+	$chest = [int]$fam.chest
+	if ($donors[$chest].own -ne $lo) { throw "chest $chest is grade $($GRADES[$donors[$chest].own]), families.csv says $($fam.origGrade)" }
+
+	$famIds[$fam.chest] = @{}
+	for ($gi = $lo; $gi -le $TOP_GRADE; $gi++)
 	{
-		if ($gi -eq $piece.own) { $ids[$donor][$GRADES[$gi]] = $donor ; continue }
-		$ids[$donor][$GRADES[$gi]] = $next
-		$next++
+		$rung = @{}
+		foreach ($slot in $SLOTS)
+		{
+			if ([int]$fam.$slot -eq 0) { $rung[$slot] = 0 ; continue }
+			if ($slot -eq 'chest' -and $gi -eq $lo) { $rung[$slot] = $chest ; continue }
+			$rung[$slot] = $next
+			$next++
+		}
+		$famIds[$fam.chest][$GRADES[$gi]] = $rung
 	}
 }
 $lastItemId = $next - 1
 
-Write-Host "$($families.Count) families, $($pieces.Count) pieces, new item ids $FIRST_ITEM_ID..$lastItemId"
+Write-Host "$($families.Count) families, $($donors.Count) donors, new item ids $FIRST_ITEM_ID..$lastItemId"
 
 # ---------------------------------------------------------------------------
 # What a piece is worth at a given grade.
@@ -322,11 +340,11 @@ function Get-PDef($piece, [string]$grade)
 $DROPPED_SETS = @('crystal_type', 'crystal_count', 'price', 'equip_condition',
 	'is_tradable', 'is_dropable', 'is_sellable', 'is_depositable', 'is_destroyable')
 
-function New-ItemBlock($piece, [string]$grade, [int]$newId)
+function New-ItemBlock($piece, [string]$grade, [int]$newId, [string]$pieceName)
 {
 	$src = $piece.block
 	$pdef = Get-PDef $piece $grade
-	$name = ConvertTo-XmlText ("{0} ({1})" -f $piece.name, $grade)
+	$name = ConvertTo-XmlText $pieceName
 	$crystals = $CRYSTALS[$piece.bodypart][$grade]
 	$price = $PRICES[$piece.bodypart][$grade]
 
@@ -381,31 +399,46 @@ $null = $clientItems.Add("id`tdonor`tgrade`tgradeIdx`tpdef`tname`taddName`tmode`
 
 $buckets = @{}
 $minted = 0
-foreach ($donor in ($pieces.Keys | Sort-Object))
+$pieceName = @{}
+foreach ($fam in ($families | Sort-Object { [int]$_.chest }))
 {
-	$piece = $pieces[$donor]
-	$clear = $(if ($piece.gated) { '1' } else { '0' })
+	$chest = [int]$fam.chest
+	$setName = $donors[$chest].name
 
-	for ($gi = $piece.floor; $gi -le $TOP_GRADE; $gi++)
+	foreach ($g in $GRADES)
 	{
-		$g = $GRADES[$gi]
-		$id = $ids[$donor][$g]
-		$pdef = Get-PDef $piece $g
+		if (-not $famIds[$fam.chest].ContainsKey($g)) { continue }
+		$gi = $GRADE_IDX[$g]
 
-		# The rung the original item already sits on : it keeps its id, its name and its grade, and
-		# only its P. Def. is levelled onto the table.
-		if ($id -eq $donor)
+		foreach ($slot in $SLOTS)
 		{
-			$null = $clientItems.Add("$donor`t$donor`t$g`t$gi`t$pdef`t$($piece.name)`t`tupdate`t$clear")
-			continue
+			$id = $famIds[$fam.chest][$g][$slot]
+			if ($id -eq 0) { continue }
+
+			$piece = $donors[[int]$fam.$slot]
+			$pdef = Get-PDef $piece $g
+			$clear = $(if ($piece.gated) { '1' } else { '0' })
+
+			# Every piece of a set is named after its chest, and carries no grade : the client shows
+			# the grade on the icon already.
+			$name = $(if ($slot -eq 'chest') { $setName } else { "$setName $(Get-SlotWord $slot $fam.type)" })
+			$pieceName[$id] = $name
+
+			# The chest on the rung of its own grade : it keeps its id, its name and its grade, and
+			# only its P. Def. is levelled onto the table.
+			if ($id -eq $chest)
+			{
+				$null = $clientItems.Add("$id`t$chest`t$g`t$gi`t$pdef`t$name`t`tupdate`t$clear")
+				continue
+			}
+
+			$bucket = [int][math]::Floor($id / $ITEMS_PER_FILE) * $ITEMS_PER_FILE
+			if (-not $buckets.ContainsKey($bucket)) { $buckets[$bucket] = [System.Collections.Generic.List[string]]::new() }
+			foreach ($l in (New-ItemBlock $piece $g $id $name)) { $null = $buckets[$bucket].Add($l) }
+			$minted++
+
+			$null = $clientItems.Add("$id`t$([int]$fam.$slot)`t$g`t$gi`t$pdef`t$name`t`tadd`t$clear")
 		}
-
-		$bucket = [int][math]::Floor($id / $ITEMS_PER_FILE) * $ITEMS_PER_FILE
-		if (-not $buckets.ContainsKey($bucket)) { $buckets[$bucket] = [System.Collections.Generic.List[string]]::new() }
-		foreach ($l in (New-ItemBlock $piece $g $id)) { $null = $buckets[$bucket].Add($l) }
-		$minted++
-
-		$null = $clientItems.Add("$id`t$donor`t$g`t$gi`t$pdef`t$($piece.name)`t$g-Grade`tadd`t$clear")
 	}
 }
 
@@ -418,22 +451,21 @@ foreach ($bucket in ($buckets.Keys | Sort-Object))
 Write-Host "wrote $($buckets.Count) item files"
 
 # ---------------------------------------------------------------------------
-# The originals that are a rung of their own ladder, rewritten where they stand. Their grade, their
-# price and their crystals are left alone - only P. Def. is levelled, and clan armor is ungated.
-# Bottom up, so that removing lines out of one block doesn't move the next one.
+# The chests, on the rung of their own grade, rewritten where they stand. Their grade, their price
+# and their crystals are left alone - only P. Def. is levelled, and clan armor is ungated. Bottom
+# up, so that removing lines out of one block doesn't move the next one.
+#
+# Nothing else is touched : head, legs, gloves and boots are clone sources only, never worn as
+# themselves, so those originals stay exactly as retail left them.
 # ---------------------------------------------------------------------------
 
 $byFile = @{}
-foreach ($donor in $pieces.Keys)
+foreach ($fam in $families)
 {
-	$piece = $pieces[$donor]
-	# A donor whose own grade is below the lowest grade anybody asks it for is never worn as itself :
-	# every rung of its ladder is a copy, so the original stays exactly as retail left it.
-	if ($piece.own -lt $piece.floor) { continue }
-
-	$f = $index[$donor].file
+	$chest = [int]$fam.chest
+	$f = $index[$chest].file
 	if (-not $byFile.ContainsKey($f)) { $byFile[$f] = @() }
-	$byFile[$f] += $donor
+	$byFile[$f] += $chest
 }
 
 $rewritten = 0
@@ -443,7 +475,7 @@ foreach ($f in $byFile.Keys)
 	foreach ($donor in ($byFile[$f] | Sort-Object { $index[$_].start } -Descending))
 	{
 		$e = $index[$donor]
-		$piece = $pieces[$donor]
+		$piece = $donors[$donor]
 		$pdef = Get-PDef $piece $GRADES[$piece.own]
 		$keep = [System.Collections.Generic.List[string]]::new()
 		$inCond = $false
@@ -469,7 +501,7 @@ foreach ($f in $byFile.Keys)
 	}
 	Write-Datapack (Join-Path $itemsDir $f) $lines "`r`n" $endsNl[$f]
 }
-Write-Host "minted $minted items, levelled $rewritten originals in $($byFile.Count) files"
+Write-Host "minted $minted items, levelled $rewritten chests in $($byFile.Count) files"
 
 # ---------------------------------------------------------------------------
 # Set bonuses. One skill per family, one level per grade.
@@ -684,12 +716,7 @@ foreach ($fam in $families)
 	for ($gi = $GRADE_IDX[$fam.origGrade]; $gi -le $TOP_GRADE; $gi++)
 	{
 		$g = $GRADES[$gi]
-		$slotIds = @{}
-		foreach ($slot in $SLOTS)
-		{
-			$donor = [int]$fam.$slot
-			$slotIds[$slot] = $(if ($donor -eq 0) { 0 } else { $ids[$donor][$g] })
-		}
+		$slotIds = $famIds[$fam.chest][$g]
 
 		$name = ConvertTo-XmlText ("{0} ({1})" -f $fam.name, $g)
 		$null = $sets.Add(("`t<armorset name=`"{0}`" chest=`"{1}`" legs=`"{2}`" head=`"{3}`" gloves=`"{4}`" feet=`"{5}`" skillId=`"{6}`" skillLvl=`"{7}`" shield=`"{8}`" shieldSkillId=`"{9}`" enchant6Skill=`"{10}`"/>" -f `
@@ -714,16 +741,21 @@ $body = @("<?xml version='1.0' encoding='utf-8'?>", '<list>') + $sets + @('</lis
 Write-Datapack $armorSetsPath $body "`r`n" (Test-EndsWithNewline $armorSetsPath)
 Write-Host "wrote $($sets.Count) armor sets"
 
-# One line per look : the ids the same piece wears from its own grade up to S, an empty cell for the
-# grades it doesn't reach. Whoever builds the "upgrade this set one grade" feature reads its ladder
-# out of here rather than guessing at id arithmetic.
+# One line per slot of every set : the ids that piece wears from the set's own grade up to S, an
+# empty cell for the grades it doesn't reach. Whoever builds the "upgrade this set one grade"
+# feature reads its ladder out of here rather than guessing at id arithmetic.
 $chain = [System.Collections.Generic.List[string]]::new()
-$null = $chain.Add("piece`tbodypart`tarmorType`tfrom`t" + ($GRADES -join "`t"))
-foreach ($donor in ($pieces.Keys | Sort-Object))
+$null = $chain.Add("set`tpiece`tslot`tbodypart`tarmorType`tfrom`t" + ($GRADES -join "`t"))
+foreach ($fam in ($families | Sort-Object { [int]$_.chest }))
 {
-	$p = $pieces[$donor]
-	$rungs = $GRADES | ForEach-Object { $(if ($ids[$donor].ContainsKey($_)) { $ids[$donor][$_] } else { '' }) }
-	$null = $chain.Add("$($p.name)`t$($p.bodypart)`t$($p.type)`t$($GRADES[$p.floor])`t" + ($rungs -join "`t"))
+	foreach ($slot in $SLOTS)
+	{
+		if ([int]$fam.$slot -eq 0) { continue }
+		$p = $donors[[int]$fam.$slot]
+		$rungs = $GRADES | ForEach-Object { $(if ($famIds[$fam.chest].ContainsKey($_)) { $famIds[$fam.chest][$_][$slot] } else { '' }) }
+		$first = $famIds[$fam.chest][$fam.origGrade][$slot]
+		$null = $chain.Add("$($fam.name)`t$($pieceName[$first])`t$slot`t$($p.bodypart)`t$($p.type)`t$($fam.origGrade)`t" + ($rungs -join "`t"))
+	}
 }
 [System.IO.File]::WriteAllText((Join-Path $outDir 'upgrade_chain.tsv'), (($chain -join "`n") + "`n"), (New-Object System.Text.UTF8Encoding $false))
 
@@ -758,15 +790,18 @@ $owned = New-Object 'System.Collections.Generic.HashSet[int]'
 $wanted = @{}
 foreach ($perGrade in $BUYLISTS.Values) { foreach ($list in $perGrade.Values) { $wanted[$list] = @() } }
 
-foreach ($donor in $pieces.Keys)
+foreach ($fam in $families)
 {
-	$bodypart = $pieces[$donor].bodypart
 	foreach ($g in $GRADES)
 	{
-		if (-not $ids[$donor].ContainsKey($g)) { continue }
-		$id = $ids[$donor][$g]
-		$null = $owned.Add($id)
-		$wanted[$BUYLISTS[$bodypart][$g]] += $id
+		if (-not $famIds[$fam.chest].ContainsKey($g)) { continue }
+		foreach ($slot in $SLOTS)
+		{
+			$id = $famIds[$fam.chest][$g][$slot]
+			if ($id -eq 0) { continue }
+			$null = $owned.Add($id)
+			$wanted[$BUYLISTS[$donors[[int]$fam.$slot].bodypart][$g]] += $id
+		}
 	}
 }
 

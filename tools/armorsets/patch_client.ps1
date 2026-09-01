@@ -7,11 +7,12 @@
 	generate.ps1 minted are invisible until those tables know about them. This script rewrites four
 	of them, out of tools\armorsets\generated\*.tsv :
 
-	  armorgrp.dat    one row per new piece, cloned from the piece it looks like, with its own id,
-	                  grade and P. Def. ; the No Grade originals get their grade and P. Def.
+	  armorgrp.dat    one row per new piece, cloned from the item it looks like, with its own id,
+	                  grade and P. Def. ; the chests keep their row and only have their P. Def.
 	                  rewritten in place.
-	  itemname-e.dat  name and "D-Grade" suffix for every new piece, plus the set tooltip - members,
-	                  bonus, shield - on all 463 chests.
+	  itemname-e.dat  the name of every new piece - taken from the chest of its set, with an empty
+	                  title, because the grade already shows on the icon - plus the set tooltip
+	                  (members, bonus, shield) on all 457 chests.
 	  skillgrp.dat    one row per set skill level, wearing the icon of its own chest piece.
 	  skillname-e.dat the name and the bonus text of every set skill level.
 
@@ -197,7 +198,7 @@ try
 	# -----------------------------------------------------------------------
 
 	$nam = Open-Dat 'itemname-e'
-	$idC = $nam.cols['id']; $anC = $nam.cols['add_name']; $dsC = $nam.cols['description']
+	$idC = $nam.cols['id']; $nmC = $nam.cols['name']; $anC = $nam.cols['add_name']; $dsC = $nam.cols['description']
 	$siC = $nam.cols['set_ids']; $sbC = $nam.cols['set_bonus_desc']
 	$xiC = $nam.cols['set_extra_id']; $xdC = $nam.cols['set_extra_desc']
 	$seaC = $nam.cols['special_enchant_amount']; $sedC = $nam.cols['special_enchant_desc']
@@ -215,7 +216,10 @@ try
 		$cells = $nam.rows[$byId[$donor]].Split("`t")
 
 		$cells[$idC] = $it.id
-		$cells[$anC] = $(if ($cells[$anC] -ne '') { "$($cells[$anC]), $($it.addName)" } else { $it.addName })
+		# A minted piece is named after the chest of its set, and its title says nothing at all -
+		# the grade is on the icon already, and the donor's own title would be about the donor.
+		$cells[$nmC] = $it.name
+		$cells[$anC] = ''
 		if ($it.clearDesc -eq '1') { $cells[$dsC] = Get-Prefixed $cells[$dsC] '' }
 		foreach ($c in $siC, $sbC, $xiC, $xdC) { $cells[$c] = Get-Prefixed $cells[$c] '' }
 		$cells[$seaC] = '0'

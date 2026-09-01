@@ -179,7 +179,7 @@
 		<set name="weight" val="1630" />
 		<set name="price" val="12700" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="32" />
 		</for>
 	</item>
 	<item id="413" type="Armor" name="Puma Skin Gaiters">
@@ -192,7 +192,7 @@
 		<set name="weight" val="1600" />
 		<set name="price" val="39100" />
 		<for>
-			<baseadd stat="pDef" val="48" />
+			<baseadd stat="pDef" val="36" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -206,7 +206,7 @@
 		<set name="weight" val="1570" />
 		<set name="price" val="62500" />
 		<for>
-			<baseadd stat="pDef" val="48" />
+			<baseadd stat="pDef" val="41" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -220,7 +220,7 @@
 		<set name="weight" val="1580" />
 		<set name="price" val="95200" />
 		<for>
-			<baseadd stat="pDef" val="48" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -234,7 +234,7 @@
 		<set name="weight" val="1570" />
 		<set name="price" val="95200" />
 		<for>
-			<baseadd stat="pDef" val="48" />
+			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -262,7 +262,7 @@
 		<set name="weight" val="1560" />
 		<set name="price" val="279000" />
 		<for>
-			<baseadd stat="pDef" val="69" />
+			<baseadd stat="pDef" val="59" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -276,7 +276,7 @@
 		<set name="weight" val="1550" />
 		<set name="price" val="302000" />
 		<for>
-			<baseadd stat="pDef" val="69" />
+			<baseadd stat="pDef" val="60" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -290,7 +290,7 @@
 		<set name="weight" val="1530" />
 		<set name="price" val="516000" />
 		<for>
-			<baseadd stat="pDef" val="69" />
+			<baseadd stat="pDef" val="66" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -304,7 +304,7 @@
 		<set name="weight" val="4800" />
 		<set name="price" val="1510000" />
 		<for>
-			<baseadd stat="pDef" val="78" />
+			<baseadd stat="pDef" val="82" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -318,7 +318,7 @@
 		<set name="weight" val="4800" />
 		<set name="price" val="2170000" />
 		<for>
-			<baseadd stat="pDef" val="78" />
+			<baseadd stat="pDef" val="87" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -332,7 +332,7 @@
 		<set name="weight" val="4800" />
 		<set name="price" val="1510000" />
 		<for>
-			<baseadd stat="pDef" val="78" />
+			<baseadd stat="pDef" val="82" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -346,7 +346,7 @@
 		<set name="weight" val="1490" />
 		<set name="price" val="2170000" />
 		<for>
-			<baseadd stat="pDef" val="78" />
+			<baseadd stat="pDef" val="87" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -361,7 +361,7 @@
 		<set name="is_dropable" val="false" />
 		<set name="is_sellable" val="false" />
 		<for>
-			<baseadd stat="pDef" val="34" />
+			<baseadd stat="pDef" val="17" />
 			<add stat="maxMp" val="19" />
 		</for>
 	</item>
@@ -886,7 +886,7 @@
 		<set name="is_dropable" val="false" />
 		<set name="is_sellable" val="false" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="10" />
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
@@ -898,7 +898,7 @@
 		<set name="weight" val="1080" />
 		<set name="price" val="92" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="11" />
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
@@ -910,7 +910,7 @@
 		<set name="weight" val="1070" />
 		<set name="price" val="1520" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="13" />
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
@@ -922,7 +922,7 @@
 		<set name="weight" val="1020" />
 		<set name="price" val="4970" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="16" />
 			<add stat="maxMp" val="33" />
 		</for>
 	</item>
@@ -936,7 +936,7 @@
 		<set name="weight" val="1020" />
 		<set name="price" val="39100" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="24" />
 			<add stat="maxMp" val="66" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -951,7 +951,7 @@
 		<set name="weight" val="1010" />
 		<set name="price" val="62500" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="27" />
 			<add stat="maxMp" val="79" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -966,7 +966,7 @@
 		<set name="weight" val="1000" />
 		<set name="price" val="62500" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="27" />
 			<add stat="maxMp" val="79" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -981,7 +981,7 @@
 		<set name="weight" val="990" />
 		<set name="price" val="62500" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="27" />
 			<add stat="maxMp" val="79" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -996,7 +996,7 @@
 		<set name="weight" val="1000" />
 		<set name="price" val="95200" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="30" />
 			<add stat="maxMp" val="92" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -1011,7 +1011,7 @@
 		<set name="weight" val="980" />
 		<set name="price" val="140000" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="32" />
 			<add stat="maxMp" val="105" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -1026,7 +1026,7 @@
 		<set name="weight" val="970" />
 		<set name="price" val="237000" />
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="37" />
 			<add stat="maxMp" val="141" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -1041,7 +1041,7 @@
 		<set name="weight" val="980" />
 		<set name="price" val="460000" />
 		<for>
-			<baseadd stat="pDef" val="46" />
+			<baseadd stat="pDef" val="43" />
 			<add stat="maxMp" val="177" />
 			<enchant stat="pDef" val="0" />
 		</for>
@@ -1401,7 +1401,7 @@
 		<set name="weight" val="620" />
 		<set name="price" val="147000" />
 		<for>
-			<baseadd stat="pDef" val="58" />
+			<baseadd stat="pDef" val="45" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
