@@ -15,7 +15,6 @@ public class Q169_OffspringOfNightmares extends Quest
 	// Items
 	private static final int CRACKED_SKULL = 1030;
 	private static final int PERFECT_SKULL = 1031;
-	private static final int BONE_GAITERS = 31;
 	
 	public Q169_OffspringOfNightmares()
 	{
@@ -48,7 +47,6 @@ public class Q169_OffspringOfNightmares extends Quest
 			int reward = 17000 + (player.getInventory().getItemCount(CRACKED_SKULL) * 20);
 			takeItems(player, PERFECT_SKULL, -1);
 			takeItems(player, CRACKED_SKULL, -1);
-			giveItems(player, BONE_GAITERS, 1);
 			rewardItems(player, 57, reward);
 			playSound(player, SOUND_FINISH);
 			st.exitQuest(false);

@@ -81,11 +81,7 @@ public class Q383_SearchingForTreasure extends Quest
 				int i1 = 0;
 				
 				int i0 = Rnd.get(100);
-				if (i0 < 5)
-					giveItems(player, 2450, 1);
-				else if (i0 < 6)
-					giveItems(player, 2451, 1);
-				else if (i0 < 18)
+				if (i0 < 18)
 					giveItems(player, 956, 1);
 				else if (i0 < 28)
 					giveItems(player, 952, 1);

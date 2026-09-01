@@ -1163,20 +1163,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="350" type="Armor" name="Dwarven Scale Mail">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="332" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8540" />
-		<set name="price" val="183000" />
-		<for>
-			<baseadd stat="pDef" val="95" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="351" type="Armor" name="Blast Plate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
@@ -1289,20 +1275,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="359" type="Armor" name="Shining Dragon Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="6400" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="360" type="Armor" name="Armor of Victory">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
@@ -1314,62 +1286,6 @@
 		<set name="price" val="3220000" />
 		<for>
 			<baseadd stat="pDef" val="166" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="361" type="Armor" name="Breastplate of Valor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="617" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="3360" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="185" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="362" type="Armor" name="Glorious Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="628" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="6720" />
-		<set name="price" val="4710000" />
-		<for>
-			<baseadd stat="pDef" val="284" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="363" type="Armor" name="Red Flame Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="6400" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="364" type="Armor" name="Elven Crystal Breastplate">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="429" />
-		<set name="material" val="CRYSTAL" />
-		<set name="weight" val="2400" />
-		<set name="price" val="3220000" />
-		<for>
-			<baseadd stat="pDef" val="175" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1387,118 +1303,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="366" type="Armor" name="Implosion Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="628" />
-		<set name="material" val="DAMASCUS" />
-		<set name="weight" val="6080" />
-		<set name="price" val="4710000" />
-		<for>
-			<baseadd stat="pDef" val="284" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="367" type="Armor" name="Dark Dragon Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="DAMASCUS" />
-		<set name="weight" val="5760" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="368" type="Armor" name="Elven Vagian Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="628" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="2400" />
-		<set name="price" val="4710000" />
-		<for>
-			<baseadd stat="pDef" val="284" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="369" type="Armor" name="Dark Vagian Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="2400" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="370" type="Armor" name="Complete Set of Plate Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="628" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="6400" />
-		<set name="price" val="4710000" />
-		<for>
-			<baseadd stat="pDef" val="284" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="371" type="Armor" name="Hell Plate">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="6400" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="372" type="Armor" name="Art of Plate">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="628" />
-		<set name="material" val="CHRYSOLITE" />
-		<set name="weight" val="6720" />
-		<set name="price" val="4710000" />
-		<for>
-			<baseadd stat="pDef" val="284" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="373" type="Armor" name="Masterpiece Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="902" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="5600" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="301" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="374" type="Armor" name="Armor of Nightmare">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
@@ -1510,23 +1314,6 @@
 		<set name="price" val="10300000" />
 		<for>
 			<baseadd stat="pDef" val="293" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="375" type="Armor" name="Dragon Scale Mail">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="525" />
-		<set name="material" val="SCALE_OF_DRAGON" />
-		<set name="weight" val="7620" />
-		<set name="price" val="10500000" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<for>
-			<baseadd stat="pDef" val="198" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1566,20 +1353,6 @@
 		<set name="crystal_count" val="230" />
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="3770" />
-		<set name="price" val="127000" />
-		<for>
-			<baseadd stat="pDef" val="61" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="379" type="Armor" name="Dwarven Scale Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="230" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="3840" />
 		<set name="price" val="127000" />
 		<for>
 			<baseadd stat="pDef" val="61" />
@@ -1642,20 +1415,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="384" type="Armor" name="Wolf Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="268" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="2560" />
-		<set name="price" val="2010000" />
-		<for>
-			<baseadd stat="pDef" val="109" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="385" type="Armor" name="Gaiters of Victory">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
@@ -1663,34 +1422,6 @@
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="268" />
 		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="2240" />
-		<set name="price" val="2010000" />
-		<for>
-			<baseadd stat="pDef" val="109" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="386" type="Armor" name="Gaiters of Valor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="385" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="2240" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="116" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="387" type="Armor" name="Elven Crystal Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="268" />
-		<set name="material" val="CRYSTAL" />
 		<set name="weight" val="2240" />
 		<set name="price" val="2010000" />
 		<for>
@@ -1709,23 +1440,6 @@
 		<set name="price" val="2890000" />
 		<for>
 			<baseadd stat="pDef" val="107" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="389" type="Armor" name="Dragon Scale Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="299" />
-		<set name="material" val="SCALE_OF_DRAGON" />
-		<set name="weight" val="3260" />
-		<set name="price" val="5980000" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<for>
-			<baseadd stat="pDef" val="122" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -1807,20 +1521,6 @@
 		<set name="price" val="224000" />
 		<for>
 			<baseadd stat="pDef" val="77" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="396" type="Armor" name="Salamander Skin Mail">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="780" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="6100" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="136" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

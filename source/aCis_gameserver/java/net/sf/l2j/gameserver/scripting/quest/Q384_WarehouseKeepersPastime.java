@@ -61,8 +61,7 @@ public class Q384_WarehouseKeepersPastime extends Quest
 	private static final IntIntHolder[] REWARDS_100_LOSE =
 	{
 		new IntIntHolder(50, 951), // Scroll: Enchant Weapon (C)
-		new IntIntHolder(80, 500), // Great Helmet
-		new IntIntHolder(98, 2437), // Drake Leather Boots
+		new IntIntHolder(98, 500), // Great Helmet
 		new IntIntHolder(100, 135)
 		// Samurai Longsword
 	};
@@ -219,9 +218,6 @@ public class Q384_WarehouseKeepersPastime extends Quest
 							if (chance < reward.getId())
 							{
 								giveItems(player, reward.getValue(), 1);
-								if (reward.getValue() == 2437)
-									giveItems(player, 2463, 1);
-								
 								break;
 							}
 						}

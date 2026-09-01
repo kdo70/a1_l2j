@@ -126,14 +126,11 @@ public class Q336_CoinsOfMagic extends Quest
 	private static final int DEMON_STAFF = 206;
 	private static final int DARK_SCREAMER = 233;
 	private static final int WIDOW_MAKER = 303;
-	private static final int DEMON_STOCKINGS = 472;
 	private static final int MOONSTONE_EARRING = 852;
 	private static final int NASSEN_EARRING = 855;
 	private static final int RING_OF_BINDING = 886;
 	private static final int NECKLACE_OF_PROTECTION = 916;
 	private static final int FULL_PLATE_HELMET = 2414;
-	private static final int DEMON_BOOTS = 2435;
-	private static final int DEMON_GLOVES = 2459;
 	
 	/**
 	 * Second multiplier for required items
@@ -832,28 +829,6 @@ public class Q336_CoinsOfMagic extends Quest
 				takeItems(player, SILVER_DRAGON, 1);
 				takeItems(player, SILVER_UNDINE, 1);
 				giveItems(player, SWORD_OF_LIMIT, 1);
-				playSound(player, SOUND_MIDDLE);
-			}
-			else if (item == 2435 && player.getInventory().hasItem(MANAK_GOLD_GIANT))
-			{
-				htmltext = "30232-24e.htm";
-				takeItems(player, MANAK_GOLD_GIANT, 1);
-				giveItems(player, DEMON_BOOTS, 1);
-				playSound(player, SOUND_MIDDLE);
-			}
-			else if (item == 472 && player.getInventory().hasItems(SILVER_DRYAD, MANAK_SILVER_DRYAD))
-			{
-				htmltext = "30232-24f.htm";
-				takeItems(player, SILVER_DRYAD, 1);
-				takeItems(player, MANAK_SILVER_DRYAD, 1);
-				giveItems(player, DEMON_STOCKINGS, 1);
-				playSound(player, SOUND_MIDDLE);
-			}
-			else if (item == 2459 && player.getInventory().hasItem(MANAK_GOLD_GIANT))
-			{
-				htmltext = "30232-24g.htm";
-				takeItems(player, MANAK_GOLD_GIANT, 1);
-				giveItems(player, DEMON_GLOVES, 1);
 				playSound(player, SOUND_MIDDLE);
 			}
 			else if (item == 2414 && player.getInventory().hasItems(MANAK_BLOOD_WEREWOLF, GOLD_GIANT, GOLD_WYRM))

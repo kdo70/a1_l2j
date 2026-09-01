@@ -20,7 +20,6 @@ public class Q276_TotemOfTheHestui extends Quest
 	
 	// Rewards
 	private static final int HESTUI_TOTEM = 1500;
-	private static final int LEATHER_PANTS = 29;
 	
 	public Q276_TotemOfTheHestui()
 	{
@@ -80,7 +79,6 @@ public class Q276_TotemOfTheHestui extends Quest
 					takeItems(player, KASHA_CRYSTAL, -1);
 					takeItems(player, KASHA_PARASITE, -1);
 					giveItems(player, HESTUI_TOTEM, 1);
-					giveItems(player, LEATHER_PANTS, 1);
 					playSound(player, SOUND_FINISH);
 					st.exitQuest(true);
 				}

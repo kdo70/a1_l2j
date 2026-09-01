@@ -1048,21 +1048,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2396" type="Armor" name="Elven Mithril Tunic">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="407" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="720" />
-		<set name="price" val="224000" />
-		<for>
-			<baseadd stat="pDef" val="54" />
-			<add stat="maxMp" val="169" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2397" type="Armor" name="Tunic of Zubei">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />

@@ -123,19 +123,6 @@
 		<set name="etcitem_type" val="TICKET_OF_LORD" />
 		<set name="material" val="LIQUID" />
 	</item>
-	<item id="5709" type="Armor" name="Sealed Zubei's Gauntlets">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5710" type="Armor" name="Zubei's Gauntlets - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
@@ -163,19 +150,6 @@
 		</for>
 	</item>
 	<item id="5712" type="Armor" name="Zubei's Gauntlets - Robe">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5713" type="Armor" name="Sealed Avadon Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="crystal_type" val="B" />
@@ -227,19 +201,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="5717" type="Armor" name="Sealed Blue Wolf Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5718" type="Armor" name="Blue Wolf Gloves - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
@@ -273,19 +234,6 @@
 		<set name="crystal_count" val="107" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="590" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5721" type="Armor" name="Sealed Doom Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
 		<set name="price" val="804000" />
 		<for>
 			<baseadd stat="pDef" val="44" />
@@ -331,19 +279,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="5725" type="Armor" name="Sealed Zubei's Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="1180" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5726" type="Armor" name="Zubei's Boots - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
@@ -371,19 +306,6 @@
 		</for>
 	</item>
 	<item id="5728" type="Armor" name="Zubei's Boots - Robe">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="1180" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5729" type="Armor" name="Sealed Avadon Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="crystal_type" val="B" />
@@ -435,19 +357,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="5733" type="Armor" name="Sealed Blue Wolf Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1130" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5734" type="Armor" name="Blue Wolf Boots - Heavy Armor">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
@@ -480,19 +389,6 @@
 		<set name="crystal_type" val="B" />
 		<set name="crystal_count" val="107" />
 		<set name="material" val="LEATHER" />
-		<set name="weight" val="1130" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5737" type="Armor" name="Sealed Boots of Doom">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="MITHRIL" />
 		<set name="weight" val="1130" />
 		<set name="price" val="804000" />
 		<for>

@@ -346,6 +346,55 @@ try
 	Add-Rows $namS $newNamS $firstSkill $lastSkill $sidC
 	Save-Dat $namS
 
+	# -----------------------------------------------------------------------
+	# Pruning. The client must not carry a row the server has no item for : armor no set wears any
+	# more, and whatever the stock client shipped that this datapack never had. Runs last, so the
+	# donor rows the minted pieces were cloned from were still there when they were needed.
+	# -----------------------------------------------------------------------
+
+	$prunePath = Join-Path $GeneratedDir '..\pruned.csv'
+	if (Test-Path $prunePath)
+	{
+		$prune = New-Object 'System.Collections.Generic.HashSet[int]'
+		foreach ($r in (Import-Csv $prunePath)) { $null = $prune.Add([int]$r.id) }
+
+		# Nothing a set actually uses may go, whatever the list says.
+		$keep = New-Object 'System.Collections.Generic.HashSet[int]'
+		foreach ($it in $items) { $null = $keep.Add([int]$it.id) }
+		foreach ($s in $sets) { foreach ($p in ($s.members -split ',')) { if ($p -ne '') { $null = $keep.Add([int]$p) } } }
+
+		$dropped = 0
+		foreach ($t in $grp, $nam)
+		{
+			$idCol = $(if ($t.name -eq 'armorgrp') { $t.cols['id'] } else { $t.cols['id'] })
+			for ($i = $t.rows.Count - 1; $i -ge 1; $i--)
+			{
+				$id = [int]$t.rows[$i].Split("`t")[$idCol]
+				if ($prune.Contains($id) -and -not $keep.Contains($id)) { $t.rows.RemoveAt($i); $dropped++ }
+			}
+		}
+		# Both were written before the prune ran, so they go out again.
+		Save-Dat $grp
+		Save-Dat $nam
+		Write-Host "pruned $dropped rows out of armorgrp and itemname-e"
+
+		# weapongrp and etcitemgrp hold no edit of ours - they are opened only to be pruned.
+		foreach ($tn in 'weapongrp', 'etcitemgrp')
+		{
+			$t = Open-Dat $tn
+			$idCol = $t.cols['id']
+			$n = 0
+			for ($i = $t.rows.Count - 1; $i -ge 1; $i--)
+			{
+				$id = [int]$t.rows[$i].Split("`t")[$idCol]
+				if ($prune.Contains($id) -and -not $keep.Contains($id)) { $t.rows.RemoveAt($i); $n++ }
+			}
+			if ($n -eq 0) { Write-Host "$tn : nothing to prune" ; continue }
+			Save-Dat $t
+			Write-Host "$tn : pruned $n rows"
+		}
+	}
+
 	Write-Host ''
 	Write-Host "done : $($added.Count) new pieces, $($sets.Count) set tooltips, $($skills.Count) skill levels."
 	Write-Host "Restore the client with the *.presets.bak files next to the patched ones."

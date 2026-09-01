@@ -1,63 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="9100" type="Armor" name="Shadow Item: Majestic Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="370" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="duration" val="600" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-		</for>
-	</item>
-	<item id="9101" type="Armor" name="Shadow Item: Majestic Robe">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="A" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="777" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="duration" val="600" />
-		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="718" />
-		</for>
-	</item>
-	<item id="9102" type="Armor" name="Shadow Item: Majestic Gauntlet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="180" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="duration" val="600" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-		</for>
-	</item>
-	<item id="9103" type="Armor" name="Shadow Item: Majestic Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="370" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="duration" val="600" />
-		<for>
-			<baseadd stat="pDef" val="49" />
-		</for>
-	</item>
 	<item id="9104" type="EtcItem" name="Composition Bow and Wooden Arrow">
 		<set name="default_action" val="capsule" />
 		<set name="material" val="PAPER" />
@@ -249,20 +191,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="2308-24" />
-	</item>
-	<item id="9128" type="Armor" name="Shadow Item: Mithril Gauntlet">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="C" />
-		<set name="material" val="MITHRIL" />
-		<set name="weight" val="200" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="duration" val="600" />
-		<for>
-			<baseadd stat="pDef" val="36" />
-		</for>
 	</item>
 	<item id="9129" type="Armor" name="Shadow Item: Shield of Nightmare">
 		<set name="default_action" val="equip" />

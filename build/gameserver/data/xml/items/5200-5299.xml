@@ -855,34 +855,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="5287" type="Armor" name="Sealed Dark Crystal breastplate">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="370" />
-		<set name="material" val="CRYSTAL" />
-		<set name="weight" val="7700" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="171" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5288" type="Armor" name="Sealed Dark Crystal Gaiters">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="231" />
-		<set name="material" val="CRYSTAL" />
-		<set name="weight" val="3320" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="107" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5289" type="Armor" name="Sealed Dark Crystal Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
@@ -893,32 +865,6 @@
 		<set name="price" val="1740000" />
 		<for>
 			<baseadd stat="pDef" val="69" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5290" type="Armor" name="Sealed Dark Crystal Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5291" type="Armor" name="Sealed Dark Crystal Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="CRYSTAL" />
-		<set name="weight" val="1110" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -937,20 +883,6 @@
 			<enchant val="0" stat="sDef" />
 		</for>
 	</item>
-	<item id="5293" type="Armor" name="Sealed Tallum Plate Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="541" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="9780" />
-		<set name="price" val="6770000" />
-		<for>
-			<baseadd stat="pDef" val="278" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="5294" type="Armor" name="Sealed Tallum Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
@@ -961,73 +893,6 @@
 		<set name="price" val="1740000" />
 		<for>
 			<baseadd stat="pDef" val="69" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5295" type="Armor" name="Sealed Tallum Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5296" type="Armor" name="Sealed Tallum Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="BLOOD_STEEL" />
-		<set name="weight" val="1130" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="46" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5297" type="Armor" name="Sealed Dark Crystal Leather Armor">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="chest" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="277" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4300" />
-		<set name="price" val="3470000" />
-		<for>
-			<baseadd stat="pDef" val="128" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5298" type="Armor" name="Sealed Dark Crystal Leggings">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="173" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1480" />
-		<set name="price" val="2170000" />
-		<for>
-			<baseadd stat="pDef" val="80" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="5299" type="Armor" name="Sealed Gloves of The Underworld">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1070000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

@@ -8,12 +8,6 @@
 		<npc>31817</npc> <!-- Adventure Guildsman -->
 	</npcs>
 	<!-- Karmian Stockings -->
-	<item>
-		<ingredient id="8158" count="13"/>
-		<ingredient id="8164" count="14"/>
-		<ingredient id="8170" count="2"/>
-		<production id="471" count="1"/>
-	</item>
 	<!-- Karmian Tunic -->
 	<item>
 		<ingredient id="8158" count="20"/>
@@ -22,12 +16,6 @@
 		<production id="439" count="1"/>
 	</item>
 	<!-- Robe of Seal -->
-	<item>
-		<ingredient id="8158" count="37"/>
-		<ingredient id="8164" count="41"/>
-		<ingredient id="8170" count="7"/>
-		<production id="440" count="1"/>
-	</item>
 	<!-- Divine Tunic -->
 	<item>
 		<ingredient id="8158" count="61"/>
@@ -36,12 +24,6 @@
 		<production id="442" count="1"/>
 	</item>
 	<!-- Divine Stockings -->
-	<item>
-		<ingredient id="8158" count="38"/>
-		<ingredient id="8164" count="42"/>
-		<ingredient id="8170" count="7"/>
-		<production id="473" count="1"/>
-	</item>
 	<!-- Tunic of Zubei -->
 	<item>
 		<ingredient id="8159" count="40"/>
@@ -51,13 +33,6 @@
 		<production id="2397" count="1"/>
 	</item>
 	<!-- Stockings of Zubei -->
-	<item>
-		<ingredient id="8159" count="25"/>
-		<ingredient id="8162" count="8"/>
-		<ingredient id="8165" count="25"/>
-		<ingredient id="8171" count="15"/>
-		<production id="2402" count="1"/>
-	</item>
 	<!-- Avadon Robe -->
 	<item>
 		<ingredient id="8159" count="59"/>
@@ -75,13 +50,6 @@
 		<production id="2398" count="1"/>
 	</item>
 	<!-- Blue Wolf Stockings -->
-	<item>
-		<ingredient id="8159" count="42"/>
-		<ingredient id="8162" count="12"/>
-		<ingredient id="8165" count="42"/>
-		<ingredient id="8171" count="25"/>
-		<production id="2403" count="1"/>
-	</item>
 	<!-- Tunic of Doom -->
 	<item>
 		<ingredient id="8159" count="66"/>
@@ -91,11 +59,4 @@
 		<production id="2399" count="1"/>
 	</item>
 	<!-- Stockings of Doom -->
-	<item>
-		<ingredient id="8159" count="42"/>
-		<ingredient id="8162" count="12"/>
-		<ingredient id="8165" count="42"/>
-		<ingredient id="8171" count="25"/>
-		<production id="2404" count="1"/>
-	</item>
 </list>

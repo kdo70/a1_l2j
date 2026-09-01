@@ -39,6 +39,7 @@ once, so a change to `families.csv` is applied by simply running both again.
 | file | what |
 |---|---|
 | `families.csv` | the table everything is generated from — one row per chest item, the pieces that go with it, and which set bonus it carries. Hand curated ; see below. |
+| `pruned.csv` | ids whose row `patch_client.ps1` deletes from `armorgrp` / `itemname-e` / `weapongrp` / `etcitemgrp` : armor no set wears, and rows the server has no item for. Anything a set really uses is excluded at run time, so a stale line here cannot break a set. |
 | `retired.csv` | the chests that used to be a set and are not one any more. `patch_client.ps1` wipes the stock set tooltip off them ; without it a removed retail set goes on promising its bonus in game. Explicit on purpose — the client also carries set tooltips this datapack never modelled (Dynasty, DragonFire) and those must stay. |
 | `generate.ps1` | datapack side : items, `armorSets.xml`, set skills, GM shop buy lists, and a copy into `build\`. |
 | `patch_client.ps1` | client side : `armorgrp.dat`, `itemname-e.dat`, `skillgrp.dat`, `skillname-e.dat`. |

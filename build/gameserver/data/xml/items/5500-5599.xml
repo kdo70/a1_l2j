@@ -517,12 +517,6 @@
 		<set name="material" val="GOLD" />
 		<set name="is_stackable" val="true" />
 	</item>
-	<item id="5576" type="Armor" name="Sound Test Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="50" />
-	</item>
 	<item id="5577" type="EtcItem" name="Red Soul Crystal - Stage 11">
 		<set name="default_action" val="skill_reduce" />
 		<set name="etcitem_type" val="SCROLL" />
@@ -644,13 +638,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="2165-1" />
-	</item>
-	<item id="5590" type="Armor" name="Squeaking Shoes">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="50" />
-		<set name="price" val="350000" />
 	</item>
 	<item id="5591" type="EtcItem" name="CP Potion">
 		<set name="default_action" val="skill_reduce" />

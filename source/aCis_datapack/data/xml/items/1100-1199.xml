@@ -199,19 +199,6 @@
 			<baseadd stat="pDef" val="11" />
 		</for>
 	</item>
-	<item id="1120" type="Armor" name="Pa'agrian Hand">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="64" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1600" />
-		<set name="price" val="161000" />
-		<for>
-			<baseadd stat="pDef" val="34" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="1121" type="Armor" name="Apprentice's Shoes">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
@@ -281,32 +268,6 @@
 		<set name="price" val="161000" />
 		<for>
 			<baseadd stat="pDef" val="34" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="1127" type="Armor" name="Forgotten Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="98" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="4000" />
-		<set name="price" val="245000" />
-		<for>
-			<baseadd stat="pDef" val="36" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="1128" type="Armor" name="Adamantite Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="143" />
-		<set name="material" val="ADAMANTAITE" />
-		<set name="weight" val="4000" />
-		<set name="price" val="358000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

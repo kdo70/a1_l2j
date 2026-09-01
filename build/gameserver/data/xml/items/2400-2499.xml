@@ -15,21 +15,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2401" type="Armor" name="Elven Mithril Stockings">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="legs" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="254" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="2400" />
-		<set name="price" val="140000" />
-		<for>
-			<baseadd stat="pDef" val="34" />
-			<add stat="maxMp" val="105" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2402" type="Armor" name="Stockings of Zubei">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
@@ -372,19 +357,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2427" type="Armor" name="Salamander Skin Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="177" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1230" />
-		<set name="price" val="97800" />
-		<for>
-			<baseadd stat="pDef" val="29" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2428" type="Armor" name="Plate Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
@@ -444,19 +416,6 @@
 		<set name="crystal_count" val="50" />
 		<set name="material" val="LEATHER" />
 		<set name="weight" val="1210" />
-		<set name="price" val="126000" />
-		<for>
-			<baseadd stat="pDef" val="32" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2433" type="Armor" name="Boots of Seal">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="50" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1220" />
 		<set name="price" val="126000" />
 		<for>
 			<baseadd stat="pDef" val="32" />
@@ -528,58 +487,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2439" type="Armor" name="Blue Wolf Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1130" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2440" type="Armor" name="Boots of Nightmare">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1110" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2441" type="Armor" name="Dark Legion Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1120" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2442" type="Armor" name="Dasparion's Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2443" type="Armor" name="Dragon Leather Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
@@ -590,32 +497,6 @@
 		<set name="price" val="2390000" />
 		<for>
 			<baseadd stat="pDef" val="51" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2444" type="Armor" name="The Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="119" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
-		<set name="price" val="2390000" />
-		<for>
-			<baseadd stat="pDef" val="51" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2445" type="Armor" name="Dragon Scale Boots">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="feet" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1100" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -762,19 +643,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2457" type="Armor" name="Gloves of Seal">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="64" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="620" />
-		<set name="price" val="161000" />
-		<for>
-			<baseadd stat="pDef" val="34" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2458" type="Armor" name="Rind Leather Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
@@ -853,175 +721,6 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="2464" type="Armor" name="Avadon Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2465" type="Armor" name="Chain Gloves of Silence">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2466" type="Armor" name="Guardian's Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2467" type="Armor" name="Gloves of Blessing">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="69" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="519000" />
-		<for>
-			<baseadd stat="pDef" val="41" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2468" type="Armor" name="Blessed Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="143" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="600" />
-		<set name="price" val="358000" />
-		<for>
-			<baseadd stat="pDef" val="39" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2469" type="Armor" name="Gloves of The Underworld">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2470" type="Armor" name="Gloves of Phantom">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="560" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2471" type="Armor" name="Dark Legion Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="560" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2472" type="Armor" name="Dark Crystal Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2473" type="Armor" name="The Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="119" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
-		<set name="price" val="2390000" />
-		<for>
-			<baseadd stat="pDef" val="51" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2474" type="Armor" name="Dasparion's Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="550" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2475" type="Armor" name="Doom Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2476" type="Armor" name="Dragon Gauntlets">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="130" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
-		<set name="price" val="2610000" />
-		<for>
-			<baseadd stat="pDef" val="52" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
 	<item id="2477" type="Armor" name="Dragon Leather Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
@@ -1032,149 +731,6 @@
 		<set name="price" val="2390000" />
 		<for>
 			<baseadd stat="pDef" val="51" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2478" type="Armor" name="Tallum Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2479" type="Armor" name="Gauntlets of Nightmare">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="550" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2480" type="Armor" name="Elemental Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2481" type="Armor" name="Gloves of Grace">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2482" type="Armor" name="Majestic Gauntlets">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2483" type="Armor" name="Gust Bracer">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2484" type="Armor" name="Cerberus Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="140" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="540" />
-		<set name="price" val="1760000" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2485" type="Armor" name="Implosion Gauntlets">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2486" type="Armor" name="Paradia Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="580" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2487" type="Armor" name="Blue Wolf Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="107" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="590" />
-		<set name="price" val="804000" />
-		<for>
-			<baseadd stat="pDef" val="44" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="2488" type="Armor" name="Phoenix Gloves">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="gloves" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="92" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="570" />
-		<set name="price" val="1160000" />
-		<for>
-			<baseadd stat="pDef" val="45" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

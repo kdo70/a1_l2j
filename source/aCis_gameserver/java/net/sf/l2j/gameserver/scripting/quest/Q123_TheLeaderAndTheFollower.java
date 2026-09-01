@@ -27,14 +27,8 @@ public class Q123_TheLeaderAndTheFollower extends Quest
 	// Rewards
 	private static final int CLAN_OATH_HELM = 7850;
 	private static final int CLAN_OATH_ARMOR = 7851;
-	private static final int CLAN_OATH_GAUNTLETS = 7852;
-	private static final int CLAN_OATH_SABATON = 7853;
 	private static final int CLAN_OATH_BRIGANDINE = 7854;
-	private static final int CLAN_OATH_LEATHER_GLOVES = 7855;
-	private static final int CLAN_OATH_BOOTS = 7856;
 	private static final int CLAN_OATH_AKETON = 7857;
-	private static final int CLAN_OATH_PADDED_GLOVES = 7858;
-	private static final int CLAN_OATH_SANDALS = 7859;
 	
 	public Q123_TheLeaderAndTheFollower()
 	{
@@ -228,20 +222,14 @@ public class Q123_TheLeaderAndTheFollower extends Quest
 						{
 							case 1:
 								giveItems(player, CLAN_OATH_ARMOR, 1);
-								giveItems(player, CLAN_OATH_GAUNTLETS, 1);
-								giveItems(player, CLAN_OATH_SABATON, 1);
 								break;
 							
 							case 2:
 								giveItems(player, CLAN_OATH_BRIGANDINE, 1);
-								giveItems(player, CLAN_OATH_LEATHER_GLOVES, 1);
-								giveItems(player, CLAN_OATH_BOOTS, 1);
 								break;
 							
 							case 3:
 								giveItems(player, CLAN_OATH_AKETON, 1);
-								giveItems(player, CLAN_OATH_PADDED_GLOVES, 1);
-								giveItems(player, CLAN_OATH_SANDALS, 1);
 								break;
 						}
 						

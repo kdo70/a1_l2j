@@ -18,9 +18,7 @@ public class Q258_BringWolfPelts extends Quest
 	
 	// Rewards
 	private static final int COTTON_SHIRT = 390;
-	private static final int LEATHER_PANTS = 29;
 	private static final int LEATHER_SHIRT = 22;
-	private static final int SHORT_LEATHER_GLOVES = 1119;
 	private static final int TUNIC = 426;
 	
 	public Q258_BringWolfPelts()
@@ -78,12 +76,8 @@ public class Q258_BringWolfPelts extends Quest
 					// Reward is based on a random number (1D16).
 					if (randomNumber == 0)
 						giveItems(player, COTTON_SHIRT, 1);
-					else if (randomNumber < 6)
-						giveItems(player, LEATHER_PANTS, 1);
 					else if (randomNumber < 9)
 						giveItems(player, LEATHER_SHIRT, 1);
-					else if (randomNumber < 13)
-						giveItems(player, SHORT_LEATHER_GLOVES, 1);
 					else
 						giveItems(player, TUNIC, 1);
 					

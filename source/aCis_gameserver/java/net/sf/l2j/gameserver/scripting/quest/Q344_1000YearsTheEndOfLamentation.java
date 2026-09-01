@@ -187,8 +187,6 @@ public class Q344_1000YearsTheEndOfLamentation extends Quest
 						giveItems(player, 1875, 19);
 					else if (chance < 95)
 						giveItems(player, 952, 5);
-					else
-						giveItems(player, 2437, 1);
 				}
 				break;
 			

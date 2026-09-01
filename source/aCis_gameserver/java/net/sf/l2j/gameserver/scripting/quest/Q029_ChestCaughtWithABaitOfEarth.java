@@ -17,7 +17,6 @@ public class Q029_ChestCaughtWithABaitOfEarth extends Quest
 	// Items
 	private static final int SMALL_PURPLE_TREASURE_CHEST = 6507;
 	private static final int SMALL_GLASS_BOX = 7627;
-	private static final int PLATED_LEATHER_GLOVES = 2455;
 	
 	public Q029_ChestCaughtWithABaitOfEarth()
 	{
@@ -60,7 +59,6 @@ public class Q029_ChestCaughtWithABaitOfEarth extends Quest
 			{
 				htmltext = "30909-02.htm";
 				takeItems(player, SMALL_GLASS_BOX, 1);
-				giveItems(player, PLATED_LEATHER_GLOVES, 1);
 				playSound(player, SOUND_FINISH);
 				st.exitQuest(false);
 			}
