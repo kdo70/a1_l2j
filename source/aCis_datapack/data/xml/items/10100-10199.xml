@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10100" type="Armor" name="Wooden Helmet (D)">
+	<item id="10100" type="Armor" name="Leather Cap (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="536000" />
+		<for>
+			<baseadd stat="pDef" val="58" />
+		</for>
+	</item>
+	<item id="10101" type="Armor" name="Leather Cap (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="175" />
+		<set name="price" val="1210000" />
+		<for>
+			<baseadd stat="pDef" val="67" />
+		</for>
+	</item>
+	<item id="10102" type="Armor" name="Leather Cap (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+		</for>
+	</item>
+	<item id="10103" type="Armor" name="Leather Cap (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="660" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+		</for>
+	</item>
+	<item id="10104" type="Armor" name="Wooden Helmet (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="WOOD" />
@@ -12,7 +60,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10101" type="Armor" name="Wooden Helmet (C)">
+	<item id="10105" type="Armor" name="Wooden Helmet (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="WOOD" />
@@ -24,7 +72,7 @@
 			<baseadd stat="pDef" val="58" />
 		</for>
 	</item>
-	<item id="10102" type="Armor" name="Wooden Helmet (B)">
+	<item id="10106" type="Armor" name="Wooden Helmet (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="WOOD" />
@@ -36,7 +84,7 @@
 			<baseadd stat="pDef" val="67" />
 		</for>
 	</item>
-	<item id="10103" type="Armor" name="Wooden Helmet (A)">
+	<item id="10107" type="Armor" name="Wooden Helmet (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="WOOD" />
@@ -48,7 +96,7 @@
 			<baseadd stat="pDef" val="73" />
 		</for>
 	</item>
-	<item id="10104" type="Armor" name="Wooden Helmet (S)">
+	<item id="10108" type="Armor" name="Wooden Helmet (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="WOOD" />
@@ -60,7 +108,7 @@
 			<baseadd stat="pDef" val="83" />
 		</for>
 	</item>
-	<item id="10105" type="Armor" name="Leather Helmet (D)">
+	<item id="10109" type="Armor" name="Leather Helmet (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -72,7 +120,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10106" type="Armor" name="Leather Helmet (C)">
+	<item id="10110" type="Armor" name="Leather Helmet (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -84,7 +132,7 @@
 			<baseadd stat="pDef" val="58" />
 		</for>
 	</item>
-	<item id="10107" type="Armor" name="Leather Helmet (B)">
+	<item id="10111" type="Armor" name="Leather Helmet (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -96,7 +144,7 @@
 			<baseadd stat="pDef" val="67" />
 		</for>
 	</item>
-	<item id="10108" type="Armor" name="Leather Helmet (A)">
+	<item id="10112" type="Armor" name="Leather Helmet (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -108,7 +156,7 @@
 			<baseadd stat="pDef" val="73" />
 		</for>
 	</item>
-	<item id="10109" type="Armor" name="Leather Helmet (S)">
+	<item id="10113" type="Armor" name="Leather Helmet (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -120,7 +168,7 @@
 			<baseadd stat="pDef" val="83" />
 		</for>
 	</item>
-	<item id="10110" type="Armor" name="Bone Helmet (NG)">
+	<item id="10114" type="Armor" name="Bone Helmet (NG)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BONE" />
@@ -131,7 +179,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10111" type="Armor" name="Bone Helmet (C)">
+	<item id="10115" type="Armor" name="Bone Helmet (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BONE" />
@@ -144,7 +192,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10112" type="Armor" name="Bone Helmet (B)">
+	<item id="10116" type="Armor" name="Bone Helmet (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BONE" />
@@ -157,7 +205,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10113" type="Armor" name="Bone Helmet (A)">
+	<item id="10117" type="Armor" name="Bone Helmet (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BONE" />
@@ -170,7 +218,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10114" type="Armor" name="Bone Helmet (S)">
+	<item id="10118" type="Armor" name="Bone Helmet (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BONE" />
@@ -183,7 +231,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10115" type="Armor" name="Bronze Helmet (NG)">
+	<item id="10119" type="Armor" name="Bronze Helmet (NG)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BRONZE" />
@@ -194,7 +242,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10116" type="Armor" name="Bronze Helmet (C)">
+	<item id="10120" type="Armor" name="Bronze Helmet (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BRONZE" />
@@ -207,7 +255,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10117" type="Armor" name="Bronze Helmet (B)">
+	<item id="10121" type="Armor" name="Bronze Helmet (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BRONZE" />
@@ -220,7 +268,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10118" type="Armor" name="Bronze Helmet (A)">
+	<item id="10122" type="Armor" name="Bronze Helmet (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BRONZE" />
@@ -233,7 +281,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10119" type="Armor" name="Bronze Helmet (S)">
+	<item id="10123" type="Armor" name="Bronze Helmet (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="BRONZE" />
@@ -246,7 +294,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10120" type="Armor" name="Helmet (C)">
+	<item id="10124" type="Armor" name="Helmet (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -259,7 +307,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10121" type="Armor" name="Helmet (B)">
+	<item id="10125" type="Armor" name="Helmet (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -272,7 +320,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10122" type="Armor" name="Helmet (A)">
+	<item id="10126" type="Armor" name="Helmet (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -285,7 +333,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10123" type="Armor" name="Helmet (S)">
+	<item id="10127" type="Armor" name="Helmet (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -298,7 +346,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10124" type="Armor" name="Short Gloves (D)">
+	<item id="10128" type="Armor" name="Short Gloves (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -310,7 +358,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10125" type="Armor" name="Short Gloves (C)">
+	<item id="10129" type="Armor" name="Short Gloves (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -322,7 +370,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10126" type="Armor" name="Short Gloves (B)">
+	<item id="10130" type="Armor" name="Short Gloves (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -334,7 +382,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10127" type="Armor" name="Short Gloves (A)">
+	<item id="10131" type="Armor" name="Short Gloves (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -346,7 +394,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10128" type="Armor" name="Short Gloves (S)">
+	<item id="10132" type="Armor" name="Short Gloves (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -358,7 +406,7 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10129" type="Armor" name="Gloves (D)">
+	<item id="10133" type="Armor" name="Gloves (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -370,7 +418,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10130" type="Armor" name="Gloves (C)">
+	<item id="10134" type="Armor" name="Gloves (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -382,7 +430,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10131" type="Armor" name="Gloves (B)">
+	<item id="10135" type="Armor" name="Gloves (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -394,7 +442,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10132" type="Armor" name="Gloves (A)">
+	<item id="10136" type="Armor" name="Gloves (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -406,7 +454,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10133" type="Armor" name="Gloves (S)">
+	<item id="10137" type="Armor" name="Gloves (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -418,7 +466,7 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10134" type="Armor" name="Leather Gloves (D)">
+	<item id="10138" type="Armor" name="Leather Gloves (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -430,7 +478,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10135" type="Armor" name="Leather Gloves (C)">
+	<item id="10139" type="Armor" name="Leather Gloves (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -442,7 +490,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10136" type="Armor" name="Leather Gloves (B)">
+	<item id="10140" type="Armor" name="Leather Gloves (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -454,7 +502,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10137" type="Armor" name="Leather Gloves (A)">
+	<item id="10141" type="Armor" name="Leather Gloves (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -466,7 +514,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10138" type="Armor" name="Leather Gloves (S)">
+	<item id="10142" type="Armor" name="Leather Gloves (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -478,7 +526,67 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10139" type="Armor" name="Mithril Breastplate (C)">
+	<item id="10143" type="Armor" name="Bracer (D)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="650" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="80" />
+		<set name="price" val="74700" />
+		<for>
+			<baseadd stat="pDef" val="29" />
+		</for>
+	</item>
+	<item id="10144" type="Armor" name="Bracer (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="650" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+		</for>
+	</item>
+	<item id="10145" type="Armor" name="Bracer (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="650" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="44" />
+		</for>
+	</item>
+	<item id="10146" type="Armor" name="Bracer (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="650" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+		</for>
+	</item>
+	<item id="10147" type="Armor" name="Bracer (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="650" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+		</for>
+	</item>
+	<item id="10148" type="Armor" name="Mithril Breastplate (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -492,7 +600,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10140" type="Armor" name="Mithril Breastplate (B)">
+	<item id="10149" type="Armor" name="Mithril Breastplate (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -506,7 +614,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10141" type="Armor" name="Mithril Breastplate (A)">
+	<item id="10150" type="Armor" name="Mithril Breastplate (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -520,7 +628,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10142" type="Armor" name="Mithril Breastplate (S)">
+	<item id="10151" type="Armor" name="Mithril Breastplate (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -534,7 +642,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10143" type="Armor" name="Mithril Gaiters (C)">
+	<item id="10152" type="Armor" name="Mithril Gaiters (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -548,7 +656,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10144" type="Armor" name="Mithril Gaiters (B)">
+	<item id="10153" type="Armor" name="Mithril Gaiters (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -562,7 +670,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10145" type="Armor" name="Mithril Gaiters (A)">
+	<item id="10154" type="Armor" name="Mithril Gaiters (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -576,7 +684,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10146" type="Armor" name="Mithril Gaiters (S)">
+	<item id="10155" type="Armor" name="Mithril Gaiters (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -590,7 +698,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10147" type="Armor" name="Composite Armor (B)">
+	<item id="10156" type="Armor" name="Composite Armor (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -604,7 +712,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10148" type="Armor" name="Composite Armor (A)">
+	<item id="10157" type="Armor" name="Composite Armor (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -618,7 +726,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10149" type="Armor" name="Composite Armor (S)">
+	<item id="10158" type="Armor" name="Composite Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -632,7 +740,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10150" type="Armor" name="Mithril Gloves (C)">
+	<item id="10159" type="Armor" name="Mithril Gloves (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -645,7 +753,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10151" type="Armor" name="Mithril Gloves (B)">
+	<item id="10160" type="Armor" name="Mithril Gloves (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -658,7 +766,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10152" type="Armor" name="Mithril Gloves (A)">
+	<item id="10161" type="Armor" name="Mithril Gloves (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -671,7 +779,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10153" type="Armor" name="Mithril Gloves (S)">
+	<item id="10162" type="Armor" name="Mithril Gloves (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="MITHRIL" />
@@ -684,7 +792,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10154" type="Armor" name="Mithril Boots (D)">
+	<item id="10163" type="Armor" name="Mithril Boots (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -697,7 +805,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10155" type="Armor" name="Mithril Boots (B)">
+	<item id="10164" type="Armor" name="Mithril Boots (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -710,7 +818,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10156" type="Armor" name="Mithril Boots (A)">
+	<item id="10165" type="Armor" name="Mithril Boots (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -723,7 +831,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10157" type="Armor" name="Mithril Boots (S)">
+	<item id="10166" type="Armor" name="Mithril Boots (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -736,7 +844,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10158" type="Armor" name="Gauntlets (NG)">
+	<item id="10167" type="Armor" name="Gauntlets (NG)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -747,7 +855,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10159" type="Armor" name="Gauntlets (C)">
+	<item id="10168" type="Armor" name="Gauntlets (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -760,7 +868,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10160" type="Armor" name="Gauntlets (B)">
+	<item id="10169" type="Armor" name="Gauntlets (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -773,7 +881,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10161" type="Armor" name="Gauntlets (A)">
+	<item id="10170" type="Armor" name="Gauntlets (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -786,7 +894,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10162" type="Armor" name="Gauntlets (S)">
+	<item id="10171" type="Armor" name="Gauntlets (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -799,7 +907,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10163" type="Armor" name="Composite Boots (B)">
+	<item id="10172" type="Armor" name="Composite Boots (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -812,7 +920,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10164" type="Armor" name="Composite Boots (A)">
+	<item id="10173" type="Armor" name="Composite Boots (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -825,7 +933,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10165" type="Armor" name="Composite Boots (S)">
+	<item id="10174" type="Armor" name="Composite Boots (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -838,7 +946,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10166" type="Armor" name="Ring Mail Breastplate (C)">
+	<item id="10175" type="Armor" name="Ring Mail Breastplate (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -852,7 +960,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10167" type="Armor" name="Ring Mail Breastplate (B)">
+	<item id="10176" type="Armor" name="Ring Mail Breastplate (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -866,7 +974,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10168" type="Armor" name="Ring Mail Breastplate (A)">
+	<item id="10177" type="Armor" name="Ring Mail Breastplate (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -880,7 +988,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10169" type="Armor" name="Ring Mail Breastplate (S)">
+	<item id="10178" type="Armor" name="Ring Mail Breastplate (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -894,7 +1002,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10170" type="Armor" name="Scale Mail (C)">
+	<item id="10179" type="Armor" name="Scale Mail (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -908,7 +1016,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10171" type="Armor" name="Scale Mail (B)">
+	<item id="10180" type="Armor" name="Scale Mail (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -922,7 +1030,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10172" type="Armor" name="Scale Mail (A)">
+	<item id="10181" type="Armor" name="Scale Mail (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -936,7 +1044,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10173" type="Armor" name="Scale Mail (S)">
+	<item id="10182" type="Armor" name="Scale Mail (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -950,7 +1058,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10174" type="Armor" name="Compound Scale Mail (C)">
+	<item id="10183" type="Armor" name="Compound Scale Mail (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -964,7 +1072,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10175" type="Armor" name="Compound Scale Mail (B)">
+	<item id="10184" type="Armor" name="Compound Scale Mail (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -978,7 +1086,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10176" type="Armor" name="Compound Scale Mail (A)">
+	<item id="10185" type="Armor" name="Compound Scale Mail (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -992,7 +1100,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10177" type="Armor" name="Compound Scale Mail (S)">
+	<item id="10186" type="Armor" name="Compound Scale Mail (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1006,7 +1114,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10178" type="Armor" name="Dwarven Scale Mail (C)">
+	<item id="10187" type="Armor" name="Dwarven Scale Mail (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1020,7 +1128,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10179" type="Armor" name="Dwarven Scale Mail (B)">
+	<item id="10188" type="Armor" name="Dwarven Scale Mail (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1034,7 +1142,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10180" type="Armor" name="Dwarven Scale Mail (A)">
+	<item id="10189" type="Armor" name="Dwarven Scale Mail (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1048,7 +1156,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10181" type="Armor" name="Dwarven Scale Mail (S)">
+	<item id="10190" type="Armor" name="Dwarven Scale Mail (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1062,7 +1170,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10182" type="Armor" name="Blast Plate (C)">
+	<item id="10191" type="Armor" name="Blast Plate (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1076,7 +1184,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10183" type="Armor" name="Blast Plate (B)">
+	<item id="10192" type="Armor" name="Blast Plate (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1090,7 +1198,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10184" type="Armor" name="Blast Plate (A)">
+	<item id="10193" type="Armor" name="Blast Plate (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1104,7 +1212,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10185" type="Armor" name="Blast Plate (S)">
+	<item id="10194" type="Armor" name="Blast Plate (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1118,7 +1226,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10186" type="Armor" name="Brigandine Tunic (C)">
+	<item id="10195" type="Armor" name="Brigandine Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1132,7 +1240,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10187" type="Armor" name="Brigandine Tunic (B)">
+	<item id="10196" type="Armor" name="Brigandine Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1146,7 +1254,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10188" type="Armor" name="Brigandine Tunic (A)">
+	<item id="10197" type="Armor" name="Brigandine Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1160,7 +1268,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10189" type="Armor" name="Brigandine Tunic (S)">
+	<item id="10198" type="Armor" name="Brigandine Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1174,7 +1282,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10190" type="Armor" name="Half Plate Armor (C)">
+	<item id="10199" type="Armor" name="Half Plate Armor (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1185,132 +1293,6 @@
 		<set name="price" val="505000" />
 		<for>
 			<baseadd stat="pDef" val="147" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10191" type="Armor" name="Half Plate Armor (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8220" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="440" />
-		<set name="price" val="2410000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10192" type="Armor" name="Half Plate Armor (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8220" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10193" type="Armor" name="Half Plate Armor (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8220" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="205" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10194" type="Armor" name="Chain Mail Shirt (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8120" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="440" />
-		<set name="price" val="2410000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10195" type="Armor" name="Chain Mail Shirt (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8120" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10196" type="Armor" name="Chain Mail Shirt (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8120" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="205" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10197" type="Armor" name="Dwarven Chain Mail Shirt (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="440" />
-		<set name="price" val="2410000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10198" type="Armor" name="Dwarven Chain Mail Shirt (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="520" />
-		<set name="price" val="4630000" />
-		<for>
-			<baseadd stat="pDef" val="180" />
-			<enchant stat="pDef" val="0" />
-		</for>
-	</item>
-	<item id="10199" type="Armor" name="Dwarven Chain Mail Shirt (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="HEAVY" />
-		<set name="bodypart" val="chest" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="8070" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="630" />
-		<set name="price" val="14300000" />
-		<for>
-			<baseadd stat="pDef" val="205" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

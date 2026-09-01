@@ -1,51 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<skill id="9600" levels="6" name="Avadon Heavy Set" >
-		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
-		<table name="#v1"> 121 173 235 294 346 408 </table>
-		<set name="target" val="SELF" />
-		<set name="skillType" val="BUFF" />
-		<set name="operateType" val="PASSIVE" />
-		<set name="magicLvl" val="#magicLvl" />
-		<for>
-			<add stat="maxHp" val="#v1" />
-		</for>
-	</skill>
-	<skill id="9601" levels="6" name="Doom Heavy Set" >
-		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
-		<table name="#v1"> 132 188 256 320 376 444 </table>
-		<table name="#v2"> 82 118 160 200 235 278 </table>
-		<set name="target" val="SELF" />
-		<set name="skillType" val="BUFF" />
-		<set name="operateType" val="PASSIVE" />
-		<set name="magicLvl" val="#magicLvl" />
-		<for>
-			<add stat="maxHp" val="#v1" />
-			<add stat="breath" val="#v2" />
-			<sub stat="STR" val="3" />
-			<add stat="CON" val="3" />
-		</for>
-	</skill>
-	<skill id="9602" levels="6" name="Tallum Heavy Set" >
-		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
-		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
-		<table name="#v2"> 2016 2880 3916 4895 5759 6796 </table>
-		<table name="#v3"> 28 40 54 68 80 94 </table>
-		<table name="#v4"> 28 40 54 68 80 94 </table>
-		<set name="target" val="SELF" />
-		<set name="skillType" val="BUFF" />
-		<set name="operateType" val="PASSIVE" />
-		<set name="magicLvl" val="#magicLvl" />
-		<for>
-			<mul stat="pAtkSpd" val="#v1" />
-			<add stat="weightLimit" val="#v2" />
-			<addMul stat="poisonVuln" val="#v3" />
-			<addMul stat="bleedVuln" val="#v4" />
-			<add stat="STR" val="2" />
-			<sub stat="CON" val="2" />
-		</for>
-	</skill>
-	<skill id="9603" levels="6" name="Majestic Heavy Set" >
+	<skill id="9600" levels="6" name="Majestic Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1 2 2 3 3 4 </table>
@@ -62,7 +17,7 @@
 			<sub stat="CON" val="2" />
 		</for>
 	</skill>
-	<skill id="9604" levels="6" name="Zubei Light Set" >
+	<skill id="9601" levels="6" name="Zubei Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 2 2 3 4 5 6 </table>
 		<set name="target" val="SELF" />
@@ -73,7 +28,7 @@
 			<add stat="rEvas" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9605" levels="6" name="Dark Crystal Light Set" >
+	<skill id="9602" levels="6" name="Dark Crystal Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
@@ -90,7 +45,7 @@
 			<sub stat="CON" val="1" />
 		</for>
 	</skill>
-	<skill id="9606" levels="6" name="Avadon Light Set" >
+	<skill id="9603" levels="6" name="Avadon Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0216 1.0309 1.042 1.0525 1.0618 1.0729 </table>
 		<table name="#v2"> 2386 3409 4636 5795 6818 8045 </table>
@@ -103,7 +58,7 @@
 			<add stat="weightLimit" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9607" levels="6" name="Blue Wolf Light Set" >
+	<skill id="9604" levels="6" name="Blue Wolf Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0216 1.0308 1.0419 1.0524 1.0616 1.0727 </table>
 		<table name="#v2"> 1.0618 1.0882 1.12 1.15 1.1765 1.2082 </table>
@@ -119,7 +74,7 @@
 			<sub stat="WIT" val="1" />
 		</for>
 	</skill>
-	<skill id="9608" levels="6" name="Doom Light Set" >
+	<skill id="9605" levels="6" name="Doom Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 82 118 160 200 235 278 </table>
 		<table name="#v2"> 1.0111 1.0159 1.0216 1.027 1.0318 1.0375 </table>
@@ -139,7 +94,7 @@
 			<addMul stat="poisonVuln" val="#v7" />
 		</for>
 	</skill>
-	<skill id="9609" levels="6" name="Tallum Light Set" >
+	<skill id="9606" levels="6" name="Tallum Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 78 111 151 189 222 262 </table>
@@ -158,7 +113,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9610" levels="6" name="Nightmare Light Set" >
+	<skill id="9607" levels="6" name="Nightmare Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 24 35 48 60 70 83 </table>
@@ -177,7 +132,7 @@
 			<sub stat="CON" val="1" />
 		</for>
 	</skill>
-	<skill id="9611" levels="6" name="Majestic Leather Set" >
+	<skill id="9608" levels="6" name="Majestic Leather Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 84 120 163 204 240 283 </table>
@@ -196,7 +151,7 @@
 			<sub stat="CON" val="1" />
 		</for>
 	</skill>
-	<skill id="9612" levels="6" name="Elven Mithril Set" >
+	<skill id="9609" levels="6" name="Elven Mithril Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -209,7 +164,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9613" levels="6" name="Zubei Robe Set" >
+	<skill id="9610" levels="6" name="Zubei Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0412 1.0588 1.08 1.1 1.1176 1.1388 </table>
 		<table name="#v2"> 0.9794 0.9706 0.96 0.95 0.9412 0.9306 </table>
@@ -222,7 +177,7 @@
 			<mul stat="regMp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9614" levels="6" name="Blue Wolf Robe Set" >
+	<skill id="9611" levels="6" name="Blue Wolf Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 85 121 165 206 242 286 </table>
 		<table name="#v2"> 1.0217 1.0309 1.0421 1.0526 1.0619 1.073 </table>
@@ -238,7 +193,7 @@
 			<add stat="WIT" val="3" />
 		</for>
 	</skill>
-	<skill id="9615" levels="6" name="Doom Robe Set" >
+	<skill id="9612" levels="6" name="Doom Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 3 4 6 7 8 10 </table>
 		<table name="#v2"> 82 118 160 200 235 278 </table>
@@ -256,7 +211,7 @@
 			<sub stat="WIT" val="3" />
 		</for>
 	</skill>
-	<skill id="9616" levels="6" name="Tallum Robe Set" >
+	<skill id="9613" levels="6" name="Tallum Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -275,7 +230,7 @@
 			<add stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9617" levels="6" name="Avadon Robe Set" >
+	<skill id="9614" levels="6" name="Avadon Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0225 1.0322 1.0438 1.0547 1.0644 1.0759 </table>
 		<table name="#v2"> 1.0618 1.0882 1.12 1.15 1.1765 1.2082 </table>
@@ -288,7 +243,7 @@
 			<mul stat="mAtkSpd" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9618" levels="6" name="Dark Crystal Robe Set" >
+	<skill id="9615" levels="6" name="Dark Crystal Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -309,7 +264,7 @@
 			<sub stat="MEN" val="2" />
 		</for>
 	</skill>
-	<skill id="9619" levels="6" name="Nightmare Robe Set" >
+	<skill id="9616" levels="6" name="Nightmare Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -328,7 +283,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9620" levels="6" name="Majestic Robe Set" >
+	<skill id="9617" levels="6" name="Majestic Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 84 120 163 204 240 283 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -347,7 +302,7 @@
 			<sub stat="INT" val="1" />
 		</for>
 	</skill>
-	<skill id="9621" levels="6" name="Imperial Crusader Set" >
+	<skill id="9618" levels="6" name="Imperial Crusader Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0237 1.0339 1.0461 1.0576 1.0678 1.08 </table>
 		<table name="#v2"> 132 189 256 321 377 445 </table>
@@ -366,7 +321,7 @@
 			<add stat="STR" val="2" />
 		</for>
 	</skill>
-	<skill id="9622" levels="6" name="Draconic Leather Set" >
+	<skill id="9619" levels="6" name="Draconic Leather Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0119 1.0169 1.0231 1.0288 1.0339 1.04 </table>
 		<table name="#v2"> 1.0119 1.0169 1.0231 1.0288 1.0339 1.04 </table>
@@ -386,7 +341,7 @@
 			<sub stat="CON" val="2" />
 		</for>
 	</skill>
-	<skill id="9623" levels="6" name="Major Arcana Set" >
+	<skill id="9620" levels="6" name="Major Arcana Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0504 1.072 1.098 1.1225 1.1441 1.17 </table>
 		<table name="#v2"> 2 3 4 5 6 7 </table>
@@ -408,7 +363,7 @@
 			<addMul stat="stunVuln" val="#v8" />
 		</for>
 	</skill>
-	<skill id="9624" levels="6" name="Clan Oath Heavy Set" >
+	<skill id="9621" levels="6" name="Clan Oath Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 59 85 116 144 170 201 </table>
@@ -421,7 +376,7 @@
 			<add stat="maxHp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9625" levels="6" name="Clan Oath Light Set" >
+	<skill id="9622" levels="6" name="Clan Oath Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 2 3 4 5 6 7 </table>
@@ -434,7 +389,7 @@
 			<add stat="rEvas" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9626" levels="6" name="Clan Oath Robe Set" >
+	<skill id="9623" levels="6" name="Clan Oath Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
@@ -447,7 +402,7 @@
 			<mul stat="mAtkSpd" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9627" levels="6" name="Apella Heavy Set" >
+	<skill id="9624" levels="6" name="Apella Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 81 116 158 197 232 274 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -460,7 +415,7 @@
 			<mul stat="regCp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9628" levels="6" name="Apella Light Set" >
+	<skill id="9625" levels="6" name="Apella Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 68 98 133 166 195 230 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -473,7 +428,7 @@
 			<mul stat="regCp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9629" levels="6" name="Apella Robe Set" >
+	<skill id="9626" levels="6" name="Apella Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 62 88 120 150 177 209 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>

@@ -1,6 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="11100" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (C)">
+	<item id="11100" type="Armor" name="Majestic Boots - Heavy Armor (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11101" type="Armor" name="Majestic Boots - Light Armor (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11102" type="Armor" name="Majestic Boots - Robe (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="BLOOD_STEEL" />
+		<set name="weight" val="1110" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11103" type="Armor" name="Clan Oath Helm (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="536000" />
+		<for>
+			<baseadd stat="pDef" val="58" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11104" type="Armor" name="Clan Oath Helm (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="175" />
+		<set name="price" val="1210000" />
+		<for>
+			<baseadd stat="pDef" val="67" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11105" type="Armor" name="Clan Oath Helm (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="2640000" />
+		<for>
+			<baseadd stat="pDef" val="73" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11106" type="Armor" name="Clan Oath Helm (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="640" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="250" />
+		<set name="price" val="5370000" />
+		<for>
+			<baseadd stat="pDef" val="83" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11107" type="Armor" name="Clan Oath Armor (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="9870" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="560" />
+		<set name="price" val="1570000" />
+		<for>
+			<baseadd stat="pDef" val="239" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11108" type="Armor" name="Clan Oath Armor (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="9870" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="700" />
+		<set name="price" val="5080000" />
+		<for>
+			<baseadd stat="pDef" val="270" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11109" type="Armor" name="Clan Oath Armor (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="9870" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="830" />
+		<set name="price" val="7730000" />
+		<for>
+			<baseadd stat="pDef" val="293" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11110" type="Armor" name="Clan Oath Armor (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="fullarmor" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="9870" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="1000" />
+		<set name="price" val="17400000" />
+		<for>
+			<baseadd stat="pDef" val="333" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="11111" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="FINE_STEEL" />
@@ -13,7 +160,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11101" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (B)">
+	<item id="11112" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="FINE_STEEL" />
@@ -26,7 +173,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11102" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (A)">
+	<item id="11113" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="FINE_STEEL" />
@@ -39,7 +186,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11103" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (S)">
+	<item id="11114" type="Armor" name="Clan Oath Gauntlets - Heavy Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="FINE_STEEL" />
@@ -52,7 +199,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11104" type="Armor" name="Clan Oath Sabaton - Heavy Armor (C)">
+	<item id="11115" type="Armor" name="Clan Oath Sabaton - Heavy Armor (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -65,7 +212,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11105" type="Armor" name="Clan Oath Sabaton - Heavy Armor (B)">
+	<item id="11116" type="Armor" name="Clan Oath Sabaton - Heavy Armor (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -78,7 +225,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11106" type="Armor" name="Clan Oath Sabaton - Heavy Armor (A)">
+	<item id="11117" type="Armor" name="Clan Oath Sabaton - Heavy Armor (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -91,7 +238,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11107" type="Armor" name="Clan Oath Sabaton - Heavy Armor (S)">
+	<item id="11118" type="Armor" name="Clan Oath Sabaton - Heavy Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="FINE_STEEL" />
@@ -104,7 +251,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11108" type="Armor" name="Clan Oath Brigandine (C)">
+	<item id="11119" type="Armor" name="Clan Oath Brigandine (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -118,7 +265,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11109" type="Armor" name="Clan Oath Brigandine (B)">
+	<item id="11120" type="Armor" name="Clan Oath Brigandine (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -132,7 +279,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11110" type="Armor" name="Clan Oath Brigandine (A)">
+	<item id="11121" type="Armor" name="Clan Oath Brigandine (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -146,7 +293,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11111" type="Armor" name="Clan Oath Brigandine (S)">
+	<item id="11122" type="Armor" name="Clan Oath Brigandine (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -160,7 +307,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11112" type="Armor" name="Clan Oath Leather Gloves - Light Armor (C)">
+	<item id="11123" type="Armor" name="Clan Oath Leather Gloves - Light Armor (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -173,7 +320,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11113" type="Armor" name="Clan Oath Leather Gloves - Light Armor (B)">
+	<item id="11124" type="Armor" name="Clan Oath Leather Gloves - Light Armor (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -186,7 +333,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11114" type="Armor" name="Clan Oath Leather Gloves - Light Armor (A)">
+	<item id="11125" type="Armor" name="Clan Oath Leather Gloves - Light Armor (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -199,7 +346,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11115" type="Armor" name="Clan Oath Leather Gloves - Light Armor (S)">
+	<item id="11126" type="Armor" name="Clan Oath Leather Gloves - Light Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -212,7 +359,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11116" type="Armor" name="Clan Oath Boots - Light Armor (C)">
+	<item id="11127" type="Armor" name="Clan Oath Boots - Light Armor (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -225,7 +372,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11117" type="Armor" name="Clan Oath Boots - Light Armor (B)">
+	<item id="11128" type="Armor" name="Clan Oath Boots - Light Armor (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -238,7 +385,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11118" type="Armor" name="Clan Oath Boots - Light Armor (A)">
+	<item id="11129" type="Armor" name="Clan Oath Boots - Light Armor (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -251,7 +398,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11119" type="Armor" name="Clan Oath Boots - Light Armor (S)">
+	<item id="11130" type="Armor" name="Clan Oath Boots - Light Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -264,7 +411,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11120" type="Armor" name="Clan Oath Aketon (C)">
+	<item id="11131" type="Armor" name="Clan Oath Aketon (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -279,7 +426,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11121" type="Armor" name="Clan Oath Aketon (B)">
+	<item id="11132" type="Armor" name="Clan Oath Aketon (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -294,7 +441,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11122" type="Armor" name="Clan Oath Aketon (A)">
+	<item id="11133" type="Armor" name="Clan Oath Aketon (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -309,7 +456,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11123" type="Armor" name="Clan Oath Aketon (S)">
+	<item id="11134" type="Armor" name="Clan Oath Aketon (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -324,7 +471,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11124" type="Armor" name="Clan Oath Padded Gloves - Robe (C)">
+	<item id="11135" type="Armor" name="Clan Oath Padded Gloves - Robe (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -337,7 +484,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11125" type="Armor" name="Clan Oath Padded Gloves - Robe (B)">
+	<item id="11136" type="Armor" name="Clan Oath Padded Gloves - Robe (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -350,7 +497,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11126" type="Armor" name="Clan Oath Padded Gloves - Robe (A)">
+	<item id="11137" type="Armor" name="Clan Oath Padded Gloves - Robe (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -363,7 +510,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11127" type="Armor" name="Clan Oath Padded Gloves - Robe (S)">
+	<item id="11138" type="Armor" name="Clan Oath Padded Gloves - Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -376,7 +523,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11128" type="Armor" name="Clan Oath Sandals - Robe (C)">
+	<item id="11139" type="Armor" name="Clan Oath Sandals - Robe (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -389,7 +536,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11129" type="Armor" name="Clan Oath Sandals - Robe (B)">
+	<item id="11140" type="Armor" name="Clan Oath Sandals - Robe (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -402,7 +549,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11130" type="Armor" name="Clan Oath Sandals - Robe (A)">
+	<item id="11141" type="Armor" name="Clan Oath Sandals - Robe (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -415,7 +562,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11131" type="Armor" name="Clan Oath Sandals - Robe (S)">
+	<item id="11142" type="Armor" name="Clan Oath Sandals - Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -428,7 +575,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11132" type="Armor" name="Apella Helm (S)">
+	<item id="11143" type="Armor" name="Apella Helm (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="FINE_STEEL" />
@@ -441,7 +588,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11133" type="Armor" name="Apella Plate Armor (S)">
+	<item id="11144" type="Armor" name="Apella Plate Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -455,7 +602,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11134" type="Armor" name="Apella Gauntlet - Heavy Armor (S)">
+	<item id="11145" type="Armor" name="Apella Gauntlet - Heavy Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -468,7 +615,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11135" type="Armor" name="Apella Solleret - Heavy Armor (S)">
+	<item id="11146" type="Armor" name="Apella Solleret - Heavy Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="BLOOD_STEEL" />
@@ -481,7 +628,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11136" type="Armor" name="Apella Brigandine (S)">
+	<item id="11147" type="Armor" name="Apella Brigandine (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -495,7 +642,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11137" type="Armor" name="Apella Leather Gloves - Light Armor (S)">
+	<item id="11148" type="Armor" name="Apella Leather Gloves - Light Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -508,7 +655,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11138" type="Armor" name="Apella Boots - Light Armor (S)">
+	<item id="11149" type="Armor" name="Apella Boots - Light Armor (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="BLOOD_STEEL" />
@@ -521,7 +668,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11139" type="Armor" name="Apella Doublet (S)">
+	<item id="11150" type="Armor" name="Apella Doublet (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -536,7 +683,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11140" type="Armor" name="Apella Silk Gloves - Robe (S)">
+	<item id="11151" type="Armor" name="Apella Silk Gloves - Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -549,7 +696,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="11141" type="Armor" name="Apella Sandals - Robe (S)">
+	<item id="11152" type="Armor" name="Apella Sandals - Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="BLOOD_STEEL" />

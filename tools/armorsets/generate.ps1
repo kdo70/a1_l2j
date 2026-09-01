@@ -4,7 +4,7 @@
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
-	and boots. families.csv holds 130 of them, one row per chest item of data/xml/items.
+	and boots. families.csv holds 127 of them, one row per chest item of data/xml/items.
 
 	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
@@ -751,7 +751,13 @@ $BUYLISTS = @{
 }
 
 $owned = New-Object 'System.Collections.Generic.HashSet[int]'
+
+# All 36 lists up front, empty. A grade that ends up with no piece of a body part - No Grade
+# fullarmor, once the robes that were the only ones went - still has to be walked, so that whatever
+# a previous run left in it is taken back out.
 $wanted = @{}
+foreach ($perGrade in $BUYLISTS.Values) { foreach ($list in $perGrade.Values) { $wanted[$list] = @() } }
+
 foreach ($donor in $pieces.Keys)
 {
 	$bodypart = $pieces[$donor].bodypart
@@ -760,9 +766,7 @@ foreach ($donor in $pieces.Keys)
 		if (-not $ids[$donor].ContainsKey($g)) { continue }
 		$id = $ids[$donor][$g]
 		$null = $owned.Add($id)
-		$list = $BUYLISTS[$bodypart][$g]
-		if (-not $wanted.ContainsKey($list)) { $wanted[$list] = @() }
-		$wanted[$list] += $id
+		$wanted[$BUYLISTS[$bodypart][$g]] += $id
 	}
 }
 
@@ -792,7 +796,13 @@ foreach ($b in ($blocks | Sort-Object { $_.start } -Descending))
 	{
 		$l = $buyLines[$i]
 		if ($l -match '</buyList>') { continue }
-		if ($l -match '<product\s+id="(\d+)"' -and $owned.Contains([int]$Matches[1])) { continue }
+		# Ours, and about to be written back in order - or a minted id this run no longer has,
+		# left behind by an earlier one.
+		if ($l -match '<product\s+id="(\d+)"')
+		{
+			$product = [int]$Matches[1]
+			if ($owned.Contains($product) -or $product -ge $FIRST_ITEM_ID) { continue }
+		}
 		$null = $keep.Add($l)
 	}
 	foreach ($id in ($wanted[$b.id] | Sort-Object)) { $null = $keep.Add("`t`t<product id=`"$id`"/>") }

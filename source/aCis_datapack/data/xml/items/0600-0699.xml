@@ -61,7 +61,7 @@
 		<set name="weight" val="650" />
 		<set name="price" val="20900" />
 		<for>
-			<baseadd stat="pDef" val="19" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -74,7 +74,7 @@
 		<set name="weight" val="640" />
 		<set name="price" val="33300" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -87,7 +87,7 @@
 		<set name="weight" val="630" />
 		<set name="price" val="74700" />
 		<for>
-			<baseadd stat="pDef" val="27" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>

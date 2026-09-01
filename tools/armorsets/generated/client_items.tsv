@@ -53,24 +53,24 @@ id	donor	grade	gradeIdx	pdef	name	addName	mode	clearDesc
 10042	29	B	3	78	Leather Pants	B-Grade	add	0
 10043	29	A	4	84	Leather Pants	A-Grade	add	0
 10044	29	S	5	96	Leather Pants	S-Grade	add	0
-30	30	NG	0	33	Hard Leather Pants		update	0
-10045	30	D	1	48	Hard Leather Pants	D-Grade	add	0
-10046	30	C	2	69	Hard Leather Pants	C-Grade	add	0
-10047	30	B	3	78	Hard Leather Pants	B-Grade	add	0
-10048	30	A	4	84	Hard Leather Pants	A-Grade	add	0
-10049	30	S	5	96	Hard Leather Pants	S-Grade	add	0
 31	31	NG	0	33	Bone Gaiters		update	0
-10050	31	D	1	48	Bone Gaiters	D-Grade	add	0
-10051	31	C	2	69	Bone Gaiters	C-Grade	add	0
-10052	31	B	3	78	Bone Gaiters	B-Grade	add	0
-10053	31	A	4	84	Bone Gaiters	A-Grade	add	0
-10054	31	S	5	96	Bone Gaiters	S-Grade	add	0
+10045	31	D	1	48	Bone Gaiters	D-Grade	add	0
+10046	31	C	2	69	Bone Gaiters	C-Grade	add	0
+10047	31	B	3	78	Bone Gaiters	B-Grade	add	0
+10048	31	A	4	84	Bone Gaiters	A-Grade	add	0
+10049	31	S	5	96	Bone Gaiters	S-Grade	add	0
 32	32	NG	0	43	Piece Bone Gaiters		update	0
-10055	32	D	1	64	Piece Bone Gaiters	D-Grade	add	0
-10056	32	C	2	92	Piece Bone Gaiters	C-Grade	add	0
-10057	32	B	3	104	Piece Bone Gaiters	B-Grade	add	0
-10058	32	A	4	113	Piece Bone Gaiters	A-Grade	add	0
-10059	32	S	5	128	Piece Bone Gaiters	S-Grade	add	0
+10050	32	D	1	64	Piece Bone Gaiters	D-Grade	add	0
+10051	32	C	2	92	Piece Bone Gaiters	C-Grade	add	0
+10052	32	B	3	104	Piece Bone Gaiters	B-Grade	add	0
+10053	32	A	4	113	Piece Bone Gaiters	A-Grade	add	0
+10054	32	S	5	128	Piece Bone Gaiters	S-Grade	add	0
+33	33	NG	0	33	Hard Leather Gaiters		update	0
+10055	33	D	1	48	Hard Leather Gaiters	D-Grade	add	0
+10056	33	C	2	69	Hard Leather Gaiters	C-Grade	add	0
+10057	33	B	3	78	Hard Leather Gaiters	B-Grade	add	0
+10058	33	A	4	84	Hard Leather Gaiters	A-Grade	add	0
+10059	33	S	5	96	Hard Leather Gaiters	S-Grade	add	0
 34	34	NG	0	43	Bronze Gaiters		update	0
 10060	34	D	1	64	Bronze Gaiters	D-Grade	add	0
 10061	34	C	2	92	Bronze Gaiters	C-Grade	add	0
@@ -107,922 +107,910 @@ id	donor	grade	gradeIdx	pdef	name	addName	mode	clearDesc
 10087	39	B	3	45	Boots	B-Grade	add	0
 10088	39	A	4	49	Boots	A-Grade	add	0
 10089	39	S	5	55	Boots	S-Grade	add	0
+40	40	D	1	29	Leather Boots		update	0
+10090	40	C	2	39	Leather Boots	C-Grade	add	0
+10091	40	B	3	45	Leather Boots	B-Grade	add	0
+10092	40	A	4	49	Leather Boots	A-Grade	add	0
+10093	40	S	5	55	Leather Boots	S-Grade	add	0
 41	41	NG	0	26	Cloth Cap		update	0
-10090	41	D	1	44	Cloth Cap	D-Grade	add	0
-10091	41	C	2	58	Cloth Cap	C-Grade	add	0
-10092	41	B	3	67	Cloth Cap	B-Grade	add	0
-10093	41	A	4	73	Cloth Cap	A-Grade	add	0
-10094	41	S	5	83	Cloth Cap	S-Grade	add	0
+10094	41	D	1	44	Cloth Cap	D-Grade	add	0
+10095	41	C	2	58	Cloth Cap	C-Grade	add	0
+10096	41	B	3	67	Cloth Cap	B-Grade	add	0
+10097	41	A	4	73	Cloth Cap	A-Grade	add	0
+10098	41	S	5	83	Cloth Cap	S-Grade	add	0
 42	42	NG	0	26	Leather Cap		update	0
-10095	42	D	1	44	Leather Cap	D-Grade	add	0
-10096	42	C	2	58	Leather Cap	C-Grade	add	0
-10097	42	B	3	67	Leather Cap	B-Grade	add	0
-10098	42	A	4	73	Leather Cap	A-Grade	add	0
-10099	42	S	5	83	Leather Cap	S-Grade	add	0
+10099	42	D	1	44	Leather Cap	D-Grade	add	0
+10100	42	C	2	58	Leather Cap	C-Grade	add	0
+10101	42	B	3	67	Leather Cap	B-Grade	add	0
+10102	42	A	4	73	Leather Cap	A-Grade	add	0
+10103	42	S	5	83	Leather Cap	S-Grade	add	0
 43	43	NG	0	26	Wooden Helmet		update	0
-10100	43	D	1	44	Wooden Helmet	D-Grade	add	0
-10101	43	C	2	58	Wooden Helmet	C-Grade	add	0
-10102	43	B	3	67	Wooden Helmet	B-Grade	add	0
-10103	43	A	4	73	Wooden Helmet	A-Grade	add	0
-10104	43	S	5	83	Wooden Helmet	S-Grade	add	0
+10104	43	D	1	44	Wooden Helmet	D-Grade	add	0
+10105	43	C	2	58	Wooden Helmet	C-Grade	add	0
+10106	43	B	3	67	Wooden Helmet	B-Grade	add	0
+10107	43	A	4	73	Wooden Helmet	A-Grade	add	0
+10108	43	S	5	83	Wooden Helmet	S-Grade	add	0
 44	44	NG	0	26	Leather Helmet		update	0
-10105	44	D	1	44	Leather Helmet	D-Grade	add	0
-10106	44	C	2	58	Leather Helmet	C-Grade	add	0
-10107	44	B	3	67	Leather Helmet	B-Grade	add	0
-10108	44	A	4	73	Leather Helmet	A-Grade	add	0
-10109	44	S	5	83	Leather Helmet	S-Grade	add	0
-10110	45	NG	0	26	Bone Helmet	NG-Grade	add	0
+10109	44	D	1	44	Leather Helmet	D-Grade	add	0
+10110	44	C	2	58	Leather Helmet	C-Grade	add	0
+10111	44	B	3	67	Leather Helmet	B-Grade	add	0
+10112	44	A	4	73	Leather Helmet	A-Grade	add	0
+10113	44	S	5	83	Leather Helmet	S-Grade	add	0
+10114	45	NG	0	26	Bone Helmet	NG-Grade	add	0
 45	45	D	1	44	Bone Helmet		update	0
-10111	45	C	2	58	Bone Helmet	C-Grade	add	0
-10112	45	B	3	67	Bone Helmet	B-Grade	add	0
-10113	45	A	4	73	Bone Helmet	A-Grade	add	0
-10114	45	S	5	83	Bone Helmet	S-Grade	add	0
-10115	46	NG	0	26	Bronze Helmet	NG-Grade	add	0
+10115	45	C	2	58	Bone Helmet	C-Grade	add	0
+10116	45	B	3	67	Bone Helmet	B-Grade	add	0
+10117	45	A	4	73	Bone Helmet	A-Grade	add	0
+10118	45	S	5	83	Bone Helmet	S-Grade	add	0
+10119	46	NG	0	26	Bronze Helmet	NG-Grade	add	0
 46	46	D	1	44	Bronze Helmet		update	0
-10116	46	C	2	58	Bronze Helmet	C-Grade	add	0
-10117	46	B	3	67	Bronze Helmet	B-Grade	add	0
-10118	46	A	4	73	Bronze Helmet	A-Grade	add	0
-10119	46	S	5	83	Bronze Helmet	S-Grade	add	0
+10120	46	C	2	58	Bronze Helmet	C-Grade	add	0
+10121	46	B	3	67	Bronze Helmet	B-Grade	add	0
+10122	46	A	4	73	Bronze Helmet	A-Grade	add	0
+10123	46	S	5	83	Bronze Helmet	S-Grade	add	0
 47	47	D	1	44	Helmet		update	0
-10120	47	C	2	58	Helmet	C-Grade	add	0
-10121	47	B	3	67	Helmet	B-Grade	add	0
-10122	47	A	4	73	Helmet	A-Grade	add	0
-10123	47	S	5	83	Helmet	S-Grade	add	0
+10124	47	C	2	58	Helmet	C-Grade	add	0
+10125	47	B	3	67	Helmet	B-Grade	add	0
+10126	47	A	4	73	Helmet	A-Grade	add	0
+10127	47	S	5	83	Helmet	S-Grade	add	0
 48	48	NG	0	20	Short Gloves		update	0
-10124	48	D	1	29	Short Gloves	D-Grade	add	0
-10125	48	C	2	39	Short Gloves	C-Grade	add	0
-10126	48	B	3	44	Short Gloves	B-Grade	add	0
-10127	48	A	4	49	Short Gloves	A-Grade	add	0
-10128	48	S	5	55	Short Gloves	S-Grade	add	0
+10128	48	D	1	29	Short Gloves	D-Grade	add	0
+10129	48	C	2	39	Short Gloves	C-Grade	add	0
+10130	48	B	3	44	Short Gloves	B-Grade	add	0
+10131	48	A	4	49	Short Gloves	A-Grade	add	0
+10132	48	S	5	55	Short Gloves	S-Grade	add	0
 49	49	NG	0	20	Gloves		update	0
-10129	49	D	1	29	Gloves	D-Grade	add	0
-10130	49	C	2	39	Gloves	C-Grade	add	0
-10131	49	B	3	44	Gloves	B-Grade	add	0
-10132	49	A	4	49	Gloves	A-Grade	add	0
-10133	49	S	5	55	Gloves	S-Grade	add	0
+10133	49	D	1	29	Gloves	D-Grade	add	0
+10134	49	C	2	39	Gloves	C-Grade	add	0
+10135	49	B	3	44	Gloves	B-Grade	add	0
+10136	49	A	4	49	Gloves	A-Grade	add	0
+10137	49	S	5	55	Gloves	S-Grade	add	0
 50	50	NG	0	20	Leather Gloves		update	0
-10134	50	D	1	29	Leather Gloves	D-Grade	add	0
-10135	50	C	2	39	Leather Gloves	C-Grade	add	0
-10136	50	B	3	44	Leather Gloves	B-Grade	add	0
-10137	50	A	4	49	Leather Gloves	A-Grade	add	0
-10138	50	S	5	55	Leather Gloves	S-Grade	add	0
+10138	50	D	1	29	Leather Gloves	D-Grade	add	0
+10139	50	C	2	39	Leather Gloves	C-Grade	add	0
+10140	50	B	3	44	Leather Gloves	B-Grade	add	0
+10141	50	A	4	49	Leather Gloves	A-Grade	add	0
+10142	50	S	5	55	Leather Gloves	S-Grade	add	0
+51	51	NG	0	20	Bracer		update	0
+10143	51	D	1	29	Bracer	D-Grade	add	0
+10144	51	C	2	39	Bracer	C-Grade	add	0
+10145	51	B	3	44	Bracer	B-Grade	add	0
+10146	51	A	4	49	Bracer	A-Grade	add	0
+10147	51	S	5	55	Bracer	S-Grade	add	0
 58	58	D	1	103	Mithril Breastplate		update	0
-10139	58	C	2	147	Mithril Breastplate	C-Grade	add	0
-10140	58	B	3	166	Mithril Breastplate	B-Grade	add	0
-10141	58	A	4	180	Mithril Breastplate	A-Grade	add	0
-10142	58	S	5	205	Mithril Breastplate	S-Grade	add	0
+10148	58	C	2	147	Mithril Breastplate	C-Grade	add	0
+10149	58	B	3	166	Mithril Breastplate	B-Grade	add	0
+10150	58	A	4	180	Mithril Breastplate	A-Grade	add	0
+10151	58	S	5	205	Mithril Breastplate	S-Grade	add	0
 59	59	D	1	64	Mithril Gaiters		update	0
-10143	59	C	2	92	Mithril Gaiters	C-Grade	add	0
-10144	59	B	3	104	Mithril Gaiters	B-Grade	add	0
-10145	59	A	4	113	Mithril Gaiters	A-Grade	add	0
-10146	59	S	5	128	Mithril Gaiters	S-Grade	add	0
+10152	59	C	2	92	Mithril Gaiters	C-Grade	add	0
+10153	59	B	3	104	Mithril Gaiters	B-Grade	add	0
+10154	59	A	4	113	Mithril Gaiters	A-Grade	add	0
+10155	59	S	5	128	Mithril Gaiters	S-Grade	add	0
 60	60	C	2	239	Composite Armor		update	0
-10147	60	B	3	270	Composite Armor	B-Grade	add	0
-10148	60	A	4	293	Composite Armor	A-Grade	add	0
-10149	60	S	5	333	Composite Armor	S-Grade	add	0
+10156	60	B	3	270	Composite Armor	B-Grade	add	0
+10157	60	A	4	293	Composite Armor	A-Grade	add	0
+10158	60	S	5	333	Composite Armor	S-Grade	add	0
 61	61	D	1	29	Mithril Gloves		update	0
-10150	61	C	2	39	Mithril Gloves	C-Grade	add	0
-10151	61	B	3	44	Mithril Gloves	B-Grade	add	0
-10152	61	A	4	49	Mithril Gloves	A-Grade	add	0
-10153	61	S	5	55	Mithril Gloves	S-Grade	add	0
-10154	62	D	1	29	Mithril Boots	D-Grade	add	0
+10159	61	C	2	39	Mithril Gloves	C-Grade	add	0
+10160	61	B	3	44	Mithril Gloves	B-Grade	add	0
+10161	61	A	4	49	Mithril Gloves	A-Grade	add	0
+10162	61	S	5	55	Mithril Gloves	S-Grade	add	0
+10163	62	D	1	29	Mithril Boots	D-Grade	add	0
 62	62	C	2	39	Mithril Boots		update	0
-10155	62	B	3	45	Mithril Boots	B-Grade	add	0
-10156	62	A	4	49	Mithril Boots	A-Grade	add	0
-10157	62	S	5	55	Mithril Boots	S-Grade	add	0
-10158	63	NG	0	20	Gauntlets	NG-Grade	add	0
+10164	62	B	3	45	Mithril Boots	B-Grade	add	0
+10165	62	A	4	49	Mithril Boots	A-Grade	add	0
+10166	62	S	5	55	Mithril Boots	S-Grade	add	0
+10167	63	NG	0	20	Gauntlets	NG-Grade	add	0
 63	63	D	1	29	Gauntlets		update	0
-10159	63	C	2	39	Gauntlets	C-Grade	add	0
-10160	63	B	3	44	Gauntlets	B-Grade	add	0
-10161	63	A	4	49	Gauntlets	A-Grade	add	0
-10162	63	S	5	55	Gauntlets	S-Grade	add	0
+10168	63	C	2	39	Gauntlets	C-Grade	add	0
+10169	63	B	3	44	Gauntlets	B-Grade	add	0
+10170	63	A	4	49	Gauntlets	A-Grade	add	0
+10171	63	S	5	55	Gauntlets	S-Grade	add	0
 64	64	C	2	39	Composite Boots		update	0
-10163	64	B	3	45	Composite Boots	B-Grade	add	0
-10164	64	A	4	49	Composite Boots	A-Grade	add	0
-10165	64	S	5	55	Composite Boots	S-Grade	add	0
+10172	64	B	3	45	Composite Boots	B-Grade	add	0
+10173	64	A	4	49	Composite Boots	A-Grade	add	0
+10174	64	S	5	55	Composite Boots	S-Grade	add	0
 347	347	D	1	103	Ring Mail Breastplate		update	0
-10166	347	C	2	147	Ring Mail Breastplate	C-Grade	add	0
-10167	347	B	3	166	Ring Mail Breastplate	B-Grade	add	0
-10168	347	A	4	180	Ring Mail Breastplate	A-Grade	add	0
-10169	347	S	5	205	Ring Mail Breastplate	S-Grade	add	0
+10175	347	C	2	147	Ring Mail Breastplate	C-Grade	add	0
+10176	347	B	3	166	Ring Mail Breastplate	B-Grade	add	0
+10177	347	A	4	180	Ring Mail Breastplate	A-Grade	add	0
+10178	347	S	5	205	Ring Mail Breastplate	S-Grade	add	0
 348	348	D	1	103	Scale Mail		update	0
-10170	348	C	2	147	Scale Mail	C-Grade	add	0
-10171	348	B	3	166	Scale Mail	B-Grade	add	0
-10172	348	A	4	180	Scale Mail	A-Grade	add	0
-10173	348	S	5	205	Scale Mail	S-Grade	add	0
+10179	348	C	2	147	Scale Mail	C-Grade	add	0
+10180	348	B	3	166	Scale Mail	B-Grade	add	0
+10181	348	A	4	180	Scale Mail	A-Grade	add	0
+10182	348	S	5	205	Scale Mail	S-Grade	add	0
 349	349	D	1	103	Compound Scale Mail		update	0
-10174	349	C	2	147	Compound Scale Mail	C-Grade	add	0
-10175	349	B	3	166	Compound Scale Mail	B-Grade	add	0
-10176	349	A	4	180	Compound Scale Mail	A-Grade	add	0
-10177	349	S	5	205	Compound Scale Mail	S-Grade	add	0
+10183	349	C	2	147	Compound Scale Mail	C-Grade	add	0
+10184	349	B	3	166	Compound Scale Mail	B-Grade	add	0
+10185	349	A	4	180	Compound Scale Mail	A-Grade	add	0
+10186	349	S	5	205	Compound Scale Mail	S-Grade	add	0
 350	350	D	1	103	Dwarven Scale Mail		update	0
-10178	350	C	2	147	Dwarven Scale Mail	C-Grade	add	0
-10179	350	B	3	166	Dwarven Scale Mail	B-Grade	add	0
-10180	350	A	4	180	Dwarven Scale Mail	A-Grade	add	0
-10181	350	S	5	205	Dwarven Scale Mail	S-Grade	add	0
+10187	350	C	2	147	Dwarven Scale Mail	C-Grade	add	0
+10188	350	B	3	166	Dwarven Scale Mail	B-Grade	add	0
+10189	350	A	4	180	Dwarven Scale Mail	A-Grade	add	0
+10190	350	S	5	205	Dwarven Scale Mail	S-Grade	add	0
 351	351	D	1	103	Blast Plate		update	0
-10182	351	C	2	147	Blast Plate	C-Grade	add	0
-10183	351	B	3	166	Blast Plate	B-Grade	add	0
-10184	351	A	4	180	Blast Plate	A-Grade	add	0
-10185	351	S	5	205	Blast Plate	S-Grade	add	0
+10191	351	C	2	147	Blast Plate	C-Grade	add	0
+10192	351	B	3	166	Blast Plate	B-Grade	add	0
+10193	351	A	4	180	Blast Plate	A-Grade	add	0
+10194	351	S	5	205	Blast Plate	S-Grade	add	0
 352	352	D	1	103	Brigandine Tunic		update	0
-10186	352	C	2	147	Brigandine Tunic	C-Grade	add	0
-10187	352	B	3	166	Brigandine Tunic	B-Grade	add	0
-10188	352	A	4	180	Brigandine Tunic	A-Grade	add	0
-10189	352	S	5	205	Brigandine Tunic	S-Grade	add	0
+10195	352	C	2	147	Brigandine Tunic	C-Grade	add	0
+10196	352	B	3	166	Brigandine Tunic	B-Grade	add	0
+10197	352	A	4	180	Brigandine Tunic	A-Grade	add	0
+10198	352	S	5	205	Brigandine Tunic	S-Grade	add	0
 353	353	D	1	103	Half Plate Armor		update	0
-10190	353	C	2	147	Half Plate Armor	C-Grade	add	0
-10191	353	B	3	166	Half Plate Armor	B-Grade	add	0
-10192	353	A	4	180	Half Plate Armor	A-Grade	add	0
-10193	353	S	5	205	Half Plate Armor	S-Grade	add	0
+10199	353	C	2	147	Half Plate Armor	C-Grade	add	0
+10200	353	B	3	166	Half Plate Armor	B-Grade	add	0
+10201	353	A	4	180	Half Plate Armor	A-Grade	add	0
+10202	353	S	5	205	Half Plate Armor	S-Grade	add	0
 354	354	C	2	147	Chain Mail Shirt		update	0
-10194	354	B	3	166	Chain Mail Shirt	B-Grade	add	0
-10195	354	A	4	180	Chain Mail Shirt	A-Grade	add	0
-10196	354	S	5	205	Chain Mail Shirt	S-Grade	add	0
+10203	354	B	3	166	Chain Mail Shirt	B-Grade	add	0
+10204	354	A	4	180	Chain Mail Shirt	A-Grade	add	0
+10205	354	S	5	205	Chain Mail Shirt	S-Grade	add	0
 355	355	C	2	147	Dwarven Chain Mail Shirt		update	0
-10197	355	B	3	166	Dwarven Chain Mail Shirt	B-Grade	add	0
-10198	355	A	4	180	Dwarven Chain Mail Shirt	A-Grade	add	0
-10199	355	S	5	205	Dwarven Chain Mail Shirt	S-Grade	add	0
+10206	355	B	3	166	Dwarven Chain Mail Shirt	B-Grade	add	0
+10207	355	A	4	180	Dwarven Chain Mail Shirt	A-Grade	add	0
+10208	355	S	5	205	Dwarven Chain Mail Shirt	S-Grade	add	0
 356	356	C	2	239	Full Plate Armor		update	0
-10200	356	B	3	270	Full Plate Armor	B-Grade	add	0
-10201	356	A	4	293	Full Plate Armor	A-Grade	add	0
-10202	356	S	5	333	Full Plate Armor	S-Grade	add	0
+10209	356	B	3	270	Full Plate Armor	B-Grade	add	0
+10210	356	A	4	293	Full Plate Armor	A-Grade	add	0
+10211	356	S	5	333	Full Plate Armor	S-Grade	add	0
 357	357	B	3	166	Zubei's Breastplate		update	0
-10203	357	A	4	180	Zubei's Breastplate	A-Grade	add	0
-10204	357	S	5	205	Zubei's Breastplate	S-Grade	add	0
+10212	357	A	4	180	Zubei's Breastplate	A-Grade	add	0
+10213	357	S	5	205	Zubei's Breastplate	S-Grade	add	0
 358	358	B	3	166	Blue Wolf Breastplate		update	0
-10205	358	A	4	180	Blue Wolf Breastplate	A-Grade	add	0
-10206	358	S	5	205	Blue Wolf Breastplate	S-Grade	add	0
+10214	358	A	4	180	Blue Wolf Breastplate	A-Grade	add	0
+10215	358	S	5	205	Blue Wolf Breastplate	S-Grade	add	0
 359	359	B	3	270	Shining Dragon Armor		update	0
-10207	359	A	4	293	Shining Dragon Armor	A-Grade	add	0
-10208	359	S	5	333	Shining Dragon Armor	S-Grade	add	0
+10216	359	A	4	293	Shining Dragon Armor	A-Grade	add	0
+10217	359	S	5	333	Shining Dragon Armor	S-Grade	add	0
 360	360	B	3	166	Armor of Victory		update	0
-10209	360	A	4	180	Armor of Victory	A-Grade	add	0
-10210	360	S	5	205	Armor of Victory	S-Grade	add	0
+10218	360	A	4	180	Armor of Victory	A-Grade	add	0
+10219	360	S	5	205	Armor of Victory	S-Grade	add	0
 361	361	B	3	166	Breastplate of Valor		update	0
-10211	361	A	4	180	Breastplate of Valor	A-Grade	add	0
-10212	361	S	5	205	Breastplate of Valor	S-Grade	add	0
+10220	361	A	4	180	Breastplate of Valor	A-Grade	add	0
+10221	361	S	5	205	Breastplate of Valor	S-Grade	add	0
 362	362	B	3	270	Glorious Armor		update	0
-10213	362	A	4	293	Glorious Armor	A-Grade	add	0
-10214	362	S	5	333	Glorious Armor	S-Grade	add	0
+10222	362	A	4	293	Glorious Armor	A-Grade	add	0
+10223	362	S	5	333	Glorious Armor	S-Grade	add	0
 363	363	B	3	270	Red Flame Armor		update	0
-10215	363	A	4	293	Red Flame Armor	A-Grade	add	0
-10216	363	S	5	333	Red Flame Armor	S-Grade	add	0
+10224	363	A	4	293	Red Flame Armor	A-Grade	add	0
+10225	363	S	5	333	Red Flame Armor	S-Grade	add	0
 364	364	B	3	166	Elven Crystal Breastplate		update	0
-10217	364	A	4	180	Elven Crystal Breastplate	A-Grade	add	0
-10218	364	S	5	205	Elven Crystal Breastplate	S-Grade	add	0
+10226	364	A	4	180	Elven Crystal Breastplate	A-Grade	add	0
+10227	364	S	5	205	Elven Crystal Breastplate	S-Grade	add	0
 365	365	A	4	180	Dark Crystal Breastplate		update	0
-10219	365	S	5	205	Dark Crystal Breastplate	S-Grade	add	0
+10228	365	S	5	205	Dark Crystal Breastplate	S-Grade	add	0
 366	366	B	3	270	Implosion Armor		update	0
-10220	366	A	4	293	Implosion Armor	A-Grade	add	0
-10221	366	S	5	333	Implosion Armor	S-Grade	add	0
+10229	366	A	4	293	Implosion Armor	A-Grade	add	0
+10230	366	S	5	333	Implosion Armor	S-Grade	add	0
 367	367	B	3	270	Dark Dragon Armor		update	0
-10222	367	A	4	293	Dark Dragon Armor	A-Grade	add	0
-10223	367	S	5	333	Dark Dragon Armor	S-Grade	add	0
+10231	367	A	4	293	Dark Dragon Armor	A-Grade	add	0
+10232	367	S	5	333	Dark Dragon Armor	S-Grade	add	0
 368	368	B	3	270	Elven Vagian Armor		update	0
-10224	368	A	4	293	Elven Vagian Armor	A-Grade	add	0
-10225	368	S	5	333	Elven Vagian Armor	S-Grade	add	0
+10233	368	A	4	293	Elven Vagian Armor	A-Grade	add	0
+10234	368	S	5	333	Elven Vagian Armor	S-Grade	add	0
 369	369	B	3	270	Dark Vagian Armor		update	0
-10226	369	A	4	293	Dark Vagian Armor	A-Grade	add	0
-10227	369	S	5	333	Dark Vagian Armor	S-Grade	add	0
+10235	369	A	4	293	Dark Vagian Armor	A-Grade	add	0
+10236	369	S	5	333	Dark Vagian Armor	S-Grade	add	0
 370	370	B	3	270	Complete Set of Plate Armor		update	0
-10228	370	A	4	293	Complete Set of Plate Armor	A-Grade	add	0
-10229	370	S	5	333	Complete Set of Plate Armor	S-Grade	add	0
+10237	370	A	4	293	Complete Set of Plate Armor	A-Grade	add	0
+10238	370	S	5	333	Complete Set of Plate Armor	S-Grade	add	0
 371	371	B	3	270	Hell Plate		update	0
-10230	371	A	4	293	Hell Plate	A-Grade	add	0
-10231	371	S	5	333	Hell Plate	S-Grade	add	0
+10239	371	A	4	293	Hell Plate	A-Grade	add	0
+10240	371	S	5	333	Hell Plate	S-Grade	add	0
 372	372	B	3	270	Art of Plate		update	0
-10232	372	A	4	293	Art of Plate	A-Grade	add	0
-10233	372	S	5	333	Art of Plate	S-Grade	add	0
+10241	372	A	4	293	Art of Plate	A-Grade	add	0
+10242	372	S	5	333	Art of Plate	S-Grade	add	0
 373	373	B	3	270	Masterpiece Armor		update	0
-10234	373	A	4	293	Masterpiece Armor	A-Grade	add	0
-10235	373	S	5	333	Masterpiece Armor	S-Grade	add	0
+10243	373	A	4	293	Masterpiece Armor	A-Grade	add	0
+10244	373	S	5	333	Masterpiece Armor	S-Grade	add	0
 374	374	A	4	293	Armor of Nightmare		update	0
-10236	374	S	5	333	Armor of Nightmare	S-Grade	add	0
+10245	374	S	5	333	Armor of Nightmare	S-Grade	add	0
 375	375	S	5	205	Dragon Scale Mail		update	0
 376	376	D	1	64	Iron Plate Gaiters		update	0
-10237	376	C	2	92	Iron Plate Gaiters	C-Grade	add	0
-10238	376	B	3	104	Iron Plate Gaiters	B-Grade	add	0
-10239	376	A	4	113	Iron Plate Gaiters	A-Grade	add	0
-10240	376	S	5	128	Iron Plate Gaiters	S-Grade	add	0
+10246	376	C	2	92	Iron Plate Gaiters	C-Grade	add	0
+10247	376	B	3	104	Iron Plate Gaiters	B-Grade	add	0
+10248	376	A	4	113	Iron Plate Gaiters	A-Grade	add	0
+10249	376	S	5	128	Iron Plate Gaiters	S-Grade	add	0
 377	377	D	1	64	Scale Gaiters		update	0
-10241	377	C	2	92	Scale Gaiters	C-Grade	add	0
-10242	377	B	3	104	Scale Gaiters	B-Grade	add	0
-10243	377	A	4	113	Scale Gaiters	A-Grade	add	0
-10244	377	S	5	128	Scale Gaiters	S-Grade	add	0
+10250	377	C	2	92	Scale Gaiters	C-Grade	add	0
+10251	377	B	3	104	Scale Gaiters	B-Grade	add	0
+10252	377	A	4	113	Scale Gaiters	A-Grade	add	0
+10253	377	S	5	128	Scale Gaiters	S-Grade	add	0
 378	378	D	1	64	Compound Scale Gaiters		update	0
-10245	378	C	2	92	Compound Scale Gaiters	C-Grade	add	0
-10246	378	B	3	104	Compound Scale Gaiters	B-Grade	add	0
-10247	378	A	4	113	Compound Scale Gaiters	A-Grade	add	0
-10248	378	S	5	128	Compound Scale Gaiters	S-Grade	add	0
+10254	378	C	2	92	Compound Scale Gaiters	C-Grade	add	0
+10255	378	B	3	104	Compound Scale Gaiters	B-Grade	add	0
+10256	378	A	4	113	Compound Scale Gaiters	A-Grade	add	0
+10257	378	S	5	128	Compound Scale Gaiters	S-Grade	add	0
 379	379	D	1	64	Dwarven Scale Gaiters		update	0
-10249	379	C	2	92	Dwarven Scale Gaiters	C-Grade	add	0
-10250	379	B	3	104	Dwarven Scale Gaiters	B-Grade	add	0
-10251	379	A	4	113	Dwarven Scale Gaiters	A-Grade	add	0
-10252	379	S	5	128	Dwarven Scale Gaiters	S-Grade	add	0
+10258	379	C	2	92	Dwarven Scale Gaiters	C-Grade	add	0
+10259	379	B	3	104	Dwarven Scale Gaiters	B-Grade	add	0
+10260	379	A	4	113	Dwarven Scale Gaiters	A-Grade	add	0
+10261	379	S	5	128	Dwarven Scale Gaiters	S-Grade	add	0
 380	380	D	1	64	Plate Gaiters		update	0
-10253	380	C	2	92	Plate Gaiters	C-Grade	add	0
-10254	380	B	3	104	Plate Gaiters	B-Grade	add	0
-10255	380	A	4	113	Plate Gaiters	A-Grade	add	0
-10256	380	S	5	128	Plate Gaiters	S-Grade	add	0
+10262	380	C	2	92	Plate Gaiters	C-Grade	add	0
+10263	380	B	3	104	Plate Gaiters	B-Grade	add	0
+10264	380	A	4	113	Plate Gaiters	A-Grade	add	0
+10265	380	S	5	128	Plate Gaiters	S-Grade	add	0
 381	381	C	2	92	Chain Gaiters		update	0
-10257	381	B	3	104	Chain Gaiters	B-Grade	add	0
-10258	381	A	4	113	Chain Gaiters	A-Grade	add	0
-10259	381	S	5	128	Chain Gaiters	S-Grade	add	0
+10266	381	B	3	104	Chain Gaiters	B-Grade	add	0
+10267	381	A	4	113	Chain Gaiters	A-Grade	add	0
+10268	381	S	5	128	Chain Gaiters	S-Grade	add	0
 382	382	C	2	92	Dwarven Chain Gaiters		update	0
-10260	382	B	3	104	Dwarven Chain Gaiters	B-Grade	add	0
-10261	382	A	4	113	Dwarven Chain Gaiters	A-Grade	add	0
-10262	382	S	5	128	Dwarven Chain Gaiters	S-Grade	add	0
+10269	382	B	3	104	Dwarven Chain Gaiters	B-Grade	add	0
+10270	382	A	4	113	Dwarven Chain Gaiters	A-Grade	add	0
+10271	382	S	5	128	Dwarven Chain Gaiters	S-Grade	add	0
 383	383	B	3	104	Zubei's Gaiters		update	0
-10263	383	A	4	113	Zubei's Gaiters	A-Grade	add	0
-10264	383	S	5	128	Zubei's Gaiters	S-Grade	add	0
+10272	383	A	4	113	Zubei's Gaiters	A-Grade	add	0
+10273	383	S	5	128	Zubei's Gaiters	S-Grade	add	0
 385	385	B	3	104	Gaiters of Victory		update	0
-10265	385	A	4	113	Gaiters of Victory	A-Grade	add	0
-10266	385	S	5	128	Gaiters of Victory	S-Grade	add	0
+10274	385	A	4	113	Gaiters of Victory	A-Grade	add	0
+10275	385	S	5	128	Gaiters of Victory	S-Grade	add	0
 386	386	B	3	104	Gaiters of Valor		update	0
-10267	386	A	4	113	Gaiters of Valor	A-Grade	add	0
-10268	386	S	5	128	Gaiters of Valor	S-Grade	add	0
+10276	386	A	4	113	Gaiters of Valor	A-Grade	add	0
+10277	386	S	5	128	Gaiters of Valor	S-Grade	add	0
 387	387	B	3	104	Elven Crystal Gaiters		update	0
-10269	387	A	4	113	Elven Crystal Gaiters	A-Grade	add	0
-10270	387	S	5	128	Elven Crystal Gaiters	S-Grade	add	0
+10278	387	A	4	113	Elven Crystal Gaiters	A-Grade	add	0
+10279	387	S	5	128	Elven Crystal Gaiters	S-Grade	add	0
 388	388	A	4	113	Dark Crystal Gaiters		update	0
-10271	388	S	5	128	Dark Crystal Gaiters	S-Grade	add	0
+10280	388	S	5	128	Dark Crystal Gaiters	S-Grade	add	0
 389	389	S	5	128	Dragon Scale Gaiters		update	0
 390	390	NG	0	53	Cotton Shirt		update	0
-10272	390	D	1	77	Cotton Shirt	D-Grade	add	0
-10273	390	C	2	110	Cotton Shirt	C-Grade	add	0
-10274	390	B	3	124	Cotton Shirt	B-Grade	add	0
-10275	390	A	4	136	Cotton Shirt	A-Grade	add	0
-10276	390	S	5	153	Cotton Shirt	S-Grade	add	0
+10281	390	D	1	77	Cotton Shirt	D-Grade	add	0
+10282	390	C	2	110	Cotton Shirt	C-Grade	add	0
+10283	390	B	3	124	Cotton Shirt	B-Grade	add	0
+10284	390	A	4	136	Cotton Shirt	A-Grade	add	0
+10285	390	S	5	153	Cotton Shirt	S-Grade	add	0
 391	391	D	1	77	Puma Skin Shirt		update	0
-10277	391	C	2	110	Puma Skin Shirt	C-Grade	add	0
-10278	391	B	3	124	Puma Skin Shirt	B-Grade	add	0
-10279	391	A	4	136	Puma Skin Shirt	A-Grade	add	0
-10280	391	S	5	153	Puma Skin Shirt	S-Grade	add	0
+10286	391	C	2	110	Puma Skin Shirt	C-Grade	add	0
+10287	391	B	3	124	Puma Skin Shirt	B-Grade	add	0
+10288	391	A	4	136	Puma Skin Shirt	A-Grade	add	0
+10289	391	S	5	153	Puma Skin Shirt	S-Grade	add	0
 392	392	D	1	77	Lion Skin Shirt		update	0
-10281	392	C	2	110	Lion Skin Shirt	C-Grade	add	0
-10282	392	B	3	124	Lion Skin Shirt	B-Grade	add	0
-10283	392	A	4	136	Lion Skin Shirt	A-Grade	add	0
-10284	392	S	5	153	Lion Skin Shirt	S-Grade	add	0
+10290	392	C	2	110	Lion Skin Shirt	C-Grade	add	0
+10291	392	B	3	124	Lion Skin Shirt	B-Grade	add	0
+10292	392	A	4	136	Lion Skin Shirt	A-Grade	add	0
+10293	392	S	5	153	Lion Skin Shirt	S-Grade	add	0
 393	393	D	1	77	Mithril Banded Mail		update	0
-10285	393	C	2	110	Mithril Banded Mail	C-Grade	add	0
-10286	393	B	3	124	Mithril Banded Mail	B-Grade	add	0
-10287	393	A	4	136	Mithril Banded Mail	A-Grade	add	0
-10288	393	S	5	153	Mithril Banded Mail	S-Grade	add	0
+10294	393	C	2	110	Mithril Banded Mail	C-Grade	add	0
+10295	393	B	3	124	Mithril Banded Mail	B-Grade	add	0
+10296	393	A	4	136	Mithril Banded Mail	A-Grade	add	0
+10297	393	S	5	153	Mithril Banded Mail	S-Grade	add	0
 394	394	D	1	77	Reinforced Leather Shirt		update	0
-10289	394	C	2	110	Reinforced Leather Shirt	C-Grade	add	0
-10290	394	B	3	124	Reinforced Leather Shirt	B-Grade	add	0
-10291	394	A	4	136	Reinforced Leather Shirt	A-Grade	add	0
-10292	394	S	5	153	Reinforced Leather Shirt	S-Grade	add	0
+10298	394	C	2	110	Reinforced Leather Shirt	C-Grade	add	0
+10299	394	B	3	124	Reinforced Leather Shirt	B-Grade	add	0
+10300	394	A	4	136	Reinforced Leather Shirt	A-Grade	add	0
+10301	394	S	5	153	Reinforced Leather Shirt	S-Grade	add	0
 395	395	D	1	77	Manticore Skin Shirt		update	0
-10293	395	C	2	110	Manticore Skin Shirt	C-Grade	add	0
-10294	395	B	3	124	Manticore Skin Shirt	B-Grade	add	0
-10295	395	A	4	136	Manticore Skin Shirt	A-Grade	add	0
-10296	395	S	5	153	Manticore Skin Shirt	S-Grade	add	0
+10302	395	C	2	110	Manticore Skin Shirt	C-Grade	add	0
+10303	395	B	3	124	Manticore Skin Shirt	B-Grade	add	0
+10304	395	A	4	136	Manticore Skin Shirt	A-Grade	add	0
+10305	395	S	5	153	Manticore Skin Shirt	S-Grade	add	0
 396	396	D	1	125	Salamander Skin Mail		update	0
-10297	396	C	2	179	Salamander Skin Mail	C-Grade	add	0
-10298	396	B	3	202	Salamander Skin Mail	B-Grade	add	0
-10299	396	A	4	220	Salamander Skin Mail	A-Grade	add	0
-10300	396	S	5	249	Salamander Skin Mail	S-Grade	add	0
+10306	396	C	2	179	Salamander Skin Mail	C-Grade	add	0
+10307	396	B	3	202	Salamander Skin Mail	B-Grade	add	0
+10308	396	A	4	220	Salamander Skin Mail	A-Grade	add	0
+10309	396	S	5	249	Salamander Skin Mail	S-Grade	add	0
 397	397	C	2	110	Mithril Shirt		update	0
-10301	397	B	3	124	Mithril Shirt	B-Grade	add	0
-10302	397	A	4	136	Mithril Shirt	A-Grade	add	0
-10303	397	S	5	153	Mithril Shirt	S-Grade	add	0
+10310	397	B	3	124	Mithril Shirt	B-Grade	add	0
+10311	397	A	4	136	Mithril Shirt	A-Grade	add	0
+10312	397	S	5	153	Mithril Shirt	S-Grade	add	0
 398	398	C	2	110	Plated Leather		update	0
-10304	398	B	3	124	Plated Leather	B-Grade	add	0
-10305	398	A	4	136	Plated Leather	A-Grade	add	0
-10306	398	S	5	153	Plated Leather	S-Grade	add	0
+10313	398	B	3	124	Plated Leather	B-Grade	add	0
+10314	398	A	4	136	Plated Leather	A-Grade	add	0
+10315	398	S	5	153	Plated Leather	S-Grade	add	0
 399	399	C	2	110	Rind Leather Armor		update	0
-10307	399	B	3	124	Rind Leather Armor	B-Grade	add	0
-10308	399	A	4	136	Rind Leather Armor	A-Grade	add	0
-10309	399	S	5	153	Rind Leather Armor	S-Grade	add	0
+10316	399	B	3	124	Rind Leather Armor	B-Grade	add	0
+10317	399	A	4	136	Rind Leather Armor	A-Grade	add	0
+10318	399	S	5	153	Rind Leather Armor	S-Grade	add	0
 400	400	C	2	110	Theca Leather Armor		update	0
-10310	400	B	3	124	Theca Leather Armor	B-Grade	add	0
-10311	400	A	4	136	Theca Leather Armor	A-Grade	add	0
-10312	400	S	5	153	Theca Leather Armor	S-Grade	add	0
+10319	400	B	3	124	Theca Leather Armor	B-Grade	add	0
+10320	400	A	4	136	Theca Leather Armor	A-Grade	add	0
+10321	400	S	5	153	Theca Leather Armor	S-Grade	add	0
 401	401	C	2	179	Drake Leather Armor		update	0
-10313	401	B	3	202	Drake Leather Armor	B-Grade	add	0
-10314	401	A	4	220	Drake Leather Armor	A-Grade	add	0
-10315	401	S	5	249	Drake Leather Armor	S-Grade	add	0
+10322	401	B	3	202	Drake Leather Armor	B-Grade	add	0
+10323	401	A	4	220	Drake Leather Armor	A-Grade	add	0
+10324	401	S	5	249	Drake Leather Armor	S-Grade	add	0
 402	402	B	3	202	Chain Mail of Silence		update	0
-10316	402	A	4	220	Chain Mail of Silence	A-Grade	add	0
-10317	402	S	5	249	Chain Mail of Silence	S-Grade	add	0
+10325	402	A	4	220	Chain Mail of Silence	A-Grade	add	0
+10326	402	S	5	249	Chain Mail of Silence	S-Grade	add	0
 403	403	B	3	202	Gust Chain Mail		update	0
-10318	403	A	4	220	Gust Chain Mail	A-Grade	add	0
-10319	403	S	5	249	Gust Chain Mail	S-Grade	add	0
+10327	403	A	4	220	Gust Chain Mail	A-Grade	add	0
+10328	403	S	5	249	Gust Chain Mail	S-Grade	add	0
 404	404	B	3	124	Prairie Leather Armor		update	0
-10320	404	A	4	136	Prairie Leather Armor	A-Grade	add	0
-10321	404	S	5	153	Prairie Leather Armor	S-Grade	add	0
+10329	404	A	4	136	Prairie Leather Armor	A-Grade	add	0
+10330	404	S	5	153	Prairie Leather Armor	S-Grade	add	0
 405	405	B	3	124	Leather Armor of The Underworld		update	0
-10322	405	A	4	136	Leather Armor of The Underworld	A-Grade	add	0
-10323	405	S	5	153	Leather Armor of The Underworld	S-Grade	add	0
+10331	405	A	4	136	Leather Armor of The Underworld	A-Grade	add	0
+10332	405	S	5	153	Leather Armor of The Underworld	S-Grade	add	0
 406	406	B	3	202	Leather Suit of Concentration		update	0
-10324	406	A	4	220	Leather Suit of Concentration	A-Grade	add	0
-10325	406	S	5	249	Leather Suit of Concentration	S-Grade	add	0
+10333	406	A	4	220	Leather Suit of Concentration	A-Grade	add	0
+10334	406	S	5	249	Leather Suit of Concentration	S-Grade	add	0
 407	407	B	3	202	Ace's Leather Armor		update	0
-10326	407	A	4	220	Ace's Leather Armor	A-Grade	add	0
-10327	407	S	5	249	Ace's Leather Armor	S-Grade	add	0
+10335	407	A	4	220	Ace's Leather Armor	A-Grade	add	0
+10336	407	S	5	249	Ace's Leather Armor	S-Grade	add	0
 408	408	B	3	124	Guardian's Leather Armor		update	0
-10328	408	A	4	136	Guardian's Leather Armor	A-Grade	add	0
-10329	408	S	5	153	Guardian's Leather Armor	S-Grade	add	0
+10337	408	A	4	136	Guardian's Leather Armor	A-Grade	add	0
+10338	408	S	5	153	Guardian's Leather Armor	S-Grade	add	0
 409	409	B	3	124	Marksman's Leather Armor		update	0
-10330	409	A	4	136	Marksman's Leather Armor	A-Grade	add	0
-10331	409	S	5	153	Marksman's Leather Armor	S-Grade	add	0
+10339	409	A	4	136	Marksman's Leather Armor	A-Grade	add	0
+10340	409	S	5	153	Marksman's Leather Armor	S-Grade	add	0
 410	410	A	4	220	Unicorn Leather Armor		update	0
-10332	410	S	5	249	Unicorn Leather Armor	S-Grade	add	0
+10341	410	S	5	249	Unicorn Leather Armor	S-Grade	add	0
 411	411	S	5	249	Dragon Leather Armor		update	0
 412	412	NG	0	33	Cotton Pants		update	0
-10333	412	D	1	48	Cotton Pants	D-Grade	add	0
-10334	412	C	2	69	Cotton Pants	C-Grade	add	0
-10335	412	B	3	78	Cotton Pants	B-Grade	add	0
-10336	412	A	4	84	Cotton Pants	A-Grade	add	0
-10337	412	S	5	96	Cotton Pants	S-Grade	add	0
+10342	412	D	1	48	Cotton Pants	D-Grade	add	0
+10343	412	C	2	69	Cotton Pants	C-Grade	add	0
+10344	412	B	3	78	Cotton Pants	B-Grade	add	0
+10345	412	A	4	84	Cotton Pants	A-Grade	add	0
+10346	412	S	5	96	Cotton Pants	S-Grade	add	0
 413	413	D	1	48	Puma Skin Gaiters		update	0
-10338	413	C	2	69	Puma Skin Gaiters	C-Grade	add	0
-10339	413	B	3	78	Puma Skin Gaiters	B-Grade	add	0
-10340	413	A	4	84	Puma Skin Gaiters	A-Grade	add	0
-10341	413	S	5	96	Puma Skin Gaiters	S-Grade	add	0
+10347	413	C	2	69	Puma Skin Gaiters	C-Grade	add	0
+10348	413	B	3	78	Puma Skin Gaiters	B-Grade	add	0
+10349	413	A	4	84	Puma Skin Gaiters	A-Grade	add	0
+10350	413	S	5	96	Puma Skin Gaiters	S-Grade	add	0
 414	414	D	1	48	Lion Skin Gaiters		update	0
-10342	414	C	2	69	Lion Skin Gaiters	C-Grade	add	0
-10343	414	B	3	78	Lion Skin Gaiters	B-Grade	add	0
-10344	414	A	4	84	Lion Skin Gaiters	A-Grade	add	0
-10345	414	S	5	96	Lion Skin Gaiters	S-Grade	add	0
+10351	414	C	2	69	Lion Skin Gaiters	C-Grade	add	0
+10352	414	B	3	78	Lion Skin Gaiters	B-Grade	add	0
+10353	414	A	4	84	Lion Skin Gaiters	A-Grade	add	0
+10354	414	S	5	96	Lion Skin Gaiters	S-Grade	add	0
 415	415	D	1	48	Mithril Banded Gaiters		update	0
-10346	415	C	2	69	Mithril Banded Gaiters	C-Grade	add	0
-10347	415	B	3	78	Mithril Banded Gaiters	B-Grade	add	0
-10348	415	A	4	84	Mithril Banded Gaiters	A-Grade	add	0
-10349	415	S	5	96	Mithril Banded Gaiters	S-Grade	add	0
+10355	415	C	2	69	Mithril Banded Gaiters	C-Grade	add	0
+10356	415	B	3	78	Mithril Banded Gaiters	B-Grade	add	0
+10357	415	A	4	84	Mithril Banded Gaiters	A-Grade	add	0
+10358	415	S	5	96	Mithril Banded Gaiters	S-Grade	add	0
 416	416	D	1	48	Reinforced Leather Gaiters		update	0
-10350	416	C	2	69	Reinforced Leather Gaiters	C-Grade	add	0
-10351	416	B	3	78	Reinforced Leather Gaiters	B-Grade	add	0
-10352	416	A	4	84	Reinforced Leather Gaiters	A-Grade	add	0
-10353	416	S	5	96	Reinforced Leather Gaiters	S-Grade	add	0
+10359	416	C	2	69	Reinforced Leather Gaiters	C-Grade	add	0
+10360	416	B	3	78	Reinforced Leather Gaiters	B-Grade	add	0
+10361	416	A	4	84	Reinforced Leather Gaiters	A-Grade	add	0
+10362	416	S	5	96	Reinforced Leather Gaiters	S-Grade	add	0
 417	417	D	1	48	Manticore Skin Gaiters		update	0
-10354	417	C	2	69	Manticore Skin Gaiters	C-Grade	add	0
-10355	417	B	3	78	Manticore Skin Gaiters	B-Grade	add	0
-10356	417	A	4	84	Manticore Skin Gaiters	A-Grade	add	0
-10357	417	S	5	96	Manticore Skin Gaiters	S-Grade	add	0
+10363	417	C	2	69	Manticore Skin Gaiters	C-Grade	add	0
+10364	417	B	3	78	Manticore Skin Gaiters	B-Grade	add	0
+10365	417	A	4	84	Manticore Skin Gaiters	A-Grade	add	0
+10366	417	S	5	96	Manticore Skin Gaiters	S-Grade	add	0
 418	418	C	2	69	Plated Leather Gaiters		update	0
-10358	418	B	3	78	Plated Leather Gaiters	B-Grade	add	0
-10359	418	A	4	84	Plated Leather Gaiters	A-Grade	add	0
-10360	418	S	5	96	Plated Leather Gaiters	S-Grade	add	0
+10367	418	B	3	78	Plated Leather Gaiters	B-Grade	add	0
+10368	418	A	4	84	Plated Leather Gaiters	A-Grade	add	0
+10369	418	S	5	96	Plated Leather Gaiters	S-Grade	add	0
 419	419	C	2	69	Rind Leather Gaiters		update	0
-10361	419	B	3	78	Rind Leather Gaiters	B-Grade	add	0
-10362	419	A	4	84	Rind Leather Gaiters	A-Grade	add	0
-10363	419	S	5	96	Rind Leather Gaiters	S-Grade	add	0
+10370	419	B	3	78	Rind Leather Gaiters	B-Grade	add	0
+10371	419	A	4	84	Rind Leather Gaiters	A-Grade	add	0
+10372	419	S	5	96	Rind Leather Gaiters	S-Grade	add	0
 420	420	C	2	69	Theca Leather Gaiters		update	0
-10364	420	B	3	78	Theca Leather Gaiters	B-Grade	add	0
-10365	420	A	4	84	Theca Leather Gaiters	A-Grade	add	0
-10366	420	S	5	96	Theca Leather Gaiters	S-Grade	add	0
+10373	420	B	3	78	Theca Leather Gaiters	B-Grade	add	0
+10374	420	A	4	84	Theca Leather Gaiters	A-Grade	add	0
+10375	420	S	5	96	Theca Leather Gaiters	S-Grade	add	0
 421	421	B	3	78	Prairie Leather Gaiters		update	0
-10367	421	A	4	84	Prairie Leather Gaiters	A-Grade	add	0
-10368	421	S	5	96	Prairie Leather Gaiters	S-Grade	add	0
+10376	421	A	4	84	Prairie Leather Gaiters	A-Grade	add	0
+10377	421	S	5	96	Prairie Leather Gaiters	S-Grade	add	0
 422	422	B	3	78	Gaiters of The Underworld		update	0
-10369	422	A	4	84	Gaiters of The Underworld	A-Grade	add	0
-10370	422	S	5	96	Gaiters of The Underworld	S-Grade	add	0
+10378	422	A	4	84	Gaiters of The Underworld	A-Grade	add	0
+10379	422	S	5	96	Gaiters of The Underworld	S-Grade	add	0
 423	423	B	3	78	Guardian's Leather Gaiters		update	0
-10371	423	A	4	84	Guardian's Leather Gaiters	A-Grade	add	0
-10372	423	S	5	96	Guardian's Leather Gaiters	S-Grade	add	0
+10380	423	A	4	84	Guardian's Leather Gaiters	A-Grade	add	0
+10381	423	S	5	96	Guardian's Leather Gaiters	S-Grade	add	0
 424	424	B	3	78	Marksman's Leather Gaiters		update	0
-10373	424	A	4	84	Marksman's Leather Gaiters	A-Grade	add	0
-10374	424	S	5	96	Marksman's Leather Gaiters	S-Grade	add	0
+10382	424	A	4	84	Marksman's Leather Gaiters	A-Grade	add	0
+10383	424	S	5	96	Marksman's Leather Gaiters	S-Grade	add	0
 425	425	NG	0	34	Apprentice's Tunic		update	0
-10375	425	D	1	52	Apprentice's Tunic	D-Grade	add	0
-10376	425	C	2	74	Apprentice's Tunic	C-Grade	add	0
-10377	425	B	3	83	Apprentice's Tunic	B-Grade	add	0
-10378	425	A	4	91	Apprentice's Tunic	A-Grade	add	0
-10379	425	S	5	102	Apprentice's Tunic	S-Grade	add	0
+10384	425	D	1	52	Apprentice's Tunic	D-Grade	add	0
+10385	425	C	2	74	Apprentice's Tunic	C-Grade	add	0
+10386	425	B	3	83	Apprentice's Tunic	B-Grade	add	0
+10387	425	A	4	91	Apprentice's Tunic	A-Grade	add	0
+10388	425	S	5	102	Apprentice's Tunic	S-Grade	add	0
 426	426	NG	0	34	Tunic		update	0
-10380	426	D	1	52	Tunic	D-Grade	add	0
-10381	426	C	2	74	Tunic	C-Grade	add	0
-10382	426	B	3	83	Tunic	B-Grade	add	0
-10383	426	A	4	91	Tunic	A-Grade	add	0
-10384	426	S	5	102	Tunic	S-Grade	add	0
-427	427	NG	0	56	Cotton Robe		update	0
-10385	427	D	1	85	Cotton Robe	D-Grade	add	0
-10386	427	C	2	120	Cotton Robe	C-Grade	add	0
-10387	427	B	3	135	Cotton Robe	B-Grade	add	0
-10388	427	A	4	147	Cotton Robe	A-Grade	add	0
-10389	427	S	5	166	Cotton Robe	S-Grade	add	0
+10389	426	D	1	52	Tunic	D-Grade	add	0
+10390	426	C	2	74	Tunic	C-Grade	add	0
+10391	426	B	3	83	Tunic	B-Grade	add	0
+10392	426	A	4	91	Tunic	A-Grade	add	0
+10393	426	S	5	102	Tunic	S-Grade	add	0
 428	428	NG	0	34	Feriotic Tunic		update	0
-10390	428	D	1	52	Feriotic Tunic	D-Grade	add	0
-10391	428	C	2	74	Feriotic Tunic	C-Grade	add	0
-10392	428	B	3	83	Feriotic Tunic	B-Grade	add	0
-10393	428	A	4	91	Feriotic Tunic	A-Grade	add	0
-10394	428	S	5	102	Feriotic Tunic	S-Grade	add	0
+10394	428	D	1	52	Feriotic Tunic	D-Grade	add	0
+10395	428	C	2	74	Feriotic Tunic	C-Grade	add	0
+10396	428	B	3	83	Feriotic Tunic	B-Grade	add	0
+10397	428	A	4	91	Feriotic Tunic	A-Grade	add	0
+10398	428	S	5	102	Feriotic Tunic	S-Grade	add	0
 429	429	NG	0	34	Leather Tunic		update	0
-10395	429	D	1	52	Leather Tunic	D-Grade	add	0
-10396	429	C	2	74	Leather Tunic	C-Grade	add	0
-10397	429	B	3	83	Leather Tunic	B-Grade	add	0
-10398	429	A	4	91	Leather Tunic	A-Grade	add	0
-10399	429	S	5	102	Leather Tunic	S-Grade	add	0
-430	430	NG	0	56	Robe of Devotion		update	0
-10400	430	D	1	85	Robe of Devotion	D-Grade	add	0
-10401	430	C	2	120	Robe of Devotion	C-Grade	add	0
-10402	430	B	3	135	Robe of Devotion	B-Grade	add	0
-10403	430	A	4	147	Robe of Devotion	A-Grade	add	0
-10404	430	S	5	166	Robe of Devotion	S-Grade	add	0
-431	431	NG	0	56	Robe of Magic		update	0
-10405	431	D	1	85	Robe of Magic	D-Grade	add	0
-10406	431	C	2	120	Robe of Magic	C-Grade	add	0
-10407	431	B	3	135	Robe of Magic	B-Grade	add	0
-10408	431	A	4	147	Robe of Magic	A-Grade	add	0
-10409	431	S	5	166	Robe of Magic	S-Grade	add	0
+10399	429	D	1	52	Leather Tunic	D-Grade	add	0
+10400	429	C	2	74	Leather Tunic	C-Grade	add	0
+10401	429	B	3	83	Leather Tunic	B-Grade	add	0
+10402	429	A	4	91	Leather Tunic	A-Grade	add	0
+10403	429	S	5	102	Leather Tunic	S-Grade	add	0
 432	432	D	1	52	Cursed Tunic		update	0
-10410	432	C	2	74	Cursed Tunic	C-Grade	add	0
-10411	432	B	3	83	Cursed Tunic	B-Grade	add	0
-10412	432	A	4	91	Cursed Tunic	A-Grade	add	0
-10413	432	S	5	102	Cursed Tunic	S-Grade	add	0
+10404	432	C	2	74	Cursed Tunic	C-Grade	add	0
+10405	432	B	3	83	Cursed Tunic	B-Grade	add	0
+10406	432	A	4	91	Cursed Tunic	A-Grade	add	0
+10407	432	S	5	102	Cursed Tunic	S-Grade	add	0
 433	433	D	1	52	Elven Tunic		update	0
-10414	433	C	2	74	Elven Tunic	C-Grade	add	0
-10415	433	B	3	83	Elven Tunic	B-Grade	add	0
-10416	433	A	4	91	Elven Tunic	A-Grade	add	0
-10417	433	S	5	102	Elven Tunic	S-Grade	add	0
+10408	433	C	2	74	Elven Tunic	C-Grade	add	0
+10409	433	B	3	83	Elven Tunic	B-Grade	add	0
+10410	433	A	4	91	Elven Tunic	A-Grade	add	0
+10411	433	S	5	102	Elven Tunic	S-Grade	add	0
 434	434	D	1	52	White Tunic		update	0
-10418	434	C	2	74	White Tunic	C-Grade	add	0
-10419	434	B	3	83	White Tunic	B-Grade	add	0
-10420	434	A	4	91	White Tunic	A-Grade	add	0
-10421	434	S	5	102	White Tunic	S-Grade	add	0
+10412	434	C	2	74	White Tunic	C-Grade	add	0
+10413	434	B	3	83	White Tunic	B-Grade	add	0
+10414	434	A	4	91	White Tunic	A-Grade	add	0
+10415	434	S	5	102	White Tunic	S-Grade	add	0
 435	435	D	1	52	Mystic's Tunic		update	0
-10422	435	C	2	74	Mystic's Tunic	C-Grade	add	0
-10423	435	B	3	83	Mystic's Tunic	B-Grade	add	0
-10424	435	A	4	91	Mystic's Tunic	A-Grade	add	0
-10425	435	S	5	102	Mystic's Tunic	S-Grade	add	0
+10416	435	C	2	74	Mystic's Tunic	C-Grade	add	0
+10417	435	B	3	83	Mystic's Tunic	B-Grade	add	0
+10418	435	A	4	91	Mystic's Tunic	A-Grade	add	0
+10419	435	S	5	102	Mystic's Tunic	S-Grade	add	0
 436	436	D	1	52	Tunic of Knowledge		update	0
-10426	436	C	2	74	Tunic of Knowledge	C-Grade	add	0
-10427	436	B	3	83	Tunic of Knowledge	B-Grade	add	0
-10428	436	A	4	91	Tunic of Knowledge	A-Grade	add	0
-10429	436	S	5	102	Tunic of Knowledge	S-Grade	add	0
+10420	436	C	2	74	Tunic of Knowledge	C-Grade	add	0
+10421	436	B	3	83	Tunic of Knowledge	B-Grade	add	0
+10422	436	A	4	91	Tunic of Knowledge	A-Grade	add	0
+10423	436	S	5	102	Tunic of Knowledge	S-Grade	add	0
 437	437	D	1	52	Mithril Tunic		update	0
-10430	437	C	2	74	Mithril Tunic	C-Grade	add	0
-10431	437	B	3	83	Mithril Tunic	B-Grade	add	0
-10432	437	A	4	91	Mithril Tunic	A-Grade	add	0
-10433	437	S	5	102	Mithril Tunic	S-Grade	add	0
+10424	437	C	2	74	Mithril Tunic	C-Grade	add	0
+10425	437	B	3	83	Mithril Tunic	B-Grade	add	0
+10426	437	A	4	91	Mithril Tunic	A-Grade	add	0
+10427	437	S	5	102	Mithril Tunic	S-Grade	add	0
 438	438	D	1	85	Sage's Rag		update	0
-10434	438	C	2	120	Sage's Rag	C-Grade	add	0
-10435	438	B	3	135	Sage's Rag	B-Grade	add	0
-10436	438	A	4	147	Sage's Rag	A-Grade	add	0
-10437	438	S	5	166	Sage's Rag	S-Grade	add	0
+10428	438	C	2	120	Sage's Rag	C-Grade	add	0
+10429	438	B	3	135	Sage's Rag	B-Grade	add	0
+10430	438	A	4	147	Sage's Rag	A-Grade	add	0
+10431	438	S	5	166	Sage's Rag	S-Grade	add	0
 439	439	C	2	74	Karmian Tunic		update	0
-10438	439	B	3	83	Karmian Tunic	B-Grade	add	0
-10439	439	A	4	91	Karmian Tunic	A-Grade	add	0
-10440	439	S	5	102	Karmian Tunic	S-Grade	add	0
+10432	439	B	3	83	Karmian Tunic	B-Grade	add	0
+10433	439	A	4	91	Karmian Tunic	A-Grade	add	0
+10434	439	S	5	102	Karmian Tunic	S-Grade	add	0
 440	440	C	2	120	Robe of Seal		update	0
-10441	440	B	3	135	Robe of Seal	B-Grade	add	0
-10442	440	A	4	147	Robe of Seal	A-Grade	add	0
-10443	440	S	5	166	Robe of Seal	S-Grade	add	0
+10435	440	B	3	135	Robe of Seal	B-Grade	add	0
+10436	440	A	4	147	Robe of Seal	A-Grade	add	0
+10437	440	S	5	166	Robe of Seal	S-Grade	add	0
 441	441	C	2	74	Demon's Tunic		update	0
-10444	441	B	3	83	Demon's Tunic	B-Grade	add	0
-10445	441	A	4	91	Demon's Tunic	A-Grade	add	0
-10446	441	S	5	102	Demon's Tunic	S-Grade	add	0
+10438	441	B	3	83	Demon's Tunic	B-Grade	add	0
+10439	441	A	4	91	Demon's Tunic	A-Grade	add	0
+10440	441	S	5	102	Demon's Tunic	S-Grade	add	0
 442	442	C	2	74	Divine Tunic		update	0
-10447	442	B	3	83	Divine Tunic	B-Grade	add	0
-10448	442	A	4	91	Divine Tunic	A-Grade	add	0
-10449	442	S	5	102	Divine Tunic	S-Grade	add	0
+10441	442	B	3	83	Divine Tunic	B-Grade	add	0
+10442	442	A	4	91	Divine Tunic	A-Grade	add	0
+10443	442	S	5	102	Divine Tunic	S-Grade	add	0
 443	443	B	3	83	Tunic of Mana		update	0
-10450	443	A	4	91	Tunic of Mana	A-Grade	add	0
-10451	443	S	5	102	Tunic of Mana	S-Grade	add	0
+10444	443	A	4	91	Tunic of Mana	A-Grade	add	0
+10445	443	S	5	102	Tunic of Mana	S-Grade	add	0
 444	444	B	3	135	Sage's Robe		update	0
-10452	444	A	4	147	Sage's Robe	A-Grade	add	0
-10453	444	S	5	166	Sage's Robe	S-Grade	add	0
+10446	444	A	4	147	Sage's Robe	A-Grade	add	0
+10447	444	S	5	166	Sage's Robe	S-Grade	add	0
 445	445	B	3	83	Paradia Tunic		update	0
-10454	445	A	4	91	Paradia Tunic	A-Grade	add	0
-10455	445	S	5	102	Paradia Tunic	S-Grade	add	0
+10448	445	A	4	91	Paradia Tunic	A-Grade	add	0
+10449	445	S	5	102	Paradia Tunic	S-Grade	add	0
 446	446	B	3	83	Inferno Tunic		update	0
-10456	446	A	4	91	Inferno Tunic	A-Grade	add	0
-10457	446	S	5	102	Inferno Tunic	S-Grade	add	0
+10450	446	A	4	91	Inferno Tunic	A-Grade	add	0
+10451	446	S	5	102	Inferno Tunic	S-Grade	add	0
 447	447	B	3	83	Tunic of Solar Eclipse		update	0
-10458	447	A	4	91	Tunic of Solar Eclipse	A-Grade	add	0
-10459	447	S	5	102	Tunic of Solar Eclipse	S-Grade	add	0
+10452	447	A	4	91	Tunic of Solar Eclipse	A-Grade	add	0
+10453	447	S	5	102	Tunic of Solar Eclipse	S-Grade	add	0
 448	448	B	3	135	Robe of Black Ore		update	0
-10460	448	A	4	147	Robe of Black Ore	A-Grade	add	0
-10461	448	S	5	166	Robe of Black Ore	S-Grade	add	0
+10454	448	A	4	147	Robe of Black Ore	A-Grade	add	0
+10455	448	S	5	166	Robe of Black Ore	S-Grade	add	0
 449	449	B	3	83	Tunic of Summoning		update	0
-10462	449	A	4	91	Tunic of Summoning	A-Grade	add	0
-10463	449	S	5	102	Tunic of Summoning	S-Grade	add	0
+10456	449	A	4	91	Tunic of Summoning	A-Grade	add	0
+10457	449	S	5	102	Tunic of Summoning	S-Grade	add	0
 450	450	B	3	135	Otherworldly Robe		update	0
-10464	450	A	4	147	Otherworldly Robe	A-Grade	add	0
-10465	450	S	5	166	Otherworldly Robe	S-Grade	add	0
+10458	450	A	4	147	Otherworldly Robe	A-Grade	add	0
+10459	450	S	5	166	Otherworldly Robe	S-Grade	add	0
 451	451	B	3	83	Elemental Tunic		update	0
-10466	451	A	4	91	Elemental Tunic	A-Grade	add	0
-10467	451	S	5	102	Elemental Tunic	S-Grade	add	0
+10460	451	A	4	91	Elemental Tunic	A-Grade	add	0
+10461	451	S	5	102	Elemental Tunic	S-Grade	add	0
 452	452	B	3	83	Tunic of Phantom		update	0
-10468	452	A	4	91	Tunic of Phantom	A-Grade	add	0
-10469	452	S	5	102	Tunic of Phantom	S-Grade	add	0
+10462	452	A	4	91	Tunic of Phantom	A-Grade	add	0
+10463	452	S	5	102	Tunic of Phantom	S-Grade	add	0
 453	453	B	3	83	Tunic of Grace		update	0
-10470	453	A	4	91	Tunic of Grace	A-Grade	add	0
-10471	453	S	5	102	Tunic of Grace	S-Grade	add	0
+10464	453	A	4	91	Tunic of Grace	A-Grade	add	0
+10465	453	S	5	102	Tunic of Grace	S-Grade	add	0
 454	454	B	3	135	Robe of Holy Spirit		update	0
-10472	454	A	4	147	Robe of Holy Spirit	A-Grade	add	0
-10473	454	S	5	166	Robe of Holy Spirit	S-Grade	add	0
+10466	454	A	4	147	Robe of Holy Spirit	A-Grade	add	0
+10467	454	S	5	166	Robe of Holy Spirit	S-Grade	add	0
 455	455	B	3	83	Phoenix Tunic		update	0
-10474	455	A	4	91	Phoenix Tunic	A-Grade	add	0
-10475	455	S	5	102	Phoenix Tunic	S-Grade	add	0
+10468	455	A	4	91	Phoenix Tunic	A-Grade	add	0
+10469	455	S	5	102	Phoenix Tunic	S-Grade	add	0
 456	456	B	3	83	Cerberus Tunic		update	0
-10476	456	A	4	91	Cerberus Tunic	A-Grade	add	0
-10477	456	S	5	102	Cerberus Tunic	S-Grade	add	0
+10470	456	A	4	91	Cerberus Tunic	A-Grade	add	0
+10471	456	S	5	102	Cerberus Tunic	S-Grade	add	0
 457	457	B	3	83	Tunic of Aid		update	0
-10478	457	A	4	91	Tunic of Aid	A-Grade	add	0
-10479	457	S	5	102	Tunic of Aid	S-Grade	add	0
+10472	457	A	4	91	Tunic of Aid	A-Grade	add	0
+10473	457	S	5	102	Tunic of Aid	S-Grade	add	0
 458	458	B	3	135	Robe of Blessing		update	0
-10480	458	A	4	147	Robe of Blessing	A-Grade	add	0
-10481	458	S	5	166	Robe of Blessing	S-Grade	add	0
+10474	458	A	4	147	Robe of Blessing	A-Grade	add	0
+10475	458	S	5	166	Robe of Blessing	S-Grade	add	0
 459	459	A	4	147	Dasparion's Robe		update	0
-10482	459	S	5	166	Dasparion's Robe	S-Grade	add	0
+10476	459	S	5	166	Dasparion's Robe	S-Grade	add	0
 460	460	S	5	166	The Robe		update	0
 461	461	NG	0	22	Apprentice's Stockings		update	0
-10483	461	D	1	33	Apprentice's Stockings	D-Grade	add	0
-10484	461	C	2	46	Apprentice's Stockings	C-Grade	add	0
-10485	461	B	3	52	Apprentice's Stockings	B-Grade	add	0
-10486	461	A	4	56	Apprentice's Stockings	A-Grade	add	0
-10487	461	S	5	64	Apprentice's Stockings	S-Grade	add	0
+10477	461	D	1	33	Apprentice's Stockings	D-Grade	add	0
+10478	461	C	2	46	Apprentice's Stockings	C-Grade	add	0
+10479	461	B	3	52	Apprentice's Stockings	B-Grade	add	0
+10480	461	A	4	56	Apprentice's Stockings	A-Grade	add	0
+10481	461	S	5	64	Apprentice's Stockings	S-Grade	add	0
 462	462	NG	0	22	Stockings		update	0
-10488	462	D	1	33	Stockings	D-Grade	add	0
-10489	462	C	2	46	Stockings	C-Grade	add	0
-10490	462	B	3	52	Stockings	B-Grade	add	0
-10491	462	A	4	56	Stockings	A-Grade	add	0
-10492	462	S	5	64	Stockings	S-Grade	add	0
+10482	462	D	1	33	Stockings	D-Grade	add	0
+10483	462	C	2	46	Stockings	C-Grade	add	0
+10484	462	B	3	52	Stockings	B-Grade	add	0
+10485	462	A	4	56	Stockings	A-Grade	add	0
+10486	462	S	5	64	Stockings	S-Grade	add	0
 463	463	NG	0	22	Feriotic Stockings		update	0
-10493	463	D	1	33	Feriotic Stockings	D-Grade	add	0
-10494	463	C	2	46	Feriotic Stockings	C-Grade	add	0
-10495	463	B	3	52	Feriotic Stockings	B-Grade	add	0
-10496	463	A	4	56	Feriotic Stockings	A-Grade	add	0
-10497	463	S	5	64	Feriotic Stockings	S-Grade	add	0
+10487	463	D	1	33	Feriotic Stockings	D-Grade	add	0
+10488	463	C	2	46	Feriotic Stockings	C-Grade	add	0
+10489	463	B	3	52	Feriotic Stockings	B-Grade	add	0
+10490	463	A	4	56	Feriotic Stockings	A-Grade	add	0
+10491	463	S	5	64	Feriotic Stockings	S-Grade	add	0
+464	464	NG	0	22	Leather Stockings		update	0
+10492	464	D	1	33	Leather Stockings	D-Grade	add	0
+10493	464	C	2	46	Leather Stockings	C-Grade	add	0
+10494	464	B	3	52	Leather Stockings	B-Grade	add	0
+10495	464	A	4	56	Leather Stockings	A-Grade	add	0
+10496	464	S	5	64	Leather Stockings	S-Grade	add	0
 465	465	D	1	33	Cursed Stockings		update	0
-10498	465	C	2	46	Cursed Stockings	C-Grade	add	0
-10499	465	B	3	52	Cursed Stockings	B-Grade	add	0
-10500	465	A	4	56	Cursed Stockings	A-Grade	add	0
-10501	465	S	5	64	Cursed Stockings	S-Grade	add	0
+10497	465	C	2	46	Cursed Stockings	C-Grade	add	0
+10498	465	B	3	52	Cursed Stockings	B-Grade	add	0
+10499	465	A	4	56	Cursed Stockings	A-Grade	add	0
+10500	465	S	5	64	Cursed Stockings	S-Grade	add	0
 466	466	D	1	33	Elven Stockings		update	0
-10502	466	C	2	46	Elven Stockings	C-Grade	add	0
-10503	466	B	3	52	Elven Stockings	B-Grade	add	0
-10504	466	A	4	56	Elven Stockings	A-Grade	add	0
-10505	466	S	5	64	Elven Stockings	S-Grade	add	0
+10501	466	C	2	46	Elven Stockings	C-Grade	add	0
+10502	466	B	3	52	Elven Stockings	B-Grade	add	0
+10503	466	A	4	56	Elven Stockings	A-Grade	add	0
+10504	466	S	5	64	Elven Stockings	S-Grade	add	0
+467	467	D	1	33	Dark Stockings		update	0
+10505	467	C	2	46	Dark Stockings	C-Grade	add	0
+10506	467	B	3	52	Dark Stockings	B-Grade	add	0
+10507	467	A	4	56	Dark Stockings	A-Grade	add	0
+10508	467	S	5	64	Dark Stockings	S-Grade	add	0
 468	468	D	1	33	Mystic's Stockings		update	0
-10506	468	C	2	46	Mystic's Stockings	C-Grade	add	0
-10507	468	B	3	52	Mystic's Stockings	B-Grade	add	0
-10508	468	A	4	56	Mystic's Stockings	A-Grade	add	0
-10509	468	S	5	64	Mystic's Stockings	S-Grade	add	0
+10509	468	C	2	46	Mystic's Stockings	C-Grade	add	0
+10510	468	B	3	52	Mystic's Stockings	B-Grade	add	0
+10511	468	A	4	56	Mystic's Stockings	A-Grade	add	0
+10512	468	S	5	64	Mystic's Stockings	S-Grade	add	0
 469	469	D	1	33	Stockings of Knowledge		update	0
-10510	469	C	2	46	Stockings of Knowledge	C-Grade	add	0
-10511	469	B	3	52	Stockings of Knowledge	B-Grade	add	0
-10512	469	A	4	56	Stockings of Knowledge	A-Grade	add	0
-10513	469	S	5	64	Stockings of Knowledge	S-Grade	add	0
+10513	469	C	2	46	Stockings of Knowledge	C-Grade	add	0
+10514	469	B	3	52	Stockings of Knowledge	B-Grade	add	0
+10515	469	A	4	56	Stockings of Knowledge	A-Grade	add	0
+10516	469	S	5	64	Stockings of Knowledge	S-Grade	add	0
 470	470	D	1	33	Mithril Stockings		update	0
-10514	470	C	2	46	Mithril Stockings	C-Grade	add	0
-10515	470	B	3	52	Mithril Stockings	B-Grade	add	0
-10516	470	A	4	56	Mithril Stockings	A-Grade	add	0
-10517	470	S	5	64	Mithril Stockings	S-Grade	add	0
+10517	470	C	2	46	Mithril Stockings	C-Grade	add	0
+10518	470	B	3	52	Mithril Stockings	B-Grade	add	0
+10519	470	A	4	56	Mithril Stockings	A-Grade	add	0
+10520	470	S	5	64	Mithril Stockings	S-Grade	add	0
 471	471	C	2	46	Karmian Stockings		update	0
-10518	471	B	3	52	Karmian Stockings	B-Grade	add	0
-10519	471	A	4	56	Karmian Stockings	A-Grade	add	0
-10520	471	S	5	64	Karmian Stockings	S-Grade	add	0
+10521	471	B	3	52	Karmian Stockings	B-Grade	add	0
+10522	471	A	4	56	Karmian Stockings	A-Grade	add	0
+10523	471	S	5	64	Karmian Stockings	S-Grade	add	0
 472	472	C	2	46	Demon's Stockings		update	0
-10521	472	B	3	52	Demon's Stockings	B-Grade	add	0
-10522	472	A	4	56	Demon's Stockings	A-Grade	add	0
-10523	472	S	5	64	Demon's Stockings	S-Grade	add	0
+10524	472	B	3	52	Demon's Stockings	B-Grade	add	0
+10525	472	A	4	56	Demon's Stockings	A-Grade	add	0
+10526	472	S	5	64	Demon's Stockings	S-Grade	add	0
 473	473	C	2	46	Divine Stockings		update	0
-10524	473	B	3	52	Divine Stockings	B-Grade	add	0
-10525	473	A	4	56	Divine Stockings	A-Grade	add	0
-10526	473	S	5	64	Divine Stockings	S-Grade	add	0
-474	474	B	3	52	Stockings of Mana		update	0
-10527	474	A	4	56	Stockings of Mana	A-Grade	add	0
-10528	474	S	5	64	Stockings of Mana	S-Grade	add	0
-475	475	B	3	52	Paradia Stockings		update	0
-10529	475	A	4	56	Paradia Stockings	A-Grade	add	0
-10530	475	S	5	64	Paradia Stockings	S-Grade	add	0
-476	476	B	3	52	Inferno Stockings		update	0
-10531	476	A	4	56	Inferno Stockings	A-Grade	add	0
-10532	476	S	5	64	Inferno Stockings	S-Grade	add	0
-477	477	B	3	52	Stockings of Solar Eclipse		update	0
-10533	477	A	4	56	Stockings of Solar Eclipse	A-Grade	add	0
-10534	477	S	5	64	Stockings of Solar Eclipse	S-Grade	add	0
-478	478	B	3	52	Stockings of Summoning		update	0
-10535	478	A	4	56	Stockings of Summoning	A-Grade	add	0
-10536	478	S	5	64	Stockings of Summoning	S-Grade	add	0
-479	479	B	3	52	Elemental Stockings		update	0
-10537	479	A	4	56	Elemental Stockings	A-Grade	add	0
-10538	479	S	5	64	Elemental Stockings	S-Grade	add	0
-480	480	B	3	52	Stockings of Phantom		update	0
-10539	480	A	4	56	Stockings of Phantom	A-Grade	add	0
-10540	480	S	5	64	Stockings of Phantom	S-Grade	add	0
-481	481	B	3	52	Stockings of Grace		update	0
-10541	481	A	4	56	Stockings of Grace	A-Grade	add	0
-10542	481	S	5	64	Stockings of Grace	S-Grade	add	0
-482	482	B	3	52	Phoenix Stockings		update	0
-10543	482	A	4	56	Phoenix Stockings	A-Grade	add	0
-10544	482	S	5	64	Phoenix Stockings	S-Grade	add	0
-483	483	B	3	52	Cerberus Stockings		update	0
-10545	483	A	4	56	Cerberus Stockings	A-Grade	add	0
-10546	483	S	5	64	Cerberus Stockings	S-Grade	add	0
-484	484	B	3	52	Stockings of Aid		update	0
-10547	484	A	4	56	Stockings of Aid	A-Grade	add	0
-10548	484	S	5	64	Stockings of Aid	S-Grade	add	0
+10527	473	B	3	52	Divine Stockings	B-Grade	add	0
+10528	473	A	4	56	Divine Stockings	A-Grade	add	0
+10529	473	S	5	64	Divine Stockings	S-Grade	add	0
 497	497	C	2	58	Chain Helmet		update	0
-10549	497	B	3	67	Chain Helmet	B-Grade	add	0
-10550	497	A	4	73	Chain Helmet	A-Grade	add	0
-10551	497	S	5	83	Chain Helmet	S-Grade	add	0
-10552	499	D	1	44	Mithril Helmet	D-Grade	add	0
+10530	497	B	3	67	Chain Helmet	B-Grade	add	0
+10531	497	A	4	73	Chain Helmet	A-Grade	add	0
+10532	497	S	5	83	Chain Helmet	S-Grade	add	0
+10533	499	D	1	44	Mithril Helmet	D-Grade	add	0
 499	499	C	2	58	Mithril Helmet		update	0
-10553	499	B	3	67	Mithril Helmet	B-Grade	add	0
-10554	499	A	4	73	Mithril Helmet	A-Grade	add	0
-10555	499	S	5	83	Mithril Helmet	S-Grade	add	0
+10534	499	B	3	67	Mithril Helmet	B-Grade	add	0
+10535	499	A	4	73	Mithril Helmet	A-Grade	add	0
+10536	499	S	5	83	Mithril Helmet	S-Grade	add	0
 503	503	B	3	67	Zubei's Helmet		update	0
-10556	503	A	4	73	Zubei's Helmet	A-Grade	add	0
-10557	503	S	5	83	Zubei's Helmet	S-Grade	add	0
+10537	503	A	4	73	Zubei's Helmet	A-Grade	add	0
+10538	503	S	5	83	Zubei's Helmet	S-Grade	add	0
 504	504	S	5	83	Dragon Helmet		update	0
 506	506	B	3	67	Shining Dragon Helmet		update	0
-10558	506	A	4	73	Shining Dragon Helmet	A-Grade	add	0
-10559	506	S	5	83	Shining Dragon Helmet	S-Grade	add	0
+10539	506	A	4	73	Shining Dragon Helmet	A-Grade	add	0
+10540	506	S	5	83	Shining Dragon Helmet	S-Grade	add	0
 507	507	B	3	67	Helmet of Victory		update	0
-10560	507	A	4	73	Helmet of Victory	A-Grade	add	0
-10561	507	S	5	83	Helmet of Victory	S-Grade	add	0
+10541	507	A	4	73	Helmet of Victory	A-Grade	add	0
+10542	507	S	5	83	Helmet of Victory	S-Grade	add	0
 508	508	B	3	67	Helmet of Valor		update	0
-10562	508	A	4	73	Helmet of Valor	A-Grade	add	0
-10563	508	S	5	83	Helmet of Valor	S-Grade	add	0
-10564	509	B	3	67	Glorious Helmet	B-Grade	add	0
+10543	508	A	4	73	Helmet of Valor	A-Grade	add	0
+10544	508	S	5	83	Helmet of Valor	S-Grade	add	0
+10545	509	B	3	67	Glorious Helmet	B-Grade	add	0
 509	509	A	4	73	Glorious Helmet		update	0
-10565	509	S	5	83	Glorious Helmet	S-Grade	add	0
-10566	510	B	3	67	Red Flame Helmet	B-Grade	add	0
+10546	509	S	5	83	Glorious Helmet	S-Grade	add	0
+10547	510	B	3	67	Red Flame Helmet	B-Grade	add	0
 510	510	A	4	73	Red Flame Helmet		update	0
-10567	510	S	5	83	Red Flame Helmet	S-Grade	add	0
-10568	511	D	1	44	Elven Crystal Helmet	D-Grade	add	0
-10569	511	C	2	58	Elven Crystal Helmet	C-Grade	add	0
+10548	510	S	5	83	Red Flame Helmet	S-Grade	add	0
+10549	511	D	1	44	Elven Crystal Helmet	D-Grade	add	0
+10550	511	C	2	58	Elven Crystal Helmet	C-Grade	add	0
 511	511	B	3	67	Elven Crystal Helmet		update	0
-10570	511	A	4	73	Elven Crystal Helmet	A-Grade	add	0
-10571	511	S	5	83	Elven Crystal Helmet	S-Grade	add	0
+10551	511	A	4	73	Elven Crystal Helmet	A-Grade	add	0
+10552	511	S	5	83	Elven Crystal Helmet	S-Grade	add	0
 512	512	A	4	73	Dark Crystal Helmet		update	0
-10572	512	S	5	83	Dark Crystal Helmet	S-Grade	add	0
+10553	512	S	5	83	Dark Crystal Helmet	S-Grade	add	0
 513	513	B	3	67	Implosion Helmet		update	0
-10573	513	A	4	73	Implosion Helmet	A-Grade	add	0
-10574	513	S	5	83	Implosion Helmet	S-Grade	add	0
+10554	513	A	4	73	Implosion Helmet	A-Grade	add	0
+10555	513	S	5	83	Implosion Helmet	S-Grade	add	0
 514	514	B	3	67	Dark Dragon Helmet		update	0
-10575	514	A	4	73	Dark Dragon Helmet	A-Grade	add	0
-10576	514	S	5	83	Dark Dragon Helmet	S-Grade	add	0
-10577	515	B	3	67	Elven Vagian Helm	B-Grade	add	0
+10556	514	A	4	73	Dark Dragon Helmet	A-Grade	add	0
+10557	514	S	5	83	Dark Dragon Helmet	S-Grade	add	0
+10558	515	B	3	67	Elven Vagian Helm	B-Grade	add	0
 515	515	A	4	73	Elven Vagian Helm		update	0
-10578	515	S	5	83	Elven Vagian Helm	S-Grade	add	0
-10579	516	B	3	67	Dark Vagian Helm	B-Grade	add	0
+10559	515	S	5	83	Elven Vagian Helm	S-Grade	add	0
+10560	516	B	3	67	Dark Vagian Helm	B-Grade	add	0
 516	516	A	4	73	Dark Vagian Helm		update	0
-10580	516	S	5	83	Dark Vagian Helm	S-Grade	add	0
+10561	516	S	5	83	Dark Vagian Helm	S-Grade	add	0
 517	517	C	2	58	Composite Helmet		update	0
-10581	517	B	3	67	Composite Helmet	B-Grade	add	0
-10582	517	A	4	73	Composite Helmet	A-Grade	add	0
-10583	517	S	5	83	Composite Helmet	S-Grade	add	0
-10584	518	B	3	67	Hell Helm	B-Grade	add	0
+10562	517	B	3	67	Composite Helmet	B-Grade	add	0
+10563	517	A	4	73	Composite Helmet	A-Grade	add	0
+10564	517	S	5	83	Composite Helmet	S-Grade	add	0
+10565	518	B	3	67	Hell Helm	B-Grade	add	0
 518	518	A	4	73	Hell Helm		update	0
-10585	518	S	5	83	Hell Helm	S-Grade	add	0
+10566	518	S	5	83	Hell Helm	S-Grade	add	0
 519	519	B	3	67	Art of Helmet		update	0
-10586	519	A	4	73	Art of Helmet	A-Grade	add	0
-10587	519	S	5	83	Art of Helmet	S-Grade	add	0
-10588	520	B	3	67	Masterpiece Helm	B-Grade	add	0
+10567	519	A	4	73	Art of Helmet	A-Grade	add	0
+10568	519	S	5	83	Art of Helmet	S-Grade	add	0
+10569	520	B	3	67	Masterpiece Helm	B-Grade	add	0
 520	520	A	4	73	Masterpiece Helm		update	0
-10589	520	S	5	83	Masterpiece Helm	S-Grade	add	0
+10570	520	S	5	83	Masterpiece Helm	S-Grade	add	0
 521	521	B	3	67	Helmet of Silence		update	0
-10590	521	A	4	73	Helmet of Silence	A-Grade	add	0
-10591	521	S	5	83	Helmet of Silence	S-Grade	add	0
+10571	521	A	4	73	Helmet of Silence	A-Grade	add	0
+10572	521	S	5	83	Helmet of Silence	S-Grade	add	0
 522	522	B	3	67	Gust Helmet		update	0
-10592	522	A	4	73	Gust Helmet	A-Grade	add	0
-10593	522	S	5	83	Gust Helmet	S-Grade	add	0
+10573	522	A	4	73	Gust Helmet	A-Grade	add	0
+10574	522	S	5	83	Gust Helmet	S-Grade	add	0
 523	523	B	3	67	Prairie Helmet		update	0
-10594	523	A	4	73	Prairie Helmet	A-Grade	add	0
-10595	523	S	5	83	Prairie Helmet	S-Grade	add	0
+10575	523	A	4	73	Prairie Helmet	A-Grade	add	0
+10576	523	S	5	83	Prairie Helmet	S-Grade	add	0
 524	524	B	3	67	Helm of The Underworld		update	0
-10596	524	A	4	73	Helm of The Underworld	A-Grade	add	0
-10597	524	S	5	83	Helm of The Underworld	S-Grade	add	0
+10577	524	A	4	73	Helm of The Underworld	A-Grade	add	0
+10578	524	S	5	83	Helm of The Underworld	S-Grade	add	0
 525	525	B	3	67	Helmet of Concentration		update	0
-10598	525	A	4	73	Helmet of Concentration	A-Grade	add	0
-10599	525	S	5	83	Helmet of Concentration	S-Grade	add	0
+10579	525	A	4	73	Helmet of Concentration	A-Grade	add	0
+10580	525	S	5	83	Helmet of Concentration	S-Grade	add	0
 526	526	B	3	67	Ace's Helmet		update	0
-10600	526	A	4	73	Ace's Helmet	A-Grade	add	0
-10601	526	S	5	83	Ace's Helmet	S-Grade	add	0
+10581	526	A	4	73	Ace's Helmet	A-Grade	add	0
+10582	526	S	5	83	Ace's Helmet	S-Grade	add	0
 527	527	B	3	67	Guardian's Helmet		update	0
-10602	527	A	4	73	Guardian's Helmet	A-Grade	add	0
-10603	527	S	5	83	Guardian's Helmet	S-Grade	add	0
+10583	527	A	4	73	Guardian's Helmet	A-Grade	add	0
+10584	527	S	5	83	Guardian's Helmet	S-Grade	add	0
 528	528	B	3	67	Marksman Helmet		update	0
-10604	528	A	4	73	Marksman Helmet	A-Grade	add	0
-10605	528	S	5	83	Marksman Helmet	S-Grade	add	0
+10585	528	A	4	73	Marksman Helmet	A-Grade	add	0
+10586	528	S	5	83	Marksman Helmet	S-Grade	add	0
 529	529	C	2	58	Cap of Mana		update	0
-10606	529	B	3	67	Cap of Mana	B-Grade	add	0
-10607	529	A	4	73	Cap of Mana	A-Grade	add	0
-10608	529	S	5	83	Cap of Mana	S-Grade	add	0
-10609	530	D	1	44	Sage's Cap	D-Grade	add	0
-10610	530	C	2	58	Sage's Cap	C-Grade	add	0
+10587	529	B	3	67	Cap of Mana	B-Grade	add	0
+10588	529	A	4	73	Cap of Mana	A-Grade	add	0
+10589	529	S	5	83	Cap of Mana	S-Grade	add	0
+10590	530	D	1	44	Sage's Cap	D-Grade	add	0
+10591	530	C	2	58	Sage's Cap	C-Grade	add	0
 530	530	B	3	67	Sage's Cap		update	0
-10611	530	A	4	73	Sage's Cap	A-Grade	add	0
-10612	530	S	5	83	Sage's Cap	S-Grade	add	0
-10613	531	B	3	67	Paradia Hood	B-Grade	add	0
-10614	531	A	4	73	Paradia Hood	A-Grade	add	0
-10615	531	S	5	83	Paradia Hood	S-Grade	add	0
+10592	530	A	4	73	Sage's Cap	A-Grade	add	0
+10593	530	S	5	83	Sage's Cap	S-Grade	add	0
+10594	531	B	3	67	Paradia Hood	B-Grade	add	0
+10595	531	A	4	73	Paradia Hood	A-Grade	add	0
+10596	531	S	5	83	Paradia Hood	S-Grade	add	0
 532	532	B	3	67	Inferno Hood		update	0
-10616	532	A	4	73	Inferno Hood	A-Grade	add	0
-10617	532	S	5	83	Inferno Hood	S-Grade	add	0
-10618	533	B	3	67	Hood of Solar Eclipse	B-Grade	add	0
-10619	533	A	4	73	Hood of Solar Eclipse	A-Grade	add	0
-10620	533	S	5	83	Hood of Solar Eclipse	S-Grade	add	0
+10597	532	A	4	73	Inferno Hood	A-Grade	add	0
+10598	532	S	5	83	Inferno Hood	S-Grade	add	0
+10599	533	B	3	67	Hood of Solar Eclipse	B-Grade	add	0
+10600	533	A	4	73	Hood of Solar Eclipse	A-Grade	add	0
+10601	533	S	5	83	Hood of Solar Eclipse	S-Grade	add	0
 534	534	B	3	67	Hood of Black Ore		update	0
-10621	534	A	4	73	Hood of Black Ore	A-Grade	add	0
-10622	534	S	5	83	Hood of Black Ore	S-Grade	add	0
-10623	535	B	3	67	Hood of Summoning	B-Grade	add	0
-10624	535	A	4	73	Hood of Summoning	A-Grade	add	0
-10625	535	S	5	83	Hood of Summoning	S-Grade	add	0
+10602	534	A	4	73	Hood of Black Ore	A-Grade	add	0
+10603	534	S	5	83	Hood of Black Ore	S-Grade	add	0
+10604	535	B	3	67	Hood of Summoning	B-Grade	add	0
+10605	535	A	4	73	Hood of Summoning	A-Grade	add	0
+10606	535	S	5	83	Hood of Summoning	S-Grade	add	0
 536	536	B	3	67	Otherworldly Hood		update	0
-10626	536	A	4	73	Otherworldly Hood	A-Grade	add	0
-10627	536	S	5	83	Otherworldly Hood	S-Grade	add	0
-10628	537	B	3	67	Elemental Hood	B-Grade	add	0
-10629	537	A	4	73	Elemental Hood	A-Grade	add	0
-10630	537	S	5	83	Elemental Hood	S-Grade	add	0
+10607	536	A	4	73	Otherworldly Hood	A-Grade	add	0
+10608	536	S	5	83	Otherworldly Hood	S-Grade	add	0
+10609	537	B	3	67	Elemental Hood	B-Grade	add	0
+10610	537	A	4	73	Elemental Hood	A-Grade	add	0
+10611	537	S	5	83	Elemental Hood	S-Grade	add	0
 538	538	B	3	67	Hood of Phantom		update	0
-10631	538	A	4	73	Hood of Phantom	A-Grade	add	0
-10632	538	S	5	83	Hood of Phantom	S-Grade	add	0
-10633	539	B	3	67	Hood of Grace	B-Grade	add	0
-10634	539	A	4	73	Hood of Grace	A-Grade	add	0
-10635	539	S	5	83	Hood of Grace	S-Grade	add	0
+10612	538	A	4	73	Hood of Phantom	A-Grade	add	0
+10613	538	S	5	83	Hood of Phantom	S-Grade	add	0
+10614	539	B	3	67	Hood of Grace	B-Grade	add	0
+10615	539	A	4	73	Hood of Grace	A-Grade	add	0
+10616	539	S	5	83	Hood of Grace	S-Grade	add	0
 540	540	B	3	67	Hood of Holy Spirit		update	0
-10636	540	A	4	73	Hood of Holy Spirit	A-Grade	add	0
-10637	540	S	5	83	Hood of Holy Spirit	S-Grade	add	0
-10638	541	B	3	67	Phoenix Hood	B-Grade	add	0
-10639	541	A	4	73	Phoenix Hood	A-Grade	add	0
-10640	541	S	5	83	Phoenix Hood	S-Grade	add	0
+10617	540	A	4	73	Hood of Holy Spirit	A-Grade	add	0
+10618	540	S	5	83	Hood of Holy Spirit	S-Grade	add	0
+10619	541	B	3	67	Phoenix Hood	B-Grade	add	0
+10620	541	A	4	73	Phoenix Hood	A-Grade	add	0
+10621	541	S	5	83	Phoenix Hood	S-Grade	add	0
 542	542	B	3	67	Cerberus Hood		update	0
-10641	542	A	4	73	Cerberus Hood	A-Grade	add	0
-10642	542	S	5	83	Cerberus Hood	S-Grade	add	0
-10643	543	B	3	67	Hood of Aid	B-Grade	add	0
-10644	543	A	4	73	Hood of Aid	A-Grade	add	0
-10645	543	S	5	83	Hood of Aid	S-Grade	add	0
+10622	542	A	4	73	Cerberus Hood	A-Grade	add	0
+10623	542	S	5	83	Cerberus Hood	S-Grade	add	0
+10624	543	B	3	67	Hood of Aid	B-Grade	add	0
+10625	543	A	4	73	Hood of Aid	A-Grade	add	0
+10626	543	S	5	83	Hood of Aid	S-Grade	add	0
 544	544	B	3	67	Hood of Blessing		update	0
-10646	544	A	4	73	Hood of Blessing	A-Grade	add	0
-10647	544	S	5	83	Hood of Blessing	S-Grade	add	0
+10627	544	A	4	73	Hood of Blessing	A-Grade	add	0
+10628	544	S	5	83	Hood of Blessing	S-Grade	add	0
 547	547	A	4	73	Tallum Helm		update	0
-10648	547	S	5	83	Tallum Helm	S-Grade	add	0
-10649	552	C	2	58	Divine Helm	C-Grade	add	0
+10629	547	S	5	83	Tallum Helm	S-Grade	add	0
+10630	552	C	2	58	Divine Helm	C-Grade	add	0
 552	552	B	3	67	Divine Helm		update	0
-10650	552	A	4	73	Divine Helm	A-Grade	add	0
-10651	552	S	5	83	Divine Helm	S-Grade	add	0
+10631	552	A	4	73	Divine Helm	A-Grade	add	0
+10632	552	S	5	83	Divine Helm	S-Grade	add	0
 553	553	D	1	29	Iron Boots		update	0
-10652	553	C	2	39	Iron Boots	C-Grade	add	0
-10653	553	B	3	45	Iron Boots	B-Grade	add	0
-10654	553	A	4	49	Iron Boots	A-Grade	add	0
-10655	553	S	5	55	Iron Boots	S-Grade	add	0
-557	557	B	3	45	Shining Dragon Boots		update	0
-10656	557	A	4	49	Shining Dragon Boots	A-Grade	add	0
-10657	557	S	5	55	Shining Dragon Boots	S-Grade	add	0
+10633	553	C	2	39	Iron Boots	C-Grade	add	0
+10634	553	B	3	45	Iron Boots	B-Grade	add	0
+10635	553	A	4	49	Iron Boots	A-Grade	add	0
+10636	553	S	5	55	Iron Boots	S-Grade	add	0
 558	558	B	3	45	Boots of Victory		update	0
-10658	558	A	4	49	Boots of Victory	A-Grade	add	0
-10659	558	S	5	55	Boots of Victory	S-Grade	add	0
+10637	558	A	4	49	Boots of Victory	A-Grade	add	0
+10638	558	S	5	55	Boots of Victory	S-Grade	add	0
 559	559	B	3	45	Boots of Valor		update	0
-10660	559	A	4	49	Boots of Valor	A-Grade	add	0
-10661	559	S	5	55	Boots of Valor	S-Grade	add	0
-560	560	B	3	45	Glorious Boots		update	0
-10662	560	A	4	49	Glorious Boots	A-Grade	add	0
-10663	560	S	5	55	Glorious Boots	S-Grade	add	0
-10664	561	B	3	45	Red Flame Boots	B-Grade	add	0
+10639	559	A	4	49	Boots of Valor	A-Grade	add	0
+10640	559	S	5	55	Boots of Valor	S-Grade	add	0
+10641	561	D	1	29	Red Flame Boots	D-Grade	add	0
+10642	561	C	2	39	Red Flame Boots	C-Grade	add	0
+10643	561	B	3	45	Red Flame Boots	B-Grade	add	0
 561	561	A	4	49	Red Flame Boots		update	0
-10665	561	S	5	55	Red Flame Boots	S-Grade	add	0
+10644	561	S	5	55	Red Flame Boots	S-Grade	add	0
 562	562	B	3	45	Elven Crystal Boots		update	0
-10666	562	A	4	49	Elven Crystal Boots	A-Grade	add	0
-10667	562	S	5	55	Elven Crystal Boots	S-Grade	add	0
-564	564	B	3	45	Implosion Boots		update	0
-10668	564	A	4	49	Implosion Boots	A-Grade	add	0
-10669	564	S	5	55	Implosion Boots	S-Grade	add	0
-565	565	B	3	45	Dark Dragon Boots		update	0
-10670	565	A	4	49	Dark Dragon Boots	A-Grade	add	0
-10671	565	S	5	55	Dark Dragon Boots	S-Grade	add	0
-566	566	B	3	45	Elven Vagian Boots		update	0
-10672	566	A	4	49	Elven Vagian Boots	A-Grade	add	0
-10673	566	S	5	55	Elven Vagian Boots	S-Grade	add	0
-567	567	B	3	45	Dark Vagian Boots		update	0
-10674	567	A	4	49	Dark Vagian Boots	A-Grade	add	0
-10675	567	S	5	55	Dark Vagian Boots	S-Grade	add	0
-569	569	B	3	45	Hell Boots		update	0
-10676	569	A	4	49	Hell Boots	A-Grade	add	0
-10677	569	S	5	55	Hell Boots	S-Grade	add	0
-570	570	B	3	45	Art of Boots		update	0
-10678	570	A	4	49	Art of Boots	A-Grade	add	0
-10679	570	S	5	55	Art of Boots	S-Grade	add	0
-571	571	B	3	45	Masterpiece Boots		update	0
-10680	571	A	4	49	Masterpiece Boots	A-Grade	add	0
-10681	571	S	5	55	Masterpiece Boots	S-Grade	add	0
-572	572	B	3	45	Boots of Silence		update	0
-10682	572	A	4	49	Boots of Silence	A-Grade	add	0
-10683	572	S	5	55	Boots of Silence	S-Grade	add	0
-10684	573	B	3	45	Gust Boots	B-Grade	add	0
+10645	562	A	4	49	Elven Crystal Boots	A-Grade	add	0
+10646	562	S	5	55	Elven Crystal Boots	S-Grade	add	0
+10647	573	B	3	45	Gust Boots	B-Grade	add	0
 573	573	A	4	49	Gust Boots		update	0
-10685	573	S	5	55	Gust Boots	S-Grade	add	0
+10648	573	S	5	55	Gust Boots	S-Grade	add	0
 574	574	B	3	45	Prairie Boots		update	0
-10686	574	A	4	49	Prairie Boots	A-Grade	add	0
-10687	574	S	5	55	Prairie Boots	S-Grade	add	0
-10688	575	B	3	45	Boots of The Underworld	B-Grade	add	0
+10649	574	A	4	49	Prairie Boots	A-Grade	add	0
+10650	574	S	5	55	Prairie Boots	S-Grade	add	0
+10651	575	B	3	45	Boots of The Underworld	B-Grade	add	0
 575	575	A	4	49	Boots of The Underworld		update	0
-10689	575	S	5	55	Boots of The Underworld	S-Grade	add	0
-576	576	B	3	45	Boots of Concentration		update	0
-10690	576	A	4	49	Boots of Concentration	A-Grade	add	0
-10691	576	S	5	55	Boots of Concentration	S-Grade	add	0
-577	577	B	3	45	Ace's Boots		update	0
-10692	577	A	4	49	Ace's Boots	A-Grade	add	0
-10693	577	S	5	55	Ace's Boots	S-Grade	add	0
+10652	575	S	5	55	Boots of The Underworld	S-Grade	add	0
 578	578	B	3	45	Guardian's Boots		update	0
-10694	578	A	4	49	Guardian's Boots	A-Grade	add	0
-10695	578	S	5	55	Guardian's Boots	S-Grade	add	0
+10653	578	A	4	49	Guardian's Boots	A-Grade	add	0
+10654	578	S	5	55	Guardian's Boots	S-Grade	add	0
 579	579	B	3	45	Marksman Boots		update	0
-10696	579	A	4	49	Marksman Boots	A-Grade	add	0
-10697	579	S	5	55	Marksman Boots	S-Grade	add	0
+10655	579	A	4	49	Marksman Boots	A-Grade	add	0
+10656	579	S	5	55	Marksman Boots	S-Grade	add	0
 580	580	B	3	45	Boots of Mana		update	0
-10698	580	A	4	49	Boots of Mana	A-Grade	add	0
-10699	580	S	5	55	Boots of Mana	S-Grade	add	0
-10700	581	D	1	29	Sage's Boots	D-Grade	add	0
-10701	581	C	2	39	Sage's Boots	C-Grade	add	0
+10657	580	A	4	49	Boots of Mana	A-Grade	add	0
+10658	580	S	5	55	Boots of Mana	S-Grade	add	0
 581	581	B	3	45	Sage's Boots		update	0
-10702	581	A	4	49	Sage's Boots	A-Grade	add	0
-10703	581	S	5	55	Sage's Boots	S-Grade	add	0
+10659	581	A	4	49	Sage's Boots	A-Grade	add	0
+10660	581	S	5	55	Sage's Boots	S-Grade	add	0
 582	582	B	3	45	Paradia Boots		update	0
-10704	582	A	4	49	Paradia Boots	A-Grade	add	0
-10705	582	S	5	55	Paradia Boots	S-Grade	add	0
+10661	582	A	4	49	Paradia Boots	A-Grade	add	0
+10662	582	S	5	55	Paradia Boots	S-Grade	add	0
 584	584	B	3	45	Boots of Solar Eclipse		update	0
-10706	584	A	4	49	Boots of Solar Eclipse	A-Grade	add	0
-10707	584	S	5	55	Boots of Solar Eclipse	S-Grade	add	0
+10663	584	A	4	49	Boots of Solar Eclipse	A-Grade	add	0
+10664	584	S	5	55	Boots of Solar Eclipse	S-Grade	add	0
 585	585	B	3	45	Boots of Black Ore		update	0
-10708	585	A	4	49	Boots of Black Ore	A-Grade	add	0
-10709	585	S	5	55	Boots of Black Ore	S-Grade	add	0
+10665	585	A	4	49	Boots of Black Ore	A-Grade	add	0
+10666	585	S	5	55	Boots of Black Ore	S-Grade	add	0
 586	586	B	3	45	Boots of Summoning		update	0
-10710	586	A	4	49	Boots of Summoning	A-Grade	add	0
-10711	586	S	5	55	Boots of Summoning	S-Grade	add	0
+10667	586	A	4	49	Boots of Summoning	A-Grade	add	0
+10668	586	S	5	55	Boots of Summoning	S-Grade	add	0
 587	587	B	3	45	Otherworldly Boots		update	0
-10712	587	A	4	49	Otherworldly Boots	A-Grade	add	0
-10713	587	S	5	55	Otherworldly Boots	S-Grade	add	0
+10669	587	A	4	49	Otherworldly Boots	A-Grade	add	0
+10670	587	S	5	55	Otherworldly Boots	S-Grade	add	0
 588	588	B	3	45	Elemental Boots		update	0
-10714	588	A	4	49	Elemental Boots	A-Grade	add	0
-10715	588	S	5	55	Elemental Boots	S-Grade	add	0
-10716	589	B	3	45	Boots of Phantom	B-Grade	add	0
+10671	588	A	4	49	Elemental Boots	A-Grade	add	0
+10672	588	S	5	55	Elemental Boots	S-Grade	add	0
+10673	589	B	3	45	Boots of Phantom	B-Grade	add	0
 589	589	A	4	49	Boots of Phantom		update	0
-10717	589	S	5	55	Boots of Phantom	S-Grade	add	0
+10674	589	S	5	55	Boots of Phantom	S-Grade	add	0
 590	590	B	3	45	Boots of Grace		update	0
-10718	590	A	4	49	Boots of Grace	A-Grade	add	0
-10719	590	S	5	55	Boots of Grace	S-Grade	add	0
+10675	590	A	4	49	Boots of Grace	A-Grade	add	0
+10676	590	S	5	55	Boots of Grace	S-Grade	add	0
 591	591	B	3	45	Boots of Holy Spirit		update	0
-10720	591	A	4	49	Boots of Holy Spirit	A-Grade	add	0
-10721	591	S	5	55	Boots of Holy Spirit	S-Grade	add	0
-10722	592	B	3	45	Phoenix Boots	B-Grade	add	0
+10677	591	A	4	49	Boots of Holy Spirit	A-Grade	add	0
+10678	591	S	5	55	Boots of Holy Spirit	S-Grade	add	0
+10679	592	B	3	45	Phoenix Boots	B-Grade	add	0
 592	592	A	4	49	Phoenix Boots		update	0
-10723	592	S	5	55	Phoenix Boots	S-Grade	add	0
-10724	593	B	3	45	Cerberus Boots	B-Grade	add	0
+10680	592	S	5	55	Phoenix Boots	S-Grade	add	0
+10681	593	B	3	45	Cerberus Boots	B-Grade	add	0
 593	593	A	4	49	Cerberus Boots		update	0
-10725	593	S	5	55	Cerberus Boots	S-Grade	add	0
+10682	593	S	5	55	Cerberus Boots	S-Grade	add	0
 594	594	B	3	45	Boots of Aid		update	0
-10726	594	A	4	49	Boots of Aid	A-Grade	add	0
-10727	594	S	5	55	Boots of Aid	S-Grade	add	0
+10683	594	A	4	49	Boots of Aid	A-Grade	add	0
+10684	594	S	5	55	Boots of Aid	S-Grade	add	0
 595	595	B	3	45	Boots of Blessing		update	0
-10728	595	A	4	49	Boots of Blessing	A-Grade	add	0
-10729	595	S	5	55	Boots of Blessing	S-Grade	add	0
-603	603	C	2	39	Divine Boots		update	0
-10730	603	B	3	45	Divine Boots	B-Grade	add	0
-10731	603	A	4	49	Divine Boots	A-Grade	add	0
-10732	603	S	5	55	Divine Boots	S-Grade	add	0
+10685	595	A	4	49	Boots of Blessing	A-Grade	add	0
+10686	595	S	5	55	Boots of Blessing	S-Grade	add	0
+604	604	D	1	29	Crafted Leather Gloves		update	0
+10687	604	C	2	39	Crafted Leather Gloves	C-Grade	add	0
+10688	604	B	3	44	Crafted Leather Gloves	B-Grade	add	0
+10689	604	A	4	49	Crafted Leather Gloves	A-Grade	add	0
+10690	604	S	5	55	Crafted Leather Gloves	S-Grade	add	0
+605	605	D	1	29	Leather Gauntlets		update	0
+10691	605	C	2	39	Leather Gauntlets	C-Grade	add	0
+10692	605	B	3	44	Leather Gauntlets	B-Grade	add	0
+10693	605	A	4	49	Leather Gauntlets	A-Grade	add	0
+10694	605	S	5	55	Leather Gauntlets	S-Grade	add	0
+606	606	D	1	29	Rip Gauntlets		update	0
+10695	606	C	2	39	Rip Gauntlets	C-Grade	add	0
+10696	606	B	3	44	Rip Gauntlets	B-Grade	add	0
+10697	606	A	4	49	Rip Gauntlets	A-Grade	add	0
+10698	606	S	5	55	Rip Gauntlets	S-Grade	add	0
+607	607	D	1	29	Ogre Power Gauntlets		update	0
+10699	607	C	2	39	Ogre Power Gauntlets	C-Grade	add	0
+10700	607	B	3	44	Ogre Power Gauntlets	B-Grade	add	0
+10701	607	A	4	49	Ogre Power Gauntlets	A-Grade	add	0
+10702	607	S	5	55	Ogre Power Gauntlets	S-Grade	add	0
 610	610	B	3	44	Saint Knight's Gauntlets		update	0
-10733	610	A	4	49	Saint Knight's Gauntlets	A-Grade	add	0
-10734	610	S	5	55	Saint Knight's Gauntlets	S-Grade	add	0
+10703	610	A	4	49	Saint Knight's Gauntlets	A-Grade	add	0
+10704	610	S	5	55	Saint Knight's Gauntlets	S-Grade	add	0
 1100	1100	NG	0	34	Cotton Tunic		update	0
-10735	1100	D	1	52	Cotton Tunic	D-Grade	add	0
-10736	1100	C	2	74	Cotton Tunic	C-Grade	add	0
-10737	1100	B	3	83	Cotton Tunic	B-Grade	add	0
-10738	1100	A	4	91	Cotton Tunic	A-Grade	add	0
-10739	1100	S	5	102	Cotton Tunic	S-Grade	add	0
+10705	1100	D	1	52	Cotton Tunic	D-Grade	add	0
+10706	1100	C	2	74	Cotton Tunic	C-Grade	add	0
+10707	1100	B	3	83	Cotton Tunic	B-Grade	add	0
+10708	1100	A	4	91	Cotton Tunic	A-Grade	add	0
+10709	1100	S	5	102	Cotton Tunic	S-Grade	add	0
 1101	1101	NG	0	34	Tunic of Devotion		update	0
-10740	1101	D	1	52	Tunic of Devotion	D-Grade	add	0
-10741	1101	C	2	74	Tunic of Devotion	C-Grade	add	0
-10742	1101	B	3	83	Tunic of Devotion	B-Grade	add	0
-10743	1101	A	4	91	Tunic of Devotion	A-Grade	add	0
-10744	1101	S	5	102	Tunic of Devotion	S-Grade	add	0
+10710	1101	D	1	52	Tunic of Devotion	D-Grade	add	0
+10711	1101	C	2	74	Tunic of Devotion	C-Grade	add	0
+10712	1101	B	3	83	Tunic of Devotion	B-Grade	add	0
+10713	1101	A	4	91	Tunic of Devotion	A-Grade	add	0
+10714	1101	S	5	102	Tunic of Devotion	S-Grade	add	0
 1102	1102	NG	0	34	Tunic of Magic		update	0
-10745	1102	D	1	52	Tunic of Magic	D-Grade	add	0
-10746	1102	C	2	74	Tunic of Magic	C-Grade	add	0
-10747	1102	B	3	83	Tunic of Magic	B-Grade	add	0
-10748	1102	A	4	91	Tunic of Magic	A-Grade	add	0
-10749	1102	S	5	102	Tunic of Magic	S-Grade	add	0
+10715	1102	D	1	52	Tunic of Magic	D-Grade	add	0
+10716	1102	C	2	74	Tunic of Magic	C-Grade	add	0
+10717	1102	B	3	83	Tunic of Magic	B-Grade	add	0
+10718	1102	A	4	91	Tunic of Magic	A-Grade	add	0
+10719	1102	S	5	102	Tunic of Magic	S-Grade	add	0
+1103	1103	NG	0	22	Cotton Stockings		update	0
+10720	1103	D	1	33	Cotton Stockings	D-Grade	add	0
+10721	1103	C	2	46	Cotton Stockings	C-Grade	add	0
+10722	1103	B	3	52	Cotton Stockings	B-Grade	add	0
+10723	1103	A	4	56	Cotton Stockings	A-Grade	add	0
+10724	1103	S	5	64	Cotton Stockings	S-Grade	add	0
 1104	1104	NG	0	22	Stockings of Devotion		update	0
-10750	1104	D	1	33	Stockings of Devotion	D-Grade	add	0
-10751	1104	C	2	46	Stockings of Devotion	C-Grade	add	0
-10752	1104	B	3	52	Stockings of Devotion	B-Grade	add	0
-10753	1104	A	4	56	Stockings of Devotion	A-Grade	add	0
-10754	1104	S	5	64	Stockings of Devotion	S-Grade	add	0
+10725	1104	D	1	33	Stockings of Devotion	D-Grade	add	0
+10726	1104	C	2	46	Stockings of Devotion	C-Grade	add	0
+10727	1104	B	3	52	Stockings of Devotion	B-Grade	add	0
+10728	1104	A	4	56	Stockings of Devotion	A-Grade	add	0
+10729	1104	S	5	64	Stockings of Devotion	S-Grade	add	0
 1105	1105	NG	0	22	Stockings of Magic		update	0
-10755	1105	D	1	33	Stockings of Magic	D-Grade	add	0
-10756	1105	C	2	46	Stockings of Magic	C-Grade	add	0
-10757	1105	B	3	52	Stockings of Magic	B-Grade	add	0
-10758	1105	A	4	56	Stockings of Magic	A-Grade	add	0
-10759	1105	S	5	64	Stockings of Magic	S-Grade	add	0
+10730	1105	D	1	33	Stockings of Magic	D-Grade	add	0
+10731	1105	C	2	46	Stockings of Magic	C-Grade	add	0
+10732	1105	B	3	52	Stockings of Magic	B-Grade	add	0
+10733	1105	A	4	56	Stockings of Magic	A-Grade	add	0
+10734	1105	S	5	64	Stockings of Magic	S-Grade	add	0
+1119	1119	NG	0	20	Short Leather Gloves		update	0
+10735	1119	D	1	29	Short Leather Gloves	D-Grade	add	0
+10736	1119	C	2	39	Short Leather Gloves	C-Grade	add	0
+10737	1119	B	3	44	Short Leather Gloves	B-Grade	add	0
+10738	1119	A	4	49	Short Leather Gloves	A-Grade	add	0
+10739	1119	S	5	55	Short Leather Gloves	S-Grade	add	0
 1121	1121	NG	0	20	Apprentice's Shoes		update	0
-10760	1121	D	1	29	Apprentice's Shoes	D-Grade	add	0
-10761	1121	C	2	39	Apprentice's Shoes	C-Grade	add	0
-10762	1121	B	3	45	Apprentice's Shoes	B-Grade	add	0
-10763	1121	A	4	49	Apprentice's Shoes	A-Grade	add	0
-10764	1121	S	5	55	Apprentice's Shoes	S-Grade	add	0
+10740	1121	D	1	29	Apprentice's Shoes	D-Grade	add	0
+10741	1121	C	2	39	Apprentice's Shoes	C-Grade	add	0
+10742	1121	B	3	45	Apprentice's Shoes	B-Grade	add	0
+10743	1121	A	4	49	Apprentice's Shoes	A-Grade	add	0
+10744	1121	S	5	55	Apprentice's Shoes	S-Grade	add	0
 1122	1122	NG	0	20	Cotton Shoes		update	0
-10765	1122	D	1	29	Cotton Shoes	D-Grade	add	0
-10766	1122	C	2	39	Cotton Shoes	C-Grade	add	0
-10767	1122	B	3	45	Cotton Shoes	B-Grade	add	0
-10768	1122	A	4	49	Cotton Shoes	A-Grade	add	0
-10769	1122	S	5	55	Cotton Shoes	S-Grade	add	0
+10745	1122	D	1	29	Cotton Shoes	D-Grade	add	0
+10746	1122	C	2	39	Cotton Shoes	C-Grade	add	0
+10747	1122	B	3	45	Cotton Shoes	B-Grade	add	0
+10748	1122	A	4	49	Cotton Shoes	A-Grade	add	0
+10749	1122	S	5	55	Cotton Shoes	S-Grade	add	0
+1123	1123	D	1	29	Blue Buckskin Boots		update	0
+10750	1123	C	2	39	Blue Buckskin Boots	C-Grade	add	0
+10751	1123	B	3	45	Blue Buckskin Boots	B-Grade	add	0
+10752	1123	A	4	49	Blue Buckskin Boots	A-Grade	add	0
+10753	1123	S	5	55	Blue Buckskin Boots	S-Grade	add	0
+1124	1124	D	1	29	Boots of Power		update	0
+10754	1124	C	2	39	Boots of Power	C-Grade	add	0
+10755	1124	B	3	45	Boots of Power	B-Grade	add	0
+10756	1124	A	4	49	Boots of Power	A-Grade	add	0
+10757	1124	S	5	55	Boots of Power	S-Grade	add	0
+1125	1125	D	1	29	Assault Boots		update	0
+10758	1125	C	2	39	Assault Boots	C-Grade	add	0
+10759	1125	B	3	45	Assault Boots	B-Grade	add	0
+10760	1125	A	4	49	Assault Boots	A-Grade	add	0
+10761	1125	S	5	55	Assault Boots	S-Grade	add	0
+1126	1126	C	2	39	Crimson Boots		update	0
+10762	1126	B	3	45	Crimson Boots	B-Grade	add	0
+10763	1126	A	4	49	Crimson Boots	A-Grade	add	0
+10764	1126	S	5	55	Crimson Boots	S-Grade	add	0
+1129	1129	NG	0	20	Crude Leather Shoes		update	0
+10765	1129	D	1	29	Crude Leather Shoes	D-Grade	add	0
+10766	1129	C	2	39	Crude Leather Shoes	C-Grade	add	0
+10767	1129	B	3	45	Crude Leather Shoes	B-Grade	add	0
+10768	1129	A	4	49	Crude Leather Shoes	A-Grade	add	0
+10769	1129	S	5	55	Crude Leather Shoes	S-Grade	add	0
 1146	1146	NG	0	53	Squire's Shirt		update	0
 10770	1146	D	1	77	Squire's Shirt	D-Grade	add	0
 10771	1146	C	2	110	Squire's Shirt	C-Grade	add	0
@@ -1044,456 +1032,469 @@ id	donor	grade	gradeIdx	pdef	name	addName	mode	clearDesc
 2376	2376	B	3	166	Avadon Breastplate		update	0
 10785	2376	A	4	180	Avadon Breastplate	A-Grade	add	0
 10786	2376	S	5	205	Avadon Breastplate	S-Grade	add	0
+2377	2377	D	1	64	Mithril Scale Gaiters		update	0
+10787	2377	C	2	92	Mithril Scale Gaiters	C-Grade	add	0
+10788	2377	B	3	104	Mithril Scale Gaiters	B-Grade	add	0
+10789	2377	A	4	113	Mithril Scale Gaiters	A-Grade	add	0
+10790	2377	S	5	128	Mithril Scale Gaiters	S-Grade	add	0
 2378	2378	D	1	64	Brigandine Gaiters		update	0
-10787	2378	C	2	92	Brigandine Gaiters	C-Grade	add	0
-10788	2378	B	3	104	Brigandine Gaiters	B-Grade	add	0
-10789	2378	A	4	113	Brigandine Gaiters	A-Grade	add	0
-10790	2378	S	5	128	Brigandine Gaiters	S-Grade	add	0
+10791	2378	C	2	92	Brigandine Gaiters	C-Grade	add	0
+10792	2378	B	3	104	Brigandine Gaiters	B-Grade	add	0
+10793	2378	A	4	113	Brigandine Gaiters	A-Grade	add	0
+10794	2378	S	5	128	Brigandine Gaiters	S-Grade	add	0
 2379	2379	B	3	104	Avadon Gaiters		update	0
-10791	2379	A	4	113	Avadon Gaiters	A-Grade	add	0
-10792	2379	S	5	128	Avadon Gaiters	S-Grade	add	0
+10795	2379	A	4	113	Avadon Gaiters	A-Grade	add	0
+10796	2379	S	5	128	Avadon Gaiters	S-Grade	add	0
 2380	2380	B	3	104	Blue Wolf Gaiters		update	0
-10793	2380	A	4	113	Blue Wolf Gaiters	A-Grade	add	0
-10794	2380	S	5	128	Blue Wolf Gaiters	S-Grade	add	0
+10797	2380	A	4	113	Blue Wolf Gaiters	A-Grade	add	0
+10798	2380	S	5	128	Blue Wolf Gaiters	S-Grade	add	0
 2381	2381	B	3	270	Doom Plate Armor		update	0
-10795	2381	A	4	293	Doom Plate Armor	A-Grade	add	0
-10796	2381	S	5	333	Doom Plate Armor	S-Grade	add	0
+10799	2381	A	4	293	Doom Plate Armor	A-Grade	add	0
+10800	2381	S	5	333	Doom Plate Armor	S-Grade	add	0
 2382	2382	A	4	293	Tallum Plate Armor		update	0
-10797	2382	S	5	333	Tallum Plate Armor	S-Grade	add	0
+10801	2382	S	5	333	Tallum Plate Armor	S-Grade	add	0
 2383	2383	A	4	293	Majestic Plate Armor		update	0
-10798	2383	S	5	333	Majestic Plate Armor	S-Grade	add	0
+10802	2383	S	5	333	Majestic Plate Armor	S-Grade	add	0
 2384	2384	B	3	124	Zubei's Leather Shirt		update	0
-10799	2384	A	4	136	Zubei's Leather Shirt	A-Grade	add	0
-10800	2384	S	5	153	Zubei's Leather Shirt	S-Grade	add	0
+10803	2384	A	4	136	Zubei's Leather Shirt	A-Grade	add	0
+10804	2384	S	5	153	Zubei's Leather Shirt	S-Grade	add	0
 2385	2385	A	4	136	Dark Crystal Leather Armor		update	0
-10801	2385	S	5	153	Dark Crystal Leather Armor	S-Grade	add	0
+10805	2385	S	5	153	Dark Crystal Leather Armor	S-Grade	add	0
 2386	2386	NG	0	33	Wooden Gaiters		update	0
-10802	2386	D	1	48	Wooden Gaiters	D-Grade	add	0
-10803	2386	C	2	69	Wooden Gaiters	C-Grade	add	0
-10804	2386	B	3	78	Wooden Gaiters	B-Grade	add	0
-10805	2386	A	4	84	Wooden Gaiters	A-Grade	add	0
-10806	2386	S	5	96	Wooden Gaiters	S-Grade	add	0
+10806	2386	D	1	48	Wooden Gaiters	D-Grade	add	0
+10807	2386	C	2	69	Wooden Gaiters	C-Grade	add	0
+10808	2386	B	3	78	Wooden Gaiters	B-Grade	add	0
+10809	2386	A	4	84	Wooden Gaiters	A-Grade	add	0
+10810	2386	S	5	96	Wooden Gaiters	S-Grade	add	0
 2387	2387	C	2	69	Tempered Mithril Gaiters		update	0
-10807	2387	B	3	78	Tempered Mithril Gaiters	B-Grade	add	0
-10808	2387	A	4	84	Tempered Mithril Gaiters	A-Grade	add	0
-10809	2387	S	5	96	Tempered Mithril Gaiters	S-Grade	add	0
+10811	2387	B	3	78	Tempered Mithril Gaiters	B-Grade	add	0
+10812	2387	A	4	84	Tempered Mithril Gaiters	A-Grade	add	0
+10813	2387	S	5	96	Tempered Mithril Gaiters	S-Grade	add	0
 2388	2388	B	3	78	Zubei's Leather Gaiters		update	0
-10810	2388	A	4	84	Zubei's Leather Gaiters	A-Grade	add	0
-10811	2388	S	5	96	Zubei's Leather Gaiters	S-Grade	add	0
+10814	2388	A	4	84	Zubei's Leather Gaiters	A-Grade	add	0
+10815	2388	S	5	96	Zubei's Leather Gaiters	S-Grade	add	0
 2389	2389	A	4	84	Dark Crystal Leggings		update	0
-10812	2389	S	5	96	Dark Crystal Leggings	S-Grade	add	0
+10816	2389	S	5	96	Dark Crystal Leggings	S-Grade	add	0
 2390	2390	B	3	202	Avadon Leather Armor		update	0
-10813	2390	A	4	220	Avadon Leather Armor	A-Grade	add	0
-10814	2390	S	5	249	Avadon Leather Armor	S-Grade	add	0
+10817	2390	A	4	220	Avadon Leather Armor	A-Grade	add	0
+10818	2390	S	5	249	Avadon Leather Armor	S-Grade	add	0
 2391	2391	B	3	202	Blue Wolf Leather Armor		update	0
-10815	2391	A	4	220	Blue Wolf Leather Armor	A-Grade	add	0
-10816	2391	S	5	249	Blue Wolf Leather Armor	S-Grade	add	0
+10819	2391	A	4	220	Blue Wolf Leather Armor	A-Grade	add	0
+10820	2391	S	5	249	Blue Wolf Leather Armor	S-Grade	add	0
 2392	2392	B	3	202	Leather Armor of Doom		update	0
-10817	2392	A	4	220	Leather Armor of Doom	A-Grade	add	0
-10818	2392	S	5	249	Leather Armor of Doom	S-Grade	add	0
+10821	2392	A	4	220	Leather Armor of Doom	A-Grade	add	0
+10822	2392	S	5	249	Leather Armor of Doom	S-Grade	add	0
 2393	2393	A	4	220	Tallum Leather Armor		update	0
-10819	2393	S	5	249	Tallum Leather Armor	S-Grade	add	0
+10823	2393	S	5	249	Tallum Leather Armor	S-Grade	add	0
 2394	2394	A	4	220	Nightmarish Leather Armor		update	0
-10820	2394	S	5	249	Nightmarish Leather Armor	S-Grade	add	0
+10824	2394	S	5	249	Nightmarish Leather Armor	S-Grade	add	0
 2395	2395	A	4	220	Majestic Leather Armor		update	0
-10821	2395	S	5	249	Majestic Leather Armor	S-Grade	add	0
+10825	2395	S	5	249	Majestic Leather Armor	S-Grade	add	0
 2396	2396	D	1	52	Elven Mithril Tunic		update	0
-10822	2396	C	2	74	Elven Mithril Tunic	C-Grade	add	0
-10823	2396	B	3	83	Elven Mithril Tunic	B-Grade	add	0
-10824	2396	A	4	91	Elven Mithril Tunic	A-Grade	add	0
-10825	2396	S	5	102	Elven Mithril Tunic	S-Grade	add	0
+10826	2396	C	2	74	Elven Mithril Tunic	C-Grade	add	0
+10827	2396	B	3	83	Elven Mithril Tunic	B-Grade	add	0
+10828	2396	A	4	91	Elven Mithril Tunic	A-Grade	add	0
+10829	2396	S	5	102	Elven Mithril Tunic	S-Grade	add	0
 2397	2397	B	3	83	Tunic of Zubei		update	0
-10826	2397	A	4	91	Tunic of Zubei	A-Grade	add	0
-10827	2397	S	5	102	Tunic of Zubei	S-Grade	add	0
+10830	2397	A	4	91	Tunic of Zubei	A-Grade	add	0
+10831	2397	S	5	102	Tunic of Zubei	S-Grade	add	0
 2398	2398	B	3	83	Blue Wolf Tunic		update	0
-10828	2398	A	4	91	Blue Wolf Tunic	A-Grade	add	0
-10829	2398	S	5	102	Blue Wolf Tunic	S-Grade	add	0
+10832	2398	A	4	91	Blue Wolf Tunic	A-Grade	add	0
+10833	2398	S	5	102	Blue Wolf Tunic	S-Grade	add	0
 2399	2399	B	3	83	Tunic of Doom		update	0
-10830	2399	A	4	91	Tunic of Doom	A-Grade	add	0
-10831	2399	S	5	102	Tunic of Doom	S-Grade	add	0
+10834	2399	A	4	91	Tunic of Doom	A-Grade	add	0
+10835	2399	S	5	102	Tunic of Doom	S-Grade	add	0
 2400	2400	A	4	91	Tallum Tunic		update	0
-10832	2400	S	5	102	Tallum Tunic	S-Grade	add	0
+10836	2400	S	5	102	Tallum Tunic	S-Grade	add	0
 2401	2401	D	1	33	Elven Mithril Stockings		update	0
-10833	2401	C	2	46	Elven Mithril Stockings	C-Grade	add	0
-10834	2401	B	3	52	Elven Mithril Stockings	B-Grade	add	0
-10835	2401	A	4	56	Elven Mithril Stockings	A-Grade	add	0
-10836	2401	S	5	64	Elven Mithril Stockings	S-Grade	add	0
+10837	2401	C	2	46	Elven Mithril Stockings	C-Grade	add	0
+10838	2401	B	3	52	Elven Mithril Stockings	B-Grade	add	0
+10839	2401	A	4	56	Elven Mithril Stockings	A-Grade	add	0
+10840	2401	S	5	64	Elven Mithril Stockings	S-Grade	add	0
 2402	2402	B	3	52	Stockings of Zubei		update	0
-10837	2402	A	4	56	Stockings of Zubei	A-Grade	add	0
-10838	2402	S	5	64	Stockings of Zubei	S-Grade	add	0
+10841	2402	A	4	56	Stockings of Zubei	A-Grade	add	0
+10842	2402	S	5	64	Stockings of Zubei	S-Grade	add	0
 2403	2403	B	3	52	Blue Wolf Stockings		update	0
-10839	2403	A	4	56	Blue Wolf Stockings	A-Grade	add	0
-10840	2403	S	5	64	Blue Wolf Stockings	S-Grade	add	0
+10843	2403	A	4	56	Blue Wolf Stockings	A-Grade	add	0
+10844	2403	S	5	64	Blue Wolf Stockings	S-Grade	add	0
 2404	2404	B	3	52	Stockings of Doom		update	0
-10841	2404	A	4	56	Stockings of Doom	A-Grade	add	0
-10842	2404	S	5	64	Stockings of Doom	S-Grade	add	0
+10845	2404	A	4	56	Stockings of Doom	A-Grade	add	0
+10846	2404	S	5	64	Stockings of Doom	S-Grade	add	0
 2405	2405	A	4	56	Tallum Stockings		update	0
-10843	2405	S	5	64	Tallum Stockings	S-Grade	add	0
+10847	2405	S	5	64	Tallum Stockings	S-Grade	add	0
 2406	2406	B	3	135	Avadon Robe		update	0
-10844	2406	A	4	147	Avadon Robe	A-Grade	add	0
-10845	2406	S	5	166	Avadon Robe	S-Grade	add	0
+10848	2406	A	4	147	Avadon Robe	A-Grade	add	0
+10849	2406	S	5	166	Avadon Robe	S-Grade	add	0
 2407	2407	A	4	147	Dark Crystal Robe		update	0
-10846	2407	S	5	166	Dark Crystal Robe	S-Grade	add	0
+10850	2407	S	5	166	Dark Crystal Robe	S-Grade	add	0
 2408	2408	A	4	147	Nightmare Robe		update	0
-10847	2408	S	5	166	Nightmare Robe	S-Grade	add	0
+10851	2408	S	5	166	Nightmare Robe	S-Grade	add	0
 2409	2409	A	4	147	Majestic Robe		update	0
-10848	2409	S	5	166	Majestic Robe	S-Grade	add	0
+10852	2409	S	5	166	Majestic Robe	S-Grade	add	0
 2411	2411	D	1	44	Brigandine Helmet		update	0
-10849	2411	C	2	58	Brigandine Helmet	C-Grade	add	0
-10850	2411	B	3	67	Brigandine Helmet	B-Grade	add	0
-10851	2411	A	4	73	Brigandine Helmet	A-Grade	add	0
-10852	2411	S	5	83	Brigandine Helmet	S-Grade	add	0
+10853	2411	C	2	58	Brigandine Helmet	C-Grade	add	0
+10854	2411	B	3	67	Brigandine Helmet	B-Grade	add	0
+10855	2411	A	4	73	Brigandine Helmet	A-Grade	add	0
+10856	2411	S	5	83	Brigandine Helmet	S-Grade	add	0
 2412	2412	D	1	44	Plate Helmet		update	0
-10853	2412	C	2	58	Plate Helmet	C-Grade	add	0
-10854	2412	B	3	67	Plate Helmet	B-Grade	add	0
-10855	2412	A	4	73	Plate Helmet	A-Grade	add	0
-10856	2412	S	5	83	Plate Helmet	S-Grade	add	0
+10857	2412	C	2	58	Plate Helmet	C-Grade	add	0
+10858	2412	B	3	67	Plate Helmet	B-Grade	add	0
+10859	2412	A	4	73	Plate Helmet	A-Grade	add	0
+10860	2412	S	5	83	Plate Helmet	S-Grade	add	0
 2413	2413	C	2	58	Chain Hood		update	0
-10857	2413	B	3	67	Chain Hood	B-Grade	add	0
-10858	2413	A	4	73	Chain Hood	A-Grade	add	0
-10859	2413	S	5	83	Chain Hood	S-Grade	add	0
+10861	2413	B	3	67	Chain Hood	B-Grade	add	0
+10862	2413	A	4	73	Chain Hood	A-Grade	add	0
+10863	2413	S	5	83	Chain Hood	S-Grade	add	0
 2414	2414	C	2	58	Full Plate Helmet		update	0
-10860	2414	B	3	67	Full Plate Helmet	B-Grade	add	0
-10861	2414	A	4	73	Full Plate Helmet	A-Grade	add	0
-10862	2414	S	5	83	Full Plate Helmet	S-Grade	add	0
+10864	2414	B	3	67	Full Plate Helmet	B-Grade	add	0
+10865	2414	A	4	73	Full Plate Helmet	A-Grade	add	0
+10866	2414	S	5	83	Full Plate Helmet	S-Grade	add	0
 2415	2415	B	3	67	Avadon Circlet		update	0
-10863	2415	A	4	73	Avadon Circlet	A-Grade	add	0
-10864	2415	S	5	83	Avadon Circlet	S-Grade	add	0
+10867	2415	A	4	73	Avadon Circlet	A-Grade	add	0
+10868	2415	S	5	83	Avadon Circlet	S-Grade	add	0
 2416	2416	B	3	67	Blue Wolf Helmet		update	0
-10865	2416	A	4	73	Blue Wolf Helmet	A-Grade	add	0
-10866	2416	S	5	83	Blue Wolf Helmet	S-Grade	add	0
+10869	2416	A	4	73	Blue Wolf Helmet	A-Grade	add	0
+10870	2416	S	5	83	Blue Wolf Helmet	S-Grade	add	0
 2417	2417	B	3	67	Doom Helmet		update	0
-10867	2417	A	4	73	Doom Helmet	A-Grade	add	0
-10868	2417	S	5	83	Doom Helmet	S-Grade	add	0
+10871	2417	A	4	73	Doom Helmet	A-Grade	add	0
+10872	2417	S	5	83	Doom Helmet	S-Grade	add	0
 2418	2418	A	4	73	Helm of Nightmare		update	0
-10869	2418	S	5	83	Helm of Nightmare	S-Grade	add	0
+10873	2418	S	5	83	Helm of Nightmare	S-Grade	add	0
 2419	2419	A	4	73	Majestic Circlet		update	0
-10870	2419	S	5	83	Majestic Circlet	S-Grade	add	0
+10874	2419	S	5	83	Majestic Circlet	S-Grade	add	0
 2420	2420	S	5	83	Dragon Headgear		update	0
 2421	2421	S	5	83	The Hood		update	0
 2422	2422	D	1	29	Reinforced Leather Boots		update	0
-10871	2422	C	2	39	Reinforced Leather Boots	C-Grade	add	0
-10872	2422	B	3	45	Reinforced Leather Boots	B-Grade	add	0
-10873	2422	A	4	49	Reinforced Leather Boots	A-Grade	add	0
-10874	2422	S	5	55	Reinforced Leather Boots	S-Grade	add	0
+10875	2422	C	2	39	Reinforced Leather Boots	C-Grade	add	0
+10876	2422	B	3	45	Reinforced Leather Boots	B-Grade	add	0
+10877	2422	A	4	49	Reinforced Leather Boots	A-Grade	add	0
+10878	2422	S	5	55	Reinforced Leather Boots	S-Grade	add	0
 2423	2423	D	1	29	Boots of Knowledge		update	0
-10875	2423	C	2	39	Boots of Knowledge	C-Grade	add	0
-10876	2423	B	3	45	Boots of Knowledge	B-Grade	add	0
-10877	2423	A	4	49	Boots of Knowledge	A-Grade	add	0
-10878	2423	S	5	55	Boots of Knowledge	S-Grade	add	0
+10879	2423	C	2	39	Boots of Knowledge	C-Grade	add	0
+10880	2423	B	3	45	Boots of Knowledge	B-Grade	add	0
+10881	2423	A	4	49	Boots of Knowledge	A-Grade	add	0
+10882	2423	S	5	55	Boots of Knowledge	S-Grade	add	0
 2424	2424	D	1	29	Manticore Skin Boots		update	0
-10879	2424	C	2	39	Manticore Skin Boots	C-Grade	add	0
-10880	2424	B	3	45	Manticore Skin Boots	B-Grade	add	0
-10881	2424	A	4	49	Manticore Skin Boots	A-Grade	add	0
-10882	2424	S	5	55	Manticore Skin Boots	S-Grade	add	0
+10883	2424	C	2	39	Manticore Skin Boots	C-Grade	add	0
+10884	2424	B	3	45	Manticore Skin Boots	B-Grade	add	0
+10885	2424	A	4	49	Manticore Skin Boots	A-Grade	add	0
+10886	2424	S	5	55	Manticore Skin Boots	S-Grade	add	0
 2425	2425	D	1	29	Brigandine Boots		update	0
-10883	2425	C	2	39	Brigandine Boots	C-Grade	add	0
-10884	2425	B	3	45	Brigandine Boots	B-Grade	add	0
-10885	2425	A	4	49	Brigandine Boots	A-Grade	add	0
-10886	2425	S	5	55	Brigandine Boots	S-Grade	add	0
+10887	2425	C	2	39	Brigandine Boots	C-Grade	add	0
+10888	2425	B	3	45	Brigandine Boots	B-Grade	add	0
+10889	2425	A	4	49	Brigandine Boots	A-Grade	add	0
+10890	2425	S	5	55	Brigandine Boots	S-Grade	add	0
 2426	2426	D	1	29	Elven Mithril Boots		update	0
-10887	2426	C	2	39	Elven Mithril Boots	C-Grade	add	0
-10888	2426	B	3	45	Elven Mithril Boots	B-Grade	add	0
-10889	2426	A	4	49	Elven Mithril Boots	A-Grade	add	0
-10890	2426	S	5	55	Elven Mithril Boots	S-Grade	add	0
+10891	2426	C	2	39	Elven Mithril Boots	C-Grade	add	0
+10892	2426	B	3	45	Elven Mithril Boots	B-Grade	add	0
+10893	2426	A	4	49	Elven Mithril Boots	A-Grade	add	0
+10894	2426	S	5	55	Elven Mithril Boots	S-Grade	add	0
 2427	2427	D	1	29	Salamander Skin Boots		update	0
-10891	2427	C	2	39	Salamander Skin Boots	C-Grade	add	0
-10892	2427	B	3	45	Salamander Skin Boots	B-Grade	add	0
-10893	2427	A	4	49	Salamander Skin Boots	A-Grade	add	0
-10894	2427	S	5	55	Salamander Skin Boots	S-Grade	add	0
+10895	2427	C	2	39	Salamander Skin Boots	C-Grade	add	0
+10896	2427	B	3	45	Salamander Skin Boots	B-Grade	add	0
+10897	2427	A	4	49	Salamander Skin Boots	A-Grade	add	0
+10898	2427	S	5	55	Salamander Skin Boots	S-Grade	add	0
 2428	2428	D	1	29	Plate Boots		update	0
-10895	2428	C	2	39	Plate Boots	C-Grade	add	0
-10896	2428	B	3	45	Plate Boots	B-Grade	add	0
-10897	2428	A	4	49	Plate Boots	A-Grade	add	0
-10898	2428	S	5	55	Plate Boots	S-Grade	add	0
+10899	2428	C	2	39	Plate Boots	C-Grade	add	0
+10900	2428	B	3	45	Plate Boots	B-Grade	add	0
+10901	2428	A	4	49	Plate Boots	A-Grade	add	0
+10902	2428	S	5	55	Plate Boots	S-Grade	add	0
 2429	2429	C	2	39	Chain Boots		update	0
-10899	2429	B	3	45	Chain Boots	B-Grade	add	0
-10900	2429	A	4	49	Chain Boots	A-Grade	add	0
-10901	2429	S	5	55	Chain Boots	S-Grade	add	0
+10903	2429	B	3	45	Chain Boots	B-Grade	add	0
+10904	2429	A	4	49	Chain Boots	A-Grade	add	0
+10905	2429	S	5	55	Chain Boots	S-Grade	add	0
 2430	2430	C	2	39	Karmian Boots		update	0
-10902	2430	B	3	45	Karmian Boots	B-Grade	add	0
-10903	2430	A	4	49	Karmian Boots	A-Grade	add	0
-10904	2430	S	5	55	Karmian Boots	S-Grade	add	0
+10906	2430	B	3	45	Karmian Boots	B-Grade	add	0
+10907	2430	A	4	49	Karmian Boots	A-Grade	add	0
+10908	2430	S	5	55	Karmian Boots	S-Grade	add	0
 2431	2431	C	2	39	Plated Leather Boots		update	0
-10905	2431	B	3	45	Plated Leather Boots	B-Grade	add	0
-10906	2431	A	4	49	Plated Leather Boots	A-Grade	add	0
-10907	2431	S	5	55	Plated Leather Boots	S-Grade	add	0
-10908	2432	D	1	29	Dwarven Chain Boots	D-Grade	add	0
+10909	2431	B	3	45	Plated Leather Boots	B-Grade	add	0
+10910	2431	A	4	49	Plated Leather Boots	A-Grade	add	0
+10911	2431	S	5	55	Plated Leather Boots	S-Grade	add	0
 2432	2432	C	2	39	Dwarven Chain Boots		update	0
-10909	2432	B	3	45	Dwarven Chain Boots	B-Grade	add	0
-10910	2432	A	4	49	Dwarven Chain Boots	A-Grade	add	0
-10911	2432	S	5	55	Dwarven Chain Boots	S-Grade	add	0
+10912	2432	B	3	45	Dwarven Chain Boots	B-Grade	add	0
+10913	2432	A	4	49	Dwarven Chain Boots	A-Grade	add	0
+10914	2432	S	5	55	Dwarven Chain Boots	S-Grade	add	0
 2433	2433	C	2	39	Boots of Seal		update	0
-10912	2433	B	3	45	Boots of Seal	B-Grade	add	0
-10913	2433	A	4	49	Boots of Seal	A-Grade	add	0
-10914	2433	S	5	55	Boots of Seal	S-Grade	add	0
+10915	2433	B	3	45	Boots of Seal	B-Grade	add	0
+10916	2433	A	4	49	Boots of Seal	A-Grade	add	0
+10917	2433	S	5	55	Boots of Seal	S-Grade	add	0
 2434	2434	C	2	39	Rind Leather Boots		update	0
-10915	2434	B	3	45	Rind Leather Boots	B-Grade	add	0
-10916	2434	A	4	49	Rind Leather Boots	A-Grade	add	0
-10917	2434	S	5	55	Rind Leather Boots	S-Grade	add	0
+10918	2434	B	3	45	Rind Leather Boots	B-Grade	add	0
+10919	2434	A	4	49	Rind Leather Boots	A-Grade	add	0
+10920	2434	S	5	55	Rind Leather Boots	S-Grade	add	0
 2435	2435	C	2	39	Demon's Boots		update	0
-10918	2435	B	3	45	Demon's Boots	B-Grade	add	0
-10919	2435	A	4	49	Demon's Boots	A-Grade	add	0
-10920	2435	S	5	55	Demon's Boots	S-Grade	add	0
+10921	2435	B	3	45	Demon's Boots	B-Grade	add	0
+10922	2435	A	4	49	Demon's Boots	A-Grade	add	0
+10923	2435	S	5	55	Demon's Boots	S-Grade	add	0
 2436	2436	C	2	39	Theca Leather Boots		update	0
-10921	2436	B	3	45	Theca Leather Boots	B-Grade	add	0
-10922	2436	A	4	49	Theca Leather Boots	A-Grade	add	0
-10923	2436	S	5	55	Theca Leather Boots	S-Grade	add	0
+10924	2436	B	3	45	Theca Leather Boots	B-Grade	add	0
+10925	2436	A	4	49	Theca Leather Boots	A-Grade	add	0
+10926	2436	S	5	55	Theca Leather Boots	S-Grade	add	0
 2437	2437	C	2	39	Drake Leather Boots		update	0
-10924	2437	B	3	45	Drake Leather Boots	B-Grade	add	0
-10925	2437	A	4	49	Drake Leather Boots	A-Grade	add	0
-10926	2437	S	5	55	Drake Leather Boots	S-Grade	add	0
+10927	2437	B	3	45	Drake Leather Boots	B-Grade	add	0
+10928	2437	A	4	49	Drake Leather Boots	A-Grade	add	0
+10929	2437	S	5	55	Drake Leather Boots	S-Grade	add	0
 2438	2438	C	2	39	Full Plate Boots		update	0
-10927	2438	B	3	45	Full Plate Boots	B-Grade	add	0
-10928	2438	A	4	49	Full Plate Boots	A-Grade	add	0
-10929	2438	S	5	55	Full Plate Boots	S-Grade	add	0
+10930	2438	B	3	45	Full Plate Boots	B-Grade	add	0
+10931	2438	A	4	49	Full Plate Boots	A-Grade	add	0
+10932	2438	S	5	55	Full Plate Boots	S-Grade	add	0
+10933	2441	B	3	45	Dark Legion Boots	B-Grade	add	0
+2441	2441	A	4	49	Dark Legion Boots		update	0
+10934	2441	S	5	55	Dark Legion Boots	S-Grade	add	0
 2442	2442	A	4	49	Dasparion's Boots		update	0
-10930	2442	S	5	55	Dasparion's Boots	S-Grade	add	0
+10935	2442	S	5	55	Dasparion's Boots	S-Grade	add	0
+10936	2443	B	3	45	Dragon Leather Boots	B-Grade	add	0
+10937	2443	A	4	49	Dragon Leather Boots	A-Grade	add	0
 2443	2443	S	5	55	Dragon Leather Boots		update	0
 2444	2444	S	5	55	The Boots		update	0
-10931	2445	S	5	55	Dragon Scale Boots	S-Grade	add	0
+10938	2445	D	1	29	Dragon Scale Boots	D-Grade	add	0
+10939	2445	C	2	39	Dragon Scale Boots	C-Grade	add	0
+10940	2445	B	3	45	Dragon Scale Boots	B-Grade	add	0
+2445	2445	A	4	49	Dragon Scale Boots		update	0
+10941	2445	S	5	55	Dragon Scale Boots	S-Grade	add	0
 2446	2446	D	1	29	Reinforced Leather Gloves		update	0
-10932	2446	C	2	39	Reinforced Leather Gloves	C-Grade	add	0
-10933	2446	B	3	44	Reinforced Leather Gloves	B-Grade	add	0
-10934	2446	A	4	49	Reinforced Leather Gloves	A-Grade	add	0
-10935	2446	S	5	55	Reinforced Leather Gloves	S-Grade	add	0
+10942	2446	C	2	39	Reinforced Leather Gloves	C-Grade	add	0
+10943	2446	B	3	44	Reinforced Leather Gloves	B-Grade	add	0
+10944	2446	A	4	49	Reinforced Leather Gloves	A-Grade	add	0
+10945	2446	S	5	55	Reinforced Leather Gloves	S-Grade	add	0
 2447	2447	D	1	29	Gloves of Knowledge		update	0
-10936	2447	C	2	39	Gloves of Knowledge	C-Grade	add	0
-10937	2447	B	3	44	Gloves of Knowledge	B-Grade	add	0
-10938	2447	A	4	49	Gloves of Knowledge	A-Grade	add	0
-10939	2447	S	5	55	Gloves of Knowledge	S-Grade	add	0
+10946	2447	C	2	39	Gloves of Knowledge	C-Grade	add	0
+10947	2447	B	3	44	Gloves of Knowledge	B-Grade	add	0
+10948	2447	A	4	49	Gloves of Knowledge	A-Grade	add	0
+10949	2447	S	5	55	Gloves of Knowledge	S-Grade	add	0
 2448	2448	D	1	29	Manticore Skin Gloves		update	0
-10940	2448	C	2	39	Manticore Skin Gloves	C-Grade	add	0
-10941	2448	B	3	44	Manticore Skin Gloves	B-Grade	add	0
-10942	2448	A	4	49	Manticore Skin Gloves	A-Grade	add	0
-10943	2448	S	5	55	Manticore Skin Gloves	S-Grade	add	0
+10950	2448	C	2	39	Manticore Skin Gloves	C-Grade	add	0
+10951	2448	B	3	44	Manticore Skin Gloves	B-Grade	add	0
+10952	2448	A	4	49	Manticore Skin Gloves	A-Grade	add	0
+10953	2448	S	5	55	Manticore Skin Gloves	S-Grade	add	0
 2449	2449	D	1	29	Brigandine Gauntlets		update	0
-10944	2449	C	2	39	Brigandine Gauntlets	C-Grade	add	0
-10945	2449	B	3	44	Brigandine Gauntlets	B-Grade	add	0
-10946	2449	A	4	49	Brigandine Gauntlets	A-Grade	add	0
-10947	2449	S	5	55	Brigandine Gauntlets	S-Grade	add	0
+10954	2449	C	2	39	Brigandine Gauntlets	C-Grade	add	0
+10955	2449	B	3	44	Brigandine Gauntlets	B-Grade	add	0
+10956	2449	A	4	49	Brigandine Gauntlets	A-Grade	add	0
+10957	2449	S	5	55	Brigandine Gauntlets	S-Grade	add	0
 2450	2450	D	1	29	Elven Mithril Gloves		update	0
-10948	2450	C	2	39	Elven Mithril Gloves	C-Grade	add	0
-10949	2450	B	3	44	Elven Mithril Gloves	B-Grade	add	0
-10950	2450	A	4	49	Elven Mithril Gloves	A-Grade	add	0
-10951	2450	S	5	55	Elven Mithril Gloves	S-Grade	add	0
+10958	2450	C	2	39	Elven Mithril Gloves	C-Grade	add	0
+10959	2450	B	3	44	Elven Mithril Gloves	B-Grade	add	0
+10960	2450	A	4	49	Elven Mithril Gloves	A-Grade	add	0
+10961	2450	S	5	55	Elven Mithril Gloves	S-Grade	add	0
 2451	2451	D	1	29	Sage's Worn Gloves		update	0
-10952	2451	C	2	39	Sage's Worn Gloves	C-Grade	add	0
-10953	2451	B	3	44	Sage's Worn Gloves	B-Grade	add	0
-10954	2451	A	4	49	Sage's Worn Gloves	A-Grade	add	0
-10955	2451	S	5	55	Sage's Worn Gloves	S-Grade	add	0
+10962	2451	C	2	39	Sage's Worn Gloves	C-Grade	add	0
+10963	2451	B	3	44	Sage's Worn Gloves	B-Grade	add	0
+10964	2451	A	4	49	Sage's Worn Gloves	A-Grade	add	0
+10965	2451	S	5	55	Sage's Worn Gloves	S-Grade	add	0
+2452	2452	C	2	39	Reinforced Mithril Gloves		update	0
+10966	2452	B	3	44	Reinforced Mithril Gloves	B-Grade	add	0
+10967	2452	A	4	49	Reinforced Mithril Gloves	A-Grade	add	0
+10968	2452	S	5	55	Reinforced Mithril Gloves	S-Grade	add	0
 2453	2453	C	2	39	Chain Gloves		update	0
-10956	2453	B	3	44	Chain Gloves	B-Grade	add	0
-10957	2453	A	4	49	Chain Gloves	A-Grade	add	0
-10958	2453	S	5	55	Chain Gloves	S-Grade	add	0
+10969	2453	B	3	44	Chain Gloves	B-Grade	add	0
+10970	2453	A	4	49	Chain Gloves	A-Grade	add	0
+10971	2453	S	5	55	Chain Gloves	S-Grade	add	0
 2454	2454	C	2	39	Karmian Gloves		update	0
-10959	2454	B	3	44	Karmian Gloves	B-Grade	add	0
-10960	2454	A	4	49	Karmian Gloves	A-Grade	add	0
-10961	2454	S	5	55	Karmian Gloves	S-Grade	add	0
+10972	2454	B	3	44	Karmian Gloves	B-Grade	add	0
+10973	2454	A	4	49	Karmian Gloves	A-Grade	add	0
+10974	2454	S	5	55	Karmian Gloves	S-Grade	add	0
 2455	2455	C	2	39	Plated Leather Gloves		update	0
-10962	2455	B	3	44	Plated Leather Gloves	B-Grade	add	0
-10963	2455	A	4	49	Plated Leather Gloves	A-Grade	add	0
-10964	2455	S	5	55	Plated Leather Gloves	S-Grade	add	0
-10965	2456	D	1	29	Dwarven Chain Gloves	D-Grade	add	0
+10975	2455	B	3	44	Plated Leather Gloves	B-Grade	add	0
+10976	2455	A	4	49	Plated Leather Gloves	A-Grade	add	0
+10977	2455	S	5	55	Plated Leather Gloves	S-Grade	add	0
 2456	2456	C	2	39	Dwarven Chain Gloves		update	0
-10966	2456	B	3	44	Dwarven Chain Gloves	B-Grade	add	0
-10967	2456	A	4	49	Dwarven Chain Gloves	A-Grade	add	0
-10968	2456	S	5	55	Dwarven Chain Gloves	S-Grade	add	0
+10978	2456	B	3	44	Dwarven Chain Gloves	B-Grade	add	0
+10979	2456	A	4	49	Dwarven Chain Gloves	A-Grade	add	0
+10980	2456	S	5	55	Dwarven Chain Gloves	S-Grade	add	0
 2457	2457	C	2	39	Gloves of Seal		update	0
-10969	2457	B	3	44	Gloves of Seal	B-Grade	add	0
-10970	2457	A	4	49	Gloves of Seal	A-Grade	add	0
-10971	2457	S	5	55	Gloves of Seal	S-Grade	add	0
+10981	2457	B	3	44	Gloves of Seal	B-Grade	add	0
+10982	2457	A	4	49	Gloves of Seal	A-Grade	add	0
+10983	2457	S	5	55	Gloves of Seal	S-Grade	add	0
 2458	2458	C	2	39	Rind Leather Gloves		update	0
-10972	2458	B	3	44	Rind Leather Gloves	B-Grade	add	0
-10973	2458	A	4	49	Rind Leather Gloves	A-Grade	add	0
-10974	2458	S	5	55	Rind Leather Gloves	S-Grade	add	0
+10984	2458	B	3	44	Rind Leather Gloves	B-Grade	add	0
+10985	2458	A	4	49	Rind Leather Gloves	A-Grade	add	0
+10986	2458	S	5	55	Rind Leather Gloves	S-Grade	add	0
 2459	2459	C	2	39	Demon's Gloves		update	0
-10975	2459	B	3	44	Demon's Gloves	B-Grade	add	0
-10976	2459	A	4	49	Demon's Gloves	A-Grade	add	0
-10977	2459	S	5	55	Demon's Gloves	S-Grade	add	0
+10987	2459	B	3	44	Demon's Gloves	B-Grade	add	0
+10988	2459	A	4	49	Demon's Gloves	A-Grade	add	0
+10989	2459	S	5	55	Demon's Gloves	S-Grade	add	0
 2460	2460	C	2	39	Theca Leather Gloves		update	0
-10978	2460	B	3	44	Theca Leather Gloves	B-Grade	add	0
-10979	2460	A	4	49	Theca Leather Gloves	A-Grade	add	0
-10980	2460	S	5	55	Theca Leather Gloves	S-Grade	add	0
+10990	2460	B	3	44	Theca Leather Gloves	B-Grade	add	0
+10991	2460	A	4	49	Theca Leather Gloves	A-Grade	add	0
+10992	2460	S	5	55	Theca Leather Gloves	S-Grade	add	0
 2461	2461	C	2	39	Drake Leather Gloves		update	0
-10981	2461	B	3	44	Drake Leather Gloves	B-Grade	add	0
-10982	2461	A	4	49	Drake Leather Gloves	A-Grade	add	0
-10983	2461	S	5	55	Drake Leather Gloves	S-Grade	add	0
-10984	2462	D	1	29	Full Plate Gauntlets	D-Grade	add	0
+10993	2461	B	3	44	Drake Leather Gloves	B-Grade	add	0
+10994	2461	A	4	49	Drake Leather Gloves	A-Grade	add	0
+10995	2461	S	5	55	Drake Leather Gloves	S-Grade	add	0
 2462	2462	C	2	39	Full Plate Gauntlets		update	0
-10985	2462	B	3	44	Full Plate Gauntlets	B-Grade	add	0
-10986	2462	A	4	49	Full Plate Gauntlets	A-Grade	add	0
-10987	2462	S	5	55	Full Plate Gauntlets	S-Grade	add	0
+10996	2462	B	3	44	Full Plate Gauntlets	B-Grade	add	0
+10997	2462	A	4	49	Full Plate Gauntlets	A-Grade	add	0
+10998	2462	S	5	55	Full Plate Gauntlets	S-Grade	add	0
 2463	2463	C	2	39	Divine Gloves		update	0
-10988	2463	B	3	44	Divine Gloves	B-Grade	add	0
-10989	2463	A	4	49	Divine Gloves	A-Grade	add	0
-10990	2463	S	5	55	Divine Gloves	S-Grade	add	0
-2465	2465	B	3	44	Chain Gloves of Silence		update	0
-10991	2465	A	4	49	Chain Gloves of Silence	A-Grade	add	0
-10992	2465	S	5	55	Chain Gloves of Silence	S-Grade	add	0
+10999	2463	B	3	44	Divine Gloves	B-Grade	add	0
+11000	2463	A	4	49	Divine Gloves	A-Grade	add	0
+11001	2463	S	5	55	Divine Gloves	S-Grade	add	0
 2466	2466	B	3	44	Guardian's Gloves		update	0
-10993	2466	A	4	49	Guardian's Gloves	A-Grade	add	0
-10994	2466	S	5	55	Guardian's Gloves	S-Grade	add	0
+11002	2466	A	4	49	Guardian's Gloves	A-Grade	add	0
+11003	2466	S	5	55	Guardian's Gloves	S-Grade	add	0
 2467	2467	B	3	44	Gloves of Blessing		update	0
-10995	2467	A	4	49	Gloves of Blessing	A-Grade	add	0
-10996	2467	S	5	55	Gloves of Blessing	S-Grade	add	0
-10997	2469	B	3	44	Gloves of The Underworld	B-Grade	add	0
+11004	2467	A	4	49	Gloves of Blessing	A-Grade	add	0
+11005	2467	S	5	55	Gloves of Blessing	S-Grade	add	0
+11006	2469	B	3	44	Gloves of The Underworld	B-Grade	add	0
 2469	2469	A	4	49	Gloves of The Underworld		update	0
-10998	2469	S	5	55	Gloves of The Underworld	S-Grade	add	0
-10999	2470	B	3	44	Gloves of Phantom	B-Grade	add	0
+11007	2469	S	5	55	Gloves of The Underworld	S-Grade	add	0
+11008	2470	B	3	44	Gloves of Phantom	B-Grade	add	0
 2470	2470	A	4	49	Gloves of Phantom		update	0
-11000	2470	S	5	55	Gloves of Phantom	S-Grade	add	0
+11009	2470	S	5	55	Gloves of Phantom	S-Grade	add	0
+11010	2471	B	3	44	Dark Legion Gloves	B-Grade	add	0
+2471	2471	A	4	49	Dark Legion Gloves		update	0
+11011	2471	S	5	55	Dark Legion Gloves	S-Grade	add	0
 2473	2473	S	5	55	The Gloves		update	0
 2474	2474	A	4	49	Dasparion's Gloves		update	0
-11001	2474	S	5	55	Dasparion's Gloves	S-Grade	add	0
-11002	2476	B	3	44	Dragon Gauntlets	B-Grade	add	0
-11003	2476	A	4	49	Dragon Gauntlets	A-Grade	add	0
+11012	2474	S	5	55	Dasparion's Gloves	S-Grade	add	0
 2476	2476	S	5	55	Dragon Gauntlets		update	0
+11013	2477	B	3	44	Dragon Leather Gloves	B-Grade	add	0
+11014	2477	A	4	49	Dragon Leather Gloves	A-Grade	add	0
 2477	2477	S	5	55	Dragon Leather Gloves		update	0
+11015	2480	D	1	29	Elemental Gloves	D-Grade	add	0
+11016	2480	C	2	39	Elemental Gloves	C-Grade	add	0
 2480	2480	B	3	44	Elemental Gloves		update	0
-11004	2480	A	4	49	Elemental Gloves	A-Grade	add	0
-11005	2480	S	5	55	Elemental Gloves	S-Grade	add	0
+11017	2480	A	4	49	Elemental Gloves	A-Grade	add	0
+11018	2480	S	5	55	Elemental Gloves	S-Grade	add	0
 2481	2481	B	3	44	Gloves of Grace		update	0
-11006	2481	A	4	49	Gloves of Grace	A-Grade	add	0
-11007	2481	S	5	55	Gloves of Grace	S-Grade	add	0
-11008	2483	B	3	44	Gust Bracer	B-Grade	add	0
-2483	2483	A	4	49	Gust Bracer		update	0
-11009	2483	S	5	55	Gust Bracer	S-Grade	add	0
-11010	2484	B	3	44	Cerberus Gloves	B-Grade	add	0
+11019	2481	A	4	49	Gloves of Grace	A-Grade	add	0
+11020	2481	S	5	55	Gloves of Grace	S-Grade	add	0
+11021	2484	B	3	44	Cerberus Gloves	B-Grade	add	0
 2484	2484	A	4	49	Cerberus Gloves		update	0
-11011	2484	S	5	55	Cerberus Gloves	S-Grade	add	0
-2485	2485	B	3	44	Implosion Gauntlets		update	0
-11012	2485	A	4	49	Implosion Gauntlets	A-Grade	add	0
-11013	2485	S	5	55	Implosion Gauntlets	S-Grade	add	0
+11022	2484	S	5	55	Cerberus Gloves	S-Grade	add	0
 2486	2486	B	3	44	Paradia Gloves		update	0
-11014	2486	A	4	49	Paradia Gloves	A-Grade	add	0
-11015	2486	S	5	55	Paradia Gloves	S-Grade	add	0
-11016	2488	B	3	44	Phoenix Gloves	B-Grade	add	0
+11023	2486	A	4	49	Paradia Gloves	A-Grade	add	0
+11024	2486	S	5	55	Paradia Gloves	S-Grade	add	0
+11025	2488	B	3	44	Phoenix Gloves	B-Grade	add	0
 2488	2488	A	4	49	Phoenix Gloves		update	0
-11017	2488	S	5	55	Phoenix Gloves	S-Grade	add	0
-11018	2489	B	3	44	Gloves of Black Ore	B-Grade	add	0
+11026	2488	S	5	55	Phoenix Gloves	S-Grade	add	0
+11027	2489	D	1	29	Gloves of Black Ore	D-Grade	add	0
+11028	2489	C	2	39	Gloves of Black Ore	C-Grade	add	0
+11029	2489	B	3	44	Gloves of Black Ore	B-Grade	add	0
 2489	2489	A	4	49	Gloves of Black Ore		update	0
-11019	2489	S	5	55	Gloves of Black Ore	S-Grade	add	0
+11030	2489	S	5	55	Gloves of Black Ore	S-Grade	add	0
 5710	5710	B	3	44	Zubei's Gauntlets - Heavy Armor		update	0
-11020	5710	A	4	49	Zubei's Gauntlets - Heavy Armor	A-Grade	add	0
-11021	5710	S	5	55	Zubei's Gauntlets - Heavy Armor	S-Grade	add	0
+11031	5710	A	4	49	Zubei's Gauntlets - Heavy Armor	A-Grade	add	0
+11032	5710	S	5	55	Zubei's Gauntlets - Heavy Armor	S-Grade	add	0
 5711	5711	B	3	44	Zubei's Gauntlets - Light Armor		update	0
-11022	5711	A	4	49	Zubei's Gauntlets - Light Armor	A-Grade	add	0
-11023	5711	S	5	55	Zubei's Gauntlets - Light Armor	S-Grade	add	0
+11033	5711	A	4	49	Zubei's Gauntlets - Light Armor	A-Grade	add	0
+11034	5711	S	5	55	Zubei's Gauntlets - Light Armor	S-Grade	add	0
 5712	5712	B	3	44	Zubei's Gauntlets - Robe		update	0
-11024	5712	A	4	49	Zubei's Gauntlets - Robe	A-Grade	add	0
-11025	5712	S	5	55	Zubei's Gauntlets - Robe	S-Grade	add	0
+11035	5712	A	4	49	Zubei's Gauntlets - Robe	A-Grade	add	0
+11036	5712	S	5	55	Zubei's Gauntlets - Robe	S-Grade	add	0
 5714	5714	B	3	44	Avadon Gloves - Heavy Armor		update	0
-11026	5714	A	4	49	Avadon Gloves - Heavy Armor	A-Grade	add	0
-11027	5714	S	5	55	Avadon Gloves - Heavy Armor	S-Grade	add	0
+11037	5714	A	4	49	Avadon Gloves - Heavy Armor	A-Grade	add	0
+11038	5714	S	5	55	Avadon Gloves - Heavy Armor	S-Grade	add	0
 5715	5715	B	3	44	Avadon Gloves - Light Armor		update	0
-11028	5715	A	4	49	Avadon Gloves - Light Armor	A-Grade	add	0
-11029	5715	S	5	55	Avadon Gloves - Light Armor	S-Grade	add	0
+11039	5715	A	4	49	Avadon Gloves - Light Armor	A-Grade	add	0
+11040	5715	S	5	55	Avadon Gloves - Light Armor	S-Grade	add	0
 5716	5716	B	3	44	Avadon Gloves - Robe		update	0
-11030	5716	A	4	49	Avadon Gloves - Robe	A-Grade	add	0
-11031	5716	S	5	55	Avadon Gloves - Robe	S-Grade	add	0
+11041	5716	A	4	49	Avadon Gloves - Robe	A-Grade	add	0
+11042	5716	S	5	55	Avadon Gloves - Robe	S-Grade	add	0
 5718	5718	B	3	44	Blue Wolf Gloves - Heavy Armor		update	0
-11032	5718	A	4	49	Blue Wolf Gloves - Heavy Armor	A-Grade	add	0
-11033	5718	S	5	55	Blue Wolf Gloves - Heavy Armor	S-Grade	add	0
+11043	5718	A	4	49	Blue Wolf Gloves - Heavy Armor	A-Grade	add	0
+11044	5718	S	5	55	Blue Wolf Gloves - Heavy Armor	S-Grade	add	0
 5719	5719	B	3	44	Blue Wolf Gloves - Light Armor		update	0
-11034	5719	A	4	49	Blue Wolf Gloves - Light Armor	A-Grade	add	0
-11035	5719	S	5	55	Blue Wolf Gloves - Light Armor	S-Grade	add	0
+11045	5719	A	4	49	Blue Wolf Gloves - Light Armor	A-Grade	add	0
+11046	5719	S	5	55	Blue Wolf Gloves - Light Armor	S-Grade	add	0
 5720	5720	B	3	44	Blue Wolf Gloves - Robe		update	0
-11036	5720	A	4	49	Blue Wolf Gloves - Robe	A-Grade	add	0
-11037	5720	S	5	55	Blue Wolf Gloves - Robe	S-Grade	add	0
+11047	5720	A	4	49	Blue Wolf Gloves - Robe	A-Grade	add	0
+11048	5720	S	5	55	Blue Wolf Gloves - Robe	S-Grade	add	0
 5722	5722	B	3	44	Doom Gloves - Heavy Armor		update	0
-11038	5722	A	4	49	Doom Gloves - Heavy Armor	A-Grade	add	0
-11039	5722	S	5	55	Doom Gloves - Heavy Armor	S-Grade	add	0
+11049	5722	A	4	49	Doom Gloves - Heavy Armor	A-Grade	add	0
+11050	5722	S	5	55	Doom Gloves - Heavy Armor	S-Grade	add	0
 5723	5723	B	3	44	Doom Gloves - Light Armor		update	0
-11040	5723	A	4	49	Doom Gloves - Light Armor	A-Grade	add	0
-11041	5723	S	5	55	Doom Gloves - Light Armor	S-Grade	add	0
+11051	5723	A	4	49	Doom Gloves - Light Armor	A-Grade	add	0
+11052	5723	S	5	55	Doom Gloves - Light Armor	S-Grade	add	0
 5724	5724	B	3	44	Doom Gloves - Robe		update	0
-11042	5724	A	4	49	Doom Gloves - Robe	A-Grade	add	0
-11043	5724	S	5	55	Doom Gloves - Robe	S-Grade	add	0
+11053	5724	A	4	49	Doom Gloves - Robe	A-Grade	add	0
+11054	5724	S	5	55	Doom Gloves - Robe	S-Grade	add	0
 5726	5726	B	3	45	Zubei's Boots - Heavy Armor		update	0
-11044	5726	A	4	49	Zubei's Boots - Heavy Armor	A-Grade	add	0
-11045	5726	S	5	55	Zubei's Boots - Heavy Armor	S-Grade	add	0
+11055	5726	A	4	49	Zubei's Boots - Heavy Armor	A-Grade	add	0
+11056	5726	S	5	55	Zubei's Boots - Heavy Armor	S-Grade	add	0
 5727	5727	B	3	45	Zubei's Boots - Light Armor		update	0
-11046	5727	A	4	49	Zubei's Boots - Light Armor	A-Grade	add	0
-11047	5727	S	5	55	Zubei's Boots - Light Armor	S-Grade	add	0
+11057	5727	A	4	49	Zubei's Boots - Light Armor	A-Grade	add	0
+11058	5727	S	5	55	Zubei's Boots - Light Armor	S-Grade	add	0
 5728	5728	B	3	45	Zubei's Boots - Robe		update	0
-11048	5728	A	4	49	Zubei's Boots - Robe	A-Grade	add	0
-11049	5728	S	5	55	Zubei's Boots - Robe	S-Grade	add	0
+11059	5728	A	4	49	Zubei's Boots - Robe	A-Grade	add	0
+11060	5728	S	5	55	Zubei's Boots - Robe	S-Grade	add	0
 5730	5730	B	3	45	Avadon Boots - Heavy Armor		update	0
-11050	5730	A	4	49	Avadon Boots - Heavy Armor	A-Grade	add	0
-11051	5730	S	5	55	Avadon Boots - Heavy Armor	S-Grade	add	0
+11061	5730	A	4	49	Avadon Boots - Heavy Armor	A-Grade	add	0
+11062	5730	S	5	55	Avadon Boots - Heavy Armor	S-Grade	add	0
 5731	5731	B	3	45	Avadon Boots - Light Armor		update	0
-11052	5731	A	4	49	Avadon Boots - Light Armor	A-Grade	add	0
-11053	5731	S	5	55	Avadon Boots - Light Armor	S-Grade	add	0
+11063	5731	A	4	49	Avadon Boots - Light Armor	A-Grade	add	0
+11064	5731	S	5	55	Avadon Boots - Light Armor	S-Grade	add	0
 5732	5732	B	3	45	Avadon Boots - Robe		update	0
-11054	5732	A	4	49	Avadon Boots - Robe	A-Grade	add	0
-11055	5732	S	5	55	Avadon Boots - Robe	S-Grade	add	0
+11065	5732	A	4	49	Avadon Boots - Robe	A-Grade	add	0
+11066	5732	S	5	55	Avadon Boots - Robe	S-Grade	add	0
 5734	5734	B	3	45	Blue Wolf Boots - Heavy Armor		update	0
-11056	5734	A	4	49	Blue Wolf Boots - Heavy Armor	A-Grade	add	0
-11057	5734	S	5	55	Blue Wolf Boots - Heavy Armor	S-Grade	add	0
+11067	5734	A	4	49	Blue Wolf Boots - Heavy Armor	A-Grade	add	0
+11068	5734	S	5	55	Blue Wolf Boots - Heavy Armor	S-Grade	add	0
 5735	5735	B	3	45	Blue Wolf Boots - Light Armor		update	0
-11058	5735	A	4	49	Blue Wolf Boots - Light Armor	A-Grade	add	0
-11059	5735	S	5	55	Blue Wolf Boots - Light Armor	S-Grade	add	0
+11069	5735	A	4	49	Blue Wolf Boots - Light Armor	A-Grade	add	0
+11070	5735	S	5	55	Blue Wolf Boots - Light Armor	S-Grade	add	0
 5736	5736	B	3	45	Blue Wolf Boots - Robe		update	0
-11060	5736	A	4	49	Blue Wolf Boots - Robe	A-Grade	add	0
-11061	5736	S	5	55	Blue Wolf Boots - Robe	S-Grade	add	0
+11071	5736	A	4	49	Blue Wolf Boots - Robe	A-Grade	add	0
+11072	5736	S	5	55	Blue Wolf Boots - Robe	S-Grade	add	0
 5738	5738	B	3	45	Doom Boots - Heavy Armor		update	0
-11062	5738	A	4	49	Doom Boots - Heavy Armor	A-Grade	add	0
-11063	5738	S	5	55	Doom Boots - Heavy Armor	S-Grade	add	0
+11073	5738	A	4	49	Doom Boots - Heavy Armor	A-Grade	add	0
+11074	5738	S	5	55	Doom Boots - Heavy Armor	S-Grade	add	0
 5739	5739	B	3	45	Doom Boots - Light Armor		update	0
-11064	5739	A	4	49	Doom Boots - Light Armor	A-Grade	add	0
-11065	5739	S	5	55	Doom Boots - Light Armor	S-Grade	add	0
+11075	5739	A	4	49	Doom Boots - Light Armor	A-Grade	add	0
+11076	5739	S	5	55	Doom Boots - Light Armor	S-Grade	add	0
 5740	5740	B	3	45	Doom Boots - Robe		update	0
-11066	5740	A	4	49	Doom Boots - Robe	A-Grade	add	0
-11067	5740	S	5	55	Doom Boots - Robe	S-Grade	add	0
+11077	5740	A	4	49	Doom Boots - Robe	A-Grade	add	0
+11078	5740	S	5	55	Doom Boots - Robe	S-Grade	add	0
 5765	5765	A	4	49	Dark Crystal Gloves - Heavy Armor		update	0
-11068	5765	S	5	55	Dark Crystal Gloves - Heavy Armor	S-Grade	add	0
+11079	5765	S	5	55	Dark Crystal Gloves - Heavy Armor	S-Grade	add	0
 5766	5766	A	4	49	Dark Crystal Gloves - Light Armor		update	0
-11069	5766	S	5	55	Dark Crystal Gloves - Light Armor	S-Grade	add	0
+11080	5766	S	5	55	Dark Crystal Gloves - Light Armor	S-Grade	add	0
 5767	5767	A	4	49	Dark Crystal Gloves - Robe		update	0
-11070	5767	S	5	55	Dark Crystal Gloves - Robe	S-Grade	add	0
+11081	5767	S	5	55	Dark Crystal Gloves - Robe	S-Grade	add	0
 5768	5768	A	4	49	Tallum Gloves - Heavy Armor		update	0
-11071	5768	S	5	55	Tallum Gloves - Heavy Armor	S-Grade	add	0
+11082	5768	S	5	55	Tallum Gloves - Heavy Armor	S-Grade	add	0
 5769	5769	A	4	49	Tallum Gloves - Light Armor		update	0
-11072	5769	S	5	55	Tallum Gloves - Light Armor	S-Grade	add	0
+11083	5769	S	5	55	Tallum Gloves - Light Armor	S-Grade	add	0
 5770	5770	A	4	49	Tallum Gloves - Robe		update	0
-11073	5770	S	5	55	Tallum Gloves - Robe	S-Grade	add	0
+11084	5770	S	5	55	Tallum Gloves - Robe	S-Grade	add	0
 5771	5771	A	4	49	Gauntlets of Nightmare - Heavy Armor		update	0
-11074	5771	S	5	55	Gauntlets of Nightmare - Heavy Armor	S-Grade	add	0
+11085	5771	S	5	55	Gauntlets of Nightmare - Heavy Armor	S-Grade	add	0
 5772	5772	A	4	49	Gauntlets of Nightmare - Light Armor		update	0
-11075	5772	S	5	55	Gauntlets of Nightmare - Light Armor	S-Grade	add	0
+11086	5772	S	5	55	Gauntlets of Nightmare - Light Armor	S-Grade	add	0
 5773	5773	A	4	49	Gauntlets of Nightmare - Robe		update	0
-11076	5773	S	5	55	Gauntlets of Nightmare - Robe	S-Grade	add	0
+11087	5773	S	5	55	Gauntlets of Nightmare - Robe	S-Grade	add	0
 5774	5774	A	4	49	Majestic Gauntlets - Heavy Armor		update	0
-11077	5774	S	5	55	Majestic Gauntlets - Heavy Armor	S-Grade	add	0
+11088	5774	S	5	55	Majestic Gauntlets - Heavy Armor	S-Grade	add	0
 5775	5775	A	4	49	Majestic Gauntlets - Light Armor		update	0
-11078	5775	S	5	55	Majestic Gauntlets - Light Armor	S-Grade	add	0
+11089	5775	S	5	55	Majestic Gauntlets - Light Armor	S-Grade	add	0
 5776	5776	A	4	49	Majestic Gauntlets - Robe		update	0
-11079	5776	S	5	55	Majestic Gauntlets - Robe	S-Grade	add	0
+11090	5776	S	5	55	Majestic Gauntlets - Robe	S-Grade	add	0
 5777	5777	A	4	49	Dark Crystal Boots - Heavy Armor		update	0
-11080	5777	S	5	55	Dark Crystal Boots - Heavy Armor	S-Grade	add	0
+11091	5777	S	5	55	Dark Crystal Boots - Heavy Armor	S-Grade	add	0
 5778	5778	A	4	49	Dark Crystal Boots - Light Armor		update	0
-11081	5778	S	5	55	Dark Crystal Boots - Light Armor	S-Grade	add	0
+11092	5778	S	5	55	Dark Crystal Boots - Light Armor	S-Grade	add	0
 5779	5779	A	4	49	Dark Crystal Boots - Robe		update	0
-11082	5779	S	5	55	Dark Crystal Boots - Robe	S-Grade	add	0
+11093	5779	S	5	55	Dark Crystal Boots - Robe	S-Grade	add	0
 5780	5780	A	4	49	Tallum Boots - Heavy Armor		update	0
-11083	5780	S	5	55	Tallum Boots - Heavy Armor	S-Grade	add	0
+11094	5780	S	5	55	Tallum Boots - Heavy Armor	S-Grade	add	0
 5781	5781	A	4	49	Tallum Boots - Light Armor		update	0
-11084	5781	S	5	55	Tallum Boots - Light Armor	S-Grade	add	0
+11095	5781	S	5	55	Tallum Boots - Light Armor	S-Grade	add	0
 5782	5782	A	4	49	Tallum Boots - Robe		update	0
-11085	5782	S	5	55	Tallum Boots - Robe	S-Grade	add	0
+11096	5782	S	5	55	Tallum Boots - Robe	S-Grade	add	0
 5783	5783	A	4	49	Boots of Nightmare - Heavy Armor		update	0
-11086	5783	S	5	55	Boots of Nightmare - Heavy Armor	S-Grade	add	0
+11097	5783	S	5	55	Boots of Nightmare - Heavy Armor	S-Grade	add	0
 5784	5784	A	4	49	Boots of Nightmare - Light Armor		update	0
-11087	5784	S	5	55	Boots of Nightmare - Light Armor	S-Grade	add	0
+11098	5784	S	5	55	Boots of Nightmare - Light Armor	S-Grade	add	0
 5785	5785	A	4	49	Boots of Nightmare - Robe		update	0
-11088	5785	S	5	55	Boots of Nightmare - Robe	S-Grade	add	0
+11099	5785	S	5	55	Boots of Nightmare - Robe	S-Grade	add	0
 5786	5786	A	4	49	Majestic Boots - Heavy Armor		update	0
-11089	5786	S	5	55	Majestic Boots - Heavy Armor	S-Grade	add	0
+11100	5786	S	5	55	Majestic Boots - Heavy Armor	S-Grade	add	0
 5787	5787	A	4	49	Majestic Boots - Light Armor		update	0
-11090	5787	S	5	55	Majestic Boots - Light Armor	S-Grade	add	0
+11101	5787	S	5	55	Majestic Boots - Light Armor	S-Grade	add	0
 5788	5788	A	4	49	Majestic Boots - Robe		update	0
-11091	5788	S	5	55	Majestic Boots - Robe	S-Grade	add	0
+11102	5788	S	5	55	Majestic Boots - Robe	S-Grade	add	0
 6373	6373	S	5	205	Imperial Crusader Breastplate		update	0
 6374	6374	S	5	128	Imperial Crusader Gaiters		update	0
 6375	6375	S	5	55	Imperial Crusader Gauntlets		update	0
@@ -1508,72 +1509,72 @@ id	donor	grade	gradeIdx	pdef	name	addName	mode	clearDesc
 6385	6385	S	5	55	Major Arcana Boots		update	0
 6386	6386	S	5	83	Major Arcana Circlet		update	0
 7850	7850	D	1	44	Clan Oath Helm		update	1
-11092	7850	C	2	58	Clan Oath Helm	C-Grade	add	1
-11093	7850	B	3	67	Clan Oath Helm	B-Grade	add	1
-11094	7850	A	4	73	Clan Oath Helm	A-Grade	add	1
-11095	7850	S	5	83	Clan Oath Helm	S-Grade	add	1
+11103	7850	C	2	58	Clan Oath Helm	C-Grade	add	1
+11104	7850	B	3	67	Clan Oath Helm	B-Grade	add	1
+11105	7850	A	4	73	Clan Oath Helm	A-Grade	add	1
+11106	7850	S	5	83	Clan Oath Helm	S-Grade	add	1
 7851	7851	D	1	167	Clan Oath Armor		update	1
-11096	7851	C	2	239	Clan Oath Armor	C-Grade	add	1
-11097	7851	B	3	270	Clan Oath Armor	B-Grade	add	1
-11098	7851	A	4	293	Clan Oath Armor	A-Grade	add	1
-11099	7851	S	5	333	Clan Oath Armor	S-Grade	add	1
+11107	7851	C	2	239	Clan Oath Armor	C-Grade	add	1
+11108	7851	B	3	270	Clan Oath Armor	B-Grade	add	1
+11109	7851	A	4	293	Clan Oath Armor	A-Grade	add	1
+11110	7851	S	5	333	Clan Oath Armor	S-Grade	add	1
 7852	7852	D	1	29	Clan Oath Gauntlets - Heavy Armor		update	1
-11100	7852	C	2	39	Clan Oath Gauntlets - Heavy Armor	C-Grade	add	1
-11101	7852	B	3	44	Clan Oath Gauntlets - Heavy Armor	B-Grade	add	1
-11102	7852	A	4	49	Clan Oath Gauntlets - Heavy Armor	A-Grade	add	1
-11103	7852	S	5	55	Clan Oath Gauntlets - Heavy Armor	S-Grade	add	1
+11111	7852	C	2	39	Clan Oath Gauntlets - Heavy Armor	C-Grade	add	1
+11112	7852	B	3	44	Clan Oath Gauntlets - Heavy Armor	B-Grade	add	1
+11113	7852	A	4	49	Clan Oath Gauntlets - Heavy Armor	A-Grade	add	1
+11114	7852	S	5	55	Clan Oath Gauntlets - Heavy Armor	S-Grade	add	1
 7853	7853	D	1	29	Clan Oath Sabaton - Heavy Armor		update	1
-11104	7853	C	2	39	Clan Oath Sabaton - Heavy Armor	C-Grade	add	1
-11105	7853	B	3	45	Clan Oath Sabaton - Heavy Armor	B-Grade	add	1
-11106	7853	A	4	49	Clan Oath Sabaton - Heavy Armor	A-Grade	add	1
-11107	7853	S	5	55	Clan Oath Sabaton - Heavy Armor	S-Grade	add	1
+11115	7853	C	2	39	Clan Oath Sabaton - Heavy Armor	C-Grade	add	1
+11116	7853	B	3	45	Clan Oath Sabaton - Heavy Armor	B-Grade	add	1
+11117	7853	A	4	49	Clan Oath Sabaton - Heavy Armor	A-Grade	add	1
+11118	7853	S	5	55	Clan Oath Sabaton - Heavy Armor	S-Grade	add	1
 7854	7854	D	1	125	Clan Oath Brigandine		update	1
-11108	7854	C	2	179	Clan Oath Brigandine	C-Grade	add	1
-11109	7854	B	3	202	Clan Oath Brigandine	B-Grade	add	1
-11110	7854	A	4	220	Clan Oath Brigandine	A-Grade	add	1
-11111	7854	S	5	249	Clan Oath Brigandine	S-Grade	add	1
+11119	7854	C	2	179	Clan Oath Brigandine	C-Grade	add	1
+11120	7854	B	3	202	Clan Oath Brigandine	B-Grade	add	1
+11121	7854	A	4	220	Clan Oath Brigandine	A-Grade	add	1
+11122	7854	S	5	249	Clan Oath Brigandine	S-Grade	add	1
 7855	7855	D	1	29	Clan Oath Leather Gloves - Light Armor		update	1
-11112	7855	C	2	39	Clan Oath Leather Gloves - Light Armor	C-Grade	add	1
-11113	7855	B	3	44	Clan Oath Leather Gloves - Light Armor	B-Grade	add	1
-11114	7855	A	4	49	Clan Oath Leather Gloves - Light Armor	A-Grade	add	1
-11115	7855	S	5	55	Clan Oath Leather Gloves - Light Armor	S-Grade	add	1
+11123	7855	C	2	39	Clan Oath Leather Gloves - Light Armor	C-Grade	add	1
+11124	7855	B	3	44	Clan Oath Leather Gloves - Light Armor	B-Grade	add	1
+11125	7855	A	4	49	Clan Oath Leather Gloves - Light Armor	A-Grade	add	1
+11126	7855	S	5	55	Clan Oath Leather Gloves - Light Armor	S-Grade	add	1
 7856	7856	D	1	29	Clan Oath Boots - Light Armor		update	1
-11116	7856	C	2	39	Clan Oath Boots - Light Armor	C-Grade	add	1
-11117	7856	B	3	45	Clan Oath Boots - Light Armor	B-Grade	add	1
-11118	7856	A	4	49	Clan Oath Boots - Light Armor	A-Grade	add	1
-11119	7856	S	5	55	Clan Oath Boots - Light Armor	S-Grade	add	1
+11127	7856	C	2	39	Clan Oath Boots - Light Armor	C-Grade	add	1
+11128	7856	B	3	45	Clan Oath Boots - Light Armor	B-Grade	add	1
+11129	7856	A	4	49	Clan Oath Boots - Light Armor	A-Grade	add	1
+11130	7856	S	5	55	Clan Oath Boots - Light Armor	S-Grade	add	1
 7857	7857	D	1	85	Clan Oath Aketon		update	1
-11120	7857	C	2	120	Clan Oath Aketon	C-Grade	add	1
-11121	7857	B	3	135	Clan Oath Aketon	B-Grade	add	1
-11122	7857	A	4	147	Clan Oath Aketon	A-Grade	add	1
-11123	7857	S	5	166	Clan Oath Aketon	S-Grade	add	1
+11131	7857	C	2	120	Clan Oath Aketon	C-Grade	add	1
+11132	7857	B	3	135	Clan Oath Aketon	B-Grade	add	1
+11133	7857	A	4	147	Clan Oath Aketon	A-Grade	add	1
+11134	7857	S	5	166	Clan Oath Aketon	S-Grade	add	1
 7858	7858	D	1	29	Clan Oath Padded Gloves - Robe		update	1
-11124	7858	C	2	39	Clan Oath Padded Gloves - Robe	C-Grade	add	1
-11125	7858	B	3	44	Clan Oath Padded Gloves - Robe	B-Grade	add	1
-11126	7858	A	4	49	Clan Oath Padded Gloves - Robe	A-Grade	add	1
-11127	7858	S	5	55	Clan Oath Padded Gloves - Robe	S-Grade	add	1
+11135	7858	C	2	39	Clan Oath Padded Gloves - Robe	C-Grade	add	1
+11136	7858	B	3	44	Clan Oath Padded Gloves - Robe	B-Grade	add	1
+11137	7858	A	4	49	Clan Oath Padded Gloves - Robe	A-Grade	add	1
+11138	7858	S	5	55	Clan Oath Padded Gloves - Robe	S-Grade	add	1
 7859	7859	D	1	29	Clan Oath Sandals - Robe		update	1
-11128	7859	C	2	39	Clan Oath Sandals - Robe	C-Grade	add	1
-11129	7859	B	3	45	Clan Oath Sandals - Robe	B-Grade	add	1
-11130	7859	A	4	49	Clan Oath Sandals - Robe	A-Grade	add	1
-11131	7859	S	5	55	Clan Oath Sandals - Robe	S-Grade	add	1
+11139	7859	C	2	39	Clan Oath Sandals - Robe	C-Grade	add	1
+11140	7859	B	3	45	Clan Oath Sandals - Robe	B-Grade	add	1
+11141	7859	A	4	49	Clan Oath Sandals - Robe	A-Grade	add	1
+11142	7859	S	5	55	Clan Oath Sandals - Robe	S-Grade	add	1
 7860	7860	A	4	73	Apella Helm		update	1
-11132	7860	S	5	83	Apella Helm	S-Grade	add	1
+11143	7860	S	5	83	Apella Helm	S-Grade	add	1
 7861	7861	A	4	293	Apella Plate Armor		update	1
-11133	7861	S	5	333	Apella Plate Armor	S-Grade	add	1
+11144	7861	S	5	333	Apella Plate Armor	S-Grade	add	1
 7862	7862	A	4	49	Apella Gauntlet - Heavy Armor		update	1
-11134	7862	S	5	55	Apella Gauntlet - Heavy Armor	S-Grade	add	1
+11145	7862	S	5	55	Apella Gauntlet - Heavy Armor	S-Grade	add	1
 7863	7863	A	4	49	Apella Solleret - Heavy Armor		update	1
-11135	7863	S	5	55	Apella Solleret - Heavy Armor	S-Grade	add	1
+11146	7863	S	5	55	Apella Solleret - Heavy Armor	S-Grade	add	1
 7864	7864	A	4	220	Apella Brigandine		update	1
-11136	7864	S	5	249	Apella Brigandine	S-Grade	add	1
+11147	7864	S	5	249	Apella Brigandine	S-Grade	add	1
 7865	7865	A	4	49	Apella Leather Gloves - Light Armor		update	1
-11137	7865	S	5	55	Apella Leather Gloves - Light Armor	S-Grade	add	1
+11148	7865	S	5	55	Apella Leather Gloves - Light Armor	S-Grade	add	1
 7866	7866	A	4	49	Apella Boots - Light Armor		update	1
-11138	7866	S	5	55	Apella Boots - Light Armor	S-Grade	add	1
+11149	7866	S	5	55	Apella Boots - Light Armor	S-Grade	add	1
 7867	7867	A	4	147	Apella Doublet		update	1
-11139	7867	S	5	166	Apella Doublet	S-Grade	add	1
+11150	7867	S	5	166	Apella Doublet	S-Grade	add	1
 7868	7868	A	4	49	Apella Silk Gloves - Robe		update	1
-11140	7868	S	5	55	Apella Silk Gloves - Robe	S-Grade	add	1
+11151	7868	S	5	55	Apella Silk Gloves - Robe	S-Grade	add	1
 7869	7869	A	4	49	Apella Sandals - Robe		update	1
-11141	7869	S	5	55	Apella Sandals - Robe	S-Grade	add	1
+11152	7869	S	5	55	Apella Sandals - Robe	S-Grade	add	1

@@ -371,414 +371,396 @@ id	level	name	desc	kind	iconFrom
 9561	4	Tunic Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	426
 9561	5	Tunic Set	Casting Spd. +15%, M. Def. +8%.	set	426
 9561	6	Tunic Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	426
-9562	1	Cotton Robe Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	427
-9562	2	Cotton Robe Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	427
-9562	3	Cotton Robe Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	427
-9562	4	Cotton Robe Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	427
-9562	5	Cotton Robe Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	427
-9562	6	Cotton Robe Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	427
-9563	1	Feriotic Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	428
-9563	2	Feriotic Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	428
-9563	3	Feriotic Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	428
-9563	4	Feriotic Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	428
-9563	5	Feriotic Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	428
-9563	6	Feriotic Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	428
-9564	1	Leather Tunic Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	429
-9564	2	Leather Tunic Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	429
-9564	3	Leather Tunic Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	429
-9564	4	Leather Tunic Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	429
-9564	5	Leather Tunic Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	429
-9564	6	Leather Tunic Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	429
-9565	1	Robe of Devotion Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	430
-9565	2	Robe of Devotion Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	430
-9565	3	Robe of Devotion Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	430
-9565	4	Robe of Devotion Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	430
-9565	5	Robe of Devotion Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	430
-9565	6	Robe of Devotion Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	430
-9566	1	Robe of Magic Set	Max CP +62, CP regeneration +14%.	set	431
-9566	2	Robe of Magic Set	Max CP +88, CP regeneration +20%.	set	431
-9566	3	Robe of Magic Set	Max CP +120, CP regeneration +27.2%.	set	431
-9566	4	Robe of Magic Set	Max CP +150, CP regeneration +34%.	set	431
-9566	5	Robe of Magic Set	Max CP +177, CP regeneration +40%.	set	431
-9566	6	Robe of Magic Set	Max CP +209, CP regeneration +47.2%.	set	431
-9567	1	Cursed Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	432
-9567	2	Cursed Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	432
-9567	3	Cursed Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	432
-9567	4	Cursed Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	432
-9567	5	Cursed Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	432
-9567	6	Cursed Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	432
-9568	1	Elven Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	433
-9568	2	Elven Set	M. Atk. +5%, MP regeneration -2.5%.	set	433
-9568	3	Elven Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	433
-9568	4	Elven Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	433
-9568	5	Elven Set	M. Atk. +10%, MP regeneration -5%.	set	433
-9568	6	Elven Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	433
-9569	1	White Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	434
-9569	2	White Set	Casting Spd. +7.5%, M. Def. +4%.	set	434
-9569	3	White Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	434
-9569	4	White Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	434
-9569	5	White Set	Casting Spd. +15%, M. Def. +8%.	set	434
-9569	6	White Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	434
-9570	1	Mystic's Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	435
-9570	2	Mystic's Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	435
-9570	3	Mystic's Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	435
-9570	4	Mystic's Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	435
-9570	5	Mystic's Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	435
-9570	6	Mystic's Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	435
-9571	1	Knowledge Set	M. Atk. +7%, MP regeneration -3.5%.	set	436
-9571	2	Knowledge Set	M. Atk. +10%, MP regeneration -5%.	set	436
-9571	3	Knowledge Set	M. Atk. +13.6%, MP regeneration -6.8%.	set	436
-9571	4	Knowledge Set	M. Atk. +17%, MP regeneration -8.5%.	set	436
-9571	5	Knowledge Set	M. Atk. +20%, MP regeneration -10%.	set	436
-9571	6	Knowledge Set	M. Atk. +23.6%, MP regeneration -11.8%.	set	436
-9572	1	Mithril Robe Set	Speed +5, WIT +1, INT -1.	set	437
-9572	2	Mithril Robe Set	Speed +7, WIT +1, INT -1.	set	437
-9572	3	Mithril Robe Set	Speed +10, WIT +1, INT -1.	set	437
-9572	4	Mithril Robe Set	Speed +12, WIT +1, INT -1.	set	437
-9572	5	Mithril Robe Set	Speed +14, WIT +1, INT -1.	set	437
-9572	6	Mithril Robe Set	Speed +17, WIT +1, INT -1.	set	437
-9573	1	Sage's Rag Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
-9573	2	Sage's Rag Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
-9573	3	Sage's Rag Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
-9573	4	Sage's Rag Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
-9573	5	Sage's Rag Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
-9573	6	Sage's Rag Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
-9574	1	Karmian Set	P. Def. +2.7%, Casting Spd. +7.7%.	set	439
-9574	2	Karmian Set	P. Def. +3.8%, Casting Spd. +11%.	set	439
-9574	3	Karmian Set	P. Def. +5.2%, Casting Spd. +15%.	set	439
-9574	4	Karmian Set	P. Def. +6.5%, Casting Spd. +18.8%.	set	439
-9574	5	Karmian Set	P. Def. +7.7%, Casting Spd. +22.1%.	set	439
-9574	6	Karmian Set	P. Def. +9.1%, Casting Spd. +26%.	set	439
-9575	1	Robe of Seal Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	440
-9575	2	Robe of Seal Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	440
-9575	3	Robe of Seal Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	440
-9575	4	Robe of Seal Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	440
-9575	5	Robe of Seal Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	440
-9575	6	Robe of Seal Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	440
-9576	1	Demon Set	Max HP -139, INT +4, WIT -1.	set	441
-9576	2	Demon Set	Max HP -199, INT +4, WIT -1.	set	441
-9576	3	Demon Set	Max HP -270, INT +4, WIT -1.	set	441
-9576	4	Demon Set	Max HP -337, INT +4, WIT -1.	set	441
-9576	5	Demon Set	Max HP -397, INT +4, WIT -1.	set	441
-9576	6	Demon Set	Max HP -469, INT +4, WIT -1.	set	441
-9577	1	Divine Set	P. Def. +2.7%, Max MP +88, INT -1, WIT +1.	set	442
-9577	2	Divine Set	P. Def. +3.8%, Max MP +126, INT -1, WIT +1.	set	442
-9577	3	Divine Set	P. Def. +5.2%, Max MP +171, INT -1, WIT +1.	set	442
-9577	4	Divine Set	P. Def. +6.5%, Max MP +214, INT -1, WIT +1.	set	442
-9577	5	Divine Set	P. Def. +7.7%, Max MP +251, INT -1, WIT +1.	set	442
-9577	6	Divine Set	P. Def. +9.1%, Max MP +297, INT -1, WIT +1.	set	442
-9578	1	Tunic of Mana Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	443
-9578	2	Tunic of Mana Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	443
-9578	3	Tunic of Mana Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	443
-9578	4	Tunic of Mana Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	443
-9578	5	Tunic of Mana Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	443
-9578	6	Tunic of Mana Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	443
-9579	1	Sage's Robe Set	Max CP +62, CP regeneration +14%.	set	444
-9579	2	Sage's Robe Set	Max CP +88, CP regeneration +20%.	set	444
-9579	3	Sage's Robe Set	Max CP +120, CP regeneration +27.2%.	set	444
-9579	4	Sage's Robe Set	Max CP +150, CP regeneration +34%.	set	444
-9579	5	Sage's Robe Set	Max CP +177, CP regeneration +40%.	set	444
-9579	6	Sage's Robe Set	Max CP +209, CP regeneration +47.2%.	set	444
-9580	1	Paradia Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	445
-9580	2	Paradia Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	445
-9580	3	Paradia Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	445
-9580	4	Paradia Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	445
-9580	5	Paradia Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	445
-9580	6	Paradia Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	445
-9581	1	Inferno Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	446
-9581	2	Inferno Set	M. Atk. +5%, MP regeneration -2.5%.	set	446
-9581	3	Inferno Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	446
-9581	4	Inferno Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	446
-9581	5	Inferno Set	M. Atk. +10%, MP regeneration -5%.	set	446
-9581	6	Inferno Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	446
-9582	1	Tunic of Solar Eclipse Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	447
-9582	2	Tunic of Solar Eclipse Set	Casting Spd. +7.5%, M. Def. +4%.	set	447
-9582	3	Tunic of Solar Eclipse Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	447
-9582	4	Tunic of Solar Eclipse Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	447
-9582	5	Tunic of Solar Eclipse Set	Casting Spd. +15%, M. Def. +8%.	set	447
-9582	6	Tunic of Solar Eclipse Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	447
-9583	1	Robe of Black Ore Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	448
-9583	2	Robe of Black Ore Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	448
-9583	3	Robe of Black Ore Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	448
-9583	4	Robe of Black Ore Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	448
-9583	5	Robe of Black Ore Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	448
-9583	6	Robe of Black Ore Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	448
-9584	1	Tunic of Summoning Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	449
-9584	2	Tunic of Summoning Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	449
-9584	3	Tunic of Summoning Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	449
-9584	4	Tunic of Summoning Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	449
-9584	5	Tunic of Summoning Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	449
-9584	6	Tunic of Summoning Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	449
-9585	1	Otherworldly Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	450
-9585	2	Otherworldly Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	450
-9585	3	Otherworldly Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	450
-9585	4	Otherworldly Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	450
-9585	5	Otherworldly Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	450
-9585	6	Otherworldly Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	450
-9586	1	Elemental Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	451
-9586	2	Elemental Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	451
-9586	3	Elemental Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	451
-9586	4	Elemental Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	451
-9586	5	Elemental Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	451
-9586	6	Elemental Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	451
-9587	1	Tunic of Phantom Set	Max CP +62, CP regeneration +14%.	set	452
-9587	2	Tunic of Phantom Set	Max CP +88, CP regeneration +20%.	set	452
-9587	3	Tunic of Phantom Set	Max CP +120, CP regeneration +27.2%.	set	452
-9587	4	Tunic of Phantom Set	Max CP +150, CP regeneration +34%.	set	452
-9587	5	Tunic of Phantom Set	Max CP +177, CP regeneration +40%.	set	452
-9587	6	Tunic of Phantom Set	Max CP +209, CP regeneration +47.2%.	set	452
-9588	1	Tunic of Grace Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	453
-9588	2	Tunic of Grace Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	453
-9588	3	Tunic of Grace Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	453
-9588	4	Tunic of Grace Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	453
-9588	5	Tunic of Grace Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	453
-9588	6	Tunic of Grace Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	453
-9589	1	Robe of Holy Spirit Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	454
-9589	2	Robe of Holy Spirit Set	M. Atk. +5%, MP regeneration -2.5%.	set	454
-9589	3	Robe of Holy Spirit Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	454
-9589	4	Robe of Holy Spirit Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	454
-9589	5	Robe of Holy Spirit Set	M. Atk. +10%, MP regeneration -5%.	set	454
-9589	6	Robe of Holy Spirit Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	454
-9590	1	Phoenix Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	455
-9590	2	Phoenix Set	Casting Spd. +7.5%, M. Def. +4%.	set	455
-9590	3	Phoenix Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	455
-9590	4	Phoenix Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	455
-9590	5	Phoenix Set	Casting Spd. +15%, M. Def. +8%.	set	455
-9590	6	Phoenix Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	455
-9591	1	Cerberus Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	456
-9591	2	Cerberus Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	456
-9591	3	Cerberus Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	456
-9591	4	Cerberus Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	456
-9591	5	Cerberus Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	456
-9591	6	Cerberus Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	456
-9592	1	Tunic of Aid Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	457
-9592	2	Tunic of Aid Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	457
-9592	3	Tunic of Aid Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	457
-9592	4	Tunic of Aid Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	457
-9592	5	Tunic of Aid Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	457
-9592	6	Tunic of Aid Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	457
-9593	1	Robe of Blessing Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	458
-9593	2	Robe of Blessing Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	458
-9593	3	Robe of Blessing Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	458
-9593	4	Robe of Blessing Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	458
-9593	5	Robe of Blessing Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	458
-9593	6	Robe of Blessing Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	458
-9594	1	Dasparion's Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	459
-9594	2	Dasparion's Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	459
-9594	3	Dasparion's Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	459
-9594	4	Dasparion's Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	459
-9594	5	Dasparion's Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	459
-9594	6	Dasparion's Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	459
-9595	1	The Set	Max CP +62, CP regeneration +14%.	set	460
-9595	2	The Set	Max CP +88, CP regeneration +20%.	set	460
-9595	3	The Set	Max CP +120, CP regeneration +27.2%.	set	460
-9595	4	The Set	Max CP +150, CP regeneration +34%.	set	460
-9595	5	The Set	Max CP +177, CP regeneration +40%.	set	460
-9595	6	The Set	Max CP +209, CP regeneration +47.2%.	set	460
-9596	1	Cotton Tunic Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	1100
-9596	2	Cotton Tunic Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	1100
-9596	3	Cotton Tunic Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	1100
-9596	4	Cotton Tunic Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	1100
-9596	5	Cotton Tunic Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	1100
-9596	6	Cotton Tunic Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	1100
-9597	1	Devotion Set	Casting Spd. +15%.	set	1101
-9597	2	Devotion Set	Casting Spd. +21.4%.	set	1101
-9597	3	Devotion Set	Casting Spd. +29.1%.	set	1101
-9597	4	Devotion Set	Casting Spd. +36.4%.	set	1101
-9597	5	Devotion Set	Casting Spd. +42.9%.	set	1101
-9597	6	Devotion Set	Casting Spd. +50.6%.	set	1101
-9598	1	Tunic of Magic Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	1102
-9598	2	Tunic of Magic Set	M. Atk. +5%, MP regeneration -2.5%.	set	1102
-9598	3	Tunic of Magic Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	1102
-9598	4	Tunic of Magic Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	1102
-9598	5	Tunic of Magic Set	M. Atk. +10%, MP regeneration -5%.	set	1102
-9598	6	Tunic of Magic Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	1102
-9599	1	Squire's Set	M. Def. +1.8%, Weight limit +2028.	set	1146
-9599	2	Squire's Set	M. Def. +2.6%, Weight limit +2898.	set	1146
-9599	3	Squire's Set	M. Def. +3.6%, Weight limit +3941.	set	1146
-9599	4	Squire's Set	M. Def. +4.5%, Weight limit +4926.	set	1146
-9599	5	Squire's Set	M. Def. +5.2%, Weight limit +5795.	set	1146
-9599	6	Squire's Set	M. Def. +6.2%, Weight limit +6838.	set	1146
-9600	1	Avadon Heavy Set	Max HP +121.	set	2376
-9600	2	Avadon Heavy Set	Max HP +173.	set	2376
-9600	3	Avadon Heavy Set	Max HP +235.	set	2376
-9600	4	Avadon Heavy Set	Max HP +294.	set	2376
-9600	5	Avadon Heavy Set	Max HP +346.	set	2376
-9600	6	Avadon Heavy Set	Max HP +408.	set	2376
-9601	1	Doom Heavy Set	Max HP +132, Breath +82, STR -3, CON +3.	set	2381
-9601	2	Doom Heavy Set	Max HP +188, Breath +118, STR -3, CON +3.	set	2381
-9601	3	Doom Heavy Set	Max HP +256, Breath +160, STR -3, CON +3.	set	2381
-9601	4	Doom Heavy Set	Max HP +320, Breath +200, STR -3, CON +3.	set	2381
-9601	5	Doom Heavy Set	Max HP +376, Breath +235, STR -3, CON +3.	set	2381
-9601	6	Doom Heavy Set	Max HP +444, Breath +278, STR -3, CON +3.	set	2381
-9602	1	Tallum Heavy Set	Atk. Spd. +2.8%, Weight limit +2016, Poison resistance +28%, Bleed resistance +28%, STR +2, CON -2.	set	2382
-9602	2	Tallum Heavy Set	Atk. Spd. +4%, Weight limit +2880, Poison resistance +40%, Bleed resistance +40%, STR +2, CON -2.	set	2382
-9602	3	Tallum Heavy Set	Atk. Spd. +5.4%, Weight limit +3916, Poison resistance +54%, Bleed resistance +54%, STR +2, CON -2.	set	2382
-9602	4	Tallum Heavy Set	Atk. Spd. +6.8%, Weight limit +4895, Poison resistance +68%, Bleed resistance +68%, STR +2, CON -2.	set	2382
-9602	5	Tallum Heavy Set	Atk. Spd. +8%, Weight limit +5759, Poison resistance +80%, Bleed resistance +80%, STR +2, CON -2.	set	2382
-9602	6	Tallum Heavy Set	Atk. Spd. +9.4%, Weight limit +6796, Poison resistance +94%, Bleed resistance +94%, STR +2, CON -2.	set	2382
-9603	1	Majestic Heavy Set	P. Atk. +1.4%, Accuracy +1, Stun resistance +18%, STR +2, CON -2.	set	2383
-9603	2	Majestic Heavy Set	P. Atk. +2%, Accuracy +2, Stun resistance +25%, STR +2, CON -2.	set	2383
-9603	3	Majestic Heavy Set	P. Atk. +2.7%, Accuracy +2, Stun resistance +34%, STR +2, CON -2.	set	2383
-9603	4	Majestic Heavy Set	P. Atk. +3.4%, Accuracy +3, Stun resistance +42%, STR +2, CON -2.	set	2383
-9603	5	Majestic Heavy Set	P. Atk. +4%, Accuracy +3, Stun resistance +50%, STR +2, CON -2.	set	2383
-9603	6	Majestic Heavy Set	P. Atk. +4.7%, Accuracy +4, Stun resistance +59%, STR +2, CON -2.	set	2383
-9604	1	Zubei Light Set	Evasion +2.	set	2384
-9604	2	Zubei Light Set	Evasion +2.	set	2384
-9604	3	Zubei Light Set	Evasion +3.	set	2384
-9604	4	Zubei Light Set	Evasion +4.	set	2384
-9604	5	Zubei Light Set	Evasion +5.	set	2384
-9604	6	Zubei Light Set	Evasion +6.	set	2384
-9605	1	Dark Crystal Light Set	Atk. Spd. +1.4%, P. Atk. +1.4%, Paralysis resistance +18%, STR +1, CON -1.	set	2385
-9605	2	Dark Crystal Light Set	Atk. Spd. +2%, P. Atk. +2%, Paralysis resistance +25%, STR +1, CON -1.	set	2385
-9605	3	Dark Crystal Light Set	Atk. Spd. +2.7%, P. Atk. +2.7%, Paralysis resistance +34%, STR +1, CON -1.	set	2385
-9605	4	Dark Crystal Light Set	Atk. Spd. +3.4%, P. Atk. +3.4%, Paralysis resistance +42%, STR +1, CON -1.	set	2385
-9605	5	Dark Crystal Light Set	Atk. Spd. +4%, P. Atk. +4%, Paralysis resistance +50%, STR +1, CON -1.	set	2385
-9605	6	Dark Crystal Light Set	Atk. Spd. +4.7%, P. Atk. +4.7%, Paralysis resistance +59%, STR +1, CON -1.	set	2385
-9606	1	Avadon Light Set	M. Def. +2.2%, Weight limit +2386.	set	2390
-9606	2	Avadon Light Set	M. Def. +3.1%, Weight limit +3409.	set	2390
-9606	3	Avadon Light Set	M. Def. +4.2%, Weight limit +4636.	set	2390
-9606	4	Avadon Light Set	M. Def. +5.2%, Weight limit +5795.	set	2390
-9606	5	Avadon Light Set	M. Def. +6.2%, Weight limit +6818.	set	2390
-9606	6	Avadon Light Set	M. Def. +7.3%, Weight limit +8045.	set	2390
-9607	1	Blue Wolf Light Set	P. Def. +2.2%, Casting Spd. +6.2%, INT -2, MEN +3, WIT -1.	set	2391
-9607	2	Blue Wolf Light Set	P. Def. +3.1%, Casting Spd. +8.8%, INT -2, MEN +3, WIT -1.	set	2391
-9607	3	Blue Wolf Light Set	P. Def. +4.2%, Casting Spd. +12%, INT -2, MEN +3, WIT -1.	set	2391
-9607	4	Blue Wolf Light Set	P. Def. +5.2%, Casting Spd. +15%, INT -2, MEN +3, WIT -1.	set	2391
-9607	5	Blue Wolf Light Set	P. Def. +6.2%, Casting Spd. +17.7%, INT -2, MEN +3, WIT -1.	set	2391
-9607	6	Blue Wolf Light Set	P. Def. +7.3%, Casting Spd. +20.8%, INT -2, MEN +3, WIT -1.	set	2391
-9608	1	Doom Light Set	Breath +82, P. Atk. +1.1%, MP regeneration +1%, STR -1, CON -2, DEX +3, Poison resistance +8%.	set	2392
-9608	2	Doom Light Set	Breath +118, P. Atk. +1.6%, MP regeneration +1.5%, STR -1, CON -2, DEX +3, Poison resistance +12%.	set	2392
-9608	3	Doom Light Set	Breath +160, P. Atk. +2.2%, MP regeneration +2%, STR -1, CON -2, DEX +3, Poison resistance +16%.	set	2392
-9608	4	Doom Light Set	Breath +200, P. Atk. +2.7%, MP regeneration +2.5%, STR -1, CON -2, DEX +3, Poison resistance +20%.	set	2392
-9608	5	Doom Light Set	Breath +235, P. Atk. +3.2%, MP regeneration +2.9%, STR -1, CON -2, DEX +3, Poison resistance +24%.	set	2392
-9608	6	Doom Light Set	Breath +278, P. Atk. +3.8%, MP regeneration +3.5%, STR -1, CON -2, DEX +3, Poison resistance +28%.	set	2392
-9609	1	Tallum Light Set	MP regeneration +2.8%, Max MP +78, Poison resistance +28%, Bleed resistance +28%, MEN +2, WIT -2.	set	2393
-9609	2	Tallum Light Set	MP regeneration +4%, Max MP +111, Poison resistance +40%, Bleed resistance +40%, MEN +2, WIT -2.	set	2393
-9609	3	Tallum Light Set	MP regeneration +5.4%, Max MP +151, Poison resistance +54%, Bleed resistance +54%, MEN +2, WIT -2.	set	2393
-9609	4	Tallum Light Set	MP regeneration +6.8%, Max MP +189, Poison resistance +68%, Bleed resistance +68%, MEN +2, WIT -2.	set	2393
-9609	5	Tallum Light Set	MP regeneration +8%, Max MP +222, Poison resistance +80%, Bleed resistance +80%, MEN +2, WIT -2.	set	2393
-9609	6	Tallum Light Set	MP regeneration +9.4%, Max MP +262, Poison resistance +94%, Bleed resistance +94%, MEN +2, WIT -2.	set	2393
-9610	1	Nightmare Light Set	M. Def. +1.4%, Sleep resistance +24%, Root resistance +24%, HP drain +1, DEX +1, CON -1.	set	2394
-9610	2	Nightmare Light Set	M. Def. +2%, Sleep resistance +35%, Root resistance +35%, HP drain +2, DEX +1, CON -1.	set	2394
-9610	3	Nightmare Light Set	M. Def. +2.7%, Sleep resistance +48%, Root resistance +48%, HP drain +2, DEX +1, CON -1.	set	2394
-9610	4	Nightmare Light Set	M. Def. +3.4%, Sleep resistance +60%, Root resistance +60%, HP drain +3, DEX +1, CON -1.	set	2394
-9610	5	Nightmare Light Set	M. Def. +4%, Sleep resistance +70%, Root resistance +70%, HP drain +3, DEX +1, CON -1.	set	2394
-9610	6	Nightmare Light Set	M. Def. +4.7%, Sleep resistance +83%, Root resistance +83%, HP drain +4, DEX +1, CON -1.	set	2394
-9611	1	Majestic Leather Set	P. Atk. +2.8%, Max MP +84, Weight limit +2016, Stun resistance +18%, DEX +1, CON -1.	set	2395
-9611	2	Majestic Leather Set	P. Atk. +4%, Max MP +120, Weight limit +2880, Stun resistance +25%, DEX +1, CON -1.	set	2395
-9611	3	Majestic Leather Set	P. Atk. +5.4%, Max MP +163, Weight limit +3916, Stun resistance +34%, DEX +1, CON -1.	set	2395
-9611	4	Majestic Leather Set	P. Atk. +6.8%, Max MP +204, Weight limit +4895, Stun resistance +42%, DEX +1, CON -1.	set	2395
-9611	5	Majestic Leather Set	P. Atk. +8%, Max MP +240, Weight limit +5759, Stun resistance +50%, DEX +1, CON -1.	set	2395
-9611	6	Majestic Leather Set	P. Atk. +9.4%, Max MP +283, Weight limit +6796, Stun resistance +59%, DEX +1, CON -1.	set	2395
-9612	1	Elven Mithril Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	2396
-9612	2	Elven Mithril Set	Casting Spd. +7.5%, M. Def. +4%.	set	2396
-9612	3	Elven Mithril Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	2396
-9612	4	Elven Mithril Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	2396
-9612	5	Elven Mithril Set	Casting Spd. +15%, M. Def. +8%.	set	2396
-9612	6	Elven Mithril Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	2396
-9613	1	Zubei Robe Set	M. Atk. +4.1%, MP regeneration -2.1%.	set	2397
-9613	2	Zubei Robe Set	M. Atk. +5.9%, MP regeneration -2.9%.	set	2397
-9613	3	Zubei Robe Set	M. Atk. +8%, MP regeneration -4%.	set	2397
-9613	4	Zubei Robe Set	M. Atk. +10%, MP regeneration -5%.	set	2397
-9613	5	Zubei Robe Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	2397
-9613	6	Zubei Robe Set	M. Atk. +13.9%, MP regeneration -6.9%.	set	2397
-9614	1	Blue Wolf Robe Set	Max MP +85, MP regeneration +2.2%, INT -2, MEN -1, WIT +3.	set	2398
-9614	2	Blue Wolf Robe Set	Max MP +121, MP regeneration +3.1%, INT -2, MEN -1, WIT +3.	set	2398
-9614	3	Blue Wolf Robe Set	Max MP +165, MP regeneration +4.2%, INT -2, MEN -1, WIT +3.	set	2398
-9614	4	Blue Wolf Robe Set	Max MP +206, MP regeneration +5.3%, INT -2, MEN -1, WIT +3.	set	2398
-9614	5	Blue Wolf Robe Set	Max MP +242, MP regeneration +6.2%, INT -2, MEN -1, WIT +3.	set	2398
-9614	6	Blue Wolf Robe Set	Max MP +286, MP regeneration +7.3%, INT -2, MEN -1, WIT +3.	set	2398
-9615	1	Doom Robe Set	Speed +3, Breath +82, MP regeneration +2.2%, INT +2, MEN +1, WIT -3.	set	2399
-9615	2	Doom Robe Set	Speed +4, Breath +118, MP regeneration +3.1%, INT +2, MEN +1, WIT -3.	set	2399
-9615	3	Doom Robe Set	Speed +6, Breath +160, MP regeneration +4.2%, INT +2, MEN +1, WIT -3.	set	2399
-9615	4	Doom Robe Set	Speed +7, Breath +200, MP regeneration +5.3%, INT +2, MEN +1, WIT -3.	set	2399
-9615	5	Doom Robe Set	Speed +8, Breath +235, MP regeneration +6.2%, INT +2, MEN +1, WIT -3.	set	2399
-9615	6	Doom Robe Set	Speed +10, Breath +278, MP regeneration +7.3%, INT +2, MEN +1, WIT -3.	set	2399
-9616	1	Tallum Robe Set	Casting Spd. +5.2%, M. Def. +2.8%, Poison resistance +28%, Bleed resistance +28%, INT -2, WIT +2.	set	2400
-9616	2	Tallum Robe Set	Casting Spd. +7.5%, M. Def. +4%, Poison resistance +40%, Bleed resistance +40%, INT -2, WIT +2.	set	2400
-9616	3	Tallum Robe Set	Casting Spd. +10.2%, M. Def. +5.4%, Poison resistance +54%, Bleed resistance +54%, INT -2, WIT +2.	set	2400
-9616	4	Tallum Robe Set	Casting Spd. +12.7%, M. Def. +6.8%, Poison resistance +68%, Bleed resistance +68%, INT -2, WIT +2.	set	2400
-9616	5	Tallum Robe Set	Casting Spd. +15%, M. Def. +8%, Poison resistance +80%, Bleed resistance +80%, INT -2, WIT +2.	set	2400
-9616	6	Tallum Robe Set	Casting Spd. +17.7%, M. Def. +9.4%, Poison resistance +94%, Bleed resistance +94%, INT -2, WIT +2.	set	2400
-9617	1	Avadon Robe Set	P. Def. +2.2%, Casting Spd. +6.2%.	set	2406
-9617	2	Avadon Robe Set	P. Def. +3.2%, Casting Spd. +8.8%.	set	2406
-9617	3	Avadon Robe Set	P. Def. +4.4%, Casting Spd. +12%.	set	2406
-9617	4	Avadon Robe Set	P. Def. +5.5%, Casting Spd. +15%.	set	2406
-9617	5	Avadon Robe Set	P. Def. +6.4%, Casting Spd. +17.7%.	set	2406
-9617	6	Avadon Robe Set	P. Def. +7.6%, Casting Spd. +20.8%.	set	2406
-9618	1	Dark Crystal Robe Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2, Cancel resistance -6, Paralysis resistance +18%, WIT +2, MEN -2.	set	2407
-9618	2	Dark Crystal Robe Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4, Cancel resistance -9, Paralysis resistance +25%, WIT +2, MEN -2.	set	2407
-9618	3	Dark Crystal Robe Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5, Cancel resistance -12, Paralysis resistance +34%, WIT +2, MEN -2.	set	2407
-9618	4	Dark Crystal Robe Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6, Cancel resistance -15, Paralysis resistance +42%, WIT +2, MEN -2.	set	2407
-9618	5	Dark Crystal Robe Set	P. Def. +8%, Casting Spd. +15%, Speed +7, Cancel resistance -18, Paralysis resistance +50%, WIT +2, MEN -2.	set	2407
-9618	6	Dark Crystal Robe Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8, Cancel resistance -21, Paralysis resistance +59%, WIT +2, MEN -2.	set	2407
-9619	1	Nightmare Robe Set	MP regeneration +1.4%, M. Atk. +2.8%, Sleep resistance +24%, Root resistance +24%, INT +2, WIT -2.	set	2408
-9619	2	Nightmare Robe Set	MP regeneration +2%, M. Atk. +4%, Sleep resistance +35%, Root resistance +35%, INT +2, WIT -2.	set	2408
-9619	3	Nightmare Robe Set	MP regeneration +2.7%, M. Atk. +5.4%, Sleep resistance +48%, Root resistance +48%, INT +2, WIT -2.	set	2408
-9619	4	Nightmare Robe Set	MP regeneration +3.4%, M. Atk. +6.8%, Sleep resistance +60%, Root resistance +60%, INT +2, WIT -2.	set	2408
-9619	5	Nightmare Robe Set	MP regeneration +4%, M. Atk. +8%, Sleep resistance +70%, Root resistance +70%, INT +2, WIT -2.	set	2408
-9619	6	Nightmare Robe Set	MP regeneration +4.7%, M. Atk. +9.4%, Sleep resistance +83%, Root resistance +83%, INT +2, WIT -2.	set	2408
-9620	1	Majestic Robe Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%, Stun resistance +18%, MEN +1, INT -1.	set	2409
-9620	2	Majestic Robe Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%, Stun resistance +25%, MEN +1, INT -1.	set	2409
-9620	3	Majestic Robe Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%, Stun resistance +34%, MEN +1, INT -1.	set	2409
-9620	4	Majestic Robe Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%, Stun resistance +42%, MEN +1, INT -1.	set	2409
-9620	5	Majestic Robe Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%, Stun resistance +50%, MEN +1, INT -1.	set	2409
-9620	6	Majestic Robe Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%, Stun resistance +59%, MEN +1, INT -1.	set	2409
-9621	1	Imperial Crusader Set	P. Def. +2.4%, Max HP +132, Sleep resistance +21%, Root resistance +21%, DEX -2, STR +2.	set	6373
-9621	2	Imperial Crusader Set	P. Def. +3.4%, Max HP +189, Sleep resistance +30%, Root resistance +30%, DEX -2, STR +2.	set	6373
-9621	3	Imperial Crusader Set	P. Def. +4.6%, Max HP +256, Sleep resistance +40%, Root resistance +40%, DEX -2, STR +2.	set	6373
-9621	4	Imperial Crusader Set	P. Def. +5.8%, Max HP +321, Sleep resistance +50%, Root resistance +50%, DEX -2, STR +2.	set	6373
-9621	5	Imperial Crusader Set	P. Def. +6.8%, Max HP +377, Sleep resistance +59%, Root resistance +59%, DEX -2, STR +2.	set	6373
-9621	6	Imperial Crusader Set	P. Def. +8%, Max HP +445, Sleep resistance +70%, Root resistance +70%, DEX -2, STR +2.	set	6373
-9622	1	Draconic Leather Set	Atk. Spd. +1.2%, P. Atk. +1.2%, Max MP +86, Weight limit +1708, DEX +1, STR +1, CON -2.	set	6379
-9622	2	Draconic Leather Set	Atk. Spd. +1.7%, P. Atk. +1.7%, Max MP +122, Weight limit +2440, DEX +1, STR +1, CON -2.	set	6379
-9622	3	Draconic Leather Set	Atk. Spd. +2.3%, P. Atk. +2.3%, Max MP +167, Weight limit +3319, DEX +1, STR +1, CON -2.	set	6379
-9622	4	Draconic Leather Set	Atk. Spd. +2.9%, P. Atk. +2.9%, Max MP +208, Weight limit +4148, DEX +1, STR +1, CON -2.	set	6379
-9622	5	Draconic Leather Set	Atk. Spd. +3.4%, P. Atk. +3.4%, Max MP +245, Weight limit +4881, DEX +1, STR +1, CON -2.	set	6379
-9622	6	Draconic Leather Set	Atk. Spd. +4%, P. Atk. +4%, Max MP +289, Weight limit +5759, DEX +1, STR +1, CON -2.	set	6379
-9623	1	Major Arcana Set	M. Atk. +5%, Speed +2, Cancel resistance -15, Weight limit +1708, WIT +1, INT +1, MEN -2, Stun resistance +15%.	set	6383
-9623	2	Major Arcana Set	M. Atk. +7.2%, Speed +3, Cancel resistance -21, Weight limit +2440, WIT +1, INT +1, MEN -2, Stun resistance +21%.	set	6383
-9623	3	Major Arcana Set	M. Atk. +9.8%, Speed +4, Cancel resistance -29, Weight limit +3319, WIT +1, INT +1, MEN -2, Stun resistance +29%.	set	6383
-9623	4	Major Arcana Set	M. Atk. +12.3%, Speed +5, Cancel resistance -36, Weight limit +4148, WIT +1, INT +1, MEN -2, Stun resistance +36%.	set	6383
-9623	5	Major Arcana Set	M. Atk. +14.4%, Speed +6, Cancel resistance -42, Weight limit +4881, WIT +1, INT +1, MEN -2, Stun resistance +42%.	set	6383
-9623	6	Major Arcana Set	M. Atk. +17%, Speed +7, Cancel resistance -50, Weight limit +5759, WIT +1, INT +1, MEN -2, Stun resistance +50%.	set	6383
-9624	1	Clan Oath Heavy Set	P. Def. +3.5%, Max HP +59.	set	7851
-9624	2	Clan Oath Heavy Set	P. Def. +5%, Max HP +85.	set	7851
-9624	3	Clan Oath Heavy Set	P. Def. +6.8%, Max HP +116.	set	7851
-9624	4	Clan Oath Heavy Set	P. Def. +8.5%, Max HP +144.	set	7851
-9624	5	Clan Oath Heavy Set	P. Def. +10%, Max HP +170.	set	7851
-9624	6	Clan Oath Heavy Set	P. Def. +11.8%, Max HP +201.	set	7851
-9625	1	Clan Oath Light Set	P. Def. +3.5%, Evasion +2.	set	7854
-9625	2	Clan Oath Light Set	P. Def. +5%, Evasion +3.	set	7854
-9625	3	Clan Oath Light Set	P. Def. +6.8%, Evasion +4.	set	7854
-9625	4	Clan Oath Light Set	P. Def. +8.5%, Evasion +5.	set	7854
-9625	5	Clan Oath Light Set	P. Def. +10%, Evasion +6.	set	7854
-9625	6	Clan Oath Light Set	P. Def. +11.8%, Evasion +7.	set	7854
-9626	1	Clan Oath Robe Set	P. Def. +3.5%, Casting Spd. +3.5%.	set	7857
-9626	2	Clan Oath Robe Set	P. Def. +5%, Casting Spd. +5%.	set	7857
-9626	3	Clan Oath Robe Set	P. Def. +6.8%, Casting Spd. +6.8%.	set	7857
-9626	4	Clan Oath Robe Set	P. Def. +8.5%, Casting Spd. +8.5%.	set	7857
-9626	5	Clan Oath Robe Set	P. Def. +10%, Casting Spd. +10%.	set	7857
-9626	6	Clan Oath Robe Set	P. Def. +11.8%, Casting Spd. +11.8%.	set	7857
-9627	1	Apella Heavy Set	Max CP +81, CP regeneration +14%.	set	7861
-9627	2	Apella Heavy Set	Max CP +116, CP regeneration +20%.	set	7861
-9627	3	Apella Heavy Set	Max CP +158, CP regeneration +27.2%.	set	7861
-9627	4	Apella Heavy Set	Max CP +197, CP regeneration +34%.	set	7861
-9627	5	Apella Heavy Set	Max CP +232, CP regeneration +40%.	set	7861
-9627	6	Apella Heavy Set	Max CP +274, CP regeneration +47.2%.	set	7861
-9628	1	Apella Light Set	Max CP +68, CP regeneration +14%.	set	7864
-9628	2	Apella Light Set	Max CP +98, CP regeneration +20%.	set	7864
-9628	3	Apella Light Set	Max CP +133, CP regeneration +27.2%.	set	7864
-9628	4	Apella Light Set	Max CP +166, CP regeneration +34%.	set	7864
-9628	5	Apella Light Set	Max CP +195, CP regeneration +40%.	set	7864
-9628	6	Apella Light Set	Max CP +230, CP regeneration +47.2%.	set	7864
-9629	1	Apella Robe Set	Max CP +62, CP regeneration +14%.	set	7867
-9629	2	Apella Robe Set	Max CP +88, CP regeneration +20%.	set	7867
-9629	3	Apella Robe Set	Max CP +120, CP regeneration +27.2%.	set	7867
-9629	4	Apella Robe Set	Max CP +150, CP regeneration +34%.	set	7867
-9629	5	Apella Robe Set	Max CP +177, CP regeneration +40%.	set	7867
-9629	6	Apella Robe Set	Max CP +209, CP regeneration +47.2%.	set	7867
+9562	1	Feriotic Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	428
+9562	2	Feriotic Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	428
+9562	3	Feriotic Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	428
+9562	4	Feriotic Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	428
+9562	5	Feriotic Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	428
+9562	6	Feriotic Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	428
+9563	1	Leather Tunic Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	429
+9563	2	Leather Tunic Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	429
+9563	3	Leather Tunic Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	429
+9563	4	Leather Tunic Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	429
+9563	5	Leather Tunic Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	429
+9563	6	Leather Tunic Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	429
+9564	1	Cursed Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	432
+9564	2	Cursed Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	432
+9564	3	Cursed Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	432
+9564	4	Cursed Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	432
+9564	5	Cursed Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	432
+9564	6	Cursed Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	432
+9565	1	Elven Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	433
+9565	2	Elven Set	M. Atk. +5%, MP regeneration -2.5%.	set	433
+9565	3	Elven Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	433
+9565	4	Elven Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	433
+9565	5	Elven Set	M. Atk. +10%, MP regeneration -5%.	set	433
+9565	6	Elven Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	433
+9566	1	White Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	434
+9566	2	White Set	Casting Spd. +7.5%, M. Def. +4%.	set	434
+9566	3	White Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	434
+9566	4	White Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	434
+9566	5	White Set	Casting Spd. +15%, M. Def. +8%.	set	434
+9566	6	White Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	434
+9567	1	Mystic's Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	435
+9567	2	Mystic's Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	435
+9567	3	Mystic's Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	435
+9567	4	Mystic's Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	435
+9567	5	Mystic's Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	435
+9567	6	Mystic's Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	435
+9568	1	Knowledge Set	M. Atk. +7%, MP regeneration -3.5%.	set	436
+9568	2	Knowledge Set	M. Atk. +10%, MP regeneration -5%.	set	436
+9568	3	Knowledge Set	M. Atk. +13.6%, MP regeneration -6.8%.	set	436
+9568	4	Knowledge Set	M. Atk. +17%, MP regeneration -8.5%.	set	436
+9568	5	Knowledge Set	M. Atk. +20%, MP regeneration -10%.	set	436
+9568	6	Knowledge Set	M. Atk. +23.6%, MP regeneration -11.8%.	set	436
+9569	1	Mithril Robe Set	Speed +5, WIT +1, INT -1.	set	437
+9569	2	Mithril Robe Set	Speed +7, WIT +1, INT -1.	set	437
+9569	3	Mithril Robe Set	Speed +10, WIT +1, INT -1.	set	437
+9569	4	Mithril Robe Set	Speed +12, WIT +1, INT -1.	set	437
+9569	5	Mithril Robe Set	Speed +14, WIT +1, INT -1.	set	437
+9569	6	Mithril Robe Set	Speed +17, WIT +1, INT -1.	set	437
+9570	1	Sage's Rag Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
+9570	2	Sage's Rag Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
+9570	3	Sage's Rag Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
+9570	4	Sage's Rag Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
+9570	5	Sage's Rag Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
+9570	6	Sage's Rag Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
+9571	1	Karmian Set	P. Def. +2.7%, Casting Spd. +7.7%.	set	439
+9571	2	Karmian Set	P. Def. +3.8%, Casting Spd. +11%.	set	439
+9571	3	Karmian Set	P. Def. +5.2%, Casting Spd. +15%.	set	439
+9571	4	Karmian Set	P. Def. +6.5%, Casting Spd. +18.8%.	set	439
+9571	5	Karmian Set	P. Def. +7.7%, Casting Spd. +22.1%.	set	439
+9571	6	Karmian Set	P. Def. +9.1%, Casting Spd. +26%.	set	439
+9572	1	Robe of Seal Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	440
+9572	2	Robe of Seal Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	440
+9572	3	Robe of Seal Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	440
+9572	4	Robe of Seal Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	440
+9572	5	Robe of Seal Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	440
+9572	6	Robe of Seal Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	440
+9573	1	Demon Set	Max HP -139, INT +4, WIT -1.	set	441
+9573	2	Demon Set	Max HP -199, INT +4, WIT -1.	set	441
+9573	3	Demon Set	Max HP -270, INT +4, WIT -1.	set	441
+9573	4	Demon Set	Max HP -337, INT +4, WIT -1.	set	441
+9573	5	Demon Set	Max HP -397, INT +4, WIT -1.	set	441
+9573	6	Demon Set	Max HP -469, INT +4, WIT -1.	set	441
+9574	1	Divine Set	P. Def. +2.7%, Max MP +88, INT -1, WIT +1.	set	442
+9574	2	Divine Set	P. Def. +3.8%, Max MP +126, INT -1, WIT +1.	set	442
+9574	3	Divine Set	P. Def. +5.2%, Max MP +171, INT -1, WIT +1.	set	442
+9574	4	Divine Set	P. Def. +6.5%, Max MP +214, INT -1, WIT +1.	set	442
+9574	5	Divine Set	P. Def. +7.7%, Max MP +251, INT -1, WIT +1.	set	442
+9574	6	Divine Set	P. Def. +9.1%, Max MP +297, INT -1, WIT +1.	set	442
+9575	1	Tunic of Mana Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	443
+9575	2	Tunic of Mana Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	443
+9575	3	Tunic of Mana Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	443
+9575	4	Tunic of Mana Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	443
+9575	5	Tunic of Mana Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	443
+9575	6	Tunic of Mana Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	443
+9576	1	Sage's Robe Set	Max CP +62, CP regeneration +14%.	set	444
+9576	2	Sage's Robe Set	Max CP +88, CP regeneration +20%.	set	444
+9576	3	Sage's Robe Set	Max CP +120, CP regeneration +27.2%.	set	444
+9576	4	Sage's Robe Set	Max CP +150, CP regeneration +34%.	set	444
+9576	5	Sage's Robe Set	Max CP +177, CP regeneration +40%.	set	444
+9576	6	Sage's Robe Set	Max CP +209, CP regeneration +47.2%.	set	444
+9577	1	Paradia Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	445
+9577	2	Paradia Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	445
+9577	3	Paradia Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	445
+9577	4	Paradia Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	445
+9577	5	Paradia Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	445
+9577	6	Paradia Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	445
+9578	1	Inferno Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	446
+9578	2	Inferno Set	M. Atk. +5%, MP regeneration -2.5%.	set	446
+9578	3	Inferno Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	446
+9578	4	Inferno Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	446
+9578	5	Inferno Set	M. Atk. +10%, MP regeneration -5%.	set	446
+9578	6	Inferno Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	446
+9579	1	Tunic of Solar Eclipse Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	447
+9579	2	Tunic of Solar Eclipse Set	Casting Spd. +7.5%, M. Def. +4%.	set	447
+9579	3	Tunic of Solar Eclipse Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	447
+9579	4	Tunic of Solar Eclipse Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	447
+9579	5	Tunic of Solar Eclipse Set	Casting Spd. +15%, M. Def. +8%.	set	447
+9579	6	Tunic of Solar Eclipse Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	447
+9580	1	Robe of Black Ore Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	448
+9580	2	Robe of Black Ore Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	448
+9580	3	Robe of Black Ore Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	448
+9580	4	Robe of Black Ore Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	448
+9580	5	Robe of Black Ore Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	448
+9580	6	Robe of Black Ore Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	448
+9581	1	Tunic of Summoning Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	449
+9581	2	Tunic of Summoning Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	449
+9581	3	Tunic of Summoning Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	449
+9581	4	Tunic of Summoning Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	449
+9581	5	Tunic of Summoning Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	449
+9581	6	Tunic of Summoning Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	449
+9582	1	Otherworldly Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	450
+9582	2	Otherworldly Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	450
+9582	3	Otherworldly Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	450
+9582	4	Otherworldly Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	450
+9582	5	Otherworldly Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	450
+9582	6	Otherworldly Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	450
+9583	1	Elemental Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	451
+9583	2	Elemental Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	451
+9583	3	Elemental Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	451
+9583	4	Elemental Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	451
+9583	5	Elemental Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	451
+9583	6	Elemental Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	451
+9584	1	Tunic of Phantom Set	Max CP +62, CP regeneration +14%.	set	452
+9584	2	Tunic of Phantom Set	Max CP +88, CP regeneration +20%.	set	452
+9584	3	Tunic of Phantom Set	Max CP +120, CP regeneration +27.2%.	set	452
+9584	4	Tunic of Phantom Set	Max CP +150, CP regeneration +34%.	set	452
+9584	5	Tunic of Phantom Set	Max CP +177, CP regeneration +40%.	set	452
+9584	6	Tunic of Phantom Set	Max CP +209, CP regeneration +47.2%.	set	452
+9585	1	Tunic of Grace Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	453
+9585	2	Tunic of Grace Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	453
+9585	3	Tunic of Grace Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	453
+9585	4	Tunic of Grace Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	453
+9585	5	Tunic of Grace Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	453
+9585	6	Tunic of Grace Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	453
+9586	1	Robe of Holy Spirit Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	454
+9586	2	Robe of Holy Spirit Set	M. Atk. +5%, MP regeneration -2.5%.	set	454
+9586	3	Robe of Holy Spirit Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	454
+9586	4	Robe of Holy Spirit Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	454
+9586	5	Robe of Holy Spirit Set	M. Atk. +10%, MP regeneration -5%.	set	454
+9586	6	Robe of Holy Spirit Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	454
+9587	1	Phoenix Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	455
+9587	2	Phoenix Set	Casting Spd. +7.5%, M. Def. +4%.	set	455
+9587	3	Phoenix Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	455
+9587	4	Phoenix Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	455
+9587	5	Phoenix Set	Casting Spd. +15%, M. Def. +8%.	set	455
+9587	6	Phoenix Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	455
+9588	1	Cerberus Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	456
+9588	2	Cerberus Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	456
+9588	3	Cerberus Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	456
+9588	4	Cerberus Set	Max MP +175, MP regeneration +4.5%, WIT +3, INT -2.	set	456
+9588	5	Cerberus Set	Max MP +206, MP regeneration +5.3%, WIT +3, INT -2.	set	456
+9588	6	Cerberus Set	Max MP +243, MP regeneration +6.2%, WIT +3, INT -2.	set	456
+9589	1	Tunic of Aid Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	457
+9589	2	Tunic of Aid Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	457
+9589	3	Tunic of Aid Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	457
+9589	4	Tunic of Aid Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	457
+9589	5	Tunic of Aid Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	457
+9589	6	Tunic of Aid Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	457
+9590	1	Robe of Blessing Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	458
+9590	2	Robe of Blessing Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	458
+9590	3	Robe of Blessing Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	458
+9590	4	Robe of Blessing Set	M. Atk. +14.5%, Speed +6, Weight limit +4895.	set	458
+9590	5	Robe of Blessing Set	M. Atk. +17%, Speed +7, Weight limit +5759.	set	458
+9590	6	Robe of Blessing Set	M. Atk. +20.1%, Speed +8, Weight limit +6796.	set	458
+9591	1	Dasparion's Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%.	set	459
+9591	2	Dasparion's Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%.	set	459
+9591	3	Dasparion's Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%.	set	459
+9591	4	Dasparion's Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%.	set	459
+9591	5	Dasparion's Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%.	set	459
+9591	6	Dasparion's Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%.	set	459
+9592	1	The Set	Max CP +62, CP regeneration +14%.	set	460
+9592	2	The Set	Max CP +88, CP regeneration +20%.	set	460
+9592	3	The Set	Max CP +120, CP regeneration +27.2%.	set	460
+9592	4	The Set	Max CP +150, CP regeneration +34%.	set	460
+9592	5	The Set	Max CP +177, CP regeneration +40%.	set	460
+9592	6	The Set	Max CP +209, CP regeneration +47.2%.	set	460
+9593	1	Cotton Tunic Set	MP regeneration +1.4%, M. Atk. +2.8%, INT +2, WIT -2.	set	1100
+9593	2	Cotton Tunic Set	MP regeneration +2%, M. Atk. +4%, INT +2, WIT -2.	set	1100
+9593	3	Cotton Tunic Set	MP regeneration +2.7%, M. Atk. +5.4%, INT +2, WIT -2.	set	1100
+9593	4	Cotton Tunic Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	1100
+9593	5	Cotton Tunic Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	1100
+9593	6	Cotton Tunic Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	1100
+9594	1	Devotion Set	Casting Spd. +15%.	set	1101
+9594	2	Devotion Set	Casting Spd. +21.4%.	set	1101
+9594	3	Devotion Set	Casting Spd. +29.1%.	set	1101
+9594	4	Devotion Set	Casting Spd. +36.4%.	set	1101
+9594	5	Devotion Set	Casting Spd. +42.9%.	set	1101
+9594	6	Devotion Set	Casting Spd. +50.6%.	set	1101
+9595	1	Tunic of Magic Set	M. Atk. +3.5%, MP regeneration -1.7%.	set	1102
+9595	2	Tunic of Magic Set	M. Atk. +5%, MP regeneration -2.5%.	set	1102
+9595	3	Tunic of Magic Set	M. Atk. +6.8%, MP regeneration -3.4%.	set	1102
+9595	4	Tunic of Magic Set	M. Atk. +8.5%, MP regeneration -4.2%.	set	1102
+9595	5	Tunic of Magic Set	M. Atk. +10%, MP regeneration -5%.	set	1102
+9595	6	Tunic of Magic Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	1102
+9596	1	Squire's Set	M. Def. +1.8%, Weight limit +2028.	set	1146
+9596	2	Squire's Set	M. Def. +2.6%, Weight limit +2898.	set	1146
+9596	3	Squire's Set	M. Def. +3.6%, Weight limit +3941.	set	1146
+9596	4	Squire's Set	M. Def. +4.5%, Weight limit +4926.	set	1146
+9596	5	Squire's Set	M. Def. +5.2%, Weight limit +5795.	set	1146
+9596	6	Squire's Set	M. Def. +6.2%, Weight limit +6838.	set	1146
+9597	1	Avadon Heavy Set	Max HP +121.	set	2376
+9597	2	Avadon Heavy Set	Max HP +173.	set	2376
+9597	3	Avadon Heavy Set	Max HP +235.	set	2376
+9597	4	Avadon Heavy Set	Max HP +294.	set	2376
+9597	5	Avadon Heavy Set	Max HP +346.	set	2376
+9597	6	Avadon Heavy Set	Max HP +408.	set	2376
+9598	1	Doom Heavy Set	Max HP +132, Breath +82, STR -3, CON +3.	set	2381
+9598	2	Doom Heavy Set	Max HP +188, Breath +118, STR -3, CON +3.	set	2381
+9598	3	Doom Heavy Set	Max HP +256, Breath +160, STR -3, CON +3.	set	2381
+9598	4	Doom Heavy Set	Max HP +320, Breath +200, STR -3, CON +3.	set	2381
+9598	5	Doom Heavy Set	Max HP +376, Breath +235, STR -3, CON +3.	set	2381
+9598	6	Doom Heavy Set	Max HP +444, Breath +278, STR -3, CON +3.	set	2381
+9599	1	Tallum Heavy Set	Atk. Spd. +2.8%, Weight limit +2016, Poison resistance +28%, Bleed resistance +28%, STR +2, CON -2.	set	2382
+9599	2	Tallum Heavy Set	Atk. Spd. +4%, Weight limit +2880, Poison resistance +40%, Bleed resistance +40%, STR +2, CON -2.	set	2382
+9599	3	Tallum Heavy Set	Atk. Spd. +5.4%, Weight limit +3916, Poison resistance +54%, Bleed resistance +54%, STR +2, CON -2.	set	2382
+9599	4	Tallum Heavy Set	Atk. Spd. +6.8%, Weight limit +4895, Poison resistance +68%, Bleed resistance +68%, STR +2, CON -2.	set	2382
+9599	5	Tallum Heavy Set	Atk. Spd. +8%, Weight limit +5759, Poison resistance +80%, Bleed resistance +80%, STR +2, CON -2.	set	2382
+9599	6	Tallum Heavy Set	Atk. Spd. +9.4%, Weight limit +6796, Poison resistance +94%, Bleed resistance +94%, STR +2, CON -2.	set	2382
+9600	1	Majestic Heavy Set	P. Atk. +1.4%, Accuracy +1, Stun resistance +18%, STR +2, CON -2.	set	2383
+9600	2	Majestic Heavy Set	P. Atk. +2%, Accuracy +2, Stun resistance +25%, STR +2, CON -2.	set	2383
+9600	3	Majestic Heavy Set	P. Atk. +2.7%, Accuracy +2, Stun resistance +34%, STR +2, CON -2.	set	2383
+9600	4	Majestic Heavy Set	P. Atk. +3.4%, Accuracy +3, Stun resistance +42%, STR +2, CON -2.	set	2383
+9600	5	Majestic Heavy Set	P. Atk. +4%, Accuracy +3, Stun resistance +50%, STR +2, CON -2.	set	2383
+9600	6	Majestic Heavy Set	P. Atk. +4.7%, Accuracy +4, Stun resistance +59%, STR +2, CON -2.	set	2383
+9601	1	Zubei Light Set	Evasion +2.	set	2384
+9601	2	Zubei Light Set	Evasion +2.	set	2384
+9601	3	Zubei Light Set	Evasion +3.	set	2384
+9601	4	Zubei Light Set	Evasion +4.	set	2384
+9601	5	Zubei Light Set	Evasion +5.	set	2384
+9601	6	Zubei Light Set	Evasion +6.	set	2384
+9602	1	Dark Crystal Light Set	Atk. Spd. +1.4%, P. Atk. +1.4%, Paralysis resistance +18%, STR +1, CON -1.	set	2385
+9602	2	Dark Crystal Light Set	Atk. Spd. +2%, P. Atk. +2%, Paralysis resistance +25%, STR +1, CON -1.	set	2385
+9602	3	Dark Crystal Light Set	Atk. Spd. +2.7%, P. Atk. +2.7%, Paralysis resistance +34%, STR +1, CON -1.	set	2385
+9602	4	Dark Crystal Light Set	Atk. Spd. +3.4%, P. Atk. +3.4%, Paralysis resistance +42%, STR +1, CON -1.	set	2385
+9602	5	Dark Crystal Light Set	Atk. Spd. +4%, P. Atk. +4%, Paralysis resistance +50%, STR +1, CON -1.	set	2385
+9602	6	Dark Crystal Light Set	Atk. Spd. +4.7%, P. Atk. +4.7%, Paralysis resistance +59%, STR +1, CON -1.	set	2385
+9603	1	Avadon Light Set	M. Def. +2.2%, Weight limit +2386.	set	2390
+9603	2	Avadon Light Set	M. Def. +3.1%, Weight limit +3409.	set	2390
+9603	3	Avadon Light Set	M. Def. +4.2%, Weight limit +4636.	set	2390
+9603	4	Avadon Light Set	M. Def. +5.2%, Weight limit +5795.	set	2390
+9603	5	Avadon Light Set	M. Def. +6.2%, Weight limit +6818.	set	2390
+9603	6	Avadon Light Set	M. Def. +7.3%, Weight limit +8045.	set	2390
+9604	1	Blue Wolf Light Set	P. Def. +2.2%, Casting Spd. +6.2%, INT -2, MEN +3, WIT -1.	set	2391
+9604	2	Blue Wolf Light Set	P. Def. +3.1%, Casting Spd. +8.8%, INT -2, MEN +3, WIT -1.	set	2391
+9604	3	Blue Wolf Light Set	P. Def. +4.2%, Casting Spd. +12%, INT -2, MEN +3, WIT -1.	set	2391
+9604	4	Blue Wolf Light Set	P. Def. +5.2%, Casting Spd. +15%, INT -2, MEN +3, WIT -1.	set	2391
+9604	5	Blue Wolf Light Set	P. Def. +6.2%, Casting Spd. +17.7%, INT -2, MEN +3, WIT -1.	set	2391
+9604	6	Blue Wolf Light Set	P. Def. +7.3%, Casting Spd. +20.8%, INT -2, MEN +3, WIT -1.	set	2391
+9605	1	Doom Light Set	Breath +82, P. Atk. +1.1%, MP regeneration +1%, STR -1, CON -2, DEX +3, Poison resistance +8%.	set	2392
+9605	2	Doom Light Set	Breath +118, P. Atk. +1.6%, MP regeneration +1.5%, STR -1, CON -2, DEX +3, Poison resistance +12%.	set	2392
+9605	3	Doom Light Set	Breath +160, P. Atk. +2.2%, MP regeneration +2%, STR -1, CON -2, DEX +3, Poison resistance +16%.	set	2392
+9605	4	Doom Light Set	Breath +200, P. Atk. +2.7%, MP regeneration +2.5%, STR -1, CON -2, DEX +3, Poison resistance +20%.	set	2392
+9605	5	Doom Light Set	Breath +235, P. Atk. +3.2%, MP regeneration +2.9%, STR -1, CON -2, DEX +3, Poison resistance +24%.	set	2392
+9605	6	Doom Light Set	Breath +278, P. Atk. +3.8%, MP regeneration +3.5%, STR -1, CON -2, DEX +3, Poison resistance +28%.	set	2392
+9606	1	Tallum Light Set	MP regeneration +2.8%, Max MP +78, Poison resistance +28%, Bleed resistance +28%, MEN +2, WIT -2.	set	2393
+9606	2	Tallum Light Set	MP regeneration +4%, Max MP +111, Poison resistance +40%, Bleed resistance +40%, MEN +2, WIT -2.	set	2393
+9606	3	Tallum Light Set	MP regeneration +5.4%, Max MP +151, Poison resistance +54%, Bleed resistance +54%, MEN +2, WIT -2.	set	2393
+9606	4	Tallum Light Set	MP regeneration +6.8%, Max MP +189, Poison resistance +68%, Bleed resistance +68%, MEN +2, WIT -2.	set	2393
+9606	5	Tallum Light Set	MP regeneration +8%, Max MP +222, Poison resistance +80%, Bleed resistance +80%, MEN +2, WIT -2.	set	2393
+9606	6	Tallum Light Set	MP regeneration +9.4%, Max MP +262, Poison resistance +94%, Bleed resistance +94%, MEN +2, WIT -2.	set	2393
+9607	1	Nightmare Light Set	M. Def. +1.4%, Sleep resistance +24%, Root resistance +24%, HP drain +1, DEX +1, CON -1.	set	2394
+9607	2	Nightmare Light Set	M. Def. +2%, Sleep resistance +35%, Root resistance +35%, HP drain +2, DEX +1, CON -1.	set	2394
+9607	3	Nightmare Light Set	M. Def. +2.7%, Sleep resistance +48%, Root resistance +48%, HP drain +2, DEX +1, CON -1.	set	2394
+9607	4	Nightmare Light Set	M. Def. +3.4%, Sleep resistance +60%, Root resistance +60%, HP drain +3, DEX +1, CON -1.	set	2394
+9607	5	Nightmare Light Set	M. Def. +4%, Sleep resistance +70%, Root resistance +70%, HP drain +3, DEX +1, CON -1.	set	2394
+9607	6	Nightmare Light Set	M. Def. +4.7%, Sleep resistance +83%, Root resistance +83%, HP drain +4, DEX +1, CON -1.	set	2394
+9608	1	Majestic Leather Set	P. Atk. +2.8%, Max MP +84, Weight limit +2016, Stun resistance +18%, DEX +1, CON -1.	set	2395
+9608	2	Majestic Leather Set	P. Atk. +4%, Max MP +120, Weight limit +2880, Stun resistance +25%, DEX +1, CON -1.	set	2395
+9608	3	Majestic Leather Set	P. Atk. +5.4%, Max MP +163, Weight limit +3916, Stun resistance +34%, DEX +1, CON -1.	set	2395
+9608	4	Majestic Leather Set	P. Atk. +6.8%, Max MP +204, Weight limit +4895, Stun resistance +42%, DEX +1, CON -1.	set	2395
+9608	5	Majestic Leather Set	P. Atk. +8%, Max MP +240, Weight limit +5759, Stun resistance +50%, DEX +1, CON -1.	set	2395
+9608	6	Majestic Leather Set	P. Atk. +9.4%, Max MP +283, Weight limit +6796, Stun resistance +59%, DEX +1, CON -1.	set	2395
+9609	1	Elven Mithril Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	2396
+9609	2	Elven Mithril Set	Casting Spd. +7.5%, M. Def. +4%.	set	2396
+9609	3	Elven Mithril Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	2396
+9609	4	Elven Mithril Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	2396
+9609	5	Elven Mithril Set	Casting Spd. +15%, M. Def. +8%.	set	2396
+9609	6	Elven Mithril Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	2396
+9610	1	Zubei Robe Set	M. Atk. +4.1%, MP regeneration -2.1%.	set	2397
+9610	2	Zubei Robe Set	M. Atk. +5.9%, MP regeneration -2.9%.	set	2397
+9610	3	Zubei Robe Set	M. Atk. +8%, MP regeneration -4%.	set	2397
+9610	4	Zubei Robe Set	M. Atk. +10%, MP regeneration -5%.	set	2397
+9610	5	Zubei Robe Set	M. Atk. +11.8%, MP regeneration -5.9%.	set	2397
+9610	6	Zubei Robe Set	M. Atk. +13.9%, MP regeneration -6.9%.	set	2397
+9611	1	Blue Wolf Robe Set	Max MP +85, MP regeneration +2.2%, INT -2, MEN -1, WIT +3.	set	2398
+9611	2	Blue Wolf Robe Set	Max MP +121, MP regeneration +3.1%, INT -2, MEN -1, WIT +3.	set	2398
+9611	3	Blue Wolf Robe Set	Max MP +165, MP regeneration +4.2%, INT -2, MEN -1, WIT +3.	set	2398
+9611	4	Blue Wolf Robe Set	Max MP +206, MP regeneration +5.3%, INT -2, MEN -1, WIT +3.	set	2398
+9611	5	Blue Wolf Robe Set	Max MP +242, MP regeneration +6.2%, INT -2, MEN -1, WIT +3.	set	2398
+9611	6	Blue Wolf Robe Set	Max MP +286, MP regeneration +7.3%, INT -2, MEN -1, WIT +3.	set	2398
+9612	1	Doom Robe Set	Speed +3, Breath +82, MP regeneration +2.2%, INT +2, MEN +1, WIT -3.	set	2399
+9612	2	Doom Robe Set	Speed +4, Breath +118, MP regeneration +3.1%, INT +2, MEN +1, WIT -3.	set	2399
+9612	3	Doom Robe Set	Speed +6, Breath +160, MP regeneration +4.2%, INT +2, MEN +1, WIT -3.	set	2399
+9612	4	Doom Robe Set	Speed +7, Breath +200, MP regeneration +5.3%, INT +2, MEN +1, WIT -3.	set	2399
+9612	5	Doom Robe Set	Speed +8, Breath +235, MP regeneration +6.2%, INT +2, MEN +1, WIT -3.	set	2399
+9612	6	Doom Robe Set	Speed +10, Breath +278, MP regeneration +7.3%, INT +2, MEN +1, WIT -3.	set	2399
+9613	1	Tallum Robe Set	Casting Spd. +5.2%, M. Def. +2.8%, Poison resistance +28%, Bleed resistance +28%, INT -2, WIT +2.	set	2400
+9613	2	Tallum Robe Set	Casting Spd. +7.5%, M. Def. +4%, Poison resistance +40%, Bleed resistance +40%, INT -2, WIT +2.	set	2400
+9613	3	Tallum Robe Set	Casting Spd. +10.2%, M. Def. +5.4%, Poison resistance +54%, Bleed resistance +54%, INT -2, WIT +2.	set	2400
+9613	4	Tallum Robe Set	Casting Spd. +12.7%, M. Def. +6.8%, Poison resistance +68%, Bleed resistance +68%, INT -2, WIT +2.	set	2400
+9613	5	Tallum Robe Set	Casting Spd. +15%, M. Def. +8%, Poison resistance +80%, Bleed resistance +80%, INT -2, WIT +2.	set	2400
+9613	6	Tallum Robe Set	Casting Spd. +17.7%, M. Def. +9.4%, Poison resistance +94%, Bleed resistance +94%, INT -2, WIT +2.	set	2400
+9614	1	Avadon Robe Set	P. Def. +2.2%, Casting Spd. +6.2%.	set	2406
+9614	2	Avadon Robe Set	P. Def. +3.2%, Casting Spd. +8.8%.	set	2406
+9614	3	Avadon Robe Set	P. Def. +4.4%, Casting Spd. +12%.	set	2406
+9614	4	Avadon Robe Set	P. Def. +5.5%, Casting Spd. +15%.	set	2406
+9614	5	Avadon Robe Set	P. Def. +6.4%, Casting Spd. +17.7%.	set	2406
+9614	6	Avadon Robe Set	P. Def. +7.6%, Casting Spd. +20.8%.	set	2406
+9615	1	Dark Crystal Robe Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2, Cancel resistance -6, Paralysis resistance +18%, WIT +2, MEN -2.	set	2407
+9615	2	Dark Crystal Robe Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4, Cancel resistance -9, Paralysis resistance +25%, WIT +2, MEN -2.	set	2407
+9615	3	Dark Crystal Robe Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5, Cancel resistance -12, Paralysis resistance +34%, WIT +2, MEN -2.	set	2407
+9615	4	Dark Crystal Robe Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6, Cancel resistance -15, Paralysis resistance +42%, WIT +2, MEN -2.	set	2407
+9615	5	Dark Crystal Robe Set	P. Def. +8%, Casting Spd. +15%, Speed +7, Cancel resistance -18, Paralysis resistance +50%, WIT +2, MEN -2.	set	2407
+9615	6	Dark Crystal Robe Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8, Cancel resistance -21, Paralysis resistance +59%, WIT +2, MEN -2.	set	2407
+9616	1	Nightmare Robe Set	MP regeneration +1.4%, M. Atk. +2.8%, Sleep resistance +24%, Root resistance +24%, INT +2, WIT -2.	set	2408
+9616	2	Nightmare Robe Set	MP regeneration +2%, M. Atk. +4%, Sleep resistance +35%, Root resistance +35%, INT +2, WIT -2.	set	2408
+9616	3	Nightmare Robe Set	MP regeneration +2.7%, M. Atk. +5.4%, Sleep resistance +48%, Root resistance +48%, INT +2, WIT -2.	set	2408
+9616	4	Nightmare Robe Set	MP regeneration +3.4%, M. Atk. +6.8%, Sleep resistance +60%, Root resistance +60%, INT +2, WIT -2.	set	2408
+9616	5	Nightmare Robe Set	MP regeneration +4%, M. Atk. +8%, Sleep resistance +70%, Root resistance +70%, INT +2, WIT -2.	set	2408
+9616	6	Nightmare Robe Set	MP regeneration +4.7%, M. Atk. +9.4%, Sleep resistance +83%, Root resistance +83%, INT +2, WIT -2.	set	2408
+9617	1	Majestic Robe Set	Max MP +84, Casting Spd. +5.2%, MP regeneration +2.8%, Stun resistance +18%, MEN +1, INT -1.	set	2409
+9617	2	Majestic Robe Set	Max MP +120, Casting Spd. +7.5%, MP regeneration +4%, Stun resistance +25%, MEN +1, INT -1.	set	2409
+9617	3	Majestic Robe Set	Max MP +163, Casting Spd. +10.2%, MP regeneration +5.4%, Stun resistance +34%, MEN +1, INT -1.	set	2409
+9617	4	Majestic Robe Set	Max MP +204, Casting Spd. +12.7%, MP regeneration +6.8%, Stun resistance +42%, MEN +1, INT -1.	set	2409
+9617	5	Majestic Robe Set	Max MP +240, Casting Spd. +15%, MP regeneration +8%, Stun resistance +50%, MEN +1, INT -1.	set	2409
+9617	6	Majestic Robe Set	Max MP +283, Casting Spd. +17.7%, MP regeneration +9.4%, Stun resistance +59%, MEN +1, INT -1.	set	2409
+9618	1	Imperial Crusader Set	P. Def. +2.4%, Max HP +132, Sleep resistance +21%, Root resistance +21%, DEX -2, STR +2.	set	6373
+9618	2	Imperial Crusader Set	P. Def. +3.4%, Max HP +189, Sleep resistance +30%, Root resistance +30%, DEX -2, STR +2.	set	6373
+9618	3	Imperial Crusader Set	P. Def. +4.6%, Max HP +256, Sleep resistance +40%, Root resistance +40%, DEX -2, STR +2.	set	6373
+9618	4	Imperial Crusader Set	P. Def. +5.8%, Max HP +321, Sleep resistance +50%, Root resistance +50%, DEX -2, STR +2.	set	6373
+9618	5	Imperial Crusader Set	P. Def. +6.8%, Max HP +377, Sleep resistance +59%, Root resistance +59%, DEX -2, STR +2.	set	6373
+9618	6	Imperial Crusader Set	P. Def. +8%, Max HP +445, Sleep resistance +70%, Root resistance +70%, DEX -2, STR +2.	set	6373
+9619	1	Draconic Leather Set	Atk. Spd. +1.2%, P. Atk. +1.2%, Max MP +86, Weight limit +1708, DEX +1, STR +1, CON -2.	set	6379
+9619	2	Draconic Leather Set	Atk. Spd. +1.7%, P. Atk. +1.7%, Max MP +122, Weight limit +2440, DEX +1, STR +1, CON -2.	set	6379
+9619	3	Draconic Leather Set	Atk. Spd. +2.3%, P. Atk. +2.3%, Max MP +167, Weight limit +3319, DEX +1, STR +1, CON -2.	set	6379
+9619	4	Draconic Leather Set	Atk. Spd. +2.9%, P. Atk. +2.9%, Max MP +208, Weight limit +4148, DEX +1, STR +1, CON -2.	set	6379
+9619	5	Draconic Leather Set	Atk. Spd. +3.4%, P. Atk. +3.4%, Max MP +245, Weight limit +4881, DEX +1, STR +1, CON -2.	set	6379
+9619	6	Draconic Leather Set	Atk. Spd. +4%, P. Atk. +4%, Max MP +289, Weight limit +5759, DEX +1, STR +1, CON -2.	set	6379
+9620	1	Major Arcana Set	M. Atk. +5%, Speed +2, Cancel resistance -15, Weight limit +1708, WIT +1, INT +1, MEN -2, Stun resistance +15%.	set	6383
+9620	2	Major Arcana Set	M. Atk. +7.2%, Speed +3, Cancel resistance -21, Weight limit +2440, WIT +1, INT +1, MEN -2, Stun resistance +21%.	set	6383
+9620	3	Major Arcana Set	M. Atk. +9.8%, Speed +4, Cancel resistance -29, Weight limit +3319, WIT +1, INT +1, MEN -2, Stun resistance +29%.	set	6383
+9620	4	Major Arcana Set	M. Atk. +12.3%, Speed +5, Cancel resistance -36, Weight limit +4148, WIT +1, INT +1, MEN -2, Stun resistance +36%.	set	6383
+9620	5	Major Arcana Set	M. Atk. +14.4%, Speed +6, Cancel resistance -42, Weight limit +4881, WIT +1, INT +1, MEN -2, Stun resistance +42%.	set	6383
+9620	6	Major Arcana Set	M. Atk. +17%, Speed +7, Cancel resistance -50, Weight limit +5759, WIT +1, INT +1, MEN -2, Stun resistance +50%.	set	6383
+9621	1	Clan Oath Heavy Set	P. Def. +3.5%, Max HP +59.	set	7851
+9621	2	Clan Oath Heavy Set	P. Def. +5%, Max HP +85.	set	7851
+9621	3	Clan Oath Heavy Set	P. Def. +6.8%, Max HP +116.	set	7851
+9621	4	Clan Oath Heavy Set	P. Def. +8.5%, Max HP +144.	set	7851
+9621	5	Clan Oath Heavy Set	P. Def. +10%, Max HP +170.	set	7851
+9621	6	Clan Oath Heavy Set	P. Def. +11.8%, Max HP +201.	set	7851
+9622	1	Clan Oath Light Set	P. Def. +3.5%, Evasion +2.	set	7854
+9622	2	Clan Oath Light Set	P. Def. +5%, Evasion +3.	set	7854
+9622	3	Clan Oath Light Set	P. Def. +6.8%, Evasion +4.	set	7854
+9622	4	Clan Oath Light Set	P. Def. +8.5%, Evasion +5.	set	7854
+9622	5	Clan Oath Light Set	P. Def. +10%, Evasion +6.	set	7854
+9622	6	Clan Oath Light Set	P. Def. +11.8%, Evasion +7.	set	7854
+9623	1	Clan Oath Robe Set	P. Def. +3.5%, Casting Spd. +3.5%.	set	7857
+9623	2	Clan Oath Robe Set	P. Def. +5%, Casting Spd. +5%.	set	7857
+9623	3	Clan Oath Robe Set	P. Def. +6.8%, Casting Spd. +6.8%.	set	7857
+9623	4	Clan Oath Robe Set	P. Def. +8.5%, Casting Spd. +8.5%.	set	7857
+9623	5	Clan Oath Robe Set	P. Def. +10%, Casting Spd. +10%.	set	7857
+9623	6	Clan Oath Robe Set	P. Def. +11.8%, Casting Spd. +11.8%.	set	7857
+9624	1	Apella Heavy Set	Max CP +81, CP regeneration +14%.	set	7861
+9624	2	Apella Heavy Set	Max CP +116, CP regeneration +20%.	set	7861
+9624	3	Apella Heavy Set	Max CP +158, CP regeneration +27.2%.	set	7861
+9624	4	Apella Heavy Set	Max CP +197, CP regeneration +34%.	set	7861
+9624	5	Apella Heavy Set	Max CP +232, CP regeneration +40%.	set	7861
+9624	6	Apella Heavy Set	Max CP +274, CP regeneration +47.2%.	set	7861
+9625	1	Apella Light Set	Max CP +68, CP regeneration +14%.	set	7864
+9625	2	Apella Light Set	Max CP +98, CP regeneration +20%.	set	7864
+9625	3	Apella Light Set	Max CP +133, CP regeneration +27.2%.	set	7864
+9625	4	Apella Light Set	Max CP +166, CP regeneration +34%.	set	7864
+9625	5	Apella Light Set	Max CP +195, CP regeneration +40%.	set	7864
+9625	6	Apella Light Set	Max CP +230, CP regeneration +47.2%.	set	7864
+9626	1	Apella Robe Set	Max CP +62, CP regeneration +14%.	set	7867
+9626	2	Apella Robe Set	Max CP +88, CP regeneration +20%.	set	7867
+9626	3	Apella Robe Set	Max CP +120, CP regeneration +27.2%.	set	7867
+9626	4	Apella Robe Set	Max CP +150, CP regeneration +34%.	set	7867
+9626	5	Apella Robe Set	Max CP +177, CP regeneration +40%.	set	7867
+9626	6	Apella Robe Set	Max CP +209, CP regeneration +47.2%.	set	7867
 9700	1	Enchant Heavy Armor	P. Def. +15, MP regeneration +2.	enchant	0
 9700	2	Enchant Heavy Armor	P. Def. +25, MP regeneration +2.	enchant	0
 9700	3	Enchant Heavy Armor	P. Def. +38, MP regeneration +2.	enchant	0

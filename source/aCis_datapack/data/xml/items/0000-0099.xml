@@ -485,7 +485,7 @@
 		<set name="weight" val="1700" />
 		<set name="price" val="4970" />
 		<for>
-			<baseadd stat="pDef" val="33" />
+			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
 	<item id="31" type="Armor" name="Bone Gaiters">
@@ -591,7 +591,7 @@
 		<set name="weight" val="1300" />
 		<set name="price" val="20900" />
 		<for>
-			<baseadd stat="pDef" val="19" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -711,7 +711,7 @@
 		<set name="weight" val="650" />
 		<set name="price" val="12300" />
 		<for>
-			<baseadd stat="pDef" val="17" />
+			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
 	<item id="52" type="Armor" name="Hemp Cloak">

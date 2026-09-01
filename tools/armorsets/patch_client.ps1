@@ -11,7 +11,7 @@
 	                  grade and P. Def. ; the No Grade originals get their grade and P. Def.
 	                  rewritten in place.
 	  itemname-e.dat  name and "D-Grade" suffix for every new piece, plus the set tooltip - members,
-	                  bonus, shield - on all 780 chests.
+	                  bonus, shield - on all 463 chests.
 	  skillgrp.dat    one row per set skill level, wearing the icon of its own chest piece.
 	  skillname-e.dat the name and the bonus text of every set skill level.
 

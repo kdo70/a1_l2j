@@ -1,484 +1,466 @@
 <?xml version='1.0' encoding='utf-8'?>
 <list>
-	<armorset name="Shirt Set (NG)" chest="21" legs="28" head="42" gloves="49" feet="38" skillId="9500" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Shirt Set (D)" chest="10000" legs="10035" head="10095" gloves="10129" feet="10080" skillId="9500" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Shirt Set (C)" chest="10001" legs="10036" head="10096" gloves="10130" feet="10081" skillId="9500" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Shirt Set (B)" chest="10002" legs="10037" head="10097" gloves="10131" feet="10082" skillId="9500" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Shirt Set (A)" chest="10003" legs="10038" head="10098" gloves="10132" feet="10083" skillId="9500" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Shirt Set (S)" chest="10004" legs="10039" head="10099" gloves="10133" feet="10084" skillId="9500" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (NG)" chest="22" legs="29" head="42" gloves="50" feet="36" skillId="9501" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (D)" chest="10005" legs="10040" head="10095" gloves="10134" feet="10070" skillId="9501" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (C)" chest="10006" legs="10041" head="10096" gloves="10135" feet="10071" skillId="9501" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (B)" chest="10007" legs="10042" head="10097" gloves="10136" feet="10072" skillId="9501" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (A)" chest="10008" legs="10043" head="10098" gloves="10137" feet="10073" skillId="9501" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Shirt Set (S)" chest="10009" legs="10044" head="10099" gloves="10138" feet="10074" skillId="9501" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (NG)" chest="23" legs="2386" head="43" gloves="50" feet="37" skillId="9502" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (D)" chest="10010" legs="10802" head="10100" gloves="10134" feet="10075" skillId="9502" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (C)" chest="10011" legs="10803" head="10101" gloves="10135" feet="10076" skillId="9502" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (B)" chest="10012" legs="10804" head="10102" gloves="10136" feet="10077" skillId="9502" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (A)" chest="10013" legs="10805" head="10103" gloves="10137" feet="10078" skillId="9502" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Wooden Set (S)" chest="10014" legs="10806" head="10104" gloves="10138" feet="10079" skillId="9502" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (NG)" chest="24" legs="31" head="10110" gloves="50" feet="37" skillId="9503" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (D)" chest="10015" legs="10050" head="45" gloves="10134" feet="10075" skillId="9503" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (C)" chest="10016" legs="10051" head="10111" gloves="10135" feet="10076" skillId="9503" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (B)" chest="10017" legs="10052" head="10112" gloves="10136" feet="10077" skillId="9503" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (A)" chest="10018" legs="10053" head="10113" gloves="10137" feet="10078" skillId="9503" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Bone Set (S)" chest="10019" legs="10054" head="10114" gloves="10138" feet="10079" skillId="9503" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Piece Bone Set (NG)" chest="25" legs="32" head="10110" gloves="49" feet="39" skillId="9504" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Piece Bone Set (D)" chest="10020" legs="10055" head="45" gloves="10129" feet="10085" skillId="9504" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Piece Bone Set (C)" chest="10021" legs="10056" head="10111" gloves="10130" feet="10086" skillId="9504" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Piece Bone Set (B)" chest="10022" legs="10057" head="10112" gloves="10131" feet="10087" skillId="9504" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Piece Bone Set (A)" chest="10023" legs="10058" head="10113" gloves="10132" feet="10088" skillId="9504" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Piece Bone Set (S)" chest="10024" legs="10059" head="10114" gloves="10133" feet="10089" skillId="9504" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Bronze Set (NG)" chest="26" legs="34" head="10115" gloves="10158" feet="39" skillId="9505" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Shirt Set (NG)" chest="21" legs="28" head="42" gloves="48" feet="35" skillId="9500" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Shirt Set (D)" chest="10000" legs="10035" head="10099" gloves="10128" feet="10065" skillId="9500" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Shirt Set (C)" chest="10001" legs="10036" head="10100" gloves="10129" feet="10066" skillId="9500" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Shirt Set (B)" chest="10002" legs="10037" head="10101" gloves="10130" feet="10067" skillId="9500" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Shirt Set (A)" chest="10003" legs="10038" head="10102" gloves="10131" feet="10068" skillId="9500" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Shirt Set (S)" chest="10004" legs="10039" head="10103" gloves="10132" feet="10069" skillId="9500" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (NG)" chest="22" legs="29" head="42" gloves="1119" feet="1129" skillId="9501" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (D)" chest="10005" legs="10040" head="10099" gloves="10735" feet="10765" skillId="9501" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (C)" chest="10006" legs="10041" head="10100" gloves="10736" feet="10766" skillId="9501" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (B)" chest="10007" legs="10042" head="10101" gloves="10737" feet="10767" skillId="9501" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (A)" chest="10008" legs="10043" head="10102" gloves="10738" feet="10768" skillId="9501" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Shirt Set (S)" chest="10009" legs="10044" head="10103" gloves="10739" feet="10769" skillId="9501" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (NG)" chest="23" legs="2386" head="43" gloves="49" feet="37" skillId="9502" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (D)" chest="10010" legs="10806" head="10104" gloves="10133" feet="10075" skillId="9502" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (C)" chest="10011" legs="10807" head="10105" gloves="10134" feet="10076" skillId="9502" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (B)" chest="10012" legs="10808" head="10106" gloves="10135" feet="10077" skillId="9502" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (A)" chest="10013" legs="10809" head="10107" gloves="10136" feet="10078" skillId="9502" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Wooden Set (S)" chest="10014" legs="10810" head="10108" gloves="10137" feet="10079" skillId="9502" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (NG)" chest="24" legs="31" head="10114" gloves="50" feet="38" skillId="9503" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (D)" chest="10015" legs="10045" head="45" gloves="10138" feet="10080" skillId="9503" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (C)" chest="10016" legs="10046" head="10115" gloves="10139" feet="10081" skillId="9503" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (B)" chest="10017" legs="10047" head="10116" gloves="10140" feet="10082" skillId="9503" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (A)" chest="10018" legs="10048" head="10117" gloves="10141" feet="10083" skillId="9503" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Bone Set (S)" chest="10019" legs="10049" head="10118" gloves="10142" feet="10084" skillId="9503" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Piece Bone Set (NG)" chest="25" legs="32" head="10114" gloves="49" feet="39" skillId="9504" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Piece Bone Set (D)" chest="10020" legs="10050" head="45" gloves="10133" feet="10085" skillId="9504" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Piece Bone Set (C)" chest="10021" legs="10051" head="10115" gloves="10134" feet="10086" skillId="9504" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Piece Bone Set (B)" chest="10022" legs="10052" head="10116" gloves="10135" feet="10087" skillId="9504" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Piece Bone Set (A)" chest="10023" legs="10053" head="10117" gloves="10136" feet="10088" skillId="9504" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Piece Bone Set (S)" chest="10024" legs="10054" head="10118" gloves="10137" feet="10089" skillId="9504" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Bronze Set (NG)" chest="26" legs="34" head="10119" gloves="10167" feet="39" skillId="9505" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Bronze Set (D)" chest="10025" legs="10060" head="46" gloves="63" feet="10085" skillId="9505" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Bronze Set (C)" chest="10026" legs="10061" head="10116" gloves="10159" feet="10086" skillId="9505" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Bronze Set (B)" chest="10027" legs="10062" head="10117" gloves="10160" feet="10087" skillId="9505" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Bronze Set (A)" chest="10028" legs="10063" head="10118" gloves="10161" feet="10088" skillId="9505" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Bronze Set (S)" chest="10029" legs="10064" head="10119" gloves="10162" feet="10089" skillId="9505" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Hard Leather Set (NG)" chest="27" legs="30" head="1148" gloves="50" feet="36" skillId="9506" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Hard Leather Set (D)" chest="10030" legs="10045" head="10780" gloves="10134" feet="10070" skillId="9506" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Hard Leather Set (C)" chest="10031" legs="10046" head="10781" gloves="10135" feet="10071" skillId="9506" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Hard Leather Set (B)" chest="10032" legs="10047" head="10782" gloves="10136" feet="10072" skillId="9506" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Hard Leather Set (A)" chest="10033" legs="10048" head="10783" gloves="10137" feet="10073" skillId="9506" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Hard Leather Set (S)" chest="10034" legs="10049" head="10784" gloves="10138" feet="10074" skillId="9506" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Heavy Set (D)" chest="58" legs="59" head="47" gloves="61" feet="10154" skillId="9507" skillLvl="2" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
-	<armorset name="Mithril Heavy Set (C)" chest="10139" legs="10143" head="10120" gloves="10150" feet="62" skillId="9507" skillLvl="3" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
-	<armorset name="Mithril Heavy Set (B)" chest="10140" legs="10144" head="10121" gloves="10151" feet="10155" skillId="9507" skillLvl="4" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
-	<armorset name="Mithril Heavy Set (A)" chest="10141" legs="10145" head="10122" gloves="10152" feet="10156" skillId="9507" skillLvl="5" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
-	<armorset name="Mithril Heavy Set (S)" chest="10142" legs="10146" head="10123" gloves="10153" feet="10157" skillId="9507" skillLvl="6" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
+	<armorset name="Bronze Set (C)" chest="10026" legs="10061" head="10120" gloves="10168" feet="10086" skillId="9505" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Bronze Set (B)" chest="10027" legs="10062" head="10121" gloves="10169" feet="10087" skillId="9505" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Bronze Set (A)" chest="10028" legs="10063" head="10122" gloves="10170" feet="10088" skillId="9505" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Bronze Set (S)" chest="10029" legs="10064" head="10123" gloves="10171" feet="10089" skillId="9505" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Hard Leather Set (NG)" chest="27" legs="33" head="1148" gloves="51" feet="39" skillId="9506" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Hard Leather Set (D)" chest="10030" legs="10055" head="10780" gloves="10143" feet="10085" skillId="9506" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Hard Leather Set (C)" chest="10031" legs="10056" head="10781" gloves="10144" feet="10086" skillId="9506" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Hard Leather Set (B)" chest="10032" legs="10057" head="10782" gloves="10145" feet="10087" skillId="9506" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Hard Leather Set (A)" chest="10033" legs="10058" head="10783" gloves="10146" feet="10088" skillId="9506" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Hard Leather Set (S)" chest="10034" legs="10059" head="10784" gloves="10147" feet="10089" skillId="9506" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Heavy Set (D)" chest="58" legs="59" head="47" gloves="61" feet="10163" skillId="9507" skillLvl="2" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
+	<armorset name="Mithril Heavy Set (C)" chest="10148" legs="10152" head="10124" gloves="10159" feet="62" skillId="9507" skillLvl="3" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
+	<armorset name="Mithril Heavy Set (B)" chest="10149" legs="10153" head="10125" gloves="10160" feet="10164" skillId="9507" skillLvl="4" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
+	<armorset name="Mithril Heavy Set (A)" chest="10150" legs="10154" head="10126" gloves="10161" feet="10165" skillId="9507" skillLvl="5" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
+	<armorset name="Mithril Heavy Set (S)" chest="10151" legs="10155" head="10127" gloves="10162" feet="10166" skillId="9507" skillLvl="6" shield="628" shieldSkillId="3543" enchant6Skill="9700"/>
 	<armorset name="Composite Set (C)" chest="60" legs="0" head="517" gloves="2462" feet="64" skillId="9508" skillLvl="3" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
-	<armorset name="Composite Set (B)" chest="10147" legs="0" head="10581" gloves="10985" feet="10163" skillId="9508" skillLvl="4" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
-	<armorset name="Composite Set (A)" chest="10148" legs="0" head="10582" gloves="10986" feet="10164" skillId="9508" skillLvl="5" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
-	<armorset name="Composite Set (S)" chest="10149" legs="0" head="10583" gloves="10987" feet="10165" skillId="9508" skillLvl="6" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
+	<armorset name="Composite Set (B)" chest="10156" legs="0" head="10562" gloves="10996" feet="10172" skillId="9508" skillLvl="4" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
+	<armorset name="Composite Set (A)" chest="10157" legs="0" head="10563" gloves="10997" feet="10173" skillId="9508" skillLvl="5" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
+	<armorset name="Composite Set (S)" chest="10158" legs="0" head="10564" gloves="10998" feet="10174" skillId="9508" skillLvl="6" shield="107" shieldSkillId="3546" enchant6Skill="9700"/>
 	<armorset name="Ring Mail Set (D)" chest="347" legs="376" head="47" gloves="63" feet="553" skillId="9509" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Ring Mail Set (C)" chest="10166" legs="10237" head="10120" gloves="10159" feet="10652" skillId="9509" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Ring Mail Set (B)" chest="10167" legs="10238" head="10121" gloves="10160" feet="10653" skillId="9509" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Ring Mail Set (A)" chest="10168" legs="10239" head="10122" gloves="10161" feet="10654" skillId="9509" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Ring Mail Set (S)" chest="10169" legs="10240" head="10123" gloves="10162" feet="10655" skillId="9509" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Ring Mail Set (C)" chest="10175" legs="10246" head="10124" gloves="10168" feet="10633" skillId="9509" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Ring Mail Set (B)" chest="10176" legs="10247" head="10125" gloves="10169" feet="10634" skillId="9509" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Ring Mail Set (A)" chest="10177" legs="10248" head="10126" gloves="10170" feet="10635" skillId="9509" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Ring Mail Set (S)" chest="10178" legs="10249" head="10127" gloves="10171" feet="10636" skillId="9509" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Scale Set (D)" chest="348" legs="377" head="47" gloves="63" feet="553" skillId="9510" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Scale Set (C)" chest="10170" legs="10241" head="10120" gloves="10159" feet="10652" skillId="9510" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Scale Set (B)" chest="10171" legs="10242" head="10121" gloves="10160" feet="10653" skillId="9510" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Scale Set (A)" chest="10172" legs="10243" head="10122" gloves="10161" feet="10654" skillId="9510" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Scale Set (S)" chest="10173" legs="10244" head="10123" gloves="10162" feet="10655" skillId="9510" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Scale Set (C)" chest="10179" legs="10250" head="10124" gloves="10168" feet="10633" skillId="9510" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Scale Set (B)" chest="10180" legs="10251" head="10125" gloves="10169" feet="10634" skillId="9510" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Scale Set (A)" chest="10181" legs="10252" head="10126" gloves="10170" feet="10635" skillId="9510" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Scale Set (S)" chest="10182" legs="10253" head="10127" gloves="10171" feet="10636" skillId="9510" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Compound Scale Set (D)" chest="349" legs="378" head="47" gloves="63" feet="553" skillId="9511" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Compound Scale Set (C)" chest="10174" legs="10245" head="10120" gloves="10159" feet="10652" skillId="9511" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Compound Scale Set (B)" chest="10175" legs="10246" head="10121" gloves="10160" feet="10653" skillId="9511" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Compound Scale Set (A)" chest="10176" legs="10247" head="10122" gloves="10161" feet="10654" skillId="9511" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Compound Scale Set (S)" chest="10177" legs="10248" head="10123" gloves="10162" feet="10655" skillId="9511" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Scale Set (D)" chest="350" legs="379" head="47" gloves="10965" feet="10908" skillId="9512" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Scale Set (C)" chest="10178" legs="10249" head="10120" gloves="2456" feet="2432" skillId="9512" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Scale Set (B)" chest="10179" legs="10250" head="10121" gloves="10966" feet="10909" skillId="9512" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Scale Set (A)" chest="10180" legs="10251" head="10122" gloves="10967" feet="10910" skillId="9512" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Scale Set (S)" chest="10181" legs="10252" head="10123" gloves="10968" feet="10911" skillId="9512" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blast Set (D)" chest="351" legs="380" head="2412" gloves="10984" feet="2428" skillId="9513" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blast Set (C)" chest="10182" legs="10253" head="10853" gloves="2462" feet="10895" skillId="9513" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blast Set (B)" chest="10183" legs="10254" head="10854" gloves="10985" feet="10896" skillId="9513" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blast Set (A)" chest="10184" legs="10255" head="10855" gloves="10986" feet="10897" skillId="9513" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blast Set (S)" chest="10185" legs="10256" head="10856" gloves="10987" feet="10898" skillId="9513" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Compound Scale Set (C)" chest="10183" legs="10254" head="10124" gloves="10168" feet="10633" skillId="9511" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Compound Scale Set (B)" chest="10184" legs="10255" head="10125" gloves="10169" feet="10634" skillId="9511" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Compound Scale Set (A)" chest="10185" legs="10256" head="10126" gloves="10170" feet="10635" skillId="9511" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Compound Scale Set (S)" chest="10186" legs="10257" head="10127" gloves="10171" feet="10636" skillId="9511" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Scale Set (D)" chest="350" legs="379" head="47" gloves="11015" feet="10938" skillId="9512" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Scale Set (C)" chest="10187" legs="10258" head="10124" gloves="11016" feet="10939" skillId="9512" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Scale Set (B)" chest="10188" legs="10259" head="10125" gloves="2480" feet="10940" skillId="9512" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Scale Set (A)" chest="10189" legs="10260" head="10126" gloves="11017" feet="2445" skillId="9512" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Scale Set (S)" chest="10190" legs="10261" head="10127" gloves="11018" feet="10941" skillId="9512" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blast Set (D)" chest="351" legs="2377" head="2412" gloves="606" feet="1124" skillId="9513" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blast Set (C)" chest="10191" legs="10787" head="10857" gloves="10695" feet="10754" skillId="9513" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blast Set (B)" chest="10192" legs="10788" head="10858" gloves="10696" feet="10755" skillId="9513" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blast Set (A)" chest="10193" legs="10789" head="10859" gloves="10697" feet="10756" skillId="9513" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blast Set (S)" chest="10194" legs="10790" head="10860" gloves="10698" feet="10757" skillId="9513" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Brigandine Set (D)" chest="352" legs="2378" head="2411" gloves="2449" feet="2425" skillId="9514" skillLvl="2" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
-	<armorset name="Brigandine Set (C)" chest="10186" legs="10787" head="10849" gloves="10944" feet="10883" skillId="9514" skillLvl="3" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
-	<armorset name="Brigandine Set (B)" chest="10187" legs="10788" head="10850" gloves="10945" feet="10884" skillId="9514" skillLvl="4" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
-	<armorset name="Brigandine Set (A)" chest="10188" legs="10789" head="10851" gloves="10946" feet="10885" skillId="9514" skillLvl="5" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
-	<armorset name="Brigandine Set (S)" chest="10189" legs="10790" head="10852" gloves="10947" feet="10886" skillId="9514" skillLvl="6" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
-	<armorset name="Half Plate Set (D)" chest="353" legs="380" head="2412" gloves="10984" feet="2428" skillId="9515" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Half Plate Set (C)" chest="10190" legs="10253" head="10853" gloves="2462" feet="10895" skillId="9515" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Half Plate Set (B)" chest="10191" legs="10254" head="10854" gloves="10985" feet="10896" skillId="9515" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Half Plate Set (A)" chest="10192" legs="10255" head="10855" gloves="10986" feet="10897" skillId="9515" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Half Plate Set (S)" chest="10193" legs="10256" head="10856" gloves="10987" feet="10898" skillId="9515" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Brigandine Set (C)" chest="10195" legs="10791" head="10853" gloves="10954" feet="10887" skillId="9514" skillLvl="3" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
+	<armorset name="Brigandine Set (B)" chest="10196" legs="10792" head="10854" gloves="10955" feet="10888" skillId="9514" skillLvl="4" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
+	<armorset name="Brigandine Set (A)" chest="10197" legs="10793" head="10855" gloves="10956" feet="10889" skillId="9514" skillLvl="5" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
+	<armorset name="Brigandine Set (S)" chest="10198" legs="10794" head="10856" gloves="10957" feet="10890" skillId="9514" skillLvl="6" shield="2493" shieldSkillId="3544" enchant6Skill="9700"/>
+	<armorset name="Half Plate Set (D)" chest="353" legs="380" head="2412" gloves="61" feet="2428" skillId="9515" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Half Plate Set (C)" chest="10199" legs="10262" head="10857" gloves="10159" feet="10899" skillId="9515" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Half Plate Set (B)" chest="10200" legs="10263" head="10858" gloves="10160" feet="10900" skillId="9515" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Half Plate Set (A)" chest="10201" legs="10264" head="10859" gloves="10161" feet="10901" skillId="9515" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Half Plate Set (S)" chest="10202" legs="10265" head="10860" gloves="10162" feet="10902" skillId="9515" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Chain Mail Set (C)" chest="354" legs="381" head="2413" gloves="2453" feet="2429" skillId="9516" skillLvl="3" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
-	<armorset name="Chain Mail Set (B)" chest="10194" legs="10257" head="10857" gloves="10956" feet="10899" skillId="9516" skillLvl="4" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
-	<armorset name="Chain Mail Set (A)" chest="10195" legs="10258" head="10858" gloves="10957" feet="10900" skillId="9516" skillLvl="5" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
-	<armorset name="Chain Mail Set (S)" chest="10196" legs="10259" head="10859" gloves="10958" feet="10901" skillId="9516" skillLvl="6" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
+	<armorset name="Chain Mail Set (B)" chest="10203" legs="10266" head="10861" gloves="10969" feet="10903" skillId="9516" skillLvl="4" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
+	<armorset name="Chain Mail Set (A)" chest="10204" legs="10267" head="10862" gloves="10970" feet="10904" skillId="9516" skillLvl="5" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
+	<armorset name="Chain Mail Set (S)" chest="10205" legs="10268" head="10863" gloves="10971" feet="10905" skillId="9516" skillLvl="6" shield="2495" shieldSkillId="3545" enchant6Skill="9700"/>
 	<armorset name="Dwarven Chain Mail Set (C)" chest="355" legs="382" head="497" gloves="2456" feet="2432" skillId="9517" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Chain Mail Set (B)" chest="10197" legs="10260" head="10549" gloves="10966" feet="10909" skillId="9517" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Chain Mail Set (A)" chest="10198" legs="10261" head="10550" gloves="10967" feet="10910" skillId="9517" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dwarven Chain Mail Set (S)" chest="10199" legs="10262" head="10551" gloves="10968" feet="10911" skillId="9517" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Chain Mail Set (B)" chest="10206" legs="10269" head="10530" gloves="10978" feet="10912" skillId="9517" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Chain Mail Set (A)" chest="10207" legs="10270" head="10531" gloves="10979" feet="10913" skillId="9517" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dwarven Chain Mail Set (S)" chest="10208" legs="10271" head="10532" gloves="10980" feet="10914" skillId="9517" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Full Plate Set (C)" chest="356" legs="0" head="2414" gloves="2462" feet="2438" skillId="9518" skillLvl="3" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
-	<armorset name="Full Plate Set (B)" chest="10200" legs="0" head="10860" gloves="10985" feet="10927" skillId="9518" skillLvl="4" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
-	<armorset name="Full Plate Set (A)" chest="10201" legs="0" head="10861" gloves="10986" feet="10928" skillId="9518" skillLvl="5" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
-	<armorset name="Full Plate Set (S)" chest="10202" legs="0" head="10862" gloves="10987" feet="10929" skillId="9518" skillLvl="6" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
+	<armorset name="Full Plate Set (B)" chest="10209" legs="0" head="10864" gloves="10996" feet="10930" skillId="9518" skillLvl="4" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
+	<armorset name="Full Plate Set (A)" chest="10210" legs="0" head="10865" gloves="10997" feet="10931" skillId="9518" skillLvl="5" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
+	<armorset name="Full Plate Set (S)" chest="10211" legs="0" head="10866" gloves="10998" feet="10932" skillId="9518" skillLvl="6" shield="2497" shieldSkillId="3547" enchant6Skill="9700"/>
 	<armorset name="Zubei Heavy Set (B)" chest="357" legs="383" head="503" gloves="5710" feet="5726" skillId="9519" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Zubei Heavy Set (A)" chest="10203" legs="10263" head="10556" gloves="11020" feet="11044" skillId="9519" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Zubei Heavy Set (S)" chest="10204" legs="10264" head="10557" gloves="11021" feet="11045" skillId="9519" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Zubei Heavy Set (A)" chest="10212" legs="10272" head="10537" gloves="11031" feet="11055" skillId="9519" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Zubei Heavy Set (S)" chest="10213" legs="10273" head="10538" gloves="11032" feet="11056" skillId="9519" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Blue Wolf Heavy Set (B)" chest="358" legs="2380" head="2416" gloves="5718" feet="5734" skillId="9520" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blue Wolf Heavy Set (A)" chest="10205" legs="10793" head="10865" gloves="11032" feet="11056" skillId="9520" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Blue Wolf Heavy Set (S)" chest="10206" legs="10794" head="10866" gloves="11033" feet="11057" skillId="9520" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Shining Dragon Set (B)" chest="359" legs="0" head="506" gloves="11002" feet="557" skillId="9521" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Shining Dragon Set (A)" chest="10207" legs="0" head="10558" gloves="11003" feet="10656" skillId="9521" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Shining Dragon Set (S)" chest="10208" legs="0" head="10559" gloves="2476" feet="10657" skillId="9521" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blue Wolf Heavy Set (A)" chest="10214" legs="10797" head="10869" gloves="11043" feet="11067" skillId="9520" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Blue Wolf Heavy Set (S)" chest="10215" legs="10798" head="10870" gloves="11044" feet="11068" skillId="9520" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Shining Dragon Set (B)" chest="359" legs="0" head="506" gloves="11013" feet="10936" skillId="9521" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Shining Dragon Set (A)" chest="10216" legs="0" head="10539" gloves="11014" feet="10937" skillId="9521" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Shining Dragon Set (S)" chest="10217" legs="0" head="10540" gloves="2477" feet="2443" skillId="9521" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Armor of Victory Set (B)" chest="360" legs="385" head="507" gloves="610" feet="558" skillId="9522" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Armor of Victory Set (A)" chest="10209" legs="10265" head="10560" gloves="10733" feet="10658" skillId="9522" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Armor of Victory Set (S)" chest="10210" legs="10266" head="10561" gloves="10734" feet="10659" skillId="9522" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Armor of Victory Set (A)" chest="10218" legs="10274" head="10541" gloves="10703" feet="10637" skillId="9522" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Armor of Victory Set (S)" chest="10219" legs="10275" head="10542" gloves="10704" feet="10638" skillId="9522" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Breastplate of Valor Set (B)" chest="361" legs="386" head="508" gloves="610" feet="559" skillId="9523" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Breastplate of Valor Set (A)" chest="10211" legs="10267" head="10562" gloves="10733" feet="10660" skillId="9523" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Breastplate of Valor Set (S)" chest="10212" legs="10268" head="10563" gloves="10734" feet="10661" skillId="9523" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Glorious Set (B)" chest="362" legs="0" head="10564" gloves="610" feet="560" skillId="9524" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Glorious Set (A)" chest="10213" legs="0" head="509" gloves="10733" feet="10662" skillId="9524" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Glorious Set (S)" chest="10214" legs="0" head="10565" gloves="10734" feet="10663" skillId="9524" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Red Flame Set (B)" chest="363" legs="0" head="10566" gloves="610" feet="10664" skillId="9525" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Red Flame Set (A)" chest="10215" legs="0" head="510" gloves="10733" feet="561" skillId="9525" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Red Flame Set (S)" chest="10216" legs="0" head="10567" gloves="10734" feet="10665" skillId="9525" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Breastplate of Valor Set (A)" chest="10220" legs="10276" head="10543" gloves="10703" feet="10639" skillId="9523" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Breastplate of Valor Set (S)" chest="10221" legs="10277" head="10544" gloves="10704" feet="10640" skillId="9523" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Glorious Set (B)" chest="362" legs="0" head="10545" gloves="11008" feet="10647" skillId="9524" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Glorious Set (A)" chest="10222" legs="0" head="509" gloves="2470" feet="573" skillId="9524" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Glorious Set (S)" chest="10223" legs="0" head="10546" gloves="11009" feet="10648" skillId="9524" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Red Flame Set (B)" chest="363" legs="0" head="10547" gloves="11008" feet="10647" skillId="9525" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Red Flame Set (A)" chest="10224" legs="0" head="510" gloves="2470" feet="573" skillId="9525" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Red Flame Set (S)" chest="10225" legs="0" head="10548" gloves="11009" feet="10648" skillId="9525" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Elven Crystal Set (B)" chest="364" legs="387" head="511" gloves="610" feet="562" skillId="9526" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Elven Crystal Set (A)" chest="10217" legs="10269" head="10570" gloves="10733" feet="10666" skillId="9526" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Elven Crystal Set (S)" chest="10218" legs="10270" head="10571" gloves="10734" feet="10667" skillId="9526" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Elven Crystal Set (A)" chest="10226" legs="10278" head="10551" gloves="10703" feet="10645" skillId="9526" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Elven Crystal Set (S)" chest="10227" legs="10279" head="10552" gloves="10704" feet="10646" skillId="9526" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Dark Crystal Heavy Set (A)" chest="365" legs="388" head="512" gloves="5765" feet="5777" skillId="9527" skillLvl="5" shield="641" shieldSkillId="3550" enchant6Skill="9700"/>
-	<armorset name="Dark Crystal Heavy Set (S)" chest="10219" legs="10271" head="10572" gloves="11068" feet="11080" skillId="9527" skillLvl="6" shield="641" shieldSkillId="3550" enchant6Skill="9700"/>
-	<armorset name="Implosion Set (B)" chest="366" legs="0" head="513" gloves="2485" feet="564" skillId="9528" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Implosion Set (A)" chest="10220" legs="0" head="10573" gloves="11012" feet="10668" skillId="9528" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Implosion Set (S)" chest="10221" legs="0" head="10574" gloves="11013" feet="10669" skillId="9528" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Dragon Set (B)" chest="367" legs="0" head="514" gloves="610" feet="565" skillId="9529" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Dragon Set (A)" chest="10222" legs="0" head="10575" gloves="10733" feet="10670" skillId="9529" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Dragon Set (S)" chest="10223" legs="0" head="10576" gloves="10734" feet="10671" skillId="9529" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Elven Vagian Set (B)" chest="368" legs="0" head="10577" gloves="610" feet="566" skillId="9530" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Elven Vagian Set (A)" chest="10224" legs="0" head="515" gloves="10733" feet="10672" skillId="9530" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Elven Vagian Set (S)" chest="10225" legs="0" head="10578" gloves="10734" feet="10673" skillId="9530" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Vagian Set (B)" chest="369" legs="0" head="10579" gloves="610" feet="567" skillId="9531" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Vagian Set (A)" chest="10226" legs="0" head="516" gloves="10733" feet="10674" skillId="9531" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Dark Vagian Set (S)" chest="10227" legs="0" head="10580" gloves="10734" feet="10675" skillId="9531" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Complete Set of Plate Set (B)" chest="370" legs="0" head="10854" gloves="10985" feet="10896" skillId="9532" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Complete Set of Plate Set (A)" chest="10228" legs="0" head="10855" gloves="10986" feet="10897" skillId="9532" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Complete Set of Plate Set (S)" chest="10229" legs="0" head="10856" gloves="10987" feet="10898" skillId="9532" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Hell Set (B)" chest="371" legs="0" head="10584" gloves="10985" feet="569" skillId="9533" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Hell Set (A)" chest="10230" legs="0" head="518" gloves="10986" feet="10676" skillId="9533" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Hell Set (S)" chest="10231" legs="0" head="10585" gloves="10987" feet="10677" skillId="9533" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Art of Set (B)" chest="372" legs="0" head="519" gloves="10985" feet="570" skillId="9534" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Art of Set (A)" chest="10232" legs="0" head="10586" gloves="10986" feet="10678" skillId="9534" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Art of Set (S)" chest="10233" legs="0" head="10587" gloves="10987" feet="10679" skillId="9534" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Masterpiece Set (B)" chest="373" legs="0" head="10588" gloves="610" feet="571" skillId="9535" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Masterpiece Set (A)" chest="10234" legs="0" head="520" gloves="10733" feet="10680" skillId="9535" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Masterpiece Set (S)" chest="10235" legs="0" head="10589" gloves="10734" feet="10681" skillId="9535" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Crystal Heavy Set (S)" chest="10228" legs="10280" head="10553" gloves="11079" feet="11091" skillId="9527" skillLvl="6" shield="641" shieldSkillId="3550" enchant6Skill="9700"/>
+	<armorset name="Implosion Set (B)" chest="366" legs="0" head="513" gloves="11008" feet="10647" skillId="9528" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Implosion Set (A)" chest="10229" legs="0" head="10554" gloves="2470" feet="573" skillId="9528" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Implosion Set (S)" chest="10230" legs="0" head="10555" gloves="11009" feet="10648" skillId="9528" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Dragon Set (B)" chest="367" legs="0" head="514" gloves="11013" feet="10936" skillId="9529" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Dragon Set (A)" chest="10231" legs="0" head="10556" gloves="11014" feet="10937" skillId="9529" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Dragon Set (S)" chest="10232" legs="0" head="10557" gloves="2477" feet="2443" skillId="9529" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Elven Vagian Set (B)" chest="368" legs="0" head="10558" gloves="11008" feet="10647" skillId="9530" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Elven Vagian Set (A)" chest="10233" legs="0" head="515" gloves="2470" feet="573" skillId="9530" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Elven Vagian Set (S)" chest="10234" legs="0" head="10559" gloves="11009" feet="10648" skillId="9530" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Vagian Set (B)" chest="369" legs="0" head="10560" gloves="11010" feet="10933" skillId="9531" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Vagian Set (A)" chest="10235" legs="0" head="516" gloves="2471" feet="2441" skillId="9531" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Dark Vagian Set (S)" chest="10236" legs="0" head="10561" gloves="11011" feet="10934" skillId="9531" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Complete Set of Plate Set (B)" chest="370" legs="0" head="10858" gloves="11008" feet="10647" skillId="9532" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Complete Set of Plate Set (A)" chest="10237" legs="0" head="10859" gloves="2470" feet="573" skillId="9532" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Complete Set of Plate Set (S)" chest="10238" legs="0" head="10860" gloves="11009" feet="10648" skillId="9532" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Hell Set (B)" chest="371" legs="0" head="10565" gloves="11008" feet="10647" skillId="9533" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Hell Set (A)" chest="10239" legs="0" head="518" gloves="2470" feet="573" skillId="9533" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Hell Set (S)" chest="10240" legs="0" head="10566" gloves="11009" feet="10648" skillId="9533" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Art of Set (B)" chest="372" legs="0" head="519" gloves="11008" feet="10647" skillId="9534" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Art of Set (A)" chest="10241" legs="0" head="10567" gloves="2470" feet="573" skillId="9534" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Art of Set (S)" chest="10242" legs="0" head="10568" gloves="11009" feet="10648" skillId="9534" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Masterpiece Set (B)" chest="373" legs="0" head="10569" gloves="11008" feet="10647" skillId="9535" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Masterpiece Set (A)" chest="10243" legs="0" head="520" gloves="2470" feet="573" skillId="9535" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Masterpiece Set (S)" chest="10244" legs="0" head="10570" gloves="11009" feet="10648" skillId="9535" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Nightmare Heavy Set (A)" chest="374" legs="0" head="2418" gloves="5771" feet="5783" skillId="9536" skillLvl="5" shield="2498" shieldSkillId="3551" enchant6Skill="9700"/>
-	<armorset name="Nightmare Heavy Set (S)" chest="10236" legs="0" head="10869" gloves="11074" feet="11086" skillId="9536" skillLvl="6" shield="2498" shieldSkillId="3551" enchant6Skill="9700"/>
-	<armorset name="Dragon Scale Set (S)" chest="375" legs="389" head="504" gloves="2476" feet="10931" skillId="9537" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Nightmare Heavy Set (S)" chest="10245" legs="0" head="10873" gloves="11085" feet="11097" skillId="9536" skillLvl="6" shield="2498" shieldSkillId="3551" enchant6Skill="9700"/>
+	<armorset name="Dragon Scale Set (S)" chest="375" legs="389" head="504" gloves="2476" feet="10941" skillId="9537" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
 	<armorset name="Cotton Shirt Set (NG)" chest="390" legs="412" head="42" gloves="49" feet="36" skillId="9538" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Cotton Shirt Set (D)" chest="10272" legs="10333" head="10095" gloves="10129" feet="10070" skillId="9538" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Cotton Shirt Set (C)" chest="10273" legs="10334" head="10096" gloves="10130" feet="10071" skillId="9538" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Cotton Shirt Set (B)" chest="10274" legs="10335" head="10097" gloves="10131" feet="10072" skillId="9538" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Cotton Shirt Set (A)" chest="10275" legs="10336" head="10098" gloves="10132" feet="10073" skillId="9538" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Cotton Shirt Set (S)" chest="10276" legs="10337" head="10099" gloves="10133" feet="10074" skillId="9538" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Puma Skin Set (D)" chest="391" legs="413" head="10095" gloves="2448" feet="2424" skillId="9539" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Puma Skin Set (C)" chest="10277" legs="10338" head="10096" gloves="10940" feet="10879" skillId="9539" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Puma Skin Set (B)" chest="10278" legs="10339" head="10097" gloves="10941" feet="10880" skillId="9539" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Puma Skin Set (A)" chest="10279" legs="10340" head="10098" gloves="10942" feet="10881" skillId="9539" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Puma Skin Set (S)" chest="10280" legs="10341" head="10099" gloves="10943" feet="10882" skillId="9539" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Lion Skin Set (D)" chest="392" legs="414" head="10095" gloves="2448" feet="2424" skillId="9540" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Lion Skin Set (C)" chest="10281" legs="10342" head="10096" gloves="10940" feet="10879" skillId="9540" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Lion Skin Set (B)" chest="10282" legs="10343" head="10097" gloves="10941" feet="10880" skillId="9540" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Lion Skin Set (A)" chest="10283" legs="10344" head="10098" gloves="10942" feet="10881" skillId="9540" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Lion Skin Set (S)" chest="10284" legs="10345" head="10099" gloves="10943" feet="10882" skillId="9540" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Banded Set (D)" chest="393" legs="415" head="10552" gloves="61" feet="10154" skillId="9541" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Banded Set (C)" chest="10285" legs="10346" head="499" gloves="10150" feet="62" skillId="9541" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Banded Set (B)" chest="10286" legs="10347" head="10553" gloves="10151" feet="10155" skillId="9541" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Banded Set (A)" chest="10287" legs="10348" head="10554" gloves="10152" feet="10156" skillId="9541" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Banded Set (S)" chest="10288" legs="10349" head="10555" gloves="10153" feet="10157" skillId="9541" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Reinforced Leather Set (D)" chest="394" legs="416" head="10095" gloves="2446" feet="2422" skillId="9542" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Reinforced Leather Set (C)" chest="10289" legs="10350" head="10096" gloves="10932" feet="10871" skillId="9542" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Reinforced Leather Set (B)" chest="10290" legs="10351" head="10097" gloves="10933" feet="10872" skillId="9542" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Reinforced Leather Set (A)" chest="10291" legs="10352" head="10098" gloves="10934" feet="10873" skillId="9542" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Reinforced Leather Set (S)" chest="10292" legs="10353" head="10099" gloves="10935" feet="10874" skillId="9542" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Manticore Skin Set (D)" chest="395" legs="417" head="10095" gloves="2448" feet="2424" skillId="9543" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Manticore Skin Set (C)" chest="10293" legs="10354" head="10096" gloves="10940" feet="10879" skillId="9543" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Manticore Skin Set (B)" chest="10294" legs="10355" head="10097" gloves="10941" feet="10880" skillId="9543" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Manticore Skin Set (A)" chest="10295" legs="10356" head="10098" gloves="10942" feet="10881" skillId="9543" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Manticore Skin Set (S)" chest="10296" legs="10357" head="10099" gloves="10943" feet="10882" skillId="9543" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Salamander Skin Set (D)" chest="396" legs="0" head="10095" gloves="2448" feet="2427" skillId="9544" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Salamander Skin Set (C)" chest="10297" legs="0" head="10096" gloves="10940" feet="10891" skillId="9544" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Salamander Skin Set (B)" chest="10298" legs="0" head="10097" gloves="10941" feet="10892" skillId="9544" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Salamander Skin Set (A)" chest="10299" legs="0" head="10098" gloves="10942" feet="10893" skillId="9544" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Salamander Skin Set (S)" chest="10300" legs="0" head="10099" gloves="10943" feet="10894" skillId="9544" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Light Set (C)" chest="397" legs="2387" head="499" gloves="10150" feet="62" skillId="9545" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Light Set (B)" chest="10301" legs="10807" head="10553" gloves="10151" feet="10155" skillId="9545" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Light Set (A)" chest="10302" legs="10808" head="10554" gloves="10152" feet="10156" skillId="9545" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Mithril Light Set (S)" chest="10303" legs="10809" head="10555" gloves="10153" feet="10157" skillId="9545" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Plated Leather Set (C)" chest="398" legs="418" head="10096" gloves="2455" feet="2431" skillId="9546" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Plated Leather Set (B)" chest="10304" legs="10358" head="10097" gloves="10962" feet="10905" skillId="9546" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Plated Leather Set (A)" chest="10305" legs="10359" head="10098" gloves="10963" feet="10906" skillId="9546" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Plated Leather Set (S)" chest="10306" legs="10360" head="10099" gloves="10964" feet="10907" skillId="9546" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Rind Leather Set (C)" chest="399" legs="419" head="10096" gloves="2458" feet="2434" skillId="9547" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Rind Leather Set (B)" chest="10307" legs="10361" head="10097" gloves="10972" feet="10915" skillId="9547" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Rind Leather Set (A)" chest="10308" legs="10362" head="10098" gloves="10973" feet="10916" skillId="9547" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Rind Leather Set (S)" chest="10309" legs="10363" head="10099" gloves="10974" feet="10917" skillId="9547" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Theca Leather Set (C)" chest="400" legs="420" head="10096" gloves="2460" feet="2436" skillId="9548" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Theca Leather Set (B)" chest="10310" legs="10364" head="10097" gloves="10978" feet="10921" skillId="9548" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Theca Leather Set (A)" chest="10311" legs="10365" head="10098" gloves="10979" feet="10922" skillId="9548" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Theca Leather Set (S)" chest="10312" legs="10366" head="10099" gloves="10980" feet="10923" skillId="9548" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Drake Leather Set (C)" chest="401" legs="0" head="10096" gloves="2461" feet="2437" skillId="9549" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Drake Leather Set (B)" chest="10313" legs="0" head="10097" gloves="10981" feet="10924" skillId="9549" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Drake Leather Set (A)" chest="10314" legs="0" head="10098" gloves="10982" feet="10925" skillId="9549" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Drake Leather Set (S)" chest="10315" legs="0" head="10099" gloves="10983" feet="10926" skillId="9549" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Chain Mail of Silence Set (B)" chest="402" legs="0" head="521" gloves="2465" feet="572" skillId="9550" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Chain Mail of Silence Set (A)" chest="10316" legs="0" head="10590" gloves="10991" feet="10682" skillId="9550" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Chain Mail of Silence Set (S)" chest="10317" legs="0" head="10591" gloves="10992" feet="10683" skillId="9550" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Gust Chain Set (B)" chest="403" legs="0" head="522" gloves="11008" feet="10684" skillId="9551" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Gust Chain Set (A)" chest="10318" legs="0" head="10592" gloves="2483" feet="573" skillId="9551" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Gust Chain Set (S)" chest="10319" legs="0" head="10593" gloves="11009" feet="10685" skillId="9551" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Cotton Shirt Set (D)" chest="10281" legs="10342" head="10099" gloves="10133" feet="10070" skillId="9538" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Cotton Shirt Set (C)" chest="10282" legs="10343" head="10100" gloves="10134" feet="10071" skillId="9538" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Cotton Shirt Set (B)" chest="10283" legs="10344" head="10101" gloves="10135" feet="10072" skillId="9538" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Cotton Shirt Set (A)" chest="10284" legs="10345" head="10102" gloves="10136" feet="10073" skillId="9538" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Cotton Shirt Set (S)" chest="10285" legs="10346" head="10103" gloves="10137" feet="10074" skillId="9538" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Puma Skin Set (D)" chest="391" legs="413" head="10099" gloves="604" feet="40" skillId="9539" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Puma Skin Set (C)" chest="10286" legs="10347" head="10100" gloves="10687" feet="10090" skillId="9539" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Puma Skin Set (B)" chest="10287" legs="10348" head="10101" gloves="10688" feet="10091" skillId="9539" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Puma Skin Set (A)" chest="10288" legs="10349" head="10102" gloves="10689" feet="10092" skillId="9539" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Puma Skin Set (S)" chest="10289" legs="10350" head="10103" gloves="10690" feet="10093" skillId="9539" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Lion Skin Set (D)" chest="392" legs="414" head="10099" gloves="605" feet="1123" skillId="9540" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Lion Skin Set (C)" chest="10290" legs="10351" head="10100" gloves="10691" feet="10750" skillId="9540" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Lion Skin Set (B)" chest="10291" legs="10352" head="10101" gloves="10692" feet="10751" skillId="9540" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Lion Skin Set (A)" chest="10292" legs="10353" head="10102" gloves="10693" feet="10752" skillId="9540" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Lion Skin Set (S)" chest="10293" legs="10354" head="10103" gloves="10694" feet="10753" skillId="9540" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Banded Set (D)" chest="393" legs="415" head="10533" gloves="63" feet="553" skillId="9541" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Banded Set (C)" chest="10294" legs="10355" head="499" gloves="10168" feet="10633" skillId="9541" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Banded Set (B)" chest="10295" legs="10356" head="10534" gloves="10169" feet="10634" skillId="9541" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Banded Set (A)" chest="10296" legs="10357" head="10535" gloves="10170" feet="10635" skillId="9541" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Banded Set (S)" chest="10297" legs="10358" head="10536" gloves="10171" feet="10636" skillId="9541" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Reinforced Leather Set (D)" chest="394" legs="416" head="10099" gloves="2446" feet="2422" skillId="9542" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Reinforced Leather Set (C)" chest="10298" legs="10359" head="10100" gloves="10942" feet="10875" skillId="9542" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Reinforced Leather Set (B)" chest="10299" legs="10360" head="10101" gloves="10943" feet="10876" skillId="9542" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Reinforced Leather Set (A)" chest="10300" legs="10361" head="10102" gloves="10944" feet="10877" skillId="9542" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Reinforced Leather Set (S)" chest="10301" legs="10362" head="10103" gloves="10945" feet="10878" skillId="9542" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Manticore Skin Set (D)" chest="395" legs="417" head="10099" gloves="2448" feet="2424" skillId="9543" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Manticore Skin Set (C)" chest="10302" legs="10363" head="10100" gloves="10950" feet="10883" skillId="9543" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Manticore Skin Set (B)" chest="10303" legs="10364" head="10101" gloves="10951" feet="10884" skillId="9543" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Manticore Skin Set (A)" chest="10304" legs="10365" head="10102" gloves="10952" feet="10885" skillId="9543" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Manticore Skin Set (S)" chest="10305" legs="10366" head="10103" gloves="10953" feet="10886" skillId="9543" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Salamander Skin Set (D)" chest="396" legs="0" head="10099" gloves="607" feet="2427" skillId="9544" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Salamander Skin Set (C)" chest="10306" legs="0" head="10100" gloves="10699" feet="10895" skillId="9544" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Salamander Skin Set (B)" chest="10307" legs="0" head="10101" gloves="10700" feet="10896" skillId="9544" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Salamander Skin Set (A)" chest="10308" legs="0" head="10102" gloves="10701" feet="10897" skillId="9544" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Salamander Skin Set (S)" chest="10309" legs="0" head="10103" gloves="10702" feet="10898" skillId="9544" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Light Set (C)" chest="397" legs="2387" head="499" gloves="2452" feet="62" skillId="9545" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Light Set (B)" chest="10310" legs="10811" head="10534" gloves="10966" feet="10164" skillId="9545" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Light Set (A)" chest="10311" legs="10812" head="10535" gloves="10967" feet="10165" skillId="9545" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Mithril Light Set (S)" chest="10312" legs="10813" head="10536" gloves="10968" feet="10166" skillId="9545" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Plated Leather Set (C)" chest="398" legs="418" head="10100" gloves="2455" feet="2431" skillId="9546" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Plated Leather Set (B)" chest="10313" legs="10367" head="10101" gloves="10975" feet="10909" skillId="9546" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Plated Leather Set (A)" chest="10314" legs="10368" head="10102" gloves="10976" feet="10910" skillId="9546" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Plated Leather Set (S)" chest="10315" legs="10369" head="10103" gloves="10977" feet="10911" skillId="9546" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Rind Leather Set (C)" chest="399" legs="419" head="10100" gloves="2458" feet="2434" skillId="9547" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Rind Leather Set (B)" chest="10316" legs="10370" head="10101" gloves="10984" feet="10918" skillId="9547" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Rind Leather Set (A)" chest="10317" legs="10371" head="10102" gloves="10985" feet="10919" skillId="9547" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Rind Leather Set (S)" chest="10318" legs="10372" head="10103" gloves="10986" feet="10920" skillId="9547" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Theca Leather Set (C)" chest="400" legs="420" head="10100" gloves="2460" feet="2436" skillId="9548" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Theca Leather Set (B)" chest="10319" legs="10373" head="10101" gloves="10990" feet="10924" skillId="9548" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Theca Leather Set (A)" chest="10320" legs="10374" head="10102" gloves="10991" feet="10925" skillId="9548" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Theca Leather Set (S)" chest="10321" legs="10375" head="10103" gloves="10992" feet="10926" skillId="9548" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Drake Leather Set (C)" chest="401" legs="0" head="10100" gloves="2461" feet="2437" skillId="9549" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Drake Leather Set (B)" chest="10322" legs="0" head="10101" gloves="10993" feet="10927" skillId="9549" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Drake Leather Set (A)" chest="10323" legs="0" head="10102" gloves="10994" feet="10928" skillId="9549" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Drake Leather Set (S)" chest="10324" legs="0" head="10103" gloves="10995" feet="10929" skillId="9549" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Chain Mail of Silence Set (B)" chest="402" legs="0" head="521" gloves="11008" feet="10647" skillId="9550" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Chain Mail of Silence Set (A)" chest="10325" legs="0" head="10571" gloves="2470" feet="573" skillId="9550" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Chain Mail of Silence Set (S)" chest="10326" legs="0" head="10572" gloves="11009" feet="10648" skillId="9550" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Gust Chain Set (B)" chest="403" legs="0" head="522" gloves="11008" feet="10647" skillId="9551" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Gust Chain Set (A)" chest="10327" legs="0" head="10573" gloves="2470" feet="573" skillId="9551" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Gust Chain Set (S)" chest="10328" legs="0" head="10574" gloves="11009" feet="10648" skillId="9551" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Prairie Leather Set (B)" chest="404" legs="421" head="523" gloves="2466" feet="574" skillId="9552" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Prairie Leather Set (A)" chest="10320" legs="10367" head="10594" gloves="10993" feet="10686" skillId="9552" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Prairie Leather Set (S)" chest="10321" legs="10368" head="10595" gloves="10994" feet="10687" skillId="9552" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Armor of The Underworld Set (B)" chest="405" legs="422" head="524" gloves="10997" feet="10688" skillId="9553" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Armor of The Underworld Set (A)" chest="10322" legs="10369" head="10596" gloves="2469" feet="575" skillId="9553" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Armor of The Underworld Set (S)" chest="10323" legs="10370" head="10597" gloves="10998" feet="10689" skillId="9553" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Suit of Concentration Set (B)" chest="406" legs="0" head="525" gloves="2466" feet="576" skillId="9554" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Suit of Concentration Set (A)" chest="10324" legs="0" head="10598" gloves="10993" feet="10690" skillId="9554" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Leather Suit of Concentration Set (S)" chest="10325" legs="0" head="10599" gloves="10994" feet="10691" skillId="9554" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Ace's Leather Set (B)" chest="407" legs="0" head="526" gloves="2466" feet="577" skillId="9555" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Ace's Leather Set (A)" chest="10326" legs="0" head="10600" gloves="10993" feet="10692" skillId="9555" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Ace's Leather Set (S)" chest="10327" legs="0" head="10601" gloves="10994" feet="10693" skillId="9555" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Prairie Leather Set (A)" chest="10329" legs="10376" head="10575" gloves="11002" feet="10649" skillId="9552" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Prairie Leather Set (S)" chest="10330" legs="10377" head="10576" gloves="11003" feet="10650" skillId="9552" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Armor of The Underworld Set (B)" chest="405" legs="422" head="524" gloves="11006" feet="10651" skillId="9553" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Armor of The Underworld Set (A)" chest="10331" legs="10378" head="10577" gloves="2469" feet="575" skillId="9553" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Armor of The Underworld Set (S)" chest="10332" legs="10379" head="10578" gloves="11007" feet="10652" skillId="9553" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Suit of Concentration Set (B)" chest="406" legs="0" head="525" gloves="11013" feet="10936" skillId="9554" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Suit of Concentration Set (A)" chest="10333" legs="0" head="10579" gloves="11014" feet="10937" skillId="9554" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Leather Suit of Concentration Set (S)" chest="10334" legs="0" head="10580" gloves="2477" feet="2443" skillId="9554" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Ace's Leather Set (B)" chest="407" legs="0" head="526" gloves="11013" feet="10936" skillId="9555" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Ace's Leather Set (A)" chest="10335" legs="0" head="10581" gloves="11014" feet="10937" skillId="9555" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Ace's Leather Set (S)" chest="10336" legs="0" head="10582" gloves="2477" feet="2443" skillId="9555" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Guardian's Leather Set (B)" chest="408" legs="423" head="527" gloves="2466" feet="578" skillId="9556" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Guardian's Leather Set (A)" chest="10328" legs="10371" head="10602" gloves="10993" feet="10694" skillId="9556" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Guardian's Leather Set (S)" chest="10329" legs="10372" head="10603" gloves="10994" feet="10695" skillId="9556" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Guardian's Leather Set (A)" chest="10337" legs="10380" head="10583" gloves="11002" feet="10653" skillId="9556" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Guardian's Leather Set (S)" chest="10338" legs="10381" head="10584" gloves="11003" feet="10654" skillId="9556" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Marksman's Leather Set (B)" chest="409" legs="424" head="528" gloves="2466" feet="579" skillId="9557" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Marksman's Leather Set (A)" chest="10330" legs="10373" head="10604" gloves="10993" feet="10696" skillId="9557" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Marksman's Leather Set (S)" chest="10331" legs="10374" head="10605" gloves="10994" feet="10697" skillId="9557" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Marksman's Leather Set (A)" chest="10339" legs="10382" head="10585" gloves="11002" feet="10655" skillId="9557" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Marksman's Leather Set (S)" chest="10340" legs="10383" head="10586" gloves="11003" feet="10656" skillId="9557" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Unicorn Leather Set (A)" chest="410" legs="0" head="2419" gloves="5775" feet="5787" skillId="9558" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Unicorn Leather Set (S)" chest="10332" legs="0" head="10870" gloves="11078" feet="11090" skillId="9558" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Unicorn Leather Set (S)" chest="10341" legs="0" head="10874" gloves="11089" feet="11101" skillId="9558" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Dragon Leather Set (S)" chest="411" legs="0" head="2420" gloves="2477" feet="2443" skillId="9559" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
 	<armorset name="Apprentice's Set (NG)" chest="425" legs="461" head="41" gloves="48" feet="1121" skillId="9560" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apprentice's Set (D)" chest="10375" legs="10483" head="10090" gloves="10124" feet="10760" skillId="9560" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apprentice's Set (C)" chest="10376" legs="10484" head="10091" gloves="10125" feet="10761" skillId="9560" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apprentice's Set (B)" chest="10377" legs="10485" head="10092" gloves="10126" feet="10762" skillId="9560" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apprentice's Set (A)" chest="10378" legs="10486" head="10093" gloves="10127" feet="10763" skillId="9560" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apprentice's Set (S)" chest="10379" legs="10487" head="10094" gloves="10128" feet="10764" skillId="9560" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (NG)" chest="426" legs="462" head="41" gloves="48" feet="35" skillId="9561" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (D)" chest="10380" legs="10488" head="10090" gloves="10124" feet="10065" skillId="9561" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (C)" chest="10381" legs="10489" head="10091" gloves="10125" feet="10066" skillId="9561" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (B)" chest="10382" legs="10490" head="10092" gloves="10126" feet="10067" skillId="9561" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (A)" chest="10383" legs="10491" head="10093" gloves="10127" feet="10068" skillId="9561" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic Set (S)" chest="10384" legs="10492" head="10094" gloves="10128" feet="10069" skillId="9561" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (NG)" chest="427" legs="0" head="41" gloves="48" feet="1122" skillId="9562" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (D)" chest="10385" legs="0" head="10090" gloves="10124" feet="10765" skillId="9562" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (C)" chest="10386" legs="0" head="10091" gloves="10125" feet="10766" skillId="9562" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (B)" chest="10387" legs="0" head="10092" gloves="10126" feet="10767" skillId="9562" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (A)" chest="10388" legs="0" head="10093" gloves="10127" feet="10768" skillId="9562" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Robe Set (S)" chest="10389" legs="0" head="10094" gloves="10128" feet="10769" skillId="9562" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (NG)" chest="428" legs="463" head="41" gloves="48" feet="35" skillId="9563" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (D)" chest="10390" legs="10493" head="10090" gloves="10124" feet="10065" skillId="9563" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (C)" chest="10391" legs="10494" head="10091" gloves="10125" feet="10066" skillId="9563" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (B)" chest="10392" legs="10495" head="10092" gloves="10126" feet="10067" skillId="9563" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (A)" chest="10393" legs="10496" head="10093" gloves="10127" feet="10068" skillId="9563" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Feriotic Set (S)" chest="10394" legs="10497" head="10094" gloves="10128" feet="10069" skillId="9563" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (NG)" chest="429" legs="29" head="42" gloves="50" feet="36" skillId="9564" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (D)" chest="10395" legs="10040" head="10095" gloves="10134" feet="10070" skillId="9564" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (C)" chest="10396" legs="10041" head="10096" gloves="10135" feet="10071" skillId="9564" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (B)" chest="10397" legs="10042" head="10097" gloves="10136" feet="10072" skillId="9564" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (A)" chest="10398" legs="10043" head="10098" gloves="10137" feet="10073" skillId="9564" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Leather Tunic Set (S)" chest="10399" legs="10044" head="10099" gloves="10138" feet="10074" skillId="9564" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (NG)" chest="430" legs="0" head="44" gloves="48" feet="35" skillId="9565" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (D)" chest="10400" legs="0" head="10105" gloves="10124" feet="10065" skillId="9565" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (C)" chest="10401" legs="0" head="10106" gloves="10125" feet="10066" skillId="9565" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (B)" chest="10402" legs="0" head="10107" gloves="10126" feet="10067" skillId="9565" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (A)" chest="10403" legs="0" head="10108" gloves="10127" feet="10068" skillId="9565" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Devotion Set (S)" chest="10404" legs="0" head="10109" gloves="10128" feet="10069" skillId="9565" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (NG)" chest="431" legs="0" head="41" gloves="48" feet="35" skillId="9566" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (D)" chest="10405" legs="0" head="10090" gloves="10124" feet="10065" skillId="9566" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (C)" chest="10406" legs="0" head="10091" gloves="10125" feet="10066" skillId="9566" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (B)" chest="10407" legs="0" head="10092" gloves="10126" feet="10067" skillId="9566" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (A)" chest="10408" legs="0" head="10093" gloves="10127" feet="10068" skillId="9566" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Magic Set (S)" chest="10409" legs="0" head="10094" gloves="10128" feet="10069" skillId="9566" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cursed Set (D)" chest="432" legs="465" head="10090" gloves="2447" feet="2423" skillId="9567" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cursed Set (C)" chest="10410" legs="10498" head="10091" gloves="10936" feet="10875" skillId="9567" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cursed Set (B)" chest="10411" legs="10499" head="10092" gloves="10937" feet="10876" skillId="9567" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cursed Set (A)" chest="10412" legs="10500" head="10093" gloves="10938" feet="10877" skillId="9567" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cursed Set (S)" chest="10413" legs="10501" head="10094" gloves="10939" feet="10878" skillId="9567" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Set (D)" chest="433" legs="466" head="10568" gloves="2450" feet="2426" skillId="9568" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Set (C)" chest="10414" legs="10502" head="10569" gloves="10948" feet="10887" skillId="9568" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Set (B)" chest="10415" legs="10503" head="511" gloves="10949" feet="10888" skillId="9568" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Set (A)" chest="10416" legs="10504" head="10570" gloves="10950" feet="10889" skillId="9568" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Set (S)" chest="10417" legs="10505" head="10571" gloves="10951" feet="10890" skillId="9568" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="White Set (D)" chest="434" legs="468" head="10090" gloves="2447" feet="2423" skillId="9569" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="White Set (C)" chest="10418" legs="10506" head="10091" gloves="10936" feet="10875" skillId="9569" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="White Set (B)" chest="10419" legs="10507" head="10092" gloves="10937" feet="10876" skillId="9569" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="White Set (A)" chest="10420" legs="10508" head="10093" gloves="10938" feet="10877" skillId="9569" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="White Set (S)" chest="10421" legs="10509" head="10094" gloves="10939" feet="10878" skillId="9569" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mystic's Set (D)" chest="435" legs="468" head="10090" gloves="2447" feet="2423" skillId="9570" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mystic's Set (C)" chest="10422" legs="10506" head="10091" gloves="10936" feet="10875" skillId="9570" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mystic's Set (B)" chest="10423" legs="10507" head="10092" gloves="10937" feet="10876" skillId="9570" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mystic's Set (A)" chest="10424" legs="10508" head="10093" gloves="10938" feet="10877" skillId="9570" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mystic's Set (S)" chest="10425" legs="10509" head="10094" gloves="10939" feet="10878" skillId="9570" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Knowledge Set (D)" chest="436" legs="469" head="10090" gloves="2447" feet="2423" skillId="9571" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Knowledge Set (C)" chest="10426" legs="10510" head="10091" gloves="10936" feet="10875" skillId="9571" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Knowledge Set (B)" chest="10427" legs="10511" head="10092" gloves="10937" feet="10876" skillId="9571" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Knowledge Set (A)" chest="10428" legs="10512" head="10093" gloves="10938" feet="10877" skillId="9571" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Knowledge Set (S)" chest="10429" legs="10513" head="10094" gloves="10939" feet="10878" skillId="9571" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mithril Robe Set (D)" chest="437" legs="470" head="10552" gloves="2450" feet="10154" skillId="9572" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mithril Robe Set (C)" chest="10430" legs="10514" head="499" gloves="10948" feet="62" skillId="9572" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mithril Robe Set (B)" chest="10431" legs="10515" head="10553" gloves="10949" feet="10155" skillId="9572" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mithril Robe Set (A)" chest="10432" legs="10516" head="10554" gloves="10950" feet="10156" skillId="9572" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Mithril Robe Set (S)" chest="10433" legs="10517" head="10555" gloves="10951" feet="10157" skillId="9572" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Rag Set (D)" chest="438" legs="0" head="10609" gloves="2451" feet="10700" skillId="9573" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Rag Set (C)" chest="10434" legs="0" head="10610" gloves="10952" feet="10701" skillId="9573" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Rag Set (B)" chest="10435" legs="0" head="530" gloves="10953" feet="581" skillId="9573" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Rag Set (A)" chest="10436" legs="0" head="10611" gloves="10954" feet="10702" skillId="9573" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Rag Set (S)" chest="10437" legs="0" head="10612" gloves="10955" feet="10703" skillId="9573" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Karmian Set (C)" chest="439" legs="471" head="529" gloves="2454" feet="2430" skillId="9574" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Karmian Set (B)" chest="10438" legs="10518" head="10606" gloves="10959" feet="10902" skillId="9574" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Karmian Set (A)" chest="10439" legs="10519" head="10607" gloves="10960" feet="10903" skillId="9574" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Karmian Set (S)" chest="10440" legs="10520" head="10608" gloves="10961" feet="10904" skillId="9574" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Seal Set (C)" chest="440" legs="0" head="529" gloves="2457" feet="2433" skillId="9575" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Seal Set (B)" chest="10441" legs="0" head="10606" gloves="10969" feet="10912" skillId="9575" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Seal Set (A)" chest="10442" legs="0" head="10607" gloves="10970" feet="10913" skillId="9575" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Seal Set (S)" chest="10443" legs="0" head="10608" gloves="10971" feet="10914" skillId="9575" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Demon Set (C)" chest="441" legs="472" head="529" gloves="2459" feet="2435" skillId="9576" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Demon Set (B)" chest="10444" legs="10521" head="10606" gloves="10975" feet="10918" skillId="9576" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Demon Set (A)" chest="10445" legs="10522" head="10607" gloves="10976" feet="10919" skillId="9576" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Demon Set (S)" chest="10446" legs="10523" head="10608" gloves="10977" feet="10920" skillId="9576" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Divine Set (C)" chest="442" legs="473" head="10649" gloves="2463" feet="603" skillId="9577" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Divine Set (B)" chest="10447" legs="10524" head="552" gloves="10988" feet="10730" skillId="9577" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Divine Set (A)" chest="10448" legs="10525" head="10650" gloves="10989" feet="10731" skillId="9577" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Divine Set (S)" chest="10449" legs="10526" head="10651" gloves="10990" feet="10732" skillId="9577" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Mana Set (B)" chest="443" legs="474" head="10606" gloves="2480" feet="580" skillId="9578" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Mana Set (A)" chest="10450" legs="10527" head="10607" gloves="11004" feet="10698" skillId="9578" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Mana Set (S)" chest="10451" legs="10528" head="10608" gloves="11005" feet="10699" skillId="9578" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Robe Set (B)" chest="444" legs="0" head="530" gloves="10953" feet="581" skillId="9579" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Robe Set (A)" chest="10452" legs="0" head="10611" gloves="10954" feet="10702" skillId="9579" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Sage's Robe Set (S)" chest="10453" legs="0" head="10612" gloves="10955" feet="10703" skillId="9579" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Paradia Set (B)" chest="445" legs="475" head="10613" gloves="2486" feet="582" skillId="9580" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Paradia Set (A)" chest="10454" legs="10529" head="10614" gloves="11014" feet="10704" skillId="9580" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Paradia Set (S)" chest="10455" legs="10530" head="10615" gloves="11015" feet="10705" skillId="9580" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Inferno Set (B)" chest="446" legs="476" head="532" gloves="2480" feet="588" skillId="9581" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Inferno Set (A)" chest="10456" legs="10531" head="10616" gloves="11004" feet="10714" skillId="9581" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Inferno Set (S)" chest="10457" legs="10532" head="10617" gloves="11005" feet="10715" skillId="9581" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Solar Eclipse Set (B)" chest="447" legs="477" head="10618" gloves="2480" feet="584" skillId="9582" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Solar Eclipse Set (A)" chest="10458" legs="10533" head="10619" gloves="11004" feet="10706" skillId="9582" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Solar Eclipse Set (S)" chest="10459" legs="10534" head="10620" gloves="11005" feet="10707" skillId="9582" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Black Ore Set (B)" chest="448" legs="0" head="534" gloves="11018" feet="585" skillId="9583" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Black Ore Set (A)" chest="10460" legs="0" head="10621" gloves="2489" feet="10708" skillId="9583" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Black Ore Set (S)" chest="10461" legs="0" head="10622" gloves="11019" feet="10709" skillId="9583" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Summoning Set (B)" chest="449" legs="478" head="10623" gloves="2480" feet="586" skillId="9584" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Summoning Set (A)" chest="10462" legs="10535" head="10624" gloves="11004" feet="10710" skillId="9584" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Summoning Set (S)" chest="10463" legs="10536" head="10625" gloves="11005" feet="10711" skillId="9584" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Otherworldly Set (B)" chest="450" legs="0" head="536" gloves="2480" feet="587" skillId="9585" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Otherworldly Set (A)" chest="10464" legs="0" head="10626" gloves="11004" feet="10712" skillId="9585" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Otherworldly Set (S)" chest="10465" legs="0" head="10627" gloves="11005" feet="10713" skillId="9585" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elemental Set (B)" chest="451" legs="479" head="10628" gloves="2480" feet="588" skillId="9586" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elemental Set (A)" chest="10466" legs="10537" head="10629" gloves="11004" feet="10714" skillId="9586" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elemental Set (S)" chest="10467" legs="10538" head="10630" gloves="11005" feet="10715" skillId="9586" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Phantom Set (B)" chest="452" legs="480" head="538" gloves="10999" feet="10716" skillId="9587" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Phantom Set (A)" chest="10468" legs="10539" head="10631" gloves="2470" feet="589" skillId="9587" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Phantom Set (S)" chest="10469" legs="10540" head="10632" gloves="11000" feet="10717" skillId="9587" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Grace Set (B)" chest="453" legs="481" head="10633" gloves="2481" feet="590" skillId="9588" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Grace Set (A)" chest="10470" legs="10541" head="10634" gloves="11006" feet="10718" skillId="9588" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Grace Set (S)" chest="10471" legs="10542" head="10635" gloves="11007" feet="10719" skillId="9588" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Holy Spirit Set (B)" chest="454" legs="0" head="540" gloves="2480" feet="591" skillId="9589" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Holy Spirit Set (A)" chest="10472" legs="0" head="10636" gloves="11004" feet="10720" skillId="9589" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Holy Spirit Set (S)" chest="10473" legs="0" head="10637" gloves="11005" feet="10721" skillId="9589" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Phoenix Set (B)" chest="455" legs="482" head="10638" gloves="11016" feet="10722" skillId="9590" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Phoenix Set (A)" chest="10474" legs="10543" head="10639" gloves="2488" feet="592" skillId="9590" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Phoenix Set (S)" chest="10475" legs="10544" head="10640" gloves="11017" feet="10723" skillId="9590" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cerberus Set (B)" chest="456" legs="483" head="542" gloves="11010" feet="10724" skillId="9591" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cerberus Set (A)" chest="10476" legs="10545" head="10641" gloves="2484" feet="593" skillId="9591" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cerberus Set (S)" chest="10477" legs="10546" head="10642" gloves="11011" feet="10725" skillId="9591" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Aid Set (B)" chest="457" legs="484" head="10643" gloves="2480" feet="594" skillId="9592" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Aid Set (A)" chest="10478" legs="10547" head="10644" gloves="11004" feet="10726" skillId="9592" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Aid Set (S)" chest="10479" legs="10548" head="10645" gloves="11005" feet="10727" skillId="9592" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Blessing Set (B)" chest="458" legs="0" head="544" gloves="2467" feet="595" skillId="9593" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Blessing Set (A)" chest="10480" legs="0" head="10646" gloves="10995" feet="10728" skillId="9593" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Robe of Blessing Set (S)" chest="10481" legs="0" head="10647" gloves="10996" feet="10729" skillId="9593" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Dasparion's Set (A)" chest="459" legs="0" head="512" gloves="2474" feet="2442" skillId="9594" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Dasparion's Set (S)" chest="10482" legs="0" head="10572" gloves="11001" feet="10930" skillId="9594" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="The Set (S)" chest="460" legs="0" head="2421" gloves="2473" feet="2444" skillId="9595" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (NG)" chest="1100" legs="412" head="41" gloves="48" feet="1122" skillId="9596" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (D)" chest="10735" legs="10333" head="10090" gloves="10124" feet="10765" skillId="9596" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (C)" chest="10736" legs="10334" head="10091" gloves="10125" feet="10766" skillId="9596" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (B)" chest="10737" legs="10335" head="10092" gloves="10126" feet="10767" skillId="9596" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (A)" chest="10738" legs="10336" head="10093" gloves="10127" feet="10768" skillId="9596" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Cotton Tunic Set (S)" chest="10739" legs="10337" head="10094" gloves="10128" feet="10769" skillId="9596" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (NG)" chest="1101" legs="1104" head="44" gloves="48" feet="35" skillId="9597" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (D)" chest="10740" legs="10750" head="10105" gloves="10124" feet="10065" skillId="9597" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (C)" chest="10741" legs="10751" head="10106" gloves="10125" feet="10066" skillId="9597" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (B)" chest="10742" legs="10752" head="10107" gloves="10126" feet="10067" skillId="9597" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (A)" chest="10743" legs="10753" head="10108" gloves="10127" feet="10068" skillId="9597" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Devotion Set (S)" chest="10744" legs="10754" head="10109" gloves="10128" feet="10069" skillId="9597" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (NG)" chest="1102" legs="1105" head="41" gloves="48" feet="35" skillId="9598" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (D)" chest="10745" legs="10755" head="10090" gloves="10124" feet="10065" skillId="9598" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (C)" chest="10746" legs="10756" head="10091" gloves="10125" feet="10066" skillId="9598" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (B)" chest="10747" legs="10757" head="10092" gloves="10126" feet="10067" skillId="9598" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (A)" chest="10748" legs="10758" head="10093" gloves="10127" feet="10068" skillId="9598" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tunic of Magic Set (S)" chest="10749" legs="10759" head="10094" gloves="10128" feet="10069" skillId="9598" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Squire's Set (NG)" chest="1146" legs="1147" head="42" gloves="49" feet="37" skillId="9599" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Squire's Set (D)" chest="10770" legs="10775" head="10095" gloves="10129" feet="10075" skillId="9599" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Squire's Set (C)" chest="10771" legs="10776" head="10096" gloves="10130" feet="10076" skillId="9599" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Squire's Set (B)" chest="10772" legs="10777" head="10097" gloves="10131" feet="10077" skillId="9599" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Squire's Set (A)" chest="10773" legs="10778" head="10098" gloves="10132" feet="10078" skillId="9599" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Squire's Set (S)" chest="10774" legs="10779" head="10099" gloves="10133" feet="10079" skillId="9599" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Avadon Heavy Set (B)" chest="2376" legs="2379" head="2415" gloves="5714" feet="5730" skillId="9600" skillLvl="4" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
-	<armorset name="Avadon Heavy Set (A)" chest="10785" legs="10791" head="10863" gloves="11026" feet="11050" skillId="9600" skillLvl="5" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
-	<armorset name="Avadon Heavy Set (S)" chest="10786" legs="10792" head="10864" gloves="11027" feet="11051" skillId="9600" skillLvl="6" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
-	<armorset name="Doom Heavy Set (B)" chest="2381" legs="0" head="2417" gloves="5722" feet="5738" skillId="9601" skillLvl="4" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
-	<armorset name="Doom Heavy Set (A)" chest="10795" legs="0" head="10867" gloves="11038" feet="11062" skillId="9601" skillLvl="5" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
-	<armorset name="Doom Heavy Set (S)" chest="10796" legs="0" head="10868" gloves="11039" feet="11063" skillId="9601" skillLvl="6" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
-	<armorset name="Tallum Heavy Set (A)" chest="2382" legs="0" head="547" gloves="5768" feet="5780" skillId="9602" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Tallum Heavy Set (S)" chest="10797" legs="0" head="10648" gloves="11071" feet="11083" skillId="9602" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Majestic Heavy Set (A)" chest="2383" legs="0" head="2419" gloves="5774" feet="5786" skillId="9603" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Majestic Heavy Set (S)" chest="10798" legs="0" head="10870" gloves="11077" feet="11089" skillId="9603" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Zubei Light Set (B)" chest="2384" legs="2388" head="503" gloves="5711" feet="5727" skillId="9604" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Zubei Light Set (A)" chest="10799" legs="10810" head="10556" gloves="11022" feet="11046" skillId="9604" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Zubei Light Set (S)" chest="10800" legs="10811" head="10557" gloves="11023" feet="11047" skillId="9604" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Dark Crystal Light Set (A)" chest="2385" legs="2389" head="512" gloves="5766" feet="5778" skillId="9605" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Dark Crystal Light Set (S)" chest="10801" legs="10812" head="10572" gloves="11069" feet="11081" skillId="9605" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Avadon Light Set (B)" chest="2390" legs="0" head="2415" gloves="5715" feet="5731" skillId="9606" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Avadon Light Set (A)" chest="10813" legs="0" head="10863" gloves="11028" feet="11052" skillId="9606" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Avadon Light Set (S)" chest="10814" legs="0" head="10864" gloves="11029" feet="11053" skillId="9606" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Blue Wolf Light Set (B)" chest="2391" legs="0" head="2416" gloves="5719" feet="5735" skillId="9607" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Blue Wolf Light Set (A)" chest="10815" legs="0" head="10865" gloves="11034" feet="11058" skillId="9607" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Blue Wolf Light Set (S)" chest="10816" legs="0" head="10866" gloves="11035" feet="11059" skillId="9607" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Doom Light Set (B)" chest="2392" legs="0" head="2417" gloves="5723" feet="5739" skillId="9608" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Doom Light Set (A)" chest="10817" legs="0" head="10867" gloves="11040" feet="11064" skillId="9608" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Doom Light Set (S)" chest="10818" legs="0" head="10868" gloves="11041" feet="11065" skillId="9608" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Tallum Light Set (A)" chest="2393" legs="0" head="547" gloves="5769" feet="5781" skillId="9609" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Tallum Light Set (S)" chest="10819" legs="0" head="10648" gloves="11072" feet="11084" skillId="9609" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Nightmare Light Set (A)" chest="2394" legs="0" head="2418" gloves="5772" feet="5784" skillId="9610" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Nightmare Light Set (S)" chest="10820" legs="0" head="10869" gloves="11075" feet="11087" skillId="9610" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Majestic Leather Set (A)" chest="2395" legs="0" head="2419" gloves="5775" feet="5787" skillId="9611" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Majestic Leather Set (S)" chest="10821" legs="0" head="10870" gloves="11078" feet="11090" skillId="9611" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Elven Mithril Set (D)" chest="2396" legs="2401" head="10552" gloves="2450" feet="2426" skillId="9612" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Mithril Set (C)" chest="10822" legs="10833" head="499" gloves="10948" feet="10887" skillId="9612" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Mithril Set (B)" chest="10823" legs="10834" head="10553" gloves="10949" feet="10888" skillId="9612" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Mithril Set (A)" chest="10824" legs="10835" head="10554" gloves="10950" feet="10889" skillId="9612" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Elven Mithril Set (S)" chest="10825" legs="10836" head="10555" gloves="10951" feet="10890" skillId="9612" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Zubei Robe Set (B)" chest="2397" legs="2402" head="503" gloves="5712" feet="5728" skillId="9613" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Zubei Robe Set (A)" chest="10826" legs="10837" head="10556" gloves="11024" feet="11048" skillId="9613" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Zubei Robe Set (S)" chest="10827" legs="10838" head="10557" gloves="11025" feet="11049" skillId="9613" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Blue Wolf Robe Set (B)" chest="2398" legs="2403" head="2416" gloves="5720" feet="5736" skillId="9614" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Blue Wolf Robe Set (A)" chest="10828" legs="10839" head="10865" gloves="11036" feet="11060" skillId="9614" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Blue Wolf Robe Set (S)" chest="10829" legs="10840" head="10866" gloves="11037" feet="11061" skillId="9614" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Doom Robe Set (B)" chest="2399" legs="2404" head="2417" gloves="5724" feet="5740" skillId="9615" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Doom Robe Set (A)" chest="10830" legs="10841" head="10867" gloves="11042" feet="11066" skillId="9615" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Doom Robe Set (S)" chest="10831" legs="10842" head="10868" gloves="11043" feet="11067" skillId="9615" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tallum Robe Set (A)" chest="2400" legs="2405" head="547" gloves="5770" feet="5782" skillId="9616" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Tallum Robe Set (S)" chest="10832" legs="10843" head="10648" gloves="11073" feet="11085" skillId="9616" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Avadon Robe Set (B)" chest="2406" legs="0" head="2415" gloves="5716" feet="5732" skillId="9617" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Avadon Robe Set (A)" chest="10844" legs="0" head="10863" gloves="11030" feet="11054" skillId="9617" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Avadon Robe Set (S)" chest="10845" legs="0" head="10864" gloves="11031" feet="11055" skillId="9617" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Dark Crystal Robe Set (A)" chest="2407" legs="0" head="512" gloves="5767" feet="5779" skillId="9618" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Dark Crystal Robe Set (S)" chest="10846" legs="0" head="10572" gloves="11070" feet="11082" skillId="9618" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Nightmare Robe Set (A)" chest="2408" legs="0" head="2418" gloves="5773" feet="5785" skillId="9619" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Nightmare Robe Set (S)" chest="10847" legs="0" head="10869" gloves="11076" feet="11088" skillId="9619" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Majestic Robe Set (A)" chest="2409" legs="0" head="2419" gloves="5776" feet="5788" skillId="9620" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Majestic Robe Set (S)" chest="10848" legs="0" head="10870" gloves="11079" feet="11091" skillId="9620" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Imperial Crusader Set (S)" chest="6373" legs="6374" head="6378" gloves="6375" feet="6376" skillId="9621" skillLvl="6" shield="6377" shieldSkillId="3554" enchant6Skill="9700"/>
-	<armorset name="Draconic Leather Set (S)" chest="6379" legs="0" head="6382" gloves="6380" feet="6381" skillId="9622" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Major Arcana Set (S)" chest="6383" legs="0" head="6386" gloves="6384" feet="6385" skillId="9623" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Clan Oath Heavy Set (D)" chest="7851" legs="0" head="7850" gloves="7852" feet="7853" skillId="9624" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Clan Oath Heavy Set (C)" chest="11096" legs="0" head="11092" gloves="11100" feet="11104" skillId="9624" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Clan Oath Heavy Set (B)" chest="11097" legs="0" head="11093" gloves="11101" feet="11105" skillId="9624" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Clan Oath Heavy Set (A)" chest="11098" legs="0" head="11094" gloves="11102" feet="11106" skillId="9624" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Clan Oath Heavy Set (S)" chest="11099" legs="0" head="11095" gloves="11103" feet="11107" skillId="9624" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Clan Oath Light Set (D)" chest="7854" legs="0" head="7850" gloves="7855" feet="7856" skillId="9625" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Clan Oath Light Set (C)" chest="11108" legs="0" head="11092" gloves="11112" feet="11116" skillId="9625" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Clan Oath Light Set (B)" chest="11109" legs="0" head="11093" gloves="11113" feet="11117" skillId="9625" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Clan Oath Light Set (A)" chest="11110" legs="0" head="11094" gloves="11114" feet="11118" skillId="9625" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Clan Oath Light Set (S)" chest="11111" legs="0" head="11095" gloves="11115" feet="11119" skillId="9625" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Clan Oath Robe Set (D)" chest="7857" legs="0" head="7850" gloves="7858" feet="7859" skillId="9626" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Clan Oath Robe Set (C)" chest="11120" legs="0" head="11092" gloves="11124" feet="11128" skillId="9626" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Clan Oath Robe Set (B)" chest="11121" legs="0" head="11093" gloves="11125" feet="11129" skillId="9626" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Clan Oath Robe Set (A)" chest="11122" legs="0" head="11094" gloves="11126" feet="11130" skillId="9626" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Clan Oath Robe Set (S)" chest="11123" legs="0" head="11095" gloves="11127" feet="11131" skillId="9626" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apella Heavy Set (A)" chest="7861" legs="0" head="7860" gloves="7862" feet="7863" skillId="9627" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Apella Heavy Set (S)" chest="11133" legs="0" head="11132" gloves="11134" feet="11135" skillId="9627" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
-	<armorset name="Apella Light Set (A)" chest="7864" legs="0" head="7860" gloves="7865" feet="7866" skillId="9628" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Apella Light Set (S)" chest="11136" legs="0" head="11132" gloves="11137" feet="11138" skillId="9628" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
-	<armorset name="Apella Robe Set (A)" chest="7867" legs="0" head="7860" gloves="7868" feet="7869" skillId="9629" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
-	<armorset name="Apella Robe Set (S)" chest="11139" legs="0" head="11132" gloves="11140" feet="11141" skillId="9629" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apprentice's Set (D)" chest="10384" legs="10477" head="10094" gloves="10128" feet="10740" skillId="9560" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apprentice's Set (C)" chest="10385" legs="10478" head="10095" gloves="10129" feet="10741" skillId="9560" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apprentice's Set (B)" chest="10386" legs="10479" head="10096" gloves="10130" feet="10742" skillId="9560" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apprentice's Set (A)" chest="10387" legs="10480" head="10097" gloves="10131" feet="10743" skillId="9560" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apprentice's Set (S)" chest="10388" legs="10481" head="10098" gloves="10132" feet="10744" skillId="9560" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (NG)" chest="426" legs="462" head="41" gloves="48" feet="36" skillId="9561" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (D)" chest="10389" legs="10482" head="10094" gloves="10128" feet="10070" skillId="9561" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (C)" chest="10390" legs="10483" head="10095" gloves="10129" feet="10071" skillId="9561" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (B)" chest="10391" legs="10484" head="10096" gloves="10130" feet="10072" skillId="9561" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (A)" chest="10392" legs="10485" head="10097" gloves="10131" feet="10073" skillId="9561" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic Set (S)" chest="10393" legs="10486" head="10098" gloves="10132" feet="10074" skillId="9561" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (NG)" chest="428" legs="463" head="41" gloves="48" feet="35" skillId="9562" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (D)" chest="10394" legs="10487" head="10094" gloves="10128" feet="10065" skillId="9562" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (C)" chest="10395" legs="10488" head="10095" gloves="10129" feet="10066" skillId="9562" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (B)" chest="10396" legs="10489" head="10096" gloves="10130" feet="10067" skillId="9562" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (A)" chest="10397" legs="10490" head="10097" gloves="10131" feet="10068" skillId="9562" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Feriotic Set (S)" chest="10398" legs="10491" head="10098" gloves="10132" feet="10069" skillId="9562" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (NG)" chest="429" legs="464" head="42" gloves="50" feet="37" skillId="9563" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (D)" chest="10399" legs="10492" head="10099" gloves="10138" feet="10075" skillId="9563" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (C)" chest="10400" legs="10493" head="10100" gloves="10139" feet="10076" skillId="9563" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (B)" chest="10401" legs="10494" head="10101" gloves="10140" feet="10077" skillId="9563" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (A)" chest="10402" legs="10495" head="10102" gloves="10141" feet="10078" skillId="9563" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Leather Tunic Set (S)" chest="10403" legs="10496" head="10103" gloves="10142" feet="10079" skillId="9563" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cursed Set (D)" chest="432" legs="465" head="10094" gloves="11027" feet="10641" skillId="9564" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cursed Set (C)" chest="10404" legs="10497" head="10095" gloves="11028" feet="10642" skillId="9564" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cursed Set (B)" chest="10405" legs="10498" head="10096" gloves="11029" feet="10643" skillId="9564" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cursed Set (A)" chest="10406" legs="10499" head="10097" gloves="2489" feet="561" skillId="9564" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cursed Set (S)" chest="10407" legs="10500" head="10098" gloves="11030" feet="10644" skillId="9564" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Set (D)" chest="433" legs="466" head="10549" gloves="2450" feet="2426" skillId="9565" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Set (C)" chest="10408" legs="10501" head="10550" gloves="10958" feet="10891" skillId="9565" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Set (B)" chest="10409" legs="10502" head="511" gloves="10959" feet="10892" skillId="9565" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Set (A)" chest="10410" legs="10503" head="10551" gloves="10960" feet="10893" skillId="9565" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Set (S)" chest="10411" legs="10504" head="10552" gloves="10961" feet="10894" skillId="9565" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="White Set (D)" chest="434" legs="467" head="10094" gloves="2447" feet="2423" skillId="9566" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="White Set (C)" chest="10412" legs="10505" head="10095" gloves="10946" feet="10879" skillId="9566" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="White Set (B)" chest="10413" legs="10506" head="10096" gloves="10947" feet="10880" skillId="9566" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="White Set (A)" chest="10414" legs="10507" head="10097" gloves="10948" feet="10881" skillId="9566" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="White Set (S)" chest="10415" legs="10508" head="10098" gloves="10949" feet="10882" skillId="9566" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mystic's Set (D)" chest="435" legs="468" head="10094" gloves="2447" feet="2423" skillId="9567" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mystic's Set (C)" chest="10416" legs="10509" head="10095" gloves="10946" feet="10879" skillId="9567" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mystic's Set (B)" chest="10417" legs="10510" head="10096" gloves="10947" feet="10880" skillId="9567" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mystic's Set (A)" chest="10418" legs="10511" head="10097" gloves="10948" feet="10881" skillId="9567" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mystic's Set (S)" chest="10419" legs="10512" head="10098" gloves="10949" feet="10882" skillId="9567" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Knowledge Set (D)" chest="436" legs="469" head="10094" gloves="2447" feet="2423" skillId="9568" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Knowledge Set (C)" chest="10420" legs="10513" head="10095" gloves="10946" feet="10879" skillId="9568" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Knowledge Set (B)" chest="10421" legs="10514" head="10096" gloves="10947" feet="10880" skillId="9568" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Knowledge Set (A)" chest="10422" legs="10515" head="10097" gloves="10948" feet="10881" skillId="9568" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Knowledge Set (S)" chest="10423" legs="10516" head="10098" gloves="10949" feet="10882" skillId="9568" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mithril Robe Set (D)" chest="437" legs="470" head="10533" gloves="2450" feet="2426" skillId="9569" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mithril Robe Set (C)" chest="10424" legs="10517" head="499" gloves="10958" feet="10891" skillId="9569" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mithril Robe Set (B)" chest="10425" legs="10518" head="10534" gloves="10959" feet="10892" skillId="9569" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mithril Robe Set (A)" chest="10426" legs="10519" head="10535" gloves="10960" feet="10893" skillId="9569" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Mithril Robe Set (S)" chest="10427" legs="10520" head="10536" gloves="10961" feet="10894" skillId="9569" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Rag Set (D)" chest="438" legs="0" head="10590" gloves="2451" feet="1125" skillId="9570" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Rag Set (C)" chest="10428" legs="0" head="10591" gloves="10962" feet="10758" skillId="9570" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Rag Set (B)" chest="10429" legs="0" head="530" gloves="10963" feet="10759" skillId="9570" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Rag Set (A)" chest="10430" legs="0" head="10592" gloves="10964" feet="10760" skillId="9570" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Rag Set (S)" chest="10431" legs="0" head="10593" gloves="10965" feet="10761" skillId="9570" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Karmian Set (C)" chest="439" legs="471" head="529" gloves="2454" feet="2430" skillId="9571" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Karmian Set (B)" chest="10432" legs="10521" head="10587" gloves="10972" feet="10906" skillId="9571" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Karmian Set (A)" chest="10433" legs="10522" head="10588" gloves="10973" feet="10907" skillId="9571" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Karmian Set (S)" chest="10434" legs="10523" head="10589" gloves="10974" feet="10908" skillId="9571" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Seal Set (C)" chest="440" legs="0" head="529" gloves="2457" feet="2433" skillId="9572" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Seal Set (B)" chest="10435" legs="0" head="10587" gloves="10981" feet="10915" skillId="9572" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Seal Set (A)" chest="10436" legs="0" head="10588" gloves="10982" feet="10916" skillId="9572" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Seal Set (S)" chest="10437" legs="0" head="10589" gloves="10983" feet="10917" skillId="9572" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Demon Set (C)" chest="441" legs="472" head="529" gloves="2459" feet="2435" skillId="9573" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Demon Set (B)" chest="10438" legs="10524" head="10587" gloves="10987" feet="10921" skillId="9573" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Demon Set (A)" chest="10439" legs="10525" head="10588" gloves="10988" feet="10922" skillId="9573" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Demon Set (S)" chest="10440" legs="10526" head="10589" gloves="10989" feet="10923" skillId="9573" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Divine Set (C)" chest="442" legs="473" head="10630" gloves="2463" feet="1126" skillId="9574" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Divine Set (B)" chest="10441" legs="10527" head="552" gloves="10999" feet="10762" skillId="9574" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Divine Set (A)" chest="10442" legs="10528" head="10631" gloves="11000" feet="10763" skillId="9574" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Divine Set (S)" chest="10443" legs="10529" head="10632" gloves="11001" feet="10764" skillId="9574" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Mana Set (B)" chest="443" legs="421" head="10587" gloves="2480" feet="580" skillId="9575" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Mana Set (A)" chest="10444" legs="10376" head="10588" gloves="11017" feet="10657" skillId="9575" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Mana Set (S)" chest="10445" legs="10377" head="10589" gloves="11018" feet="10658" skillId="9575" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Robe Set (B)" chest="444" legs="0" head="530" gloves="10963" feet="581" skillId="9576" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Robe Set (A)" chest="10446" legs="0" head="10592" gloves="10964" feet="10659" skillId="9576" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Sage's Robe Set (S)" chest="10447" legs="0" head="10593" gloves="10965" feet="10660" skillId="9576" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Paradia Set (B)" chest="445" legs="421" head="10594" gloves="2486" feet="582" skillId="9577" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Paradia Set (A)" chest="10448" legs="10376" head="10595" gloves="11023" feet="10661" skillId="9577" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Paradia Set (S)" chest="10449" legs="10377" head="10596" gloves="11024" feet="10662" skillId="9577" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Inferno Set (B)" chest="446" legs="421" head="532" gloves="2480" feet="588" skillId="9578" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Inferno Set (A)" chest="10450" legs="10376" head="10597" gloves="11017" feet="10671" skillId="9578" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Inferno Set (S)" chest="10451" legs="10377" head="10598" gloves="11018" feet="10672" skillId="9578" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Solar Eclipse Set (B)" chest="447" legs="421" head="10599" gloves="2480" feet="584" skillId="9579" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Solar Eclipse Set (A)" chest="10452" legs="10376" head="10600" gloves="11017" feet="10663" skillId="9579" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Solar Eclipse Set (S)" chest="10453" legs="10377" head="10601" gloves="11018" feet="10664" skillId="9579" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Black Ore Set (B)" chest="448" legs="0" head="534" gloves="11029" feet="585" skillId="9580" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Black Ore Set (A)" chest="10454" legs="0" head="10602" gloves="2489" feet="10665" skillId="9580" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Black Ore Set (S)" chest="10455" legs="0" head="10603" gloves="11030" feet="10666" skillId="9580" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Summoning Set (B)" chest="449" legs="421" head="10604" gloves="2480" feet="586" skillId="9581" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Summoning Set (A)" chest="10456" legs="10376" head="10605" gloves="11017" feet="10667" skillId="9581" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Summoning Set (S)" chest="10457" legs="10377" head="10606" gloves="11018" feet="10668" skillId="9581" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Otherworldly Set (B)" chest="450" legs="0" head="536" gloves="2480" feet="587" skillId="9582" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Otherworldly Set (A)" chest="10458" legs="0" head="10607" gloves="11017" feet="10669" skillId="9582" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Otherworldly Set (S)" chest="10459" legs="0" head="10608" gloves="11018" feet="10670" skillId="9582" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elemental Set (B)" chest="451" legs="421" head="10609" gloves="2480" feet="588" skillId="9583" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elemental Set (A)" chest="10460" legs="10376" head="10610" gloves="11017" feet="10671" skillId="9583" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elemental Set (S)" chest="10461" legs="10377" head="10611" gloves="11018" feet="10672" skillId="9583" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Phantom Set (B)" chest="452" legs="421" head="538" gloves="11008" feet="10673" skillId="9584" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Phantom Set (A)" chest="10462" legs="10376" head="10612" gloves="2470" feet="589" skillId="9584" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Phantom Set (S)" chest="10463" legs="10377" head="10613" gloves="11009" feet="10674" skillId="9584" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Grace Set (B)" chest="453" legs="421" head="10614" gloves="2481" feet="590" skillId="9585" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Grace Set (A)" chest="10464" legs="10376" head="10615" gloves="11019" feet="10675" skillId="9585" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Grace Set (S)" chest="10465" legs="10377" head="10616" gloves="11020" feet="10676" skillId="9585" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Holy Spirit Set (B)" chest="454" legs="0" head="540" gloves="2480" feet="591" skillId="9586" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Holy Spirit Set (A)" chest="10466" legs="0" head="10617" gloves="11017" feet="10677" skillId="9586" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Holy Spirit Set (S)" chest="10467" legs="0" head="10618" gloves="11018" feet="10678" skillId="9586" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Phoenix Set (B)" chest="455" legs="421" head="10619" gloves="11025" feet="10679" skillId="9587" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Phoenix Set (A)" chest="10468" legs="10376" head="10620" gloves="2488" feet="592" skillId="9587" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Phoenix Set (S)" chest="10469" legs="10377" head="10621" gloves="11026" feet="10680" skillId="9587" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cerberus Set (B)" chest="456" legs="421" head="542" gloves="11021" feet="10681" skillId="9588" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cerberus Set (A)" chest="10470" legs="10376" head="10622" gloves="2484" feet="593" skillId="9588" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cerberus Set (S)" chest="10471" legs="10377" head="10623" gloves="11022" feet="10682" skillId="9588" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Aid Set (B)" chest="457" legs="421" head="10624" gloves="2480" feet="594" skillId="9589" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Aid Set (A)" chest="10472" legs="10376" head="10625" gloves="11017" feet="10683" skillId="9589" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Aid Set (S)" chest="10473" legs="10377" head="10626" gloves="11018" feet="10684" skillId="9589" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Blessing Set (B)" chest="458" legs="0" head="544" gloves="2467" feet="595" skillId="9590" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Blessing Set (A)" chest="10474" legs="0" head="10627" gloves="11004" feet="10685" skillId="9590" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Robe of Blessing Set (S)" chest="10475" legs="0" head="10628" gloves="11005" feet="10686" skillId="9590" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Dasparion's Set (A)" chest="459" legs="0" head="512" gloves="2474" feet="2442" skillId="9591" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Dasparion's Set (S)" chest="10476" legs="0" head="10553" gloves="11012" feet="10935" skillId="9591" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="The Set (S)" chest="460" legs="0" head="2421" gloves="2473" feet="2444" skillId="9592" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (NG)" chest="1100" legs="1103" head="41" gloves="48" feet="1122" skillId="9593" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (D)" chest="10705" legs="10720" head="10094" gloves="10128" feet="10745" skillId="9593" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (C)" chest="10706" legs="10721" head="10095" gloves="10129" feet="10746" skillId="9593" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (B)" chest="10707" legs="10722" head="10096" gloves="10130" feet="10747" skillId="9593" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (A)" chest="10708" legs="10723" head="10097" gloves="10131" feet="10748" skillId="9593" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Cotton Tunic Set (S)" chest="10709" legs="10724" head="10098" gloves="10132" feet="10749" skillId="9593" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (NG)" chest="1101" legs="1104" head="44" gloves="48" feet="35" skillId="9594" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (D)" chest="10710" legs="10725" head="10109" gloves="10128" feet="10065" skillId="9594" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (C)" chest="10711" legs="10726" head="10110" gloves="10129" feet="10066" skillId="9594" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (B)" chest="10712" legs="10727" head="10111" gloves="10130" feet="10067" skillId="9594" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (A)" chest="10713" legs="10728" head="10112" gloves="10131" feet="10068" skillId="9594" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Devotion Set (S)" chest="10714" legs="10729" head="10113" gloves="10132" feet="10069" skillId="9594" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (NG)" chest="1102" legs="1105" head="41" gloves="48" feet="35" skillId="9595" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (D)" chest="10715" legs="10730" head="10094" gloves="10128" feet="10065" skillId="9595" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (C)" chest="10716" legs="10731" head="10095" gloves="10129" feet="10066" skillId="9595" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (B)" chest="10717" legs="10732" head="10096" gloves="10130" feet="10067" skillId="9595" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (A)" chest="10718" legs="10733" head="10097" gloves="10131" feet="10068" skillId="9595" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tunic of Magic Set (S)" chest="10719" legs="10734" head="10098" gloves="10132" feet="10069" skillId="9595" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Squire's Set (NG)" chest="1146" legs="1147" head="42" gloves="49" feet="1121" skillId="9596" skillLvl="1" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Squire's Set (D)" chest="10770" legs="10775" head="10099" gloves="10133" feet="10740" skillId="9596" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Squire's Set (C)" chest="10771" legs="10776" head="10100" gloves="10134" feet="10741" skillId="9596" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Squire's Set (B)" chest="10772" legs="10777" head="10101" gloves="10135" feet="10742" skillId="9596" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Squire's Set (A)" chest="10773" legs="10778" head="10102" gloves="10136" feet="10743" skillId="9596" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Squire's Set (S)" chest="10774" legs="10779" head="10103" gloves="10137" feet="10744" skillId="9596" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Avadon Heavy Set (B)" chest="2376" legs="2379" head="2415" gloves="5714" feet="5730" skillId="9597" skillLvl="4" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
+	<armorset name="Avadon Heavy Set (A)" chest="10785" legs="10795" head="10867" gloves="11037" feet="11061" skillId="9597" skillLvl="5" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
+	<armorset name="Avadon Heavy Set (S)" chest="10786" legs="10796" head="10868" gloves="11038" feet="11062" skillId="9597" skillLvl="6" shield="673" shieldSkillId="3548" enchant6Skill="9700"/>
+	<armorset name="Doom Heavy Set (B)" chest="2381" legs="0" head="2417" gloves="5722" feet="5738" skillId="9598" skillLvl="4" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
+	<armorset name="Doom Heavy Set (A)" chest="10799" legs="0" head="10871" gloves="11049" feet="11073" skillId="9598" skillLvl="5" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
+	<armorset name="Doom Heavy Set (S)" chest="10800" legs="0" head="10872" gloves="11050" feet="11074" skillId="9598" skillLvl="6" shield="110" shieldSkillId="3549" enchant6Skill="9700"/>
+	<armorset name="Tallum Heavy Set (A)" chest="2382" legs="0" head="547" gloves="5768" feet="5780" skillId="9599" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Tallum Heavy Set (S)" chest="10801" legs="0" head="10629" gloves="11082" feet="11094" skillId="9599" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Majestic Heavy Set (A)" chest="2383" legs="0" head="2419" gloves="5774" feet="5786" skillId="9600" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Majestic Heavy Set (S)" chest="10802" legs="0" head="10874" gloves="11088" feet="11100" skillId="9600" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Zubei Light Set (B)" chest="2384" legs="2388" head="503" gloves="5711" feet="5727" skillId="9601" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Zubei Light Set (A)" chest="10803" legs="10814" head="10537" gloves="11033" feet="11057" skillId="9601" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Zubei Light Set (S)" chest="10804" legs="10815" head="10538" gloves="11034" feet="11058" skillId="9601" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Dark Crystal Light Set (A)" chest="2385" legs="2389" head="512" gloves="5766" feet="5778" skillId="9602" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Dark Crystal Light Set (S)" chest="10805" legs="10816" head="10553" gloves="11080" feet="11092" skillId="9602" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Avadon Light Set (B)" chest="2390" legs="0" head="2415" gloves="5715" feet="5731" skillId="9603" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Avadon Light Set (A)" chest="10817" legs="0" head="10867" gloves="11039" feet="11063" skillId="9603" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Avadon Light Set (S)" chest="10818" legs="0" head="10868" gloves="11040" feet="11064" skillId="9603" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Blue Wolf Light Set (B)" chest="2391" legs="0" head="2416" gloves="5719" feet="5735" skillId="9604" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Blue Wolf Light Set (A)" chest="10819" legs="0" head="10869" gloves="11045" feet="11069" skillId="9604" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Blue Wolf Light Set (S)" chest="10820" legs="0" head="10870" gloves="11046" feet="11070" skillId="9604" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Doom Light Set (B)" chest="2392" legs="0" head="2417" gloves="5723" feet="5739" skillId="9605" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Doom Light Set (A)" chest="10821" legs="0" head="10871" gloves="11051" feet="11075" skillId="9605" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Doom Light Set (S)" chest="10822" legs="0" head="10872" gloves="11052" feet="11076" skillId="9605" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Tallum Light Set (A)" chest="2393" legs="0" head="547" gloves="5769" feet="5781" skillId="9606" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Tallum Light Set (S)" chest="10823" legs="0" head="10629" gloves="11083" feet="11095" skillId="9606" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Nightmare Light Set (A)" chest="2394" legs="0" head="2418" gloves="5772" feet="5784" skillId="9607" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Nightmare Light Set (S)" chest="10824" legs="0" head="10873" gloves="11086" feet="11098" skillId="9607" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Majestic Leather Set (A)" chest="2395" legs="0" head="2419" gloves="5775" feet="5787" skillId="9608" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Majestic Leather Set (S)" chest="10825" legs="0" head="10874" gloves="11089" feet="11101" skillId="9608" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Elven Mithril Set (D)" chest="2396" legs="2401" head="10533" gloves="2450" feet="2426" skillId="9609" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Mithril Set (C)" chest="10826" legs="10837" head="499" gloves="10958" feet="10891" skillId="9609" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Mithril Set (B)" chest="10827" legs="10838" head="10534" gloves="10959" feet="10892" skillId="9609" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Mithril Set (A)" chest="10828" legs="10839" head="10535" gloves="10960" feet="10893" skillId="9609" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Elven Mithril Set (S)" chest="10829" legs="10840" head="10536" gloves="10961" feet="10894" skillId="9609" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Zubei Robe Set (B)" chest="2397" legs="2402" head="503" gloves="5712" feet="5728" skillId="9610" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Zubei Robe Set (A)" chest="10830" legs="10841" head="10537" gloves="11035" feet="11059" skillId="9610" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Zubei Robe Set (S)" chest="10831" legs="10842" head="10538" gloves="11036" feet="11060" skillId="9610" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Blue Wolf Robe Set (B)" chest="2398" legs="2403" head="2416" gloves="5720" feet="5736" skillId="9611" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Blue Wolf Robe Set (A)" chest="10832" legs="10843" head="10869" gloves="11047" feet="11071" skillId="9611" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Blue Wolf Robe Set (S)" chest="10833" legs="10844" head="10870" gloves="11048" feet="11072" skillId="9611" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Doom Robe Set (B)" chest="2399" legs="2404" head="2417" gloves="5724" feet="5740" skillId="9612" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Doom Robe Set (A)" chest="10834" legs="10845" head="10871" gloves="11053" feet="11077" skillId="9612" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Doom Robe Set (S)" chest="10835" legs="10846" head="10872" gloves="11054" feet="11078" skillId="9612" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tallum Robe Set (A)" chest="2400" legs="2405" head="547" gloves="5770" feet="5782" skillId="9613" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Tallum Robe Set (S)" chest="10836" legs="10847" head="10629" gloves="11084" feet="11096" skillId="9613" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Avadon Robe Set (B)" chest="2406" legs="0" head="2415" gloves="5716" feet="5732" skillId="9614" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Avadon Robe Set (A)" chest="10848" legs="0" head="10867" gloves="11041" feet="11065" skillId="9614" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Avadon Robe Set (S)" chest="10849" legs="0" head="10868" gloves="11042" feet="11066" skillId="9614" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Dark Crystal Robe Set (A)" chest="2407" legs="0" head="512" gloves="5767" feet="5779" skillId="9615" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Dark Crystal Robe Set (S)" chest="10850" legs="0" head="10553" gloves="11081" feet="11093" skillId="9615" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Nightmare Robe Set (A)" chest="2408" legs="0" head="2418" gloves="5773" feet="5785" skillId="9616" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Nightmare Robe Set (S)" chest="10851" legs="0" head="10873" gloves="11087" feet="11099" skillId="9616" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Majestic Robe Set (A)" chest="2409" legs="0" head="2419" gloves="5776" feet="5788" skillId="9617" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Majestic Robe Set (S)" chest="10852" legs="0" head="10874" gloves="11090" feet="11102" skillId="9617" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Imperial Crusader Set (S)" chest="6373" legs="6374" head="6378" gloves="6375" feet="6376" skillId="9618" skillLvl="6" shield="6377" shieldSkillId="3554" enchant6Skill="9700"/>
+	<armorset name="Draconic Leather Set (S)" chest="6379" legs="0" head="6382" gloves="6380" feet="6381" skillId="9619" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Major Arcana Set (S)" chest="6383" legs="0" head="6386" gloves="6384" feet="6385" skillId="9620" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Clan Oath Heavy Set (D)" chest="7851" legs="0" head="7850" gloves="7852" feet="7853" skillId="9621" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Clan Oath Heavy Set (C)" chest="11107" legs="0" head="11103" gloves="11111" feet="11115" skillId="9621" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Clan Oath Heavy Set (B)" chest="11108" legs="0" head="11104" gloves="11112" feet="11116" skillId="9621" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Clan Oath Heavy Set (A)" chest="11109" legs="0" head="11105" gloves="11113" feet="11117" skillId="9621" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Clan Oath Heavy Set (S)" chest="11110" legs="0" head="11106" gloves="11114" feet="11118" skillId="9621" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Clan Oath Light Set (D)" chest="7854" legs="0" head="7850" gloves="7855" feet="7856" skillId="9622" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Clan Oath Light Set (C)" chest="11119" legs="0" head="11103" gloves="11123" feet="11127" skillId="9622" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Clan Oath Light Set (B)" chest="11120" legs="0" head="11104" gloves="11124" feet="11128" skillId="9622" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Clan Oath Light Set (A)" chest="11121" legs="0" head="11105" gloves="11125" feet="11129" skillId="9622" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Clan Oath Light Set (S)" chest="11122" legs="0" head="11106" gloves="11126" feet="11130" skillId="9622" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Clan Oath Robe Set (D)" chest="7857" legs="0" head="7850" gloves="7858" feet="7859" skillId="9623" skillLvl="2" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Clan Oath Robe Set (C)" chest="11131" legs="0" head="11103" gloves="11135" feet="11139" skillId="9623" skillLvl="3" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Clan Oath Robe Set (B)" chest="11132" legs="0" head="11104" gloves="11136" feet="11140" skillId="9623" skillLvl="4" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Clan Oath Robe Set (A)" chest="11133" legs="0" head="11105" gloves="11137" feet="11141" skillId="9623" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Clan Oath Robe Set (S)" chest="11134" legs="0" head="11106" gloves="11138" feet="11142" skillId="9623" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apella Heavy Set (A)" chest="7861" legs="0" head="7860" gloves="7862" feet="7863" skillId="9624" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Apella Heavy Set (S)" chest="11144" legs="0" head="11143" gloves="11145" feet="11146" skillId="9624" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9700"/>
+	<armorset name="Apella Light Set (A)" chest="7864" legs="0" head="7860" gloves="7865" feet="7866" skillId="9625" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Apella Light Set (S)" chest="11147" legs="0" head="11143" gloves="11148" feet="11149" skillId="9625" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9701"/>
+	<armorset name="Apella Robe Set (A)" chest="7867" legs="0" head="7860" gloves="7868" feet="7869" skillId="9626" skillLvl="5" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
+	<armorset name="Apella Robe Set (S)" chest="11150" legs="0" head="11143" gloves="11151" feet="11152" skillId="9626" skillLvl="6" shield="0" shieldSkillId="0" enchant6Skill="9702"/>
 </list>

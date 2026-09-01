@@ -1,7 +1,7 @@
 # A ladder up to S grade for every armor set
 
-`generate.ps1` gives each of the 130 armor looks of the datapack a ladder from the grade it already has up
-to S — **481 sets, 1142 minted items** — and `patch_client.ps1` teaches the client those new ids.
+`generate.ps1` gives each of the 127 armor looks of the datapack a ladder from the grade it already has up
+to S — **463 sets, 1153 minted items** — and `patch_client.ps1` teaches the client those new ids.
 
 ```
 a No Grade set exists as  NG D C B A S

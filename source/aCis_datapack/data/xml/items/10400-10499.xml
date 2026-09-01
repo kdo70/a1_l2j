@@ -1,146 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10400" type="Armor" name="Robe of Devotion (D)">
+	<item id="10400" type="Armor" name="Leather Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2650" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="109" />
-		</for>
-	</item>
-	<item id="10401" type="Armor" name="Robe of Devotion (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2650" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="2110" />
 		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
+		<set name="crystal_count" val="350" />
+		<set name="price" val="505000" />
 		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="109" />
+			<baseadd stat="pDef" val="74" />
+			<add stat="maxMp" val="52" />
 		</for>
 	</item>
-	<item id="10402" type="Armor" name="Robe of Devotion (B)">
+	<item id="10401" type="Armor" name="Leather Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2650" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="2110" />
 		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
+		<set name="crystal_count" val="440" />
+		<set name="price" val="2410000" />
 		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="109" />
+			<baseadd stat="pDef" val="83" />
+			<add stat="maxMp" val="52" />
 		</for>
 	</item>
-	<item id="10403" type="Armor" name="Robe of Devotion (A)">
+	<item id="10402" type="Armor" name="Leather Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2650" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="2110" />
 		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
+		<set name="crystal_count" val="520" />
+		<set name="price" val="4630000" />
 		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="109" />
+			<baseadd stat="pDef" val="91" />
+			<add stat="maxMp" val="52" />
 		</for>
 	</item>
-	<item id="10404" type="Armor" name="Robe of Devotion (S)">
+	<item id="10403" type="Armor" name="Leather Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2650" />
+		<set name="bodypart" val="chest" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="2110" />
 		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="1000" />
-		<set name="price" val="17400000" />
+		<set name="crystal_count" val="630" />
+		<set name="price" val="14300000" />
 		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="109" />
+			<baseadd stat="pDef" val="102" />
+			<add stat="maxMp" val="52" />
 		</for>
 	</item>
-	<item id="10405" type="Armor" name="Robe of Magic (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2600" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="400" />
-		<set name="price" val="429000" />
-		<for>
-			<baseadd stat="pDef" val="85" />
-			<add stat="maxMp" val="140" />
-		</for>
-	</item>
-	<item id="10406" type="Armor" name="Robe of Magic (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2600" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="560" />
-		<set name="price" val="1570000" />
-		<for>
-			<baseadd stat="pDef" val="120" />
-			<add stat="maxMp" val="140" />
-		</for>
-	</item>
-	<item id="10407" type="Armor" name="Robe of Magic (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2600" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="700" />
-		<set name="price" val="5080000" />
-		<for>
-			<baseadd stat="pDef" val="135" />
-			<add stat="maxMp" val="140" />
-		</for>
-	</item>
-	<item id="10408" type="Armor" name="Robe of Magic (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2600" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="830" />
-		<set name="price" val="7730000" />
-		<for>
-			<baseadd stat="pDef" val="147" />
-			<add stat="maxMp" val="140" />
-		</for>
-	</item>
-	<item id="10409" type="Armor" name="Robe of Magic (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="MAGIC" />
-		<set name="bodypart" val="fullarmor" />
-		<set name="material" val="CLOTH" />
-		<set name="weight" val="2600" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="1000" />
-		<set name="price" val="17400000" />
-		<for>
-			<baseadd stat="pDef" val="166" />
-			<add stat="maxMp" val="140" />
-		</for>
-	</item>
-	<item id="10410" type="Armor" name="Cursed Tunic (C)">
+	<item id="10404" type="Armor" name="Cursed Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -155,7 +71,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10411" type="Armor" name="Cursed Tunic (B)">
+	<item id="10405" type="Armor" name="Cursed Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -170,7 +86,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10412" type="Armor" name="Cursed Tunic (A)">
+	<item id="10406" type="Armor" name="Cursed Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -185,7 +101,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10413" type="Armor" name="Cursed Tunic (S)">
+	<item id="10407" type="Armor" name="Cursed Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -200,7 +116,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10414" type="Armor" name="Elven Tunic (C)">
+	<item id="10408" type="Armor" name="Elven Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -215,7 +131,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10415" type="Armor" name="Elven Tunic (B)">
+	<item id="10409" type="Armor" name="Elven Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -230,7 +146,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10416" type="Armor" name="Elven Tunic (A)">
+	<item id="10410" type="Armor" name="Elven Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -245,7 +161,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10417" type="Armor" name="Elven Tunic (S)">
+	<item id="10411" type="Armor" name="Elven Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -260,7 +176,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10418" type="Armor" name="White Tunic (C)">
+	<item id="10412" type="Armor" name="White Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -275,7 +191,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10419" type="Armor" name="White Tunic (B)">
+	<item id="10413" type="Armor" name="White Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -290,7 +206,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10420" type="Armor" name="White Tunic (A)">
+	<item id="10414" type="Armor" name="White Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -305,7 +221,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10421" type="Armor" name="White Tunic (S)">
+	<item id="10415" type="Armor" name="White Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -320,7 +236,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10422" type="Armor" name="Mystic's Tunic (C)">
+	<item id="10416" type="Armor" name="Mystic's Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -335,7 +251,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10423" type="Armor" name="Mystic's Tunic (B)">
+	<item id="10417" type="Armor" name="Mystic's Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -350,7 +266,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10424" type="Armor" name="Mystic's Tunic (A)">
+	<item id="10418" type="Armor" name="Mystic's Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -365,7 +281,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10425" type="Armor" name="Mystic's Tunic (S)">
+	<item id="10419" type="Armor" name="Mystic's Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -380,7 +296,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10426" type="Armor" name="Tunic of Knowledge (C)">
+	<item id="10420" type="Armor" name="Tunic of Knowledge (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -395,7 +311,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10427" type="Armor" name="Tunic of Knowledge (B)">
+	<item id="10421" type="Armor" name="Tunic of Knowledge (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -410,7 +326,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10428" type="Armor" name="Tunic of Knowledge (A)">
+	<item id="10422" type="Armor" name="Tunic of Knowledge (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -425,7 +341,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10429" type="Armor" name="Tunic of Knowledge (S)">
+	<item id="10423" type="Armor" name="Tunic of Knowledge (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -440,7 +356,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10430" type="Armor" name="Mithril Tunic (C)">
+	<item id="10424" type="Armor" name="Mithril Tunic (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -455,7 +371,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10431" type="Armor" name="Mithril Tunic (B)">
+	<item id="10425" type="Armor" name="Mithril Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -470,7 +386,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10432" type="Armor" name="Mithril Tunic (A)">
+	<item id="10426" type="Armor" name="Mithril Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -485,7 +401,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10433" type="Armor" name="Mithril Tunic (S)">
+	<item id="10427" type="Armor" name="Mithril Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -500,7 +416,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10434" type="Armor" name="Sage's Rag (C)">
+	<item id="10428" type="Armor" name="Sage's Rag (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -515,7 +431,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10435" type="Armor" name="Sage's Rag (B)">
+	<item id="10429" type="Armor" name="Sage's Rag (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -530,7 +446,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10436" type="Armor" name="Sage's Rag (A)">
+	<item id="10430" type="Armor" name="Sage's Rag (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -545,7 +461,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10437" type="Armor" name="Sage's Rag (S)">
+	<item id="10431" type="Armor" name="Sage's Rag (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -560,7 +476,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10438" type="Armor" name="Karmian Tunic (B)">
+	<item id="10432" type="Armor" name="Karmian Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -575,7 +491,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10439" type="Armor" name="Karmian Tunic (A)">
+	<item id="10433" type="Armor" name="Karmian Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -590,7 +506,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10440" type="Armor" name="Karmian Tunic (S)">
+	<item id="10434" type="Armor" name="Karmian Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -605,7 +521,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10441" type="Armor" name="Robe of Seal (B)">
+	<item id="10435" type="Armor" name="Robe of Seal (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -620,7 +536,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10442" type="Armor" name="Robe of Seal (A)">
+	<item id="10436" type="Armor" name="Robe of Seal (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -635,7 +551,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10443" type="Armor" name="Robe of Seal (S)">
+	<item id="10437" type="Armor" name="Robe of Seal (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -650,7 +566,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10444" type="Armor" name="Demon's Tunic (B)">
+	<item id="10438" type="Armor" name="Demon's Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -665,7 +581,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10445" type="Armor" name="Demon's Tunic (A)">
+	<item id="10439" type="Armor" name="Demon's Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -680,7 +596,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10446" type="Armor" name="Demon's Tunic (S)">
+	<item id="10440" type="Armor" name="Demon's Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -695,7 +611,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10447" type="Armor" name="Divine Tunic (B)">
+	<item id="10441" type="Armor" name="Divine Tunic (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -710,7 +626,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10448" type="Armor" name="Divine Tunic (A)">
+	<item id="10442" type="Armor" name="Divine Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -725,7 +641,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10449" type="Armor" name="Divine Tunic (S)">
+	<item id="10443" type="Armor" name="Divine Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -740,7 +656,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10450" type="Armor" name="Tunic of Mana (A)">
+	<item id="10444" type="Armor" name="Tunic of Mana (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -755,7 +671,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10451" type="Armor" name="Tunic of Mana (S)">
+	<item id="10445" type="Armor" name="Tunic of Mana (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -770,7 +686,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10452" type="Armor" name="Sage's Robe (A)">
+	<item id="10446" type="Armor" name="Sage's Robe (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -785,7 +701,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10453" type="Armor" name="Sage's Robe (S)">
+	<item id="10447" type="Armor" name="Sage's Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -800,7 +716,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10454" type="Armor" name="Paradia Tunic (A)">
+	<item id="10448" type="Armor" name="Paradia Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -815,7 +731,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10455" type="Armor" name="Paradia Tunic (S)">
+	<item id="10449" type="Armor" name="Paradia Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -830,7 +746,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10456" type="Armor" name="Inferno Tunic (A)">
+	<item id="10450" type="Armor" name="Inferno Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -845,7 +761,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10457" type="Armor" name="Inferno Tunic (S)">
+	<item id="10451" type="Armor" name="Inferno Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -860,7 +776,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10458" type="Armor" name="Tunic of Solar Eclipse (A)">
+	<item id="10452" type="Armor" name="Tunic of Solar Eclipse (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -875,7 +791,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10459" type="Armor" name="Tunic of Solar Eclipse (S)">
+	<item id="10453" type="Armor" name="Tunic of Solar Eclipse (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -890,7 +806,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10460" type="Armor" name="Robe of Black Ore (A)">
+	<item id="10454" type="Armor" name="Robe of Black Ore (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -905,7 +821,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10461" type="Armor" name="Robe of Black Ore (S)">
+	<item id="10455" type="Armor" name="Robe of Black Ore (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -920,7 +836,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10462" type="Armor" name="Tunic of Summoning (A)">
+	<item id="10456" type="Armor" name="Tunic of Summoning (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -935,7 +851,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10463" type="Armor" name="Tunic of Summoning (S)">
+	<item id="10457" type="Armor" name="Tunic of Summoning (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -950,7 +866,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10464" type="Armor" name="Otherworldly Robe (A)">
+	<item id="10458" type="Armor" name="Otherworldly Robe (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -965,7 +881,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10465" type="Armor" name="Otherworldly Robe (S)">
+	<item id="10459" type="Armor" name="Otherworldly Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -980,7 +896,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10466" type="Armor" name="Elemental Tunic (A)">
+	<item id="10460" type="Armor" name="Elemental Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -995,7 +911,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10467" type="Armor" name="Elemental Tunic (S)">
+	<item id="10461" type="Armor" name="Elemental Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1010,7 +926,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10468" type="Armor" name="Tunic of Phantom (A)">
+	<item id="10462" type="Armor" name="Tunic of Phantom (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1025,7 +941,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10469" type="Armor" name="Tunic of Phantom (S)">
+	<item id="10463" type="Armor" name="Tunic of Phantom (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1040,7 +956,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10470" type="Armor" name="Tunic of Grace (A)">
+	<item id="10464" type="Armor" name="Tunic of Grace (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1055,7 +971,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10471" type="Armor" name="Tunic of Grace (S)">
+	<item id="10465" type="Armor" name="Tunic of Grace (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1070,7 +986,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10472" type="Armor" name="Robe of Holy Spirit (A)">
+	<item id="10466" type="Armor" name="Robe of Holy Spirit (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -1085,7 +1001,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10473" type="Armor" name="Robe of Holy Spirit (S)">
+	<item id="10467" type="Armor" name="Robe of Holy Spirit (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -1100,7 +1016,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10474" type="Armor" name="Phoenix Tunic (A)">
+	<item id="10468" type="Armor" name="Phoenix Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1115,7 +1031,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10475" type="Armor" name="Phoenix Tunic (S)">
+	<item id="10469" type="Armor" name="Phoenix Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1130,7 +1046,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10476" type="Armor" name="Cerberus Tunic (A)">
+	<item id="10470" type="Armor" name="Cerberus Tunic (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1145,7 +1061,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10477" type="Armor" name="Cerberus Tunic (S)">
+	<item id="10471" type="Armor" name="Cerberus Tunic (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1160,7 +1076,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10478" type="Armor" name="Tunic of Aid (A)">
+	<item id="10472" type="Armor" name="Tunic of Aid (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1175,7 +1091,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10479" type="Armor" name="Tunic of Aid (S)">
+	<item id="10473" type="Armor" name="Tunic of Aid (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -1190,7 +1106,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10480" type="Armor" name="Robe of Blessing (A)">
+	<item id="10474" type="Armor" name="Robe of Blessing (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -1205,7 +1121,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10481" type="Armor" name="Robe of Blessing (S)">
+	<item id="10475" type="Armor" name="Robe of Blessing (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -1220,7 +1136,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10482" type="Armor" name="Dasparion's Robe (S)">
+	<item id="10476" type="Armor" name="Dasparion's Robe (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />
@@ -1235,7 +1151,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10483" type="Armor" name="Apprentice's Stockings (D)">
+	<item id="10477" type="Armor" name="Apprentice's Stockings (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1249,7 +1165,7 @@
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
-	<item id="10484" type="Armor" name="Apprentice's Stockings (C)">
+	<item id="10478" type="Armor" name="Apprentice's Stockings (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1263,7 +1179,7 @@
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
-	<item id="10485" type="Armor" name="Apprentice's Stockings (B)">
+	<item id="10479" type="Armor" name="Apprentice's Stockings (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1277,7 +1193,7 @@
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
-	<item id="10486" type="Armor" name="Apprentice's Stockings (A)">
+	<item id="10480" type="Armor" name="Apprentice's Stockings (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1291,7 +1207,7 @@
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
-	<item id="10487" type="Armor" name="Apprentice's Stockings (S)">
+	<item id="10481" type="Armor" name="Apprentice's Stockings (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1305,7 +1221,7 @@
 			<add stat="maxMp" val="10" />
 		</for>
 	</item>
-	<item id="10488" type="Armor" name="Stockings (D)">
+	<item id="10482" type="Armor" name="Stockings (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1319,7 +1235,7 @@
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
-	<item id="10489" type="Armor" name="Stockings (C)">
+	<item id="10483" type="Armor" name="Stockings (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1333,7 +1249,7 @@
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
-	<item id="10490" type="Armor" name="Stockings (B)">
+	<item id="10484" type="Armor" name="Stockings (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1347,7 +1263,7 @@
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
-	<item id="10491" type="Armor" name="Stockings (A)">
+	<item id="10485" type="Armor" name="Stockings (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1361,7 +1277,7 @@
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
-	<item id="10492" type="Armor" name="Stockings (S)">
+	<item id="10486" type="Armor" name="Stockings (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1375,7 +1291,7 @@
 			<add stat="maxMp" val="15" />
 		</for>
 	</item>
-	<item id="10493" type="Armor" name="Feriotic Stockings (D)">
+	<item id="10487" type="Armor" name="Feriotic Stockings (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1389,7 +1305,7 @@
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
-	<item id="10494" type="Armor" name="Feriotic Stockings (C)">
+	<item id="10488" type="Armor" name="Feriotic Stockings (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1403,7 +1319,7 @@
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
-	<item id="10495" type="Armor" name="Feriotic Stockings (B)">
+	<item id="10489" type="Armor" name="Feriotic Stockings (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1417,7 +1333,7 @@
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
-	<item id="10496" type="Armor" name="Feriotic Stockings (A)">
+	<item id="10490" type="Armor" name="Feriotic Stockings (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1431,7 +1347,7 @@
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
-	<item id="10497" type="Armor" name="Feriotic Stockings (S)">
+	<item id="10491" type="Armor" name="Feriotic Stockings (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1445,7 +1361,77 @@
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
-	<item id="10498" type="Armor" name="Cursed Stockings (C)">
+	<item id="10492" type="Armor" name="Leather Stockings (D)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="33" />
+			<add stat="maxMp" val="33" />
+		</for>
+	</item>
+	<item id="10493" type="Armor" name="Leather Stockings (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="46" />
+			<add stat="maxMp" val="33" />
+		</for>
+	</item>
+	<item id="10494" type="Armor" name="Leather Stockings (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="52" />
+			<add stat="maxMp" val="33" />
+		</for>
+	</item>
+	<item id="10495" type="Armor" name="Leather Stockings (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="56" />
+			<add stat="maxMp" val="33" />
+		</for>
+	</item>
+	<item id="10496" type="Armor" name="Leather Stockings (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="64" />
+			<add stat="maxMp" val="33" />
+		</for>
+	</item>
+	<item id="10497" type="Armor" name="Cursed Stockings (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1460,7 +1446,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10499" type="Armor" name="Cursed Stockings (B)">
+	<item id="10498" type="Armor" name="Cursed Stockings (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="legs" />
@@ -1471,6 +1457,21 @@
 		<set name="price" val="1510000" />
 		<for>
 			<baseadd stat="pDef" val="52" />
+			<add stat="maxMp" val="66" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10499" type="Armor" name="Cursed Stockings (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="CLOTH" />
+		<set name="weight" val="1020" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="56" />
 			<add stat="maxMp" val="66" />
 			<enchant stat="pDef" val="0" />
 		</for>

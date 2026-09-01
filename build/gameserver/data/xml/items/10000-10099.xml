@@ -585,72 +585,7 @@
 			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
-	<item id="10045" type="Armor" name="Hard Leather Pants (D)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1700" />
-		<set name="crystal_type" val="D" />
-		<set name="crystal_count" val="150" />
-		<set name="price" val="95200" />
-		<for>
-			<baseadd stat="pDef" val="48" />
-		</for>
-	</item>
-	<item id="10046" type="Armor" name="Hard Leather Pants (C)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1700" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="316000" />
-		<for>
-			<baseadd stat="pDef" val="69" />
-		</for>
-	</item>
-	<item id="10047" type="Armor" name="Hard Leather Pants (B)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1700" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="260" />
-		<set name="price" val="1510000" />
-		<for>
-			<baseadd stat="pDef" val="78" />
-		</for>
-	</item>
-	<item id="10048" type="Armor" name="Hard Leather Pants (A)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1700" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="310" />
-		<set name="price" val="2890000" />
-		<for>
-			<baseadd stat="pDef" val="84" />
-		</for>
-	</item>
-	<item id="10049" type="Armor" name="Hard Leather Pants (S)">
-		<set name="default_action" val="equip" />
-		<set name="armor_type" val="LIGHT" />
-		<set name="bodypart" val="legs" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="1700" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="370" />
-		<set name="price" val="8960000" />
-		<for>
-			<baseadd stat="pDef" val="96" />
-		</for>
-	</item>
-	<item id="10050" type="Armor" name="Bone Gaiters (D)">
+	<item id="10045" type="Armor" name="Bone Gaiters (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -663,7 +598,7 @@
 			<baseadd stat="pDef" val="48" />
 		</for>
 	</item>
-	<item id="10051" type="Armor" name="Bone Gaiters (C)">
+	<item id="10046" type="Armor" name="Bone Gaiters (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -676,7 +611,7 @@
 			<baseadd stat="pDef" val="69" />
 		</for>
 	</item>
-	<item id="10052" type="Armor" name="Bone Gaiters (B)">
+	<item id="10047" type="Armor" name="Bone Gaiters (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -689,7 +624,7 @@
 			<baseadd stat="pDef" val="78" />
 		</for>
 	</item>
-	<item id="10053" type="Armor" name="Bone Gaiters (A)">
+	<item id="10048" type="Armor" name="Bone Gaiters (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -702,7 +637,7 @@
 			<baseadd stat="pDef" val="84" />
 		</for>
 	</item>
-	<item id="10054" type="Armor" name="Bone Gaiters (S)">
+	<item id="10049" type="Armor" name="Bone Gaiters (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -715,7 +650,7 @@
 			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
-	<item id="10055" type="Armor" name="Piece Bone Gaiters (D)">
+	<item id="10050" type="Armor" name="Piece Bone Gaiters (D)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -728,7 +663,7 @@
 			<baseadd stat="pDef" val="64" />
 		</for>
 	</item>
-	<item id="10056" type="Armor" name="Piece Bone Gaiters (C)">
+	<item id="10051" type="Armor" name="Piece Bone Gaiters (C)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -741,7 +676,7 @@
 			<baseadd stat="pDef" val="92" />
 		</for>
 	</item>
-	<item id="10057" type="Armor" name="Piece Bone Gaiters (B)">
+	<item id="10052" type="Armor" name="Piece Bone Gaiters (B)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -754,7 +689,7 @@
 			<baseadd stat="pDef" val="104" />
 		</for>
 	</item>
-	<item id="10058" type="Armor" name="Piece Bone Gaiters (A)">
+	<item id="10053" type="Armor" name="Piece Bone Gaiters (A)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -767,7 +702,7 @@
 			<baseadd stat="pDef" val="113" />
 		</for>
 	</item>
-	<item id="10059" type="Armor" name="Piece Bone Gaiters (S)">
+	<item id="10054" type="Armor" name="Piece Bone Gaiters (S)">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="legs" />
@@ -778,6 +713,71 @@
 		<set name="price" val="8960000" />
 		<for>
 			<baseadd stat="pDef" val="128" />
+		</for>
+	</item>
+	<item id="10055" type="Armor" name="Hard Leather Gaiters (D)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1610" />
+		<set name="crystal_type" val="D" />
+		<set name="crystal_count" val="150" />
+		<set name="price" val="95200" />
+		<for>
+			<baseadd stat="pDef" val="48" />
+		</for>
+	</item>
+	<item id="10056" type="Armor" name="Hard Leather Gaiters (C)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1610" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="210" />
+		<set name="price" val="316000" />
+		<for>
+			<baseadd stat="pDef" val="69" />
+		</for>
+	</item>
+	<item id="10057" type="Armor" name="Hard Leather Gaiters (B)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1610" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="260" />
+		<set name="price" val="1510000" />
+		<for>
+			<baseadd stat="pDef" val="78" />
+		</for>
+	</item>
+	<item id="10058" type="Armor" name="Hard Leather Gaiters (A)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1610" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="310" />
+		<set name="price" val="2890000" />
+		<for>
+			<baseadd stat="pDef" val="84" />
+		</for>
+	</item>
+	<item id="10059" type="Armor" name="Hard Leather Gaiters (S)">
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1610" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="370" />
+		<set name="price" val="8960000" />
+		<for>
+			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
 	<item id="10060" type="Armor" name="Bronze Gaiters (D)">
@@ -1145,7 +1145,59 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10090" type="Armor" name="Cloth Cap (D)">
+	<item id="10090" type="Armor" name="Leather Boots (C)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1300" />
+		<set name="crystal_type" val="C" />
+		<set name="crystal_count" val="110" />
+		<set name="price" val="245000" />
+		<for>
+			<baseadd stat="pDef" val="39" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10091" type="Armor" name="Leather Boots (B)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1300" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="140" />
+		<set name="price" val="804000" />
+		<for>
+			<baseadd stat="pDef" val="45" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10092" type="Armor" name="Leather Boots (A)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1300" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="165" />
+		<set name="price" val="1760000" />
+		<for>
+			<baseadd stat="pDef" val="49" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10093" type="Armor" name="Leather Boots (S)">
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1300" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="200" />
+		<set name="price" val="3580000" />
+		<for>
+			<baseadd stat="pDef" val="55" />
+			<enchant stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="10094" type="Armor" name="Cloth Cap (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="CLOTH" />
@@ -1157,7 +1209,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10091" type="Armor" name="Cloth Cap (C)">
+	<item id="10095" type="Armor" name="Cloth Cap (C)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="CLOTH" />
@@ -1169,7 +1221,7 @@
 			<baseadd stat="pDef" val="58" />
 		</for>
 	</item>
-	<item id="10092" type="Armor" name="Cloth Cap (B)">
+	<item id="10096" type="Armor" name="Cloth Cap (B)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="CLOTH" />
@@ -1181,7 +1233,7 @@
 			<baseadd stat="pDef" val="67" />
 		</for>
 	</item>
-	<item id="10093" type="Armor" name="Cloth Cap (A)">
+	<item id="10097" type="Armor" name="Cloth Cap (A)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="CLOTH" />
@@ -1193,7 +1245,7 @@
 			<baseadd stat="pDef" val="73" />
 		</for>
 	</item>
-	<item id="10094" type="Armor" name="Cloth Cap (S)">
+	<item id="10098" type="Armor" name="Cloth Cap (S)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="CLOTH" />
@@ -1205,7 +1257,7 @@
 			<baseadd stat="pDef" val="83" />
 		</for>
 	</item>
-	<item id="10095" type="Armor" name="Leather Cap (D)">
+	<item id="10099" type="Armor" name="Leather Cap (D)">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -1215,54 +1267,6 @@
 		<set name="price" val="76200" />
 		<for>
 			<baseadd stat="pDef" val="44" />
-		</for>
-	</item>
-	<item id="10096" type="Armor" name="Leather Cap (C)">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="660" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="140" />
-		<set name="price" val="536000" />
-		<for>
-			<baseadd stat="pDef" val="58" />
-		</for>
-	</item>
-	<item id="10097" type="Armor" name="Leather Cap (B)">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="660" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="175" />
-		<set name="price" val="1210000" />
-		<for>
-			<baseadd stat="pDef" val="67" />
-		</for>
-	</item>
-	<item id="10098" type="Armor" name="Leather Cap (A)">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="660" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="210" />
-		<set name="price" val="2640000" />
-		<for>
-			<baseadd stat="pDef" val="73" />
-		</for>
-	</item>
-	<item id="10099" type="Armor" name="Leather Cap (S)">
-		<set name="default_action" val="equip" />
-		<set name="bodypart" val="head" />
-		<set name="material" val="LEATHER" />
-		<set name="weight" val="660" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="250" />
-		<set name="price" val="5370000" />
-		<for>
-			<baseadd stat="pDef" val="83" />
 		</for>
 	</item>
 </list>

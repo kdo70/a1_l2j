@@ -44,7 +44,7 @@
 		<set name="weight" val="1060" />
 		<set name="price" val="1520" />
 		<for>
-			<baseadd stat="pDef" val="13" />
+			<baseadd stat="pDef" val="22" />
 			<add stat="maxMp" val="23" />
 		</for>
 	</item>
@@ -196,7 +196,7 @@
 		<set name="weight" val="660" />
 		<set name="price" val="607" />
 		<for>
-			<baseadd stat="pDef" val="11" />
+			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
 	<item id="1120" type="Armor" name="Pa'agrian Hand">
@@ -241,7 +241,7 @@
 		<set name="weight" val="1300" />
 		<set name="price" val="33300" />
 		<for>
-			<baseadd stat="pDef" val="22" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -254,7 +254,7 @@
 		<set name="weight" val="1250" />
 		<set name="price" val="74700" />
 		<for>
-			<baseadd stat="pDef" val="27" />
+			<baseadd stat="pDef" val="29" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -280,7 +280,7 @@
 		<set name="weight" val="1210" />
 		<set name="price" val="161000" />
 		<for>
-			<baseadd stat="pDef" val="34" />
+			<baseadd stat="pDef" val="39" />
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
@@ -317,7 +317,7 @@
 		<set name="weight" val="1320" />
 		<set name="price" val="607" />
 		<for>
-			<baseadd stat="pDef" val="11" />
+			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
 	<item id="1130" type="EtcItem" name="Cobendell's Medicine">
