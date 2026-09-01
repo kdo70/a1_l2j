@@ -1058,7 +1058,7 @@
 		<set name="weight" val="720" />
 		<set name="price" val="224000" />
 		<for>
-			<baseadd stat="pDef" val="52" />
+			<baseadd stat="pDef" val="54" />
 			<add stat="maxMp" val="169" />
 			<enchant stat="pDef" val="0" />
 		</for>

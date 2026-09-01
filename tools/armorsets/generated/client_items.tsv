@@ -1217,922 +1217,872 @@ id	donor	grade	gradeIdx	pdef	name	addName	mode	clearDesc
 11151	465	S	5	64	Cursed Tunic Stockings		add	0
 11152	2489	S	5	55	Cursed Tunic Gloves		add	0
 11153	561	S	5	55	Cursed Tunic Boots		add	0
-11154	41	D	1	44	Elven Tunic Helmet		add	0
-433	433	D	1	52	Elven Tunic		update	0
-11155	466	D	1	33	Elven Tunic Stockings		add	0
-11156	2450	D	1	29	Elven Tunic Gloves		add	0
-11157	2426	D	1	29	Elven Tunic Boots		add	0
-11158	41	C	2	58	Elven Tunic Helmet		add	0
-11159	433	C	2	74	Elven Tunic		add	0
-11160	466	C	2	46	Elven Tunic Stockings		add	0
-11161	2450	C	2	39	Elven Tunic Gloves		add	0
-11162	2426	C	2	39	Elven Tunic Boots		add	0
-11163	41	B	3	67	Elven Tunic Helmet		add	0
-11164	433	B	3	83	Elven Tunic		add	0
-11165	466	B	3	52	Elven Tunic Stockings		add	0
-11166	2450	B	3	44	Elven Tunic Gloves		add	0
-11167	2426	B	3	45	Elven Tunic Boots		add	0
-11168	41	A	4	73	Elven Tunic Helmet		add	0
-11169	433	A	4	91	Elven Tunic		add	0
-11170	466	A	4	56	Elven Tunic Stockings		add	0
-11171	2450	A	4	49	Elven Tunic Gloves		add	0
-11172	2426	A	4	49	Elven Tunic Boots		add	0
-11173	41	S	5	83	Elven Tunic Helmet		add	0
-11174	433	S	5	102	Elven Tunic		add	0
-11175	466	S	5	64	Elven Tunic Stockings		add	0
-11176	2450	S	5	55	Elven Tunic Gloves		add	0
-11177	2426	S	5	55	Elven Tunic Boots		add	0
-11178	41	D	1	44	White Tunic Helmet		add	0
+11154	41	D	1	44	White Tunic Helmet		add	0
 434	434	D	1	52	White Tunic		update	0
-11179	467	D	1	33	White Tunic Stockings		add	0
-11180	2447	D	1	29	White Tunic Gloves		add	0
-11181	2423	D	1	29	White Tunic Boots		add	0
-11182	41	C	2	58	White Tunic Helmet		add	0
-11183	434	C	2	74	White Tunic		add	0
-11184	467	C	2	46	White Tunic Stockings		add	0
-11185	2447	C	2	39	White Tunic Gloves		add	0
-11186	2423	C	2	39	White Tunic Boots		add	0
-11187	41	B	3	67	White Tunic Helmet		add	0
-11188	434	B	3	83	White Tunic		add	0
-11189	467	B	3	52	White Tunic Stockings		add	0
-11190	2447	B	3	44	White Tunic Gloves		add	0
-11191	2423	B	3	45	White Tunic Boots		add	0
-11192	41	A	4	73	White Tunic Helmet		add	0
-11193	434	A	4	91	White Tunic		add	0
-11194	467	A	4	56	White Tunic Stockings		add	0
-11195	2447	A	4	49	White Tunic Gloves		add	0
-11196	2423	A	4	49	White Tunic Boots		add	0
-11197	41	S	5	83	White Tunic Helmet		add	0
-11198	434	S	5	102	White Tunic		add	0
-11199	467	S	5	64	White Tunic Stockings		add	0
-11200	2447	S	5	55	White Tunic Gloves		add	0
-11201	2423	S	5	55	White Tunic Boots		add	0
-11202	41	D	1	44	Mystic's Tunic Helmet		add	0
+11155	467	D	1	33	White Tunic Stockings		add	0
+11156	2447	D	1	29	White Tunic Gloves		add	0
+11157	2423	D	1	29	White Tunic Boots		add	0
+11158	41	C	2	58	White Tunic Helmet		add	0
+11159	434	C	2	74	White Tunic		add	0
+11160	467	C	2	46	White Tunic Stockings		add	0
+11161	2447	C	2	39	White Tunic Gloves		add	0
+11162	2423	C	2	39	White Tunic Boots		add	0
+11163	41	B	3	67	White Tunic Helmet		add	0
+11164	434	B	3	83	White Tunic		add	0
+11165	467	B	3	52	White Tunic Stockings		add	0
+11166	2447	B	3	44	White Tunic Gloves		add	0
+11167	2423	B	3	45	White Tunic Boots		add	0
+11168	41	A	4	73	White Tunic Helmet		add	0
+11169	434	A	4	91	White Tunic		add	0
+11170	467	A	4	56	White Tunic Stockings		add	0
+11171	2447	A	4	49	White Tunic Gloves		add	0
+11172	2423	A	4	49	White Tunic Boots		add	0
+11173	41	S	5	83	White Tunic Helmet		add	0
+11174	434	S	5	102	White Tunic		add	0
+11175	467	S	5	64	White Tunic Stockings		add	0
+11176	2447	S	5	55	White Tunic Gloves		add	0
+11177	2423	S	5	55	White Tunic Boots		add	0
+11178	41	D	1	44	Mystic's Tunic Helmet		add	0
 435	435	D	1	52	Mystic's Tunic		update	0
-11203	468	D	1	33	Mystic's Tunic Stockings		add	0
-11204	2447	D	1	29	Mystic's Tunic Gloves		add	0
-11205	2423	D	1	29	Mystic's Tunic Boots		add	0
-11206	41	C	2	58	Mystic's Tunic Helmet		add	0
-11207	435	C	2	74	Mystic's Tunic		add	0
-11208	468	C	2	46	Mystic's Tunic Stockings		add	0
-11209	2447	C	2	39	Mystic's Tunic Gloves		add	0
-11210	2423	C	2	39	Mystic's Tunic Boots		add	0
-11211	41	B	3	67	Mystic's Tunic Helmet		add	0
-11212	435	B	3	83	Mystic's Tunic		add	0
-11213	468	B	3	52	Mystic's Tunic Stockings		add	0
-11214	2447	B	3	44	Mystic's Tunic Gloves		add	0
-11215	2423	B	3	45	Mystic's Tunic Boots		add	0
-11216	41	A	4	73	Mystic's Tunic Helmet		add	0
-11217	435	A	4	91	Mystic's Tunic		add	0
-11218	468	A	4	56	Mystic's Tunic Stockings		add	0
-11219	2447	A	4	49	Mystic's Tunic Gloves		add	0
-11220	2423	A	4	49	Mystic's Tunic Boots		add	0
-11221	41	S	5	83	Mystic's Tunic Helmet		add	0
-11222	435	S	5	102	Mystic's Tunic		add	0
-11223	468	S	5	64	Mystic's Tunic Stockings		add	0
-11224	2447	S	5	55	Mystic's Tunic Gloves		add	0
-11225	2423	S	5	55	Mystic's Tunic Boots		add	0
-11226	41	D	1	44	Tunic of Knowledge Helmet		add	0
+11179	468	D	1	33	Mystic's Tunic Stockings		add	0
+11180	2447	D	1	29	Mystic's Tunic Gloves		add	0
+11181	2423	D	1	29	Mystic's Tunic Boots		add	0
+11182	41	C	2	58	Mystic's Tunic Helmet		add	0
+11183	435	C	2	74	Mystic's Tunic		add	0
+11184	468	C	2	46	Mystic's Tunic Stockings		add	0
+11185	2447	C	2	39	Mystic's Tunic Gloves		add	0
+11186	2423	C	2	39	Mystic's Tunic Boots		add	0
+11187	41	B	3	67	Mystic's Tunic Helmet		add	0
+11188	435	B	3	83	Mystic's Tunic		add	0
+11189	468	B	3	52	Mystic's Tunic Stockings		add	0
+11190	2447	B	3	44	Mystic's Tunic Gloves		add	0
+11191	2423	B	3	45	Mystic's Tunic Boots		add	0
+11192	41	A	4	73	Mystic's Tunic Helmet		add	0
+11193	435	A	4	91	Mystic's Tunic		add	0
+11194	468	A	4	56	Mystic's Tunic Stockings		add	0
+11195	2447	A	4	49	Mystic's Tunic Gloves		add	0
+11196	2423	A	4	49	Mystic's Tunic Boots		add	0
+11197	41	S	5	83	Mystic's Tunic Helmet		add	0
+11198	435	S	5	102	Mystic's Tunic		add	0
+11199	468	S	5	64	Mystic's Tunic Stockings		add	0
+11200	2447	S	5	55	Mystic's Tunic Gloves		add	0
+11201	2423	S	5	55	Mystic's Tunic Boots		add	0
+11202	41	D	1	44	Tunic of Knowledge Helmet		add	0
 436	436	D	1	52	Tunic of Knowledge		update	0
-11227	469	D	1	33	Tunic of Knowledge Stockings		add	0
-11228	2447	D	1	29	Tunic of Knowledge Gloves		add	0
-11229	2423	D	1	29	Tunic of Knowledge Boots		add	0
-11230	41	C	2	58	Tunic of Knowledge Helmet		add	0
-11231	436	C	2	74	Tunic of Knowledge		add	0
-11232	469	C	2	46	Tunic of Knowledge Stockings		add	0
-11233	2447	C	2	39	Tunic of Knowledge Gloves		add	0
-11234	2423	C	2	39	Tunic of Knowledge Boots		add	0
-11235	41	B	3	67	Tunic of Knowledge Helmet		add	0
-11236	436	B	3	83	Tunic of Knowledge		add	0
-11237	469	B	3	52	Tunic of Knowledge Stockings		add	0
-11238	2447	B	3	44	Tunic of Knowledge Gloves		add	0
-11239	2423	B	3	45	Tunic of Knowledge Boots		add	0
-11240	41	A	4	73	Tunic of Knowledge Helmet		add	0
-11241	436	A	4	91	Tunic of Knowledge		add	0
-11242	469	A	4	56	Tunic of Knowledge Stockings		add	0
-11243	2447	A	4	49	Tunic of Knowledge Gloves		add	0
-11244	2423	A	4	49	Tunic of Knowledge Boots		add	0
-11245	41	S	5	83	Tunic of Knowledge Helmet		add	0
-11246	436	S	5	102	Tunic of Knowledge		add	0
-11247	469	S	5	64	Tunic of Knowledge Stockings		add	0
-11248	2447	S	5	55	Tunic of Knowledge Gloves		add	0
-11249	2423	S	5	55	Tunic of Knowledge Boots		add	0
-11250	41	D	1	44	Mithril Tunic Helmet		add	0
+11203	469	D	1	33	Tunic of Knowledge Stockings		add	0
+11204	2447	D	1	29	Tunic of Knowledge Gloves		add	0
+11205	2423	D	1	29	Tunic of Knowledge Boots		add	0
+11206	41	C	2	58	Tunic of Knowledge Helmet		add	0
+11207	436	C	2	74	Tunic of Knowledge		add	0
+11208	469	C	2	46	Tunic of Knowledge Stockings		add	0
+11209	2447	C	2	39	Tunic of Knowledge Gloves		add	0
+11210	2423	C	2	39	Tunic of Knowledge Boots		add	0
+11211	41	B	3	67	Tunic of Knowledge Helmet		add	0
+11212	436	B	3	83	Tunic of Knowledge		add	0
+11213	469	B	3	52	Tunic of Knowledge Stockings		add	0
+11214	2447	B	3	44	Tunic of Knowledge Gloves		add	0
+11215	2423	B	3	45	Tunic of Knowledge Boots		add	0
+11216	41	A	4	73	Tunic of Knowledge Helmet		add	0
+11217	436	A	4	91	Tunic of Knowledge		add	0
+11218	469	A	4	56	Tunic of Knowledge Stockings		add	0
+11219	2447	A	4	49	Tunic of Knowledge Gloves		add	0
+11220	2423	A	4	49	Tunic of Knowledge Boots		add	0
+11221	41	S	5	83	Tunic of Knowledge Helmet		add	0
+11222	436	S	5	102	Tunic of Knowledge		add	0
+11223	469	S	5	64	Tunic of Knowledge Stockings		add	0
+11224	2447	S	5	55	Tunic of Knowledge Gloves		add	0
+11225	2423	S	5	55	Tunic of Knowledge Boots		add	0
+11226	41	D	1	44	Mithril Tunic Helmet		add	0
 437	437	D	1	52	Mithril Tunic		update	0
-11251	470	D	1	33	Mithril Tunic Stockings		add	0
-11252	2450	D	1	29	Mithril Tunic Gloves		add	0
-11253	2426	D	1	29	Mithril Tunic Boots		add	0
-11254	41	C	2	58	Mithril Tunic Helmet		add	0
-11255	437	C	2	74	Mithril Tunic		add	0
-11256	470	C	2	46	Mithril Tunic Stockings		add	0
-11257	2450	C	2	39	Mithril Tunic Gloves		add	0
-11258	2426	C	2	39	Mithril Tunic Boots		add	0
-11259	41	B	3	67	Mithril Tunic Helmet		add	0
-11260	437	B	3	83	Mithril Tunic		add	0
-11261	470	B	3	52	Mithril Tunic Stockings		add	0
-11262	2450	B	3	44	Mithril Tunic Gloves		add	0
-11263	2426	B	3	45	Mithril Tunic Boots		add	0
-11264	41	A	4	73	Mithril Tunic Helmet		add	0
-11265	437	A	4	91	Mithril Tunic		add	0
-11266	470	A	4	56	Mithril Tunic Stockings		add	0
-11267	2450	A	4	49	Mithril Tunic Gloves		add	0
-11268	2426	A	4	49	Mithril Tunic Boots		add	0
-11269	41	S	5	83	Mithril Tunic Helmet		add	0
-11270	437	S	5	102	Mithril Tunic		add	0
-11271	470	S	5	64	Mithril Tunic Stockings		add	0
-11272	2450	S	5	55	Mithril Tunic Gloves		add	0
-11273	2426	S	5	55	Mithril Tunic Boots		add	0
-11274	41	D	1	44	Sage's Rag Helmet		add	0
+11227	470	D	1	33	Mithril Tunic Stockings		add	0
+11228	2450	D	1	29	Mithril Tunic Gloves		add	0
+11229	2426	D	1	29	Mithril Tunic Boots		add	0
+11230	41	C	2	58	Mithril Tunic Helmet		add	0
+11231	437	C	2	74	Mithril Tunic		add	0
+11232	470	C	2	46	Mithril Tunic Stockings		add	0
+11233	2450	C	2	39	Mithril Tunic Gloves		add	0
+11234	2426	C	2	39	Mithril Tunic Boots		add	0
+11235	41	B	3	67	Mithril Tunic Helmet		add	0
+11236	437	B	3	83	Mithril Tunic		add	0
+11237	470	B	3	52	Mithril Tunic Stockings		add	0
+11238	2450	B	3	44	Mithril Tunic Gloves		add	0
+11239	2426	B	3	45	Mithril Tunic Boots		add	0
+11240	41	A	4	73	Mithril Tunic Helmet		add	0
+11241	437	A	4	91	Mithril Tunic		add	0
+11242	470	A	4	56	Mithril Tunic Stockings		add	0
+11243	2450	A	4	49	Mithril Tunic Gloves		add	0
+11244	2426	A	4	49	Mithril Tunic Boots		add	0
+11245	41	S	5	83	Mithril Tunic Helmet		add	0
+11246	437	S	5	102	Mithril Tunic		add	0
+11247	470	S	5	64	Mithril Tunic Stockings		add	0
+11248	2450	S	5	55	Mithril Tunic Gloves		add	0
+11249	2426	S	5	55	Mithril Tunic Boots		add	0
+11250	41	D	1	44	Sage's Rag Helmet		add	0
 438	438	D	1	85	Sage's Rag		update	0
-11275	2451	D	1	29	Sage's Rag Gloves		add	0
-11276	1125	D	1	29	Sage's Rag Boots		add	0
-11277	41	C	2	58	Sage's Rag Helmet		add	0
-11278	438	C	2	120	Sage's Rag		add	0
-11279	2451	C	2	39	Sage's Rag Gloves		add	0
-11280	1125	C	2	39	Sage's Rag Boots		add	0
-11281	41	B	3	67	Sage's Rag Helmet		add	0
-11282	438	B	3	135	Sage's Rag		add	0
-11283	2451	B	3	44	Sage's Rag Gloves		add	0
-11284	1125	B	3	45	Sage's Rag Boots		add	0
-11285	41	A	4	73	Sage's Rag Helmet		add	0
-11286	438	A	4	147	Sage's Rag		add	0
-11287	2451	A	4	49	Sage's Rag Gloves		add	0
-11288	1125	A	4	49	Sage's Rag Boots		add	0
-11289	41	S	5	83	Sage's Rag Helmet		add	0
-11290	438	S	5	166	Sage's Rag		add	0
-11291	2451	S	5	55	Sage's Rag Gloves		add	0
-11292	1125	S	5	55	Sage's Rag Boots		add	0
-11293	41	C	2	58	Karmian Tunic Helmet		add	0
+11251	2451	D	1	29	Sage's Rag Gloves		add	0
+11252	1125	D	1	29	Sage's Rag Boots		add	0
+11253	41	C	2	58	Sage's Rag Helmet		add	0
+11254	438	C	2	120	Sage's Rag		add	0
+11255	2451	C	2	39	Sage's Rag Gloves		add	0
+11256	1125	C	2	39	Sage's Rag Boots		add	0
+11257	41	B	3	67	Sage's Rag Helmet		add	0
+11258	438	B	3	135	Sage's Rag		add	0
+11259	2451	B	3	44	Sage's Rag Gloves		add	0
+11260	1125	B	3	45	Sage's Rag Boots		add	0
+11261	41	A	4	73	Sage's Rag Helmet		add	0
+11262	438	A	4	147	Sage's Rag		add	0
+11263	2451	A	4	49	Sage's Rag Gloves		add	0
+11264	1125	A	4	49	Sage's Rag Boots		add	0
+11265	41	S	5	83	Sage's Rag Helmet		add	0
+11266	438	S	5	166	Sage's Rag		add	0
+11267	2451	S	5	55	Sage's Rag Gloves		add	0
+11268	1125	S	5	55	Sage's Rag Boots		add	0
+11269	41	C	2	58	Karmian Tunic Helmet		add	0
 439	439	C	2	74	Karmian Tunic		update	0
-11294	471	C	2	46	Karmian Tunic Stockings		add	0
-11295	2454	C	2	39	Karmian Tunic Gloves		add	0
-11296	2430	C	2	39	Karmian Tunic Boots		add	0
-11297	41	B	3	67	Karmian Tunic Helmet		add	0
-11298	439	B	3	83	Karmian Tunic		add	0
-11299	471	B	3	52	Karmian Tunic Stockings		add	0
-11300	2454	B	3	44	Karmian Tunic Gloves		add	0
-11301	2430	B	3	45	Karmian Tunic Boots		add	0
-11302	41	A	4	73	Karmian Tunic Helmet		add	0
-11303	439	A	4	91	Karmian Tunic		add	0
-11304	471	A	4	56	Karmian Tunic Stockings		add	0
-11305	2454	A	4	49	Karmian Tunic Gloves		add	0
-11306	2430	A	4	49	Karmian Tunic Boots		add	0
-11307	41	S	5	83	Karmian Tunic Helmet		add	0
-11308	439	S	5	102	Karmian Tunic		add	0
-11309	471	S	5	64	Karmian Tunic Stockings		add	0
-11310	2454	S	5	55	Karmian Tunic Gloves		add	0
-11311	2430	S	5	55	Karmian Tunic Boots		add	0
-11312	41	C	2	58	Robe of Seal Helmet		add	0
+11270	471	C	2	46	Karmian Tunic Stockings		add	0
+11271	2454	C	2	39	Karmian Tunic Gloves		add	0
+11272	2430	C	2	39	Karmian Tunic Boots		add	0
+11273	41	B	3	67	Karmian Tunic Helmet		add	0
+11274	439	B	3	83	Karmian Tunic		add	0
+11275	471	B	3	52	Karmian Tunic Stockings		add	0
+11276	2454	B	3	44	Karmian Tunic Gloves		add	0
+11277	2430	B	3	45	Karmian Tunic Boots		add	0
+11278	41	A	4	73	Karmian Tunic Helmet		add	0
+11279	439	A	4	91	Karmian Tunic		add	0
+11280	471	A	4	56	Karmian Tunic Stockings		add	0
+11281	2454	A	4	49	Karmian Tunic Gloves		add	0
+11282	2430	A	4	49	Karmian Tunic Boots		add	0
+11283	41	S	5	83	Karmian Tunic Helmet		add	0
+11284	439	S	5	102	Karmian Tunic		add	0
+11285	471	S	5	64	Karmian Tunic Stockings		add	0
+11286	2454	S	5	55	Karmian Tunic Gloves		add	0
+11287	2430	S	5	55	Karmian Tunic Boots		add	0
+11288	41	C	2	58	Robe of Seal Helmet		add	0
 440	440	C	2	120	Robe of Seal		update	0
-11313	2457	C	2	39	Robe of Seal Gloves		add	0
-11314	2433	C	2	39	Robe of Seal Boots		add	0
-11315	41	B	3	67	Robe of Seal Helmet		add	0
-11316	440	B	3	135	Robe of Seal		add	0
-11317	2457	B	3	44	Robe of Seal Gloves		add	0
-11318	2433	B	3	45	Robe of Seal Boots		add	0
-11319	41	A	4	73	Robe of Seal Helmet		add	0
-11320	440	A	4	147	Robe of Seal		add	0
-11321	2457	A	4	49	Robe of Seal Gloves		add	0
-11322	2433	A	4	49	Robe of Seal Boots		add	0
-11323	41	S	5	83	Robe of Seal Helmet		add	0
-11324	440	S	5	166	Robe of Seal		add	0
-11325	2457	S	5	55	Robe of Seal Gloves		add	0
-11326	2433	S	5	55	Robe of Seal Boots		add	0
-11327	41	C	2	58	Demon's Tunic Helmet		add	0
+11289	2457	C	2	39	Robe of Seal Gloves		add	0
+11290	2433	C	2	39	Robe of Seal Boots		add	0
+11291	41	B	3	67	Robe of Seal Helmet		add	0
+11292	440	B	3	135	Robe of Seal		add	0
+11293	2457	B	3	44	Robe of Seal Gloves		add	0
+11294	2433	B	3	45	Robe of Seal Boots		add	0
+11295	41	A	4	73	Robe of Seal Helmet		add	0
+11296	440	A	4	147	Robe of Seal		add	0
+11297	2457	A	4	49	Robe of Seal Gloves		add	0
+11298	2433	A	4	49	Robe of Seal Boots		add	0
+11299	41	S	5	83	Robe of Seal Helmet		add	0
+11300	440	S	5	166	Robe of Seal		add	0
+11301	2457	S	5	55	Robe of Seal Gloves		add	0
+11302	2433	S	5	55	Robe of Seal Boots		add	0
+11303	41	C	2	58	Demon's Tunic Helmet		add	0
 441	441	C	2	74	Demon's Tunic		update	0
-11328	472	C	2	46	Demon's Tunic Stockings		add	0
-11329	2459	C	2	39	Demon's Tunic Gloves		add	0
-11330	2435	C	2	39	Demon's Tunic Boots		add	0
-11331	41	B	3	67	Demon's Tunic Helmet		add	0
-11332	441	B	3	83	Demon's Tunic		add	0
-11333	472	B	3	52	Demon's Tunic Stockings		add	0
-11334	2459	B	3	44	Demon's Tunic Gloves		add	0
-11335	2435	B	3	45	Demon's Tunic Boots		add	0
-11336	41	A	4	73	Demon's Tunic Helmet		add	0
-11337	441	A	4	91	Demon's Tunic		add	0
-11338	472	A	4	56	Demon's Tunic Stockings		add	0
-11339	2459	A	4	49	Demon's Tunic Gloves		add	0
-11340	2435	A	4	49	Demon's Tunic Boots		add	0
-11341	41	S	5	83	Demon's Tunic Helmet		add	0
-11342	441	S	5	102	Demon's Tunic		add	0
-11343	472	S	5	64	Demon's Tunic Stockings		add	0
-11344	2459	S	5	55	Demon's Tunic Gloves		add	0
-11345	2435	S	5	55	Demon's Tunic Boots		add	0
-11346	41	C	2	58	Divine Tunic Helmet		add	0
+11304	472	C	2	46	Demon's Tunic Stockings		add	0
+11305	2459	C	2	39	Demon's Tunic Gloves		add	0
+11306	2435	C	2	39	Demon's Tunic Boots		add	0
+11307	41	B	3	67	Demon's Tunic Helmet		add	0
+11308	441	B	3	83	Demon's Tunic		add	0
+11309	472	B	3	52	Demon's Tunic Stockings		add	0
+11310	2459	B	3	44	Demon's Tunic Gloves		add	0
+11311	2435	B	3	45	Demon's Tunic Boots		add	0
+11312	41	A	4	73	Demon's Tunic Helmet		add	0
+11313	441	A	4	91	Demon's Tunic		add	0
+11314	472	A	4	56	Demon's Tunic Stockings		add	0
+11315	2459	A	4	49	Demon's Tunic Gloves		add	0
+11316	2435	A	4	49	Demon's Tunic Boots		add	0
+11317	41	S	5	83	Demon's Tunic Helmet		add	0
+11318	441	S	5	102	Demon's Tunic		add	0
+11319	472	S	5	64	Demon's Tunic Stockings		add	0
+11320	2459	S	5	55	Demon's Tunic Gloves		add	0
+11321	2435	S	5	55	Demon's Tunic Boots		add	0
+11322	41	C	2	58	Divine Tunic Helmet		add	0
 442	442	C	2	74	Divine Tunic		update	0
-11347	473	C	2	46	Divine Tunic Stockings		add	0
-11348	2463	C	2	39	Divine Tunic Gloves		add	0
-11349	1126	C	2	39	Divine Tunic Boots		add	0
-11350	41	B	3	67	Divine Tunic Helmet		add	0
-11351	442	B	3	83	Divine Tunic		add	0
-11352	473	B	3	52	Divine Tunic Stockings		add	0
-11353	2463	B	3	44	Divine Tunic Gloves		add	0
-11354	1126	B	3	45	Divine Tunic Boots		add	0
-11355	41	A	4	73	Divine Tunic Helmet		add	0
-11356	442	A	4	91	Divine Tunic		add	0
-11357	473	A	4	56	Divine Tunic Stockings		add	0
-11358	2463	A	4	49	Divine Tunic Gloves		add	0
-11359	1126	A	4	49	Divine Tunic Boots		add	0
-11360	41	S	5	83	Divine Tunic Helmet		add	0
-11361	442	S	5	102	Divine Tunic		add	0
-11362	473	S	5	64	Divine Tunic Stockings		add	0
-11363	2463	S	5	55	Divine Tunic Gloves		add	0
-11364	1126	S	5	55	Divine Tunic Boots		add	0
-11365	41	B	3	67	Tunic of Mana Helmet		add	0
+11323	473	C	2	46	Divine Tunic Stockings		add	0
+11324	2463	C	2	39	Divine Tunic Gloves		add	0
+11325	1126	C	2	39	Divine Tunic Boots		add	0
+11326	41	B	3	67	Divine Tunic Helmet		add	0
+11327	442	B	3	83	Divine Tunic		add	0
+11328	473	B	3	52	Divine Tunic Stockings		add	0
+11329	2463	B	3	44	Divine Tunic Gloves		add	0
+11330	1126	B	3	45	Divine Tunic Boots		add	0
+11331	41	A	4	73	Divine Tunic Helmet		add	0
+11332	442	A	4	91	Divine Tunic		add	0
+11333	473	A	4	56	Divine Tunic Stockings		add	0
+11334	2463	A	4	49	Divine Tunic Gloves		add	0
+11335	1126	A	4	49	Divine Tunic Boots		add	0
+11336	41	S	5	83	Divine Tunic Helmet		add	0
+11337	442	S	5	102	Divine Tunic		add	0
+11338	473	S	5	64	Divine Tunic Stockings		add	0
+11339	2463	S	5	55	Divine Tunic Gloves		add	0
+11340	1126	S	5	55	Divine Tunic Boots		add	0
+11341	41	B	3	67	Tunic of Mana Helmet		add	0
 443	443	B	3	83	Tunic of Mana		update	0
-11366	421	B	3	78	Tunic of Mana Stockings		add	0
-11367	2480	B	3	44	Tunic of Mana Gloves		add	0
-11368	580	B	3	45	Tunic of Mana Boots		add	0
-11369	41	A	4	73	Tunic of Mana Helmet		add	0
-11370	443	A	4	91	Tunic of Mana		add	0
-11371	421	A	4	84	Tunic of Mana Stockings		add	0
-11372	2480	A	4	49	Tunic of Mana Gloves		add	0
-11373	580	A	4	49	Tunic of Mana Boots		add	0
-11374	41	S	5	83	Tunic of Mana Helmet		add	0
-11375	443	S	5	102	Tunic of Mana		add	0
-11376	421	S	5	96	Tunic of Mana Stockings		add	0
-11377	2480	S	5	55	Tunic of Mana Gloves		add	0
-11378	580	S	5	55	Tunic of Mana Boots		add	0
-11379	41	B	3	67	Sage's Robe Helmet		add	0
+11342	421	B	3	78	Tunic of Mana Stockings		add	0
+11343	2480	B	3	44	Tunic of Mana Gloves		add	0
+11344	580	B	3	45	Tunic of Mana Boots		add	0
+11345	41	A	4	73	Tunic of Mana Helmet		add	0
+11346	443	A	4	91	Tunic of Mana		add	0
+11347	421	A	4	84	Tunic of Mana Stockings		add	0
+11348	2480	A	4	49	Tunic of Mana Gloves		add	0
+11349	580	A	4	49	Tunic of Mana Boots		add	0
+11350	41	S	5	83	Tunic of Mana Helmet		add	0
+11351	443	S	5	102	Tunic of Mana		add	0
+11352	421	S	5	96	Tunic of Mana Stockings		add	0
+11353	2480	S	5	55	Tunic of Mana Gloves		add	0
+11354	580	S	5	55	Tunic of Mana Boots		add	0
+11355	41	B	3	67	Sage's Robe Helmet		add	0
 444	444	B	3	135	Sage's Robe		update	0
-11380	2451	B	3	44	Sage's Robe Gloves		add	0
-11381	581	B	3	45	Sage's Robe Boots		add	0
-11382	41	A	4	73	Sage's Robe Helmet		add	0
-11383	444	A	4	147	Sage's Robe		add	0
-11384	2451	A	4	49	Sage's Robe Gloves		add	0
-11385	581	A	4	49	Sage's Robe Boots		add	0
-11386	41	S	5	83	Sage's Robe Helmet		add	0
-11387	444	S	5	166	Sage's Robe		add	0
-11388	2451	S	5	55	Sage's Robe Gloves		add	0
-11389	581	S	5	55	Sage's Robe Boots		add	0
-11390	41	B	3	67	Paradia Tunic Helmet		add	0
+11356	2451	B	3	44	Sage's Robe Gloves		add	0
+11357	581	B	3	45	Sage's Robe Boots		add	0
+11358	41	A	4	73	Sage's Robe Helmet		add	0
+11359	444	A	4	147	Sage's Robe		add	0
+11360	2451	A	4	49	Sage's Robe Gloves		add	0
+11361	581	A	4	49	Sage's Robe Boots		add	0
+11362	41	S	5	83	Sage's Robe Helmet		add	0
+11363	444	S	5	166	Sage's Robe		add	0
+11364	2451	S	5	55	Sage's Robe Gloves		add	0
+11365	581	S	5	55	Sage's Robe Boots		add	0
+11366	41	B	3	67	Paradia Tunic Helmet		add	0
 445	445	B	3	83	Paradia Tunic		update	0
-11391	421	B	3	78	Paradia Tunic Stockings		add	0
-11392	2486	B	3	44	Paradia Tunic Gloves		add	0
-11393	582	B	3	45	Paradia Tunic Boots		add	0
-11394	41	A	4	73	Paradia Tunic Helmet		add	0
-11395	445	A	4	91	Paradia Tunic		add	0
-11396	421	A	4	84	Paradia Tunic Stockings		add	0
-11397	2486	A	4	49	Paradia Tunic Gloves		add	0
-11398	582	A	4	49	Paradia Tunic Boots		add	0
-11399	41	S	5	83	Paradia Tunic Helmet		add	0
-11400	445	S	5	102	Paradia Tunic		add	0
-11401	421	S	5	96	Paradia Tunic Stockings		add	0
-11402	2486	S	5	55	Paradia Tunic Gloves		add	0
-11403	582	S	5	55	Paradia Tunic Boots		add	0
-11404	41	B	3	67	Inferno Tunic Helmet		add	0
+11367	421	B	3	78	Paradia Tunic Stockings		add	0
+11368	2486	B	3	44	Paradia Tunic Gloves		add	0
+11369	582	B	3	45	Paradia Tunic Boots		add	0
+11370	41	A	4	73	Paradia Tunic Helmet		add	0
+11371	445	A	4	91	Paradia Tunic		add	0
+11372	421	A	4	84	Paradia Tunic Stockings		add	0
+11373	2486	A	4	49	Paradia Tunic Gloves		add	0
+11374	582	A	4	49	Paradia Tunic Boots		add	0
+11375	41	S	5	83	Paradia Tunic Helmet		add	0
+11376	445	S	5	102	Paradia Tunic		add	0
+11377	421	S	5	96	Paradia Tunic Stockings		add	0
+11378	2486	S	5	55	Paradia Tunic Gloves		add	0
+11379	582	S	5	55	Paradia Tunic Boots		add	0
+11380	41	B	3	67	Inferno Tunic Helmet		add	0
 446	446	B	3	83	Inferno Tunic		update	0
-11405	421	B	3	78	Inferno Tunic Stockings		add	0
-11406	2480	B	3	44	Inferno Tunic Gloves		add	0
-11407	588	B	3	45	Inferno Tunic Boots		add	0
-11408	41	A	4	73	Inferno Tunic Helmet		add	0
-11409	446	A	4	91	Inferno Tunic		add	0
-11410	421	A	4	84	Inferno Tunic Stockings		add	0
-11411	2480	A	4	49	Inferno Tunic Gloves		add	0
-11412	588	A	4	49	Inferno Tunic Boots		add	0
-11413	41	S	5	83	Inferno Tunic Helmet		add	0
-11414	446	S	5	102	Inferno Tunic		add	0
-11415	421	S	5	96	Inferno Tunic Stockings		add	0
-11416	2480	S	5	55	Inferno Tunic Gloves		add	0
-11417	588	S	5	55	Inferno Tunic Boots		add	0
-11418	41	B	3	67	Tunic of Solar Eclipse Helmet		add	0
+11381	421	B	3	78	Inferno Tunic Stockings		add	0
+11382	2480	B	3	44	Inferno Tunic Gloves		add	0
+11383	588	B	3	45	Inferno Tunic Boots		add	0
+11384	41	A	4	73	Inferno Tunic Helmet		add	0
+11385	446	A	4	91	Inferno Tunic		add	0
+11386	421	A	4	84	Inferno Tunic Stockings		add	0
+11387	2480	A	4	49	Inferno Tunic Gloves		add	0
+11388	588	A	4	49	Inferno Tunic Boots		add	0
+11389	41	S	5	83	Inferno Tunic Helmet		add	0
+11390	446	S	5	102	Inferno Tunic		add	0
+11391	421	S	5	96	Inferno Tunic Stockings		add	0
+11392	2480	S	5	55	Inferno Tunic Gloves		add	0
+11393	588	S	5	55	Inferno Tunic Boots		add	0
+11394	41	B	3	67	Tunic of Solar Eclipse Helmet		add	0
 447	447	B	3	83	Tunic of Solar Eclipse		update	0
-11419	421	B	3	78	Tunic of Solar Eclipse Stockings		add	0
-11420	2480	B	3	44	Tunic of Solar Eclipse Gloves		add	0
-11421	584	B	3	45	Tunic of Solar Eclipse Boots		add	0
-11422	41	A	4	73	Tunic of Solar Eclipse Helmet		add	0
-11423	447	A	4	91	Tunic of Solar Eclipse		add	0
-11424	421	A	4	84	Tunic of Solar Eclipse Stockings		add	0
-11425	2480	A	4	49	Tunic of Solar Eclipse Gloves		add	0
-11426	584	A	4	49	Tunic of Solar Eclipse Boots		add	0
-11427	41	S	5	83	Tunic of Solar Eclipse Helmet		add	0
-11428	447	S	5	102	Tunic of Solar Eclipse		add	0
-11429	421	S	5	96	Tunic of Solar Eclipse Stockings		add	0
-11430	2480	S	5	55	Tunic of Solar Eclipse Gloves		add	0
-11431	584	S	5	55	Tunic of Solar Eclipse Boots		add	0
-11432	41	B	3	67	Robe of Black Ore Helmet		add	0
+11395	421	B	3	78	Tunic of Solar Eclipse Stockings		add	0
+11396	2480	B	3	44	Tunic of Solar Eclipse Gloves		add	0
+11397	584	B	3	45	Tunic of Solar Eclipse Boots		add	0
+11398	41	A	4	73	Tunic of Solar Eclipse Helmet		add	0
+11399	447	A	4	91	Tunic of Solar Eclipse		add	0
+11400	421	A	4	84	Tunic of Solar Eclipse Stockings		add	0
+11401	2480	A	4	49	Tunic of Solar Eclipse Gloves		add	0
+11402	584	A	4	49	Tunic of Solar Eclipse Boots		add	0
+11403	41	S	5	83	Tunic of Solar Eclipse Helmet		add	0
+11404	447	S	5	102	Tunic of Solar Eclipse		add	0
+11405	421	S	5	96	Tunic of Solar Eclipse Stockings		add	0
+11406	2480	S	5	55	Tunic of Solar Eclipse Gloves		add	0
+11407	584	S	5	55	Tunic of Solar Eclipse Boots		add	0
+11408	41	B	3	67	Robe of Black Ore Helmet		add	0
 448	448	B	3	135	Robe of Black Ore		update	0
-11433	2489	B	3	44	Robe of Black Ore Gloves		add	0
-11434	585	B	3	45	Robe of Black Ore Boots		add	0
-11435	41	A	4	73	Robe of Black Ore Helmet		add	0
-11436	448	A	4	147	Robe of Black Ore		add	0
-11437	2489	A	4	49	Robe of Black Ore Gloves		add	0
-11438	585	A	4	49	Robe of Black Ore Boots		add	0
-11439	41	S	5	83	Robe of Black Ore Helmet		add	0
-11440	448	S	5	166	Robe of Black Ore		add	0
-11441	2489	S	5	55	Robe of Black Ore Gloves		add	0
-11442	585	S	5	55	Robe of Black Ore Boots		add	0
-11443	41	B	3	67	Tunic of Summoning Helmet		add	0
+11409	2489	B	3	44	Robe of Black Ore Gloves		add	0
+11410	585	B	3	45	Robe of Black Ore Boots		add	0
+11411	41	A	4	73	Robe of Black Ore Helmet		add	0
+11412	448	A	4	147	Robe of Black Ore		add	0
+11413	2489	A	4	49	Robe of Black Ore Gloves		add	0
+11414	585	A	4	49	Robe of Black Ore Boots		add	0
+11415	41	S	5	83	Robe of Black Ore Helmet		add	0
+11416	448	S	5	166	Robe of Black Ore		add	0
+11417	2489	S	5	55	Robe of Black Ore Gloves		add	0
+11418	585	S	5	55	Robe of Black Ore Boots		add	0
+11419	41	B	3	67	Tunic of Summoning Helmet		add	0
 449	449	B	3	83	Tunic of Summoning		update	0
-11444	421	B	3	78	Tunic of Summoning Stockings		add	0
-11445	2480	B	3	44	Tunic of Summoning Gloves		add	0
-11446	586	B	3	45	Tunic of Summoning Boots		add	0
-11447	41	A	4	73	Tunic of Summoning Helmet		add	0
-11448	449	A	4	91	Tunic of Summoning		add	0
-11449	421	A	4	84	Tunic of Summoning Stockings		add	0
-11450	2480	A	4	49	Tunic of Summoning Gloves		add	0
-11451	586	A	4	49	Tunic of Summoning Boots		add	0
-11452	41	S	5	83	Tunic of Summoning Helmet		add	0
-11453	449	S	5	102	Tunic of Summoning		add	0
-11454	421	S	5	96	Tunic of Summoning Stockings		add	0
-11455	2480	S	5	55	Tunic of Summoning Gloves		add	0
-11456	586	S	5	55	Tunic of Summoning Boots		add	0
-11457	41	B	3	67	Otherworldly Robe Helmet		add	0
+11420	421	B	3	78	Tunic of Summoning Stockings		add	0
+11421	2480	B	3	44	Tunic of Summoning Gloves		add	0
+11422	586	B	3	45	Tunic of Summoning Boots		add	0
+11423	41	A	4	73	Tunic of Summoning Helmet		add	0
+11424	449	A	4	91	Tunic of Summoning		add	0
+11425	421	A	4	84	Tunic of Summoning Stockings		add	0
+11426	2480	A	4	49	Tunic of Summoning Gloves		add	0
+11427	586	A	4	49	Tunic of Summoning Boots		add	0
+11428	41	S	5	83	Tunic of Summoning Helmet		add	0
+11429	449	S	5	102	Tunic of Summoning		add	0
+11430	421	S	5	96	Tunic of Summoning Stockings		add	0
+11431	2480	S	5	55	Tunic of Summoning Gloves		add	0
+11432	586	S	5	55	Tunic of Summoning Boots		add	0
+11433	41	B	3	67	Otherworldly Robe Helmet		add	0
 450	450	B	3	135	Otherworldly Robe		update	0
-11458	2480	B	3	44	Otherworldly Robe Gloves		add	0
-11459	587	B	3	45	Otherworldly Robe Boots		add	0
-11460	41	A	4	73	Otherworldly Robe Helmet		add	0
-11461	450	A	4	147	Otherworldly Robe		add	0
-11462	2480	A	4	49	Otherworldly Robe Gloves		add	0
-11463	587	A	4	49	Otherworldly Robe Boots		add	0
-11464	41	S	5	83	Otherworldly Robe Helmet		add	0
-11465	450	S	5	166	Otherworldly Robe		add	0
-11466	2480	S	5	55	Otherworldly Robe Gloves		add	0
-11467	587	S	5	55	Otherworldly Robe Boots		add	0
-11468	41	B	3	67	Elemental Tunic Helmet		add	0
+11434	2480	B	3	44	Otherworldly Robe Gloves		add	0
+11435	587	B	3	45	Otherworldly Robe Boots		add	0
+11436	41	A	4	73	Otherworldly Robe Helmet		add	0
+11437	450	A	4	147	Otherworldly Robe		add	0
+11438	2480	A	4	49	Otherworldly Robe Gloves		add	0
+11439	587	A	4	49	Otherworldly Robe Boots		add	0
+11440	41	S	5	83	Otherworldly Robe Helmet		add	0
+11441	450	S	5	166	Otherworldly Robe		add	0
+11442	2480	S	5	55	Otherworldly Robe Gloves		add	0
+11443	587	S	5	55	Otherworldly Robe Boots		add	0
+11444	41	B	3	67	Elemental Tunic Helmet		add	0
 451	451	B	3	83	Elemental Tunic		update	0
-11469	421	B	3	78	Elemental Tunic Stockings		add	0
-11470	2480	B	3	44	Elemental Tunic Gloves		add	0
-11471	588	B	3	45	Elemental Tunic Boots		add	0
-11472	41	A	4	73	Elemental Tunic Helmet		add	0
-11473	451	A	4	91	Elemental Tunic		add	0
-11474	421	A	4	84	Elemental Tunic Stockings		add	0
-11475	2480	A	4	49	Elemental Tunic Gloves		add	0
-11476	588	A	4	49	Elemental Tunic Boots		add	0
-11477	41	S	5	83	Elemental Tunic Helmet		add	0
-11478	451	S	5	102	Elemental Tunic		add	0
-11479	421	S	5	96	Elemental Tunic Stockings		add	0
-11480	2480	S	5	55	Elemental Tunic Gloves		add	0
-11481	588	S	5	55	Elemental Tunic Boots		add	0
-11482	41	B	3	67	Tunic of Phantom Helmet		add	0
+11445	421	B	3	78	Elemental Tunic Stockings		add	0
+11446	2480	B	3	44	Elemental Tunic Gloves		add	0
+11447	588	B	3	45	Elemental Tunic Boots		add	0
+11448	41	A	4	73	Elemental Tunic Helmet		add	0
+11449	451	A	4	91	Elemental Tunic		add	0
+11450	421	A	4	84	Elemental Tunic Stockings		add	0
+11451	2480	A	4	49	Elemental Tunic Gloves		add	0
+11452	588	A	4	49	Elemental Tunic Boots		add	0
+11453	41	S	5	83	Elemental Tunic Helmet		add	0
+11454	451	S	5	102	Elemental Tunic		add	0
+11455	421	S	5	96	Elemental Tunic Stockings		add	0
+11456	2480	S	5	55	Elemental Tunic Gloves		add	0
+11457	588	S	5	55	Elemental Tunic Boots		add	0
+11458	41	B	3	67	Tunic of Phantom Helmet		add	0
 452	452	B	3	83	Tunic of Phantom		update	0
-11483	421	B	3	78	Tunic of Phantom Stockings		add	0
-11484	2470	B	3	44	Tunic of Phantom Gloves		add	0
-11485	589	B	3	45	Tunic of Phantom Boots		add	0
-11486	41	A	4	73	Tunic of Phantom Helmet		add	0
-11487	452	A	4	91	Tunic of Phantom		add	0
-11488	421	A	4	84	Tunic of Phantom Stockings		add	0
-11489	2470	A	4	49	Tunic of Phantom Gloves		add	0
-11490	589	A	4	49	Tunic of Phantom Boots		add	0
-11491	41	S	5	83	Tunic of Phantom Helmet		add	0
-11492	452	S	5	102	Tunic of Phantom		add	0
-11493	421	S	5	96	Tunic of Phantom Stockings		add	0
-11494	2470	S	5	55	Tunic of Phantom Gloves		add	0
-11495	589	S	5	55	Tunic of Phantom Boots		add	0
-11496	41	B	3	67	Tunic of Grace Helmet		add	0
+11459	421	B	3	78	Tunic of Phantom Stockings		add	0
+11460	2470	B	3	44	Tunic of Phantom Gloves		add	0
+11461	589	B	3	45	Tunic of Phantom Boots		add	0
+11462	41	A	4	73	Tunic of Phantom Helmet		add	0
+11463	452	A	4	91	Tunic of Phantom		add	0
+11464	421	A	4	84	Tunic of Phantom Stockings		add	0
+11465	2470	A	4	49	Tunic of Phantom Gloves		add	0
+11466	589	A	4	49	Tunic of Phantom Boots		add	0
+11467	41	S	5	83	Tunic of Phantom Helmet		add	0
+11468	452	S	5	102	Tunic of Phantom		add	0
+11469	421	S	5	96	Tunic of Phantom Stockings		add	0
+11470	2470	S	5	55	Tunic of Phantom Gloves		add	0
+11471	589	S	5	55	Tunic of Phantom Boots		add	0
+11472	41	B	3	67	Tunic of Grace Helmet		add	0
 453	453	B	3	83	Tunic of Grace		update	0
-11497	421	B	3	78	Tunic of Grace Stockings		add	0
-11498	2481	B	3	44	Tunic of Grace Gloves		add	0
-11499	590	B	3	45	Tunic of Grace Boots		add	0
-11500	41	A	4	73	Tunic of Grace Helmet		add	0
-11501	453	A	4	91	Tunic of Grace		add	0
-11502	421	A	4	84	Tunic of Grace Stockings		add	0
-11503	2481	A	4	49	Tunic of Grace Gloves		add	0
-11504	590	A	4	49	Tunic of Grace Boots		add	0
-11505	41	S	5	83	Tunic of Grace Helmet		add	0
-11506	453	S	5	102	Tunic of Grace		add	0
-11507	421	S	5	96	Tunic of Grace Stockings		add	0
-11508	2481	S	5	55	Tunic of Grace Gloves		add	0
-11509	590	S	5	55	Tunic of Grace Boots		add	0
-11510	41	B	3	67	Robe of Holy Spirit Helmet		add	0
+11473	421	B	3	78	Tunic of Grace Stockings		add	0
+11474	2481	B	3	44	Tunic of Grace Gloves		add	0
+11475	590	B	3	45	Tunic of Grace Boots		add	0
+11476	41	A	4	73	Tunic of Grace Helmet		add	0
+11477	453	A	4	91	Tunic of Grace		add	0
+11478	421	A	4	84	Tunic of Grace Stockings		add	0
+11479	2481	A	4	49	Tunic of Grace Gloves		add	0
+11480	590	A	4	49	Tunic of Grace Boots		add	0
+11481	41	S	5	83	Tunic of Grace Helmet		add	0
+11482	453	S	5	102	Tunic of Grace		add	0
+11483	421	S	5	96	Tunic of Grace Stockings		add	0
+11484	2481	S	5	55	Tunic of Grace Gloves		add	0
+11485	590	S	5	55	Tunic of Grace Boots		add	0
+11486	41	B	3	67	Robe of Holy Spirit Helmet		add	0
 454	454	B	3	135	Robe of Holy Spirit		update	0
-11511	2480	B	3	44	Robe of Holy Spirit Gloves		add	0
-11512	591	B	3	45	Robe of Holy Spirit Boots		add	0
-11513	41	A	4	73	Robe of Holy Spirit Helmet		add	0
-11514	454	A	4	147	Robe of Holy Spirit		add	0
-11515	2480	A	4	49	Robe of Holy Spirit Gloves		add	0
-11516	591	A	4	49	Robe of Holy Spirit Boots		add	0
-11517	41	S	5	83	Robe of Holy Spirit Helmet		add	0
-11518	454	S	5	166	Robe of Holy Spirit		add	0
-11519	2480	S	5	55	Robe of Holy Spirit Gloves		add	0
-11520	591	S	5	55	Robe of Holy Spirit Boots		add	0
-11521	41	B	3	67	Phoenix Tunic Helmet		add	0
+11487	2480	B	3	44	Robe of Holy Spirit Gloves		add	0
+11488	591	B	3	45	Robe of Holy Spirit Boots		add	0
+11489	41	A	4	73	Robe of Holy Spirit Helmet		add	0
+11490	454	A	4	147	Robe of Holy Spirit		add	0
+11491	2480	A	4	49	Robe of Holy Spirit Gloves		add	0
+11492	591	A	4	49	Robe of Holy Spirit Boots		add	0
+11493	41	S	5	83	Robe of Holy Spirit Helmet		add	0
+11494	454	S	5	166	Robe of Holy Spirit		add	0
+11495	2480	S	5	55	Robe of Holy Spirit Gloves		add	0
+11496	591	S	5	55	Robe of Holy Spirit Boots		add	0
+11497	41	B	3	67	Phoenix Tunic Helmet		add	0
 455	455	B	3	83	Phoenix Tunic		update	0
-11522	421	B	3	78	Phoenix Tunic Stockings		add	0
-11523	2488	B	3	44	Phoenix Tunic Gloves		add	0
-11524	592	B	3	45	Phoenix Tunic Boots		add	0
-11525	41	A	4	73	Phoenix Tunic Helmet		add	0
-11526	455	A	4	91	Phoenix Tunic		add	0
-11527	421	A	4	84	Phoenix Tunic Stockings		add	0
-11528	2488	A	4	49	Phoenix Tunic Gloves		add	0
-11529	592	A	4	49	Phoenix Tunic Boots		add	0
-11530	41	S	5	83	Phoenix Tunic Helmet		add	0
-11531	455	S	5	102	Phoenix Tunic		add	0
-11532	421	S	5	96	Phoenix Tunic Stockings		add	0
-11533	2488	S	5	55	Phoenix Tunic Gloves		add	0
-11534	592	S	5	55	Phoenix Tunic Boots		add	0
-11535	41	B	3	67	Cerberus Tunic Helmet		add	0
+11498	421	B	3	78	Phoenix Tunic Stockings		add	0
+11499	2488	B	3	44	Phoenix Tunic Gloves		add	0
+11500	592	B	3	45	Phoenix Tunic Boots		add	0
+11501	41	A	4	73	Phoenix Tunic Helmet		add	0
+11502	455	A	4	91	Phoenix Tunic		add	0
+11503	421	A	4	84	Phoenix Tunic Stockings		add	0
+11504	2488	A	4	49	Phoenix Tunic Gloves		add	0
+11505	592	A	4	49	Phoenix Tunic Boots		add	0
+11506	41	S	5	83	Phoenix Tunic Helmet		add	0
+11507	455	S	5	102	Phoenix Tunic		add	0
+11508	421	S	5	96	Phoenix Tunic Stockings		add	0
+11509	2488	S	5	55	Phoenix Tunic Gloves		add	0
+11510	592	S	5	55	Phoenix Tunic Boots		add	0
+11511	41	B	3	67	Cerberus Tunic Helmet		add	0
 456	456	B	3	83	Cerberus Tunic		update	0
-11536	421	B	3	78	Cerberus Tunic Stockings		add	0
-11537	2484	B	3	44	Cerberus Tunic Gloves		add	0
-11538	593	B	3	45	Cerberus Tunic Boots		add	0
-11539	41	A	4	73	Cerberus Tunic Helmet		add	0
-11540	456	A	4	91	Cerberus Tunic		add	0
-11541	421	A	4	84	Cerberus Tunic Stockings		add	0
-11542	2484	A	4	49	Cerberus Tunic Gloves		add	0
-11543	593	A	4	49	Cerberus Tunic Boots		add	0
-11544	41	S	5	83	Cerberus Tunic Helmet		add	0
-11545	456	S	5	102	Cerberus Tunic		add	0
-11546	421	S	5	96	Cerberus Tunic Stockings		add	0
-11547	2484	S	5	55	Cerberus Tunic Gloves		add	0
-11548	593	S	5	55	Cerberus Tunic Boots		add	0
-11549	41	B	3	67	Tunic of Aid Helmet		add	0
+11512	421	B	3	78	Cerberus Tunic Stockings		add	0
+11513	2484	B	3	44	Cerberus Tunic Gloves		add	0
+11514	593	B	3	45	Cerberus Tunic Boots		add	0
+11515	41	A	4	73	Cerberus Tunic Helmet		add	0
+11516	456	A	4	91	Cerberus Tunic		add	0
+11517	421	A	4	84	Cerberus Tunic Stockings		add	0
+11518	2484	A	4	49	Cerberus Tunic Gloves		add	0
+11519	593	A	4	49	Cerberus Tunic Boots		add	0
+11520	41	S	5	83	Cerberus Tunic Helmet		add	0
+11521	456	S	5	102	Cerberus Tunic		add	0
+11522	421	S	5	96	Cerberus Tunic Stockings		add	0
+11523	2484	S	5	55	Cerberus Tunic Gloves		add	0
+11524	593	S	5	55	Cerberus Tunic Boots		add	0
+11525	41	B	3	67	Tunic of Aid Helmet		add	0
 457	457	B	3	83	Tunic of Aid		update	0
-11550	421	B	3	78	Tunic of Aid Stockings		add	0
-11551	2480	B	3	44	Tunic of Aid Gloves		add	0
-11552	594	B	3	45	Tunic of Aid Boots		add	0
-11553	41	A	4	73	Tunic of Aid Helmet		add	0
-11554	457	A	4	91	Tunic of Aid		add	0
-11555	421	A	4	84	Tunic of Aid Stockings		add	0
-11556	2480	A	4	49	Tunic of Aid Gloves		add	0
-11557	594	A	4	49	Tunic of Aid Boots		add	0
-11558	41	S	5	83	Tunic of Aid Helmet		add	0
-11559	457	S	5	102	Tunic of Aid		add	0
-11560	421	S	5	96	Tunic of Aid Stockings		add	0
-11561	2480	S	5	55	Tunic of Aid Gloves		add	0
-11562	594	S	5	55	Tunic of Aid Boots		add	0
-11563	41	B	3	67	Robe of Blessing Helmet		add	0
+11526	421	B	3	78	Tunic of Aid Stockings		add	0
+11527	2480	B	3	44	Tunic of Aid Gloves		add	0
+11528	594	B	3	45	Tunic of Aid Boots		add	0
+11529	41	A	4	73	Tunic of Aid Helmet		add	0
+11530	457	A	4	91	Tunic of Aid		add	0
+11531	421	A	4	84	Tunic of Aid Stockings		add	0
+11532	2480	A	4	49	Tunic of Aid Gloves		add	0
+11533	594	A	4	49	Tunic of Aid Boots		add	0
+11534	41	S	5	83	Tunic of Aid Helmet		add	0
+11535	457	S	5	102	Tunic of Aid		add	0
+11536	421	S	5	96	Tunic of Aid Stockings		add	0
+11537	2480	S	5	55	Tunic of Aid Gloves		add	0
+11538	594	S	5	55	Tunic of Aid Boots		add	0
+11539	41	B	3	67	Robe of Blessing Helmet		add	0
 458	458	B	3	135	Robe of Blessing		update	0
-11564	2467	B	3	44	Robe of Blessing Gloves		add	0
-11565	595	B	3	45	Robe of Blessing Boots		add	0
-11566	41	A	4	73	Robe of Blessing Helmet		add	0
-11567	458	A	4	147	Robe of Blessing		add	0
-11568	2467	A	4	49	Robe of Blessing Gloves		add	0
-11569	595	A	4	49	Robe of Blessing Boots		add	0
-11570	41	S	5	83	Robe of Blessing Helmet		add	0
-11571	458	S	5	166	Robe of Blessing		add	0
-11572	2467	S	5	55	Robe of Blessing Gloves		add	0
-11573	595	S	5	55	Robe of Blessing Boots		add	0
-11574	41	A	4	73	Dasparion's Robe Helmet		add	0
+11540	2467	B	3	44	Robe of Blessing Gloves		add	0
+11541	595	B	3	45	Robe of Blessing Boots		add	0
+11542	41	A	4	73	Robe of Blessing Helmet		add	0
+11543	458	A	4	147	Robe of Blessing		add	0
+11544	2467	A	4	49	Robe of Blessing Gloves		add	0
+11545	595	A	4	49	Robe of Blessing Boots		add	0
+11546	41	S	5	83	Robe of Blessing Helmet		add	0
+11547	458	S	5	166	Robe of Blessing		add	0
+11548	2467	S	5	55	Robe of Blessing Gloves		add	0
+11549	595	S	5	55	Robe of Blessing Boots		add	0
+11550	41	A	4	73	Dasparion's Robe Helmet		add	0
 459	459	A	4	147	Dasparion's Robe		update	0
-11575	2474	A	4	49	Dasparion's Robe Gloves		add	0
-11576	2442	A	4	49	Dasparion's Robe Boots		add	0
-11577	41	S	5	83	Dasparion's Robe Helmet		add	0
-11578	459	S	5	166	Dasparion's Robe		add	0
-11579	2474	S	5	55	Dasparion's Robe Gloves		add	0
-11580	2442	S	5	55	Dasparion's Robe Boots		add	0
-11581	41	S	5	83	The Robe Helmet		add	0
+11551	2474	A	4	49	Dasparion's Robe Gloves		add	0
+11552	2442	A	4	49	Dasparion's Robe Boots		add	0
+11553	41	S	5	83	Dasparion's Robe Helmet		add	0
+11554	459	S	5	166	Dasparion's Robe		add	0
+11555	2474	S	5	55	Dasparion's Robe Gloves		add	0
+11556	2442	S	5	55	Dasparion's Robe Boots		add	0
+11557	41	S	5	83	The Robe Helmet		add	0
 460	460	S	5	166	The Robe		update	0
-11582	2473	S	5	55	The Robe Gloves		add	0
-11583	2444	S	5	55	The Robe Boots		add	0
-11584	41	NG	0	26	Cotton Tunic Helmet		add	0
+11558	2473	S	5	55	The Robe Gloves		add	0
+11559	2444	S	5	55	The Robe Boots		add	0
+11560	41	NG	0	26	Cotton Tunic Helmet		add	0
 1100	1100	NG	0	34	Cotton Tunic		update	0
-11585	1103	NG	0	22	Cotton Tunic Stockings		add	0
-11586	48	NG	0	20	Cotton Tunic Gloves		add	0
-11587	1122	NG	0	20	Cotton Tunic Boots		add	0
-11588	41	D	1	44	Cotton Tunic Helmet		add	0
-11589	1100	D	1	52	Cotton Tunic		add	0
-11590	1103	D	1	33	Cotton Tunic Stockings		add	0
-11591	48	D	1	29	Cotton Tunic Gloves		add	0
-11592	1122	D	1	29	Cotton Tunic Boots		add	0
-11593	41	C	2	58	Cotton Tunic Helmet		add	0
-11594	1100	C	2	74	Cotton Tunic		add	0
-11595	1103	C	2	46	Cotton Tunic Stockings		add	0
-11596	48	C	2	39	Cotton Tunic Gloves		add	0
-11597	1122	C	2	39	Cotton Tunic Boots		add	0
-11598	41	B	3	67	Cotton Tunic Helmet		add	0
-11599	1100	B	3	83	Cotton Tunic		add	0
-11600	1103	B	3	52	Cotton Tunic Stockings		add	0
-11601	48	B	3	44	Cotton Tunic Gloves		add	0
-11602	1122	B	3	45	Cotton Tunic Boots		add	0
-11603	41	A	4	73	Cotton Tunic Helmet		add	0
-11604	1100	A	4	91	Cotton Tunic		add	0
-11605	1103	A	4	56	Cotton Tunic Stockings		add	0
-11606	48	A	4	49	Cotton Tunic Gloves		add	0
-11607	1122	A	4	49	Cotton Tunic Boots		add	0
-11608	41	S	5	83	Cotton Tunic Helmet		add	0
-11609	1100	S	5	102	Cotton Tunic		add	0
-11610	1103	S	5	64	Cotton Tunic Stockings		add	0
-11611	48	S	5	55	Cotton Tunic Gloves		add	0
-11612	1122	S	5	55	Cotton Tunic Boots		add	0
-11613	41	NG	0	26	Tunic of Devotion Helmet		add	0
+11561	1103	NG	0	22	Cotton Tunic Stockings		add	0
+11562	48	NG	0	20	Cotton Tunic Gloves		add	0
+11563	1122	NG	0	20	Cotton Tunic Boots		add	0
+11564	41	D	1	44	Cotton Tunic Helmet		add	0
+11565	1100	D	1	52	Cotton Tunic		add	0
+11566	1103	D	1	33	Cotton Tunic Stockings		add	0
+11567	48	D	1	29	Cotton Tunic Gloves		add	0
+11568	1122	D	1	29	Cotton Tunic Boots		add	0
+11569	41	C	2	58	Cotton Tunic Helmet		add	0
+11570	1100	C	2	74	Cotton Tunic		add	0
+11571	1103	C	2	46	Cotton Tunic Stockings		add	0
+11572	48	C	2	39	Cotton Tunic Gloves		add	0
+11573	1122	C	2	39	Cotton Tunic Boots		add	0
+11574	41	B	3	67	Cotton Tunic Helmet		add	0
+11575	1100	B	3	83	Cotton Tunic		add	0
+11576	1103	B	3	52	Cotton Tunic Stockings		add	0
+11577	48	B	3	44	Cotton Tunic Gloves		add	0
+11578	1122	B	3	45	Cotton Tunic Boots		add	0
+11579	41	A	4	73	Cotton Tunic Helmet		add	0
+11580	1100	A	4	91	Cotton Tunic		add	0
+11581	1103	A	4	56	Cotton Tunic Stockings		add	0
+11582	48	A	4	49	Cotton Tunic Gloves		add	0
+11583	1122	A	4	49	Cotton Tunic Boots		add	0
+11584	41	S	5	83	Cotton Tunic Helmet		add	0
+11585	1100	S	5	102	Cotton Tunic		add	0
+11586	1103	S	5	64	Cotton Tunic Stockings		add	0
+11587	48	S	5	55	Cotton Tunic Gloves		add	0
+11588	1122	S	5	55	Cotton Tunic Boots		add	0
+11589	41	NG	0	26	Tunic of Devotion Helmet		add	0
 1101	1101	NG	0	34	Tunic of Devotion		update	0
-11614	1104	NG	0	22	Tunic of Devotion Stockings		add	0
-11615	48	NG	0	20	Tunic of Devotion Gloves		add	0
-11616	35	NG	0	20	Tunic of Devotion Boots		add	0
-11617	41	D	1	44	Tunic of Devotion Helmet		add	0
-11618	1101	D	1	52	Tunic of Devotion		add	0
-11619	1104	D	1	33	Tunic of Devotion Stockings		add	0
-11620	48	D	1	29	Tunic of Devotion Gloves		add	0
-11621	35	D	1	29	Tunic of Devotion Boots		add	0
-11622	41	C	2	58	Tunic of Devotion Helmet		add	0
-11623	1101	C	2	74	Tunic of Devotion		add	0
-11624	1104	C	2	46	Tunic of Devotion Stockings		add	0
-11625	48	C	2	39	Tunic of Devotion Gloves		add	0
-11626	35	C	2	39	Tunic of Devotion Boots		add	0
-11627	41	B	3	67	Tunic of Devotion Helmet		add	0
-11628	1101	B	3	83	Tunic of Devotion		add	0
-11629	1104	B	3	52	Tunic of Devotion Stockings		add	0
-11630	48	B	3	44	Tunic of Devotion Gloves		add	0
-11631	35	B	3	45	Tunic of Devotion Boots		add	0
-11632	41	A	4	73	Tunic of Devotion Helmet		add	0
-11633	1101	A	4	91	Tunic of Devotion		add	0
-11634	1104	A	4	56	Tunic of Devotion Stockings		add	0
-11635	48	A	4	49	Tunic of Devotion Gloves		add	0
-11636	35	A	4	49	Tunic of Devotion Boots		add	0
-11637	41	S	5	83	Tunic of Devotion Helmet		add	0
-11638	1101	S	5	102	Tunic of Devotion		add	0
-11639	1104	S	5	64	Tunic of Devotion Stockings		add	0
-11640	48	S	5	55	Tunic of Devotion Gloves		add	0
-11641	35	S	5	55	Tunic of Devotion Boots		add	0
-11642	41	NG	0	26	Tunic of Magic Helmet		add	0
+11590	1104	NG	0	22	Tunic of Devotion Stockings		add	0
+11591	48	NG	0	20	Tunic of Devotion Gloves		add	0
+11592	35	NG	0	20	Tunic of Devotion Boots		add	0
+11593	41	D	1	44	Tunic of Devotion Helmet		add	0
+11594	1101	D	1	52	Tunic of Devotion		add	0
+11595	1104	D	1	33	Tunic of Devotion Stockings		add	0
+11596	48	D	1	29	Tunic of Devotion Gloves		add	0
+11597	35	D	1	29	Tunic of Devotion Boots		add	0
+11598	41	C	2	58	Tunic of Devotion Helmet		add	0
+11599	1101	C	2	74	Tunic of Devotion		add	0
+11600	1104	C	2	46	Tunic of Devotion Stockings		add	0
+11601	48	C	2	39	Tunic of Devotion Gloves		add	0
+11602	35	C	2	39	Tunic of Devotion Boots		add	0
+11603	41	B	3	67	Tunic of Devotion Helmet		add	0
+11604	1101	B	3	83	Tunic of Devotion		add	0
+11605	1104	B	3	52	Tunic of Devotion Stockings		add	0
+11606	48	B	3	44	Tunic of Devotion Gloves		add	0
+11607	35	B	3	45	Tunic of Devotion Boots		add	0
+11608	41	A	4	73	Tunic of Devotion Helmet		add	0
+11609	1101	A	4	91	Tunic of Devotion		add	0
+11610	1104	A	4	56	Tunic of Devotion Stockings		add	0
+11611	48	A	4	49	Tunic of Devotion Gloves		add	0
+11612	35	A	4	49	Tunic of Devotion Boots		add	0
+11613	41	S	5	83	Tunic of Devotion Helmet		add	0
+11614	1101	S	5	102	Tunic of Devotion		add	0
+11615	1104	S	5	64	Tunic of Devotion Stockings		add	0
+11616	48	S	5	55	Tunic of Devotion Gloves		add	0
+11617	35	S	5	55	Tunic of Devotion Boots		add	0
+11618	41	NG	0	26	Tunic of Magic Helmet		add	0
 1102	1102	NG	0	34	Tunic of Magic		update	0
-11643	1105	NG	0	22	Tunic of Magic Stockings		add	0
-11644	48	NG	0	20	Tunic of Magic Gloves		add	0
-11645	35	NG	0	20	Tunic of Magic Boots		add	0
-11646	41	D	1	44	Tunic of Magic Helmet		add	0
-11647	1102	D	1	52	Tunic of Magic		add	0
-11648	1105	D	1	33	Tunic of Magic Stockings		add	0
-11649	48	D	1	29	Tunic of Magic Gloves		add	0
-11650	35	D	1	29	Tunic of Magic Boots		add	0
-11651	41	C	2	58	Tunic of Magic Helmet		add	0
-11652	1102	C	2	74	Tunic of Magic		add	0
-11653	1105	C	2	46	Tunic of Magic Stockings		add	0
-11654	48	C	2	39	Tunic of Magic Gloves		add	0
-11655	35	C	2	39	Tunic of Magic Boots		add	0
-11656	41	B	3	67	Tunic of Magic Helmet		add	0
-11657	1102	B	3	83	Tunic of Magic		add	0
-11658	1105	B	3	52	Tunic of Magic Stockings		add	0
-11659	48	B	3	44	Tunic of Magic Gloves		add	0
-11660	35	B	3	45	Tunic of Magic Boots		add	0
-11661	41	A	4	73	Tunic of Magic Helmet		add	0
-11662	1102	A	4	91	Tunic of Magic		add	0
-11663	1105	A	4	56	Tunic of Magic Stockings		add	0
-11664	48	A	4	49	Tunic of Magic Gloves		add	0
-11665	35	A	4	49	Tunic of Magic Boots		add	0
-11666	41	S	5	83	Tunic of Magic Helmet		add	0
-11667	1102	S	5	102	Tunic of Magic		add	0
-11668	1105	S	5	64	Tunic of Magic Stockings		add	0
-11669	48	S	5	55	Tunic of Magic Gloves		add	0
-11670	35	S	5	55	Tunic of Magic Boots		add	0
-11671	2416	NG	0	26	Squire's Shirt Helmet		add	0
+11619	1105	NG	0	22	Tunic of Magic Stockings		add	0
+11620	48	NG	0	20	Tunic of Magic Gloves		add	0
+11621	35	NG	0	20	Tunic of Magic Boots		add	0
+11622	41	D	1	44	Tunic of Magic Helmet		add	0
+11623	1102	D	1	52	Tunic of Magic		add	0
+11624	1105	D	1	33	Tunic of Magic Stockings		add	0
+11625	48	D	1	29	Tunic of Magic Gloves		add	0
+11626	35	D	1	29	Tunic of Magic Boots		add	0
+11627	41	C	2	58	Tunic of Magic Helmet		add	0
+11628	1102	C	2	74	Tunic of Magic		add	0
+11629	1105	C	2	46	Tunic of Magic Stockings		add	0
+11630	48	C	2	39	Tunic of Magic Gloves		add	0
+11631	35	C	2	39	Tunic of Magic Boots		add	0
+11632	41	B	3	67	Tunic of Magic Helmet		add	0
+11633	1102	B	3	83	Tunic of Magic		add	0
+11634	1105	B	3	52	Tunic of Magic Stockings		add	0
+11635	48	B	3	44	Tunic of Magic Gloves		add	0
+11636	35	B	3	45	Tunic of Magic Boots		add	0
+11637	41	A	4	73	Tunic of Magic Helmet		add	0
+11638	1102	A	4	91	Tunic of Magic		add	0
+11639	1105	A	4	56	Tunic of Magic Stockings		add	0
+11640	48	A	4	49	Tunic of Magic Gloves		add	0
+11641	35	A	4	49	Tunic of Magic Boots		add	0
+11642	41	S	5	83	Tunic of Magic Helmet		add	0
+11643	1102	S	5	102	Tunic of Magic		add	0
+11644	1105	S	5	64	Tunic of Magic Stockings		add	0
+11645	48	S	5	55	Tunic of Magic Gloves		add	0
+11646	35	S	5	55	Tunic of Magic Boots		add	0
+11647	2416	NG	0	26	Squire's Shirt Helmet		add	0
 1146	1146	NG	0	53	Squire's Shirt		update	0
-11672	1147	NG	0	33	Squire's Shirt Gaiters		add	0
-11673	49	NG	0	20	Squire's Shirt Gloves		add	0
-11674	1121	NG	0	20	Squire's Shirt Boots		add	0
-11675	2416	D	1	44	Squire's Shirt Helmet		add	0
-11676	1146	D	1	77	Squire's Shirt		add	0
-11677	1147	D	1	48	Squire's Shirt Gaiters		add	0
-11678	49	D	1	29	Squire's Shirt Gloves		add	0
-11679	1121	D	1	29	Squire's Shirt Boots		add	0
-11680	2416	C	2	58	Squire's Shirt Helmet		add	0
-11681	1146	C	2	110	Squire's Shirt		add	0
-11682	1147	C	2	69	Squire's Shirt Gaiters		add	0
-11683	49	C	2	39	Squire's Shirt Gloves		add	0
-11684	1121	C	2	39	Squire's Shirt Boots		add	0
-11685	2416	B	3	67	Squire's Shirt Helmet		add	0
-11686	1146	B	3	124	Squire's Shirt		add	0
-11687	1147	B	3	78	Squire's Shirt Gaiters		add	0
-11688	49	B	3	44	Squire's Shirt Gloves		add	0
-11689	1121	B	3	45	Squire's Shirt Boots		add	0
-11690	2416	A	4	73	Squire's Shirt Helmet		add	0
-11691	1146	A	4	136	Squire's Shirt		add	0
-11692	1147	A	4	84	Squire's Shirt Gaiters		add	0
-11693	49	A	4	49	Squire's Shirt Gloves		add	0
-11694	1121	A	4	49	Squire's Shirt Boots		add	0
-11695	2416	S	5	83	Squire's Shirt Helmet		add	0
-11696	1146	S	5	153	Squire's Shirt		add	0
-11697	1147	S	5	96	Squire's Shirt Gaiters		add	0
-11698	49	S	5	55	Squire's Shirt Gloves		add	0
-11699	1121	S	5	55	Squire's Shirt Boots		add	0
-11700	7860	B	3	67	Avadon Breastplate Helmet		add	1
+11648	1147	NG	0	33	Squire's Shirt Gaiters		add	0
+11649	49	NG	0	20	Squire's Shirt Gloves		add	0
+11650	1121	NG	0	20	Squire's Shirt Boots		add	0
+11651	2416	D	1	44	Squire's Shirt Helmet		add	0
+11652	1146	D	1	77	Squire's Shirt		add	0
+11653	1147	D	1	48	Squire's Shirt Gaiters		add	0
+11654	49	D	1	29	Squire's Shirt Gloves		add	0
+11655	1121	D	1	29	Squire's Shirt Boots		add	0
+11656	2416	C	2	58	Squire's Shirt Helmet		add	0
+11657	1146	C	2	110	Squire's Shirt		add	0
+11658	1147	C	2	69	Squire's Shirt Gaiters		add	0
+11659	49	C	2	39	Squire's Shirt Gloves		add	0
+11660	1121	C	2	39	Squire's Shirt Boots		add	0
+11661	2416	B	3	67	Squire's Shirt Helmet		add	0
+11662	1146	B	3	124	Squire's Shirt		add	0
+11663	1147	B	3	78	Squire's Shirt Gaiters		add	0
+11664	49	B	3	44	Squire's Shirt Gloves		add	0
+11665	1121	B	3	45	Squire's Shirt Boots		add	0
+11666	2416	A	4	73	Squire's Shirt Helmet		add	0
+11667	1146	A	4	136	Squire's Shirt		add	0
+11668	1147	A	4	84	Squire's Shirt Gaiters		add	0
+11669	49	A	4	49	Squire's Shirt Gloves		add	0
+11670	1121	A	4	49	Squire's Shirt Boots		add	0
+11671	2416	S	5	83	Squire's Shirt Helmet		add	0
+11672	1146	S	5	153	Squire's Shirt		add	0
+11673	1147	S	5	96	Squire's Shirt Gaiters		add	0
+11674	49	S	5	55	Squire's Shirt Gloves		add	0
+11675	1121	S	5	55	Squire's Shirt Boots		add	0
+11676	7860	B	3	67	Avadon Breastplate Helmet		add	1
 2376	2376	B	3	166	Avadon Breastplate		update	0
-11701	2379	B	3	104	Avadon Breastplate Gaiters		add	0
-11702	5714	B	3	44	Avadon Breastplate Gloves		add	0
-11703	5730	B	3	45	Avadon Breastplate Boots		add	0
-11704	7860	A	4	73	Avadon Breastplate Helmet		add	1
-11705	2376	A	4	180	Avadon Breastplate		add	0
-11706	2379	A	4	113	Avadon Breastplate Gaiters		add	0
-11707	5714	A	4	49	Avadon Breastplate Gloves		add	0
-11708	5730	A	4	49	Avadon Breastplate Boots		add	0
-11709	7860	S	5	83	Avadon Breastplate Helmet		add	1
-11710	2376	S	5	205	Avadon Breastplate		add	0
-11711	2379	S	5	128	Avadon Breastplate Gaiters		add	0
-11712	5714	S	5	55	Avadon Breastplate Gloves		add	0
-11713	5730	S	5	55	Avadon Breastplate Boots		add	0
-11714	7860	B	3	67	Doom Plate Armor Helmet		add	1
+11677	2379	B	3	104	Avadon Breastplate Gaiters		add	0
+11678	5714	B	3	44	Avadon Breastplate Gloves		add	0
+11679	5730	B	3	45	Avadon Breastplate Boots		add	0
+11680	7860	A	4	73	Avadon Breastplate Helmet		add	1
+11681	2376	A	4	180	Avadon Breastplate		add	0
+11682	2379	A	4	113	Avadon Breastplate Gaiters		add	0
+11683	5714	A	4	49	Avadon Breastplate Gloves		add	0
+11684	5730	A	4	49	Avadon Breastplate Boots		add	0
+11685	7860	S	5	83	Avadon Breastplate Helmet		add	1
+11686	2376	S	5	205	Avadon Breastplate		add	0
+11687	2379	S	5	128	Avadon Breastplate Gaiters		add	0
+11688	5714	S	5	55	Avadon Breastplate Gloves		add	0
+11689	5730	S	5	55	Avadon Breastplate Boots		add	0
+11690	7860	B	3	67	Doom Plate Armor Helmet		add	1
 2381	2381	B	3	270	Doom Plate Armor		update	0
-11715	5722	B	3	44	Doom Plate Armor Gloves		add	0
-11716	5738	B	3	45	Doom Plate Armor Boots		add	0
-11717	7860	A	4	73	Doom Plate Armor Helmet		add	1
-11718	2381	A	4	293	Doom Plate Armor		add	0
-11719	5722	A	4	49	Doom Plate Armor Gloves		add	0
-11720	5738	A	4	49	Doom Plate Armor Boots		add	0
-11721	7860	S	5	83	Doom Plate Armor Helmet		add	1
-11722	2381	S	5	333	Doom Plate Armor		add	0
-11723	5722	S	5	55	Doom Plate Armor Gloves		add	0
-11724	5738	S	5	55	Doom Plate Armor Boots		add	0
-11725	7860	A	4	73	Tallum Plate Armor Helmet		add	1
+11691	5722	B	3	44	Doom Plate Armor Gloves		add	0
+11692	5738	B	3	45	Doom Plate Armor Boots		add	0
+11693	7860	A	4	73	Doom Plate Armor Helmet		add	1
+11694	2381	A	4	293	Doom Plate Armor		add	0
+11695	5722	A	4	49	Doom Plate Armor Gloves		add	0
+11696	5738	A	4	49	Doom Plate Armor Boots		add	0
+11697	7860	S	5	83	Doom Plate Armor Helmet		add	1
+11698	2381	S	5	333	Doom Plate Armor		add	0
+11699	5722	S	5	55	Doom Plate Armor Gloves		add	0
+11700	5738	S	5	55	Doom Plate Armor Boots		add	0
+11701	7860	A	4	73	Tallum Plate Armor Helmet		add	1
 2382	2382	A	4	293	Tallum Plate Armor		update	0
-11726	5768	A	4	49	Tallum Plate Armor Gloves		add	0
-11727	5780	A	4	49	Tallum Plate Armor Boots		add	0
-11728	7860	S	5	83	Tallum Plate Armor Helmet		add	1
-11729	2382	S	5	333	Tallum Plate Armor		add	0
-11730	5768	S	5	55	Tallum Plate Armor Gloves		add	0
-11731	5780	S	5	55	Tallum Plate Armor Boots		add	0
-11732	7860	A	4	73	Majestic Plate Armor Helmet		add	1
+11702	5768	A	4	49	Tallum Plate Armor Gloves		add	0
+11703	5780	A	4	49	Tallum Plate Armor Boots		add	0
+11704	7860	S	5	83	Tallum Plate Armor Helmet		add	1
+11705	2382	S	5	333	Tallum Plate Armor		add	0
+11706	5768	S	5	55	Tallum Plate Armor Gloves		add	0
+11707	5780	S	5	55	Tallum Plate Armor Boots		add	0
+11708	7860	A	4	73	Majestic Plate Armor Helmet		add	1
 2383	2383	A	4	293	Majestic Plate Armor		update	0
-11733	5774	A	4	49	Majestic Plate Armor Gloves		add	0
-11734	5786	A	4	49	Majestic Plate Armor Boots		add	0
-11735	7860	S	5	83	Majestic Plate Armor Helmet		add	1
-11736	2383	S	5	333	Majestic Plate Armor		add	0
-11737	5774	S	5	55	Majestic Plate Armor Gloves		add	0
-11738	5786	S	5	55	Majestic Plate Armor Boots		add	0
-11739	2416	B	3	67	Zubei's Leather Shirt Helmet		add	0
+11709	5774	A	4	49	Majestic Plate Armor Gloves		add	0
+11710	5786	A	4	49	Majestic Plate Armor Boots		add	0
+11711	7860	S	5	83	Majestic Plate Armor Helmet		add	1
+11712	2383	S	5	333	Majestic Plate Armor		add	0
+11713	5774	S	5	55	Majestic Plate Armor Gloves		add	0
+11714	5786	S	5	55	Majestic Plate Armor Boots		add	0
+11715	2416	B	3	67	Zubei's Leather Shirt Helmet		add	0
 2384	2384	B	3	124	Zubei's Leather Shirt		update	0
-11740	2388	B	3	78	Zubei's Leather Shirt Gaiters		add	0
-11741	5711	B	3	44	Zubei's Leather Shirt Gloves		add	0
-11742	5727	B	3	45	Zubei's Leather Shirt Boots		add	0
-11743	2416	A	4	73	Zubei's Leather Shirt Helmet		add	0
-11744	2384	A	4	136	Zubei's Leather Shirt		add	0
-11745	2388	A	4	84	Zubei's Leather Shirt Gaiters		add	0
-11746	5711	A	4	49	Zubei's Leather Shirt Gloves		add	0
-11747	5727	A	4	49	Zubei's Leather Shirt Boots		add	0
-11748	2416	S	5	83	Zubei's Leather Shirt Helmet		add	0
-11749	2384	S	5	153	Zubei's Leather Shirt		add	0
-11750	2388	S	5	96	Zubei's Leather Shirt Gaiters		add	0
-11751	5711	S	5	55	Zubei's Leather Shirt Gloves		add	0
-11752	5727	S	5	55	Zubei's Leather Shirt Boots		add	0
-11753	2416	A	4	73	Dark Crystal Leather Armor Helmet		add	0
+11716	2388	B	3	78	Zubei's Leather Shirt Gaiters		add	0
+11717	5711	B	3	44	Zubei's Leather Shirt Gloves		add	0
+11718	5727	B	3	45	Zubei's Leather Shirt Boots		add	0
+11719	2416	A	4	73	Zubei's Leather Shirt Helmet		add	0
+11720	2384	A	4	136	Zubei's Leather Shirt		add	0
+11721	2388	A	4	84	Zubei's Leather Shirt Gaiters		add	0
+11722	5711	A	4	49	Zubei's Leather Shirt Gloves		add	0
+11723	5727	A	4	49	Zubei's Leather Shirt Boots		add	0
+11724	2416	S	5	83	Zubei's Leather Shirt Helmet		add	0
+11725	2384	S	5	153	Zubei's Leather Shirt		add	0
+11726	2388	S	5	96	Zubei's Leather Shirt Gaiters		add	0
+11727	5711	S	5	55	Zubei's Leather Shirt Gloves		add	0
+11728	5727	S	5	55	Zubei's Leather Shirt Boots		add	0
+11729	2416	A	4	73	Dark Crystal Leather Armor Helmet		add	0
 2385	2385	A	4	136	Dark Crystal Leather Armor		update	0
-11754	2389	A	4	84	Dark Crystal Leather Armor Gaiters		add	0
-11755	5766	A	4	49	Dark Crystal Leather Armor Gloves		add	0
-11756	5778	A	4	49	Dark Crystal Leather Armor Boots		add	0
-11757	2416	S	5	83	Dark Crystal Leather Armor Helmet		add	0
-11758	2385	S	5	153	Dark Crystal Leather Armor		add	0
-11759	2389	S	5	96	Dark Crystal Leather Armor Gaiters		add	0
-11760	5766	S	5	55	Dark Crystal Leather Armor Gloves		add	0
-11761	5778	S	5	55	Dark Crystal Leather Armor Boots		add	0
-11762	2416	B	3	67	Avadon Leather Armor Helmet		add	0
+11730	2389	A	4	84	Dark Crystal Leather Armor Gaiters		add	0
+11731	5766	A	4	49	Dark Crystal Leather Armor Gloves		add	0
+11732	5778	A	4	49	Dark Crystal Leather Armor Boots		add	0
+11733	2416	S	5	83	Dark Crystal Leather Armor Helmet		add	0
+11734	2385	S	5	153	Dark Crystal Leather Armor		add	0
+11735	2389	S	5	96	Dark Crystal Leather Armor Gaiters		add	0
+11736	5766	S	5	55	Dark Crystal Leather Armor Gloves		add	0
+11737	5778	S	5	55	Dark Crystal Leather Armor Boots		add	0
+11738	2416	B	3	67	Avadon Leather Armor Helmet		add	0
 2390	2390	B	3	202	Avadon Leather Armor		update	0
-11763	5715	B	3	44	Avadon Leather Armor Gloves		add	0
-11764	5731	B	3	45	Avadon Leather Armor Boots		add	0
-11765	2416	A	4	73	Avadon Leather Armor Helmet		add	0
-11766	2390	A	4	220	Avadon Leather Armor		add	0
-11767	5715	A	4	49	Avadon Leather Armor Gloves		add	0
-11768	5731	A	4	49	Avadon Leather Armor Boots		add	0
-11769	2416	S	5	83	Avadon Leather Armor Helmet		add	0
-11770	2390	S	5	249	Avadon Leather Armor		add	0
-11771	5715	S	5	55	Avadon Leather Armor Gloves		add	0
-11772	5731	S	5	55	Avadon Leather Armor Boots		add	0
-11773	2416	B	3	67	Blue Wolf Leather Armor Helmet		add	0
+11739	5715	B	3	44	Avadon Leather Armor Gloves		add	0
+11740	5731	B	3	45	Avadon Leather Armor Boots		add	0
+11741	2416	A	4	73	Avadon Leather Armor Helmet		add	0
+11742	2390	A	4	220	Avadon Leather Armor		add	0
+11743	5715	A	4	49	Avadon Leather Armor Gloves		add	0
+11744	5731	A	4	49	Avadon Leather Armor Boots		add	0
+11745	2416	S	5	83	Avadon Leather Armor Helmet		add	0
+11746	2390	S	5	249	Avadon Leather Armor		add	0
+11747	5715	S	5	55	Avadon Leather Armor Gloves		add	0
+11748	5731	S	5	55	Avadon Leather Armor Boots		add	0
+11749	2416	B	3	67	Blue Wolf Leather Armor Helmet		add	0
 2391	2391	B	3	202	Blue Wolf Leather Armor		update	0
-11774	5719	B	3	44	Blue Wolf Leather Armor Gloves		add	0
-11775	5735	B	3	45	Blue Wolf Leather Armor Boots		add	0
-11776	2416	A	4	73	Blue Wolf Leather Armor Helmet		add	0
-11777	2391	A	4	220	Blue Wolf Leather Armor		add	0
-11778	5719	A	4	49	Blue Wolf Leather Armor Gloves		add	0
-11779	5735	A	4	49	Blue Wolf Leather Armor Boots		add	0
-11780	2416	S	5	83	Blue Wolf Leather Armor Helmet		add	0
-11781	2391	S	5	249	Blue Wolf Leather Armor		add	0
-11782	5719	S	5	55	Blue Wolf Leather Armor Gloves		add	0
-11783	5735	S	5	55	Blue Wolf Leather Armor Boots		add	0
-11784	2416	B	3	67	Leather Armor of Doom Helmet		add	0
+11750	5719	B	3	44	Blue Wolf Leather Armor Gloves		add	0
+11751	5735	B	3	45	Blue Wolf Leather Armor Boots		add	0
+11752	2416	A	4	73	Blue Wolf Leather Armor Helmet		add	0
+11753	2391	A	4	220	Blue Wolf Leather Armor		add	0
+11754	5719	A	4	49	Blue Wolf Leather Armor Gloves		add	0
+11755	5735	A	4	49	Blue Wolf Leather Armor Boots		add	0
+11756	2416	S	5	83	Blue Wolf Leather Armor Helmet		add	0
+11757	2391	S	5	249	Blue Wolf Leather Armor		add	0
+11758	5719	S	5	55	Blue Wolf Leather Armor Gloves		add	0
+11759	5735	S	5	55	Blue Wolf Leather Armor Boots		add	0
+11760	2416	B	3	67	Leather Armor of Doom Helmet		add	0
 2392	2392	B	3	202	Leather Armor of Doom		update	0
-11785	5723	B	3	44	Leather Armor of Doom Gloves		add	0
-11786	5739	B	3	45	Leather Armor of Doom Boots		add	0
-11787	2416	A	4	73	Leather Armor of Doom Helmet		add	0
-11788	2392	A	4	220	Leather Armor of Doom		add	0
-11789	5723	A	4	49	Leather Armor of Doom Gloves		add	0
-11790	5739	A	4	49	Leather Armor of Doom Boots		add	0
-11791	2416	S	5	83	Leather Armor of Doom Helmet		add	0
-11792	2392	S	5	249	Leather Armor of Doom		add	0
-11793	5723	S	5	55	Leather Armor of Doom Gloves		add	0
-11794	5739	S	5	55	Leather Armor of Doom Boots		add	0
-11795	2416	A	4	73	Tallum Leather Armor Helmet		add	0
+11761	5723	B	3	44	Leather Armor of Doom Gloves		add	0
+11762	5739	B	3	45	Leather Armor of Doom Boots		add	0
+11763	2416	A	4	73	Leather Armor of Doom Helmet		add	0
+11764	2392	A	4	220	Leather Armor of Doom		add	0
+11765	5723	A	4	49	Leather Armor of Doom Gloves		add	0
+11766	5739	A	4	49	Leather Armor of Doom Boots		add	0
+11767	2416	S	5	83	Leather Armor of Doom Helmet		add	0
+11768	2392	S	5	249	Leather Armor of Doom		add	0
+11769	5723	S	5	55	Leather Armor of Doom Gloves		add	0
+11770	5739	S	5	55	Leather Armor of Doom Boots		add	0
+11771	2416	A	4	73	Tallum Leather Armor Helmet		add	0
 2393	2393	A	4	220	Tallum Leather Armor		update	0
-11796	5769	A	4	49	Tallum Leather Armor Gloves		add	0
-11797	5781	A	4	49	Tallum Leather Armor Boots		add	0
-11798	2416	S	5	83	Tallum Leather Armor Helmet		add	0
-11799	2393	S	5	249	Tallum Leather Armor		add	0
-11800	5769	S	5	55	Tallum Leather Armor Gloves		add	0
-11801	5781	S	5	55	Tallum Leather Armor Boots		add	0
-11802	2416	A	4	73	Nightmarish Leather Armor Helmet		add	0
+11772	5769	A	4	49	Tallum Leather Armor Gloves		add	0
+11773	5781	A	4	49	Tallum Leather Armor Boots		add	0
+11774	2416	S	5	83	Tallum Leather Armor Helmet		add	0
+11775	2393	S	5	249	Tallum Leather Armor		add	0
+11776	5769	S	5	55	Tallum Leather Armor Gloves		add	0
+11777	5781	S	5	55	Tallum Leather Armor Boots		add	0
+11778	2416	A	4	73	Nightmarish Leather Armor Helmet		add	0
 2394	2394	A	4	220	Nightmarish Leather Armor		update	0
-11803	5772	A	4	49	Nightmarish Leather Armor Gloves		add	0
-11804	5784	A	4	49	Nightmarish Leather Armor Boots		add	0
-11805	2416	S	5	83	Nightmarish Leather Armor Helmet		add	0
-11806	2394	S	5	249	Nightmarish Leather Armor		add	0
-11807	5772	S	5	55	Nightmarish Leather Armor Gloves		add	0
-11808	5784	S	5	55	Nightmarish Leather Armor Boots		add	0
-11809	2416	A	4	73	Majestic Leather Armor Helmet		add	0
+11779	5772	A	4	49	Nightmarish Leather Armor Gloves		add	0
+11780	5784	A	4	49	Nightmarish Leather Armor Boots		add	0
+11781	2416	S	5	83	Nightmarish Leather Armor Helmet		add	0
+11782	2394	S	5	249	Nightmarish Leather Armor		add	0
+11783	5772	S	5	55	Nightmarish Leather Armor Gloves		add	0
+11784	5784	S	5	55	Nightmarish Leather Armor Boots		add	0
+11785	2416	A	4	73	Majestic Leather Armor Helmet		add	0
 2395	2395	A	4	220	Majestic Leather Armor		update	0
-11810	5775	A	4	49	Majestic Leather Armor Gloves		add	0
-11811	5787	A	4	49	Majestic Leather Armor Boots		add	0
-11812	2416	S	5	83	Majestic Leather Armor Helmet		add	0
-11813	2395	S	5	249	Majestic Leather Armor		add	0
-11814	5775	S	5	55	Majestic Leather Armor Gloves		add	0
-11815	5787	S	5	55	Majestic Leather Armor Boots		add	0
-11816	41	D	1	44	Elven Mithril Tunic Helmet		add	0
-2396	2396	D	1	52	Elven Mithril Tunic		update	0
-11817	2401	D	1	33	Elven Mithril Tunic Stockings		add	0
-11818	2450	D	1	29	Elven Mithril Tunic Gloves		add	0
-11819	2426	D	1	29	Elven Mithril Tunic Boots		add	0
-11820	41	C	2	58	Elven Mithril Tunic Helmet		add	0
-11821	2396	C	2	74	Elven Mithril Tunic		add	0
-11822	2401	C	2	46	Elven Mithril Tunic Stockings		add	0
-11823	2450	C	2	39	Elven Mithril Tunic Gloves		add	0
-11824	2426	C	2	39	Elven Mithril Tunic Boots		add	0
-11825	41	B	3	67	Elven Mithril Tunic Helmet		add	0
-11826	2396	B	3	83	Elven Mithril Tunic		add	0
-11827	2401	B	3	52	Elven Mithril Tunic Stockings		add	0
-11828	2450	B	3	44	Elven Mithril Tunic Gloves		add	0
-11829	2426	B	3	45	Elven Mithril Tunic Boots		add	0
-11830	41	A	4	73	Elven Mithril Tunic Helmet		add	0
-11831	2396	A	4	91	Elven Mithril Tunic		add	0
-11832	2401	A	4	56	Elven Mithril Tunic Stockings		add	0
-11833	2450	A	4	49	Elven Mithril Tunic Gloves		add	0
-11834	2426	A	4	49	Elven Mithril Tunic Boots		add	0
-11835	41	S	5	83	Elven Mithril Tunic Helmet		add	0
-11836	2396	S	5	102	Elven Mithril Tunic		add	0
-11837	2401	S	5	64	Elven Mithril Tunic Stockings		add	0
-11838	2450	S	5	55	Elven Mithril Tunic Gloves		add	0
-11839	2426	S	5	55	Elven Mithril Tunic Boots		add	0
-11840	41	B	3	67	Tunic of Zubei Helmet		add	0
+11786	5775	A	4	49	Majestic Leather Armor Gloves		add	0
+11787	5787	A	4	49	Majestic Leather Armor Boots		add	0
+11788	2416	S	5	83	Majestic Leather Armor Helmet		add	0
+11789	2395	S	5	249	Majestic Leather Armor		add	0
+11790	5775	S	5	55	Majestic Leather Armor Gloves		add	0
+11791	5787	S	5	55	Majestic Leather Armor Boots		add	0
+11792	41	B	3	67	Tunic of Zubei Helmet		add	0
 2397	2397	B	3	83	Tunic of Zubei		update	0
-11841	2402	B	3	52	Tunic of Zubei Stockings		add	0
-11842	5712	B	3	44	Tunic of Zubei Gloves		add	0
-11843	5728	B	3	45	Tunic of Zubei Boots		add	0
-11844	41	A	4	73	Tunic of Zubei Helmet		add	0
-11845	2397	A	4	91	Tunic of Zubei		add	0
-11846	2402	A	4	56	Tunic of Zubei Stockings		add	0
-11847	5712	A	4	49	Tunic of Zubei Gloves		add	0
-11848	5728	A	4	49	Tunic of Zubei Boots		add	0
-11849	41	S	5	83	Tunic of Zubei Helmet		add	0
-11850	2397	S	5	102	Tunic of Zubei		add	0
-11851	2402	S	5	64	Tunic of Zubei Stockings		add	0
-11852	5712	S	5	55	Tunic of Zubei Gloves		add	0
-11853	5728	S	5	55	Tunic of Zubei Boots		add	0
-11854	41	B	3	67	Blue Wolf Tunic Helmet		add	0
+11793	2402	B	3	52	Tunic of Zubei Stockings		add	0
+11794	5712	B	3	44	Tunic of Zubei Gloves		add	0
+11795	5728	B	3	45	Tunic of Zubei Boots		add	0
+11796	41	A	4	73	Tunic of Zubei Helmet		add	0
+11797	2397	A	4	91	Tunic of Zubei		add	0
+11798	2402	A	4	56	Tunic of Zubei Stockings		add	0
+11799	5712	A	4	49	Tunic of Zubei Gloves		add	0
+11800	5728	A	4	49	Tunic of Zubei Boots		add	0
+11801	41	S	5	83	Tunic of Zubei Helmet		add	0
+11802	2397	S	5	102	Tunic of Zubei		add	0
+11803	2402	S	5	64	Tunic of Zubei Stockings		add	0
+11804	5712	S	5	55	Tunic of Zubei Gloves		add	0
+11805	5728	S	5	55	Tunic of Zubei Boots		add	0
+11806	41	B	3	67	Blue Wolf Tunic Helmet		add	0
 2398	2398	B	3	83	Blue Wolf Tunic		update	0
-11855	2403	B	3	52	Blue Wolf Tunic Stockings		add	0
-11856	5720	B	3	44	Blue Wolf Tunic Gloves		add	0
-11857	5736	B	3	45	Blue Wolf Tunic Boots		add	0
-11858	41	A	4	73	Blue Wolf Tunic Helmet		add	0
-11859	2398	A	4	91	Blue Wolf Tunic		add	0
-11860	2403	A	4	56	Blue Wolf Tunic Stockings		add	0
-11861	5720	A	4	49	Blue Wolf Tunic Gloves		add	0
-11862	5736	A	4	49	Blue Wolf Tunic Boots		add	0
-11863	41	S	5	83	Blue Wolf Tunic Helmet		add	0
-11864	2398	S	5	102	Blue Wolf Tunic		add	0
-11865	2403	S	5	64	Blue Wolf Tunic Stockings		add	0
-11866	5720	S	5	55	Blue Wolf Tunic Gloves		add	0
-11867	5736	S	5	55	Blue Wolf Tunic Boots		add	0
-11868	41	B	3	67	Tunic of Doom Helmet		add	0
+11807	2403	B	3	52	Blue Wolf Tunic Stockings		add	0
+11808	5720	B	3	44	Blue Wolf Tunic Gloves		add	0
+11809	5736	B	3	45	Blue Wolf Tunic Boots		add	0
+11810	41	A	4	73	Blue Wolf Tunic Helmet		add	0
+11811	2398	A	4	91	Blue Wolf Tunic		add	0
+11812	2403	A	4	56	Blue Wolf Tunic Stockings		add	0
+11813	5720	A	4	49	Blue Wolf Tunic Gloves		add	0
+11814	5736	A	4	49	Blue Wolf Tunic Boots		add	0
+11815	41	S	5	83	Blue Wolf Tunic Helmet		add	0
+11816	2398	S	5	102	Blue Wolf Tunic		add	0
+11817	2403	S	5	64	Blue Wolf Tunic Stockings		add	0
+11818	5720	S	5	55	Blue Wolf Tunic Gloves		add	0
+11819	5736	S	5	55	Blue Wolf Tunic Boots		add	0
+11820	41	B	3	67	Tunic of Doom Helmet		add	0
 2399	2399	B	3	83	Tunic of Doom		update	0
-11869	2404	B	3	52	Tunic of Doom Stockings		add	0
-11870	5724	B	3	44	Tunic of Doom Gloves		add	0
-11871	5740	B	3	45	Tunic of Doom Boots		add	0
-11872	41	A	4	73	Tunic of Doom Helmet		add	0
-11873	2399	A	4	91	Tunic of Doom		add	0
-11874	2404	A	4	56	Tunic of Doom Stockings		add	0
-11875	5724	A	4	49	Tunic of Doom Gloves		add	0
-11876	5740	A	4	49	Tunic of Doom Boots		add	0
-11877	41	S	5	83	Tunic of Doom Helmet		add	0
-11878	2399	S	5	102	Tunic of Doom		add	0
-11879	2404	S	5	64	Tunic of Doom Stockings		add	0
-11880	5724	S	5	55	Tunic of Doom Gloves		add	0
-11881	5740	S	5	55	Tunic of Doom Boots		add	0
-11882	41	A	4	73	Tallum Tunic Helmet		add	0
+11821	2404	B	3	52	Tunic of Doom Stockings		add	0
+11822	5724	B	3	44	Tunic of Doom Gloves		add	0
+11823	5740	B	3	45	Tunic of Doom Boots		add	0
+11824	41	A	4	73	Tunic of Doom Helmet		add	0
+11825	2399	A	4	91	Tunic of Doom		add	0
+11826	2404	A	4	56	Tunic of Doom Stockings		add	0
+11827	5724	A	4	49	Tunic of Doom Gloves		add	0
+11828	5740	A	4	49	Tunic of Doom Boots		add	0
+11829	41	S	5	83	Tunic of Doom Helmet		add	0
+11830	2399	S	5	102	Tunic of Doom		add	0
+11831	2404	S	5	64	Tunic of Doom Stockings		add	0
+11832	5724	S	5	55	Tunic of Doom Gloves		add	0
+11833	5740	S	5	55	Tunic of Doom Boots		add	0
+11834	41	A	4	73	Tallum Tunic Helmet		add	0
 2400	2400	A	4	91	Tallum Tunic		update	0
-11883	2405	A	4	56	Tallum Tunic Stockings		add	0
-11884	5770	A	4	49	Tallum Tunic Gloves		add	0
-11885	5782	A	4	49	Tallum Tunic Boots		add	0
-11886	41	S	5	83	Tallum Tunic Helmet		add	0
-11887	2400	S	5	102	Tallum Tunic		add	0
-11888	2405	S	5	64	Tallum Tunic Stockings		add	0
-11889	5770	S	5	55	Tallum Tunic Gloves		add	0
-11890	5782	S	5	55	Tallum Tunic Boots		add	0
-11891	41	B	3	67	Avadon Robe Helmet		add	0
+11835	2405	A	4	56	Tallum Tunic Stockings		add	0
+11836	5770	A	4	49	Tallum Tunic Gloves		add	0
+11837	5782	A	4	49	Tallum Tunic Boots		add	0
+11838	41	S	5	83	Tallum Tunic Helmet		add	0
+11839	2400	S	5	102	Tallum Tunic		add	0
+11840	2405	S	5	64	Tallum Tunic Stockings		add	0
+11841	5770	S	5	55	Tallum Tunic Gloves		add	0
+11842	5782	S	5	55	Tallum Tunic Boots		add	0
+11843	41	B	3	67	Avadon Robe Helmet		add	0
 2406	2406	B	3	135	Avadon Robe		update	0
-11892	5716	B	3	44	Avadon Robe Gloves		add	0
-11893	5732	B	3	45	Avadon Robe Boots		add	0
-11894	41	A	4	73	Avadon Robe Helmet		add	0
-11895	2406	A	4	147	Avadon Robe		add	0
-11896	5716	A	4	49	Avadon Robe Gloves		add	0
-11897	5732	A	4	49	Avadon Robe Boots		add	0
-11898	41	S	5	83	Avadon Robe Helmet		add	0
-11899	2406	S	5	166	Avadon Robe		add	0
-11900	5716	S	5	55	Avadon Robe Gloves		add	0
-11901	5732	S	5	55	Avadon Robe Boots		add	0
-11902	41	A	4	73	Dark Crystal Robe Helmet		add	0
+11844	5716	B	3	44	Avadon Robe Gloves		add	0
+11845	5732	B	3	45	Avadon Robe Boots		add	0
+11846	41	A	4	73	Avadon Robe Helmet		add	0
+11847	2406	A	4	147	Avadon Robe		add	0
+11848	5716	A	4	49	Avadon Robe Gloves		add	0
+11849	5732	A	4	49	Avadon Robe Boots		add	0
+11850	41	S	5	83	Avadon Robe Helmet		add	0
+11851	2406	S	5	166	Avadon Robe		add	0
+11852	5716	S	5	55	Avadon Robe Gloves		add	0
+11853	5732	S	5	55	Avadon Robe Boots		add	0
+11854	41	A	4	73	Dark Crystal Robe Helmet		add	0
 2407	2407	A	4	147	Dark Crystal Robe		update	0
-11903	5767	A	4	49	Dark Crystal Robe Gloves		add	0
-11904	5779	A	4	49	Dark Crystal Robe Boots		add	0
-11905	41	S	5	83	Dark Crystal Robe Helmet		add	0
-11906	2407	S	5	166	Dark Crystal Robe		add	0
-11907	5767	S	5	55	Dark Crystal Robe Gloves		add	0
-11908	5779	S	5	55	Dark Crystal Robe Boots		add	0
-11909	41	A	4	73	Nightmare Robe Helmet		add	0
+11855	5767	A	4	49	Dark Crystal Robe Gloves		add	0
+11856	5779	A	4	49	Dark Crystal Robe Boots		add	0
+11857	41	S	5	83	Dark Crystal Robe Helmet		add	0
+11858	2407	S	5	166	Dark Crystal Robe		add	0
+11859	5767	S	5	55	Dark Crystal Robe Gloves		add	0
+11860	5779	S	5	55	Dark Crystal Robe Boots		add	0
+11861	41	A	4	73	Nightmare Robe Helmet		add	0
 2408	2408	A	4	147	Nightmare Robe		update	0
-11910	5773	A	4	49	Nightmare Robe Gloves		add	0
-11911	5785	A	4	49	Nightmare Robe Boots		add	0
-11912	41	S	5	83	Nightmare Robe Helmet		add	0
-11913	2408	S	5	166	Nightmare Robe		add	0
-11914	5773	S	5	55	Nightmare Robe Gloves		add	0
-11915	5785	S	5	55	Nightmare Robe Boots		add	0
-11916	41	A	4	73	Majestic Robe Helmet		add	0
+11862	5773	A	4	49	Nightmare Robe Gloves		add	0
+11863	5785	A	4	49	Nightmare Robe Boots		add	0
+11864	41	S	5	83	Nightmare Robe Helmet		add	0
+11865	2408	S	5	166	Nightmare Robe		add	0
+11866	5773	S	5	55	Nightmare Robe Gloves		add	0
+11867	5785	S	5	55	Nightmare Robe Boots		add	0
+11868	41	A	4	73	Majestic Robe Helmet		add	0
 2409	2409	A	4	147	Majestic Robe		update	0
-11917	5776	A	4	49	Majestic Robe Gloves		add	0
-11918	5788	A	4	49	Majestic Robe Boots		add	0
-11919	41	S	5	83	Majestic Robe Helmet		add	0
-11920	2409	S	5	166	Majestic Robe		add	0
-11921	5776	S	5	55	Majestic Robe Gloves		add	0
-11922	5788	S	5	55	Majestic Robe Boots		add	0
-11923	7860	S	5	83	Imperial Crusader Breastplate Helmet		add	1
+11869	5776	A	4	49	Majestic Robe Gloves		add	0
+11870	5788	A	4	49	Majestic Robe Boots		add	0
+11871	41	S	5	83	Majestic Robe Helmet		add	0
+11872	2409	S	5	166	Majestic Robe		add	0
+11873	5776	S	5	55	Majestic Robe Gloves		add	0
+11874	5788	S	5	55	Majestic Robe Boots		add	0
+11875	7860	S	5	83	Imperial Crusader Breastplate Helmet		add	1
 6373	6373	S	5	205	Imperial Crusader Breastplate		update	0
-11924	6374	S	5	128	Imperial Crusader Breastplate Gaiters		add	0
-11925	6375	S	5	55	Imperial Crusader Breastplate Gloves		add	0
-11926	6376	S	5	55	Imperial Crusader Breastplate Boots		add	0
-11927	2416	S	5	83	Draconic Leather Armor Helmet		add	0
+11876	6374	S	5	128	Imperial Crusader Breastplate Gaiters		add	0
+11877	6375	S	5	55	Imperial Crusader Breastplate Gloves		add	0
+11878	6376	S	5	55	Imperial Crusader Breastplate Boots		add	0
+11879	2416	S	5	83	Draconic Leather Armor Helmet		add	0
 6379	6379	S	5	249	Draconic Leather Armor		update	0
-11928	6380	S	5	55	Draconic Leather Armor Gloves		add	0
-11929	6381	S	5	55	Draconic Leather Armor Boots		add	0
-11930	41	S	5	83	Major Arcana Robe Helmet		add	0
+11880	6380	S	5	55	Draconic Leather Armor Gloves		add	0
+11881	6381	S	5	55	Draconic Leather Armor Boots		add	0
+11882	41	S	5	83	Major Arcana Robe Helmet		add	0
 6383	6383	S	5	166	Major Arcana Robe		update	0
-11931	6384	S	5	55	Major Arcana Robe Gloves		add	0
-11932	6385	S	5	55	Major Arcana Robe Boots		add	0
-11933	7860	D	1	44	Clan Oath Armor Helmet		add	1
+11883	6384	S	5	55	Major Arcana Robe Gloves		add	0
+11884	6385	S	5	55	Major Arcana Robe Boots		add	0
+11885	7860	D	1	44	Clan Oath Armor Helmet		add	1
 7851	7851	D	1	167	Clan Oath Armor		update	1
-11934	7852	D	1	29	Clan Oath Armor Gloves		add	1
-11935	7853	D	1	29	Clan Oath Armor Boots		add	1
-11936	7860	C	2	58	Clan Oath Armor Helmet		add	1
-11937	7851	C	2	239	Clan Oath Armor		add	1
-11938	7852	C	2	39	Clan Oath Armor Gloves		add	1
-11939	7853	C	2	39	Clan Oath Armor Boots		add	1
-11940	7860	B	3	67	Clan Oath Armor Helmet		add	1
-11941	7851	B	3	270	Clan Oath Armor		add	1
-11942	7852	B	3	44	Clan Oath Armor Gloves		add	1
-11943	7853	B	3	45	Clan Oath Armor Boots		add	1
-11944	7860	A	4	73	Clan Oath Armor Helmet		add	1
-11945	7851	A	4	293	Clan Oath Armor		add	1
-11946	7852	A	4	49	Clan Oath Armor Gloves		add	1
-11947	7853	A	4	49	Clan Oath Armor Boots		add	1
-11948	7860	S	5	83	Clan Oath Armor Helmet		add	1
-11949	7851	S	5	333	Clan Oath Armor		add	1
-11950	7852	S	5	55	Clan Oath Armor Gloves		add	1
-11951	7853	S	5	55	Clan Oath Armor Boots		add	1
-11952	2416	D	1	44	Clan Oath Brigandine Helmet		add	0
+11886	7852	D	1	29	Clan Oath Armor Gloves		add	1
+11887	7853	D	1	29	Clan Oath Armor Boots		add	1
+11888	7860	C	2	58	Clan Oath Armor Helmet		add	1
+11889	7851	C	2	239	Clan Oath Armor		add	1
+11890	7852	C	2	39	Clan Oath Armor Gloves		add	1
+11891	7853	C	2	39	Clan Oath Armor Boots		add	1
+11892	7860	B	3	67	Clan Oath Armor Helmet		add	1
+11893	7851	B	3	270	Clan Oath Armor		add	1
+11894	7852	B	3	44	Clan Oath Armor Gloves		add	1
+11895	7853	B	3	45	Clan Oath Armor Boots		add	1
+11896	7860	A	4	73	Clan Oath Armor Helmet		add	1
+11897	7851	A	4	293	Clan Oath Armor		add	1
+11898	7852	A	4	49	Clan Oath Armor Gloves		add	1
+11899	7853	A	4	49	Clan Oath Armor Boots		add	1
+11900	7860	S	5	83	Clan Oath Armor Helmet		add	1
+11901	7851	S	5	333	Clan Oath Armor		add	1
+11902	7852	S	5	55	Clan Oath Armor Gloves		add	1
+11903	7853	S	5	55	Clan Oath Armor Boots		add	1
+11904	2416	D	1	44	Clan Oath Brigandine Helmet		add	0
 7854	7854	D	1	125	Clan Oath Brigandine		update	1
-11953	7855	D	1	29	Clan Oath Brigandine Gloves		add	1
-11954	7856	D	1	29	Clan Oath Brigandine Boots		add	1
-11955	2416	C	2	58	Clan Oath Brigandine Helmet		add	0
-11956	7854	C	2	179	Clan Oath Brigandine		add	1
-11957	7855	C	2	39	Clan Oath Brigandine Gloves		add	1
-11958	7856	C	2	39	Clan Oath Brigandine Boots		add	1
-11959	2416	B	3	67	Clan Oath Brigandine Helmet		add	0
-11960	7854	B	3	202	Clan Oath Brigandine		add	1
-11961	7855	B	3	44	Clan Oath Brigandine Gloves		add	1
-11962	7856	B	3	45	Clan Oath Brigandine Boots		add	1
-11963	2416	A	4	73	Clan Oath Brigandine Helmet		add	0
-11964	7854	A	4	220	Clan Oath Brigandine		add	1
-11965	7855	A	4	49	Clan Oath Brigandine Gloves		add	1
-11966	7856	A	4	49	Clan Oath Brigandine Boots		add	1
-11967	2416	S	5	83	Clan Oath Brigandine Helmet		add	0
-11968	7854	S	5	249	Clan Oath Brigandine		add	1
-11969	7855	S	5	55	Clan Oath Brigandine Gloves		add	1
-11970	7856	S	5	55	Clan Oath Brigandine Boots		add	1
-11971	41	D	1	44	Clan Oath Aketon Helmet		add	0
+11905	7855	D	1	29	Clan Oath Brigandine Gloves		add	1
+11906	7856	D	1	29	Clan Oath Brigandine Boots		add	1
+11907	2416	C	2	58	Clan Oath Brigandine Helmet		add	0
+11908	7854	C	2	179	Clan Oath Brigandine		add	1
+11909	7855	C	2	39	Clan Oath Brigandine Gloves		add	1
+11910	7856	C	2	39	Clan Oath Brigandine Boots		add	1
+11911	2416	B	3	67	Clan Oath Brigandine Helmet		add	0
+11912	7854	B	3	202	Clan Oath Brigandine		add	1
+11913	7855	B	3	44	Clan Oath Brigandine Gloves		add	1
+11914	7856	B	3	45	Clan Oath Brigandine Boots		add	1
+11915	2416	A	4	73	Clan Oath Brigandine Helmet		add	0
+11916	7854	A	4	220	Clan Oath Brigandine		add	1
+11917	7855	A	4	49	Clan Oath Brigandine Gloves		add	1
+11918	7856	A	4	49	Clan Oath Brigandine Boots		add	1
+11919	2416	S	5	83	Clan Oath Brigandine Helmet		add	0
+11920	7854	S	5	249	Clan Oath Brigandine		add	1
+11921	7855	S	5	55	Clan Oath Brigandine Gloves		add	1
+11922	7856	S	5	55	Clan Oath Brigandine Boots		add	1
+11923	41	D	1	44	Clan Oath Aketon Helmet		add	0
 7857	7857	D	1	85	Clan Oath Aketon		update	1
-11972	7858	D	1	29	Clan Oath Aketon Gloves		add	1
-11973	7859	D	1	29	Clan Oath Aketon Boots		add	1
-11974	41	C	2	58	Clan Oath Aketon Helmet		add	0
-11975	7857	C	2	120	Clan Oath Aketon		add	1
-11976	7858	C	2	39	Clan Oath Aketon Gloves		add	1
-11977	7859	C	2	39	Clan Oath Aketon Boots		add	1
-11978	41	B	3	67	Clan Oath Aketon Helmet		add	0
-11979	7857	B	3	135	Clan Oath Aketon		add	1
-11980	7858	B	3	44	Clan Oath Aketon Gloves		add	1
-11981	7859	B	3	45	Clan Oath Aketon Boots		add	1
-11982	41	A	4	73	Clan Oath Aketon Helmet		add	0
-11983	7857	A	4	147	Clan Oath Aketon		add	1
-11984	7858	A	4	49	Clan Oath Aketon Gloves		add	1
-11985	7859	A	4	49	Clan Oath Aketon Boots		add	1
-11986	41	S	5	83	Clan Oath Aketon Helmet		add	0
-11987	7857	S	5	166	Clan Oath Aketon		add	1
-11988	7858	S	5	55	Clan Oath Aketon Gloves		add	1
-11989	7859	S	5	55	Clan Oath Aketon Boots		add	1
-11990	7860	A	4	73	Apella Plate Armor Helmet		add	1
+11924	7858	D	1	29	Clan Oath Aketon Gloves		add	1
+11925	7859	D	1	29	Clan Oath Aketon Boots		add	1
+11926	41	C	2	58	Clan Oath Aketon Helmet		add	0
+11927	7857	C	2	120	Clan Oath Aketon		add	1
+11928	7858	C	2	39	Clan Oath Aketon Gloves		add	1
+11929	7859	C	2	39	Clan Oath Aketon Boots		add	1
+11930	41	B	3	67	Clan Oath Aketon Helmet		add	0
+11931	7857	B	3	135	Clan Oath Aketon		add	1
+11932	7858	B	3	44	Clan Oath Aketon Gloves		add	1
+11933	7859	B	3	45	Clan Oath Aketon Boots		add	1
+11934	41	A	4	73	Clan Oath Aketon Helmet		add	0
+11935	7857	A	4	147	Clan Oath Aketon		add	1
+11936	7858	A	4	49	Clan Oath Aketon Gloves		add	1
+11937	7859	A	4	49	Clan Oath Aketon Boots		add	1
+11938	41	S	5	83	Clan Oath Aketon Helmet		add	0
+11939	7857	S	5	166	Clan Oath Aketon		add	1
+11940	7858	S	5	55	Clan Oath Aketon Gloves		add	1
+11941	7859	S	5	55	Clan Oath Aketon Boots		add	1
+11942	7860	A	4	73	Apella Plate Armor Helmet		add	1
 7861	7861	A	4	293	Apella Plate Armor		update	1
-11991	7862	A	4	49	Apella Plate Armor Gloves		add	1
-11992	7863	A	4	49	Apella Plate Armor Boots		add	1
-11993	7860	S	5	83	Apella Plate Armor Helmet		add	1
-11994	7861	S	5	333	Apella Plate Armor		add	1
-11995	7862	S	5	55	Apella Plate Armor Gloves		add	1
-11996	7863	S	5	55	Apella Plate Armor Boots		add	1
-11997	2416	A	4	73	Apella Brigandine Helmet		add	0
+11943	7862	A	4	49	Apella Plate Armor Gloves		add	1
+11944	7863	A	4	49	Apella Plate Armor Boots		add	1
+11945	7860	S	5	83	Apella Plate Armor Helmet		add	1
+11946	7861	S	5	333	Apella Plate Armor		add	1
+11947	7862	S	5	55	Apella Plate Armor Gloves		add	1
+11948	7863	S	5	55	Apella Plate Armor Boots		add	1
+11949	2416	A	4	73	Apella Brigandine Helmet		add	0
 7864	7864	A	4	220	Apella Brigandine		update	1
-11998	7865	A	4	49	Apella Brigandine Gloves		add	1
-11999	7866	A	4	49	Apella Brigandine Boots		add	1
-12000	2416	S	5	83	Apella Brigandine Helmet		add	0
-12001	7864	S	5	249	Apella Brigandine		add	1
-12002	7865	S	5	55	Apella Brigandine Gloves		add	1
-12003	7866	S	5	55	Apella Brigandine Boots		add	1
-12004	41	A	4	73	Apella Doublet Helmet		add	0
+11950	7865	A	4	49	Apella Brigandine Gloves		add	1
+11951	7866	A	4	49	Apella Brigandine Boots		add	1
+11952	2416	S	5	83	Apella Brigandine Helmet		add	0
+11953	7864	S	5	249	Apella Brigandine		add	1
+11954	7865	S	5	55	Apella Brigandine Gloves		add	1
+11955	7866	S	5	55	Apella Brigandine Boots		add	1
+11956	41	A	4	73	Apella Doublet Helmet		add	0
 7867	7867	A	4	147	Apella Doublet		update	1
-12005	7868	A	4	49	Apella Doublet Gloves		add	1
-12006	7869	A	4	49	Apella Doublet Boots		add	1
-12007	41	S	5	83	Apella Doublet Helmet		add	0
-12008	7867	S	5	166	Apella Doublet		add	1
-12009	7868	S	5	55	Apella Doublet Gloves		add	1
-12010	7869	S	5	55	Apella Doublet Boots		add	1
+11957	7868	A	4	49	Apella Doublet Gloves		add	1
+11958	7869	A	4	49	Apella Doublet Boots		add	1
+11959	41	S	5	83	Apella Doublet Helmet		add	0
+11960	7867	S	5	166	Apella Doublet		add	1
+11961	7868	S	5	55	Apella Doublet Gloves		add	1
+11962	7869	S	5	55	Apella Doublet Boots		add	1

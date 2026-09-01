@@ -4,7 +4,7 @@
 
 .DESCRIPTION
 	One "family" is one look : a chest (or a fullarmor), the legs that go with it, a helmet, gloves
-	and boots. families.csv holds 126 of them, one row per chest item of data/xml/items.
+	and boots. families.csv holds 124 of them, one row per chest item of data/xml/items.
 
 	A set keeps the grade it always had and gains one copy per grade above it, up to S :
 
@@ -25,7 +25,7 @@
 	What this script writes :
 
 	  * every rung of every family, minted into data/xml/items/10000-*.xml and up ;
-	  * the 126 chests keep their id and their grade - only their P. Def. is levelled onto the table
+	  * the 124 chests keep their id and their grade - only their P. Def. is levelled onto the table
 	    below, so that every set of a grade is worth the same ;
 	  * data/xml/armorSets.xml is regenerated whole, one <armorset> per family per grade it reaches ;
 	  * every family gets one passive skill of six levels - one per grade, level 6 always being S -
@@ -442,13 +442,26 @@ foreach ($fam in ($families | Sort-Object { [int]$_.chest }))
 	}
 }
 
+$mintedFiles = @{}
 foreach ($bucket in ($buckets.Keys | Sort-Object))
 {
-	$path = Join-Path $itemsDir ("{0}-{1}.xml" -f $bucket, ($bucket + $ITEMS_PER_FILE - 1))
+	$name = "{0}-{1}.xml" -f $bucket, ($bucket + $ITEMS_PER_FILE - 1)
+	$mintedFiles[$name] = $true
 	$body = @('<?xml version="1.0" encoding="UTF-8"?>', '<list>') + $buckets[$bucket] + @('</list>')
-	Write-Datapack $path $body "`r`n" $false
+	Write-Datapack (Join-Path $itemsDir $name) $body "`r`n" $false
 }
-Write-Host "wrote $($buckets.Count) item files"
+
+# A table that shrank leaves the top bucket behind, and the server would happily go on loading the
+# orphans out of it. Every file of our own id range that this run didn't write goes.
+$dropped = 0
+foreach ($f in Get-ChildItem $itemsDir -Filter *.xml)
+{
+	if ($f.Name -notmatch '^(\d+)-\d+\.xml$') { continue }
+	if ([int]$Matches[1] -lt $FIRST_ITEM_ID -or $mintedFiles.ContainsKey($f.Name)) { continue }
+	Remove-Item $f.FullName -Force
+	$dropped++
+}
+Write-Host "wrote $($buckets.Count) item files$(if ($dropped) { ", removed $dropped stale" })"
 
 # ---------------------------------------------------------------------------
 # The chests, on the rung of their own grade, rewritten where they stand. Their grade, their price
@@ -864,8 +877,22 @@ if (-not $NoSync)
 	{
 		Copy-Item $armorSetsPath (Join-Path $buildXml 'armorSets.xml') -Force
 		Copy-Item $buyListsPath (Join-Path $buildXml 'buyLists.xml') -Force
-		foreach ($f in Get-ChildItem $itemsDir -Filter *.xml) { Copy-Item $f.FullName (Join-Path $buildXml "items\$($f.Name)") -Force }
-		foreach ($f in Get-ChildItem $skillsDir -Filter *.xml) { Copy-Item $f.FullName (Join-Path $buildXml "skills\$($f.Name)") -Force }
+
+		# A mirror, not just a copy : a file the datapack dropped has to go from build\ too, or the
+		# server keeps loading it.
+		foreach ($sub in 'items', 'skills')
+		{
+			$from = $(if ($sub -eq 'items') { $itemsDir } else { $skillsDir })
+			$to = Join-Path $buildXml $sub
+
+			$have = @{}
+			foreach ($f in Get-ChildItem $from -Filter *.xml)
+			{
+				$have[$f.Name] = $true
+				Copy-Item $f.FullName (Join-Path $to $f.Name) -Force
+			}
+			foreach ($f in Get-ChildItem $to -Filter *.xml) { if (-not $have.ContainsKey($f.Name)) { Remove-Item $f.FullName -Force } }
+		}
 		Write-Host "synced items, skills, armorSets.xml and buyLists.xml into build\gameserver\data\xml"
 	}
 }
