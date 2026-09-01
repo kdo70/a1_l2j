@@ -207,6 +207,7 @@ try
 	for ($i = 1; $i -lt $nam.rows.Count; $i++) { $byId[[int]$nam.rows[$i].Split("`t")[$idC]] = $i }
 
 	$ENCHANT_TEXT = 'When all set items are enchanted by 6 or higher, the set bonus grows.'
+	$renamed = 0
 
 	$newNam = [System.Collections.Generic.List[string]]::new()
 	foreach ($it in $added)
@@ -228,18 +229,25 @@ try
 	}
 	Add-Rows $nam $newNam $firstNew $lastNew $idC
 
-	foreach ($it in ($items | Where-Object { $_.mode -eq 'update' -and $_.clearDesc -eq '1' }))
-	{
-		$at = $byId[[int]$it.id]
-		$cells = $nam.rows[$at].Split("`t")
-		$cells[$dsC] = Get-Prefixed $cells[$dsC] ''
-		$nam.rows[$at] = $cells -join "`t"
-	}
-
-	# The set tooltip - members, bonus, shield - lives on the chest row alone.
+	# itemname-e.dat is not sorted by id - the stock table keeps id 17000 in the middle of it - so
+	# Add-Rows slots our block in there and everything below moves. The map has to be rebuilt before
+	# anything is looked up by id again, or the rows past the insert are written to blind.
 	$byId = @{}
 	for ($i = 1; $i -lt $nam.rows.Count; $i++) { $byId[[int]$nam.rows[$i].Split("`t")[$idC]] = $i }
 
+	# The chests keep their own row, but the datapack may have renamed one - and every piece of its
+	# set is named after it, so the client has to follow or the set reads under two names.
+	foreach ($it in ($items | Where-Object { $_.mode -eq 'update' }))
+	{
+		$at = $byId[[int]$it.id]
+		$cells = $nam.rows[$at].Split("`t")
+		if ($cells[$nmC] -ne $it.name) { $cells[$nmC] = $it.name ; $renamed++ }
+		if ($it.clearDesc -eq '1') { $cells[$dsC] = Get-Prefixed $cells[$dsC] '' }
+		$nam.rows[$at] = $cells -join "`t"
+	}
+	if ($renamed) { Write-Host "itemname-e : renamed $renamed chest(s) after the datapack" }
+
+	# The set tooltip - members, bonus, shield - lives on the chest row alone.
 	foreach ($s in $sets)
 	{
 		$chest = [int]$s.chest

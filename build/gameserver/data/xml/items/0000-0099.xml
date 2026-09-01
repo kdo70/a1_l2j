@@ -378,7 +378,7 @@
 			<set stat="sDef" val="67" />
 		</for>
 	</item>
-	<item id="21" type="Armor" name="Shirt">
+	<item id="21" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -389,7 +389,7 @@
 			<baseadd stat="pDef" val="53" />
 		</for>
 	</item>
-	<item id="22" type="Armor" name="Leather Shirt">
+	<item id="22" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />

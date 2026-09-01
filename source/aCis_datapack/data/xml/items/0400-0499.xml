@@ -98,7 +98,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="407" type="Armor" name="Ace's Leather Armor">
+	<item id="407" type="Armor" name="Ace Leather Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -389,7 +389,7 @@
 			<add stat="maxMp" val="61" />
 		</for>
 	</item>
-	<item id="428" type="Armor" name="Feriotic Tunic">
+	<item id="428" type="Armor" name="Dryad Tunic">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -467,7 +467,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="434" type="Armor" name="White Tunic">
+	<item id="434" type="Armor" name="Undine Tunic">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="chest" />
@@ -527,7 +527,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="438" type="Armor" name="Sage's Rag">
+	<item id="438" type="Armor" name="Sage's Vestment">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />

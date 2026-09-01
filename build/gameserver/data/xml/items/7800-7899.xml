@@ -868,7 +868,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="7851" type="Armor" name="Clan Oath Armor">
+	<item id="7851" type="Armor" name="Oath Plate Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="fullarmor" />
@@ -902,7 +902,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="7854" type="Armor" name="Clan Oath Brigandine">
+	<item id="7854" type="Armor" name="Oath Brigandine">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="fullarmor" />
@@ -936,7 +936,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="7857" type="Armor" name="Clan Oath Aketon">
+	<item id="7857" type="Armor" name="Oath Aketon">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="MAGIC" />
 		<set name="bodypart" val="fullarmor" />

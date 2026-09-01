@@ -1121,7 +1121,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="347" type="Armor" name="Ring Mail Breastplate">
+	<item id="347" type="Armor" name="Ol Mahum Plate">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1219,7 +1219,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="354" type="Armor" name="Chain Mail Shirt">
+	<item id="354" type="Armor" name="Taik Chain Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1233,7 +1233,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="355" type="Armor" name="Dwarven Chain Mail Shirt">
+	<item id="355" type="Armor" name="Golem Chain Mail">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="HEAVY" />
 		<set name="bodypart" val="chest" />
@@ -1754,7 +1754,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="392" type="Armor" name="Lion Skin Shirt">
+	<item id="392" type="Armor" name="Lion Hide Armor">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />

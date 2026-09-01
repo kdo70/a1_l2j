@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="10000" type="Armor" name="Shirt Helmet">
+	<item id="10000" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -11,7 +11,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10001" type="Armor" name="Shirt Gaiters">
+	<item id="10001" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -22,7 +22,7 @@
 			<baseadd stat="pDef" val="33" />
 		</for>
 	</item>
-	<item id="10002" type="Armor" name="Shirt Gloves">
+	<item id="10002" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -32,7 +32,7 @@
 			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
-	<item id="10003" type="Armor" name="Shirt Boots">
+	<item id="10003" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -42,7 +42,7 @@
 			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
-	<item id="10004" type="Armor" name="Shirt Helmet">
+	<item id="10004" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -55,7 +55,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10005" type="Armor" name="Shirt">
+	<item id="10005" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -68,7 +68,7 @@
 			<baseadd stat="pDef" val="77" />
 		</for>
 	</item>
-	<item id="10006" type="Armor" name="Shirt Gaiters">
+	<item id="10006" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -81,7 +81,7 @@
 			<baseadd stat="pDef" val="48" />
 		</for>
 	</item>
-	<item id="10007" type="Armor" name="Shirt Gloves">
+	<item id="10007" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -93,7 +93,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10008" type="Armor" name="Shirt Boots">
+	<item id="10008" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -105,7 +105,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10009" type="Armor" name="Shirt Helmet">
+	<item id="10009" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -118,7 +118,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10010" type="Armor" name="Shirt">
+	<item id="10010" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -131,7 +131,7 @@
 			<baseadd stat="pDef" val="110" />
 		</for>
 	</item>
-	<item id="10011" type="Armor" name="Shirt Gaiters">
+	<item id="10011" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -144,7 +144,7 @@
 			<baseadd stat="pDef" val="69" />
 		</for>
 	</item>
-	<item id="10012" type="Armor" name="Shirt Gloves">
+	<item id="10012" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -156,7 +156,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10013" type="Armor" name="Shirt Boots">
+	<item id="10013" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -168,7 +168,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10014" type="Armor" name="Shirt Helmet">
+	<item id="10014" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -181,7 +181,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10015" type="Armor" name="Shirt">
+	<item id="10015" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -194,7 +194,7 @@
 			<baseadd stat="pDef" val="124" />
 		</for>
 	</item>
-	<item id="10016" type="Armor" name="Shirt Gaiters">
+	<item id="10016" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -207,7 +207,7 @@
 			<baseadd stat="pDef" val="78" />
 		</for>
 	</item>
-	<item id="10017" type="Armor" name="Shirt Gloves">
+	<item id="10017" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -219,7 +219,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10018" type="Armor" name="Shirt Boots">
+	<item id="10018" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -231,7 +231,7 @@
 			<baseadd stat="pDef" val="45" />
 		</for>
 	</item>
-	<item id="10019" type="Armor" name="Shirt Helmet">
+	<item id="10019" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -244,7 +244,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10020" type="Armor" name="Shirt">
+	<item id="10020" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -257,7 +257,7 @@
 			<baseadd stat="pDef" val="136" />
 		</for>
 	</item>
-	<item id="10021" type="Armor" name="Shirt Gaiters">
+	<item id="10021" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -270,7 +270,7 @@
 			<baseadd stat="pDef" val="84" />
 		</for>
 	</item>
-	<item id="10022" type="Armor" name="Shirt Gloves">
+	<item id="10022" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -282,7 +282,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10023" type="Armor" name="Shirt Boots">
+	<item id="10023" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -294,7 +294,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10024" type="Armor" name="Shirt Helmet">
+	<item id="10024" type="Armor" name="Keltir Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -307,7 +307,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10025" type="Armor" name="Shirt">
+	<item id="10025" type="Armor" name="Keltir Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -320,7 +320,7 @@
 			<baseadd stat="pDef" val="153" />
 		</for>
 	</item>
-	<item id="10026" type="Armor" name="Shirt Gaiters">
+	<item id="10026" type="Armor" name="Keltir Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -333,7 +333,7 @@
 			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
-	<item id="10027" type="Armor" name="Shirt Gloves">
+	<item id="10027" type="Armor" name="Keltir Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="CLOTH" />
@@ -345,7 +345,7 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10028" type="Armor" name="Shirt Boots">
+	<item id="10028" type="Armor" name="Keltir Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="CLOTH" />
@@ -357,7 +357,7 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10029" type="Armor" name="Leather Shirt Helmet">
+	<item id="10029" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -368,7 +368,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10030" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10030" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -379,7 +379,7 @@
 			<baseadd stat="pDef" val="33" />
 		</for>
 	</item>
-	<item id="10031" type="Armor" name="Leather Shirt Gloves">
+	<item id="10031" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -389,7 +389,7 @@
 			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
-	<item id="10032" type="Armor" name="Leather Shirt Boots">
+	<item id="10032" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -399,7 +399,7 @@
 			<baseadd stat="pDef" val="20" />
 		</for>
 	</item>
-	<item id="10033" type="Armor" name="Leather Shirt Helmet">
+	<item id="10033" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -412,7 +412,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10034" type="Armor" name="Leather Shirt">
+	<item id="10034" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -425,7 +425,7 @@
 			<baseadd stat="pDef" val="77" />
 		</for>
 	</item>
-	<item id="10035" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10035" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -438,7 +438,7 @@
 			<baseadd stat="pDef" val="48" />
 		</for>
 	</item>
-	<item id="10036" type="Armor" name="Leather Shirt Gloves">
+	<item id="10036" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -450,7 +450,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10037" type="Armor" name="Leather Shirt Boots">
+	<item id="10037" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -462,7 +462,7 @@
 			<baseadd stat="pDef" val="29" />
 		</for>
 	</item>
-	<item id="10038" type="Armor" name="Leather Shirt Helmet">
+	<item id="10038" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -475,7 +475,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10039" type="Armor" name="Leather Shirt">
+	<item id="10039" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -488,7 +488,7 @@
 			<baseadd stat="pDef" val="110" />
 		</for>
 	</item>
-	<item id="10040" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10040" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -501,7 +501,7 @@
 			<baseadd stat="pDef" val="69" />
 		</for>
 	</item>
-	<item id="10041" type="Armor" name="Leather Shirt Gloves">
+	<item id="10041" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -513,7 +513,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10042" type="Armor" name="Leather Shirt Boots">
+	<item id="10042" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -525,7 +525,7 @@
 			<baseadd stat="pDef" val="39" />
 		</for>
 	</item>
-	<item id="10043" type="Armor" name="Leather Shirt Helmet">
+	<item id="10043" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -538,7 +538,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10044" type="Armor" name="Leather Shirt">
+	<item id="10044" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -551,7 +551,7 @@
 			<baseadd stat="pDef" val="124" />
 		</for>
 	</item>
-	<item id="10045" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10045" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -564,7 +564,7 @@
 			<baseadd stat="pDef" val="78" />
 		</for>
 	</item>
-	<item id="10046" type="Armor" name="Leather Shirt Gloves">
+	<item id="10046" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -576,7 +576,7 @@
 			<baseadd stat="pDef" val="44" />
 		</for>
 	</item>
-	<item id="10047" type="Armor" name="Leather Shirt Boots">
+	<item id="10047" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -588,7 +588,7 @@
 			<baseadd stat="pDef" val="45" />
 		</for>
 	</item>
-	<item id="10048" type="Armor" name="Leather Shirt Helmet">
+	<item id="10048" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -601,7 +601,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10049" type="Armor" name="Leather Shirt">
+	<item id="10049" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -614,7 +614,7 @@
 			<baseadd stat="pDef" val="136" />
 		</for>
 	</item>
-	<item id="10050" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10050" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -627,7 +627,7 @@
 			<baseadd stat="pDef" val="84" />
 		</for>
 	</item>
-	<item id="10051" type="Armor" name="Leather Shirt Gloves">
+	<item id="10051" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -639,7 +639,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10052" type="Armor" name="Leather Shirt Boots">
+	<item id="10052" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />
@@ -651,7 +651,7 @@
 			<baseadd stat="pDef" val="49" />
 		</for>
 	</item>
-	<item id="10053" type="Armor" name="Leather Shirt Helmet">
+	<item id="10053" type="Armor" name="Scout's Shirt Helmet">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="head" />
 		<set name="material" val="LEATHER" />
@@ -664,7 +664,7 @@
 			<enchant stat="pDef" val="0" />
 		</for>
 	</item>
-	<item id="10054" type="Armor" name="Leather Shirt">
+	<item id="10054" type="Armor" name="Scout's Shirt">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="chest" />
@@ -677,7 +677,7 @@
 			<baseadd stat="pDef" val="153" />
 		</for>
 	</item>
-	<item id="10055" type="Armor" name="Leather Shirt Gaiters">
+	<item id="10055" type="Armor" name="Scout's Shirt Gaiters">
 		<set name="default_action" val="equip" />
 		<set name="armor_type" val="LIGHT" />
 		<set name="bodypart" val="legs" />
@@ -690,7 +690,7 @@
 			<baseadd stat="pDef" val="96" />
 		</for>
 	</item>
-	<item id="10056" type="Armor" name="Leather Shirt Gloves">
+	<item id="10056" type="Armor" name="Scout's Shirt Gloves">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="gloves" />
 		<set name="material" val="LEATHER" />
@@ -702,7 +702,7 @@
 			<baseadd stat="pDef" val="55" />
 		</for>
 	</item>
-	<item id="10057" type="Armor" name="Leather Shirt Boots">
+	<item id="10057" type="Armor" name="Scout's Shirt Boots">
 		<set name="default_action" val="equip" />
 		<set name="bodypart" val="feet" />
 		<set name="material" val="LEATHER" />

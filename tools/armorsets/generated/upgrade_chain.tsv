@@ -1,14 +1,14 @@
 set	piece	slot	bodypart	armorType	from	NG	D	C	B	A	S
-Shirt Set	Shirt Helmet	head	head		NG	10000	10004	10009	10014	10019	10024
-Shirt Set	Shirt	chest	chest	LIGHT	NG	21	10005	10010	10015	10020	10025
-Shirt Set	Shirt Gaiters	legs	legs	LIGHT	NG	10001	10006	10011	10016	10021	10026
-Shirt Set	Shirt Gloves	gloves	gloves		NG	10002	10007	10012	10017	10022	10027
-Shirt Set	Shirt Boots	feet	feet		NG	10003	10008	10013	10018	10023	10028
-Leather Shirt Set	Leather Shirt Helmet	head	head		NG	10029	10033	10038	10043	10048	10053
-Leather Shirt Set	Leather Shirt	chest	chest	LIGHT	NG	22	10034	10039	10044	10049	10054
-Leather Shirt Set	Leather Shirt Gaiters	legs	legs	LIGHT	NG	10030	10035	10040	10045	10050	10055
-Leather Shirt Set	Leather Shirt Gloves	gloves	gloves		NG	10031	10036	10041	10046	10051	10056
-Leather Shirt Set	Leather Shirt Boots	feet	feet		NG	10032	10037	10042	10047	10052	10057
+Keltir Set	Keltir Shirt Helmet	head	head		NG	10000	10004	10009	10014	10019	10024
+Keltir Set	Keltir Shirt	chest	chest	LIGHT	NG	21	10005	10010	10015	10020	10025
+Keltir Set	Keltir Shirt Gaiters	legs	legs	LIGHT	NG	10001	10006	10011	10016	10021	10026
+Keltir Set	Keltir Shirt Gloves	gloves	gloves		NG	10002	10007	10012	10017	10022	10027
+Keltir Set	Keltir Shirt Boots	feet	feet		NG	10003	10008	10013	10018	10023	10028
+Scout Set	Scout's Shirt Helmet	head	head		NG	10029	10033	10038	10043	10048	10053
+Scout Set	Scout's Shirt	chest	chest	LIGHT	NG	22	10034	10039	10044	10049	10054
+Scout Set	Scout's Shirt Gaiters	legs	legs	LIGHT	NG	10030	10035	10040	10045	10050	10055
+Scout Set	Scout's Shirt Gloves	gloves	gloves		NG	10031	10036	10041	10046	10051	10056
+Scout Set	Scout's Shirt Boots	feet	feet		NG	10032	10037	10042	10047	10052	10057
 Wooden Set	Wooden Breastplate Helmet	head	head		NG	10058	10062	10067	10072	10077	10082
 Wooden Set	Wooden Breastplate	chest	chest	LIGHT	NG	23	10063	10068	10073	10078	10083
 Wooden Set	Wooden Breastplate Gaiters	legs	legs	LIGHT	NG	10059	10064	10069	10074	10079	10084
@@ -38,11 +38,11 @@ Composite Set	Composite Armor Helmet	head	head		C			10203	10206	10210	10214
 Composite Set	Composite Armor	chest	fullarmor	HEAVY	C			60	10207	10211	10215
 Composite Set	Composite Armor Gloves	gloves	gloves		C			10204	10208	10212	10216
 Composite Set	Composite Armor Boots	feet	feet		C			10205	10209	10213	10217
-Ring Mail Set	Ring Mail Breastplate Helmet	head	head		D		10218	10222	10227	10232	10237
-Ring Mail Set	Ring Mail Breastplate	chest	chest	HEAVY	D		347	10223	10228	10233	10238
-Ring Mail Set	Ring Mail Breastplate Gaiters	legs	legs	HEAVY	D		10219	10224	10229	10234	10239
-Ring Mail Set	Ring Mail Breastplate Gloves	gloves	gloves		D		10220	10225	10230	10235	10240
-Ring Mail Set	Ring Mail Breastplate Boots	feet	feet		D		10221	10226	10231	10236	10241
+Ol Mahum Set	Ol Mahum Plate Helmet	head	head		D		10218	10222	10227	10232	10237
+Ol Mahum Set	Ol Mahum Plate	chest	chest	HEAVY	D		347	10223	10228	10233	10238
+Ol Mahum Set	Ol Mahum Plate Gaiters	legs	legs	HEAVY	D		10219	10224	10229	10234	10239
+Ol Mahum Set	Ol Mahum Plate Gloves	gloves	gloves		D		10220	10225	10230	10235	10240
+Ol Mahum Set	Ol Mahum Plate Boots	feet	feet		D		10221	10226	10231	10236	10241
 Scale Set	Scale Mail Helmet	head	head		D		10242	10246	10251	10256	10261
 Scale Set	Scale Mail	chest	chest	HEAVY	D		348	10247	10252	10257	10262
 Scale Set	Scale Mail Gaiters	legs	legs	HEAVY	D		10243	10248	10253	10258	10263
@@ -68,16 +68,16 @@ Half Plate Set	Half Plate Armor	chest	chest	HEAVY	D		353	10343	10348	10353	10358
 Half Plate Set	Half Plate Armor Gaiters	legs	legs	HEAVY	D		10339	10344	10349	10354	10359
 Half Plate Set	Half Plate Armor Gloves	gloves	gloves		D		10340	10345	10350	10355	10360
 Half Plate Set	Half Plate Armor Boots	feet	feet		D		10341	10346	10351	10356	10361
-Chain Mail Set	Chain Mail Shirt Helmet	head	head		C			10362	10366	10371	10376
-Chain Mail Set	Chain Mail Shirt	chest	chest	HEAVY	C			354	10367	10372	10377
-Chain Mail Set	Chain Mail Shirt Gaiters	legs	legs	HEAVY	C			10363	10368	10373	10378
-Chain Mail Set	Chain Mail Shirt Gloves	gloves	gloves		C			10364	10369	10374	10379
-Chain Mail Set	Chain Mail Shirt Boots	feet	feet		C			10365	10370	10375	10380
-Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Helmet	head	head		C			10381	10385	10390	10395
-Dwarven Chain Mail Set	Dwarven Chain Mail Shirt	chest	chest	HEAVY	C			355	10386	10391	10396
-Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Gaiters	legs	legs	HEAVY	C			10382	10387	10392	10397
-Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Gloves	gloves	gloves		C			10383	10388	10393	10398
-Dwarven Chain Mail Set	Dwarven Chain Mail Shirt Boots	feet	feet		C			10384	10389	10394	10399
+Taik Set	Taik Chain Mail Helmet	head	head		C			10362	10366	10371	10376
+Taik Set	Taik Chain Mail	chest	chest	HEAVY	C			354	10367	10372	10377
+Taik Set	Taik Chain Mail Gaiters	legs	legs	HEAVY	C			10363	10368	10373	10378
+Taik Set	Taik Chain Mail Gloves	gloves	gloves		C			10364	10369	10374	10379
+Taik Set	Taik Chain Mail Boots	feet	feet		C			10365	10370	10375	10380
+Golem Set	Golem Chain Mail Helmet	head	head		C			10381	10385	10390	10395
+Golem Set	Golem Chain Mail	chest	chest	HEAVY	C			355	10386	10391	10396
+Golem Set	Golem Chain Mail Gaiters	legs	legs	HEAVY	C			10382	10387	10392	10397
+Golem Set	Golem Chain Mail Gloves	gloves	gloves		C			10383	10388	10393	10398
+Golem Set	Golem Chain Mail Boots	feet	feet		C			10384	10389	10394	10399
 Full Plate Set	Full Plate Armor Helmet	head	head		C			10400	10403	10407	10411
 Full Plate Set	Full Plate Armor	chest	fullarmor	HEAVY	C			356	10404	10408	10412
 Full Plate Set	Full Plate Armor Gloves	gloves	gloves		C			10401	10405	10409	10413
@@ -116,11 +116,11 @@ Puma Skin Set	Puma Skin Shirt	chest	chest	LIGHT	D		391	10507	10512	10517	10522
 Puma Skin Set	Puma Skin Shirt Gaiters	legs	legs	LIGHT	D		10503	10508	10513	10518	10523
 Puma Skin Set	Puma Skin Shirt Gloves	gloves	gloves		D		10504	10509	10514	10519	10524
 Puma Skin Set	Puma Skin Shirt Boots	feet	feet		D		10505	10510	10515	10520	10525
-Lion Skin Set	Lion Skin Shirt Helmet	head	head		D		10526	10530	10535	10540	10545
-Lion Skin Set	Lion Skin Shirt	chest	chest	LIGHT	D		392	10531	10536	10541	10546
-Lion Skin Set	Lion Skin Shirt Gaiters	legs	legs	LIGHT	D		10527	10532	10537	10542	10547
-Lion Skin Set	Lion Skin Shirt Gloves	gloves	gloves		D		10528	10533	10538	10543	10548
-Lion Skin Set	Lion Skin Shirt Boots	feet	feet		D		10529	10534	10539	10544	10549
+Lion Set	Lion Hide Armor Helmet	head	head		D		10526	10530	10535	10540	10545
+Lion Set	Lion Hide Armor	chest	chest	LIGHT	D		392	10531	10536	10541	10546
+Lion Set	Lion Hide Armor Gaiters	legs	legs	LIGHT	D		10527	10532	10537	10542	10547
+Lion Set	Lion Hide Armor Gloves	gloves	gloves		D		10528	10533	10538	10543	10548
+Lion Set	Lion Hide Armor Boots	feet	feet		D		10529	10534	10539	10544	10549
 Mithril Banded Set	Mithril Banded Mail Helmet	head	head		D		10550	10554	10559	10564	10569
 Mithril Banded Set	Mithril Banded Mail	chest	chest	LIGHT	D		393	10555	10560	10565	10570
 Mithril Banded Set	Mithril Banded Mail Gaiters	legs	legs	LIGHT	D		10551	10556	10561	10566	10571
@@ -160,20 +160,20 @@ Drake Leather Set	Drake Leather Armor Helmet	head	head		C			10698	10701	10705	10
 Drake Leather Set	Drake Leather Armor	chest	fullarmor	LIGHT	C			401	10702	10706	10710
 Drake Leather Set	Drake Leather Armor Gloves	gloves	gloves		C			10699	10703	10707	10711
 Drake Leather Set	Drake Leather Armor Boots	feet	feet		C			10700	10704	10708	10712
-Ace's Leather Set	Ace's Leather Armor Helmet	head	head		B				10713	10716	10720
-Ace's Leather Set	Ace's Leather Armor	chest	fullarmor	LIGHT	B				407	10717	10721
-Ace's Leather Set	Ace's Leather Armor Gloves	gloves	gloves		B				10714	10718	10722
-Ace's Leather Set	Ace's Leather Armor Boots	feet	feet		B				10715	10719	10723
+Ace Light Set	Ace Leather Armor Helmet	head	head		B				10713	10716	10720
+Ace Light Set	Ace Leather Armor	chest	fullarmor	LIGHT	B				407	10717	10721
+Ace Light Set	Ace Leather Armor Gloves	gloves	gloves		B				10714	10718	10722
+Ace Light Set	Ace Leather Armor Boots	feet	feet		B				10715	10719	10723
 Tunic Set	Tunic Helmet	head	head		NG	10724	10728	10733	10738	10743	10748
 Tunic Set	Tunic	chest	chest	MAGIC	NG	426	10729	10734	10739	10744	10749
 Tunic Set	Tunic Stockings	legs	legs	MAGIC	NG	10725	10730	10735	10740	10745	10750
 Tunic Set	Tunic Gloves	gloves	gloves		NG	10726	10731	10736	10741	10746	10751
 Tunic Set	Tunic Boots	feet	feet		NG	10727	10732	10737	10742	10747	10752
-Feriotic Set	Feriotic Tunic Helmet	head	head		NG	10753	10757	10762	10767	10772	10777
-Feriotic Set	Feriotic Tunic	chest	chest	MAGIC	NG	428	10758	10763	10768	10773	10778
-Feriotic Set	Feriotic Tunic Stockings	legs	legs	MAGIC	NG	10754	10759	10764	10769	10774	10779
-Feriotic Set	Feriotic Tunic Gloves	gloves	gloves		NG	10755	10760	10765	10770	10775	10780
-Feriotic Set	Feriotic Tunic Boots	feet	feet		NG	10756	10761	10766	10771	10776	10781
+Dryad Set	Dryad Tunic Helmet	head	head		NG	10753	10757	10762	10767	10772	10777
+Dryad Set	Dryad Tunic	chest	chest	MAGIC	NG	428	10758	10763	10768	10773	10778
+Dryad Set	Dryad Tunic Stockings	legs	legs	MAGIC	NG	10754	10759	10764	10769	10774	10779
+Dryad Set	Dryad Tunic Gloves	gloves	gloves		NG	10755	10760	10765	10770	10775	10780
+Dryad Set	Dryad Tunic Boots	feet	feet		NG	10756	10761	10766	10771	10776	10781
 Leather Tunic Set	Leather Tunic Helmet	head	head		NG	10782	10786	10791	10796	10801	10806
 Leather Tunic Set	Leather Tunic	chest	chest	MAGIC	NG	429	10787	10792	10797	10802	10807
 Leather Tunic Set	Leather Tunic Stockings	legs	legs	MAGIC	NG	10783	10788	10793	10798	10803	10808
@@ -184,11 +184,11 @@ Cursed Set	Cursed Tunic	chest	chest	MAGIC	D		432	10816	10821	10826	10831
 Cursed Set	Cursed Tunic Stockings	legs	legs	MAGIC	D		10812	10817	10822	10827	10832
 Cursed Set	Cursed Tunic Gloves	gloves	gloves		D		10813	10818	10823	10828	10833
 Cursed Set	Cursed Tunic Boots	feet	feet		D		10814	10819	10824	10829	10834
-White Set	White Tunic Helmet	head	head		D		10835	10839	10844	10849	10854
-White Set	White Tunic	chest	chest	MAGIC	D		434	10840	10845	10850	10855
-White Set	White Tunic Stockings	legs	legs	MAGIC	D		10836	10841	10846	10851	10856
-White Set	White Tunic Gloves	gloves	gloves		D		10837	10842	10847	10852	10857
-White Set	White Tunic Boots	feet	feet		D		10838	10843	10848	10853	10858
+Undine Set	Undine Tunic Helmet	head	head		D		10835	10839	10844	10849	10854
+Undine Set	Undine Tunic	chest	chest	MAGIC	D		434	10840	10845	10850	10855
+Undine Set	Undine Tunic Stockings	legs	legs	MAGIC	D		10836	10841	10846	10851	10856
+Undine Set	Undine Tunic Gloves	gloves	gloves		D		10837	10842	10847	10852	10857
+Undine Set	Undine Tunic Boots	feet	feet		D		10838	10843	10848	10853	10858
 Mystic's Set	Mystic's Tunic Helmet	head	head		D		10859	10863	10868	10873	10878
 Mystic's Set	Mystic's Tunic	chest	chest	MAGIC	D		435	10864	10869	10874	10879
 Mystic's Set	Mystic's Tunic Stockings	legs	legs	MAGIC	D		10860	10865	10870	10875	10880
@@ -204,10 +204,10 @@ Mithril Robe Set	Mithril Tunic	chest	chest	MAGIC	D		437	10912	10917	10922	10927
 Mithril Robe Set	Mithril Tunic Stockings	legs	legs	MAGIC	D		10908	10913	10918	10923	10928
 Mithril Robe Set	Mithril Tunic Gloves	gloves	gloves		D		10909	10914	10919	10924	10929
 Mithril Robe Set	Mithril Tunic Boots	feet	feet		D		10910	10915	10920	10925	10930
-Sage's Rag Set	Sage's Rag Helmet	head	head		D		10931	10934	10938	10942	10946
-Sage's Rag Set	Sage's Rag	chest	fullarmor	MAGIC	D		438	10935	10939	10943	10947
-Sage's Rag Set	Sage's Rag Gloves	gloves	gloves		D		10932	10936	10940	10944	10948
-Sage's Rag Set	Sage's Rag Boots	feet	feet		D		10933	10937	10941	10945	10949
+Sage's Set	Sage's Vestment Helmet	head	head		D		10931	10934	10938	10942	10946
+Sage's Set	Sage's Vestment	chest	fullarmor	MAGIC	D		438	10935	10939	10943	10947
+Sage's Set	Sage's Vestment Gloves	gloves	gloves		D		10932	10936	10940	10944	10948
+Sage's Set	Sage's Vestment Boots	feet	feet		D		10933	10937	10941	10945	10949
 Karmian Set	Karmian Tunic Helmet	head	head		C			10950	10954	10959	10964
 Karmian Set	Karmian Tunic	chest	chest	MAGIC	C			439	10955	10960	10965
 Karmian Set	Karmian Tunic Stockings	legs	legs	MAGIC	C			10951	10956	10961	10966
@@ -343,18 +343,18 @@ Major Arcana Set	Major Arcana Robe Helmet	head	head		S						11329
 Major Arcana Set	Major Arcana Robe	chest	fullarmor	MAGIC	S						6383
 Major Arcana Set	Major Arcana Robe Gloves	gloves	gloves		S						11330
 Major Arcana Set	Major Arcana Robe Boots	feet	feet		S						11331
-Clan Oath Heavy Set	Clan Oath Armor Helmet	head	head		D		11332	11335	11339	11343	11347
-Clan Oath Heavy Set	Clan Oath Armor	chest	fullarmor	HEAVY	D		7851	11336	11340	11344	11348
-Clan Oath Heavy Set	Clan Oath Armor Gloves	gloves	gloves		D		11333	11337	11341	11345	11349
-Clan Oath Heavy Set	Clan Oath Armor Boots	feet	feet		D		11334	11338	11342	11346	11350
-Clan Oath Light Set	Clan Oath Brigandine Helmet	head	head		D		11351	11354	11358	11362	11366
-Clan Oath Light Set	Clan Oath Brigandine	chest	fullarmor	LIGHT	D		7854	11355	11359	11363	11367
-Clan Oath Light Set	Clan Oath Brigandine Gloves	gloves	gloves		D		11352	11356	11360	11364	11368
-Clan Oath Light Set	Clan Oath Brigandine Boots	feet	feet		D		11353	11357	11361	11365	11369
-Clan Oath Robe Set	Clan Oath Aketon Helmet	head	head		D		11370	11373	11377	11381	11385
-Clan Oath Robe Set	Clan Oath Aketon	chest	fullarmor	MAGIC	D		7857	11374	11378	11382	11386
-Clan Oath Robe Set	Clan Oath Aketon Gloves	gloves	gloves		D		11371	11375	11379	11383	11387
-Clan Oath Robe Set	Clan Oath Aketon Boots	feet	feet		D		11372	11376	11380	11384	11388
+Oath Heavy Set	Oath Plate Armor Helmet	head	head		D		11332	11335	11339	11343	11347
+Oath Heavy Set	Oath Plate Armor	chest	fullarmor	HEAVY	D		7851	11336	11340	11344	11348
+Oath Heavy Set	Oath Plate Armor Gloves	gloves	gloves		D		11333	11337	11341	11345	11349
+Oath Heavy Set	Oath Plate Armor Boots	feet	feet		D		11334	11338	11342	11346	11350
+Oath Light Set	Oath Brigandine Helmet	head	head		D		11351	11354	11358	11362	11366
+Oath Light Set	Oath Brigandine	chest	fullarmor	LIGHT	D		7854	11355	11359	11363	11367
+Oath Light Set	Oath Brigandine Gloves	gloves	gloves		D		11352	11356	11360	11364	11368
+Oath Light Set	Oath Brigandine Boots	feet	feet		D		11353	11357	11361	11365	11369
+Oath Robe Set	Oath Aketon Helmet	head	head		D		11370	11373	11377	11381	11385
+Oath Robe Set	Oath Aketon	chest	fullarmor	MAGIC	D		7857	11374	11378	11382	11386
+Oath Robe Set	Oath Aketon Gloves	gloves	gloves		D		11371	11375	11379	11383	11387
+Oath Robe Set	Oath Aketon Boots	feet	feet		D		11372	11376	11380	11384	11388
 Apella Heavy Set	Apella Plate Armor Helmet	head	head		A					11389	11392
 Apella Heavy Set	Apella Plate Armor	chest	fullarmor	HEAVY	A					7861	11393
 Apella Heavy Set	Apella Plate Armor Gloves	gloves	gloves		A					11390	11394

@@ -1,16 +1,16 @@
 id	level	name	desc	kind	iconFrom
-9500	1	Shirt Set	Evasion +1.	set	21
-9500	2	Shirt Set	Evasion +2.	set	21
-9500	3	Shirt Set	Evasion +3.	set	21
-9500	4	Shirt Set	Evasion +3.	set	21
-9500	5	Shirt Set	Evasion +4.	set	21
-9500	6	Shirt Set	Evasion +5.	set	21
-9501	1	Leather Shirt Set	P. Def. +1.8%, Casting Spd. +5.2%.	set	22
-9501	2	Leather Shirt Set	P. Def. +2.6%, Casting Spd. +7.5%.	set	22
-9501	3	Leather Shirt Set	P. Def. +3.6%, Casting Spd. +10.2%.	set	22
-9501	4	Leather Shirt Set	P. Def. +4.4%, Casting Spd. +12.7%.	set	22
-9501	5	Leather Shirt Set	P. Def. +5.2%, Casting Spd. +15%.	set	22
-9501	6	Leather Shirt Set	P. Def. +6.2%, Casting Spd. +17.7%.	set	22
+9500	1	Keltir Set	Evasion +1.	set	21
+9500	2	Keltir Set	Evasion +2.	set	21
+9500	3	Keltir Set	Evasion +3.	set	21
+9500	4	Keltir Set	Evasion +3.	set	21
+9500	5	Keltir Set	Evasion +4.	set	21
+9500	6	Keltir Set	Evasion +5.	set	21
+9501	1	Scout Set	P. Def. +1.8%, Casting Spd. +5.2%.	set	22
+9501	2	Scout Set	P. Def. +2.6%, Casting Spd. +7.5%.	set	22
+9501	3	Scout Set	P. Def. +3.6%, Casting Spd. +10.2%.	set	22
+9501	4	Scout Set	P. Def. +4.4%, Casting Spd. +12.7%.	set	22
+9501	5	Scout Set	P. Def. +5.2%, Casting Spd. +15%.	set	22
+9501	6	Scout Set	P. Def. +6.2%, Casting Spd. +17.7%.	set	22
 9502	1	Wooden Set	P. Def. +2%, Max HP +41.	set	23
 9502	2	Wooden Set	P. Def. +2.9%, Max HP +59.	set	23
 9502	3	Wooden Set	P. Def. +3.9%, Max HP +80.	set	23
@@ -47,12 +47,12 @@ id	level	name	desc	kind	iconFrom
 9507	4	Composite Set	Weight limit +7244.	set	60
 9507	5	Composite Set	Weight limit +8522.	set	60
 9507	6	Composite Set	Weight limit +10056.	set	60
-9508	1	Ring Mail Set	Speed +2, HP regeneration +1.8%, STR +3, CON -1, DEX -2.	set	347
-9508	2	Ring Mail Set	Speed +4, HP regeneration +2.6%, STR +3, CON -1, DEX -2.	set	347
-9508	3	Ring Mail Set	Speed +5, HP regeneration +3.6%, STR +3, CON -1, DEX -2.	set	347
-9508	4	Ring Mail Set	Speed +6, HP regeneration +4.5%, STR +3, CON -1, DEX -2.	set	347
-9508	5	Ring Mail Set	Speed +7, HP regeneration +5.3%, STR +3, CON -1, DEX -2.	set	347
-9508	6	Ring Mail Set	Speed +8, HP regeneration +6.2%, STR +3, CON -1, DEX -2.	set	347
+9508	1	Ol Mahum Set	Speed +2, HP regeneration +1.8%, STR +3, CON -1, DEX -2.	set	347
+9508	2	Ol Mahum Set	Speed +4, HP regeneration +2.6%, STR +3, CON -1, DEX -2.	set	347
+9508	3	Ol Mahum Set	Speed +5, HP regeneration +3.6%, STR +3, CON -1, DEX -2.	set	347
+9508	4	Ol Mahum Set	Speed +6, HP regeneration +4.5%, STR +3, CON -1, DEX -2.	set	347
+9508	5	Ol Mahum Set	Speed +7, HP regeneration +5.3%, STR +3, CON -1, DEX -2.	set	347
+9508	6	Ol Mahum Set	Speed +8, HP regeneration +6.2%, STR +3, CON -1, DEX -2.	set	347
 9509	1	Scale Set	P. Atk. +1.4%, Accuracy +1, Stun resistance +18%, STR +2, CON -2.	set	348
 9509	2	Scale Set	P. Atk. +2%, Accuracy +2, Stun resistance +25%, STR +2, CON -2.	set	348
 9509	3	Scale Set	P. Atk. +2.7%, Accuracy +2, Stun resistance +34%, STR +2, CON -2.	set	348
@@ -83,18 +83,18 @@ id	level	name	desc	kind	iconFrom
 9513	4	Half Plate Set	HP recovery +3.4%, Paralysis resistance +42%, STR -2, CON +2.	set	353
 9513	5	Half Plate Set	HP recovery +4%, Paralysis resistance +50%, STR -2, CON +2.	set	353
 9513	6	Half Plate Set	HP recovery +4.7%, Paralysis resistance +59%, STR -2, CON +2.	set	353
-9514	1	Chain Mail Set	Dagger resistance -2.7%.	set	354
-9514	2	Chain Mail Set	Dagger resistance -3.8%.	set	354
-9514	3	Chain Mail Set	Dagger resistance -5.2%.	set	354
-9514	4	Chain Mail Set	Dagger resistance -6.6%.	set	354
-9514	5	Chain Mail Set	Dagger resistance -7.7%.	set	354
-9514	6	Chain Mail Set	Dagger resistance -9.1%.	set	354
-9515	1	Dwarven Chain Mail Set	P. Def. +1.8%, Max HP +103.	set	355
-9515	2	Dwarven Chain Mail Set	P. Def. +2.6%, Max HP +147.	set	355
-9515	3	Dwarven Chain Mail Set	P. Def. +3.6%, Max HP +200.	set	355
-9515	4	Dwarven Chain Mail Set	P. Def. +4.4%, Max HP +250.	set	355
-9515	5	Dwarven Chain Mail Set	P. Def. +5.2%, Max HP +294.	set	355
-9515	6	Dwarven Chain Mail Set	P. Def. +6.2%, Max HP +347.	set	355
+9514	1	Taik Set	Dagger resistance -2.7%.	set	354
+9514	2	Taik Set	Dagger resistance -3.8%.	set	354
+9514	3	Taik Set	Dagger resistance -5.2%.	set	354
+9514	4	Taik Set	Dagger resistance -6.6%.	set	354
+9514	5	Taik Set	Dagger resistance -7.7%.	set	354
+9514	6	Taik Set	Dagger resistance -9.1%.	set	354
+9515	1	Golem Set	P. Def. +1.8%, Max HP +103.	set	355
+9515	2	Golem Set	P. Def. +2.6%, Max HP +147.	set	355
+9515	3	Golem Set	P. Def. +3.6%, Max HP +200.	set	355
+9515	4	Golem Set	P. Def. +4.4%, Max HP +250.	set	355
+9515	5	Golem Set	P. Def. +5.2%, Max HP +294.	set	355
+9515	6	Golem Set	P. Def. +6.2%, Max HP +347.	set	355
 9516	1	Full Plate Set	Max HP +139.	set	356
 9516	2	Full Plate Set	Max HP +199.	set	356
 9516	3	Full Plate Set	Max HP +270.	set	356
@@ -143,12 +143,12 @@ id	level	name	desc	kind	iconFrom
 9523	4	Puma Skin Set	MP regeneration +6.8%, Max MP +189, MEN +2, WIT -2.	set	391
 9523	5	Puma Skin Set	MP regeneration +8%, Max MP +222, MEN +2, WIT -2.	set	391
 9523	6	Puma Skin Set	MP regeneration +9.4%, Max MP +262, MEN +2, WIT -2.	set	391
-9524	1	Lion Skin Set	Max CP +68, CP regeneration +14%.	set	392
-9524	2	Lion Skin Set	Max CP +98, CP regeneration +20%.	set	392
-9524	3	Lion Skin Set	Max CP +133, CP regeneration +27.2%.	set	392
-9524	4	Lion Skin Set	Max CP +166, CP regeneration +34%.	set	392
-9524	5	Lion Skin Set	Max CP +195, CP regeneration +40%.	set	392
-9524	6	Lion Skin Set	Max CP +230, CP regeneration +47.2%.	set	392
+9524	1	Lion Set	Max CP +68, CP regeneration +14%.	set	392
+9524	2	Lion Set	Max CP +98, CP regeneration +20%.	set	392
+9524	3	Lion Set	Max CP +133, CP regeneration +27.2%.	set	392
+9524	4	Lion Set	Max CP +166, CP regeneration +34%.	set	392
+9524	5	Lion Set	Max CP +195, CP regeneration +40%.	set	392
+9524	6	Lion Set	Max CP +230, CP regeneration +47.2%.	set	392
 9525	1	Mithril Banded Set	M. Def. +1.4%, HP drain +1, DEX +1, CON -1.	set	393
 9525	2	Mithril Banded Set	M. Def. +2%, HP drain +2, DEX +1, CON -1.	set	393
 9525	3	Mithril Banded Set	M. Def. +2.7%, HP drain +2, DEX +1, CON -1.	set	393
@@ -197,24 +197,24 @@ id	level	name	desc	kind	iconFrom
 9532	4	Drake Leather Set	M. Def. +6.5%.	set	401
 9532	5	Drake Leather Set	M. Def. +7.7%.	set	401
 9532	6	Drake Leather Set	M. Def. +9.1%.	set	401
-9533	1	Ace's Leather Set	M. Def. +1.4%, HP drain +1, DEX +1, CON -1.	set	407
-9533	2	Ace's Leather Set	M. Def. +2%, HP drain +2, DEX +1, CON -1.	set	407
-9533	3	Ace's Leather Set	M. Def. +2.7%, HP drain +2, DEX +1, CON -1.	set	407
-9533	4	Ace's Leather Set	M. Def. +3.4%, HP drain +3, DEX +1, CON -1.	set	407
-9533	5	Ace's Leather Set	M. Def. +4%, HP drain +3, DEX +1, CON -1.	set	407
-9533	6	Ace's Leather Set	M. Def. +4.7%, HP drain +4, DEX +1, CON -1.	set	407
+9533	1	Ace Light Set	M. Def. +1.4%, HP drain +1, DEX +1, CON -1.	set	407
+9533	2	Ace Light Set	M. Def. +2%, HP drain +2, DEX +1, CON -1.	set	407
+9533	3	Ace Light Set	M. Def. +2.7%, HP drain +2, DEX +1, CON -1.	set	407
+9533	4	Ace Light Set	M. Def. +3.4%, HP drain +3, DEX +1, CON -1.	set	407
+9533	5	Ace Light Set	M. Def. +4%, HP drain +3, DEX +1, CON -1.	set	407
+9533	6	Ace Light Set	M. Def. +4.7%, HP drain +4, DEX +1, CON -1.	set	407
 9534	1	Tunic Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	426
 9534	2	Tunic Set	Casting Spd. +7.5%, M. Def. +4%.	set	426
 9534	3	Tunic Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	426
 9534	4	Tunic Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	426
 9534	5	Tunic Set	Casting Spd. +15%, M. Def. +8%.	set	426
 9534	6	Tunic Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	426
-9535	1	Feriotic Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	428
-9535	2	Feriotic Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	428
-9535	3	Feriotic Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	428
-9535	4	Feriotic Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	428
-9535	5	Feriotic Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	428
-9535	6	Feriotic Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	428
+9535	1	Dryad Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	428
+9535	2	Dryad Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	428
+9535	3	Dryad Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	428
+9535	4	Dryad Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	428
+9535	5	Dryad Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	428
+9535	6	Dryad Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	428
 9536	1	Leather Tunic Set	M. Atk. +6%, Speed +2, Weight limit +2016.	set	429
 9536	2	Leather Tunic Set	M. Atk. +8.5%, Speed +4, Weight limit +2880.	set	429
 9536	3	Leather Tunic Set	M. Atk. +11.6%, Speed +5, Weight limit +3916.	set	429
@@ -227,12 +227,12 @@ id	level	name	desc	kind	iconFrom
 9537	4	Cursed Set	MP regeneration +3.4%, M. Atk. +6.8%, INT +2, WIT -2.	set	432
 9537	5	Cursed Set	MP regeneration +4%, M. Atk. +8%, INT +2, WIT -2.	set	432
 9537	6	Cursed Set	MP regeneration +4.7%, M. Atk. +9.4%, INT +2, WIT -2.	set	432
-9538	1	White Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	434
-9538	2	White Set	Casting Spd. +7.5%, M. Def. +4%.	set	434
-9538	3	White Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	434
-9538	4	White Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	434
-9538	5	White Set	Casting Spd. +15%, M. Def. +8%.	set	434
-9538	6	White Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	434
+9538	1	Undine Set	Casting Spd. +5.2%, M. Def. +2.8%.	set	434
+9538	2	Undine Set	Casting Spd. +7.5%, M. Def. +4%.	set	434
+9538	3	Undine Set	Casting Spd. +10.2%, M. Def. +5.4%.	set	434
+9538	4	Undine Set	Casting Spd. +12.7%, M. Def. +6.8%.	set	434
+9538	5	Undine Set	Casting Spd. +15%, M. Def. +8%.	set	434
+9538	6	Undine Set	Casting Spd. +17.7%, M. Def. +9.4%.	set	434
 9539	1	Mystic's Set	Max MP +72, MP regeneration +1.8%, WIT +3, INT -2.	set	435
 9539	2	Mystic's Set	Max MP +103, MP regeneration +2.6%, WIT +3, INT -2.	set	435
 9539	3	Mystic's Set	Max MP +140, MP regeneration +3.6%, WIT +3, INT -2.	set	435
@@ -251,12 +251,12 @@ id	level	name	desc	kind	iconFrom
 9541	4	Mithril Robe Set	Speed +12, WIT +1, INT -1.	set	437
 9541	5	Mithril Robe Set	Speed +14, WIT +1, INT -1.	set	437
 9541	6	Mithril Robe Set	Speed +17, WIT +1, INT -1.	set	437
-9542	1	Sage's Rag Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
-9542	2	Sage's Rag Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
-9542	3	Sage's Rag Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
-9542	4	Sage's Rag Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
-9542	5	Sage's Rag Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
-9542	6	Sage's Rag Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
+9542	1	Sage's Set	P. Def. +2.8%, Casting Spd. +5.2%, Speed +2.	set	438
+9542	2	Sage's Set	P. Def. +4%, Casting Spd. +7.5%, Speed +4.	set	438
+9542	3	Sage's Set	P. Def. +5.4%, Casting Spd. +10.2%, Speed +5.	set	438
+9542	4	Sage's Set	P. Def. +6.8%, Casting Spd. +12.7%, Speed +6.	set	438
+9542	5	Sage's Set	P. Def. +8%, Casting Spd. +15%, Speed +7.	set	438
+9542	6	Sage's Set	P. Def. +9.4%, Casting Spd. +17.7%, Speed +8.	set	438
 9543	1	Karmian Set	P. Def. +2.7%, Casting Spd. +7.7%.	set	439
 9543	2	Karmian Set	P. Def. +3.8%, Casting Spd. +11%.	set	439
 9543	3	Karmian Set	P. Def. +5.2%, Casting Spd. +15%.	set	439
@@ -437,24 +437,24 @@ id	level	name	desc	kind	iconFrom
 9572	4	Major Arcana Set	M. Atk. +12.3%, Speed +5, Cancel resistance -36, Weight limit +4148, WIT +1, INT +1, MEN -2, Stun resistance +36%.	set	6383
 9572	5	Major Arcana Set	M. Atk. +14.4%, Speed +6, Cancel resistance -42, Weight limit +4881, WIT +1, INT +1, MEN -2, Stun resistance +42%.	set	6383
 9572	6	Major Arcana Set	M. Atk. +17%, Speed +7, Cancel resistance -50, Weight limit +5759, WIT +1, INT +1, MEN -2, Stun resistance +50%.	set	6383
-9573	1	Clan Oath Heavy Set	P. Def. +3.5%, Max HP +59.	set	7851
-9573	2	Clan Oath Heavy Set	P. Def. +5%, Max HP +85.	set	7851
-9573	3	Clan Oath Heavy Set	P. Def. +6.8%, Max HP +116.	set	7851
-9573	4	Clan Oath Heavy Set	P. Def. +8.5%, Max HP +144.	set	7851
-9573	5	Clan Oath Heavy Set	P. Def. +10%, Max HP +170.	set	7851
-9573	6	Clan Oath Heavy Set	P. Def. +11.8%, Max HP +201.	set	7851
-9574	1	Clan Oath Light Set	P. Def. +3.5%, Evasion +2.	set	7854
-9574	2	Clan Oath Light Set	P. Def. +5%, Evasion +3.	set	7854
-9574	3	Clan Oath Light Set	P. Def. +6.8%, Evasion +4.	set	7854
-9574	4	Clan Oath Light Set	P. Def. +8.5%, Evasion +5.	set	7854
-9574	5	Clan Oath Light Set	P. Def. +10%, Evasion +6.	set	7854
-9574	6	Clan Oath Light Set	P. Def. +11.8%, Evasion +7.	set	7854
-9575	1	Clan Oath Robe Set	P. Def. +3.5%, Casting Spd. +3.5%.	set	7857
-9575	2	Clan Oath Robe Set	P. Def. +5%, Casting Spd. +5%.	set	7857
-9575	3	Clan Oath Robe Set	P. Def. +6.8%, Casting Spd. +6.8%.	set	7857
-9575	4	Clan Oath Robe Set	P. Def. +8.5%, Casting Spd. +8.5%.	set	7857
-9575	5	Clan Oath Robe Set	P. Def. +10%, Casting Spd. +10%.	set	7857
-9575	6	Clan Oath Robe Set	P. Def. +11.8%, Casting Spd. +11.8%.	set	7857
+9573	1	Oath Heavy Set	P. Def. +3.5%, Max HP +59.	set	7851
+9573	2	Oath Heavy Set	P. Def. +5%, Max HP +85.	set	7851
+9573	3	Oath Heavy Set	P. Def. +6.8%, Max HP +116.	set	7851
+9573	4	Oath Heavy Set	P. Def. +8.5%, Max HP +144.	set	7851
+9573	5	Oath Heavy Set	P. Def. +10%, Max HP +170.	set	7851
+9573	6	Oath Heavy Set	P. Def. +11.8%, Max HP +201.	set	7851
+9574	1	Oath Light Set	P. Def. +3.5%, Evasion +2.	set	7854
+9574	2	Oath Light Set	P. Def. +5%, Evasion +3.	set	7854
+9574	3	Oath Light Set	P. Def. +6.8%, Evasion +4.	set	7854
+9574	4	Oath Light Set	P. Def. +8.5%, Evasion +5.	set	7854
+9574	5	Oath Light Set	P. Def. +10%, Evasion +6.	set	7854
+9574	6	Oath Light Set	P. Def. +11.8%, Evasion +7.	set	7854
+9575	1	Oath Robe Set	P. Def. +3.5%, Casting Spd. +3.5%.	set	7857
+9575	2	Oath Robe Set	P. Def. +5%, Casting Spd. +5%.	set	7857
+9575	3	Oath Robe Set	P. Def. +6.8%, Casting Spd. +6.8%.	set	7857
+9575	4	Oath Robe Set	P. Def. +8.5%, Casting Spd. +8.5%.	set	7857
+9575	5	Oath Robe Set	P. Def. +10%, Casting Spd. +10%.	set	7857
+9575	6	Oath Robe Set	P. Def. +11.8%, Casting Spd. +11.8%.	set	7857
 9576	1	Apella Heavy Set	Max CP +81, CP regeneration +14%.	set	7861
 9576	2	Apella Heavy Set	Max CP +116, CP regeneration +20%.	set	7861
 9576	3	Apella Heavy Set	Max CP +158, CP regeneration +27.2%.	set	7861

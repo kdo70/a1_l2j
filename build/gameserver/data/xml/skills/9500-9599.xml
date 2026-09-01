@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<skill id="9500" levels="6" name="Shirt Set" >
+	<skill id="9500" levels="6" name="Keltir Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1 2 3 3 4 5 </table>
 		<set name="target" val="SELF" />
@@ -11,7 +11,7 @@
 			<add stat="rEvas" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9501" levels="6" name="Leather Shirt Set" >
+	<skill id="9501" levels="6" name="Scout Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0183 1.0262 1.0356 1.0445 1.0524 1.0618 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -106,7 +106,7 @@
 			<add stat="weightLimit" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9508" levels="6" name="Ring Mail Set" >
+	<skill id="9508" levels="6" name="Ol Mahum Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 2 4 5 6 7 8 </table>
 		<table name="#v2"> 1.0184 1.0263 1.0358 1.0447 1.0526 1.0621 </table>
@@ -197,7 +197,7 @@
 			<add stat="CON" val="2" />
 		</for>
 	</skill>
-	<skill id="9514" levels="6" name="Chain Mail Set" >
+	<skill id="9514" levels="6" name="Taik Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 0.973 0.9615 0.9476 0.9345 0.9229 0.9091 </table>
 		<set name="target" val="SELF" />
@@ -208,7 +208,7 @@
 			<mul stat="daggerWpnVuln" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9515" levels="6" name="Dwarven Chain Mail Set" >
+	<skill id="9515" levels="6" name="Golem Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0183 1.0262 1.0356 1.0445 1.0524 1.0618 </table>
 		<table name="#v2"> 103 147 200 250 294 347 </table>
@@ -337,7 +337,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9524" levels="6" name="Lion Skin Set" >
+	<skill id="9524" levels="6" name="Lion Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 68 98 133 166 195 230 </table>
 		<table name="#v2"> 1.14 1.2 1.272 1.34 1.4 1.472 </table>
@@ -444,7 +444,7 @@
 			<mul stat="mDef" val="#v1" />
 		</for>
 	</skill>
-	<skill id="9533" levels="6" name="Ace's Leather Set" >
+	<skill id="9533" levels="6" name="Ace Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.014 1.02 1.0272 1.034 1.04 1.0472 </table>
 		<table name="#v2"> 1 2 2 3 3 4 </table>
@@ -472,7 +472,7 @@
 			<mul stat="mDef" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9535" levels="6" name="Feriotic Set" >
+	<skill id="9535" levels="6" name="Dryad Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -517,7 +517,7 @@
 			<sub stat="WIT" val="2" />
 		</for>
 	</skill>
-	<skill id="9538" levels="6" name="White Set" >
+	<skill id="9538" levels="6" name="Undine Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
 		<table name="#v2"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
@@ -571,7 +571,7 @@
 			<sub stat="INT" val="1" />
 		</for>
 	</skill>
-	<skill id="9542" levels="6" name="Sage's Rag Set" >
+	<skill id="9542" levels="6" name="Sage's Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.028 1.04 1.0544 1.068 1.08 1.0944 </table>
 		<table name="#v2"> 1.0525 1.075 1.102 1.1275 1.15 1.177 </table>
@@ -1074,7 +1074,7 @@
 			<addMul stat="stunVuln" val="#v8" />
 		</for>
 	</skill>
-	<skill id="9573" levels="6" name="Clan Oath Heavy Set" >
+	<skill id="9573" levels="6" name="Oath Heavy Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 59 85 116 144 170 201 </table>
@@ -1087,7 +1087,7 @@
 			<add stat="maxHp" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9574" levels="6" name="Clan Oath Light Set" >
+	<skill id="9574" levels="6" name="Oath Light Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 2 3 4 5 6 7 </table>
@@ -1100,7 +1100,7 @@
 			<add stat="rEvas" val="#v2" />
 		</for>
 	</skill>
-	<skill id="9575" levels="6" name="Clan Oath Robe Set" >
+	<skill id="9575" levels="6" name="Oath Robe Set" >
 		<table name="#magicLvl"> 1 20 40 52 61 76 </table>
 		<table name="#v1"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
 		<table name="#v2"> 1.035 1.05 1.068 1.085 1.1 1.118 </table>
