@@ -1170,7 +1170,7 @@
 			<skill id="4416" level="10" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="12774" name="Young Squash" title="" alias="small_baby_gourd">
+	<npc id="12774" name="Young Squash" title="Lvl 1*" alias="small_baby_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="10.0"/>
@@ -1212,7 +1212,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="12775" name="High Quality Squash" title="" alias="g_small_adult_gourd">
+	<npc id="12775" name="High Quality Squash" title="Lvl 1*" alias="g_small_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="23.0"/>
@@ -1254,7 +1254,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="12776" name="Low Quality Squash" title="" alias="b_small_adult_gourd">
+	<npc id="12776" name="Low Quality Squash" title="Lvl 1*" alias="b_small_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="15.0"/>
@@ -1296,7 +1296,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="12777" name="Large Young Squash" title="" alias="big_baby_gourd">
+	<npc id="12777" name="Large Young Squash" title="Lvl 1*" alias="big_baby_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="23.0"/>
@@ -1338,7 +1338,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="12778" name="High Quality Large Squash" title="" alias="g_big_adult_gourd">
+	<npc id="12778" name="High Quality Large Squash" title="Lvl 1*" alias="g_big_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="30.0"/>
@@ -1380,7 +1380,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="12779" name="Low Quality Large Squash" title="" alias="b_big_adult_gourd">
+	<npc id="12779" name="Low Quality Large Squash" title="Lvl 1*" alias="b_big_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="28.0"/>

@@ -122,6 +122,16 @@ ant -f source\aCis_gameserver\build.xml
   удар по РБ (один раз, признак в `character_memo`), продавать/выбрасывать/передавать
   нельзя. Окно открывает предмет с атрибутом `handler="RaidBossBook"`, а выдаётся тот,
   что указан в `RaidBookItemId` — это две разные привязки.
+- **Уровень монстра написан у него в титуле, и титулы монстров сгенерированы.**
+  `Lvl 80`, `Lvl 80*` у агрессивных (`aggroRange > 0`), с приставкой
+  `Quest Monster` / `Raid Boss` / `Raid Fighter` / `Epic Boss` / `Epic Fighter` и
+  своим `nameColor` (оранжевый квестовым и рейдовым, красный эпикам). Генератор —
+  `tools/datapack/npc_level_titles.ps1` (правит обе копии датапака, идемпотентен,
+  `-WhatIf` для сухого прогона), гонять заново после правки уровней или
+  `aggroRange`. Руками `title` монстрам не править — перезапишется. `ShowNpcLevel`
+  в `config/npcs/npcs.properties` должен оставаться `False`, иначе движок
+  припишет к титулу второй уровень. Устройство и разметка видов —
+  `docs/npc-level-titles.md`.
 - **Постоянный визуальный эффект NPC** (столб света и прочее) вешается из датапака:
   `visualEffect` (маска `AbnormalEffect`, уезжает в `NpcInfo`) или `visualSkill`
   (повтор анимации каста) в `data/xml/npcs`. Подбор живьём — `//npc_effect` по
@@ -201,6 +211,15 @@ ant -f source\aCis_gameserver\build.xml
 Цвет названий предметов задаётся в датапаке (`name_color` в
 `data/xml/items`) и уезжает на клиент отдельным каналом — устройство и
 ограничения в `docs/item-name-colors.md`.
+
+Цвет надписи над NPC — обеих её строк, имени и титула — задаётся в датапаке
+(`nameColor` в `data/xml/npcs`) и требует патча `engine.dll`
+(`tools/client/patch_engine_npc_packet_color.ps1`): в Interlude у NPC нет поля
+цвета ни в пакете, ни в клиентских данных. Второй патч
+(`patch_engine_npc_name_color.ps1`) привязывает цвет к id NPC через
+`npcname-e.dat` и нужен только тем NPC, про которых сервер молчит. Устройство,
+смещения и порядок приоритетов — `docs/npc-name-colors.md` и
+`docs/npc-title-colors.md`.
 
 Отдельно взятый предмет (строка в таблице `items`) может нести свои навыки
 (колонка `skills`, выдаются при экипировке) и свой цвет названия (колонка

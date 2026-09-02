@@ -12,9 +12,10 @@
 #   FF8000   "Quest Monster"
 #   FFFF77   not in the file, but reserved too - the title color aCis sends a player
 #
-# Anything else is fair game. A color the SERVER sends for an NPC wins over the one
-# set here, so this file is for the colors that belong to an npc id rather than to a
-# spawned NPC - see docs/npc-name-colors.md.
+# Anything else is fair game. A color the SERVER sends for an NPC - "nameColor" in
+# data/xml/npcs - wins over the one set here, for the title as well as for the name,
+# so this file is for the colors that belong to an npc id rather than to a spawned
+# NPC - see docs/npc-name-colors.md.
 #
 # The text itself is not set here : it comes from npcname-e.dat, or from the server
 # when ServerSideNpcName / ServerSideNpcTitle is on, or when the npc XML carries

@@ -21,13 +21,23 @@
 # from the end of the packet instead does not work : whatever [reader+4EF8h]
 # counts, it is not the last payload byte, and the tag never matched.
 #
-# Two cuts, both into the 0xCC padding behind the NpcInfo handler:
+# The same colour also paints the TITLE, the line above the name. Its colour is
+# User+190h, which the handler fills from npcname-e.dat - per npc id, the same
+# for every spawn of it. Overwriting it here is what moves the title's colour to
+# the server, so a datapack that says nameColor="FF0000" gets both lines red and
+# an NPC the server says nothing about keeps the colour the client has for it.
+#
+# Cuts, all into the 0xCC padding behind the NpcInfo handler:
 #
 #   - right after the second parse call, where the cursor is still in eax and the
 #     packet reader is still the first argument on the stack. It checks that at
 #     least four bytes are left, reads them, and parks the value in the cave.
 #   - where the handler starts filling the User, esi being the User. It picks the
 #     value back up, checks the tag and writes User::UniqueNameColor.
+#   - where it writes User+190h, the title colour, which is a six byte store and
+#     so has room for a jump on its own. Same value, same tag check.
+#
+# The last two come in pairs, one per path the handler takes.
 #
 # The value is parked in the cave itself, addressed off a call/pop, so the patch
 # still holds no absolute address and needs no .reloc entry.
@@ -89,8 +99,20 @@ $OFF_FILL2     = 0x13A02F  # the same three instructions on the other path
 $LEN_FILL2     = 10
 $OFF_FILL2_RET = 0x13A039
 
-$OFF_CAVE     = 0x13A710   # 0xCC padding behind the handler (934 bytes of it)
-$LEN_CAVE     = 0xE0
+# "mov [esi+190h],edx" - the title colour, as the handler read it out of
+# npcname-e.dat. Six bytes, so the jump fits without displacing anything else.
+# One per path again, and further down each of them than the fill above, so the
+# parked value is already there by the time these run.
+$OFF_TITLE      = 0x139CC8
+$LEN_TITLE      = 6
+$OFF_TITLE_RET  = 0x139CCE
+
+$OFF_TITLE2     = 0x13A1BD
+$LEN_TITLE2     = 6
+$OFF_TITLE2_RET = 0x13A1C3
+
+$OFF_CAVE     = 0x13A710   # 0xCC padding behind the handler (928 bytes of it)
+$LEN_CAVE     = 0x180
 
 # Both cut sites, byte for byte. Refuses to touch anything else.
 $SIG_READ_AT = 0x139A84
@@ -100,6 +122,12 @@ $SIG_FILL    = '8B7004EB0233F6897E088B54245089560C899E94000000'
 $SIG_FILL2_AT = 0x13A022
 $SIG_FILL2    = '8BF0EB0233F68B4C2418894E18897E088B54245089560C89'
 
+# Both title stores carry the same three instructions around them.
+$SIG_TITLE_AT  = 0x139CC2
+$SIG_TITLE2_AT = 0x13A1B7
+$SIG_TITLE     = '8B571C8B45088996900100008B4848'   # mov edx,[edi+1Ch] / mov eax,[ebp+8] / the store / mov ecx,[eax+48h]
+
+$FLD_TITLECOLOR  = 0x190    # the title's colour, read inline - GetNickColor is never called
 $FLD_UNIQUECOLOR = 0x308    # User::GetUniqueNameColor returns exactly this
 $FLD_PACKET_END  = 0x4EF8   # what the parser bounds-checks every field against
 $TAG             = 0xC0     # top byte of the appended dword
@@ -120,7 +148,7 @@ function EmitI32([int] $v) { [void]$code.AddRange([BitConverter]::GetBytes($v)) 
 if (!(Test-Path $In)) { throw "No such file: $In" }
 $bytes = [System.IO.File]::ReadAllBytes($In)
 
-foreach ($s in @(@($SIG_READ_AT, $SIG_READ, 'the parse tail'), @($SIG_FILL_AT, $SIG_FILL, 'the first User fill'), @($SIG_FILL2_AT, $SIG_FILL2, 'the second User fill')))
+foreach ($s in @(@($SIG_READ_AT, $SIG_READ, 'the parse tail'), @($SIG_FILL_AT, $SIG_FILL, 'the first User fill'), @($SIG_FILL2_AT, $SIG_FILL2, 'the second User fill'), @($SIG_TITLE_AT, $SIG_TITLE, 'the first title colour store'), @($SIG_TITLE2_AT, $SIG_TITLE, 'the second title colour store')))
 {
 	$found = Get-Hex $bytes $s[0] ($s[1].Length / 2)
 	if ($found -ne $s[1])
@@ -259,6 +287,57 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 	Emit @(0xE9, 0, 0, 0, 0)                # jmp <back>
 }
 
+# =========================== caves 4, 5 : the title ==========================
+# Entry: esi is the User, edx the colour the handler just read out of
+# npcname-e.dat, and eax is LIVE - it holds [ebp+8] and the next stock
+# instruction indexes off it. edx is the only register free here, so the tag is
+# checked as a range rather than by shifting a copy out of the way.
+#
+# Written unconditionally first, then overwritten when the server sent a colour,
+# so an NPC the server says nothing about keeps the client's own.
+$titles = @()
+$titlePicks = @()
+
+foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
+{
+	$titles += $code.Count
+
+	Emit @(0x89, 0x96)                      # mov [esi+190h],edx       ; the displaced store
+	EmitU32 ([uint32]$FLD_TITLECOLOR)
+
+	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
+	$titlePicks += @{ Origin = $code.Count }
+	Emit @(0x5A)                            # pop edx
+	$titlePicks[-1].Fixup = $code.Count
+	Emit @(0x8B, 0x92)                      # mov edx,[edx+<slot>]
+	EmitU32 0
+
+	# 0xC0RRGGBB is exactly the half-open range below ; "no colour" is 0xFFFFFFFF
+	# and falls out of it. imm32 again - the short form would sign-extend.
+	Emit @(0x81, 0xFA)                      # cmp edx,0C0000000h
+	EmitU32 ([uint32]$TAG -shl 24)
+	$jbAt2 = $code.Count
+	Emit @(0x72, 0x00)                      # jb keep
+	Emit @(0x81, 0xFA)                      # cmp edx,0C1000000h
+	EmitU32 (([uint32]$TAG + 1) -shl 24)
+	$jaeAt = $code.Count
+	Emit @(0x73, 0x00)                      # jae keep
+
+	Emit @(0x81, 0xE2)                      # and edx,00FFFFFFh
+	EmitU32 ([uint32]0x00FFFFFF)
+	Emit @(0x81, 0xCA)                      # or edx,FF000000h        ; opaque
+	EmitU32 $OPAQUE
+	Emit @(0x89, 0x96)                      # mov [esi+190h],edx
+	EmitU32 ([uint32]$FLD_TITLECOLOR)
+
+	$labelKeep = $code.Count
+	$shortFixups += @{ At = $jbAt2; To = $labelKeep }
+	$shortFixups += @{ At = $jaeAt; To = $labelKeep }
+
+	$jmpBacks += @{ At = $code.Count; Ret = $ret }
+	Emit @(0xE9, 0, 0, 0, 0)                # jmp <back>
+}
+
 # ============================== the parked value =============================
 while ($code.Count % 4 -ne 0) { Emit @(0x90) }
 $slot = $code.Count
@@ -289,6 +368,7 @@ foreach ($j in $jmpBacks) { FixRel32 $j.At $j.Ret }
 # the parked dword, addressed off whatever call/pop left in the register
 [Array]::Copy([BitConverter]::GetBytes([int]($slot - $parkOrigin)), 0, $blob, $parkFixup + 2, 4)
 foreach ($p in $picks) { [Array]::Copy([BitConverter]::GetBytes([int]($slot - $p.Origin)), 0, $blob, $p.Fixup + 2, 4) }
+foreach ($p in $titlePicks) { [Array]::Copy([BitConverter]::GetBytes([int]($slot - $p.Origin)), 0, $blob, $p.Fixup + 2, 4) }
 
 # ------------------------------------------------------------ the two jumps --
 function Site([int] $len, [int] $from, [int] $to)
@@ -303,12 +383,16 @@ function Site([int] $len, [int] $from, [int] $to)
 $siteRead = Site $LEN_READ $OFF_READ ($OFF_CAVE + $cave1)
 $siteFill = Site $LEN_FILL $OFF_FILL ($OFF_CAVE + $stores[0])
 $siteFill2 = Site $LEN_FILL2 $OFF_FILL2 ($OFF_CAVE + $stores[1])
+$siteTitle = Site $LEN_TITLE $OFF_TITLE ($OFF_CAVE + $titles[0])
+$siteTitle2 = Site $LEN_TITLE2 $OFF_TITLE2 ($OFF_CAVE + $titles[1])
 
 # -------------------------------------------------------------------- write --
 [Array]::Copy($blob, 0, $bytes, $OFF_CAVE, $blob.Length)
 [Array]::Copy($siteRead, 0, $bytes, $OFF_READ, $siteRead.Length)
 [Array]::Copy($siteFill, 0, $bytes, $OFF_FILL, $siteFill.Length)
 [Array]::Copy($siteFill2, 0, $bytes, $OFF_FILL2, $siteFill2.Length)
+[Array]::Copy($siteTitle, 0, $bytes, $OFF_TITLE, $siteTitle.Length)
+[Array]::Copy($siteTitle2, 0, $bytes, $OFF_TITLE2, $siteTitle2.Length)
 
 if ($OutFile)
 {
@@ -330,4 +414,6 @@ else
 Write-Host ("  read  : 0x{0:X} -> cave+0x{1:X}" -f $OFF_READ, $cave1)
 Write-Host ("  fill  : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL, $stores[0])
 Write-Host ("  fill2 : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL2, $stores[1])
+Write-Host ("  title : 0x{0:X} -> cave+0x{1:X}" -f $OFF_TITLE, $titles[0])
+Write-Host ("  title2: 0x{0:X} -> cave+0x{1:X}" -f $OFF_TITLE2, $titles[1])
 Write-Host ("  cave  : 0x{0:X} .. 0x{1:X}, {2} of {3} bytes, parked value at +0x{4:X}" -f $OFF_CAVE, ($OFF_CAVE + $blob.Length - 1), $blob.Length, $LEN_CAVE, $slot)

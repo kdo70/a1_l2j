@@ -100,7 +100,7 @@
 			<skill id="4416" level="18" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31003" name="Here I Come" title="" alias="here_comes_me">
+	<npc id="31003" name="Here I Come" title="Lvl 70" alias="here_comes_me">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="9.0"/>
@@ -147,7 +147,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31004" name="Half Moon Love" title="" alias="half_moon_love">
+	<npc id="31004" name="Half Moon Love" title="Lvl 70" alias="half_moon_love">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
@@ -194,7 +194,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31005" name="Everlasting" title="" alias="everlasting">
+	<npc id="31005" name="Everlasting" title="Lvl 70" alias="everlasting">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="5.0"/>
@@ -241,7 +241,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31006" name="Dark Side of the Moon" title="" alias="dark_side_moon">
+	<npc id="31006" name="Dark Side of the Moon" title="Lvl 70" alias="dark_side_moon">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="10.0"/>
@@ -288,7 +288,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31007" name="Wind Rider" title="" alias="wind_rider">
+	<npc id="31007" name="Wind Rider" title="Lvl 70" alias="wind_rider">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="11.0"/>
@@ -335,7 +335,7 @@
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31008" name="Shooting Star" title="" alias="shooting_star">
+	<npc id="31008" name="Shooting Star" title="Lvl 70" alias="shooting_star">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="13.0"/>
@@ -382,7 +382,7 @@
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31009" name="Cyclone Thunder" title="" alias="cyclone_thunder">
+	<npc id="31009" name="Cyclone Thunder" title="Lvl 70" alias="cyclone_thunder">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="7.0"/>
@@ -429,7 +429,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31010" name="Hungry Baby" title="" alias="hungry_baby">
+	<npc id="31010" name="Hungry Baby" title="Lvl 70" alias="hungry_baby">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="9.0"/>
@@ -476,7 +476,7 @@
 			<skill id="4416" level="10" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31011" name="Salty Dog" title="" alias="salty_dog">
+	<npc id="31011" name="Salty Dog" title="Lvl 70" alias="salty_dog">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="13.0"/>
@@ -523,7 +523,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31012" name="Raging Revolution" title="" alias="raging_revolution">
+	<npc id="31012" name="Raging Revolution" title="Lvl 70" alias="raging_revolution">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="7.0"/>
@@ -570,7 +570,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31013" name="Valentine Blue" title="" alias="valentine_blue">
+	<npc id="31013" name="Valentine Blue" title="Lvl 70" alias="valentine_blue">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="11.0"/>
@@ -617,7 +617,7 @@
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31014" name="Light My Fire" title="" alias="light_my_fire">
+	<npc id="31014" name="Light My Fire" title="Lvl 70" alias="light_my_fire">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
@@ -664,7 +664,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31015" name="Red Bullet" title="" alias="red_bullet">
+	<npc id="31015" name="Red Bullet" title="Lvl 70" alias="red_bullet">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="9.5"/>
@@ -711,7 +711,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31016" name="Shining Silver" title="" alias="shining_silver">
+	<npc id="31016" name="Shining Silver" title="Lvl 70" alias="shining_silver">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="5.0"/>
@@ -758,7 +758,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31017" name="Over the top" title="" alias="over_the_top">
+	<npc id="31017" name="Over the top" title="Lvl 70" alias="over_the_top">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="12.0"/>
@@ -805,7 +805,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31018" name="Royal Straight" title="" alias="royal_straight">
+	<npc id="31018" name="Royal Straight" title="Lvl 70" alias="royal_straight">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.5"/>
@@ -852,7 +852,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31019" name="All Seven" title="" alias="all_seven">
+	<npc id="31019" name="All Seven" title="Lvl 70" alias="all_seven">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="14.0"/>
@@ -899,7 +899,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31020" name="Nasty Green" title="" alias="nasty_green">
+	<npc id="31020" name="Nasty Green" title="Lvl 70" alias="nasty_green">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="9.0"/>
@@ -946,7 +946,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31021" name="Shortcut" title="" alias="short_cut">
+	<npc id="31021" name="Shortcut" title="Lvl 70" alias="short_cut">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="10.0"/>
@@ -993,7 +993,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31022" name="Typhoon Tiger" title="" alias="typhoon_tiger">
+	<npc id="31022" name="Typhoon Tiger" title="Lvl 70" alias="typhoon_tiger">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
@@ -1040,7 +1040,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31023" name="Red Hot" title="" alias="red_hot">
+	<npc id="31023" name="Red Hot" title="Lvl 70" alias="red_hot">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="16.0"/>
@@ -1087,7 +1087,7 @@
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31024" name="Galaxy Express" title="" alias="galaxy_express">
+	<npc id="31024" name="Galaxy Express" title="Lvl 70" alias="galaxy_express">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="14.0"/>
@@ -1134,7 +1134,7 @@
 			<skill id="4416" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31025" name="Best Condition" title="" alias="best_condition">
+	<npc id="31025" name="Best Condition" title="Lvl 70" alias="best_condition">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="14.0"/>
@@ -1181,7 +1181,7 @@
 			<skill id="4416" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31026" name="Albatross" title="" alias="albatross">
+	<npc id="31026" name="Albatross" title="Lvl 70" alias="albatross">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="10.0"/>
@@ -39254,7 +39254,7 @@
 			<skill id="4416" level="19" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31844" name="Aracna" title="" alias="aracne">
+	<npc id="31844" name="Aracna" title="Lvl 50" alias="aracne">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="15.0"/>
@@ -39306,7 +39306,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31845" name="Bloody Pixy" title="" alias="bloody_pixy">
+	<npc id="31845" name="Bloody Pixy" title="Lvl 80" alias="bloody_pixy">
 		<set name="type" val="FriendlyMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="5.0"/>
@@ -39358,7 +39358,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31846" name="Satyros" title="" alias="dark_pan">
+	<npc id="31846" name="Satyros" title="Lvl 50" alias="dark_pan">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="14.0"/>
@@ -39410,7 +39410,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31847" name="Pan" title="" alias="pan">
+	<npc id="31847" name="Pan" title="Lvl 50" alias="pan">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="14.0"/>
@@ -39462,7 +39462,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31848" name="Pixy" title="" alias="pixy">
+	<npc id="31848" name="Pixy" title="Lvl 80" alias="pixy">
 		<set name="type" val="FriendlyMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="5.0"/>
@@ -39514,7 +39514,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31849" name="Red Arachne" title="" alias="red_aracne">
+	<npc id="31849" name="Red Arachne" title="Lvl 50" alias="red_aracne">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="15.0"/>
@@ -39566,7 +39566,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31850" name="Blight Treant" title="" alias="ti_mi_riran">
+	<npc id="31850" name="Blight Treant" title="Lvl 80" alias="ti_mi_riran">
 		<set name="type" val="FriendlyMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="23.0"/>
@@ -39618,7 +39618,7 @@
 			<skill id="4416" level="7" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="31851" name="Treant" title="" alias="ti_mi_tran">
+	<npc id="31851" name="Treant" title="Lvl 80" alias="ti_mi_tran">
 		<set name="type" val="FriendlyMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="23.0"/>
