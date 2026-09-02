@@ -3338,7 +3338,7 @@ public final class Player extends Playable
 				continue;
 			
 			// The known skill doesn't exist on available skills ; we drop existing skill.
-			final Optional<GeneralSkillNode> tempSkill = availableSkills.get(skill.getId());
+			final Optional<GeneralSkillNode> tempSkill = availableSkills.getOrDefault(skill.getId(), Optional.empty());
 			if (tempSkill.isEmpty())
 			{
 				removeSkill(skill.getId(), true);
