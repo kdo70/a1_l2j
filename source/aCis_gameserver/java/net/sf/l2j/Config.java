@@ -37,6 +37,7 @@ public final class Config
 	private static final String HEXID_FILE = "./config/hexid.txt";
 	private static final String ITEMS_FILE = "./config/items.properties";
 	private static final String LOGINSERVER_FILE = "./config/loginserver.properties";
+	private static final String NETWORK_FILE = "./config/network.properties";
 	private static final String PROTECTION_FILE = "./config/protection.properties";
 	private static final String RATES_FILE = "./config/rates.properties";
 	private static final String SERVER_FILE = "./config/server.properties";
@@ -742,29 +743,28 @@ public final class Config
 	public static boolean SEND_ITEM_SKILLS;
 	
 	// --------------------------------------------------
-	// Those "hidden" settings haven't configs to avoid admins to fuck their server
-	// You still can experiment changing values here. But don't say I didn't warn you.
+	// Network
 	// --------------------------------------------------
 	
 	/** Reserve Host on LoginServerThread */
-	public static boolean RESERVE_HOST_ON_LOGIN = false; // default false
+	public static boolean RESERVE_HOST_ON_LOGIN;
 	
 	/** MMO settings */
-	public static int MMO_SELECTOR_SLEEP_TIME = 20; // default 20
-	public static int MMO_MAX_SEND_PER_PASS = 80; // default 80
-	public static int MMO_MAX_READ_PER_PASS = 80; // default 80
-	public static int MMO_HELPER_BUFFER_COUNT = 20; // default 20
+	public static int MMO_SELECTOR_SLEEP_TIME;
+	public static int MMO_MAX_SEND_PER_PASS;
+	public static int MMO_MAX_READ_PER_PASS;
+	public static int MMO_HELPER_BUFFER_COUNT;
 	
 	/** Client Packets Queue settings */
-	public static int CLIENT_PACKET_QUEUE_SIZE = MMO_MAX_READ_PER_PASS + 2; // default MMO_MAX_READ_PER_PASS + 2
-	public static int CLIENT_PACKET_QUEUE_MAX_BURST_SIZE = MMO_MAX_READ_PER_PASS + 1; // default MMO_MAX_READ_PER_PASS + 1
-	public static int CLIENT_PACKET_QUEUE_MAX_PACKETS_PER_SECOND = 160; // default 160
-	public static int CLIENT_PACKET_QUEUE_MEASURE_INTERVAL = 5; // default 5
-	public static int CLIENT_PACKET_QUEUE_MAX_AVERAGE_PACKETS_PER_SECOND = 80; // default 80
-	public static int CLIENT_PACKET_QUEUE_MAX_FLOODS_PER_MIN = 2; // default 2
-	public static int CLIENT_PACKET_QUEUE_MAX_OVERFLOWS_PER_MIN = 1; // default 1
-	public static int CLIENT_PACKET_QUEUE_MAX_UNDERFLOWS_PER_MIN = 1; // default 1
-	public static int CLIENT_PACKET_QUEUE_MAX_UNKNOWN_PER_MIN = 5; // default 5
+	public static int CLIENT_PACKET_QUEUE_SIZE;
+	public static int CLIENT_PACKET_QUEUE_MAX_BURST_SIZE;
+	public static int CLIENT_PACKET_QUEUE_MAX_PACKETS_PER_SECOND;
+	public static int CLIENT_PACKET_QUEUE_MEASURE_INTERVAL;
+	public static int CLIENT_PACKET_QUEUE_MAX_AVERAGE_PACKETS_PER_SECOND;
+	public static int CLIENT_PACKET_QUEUE_MAX_FLOODS_PER_MIN;
+	public static int CLIENT_PACKET_QUEUE_MAX_OVERFLOWS_PER_MIN;
+	public static int CLIENT_PACKET_QUEUE_MAX_UNDERFLOWS_PER_MIN;
+	public static int CLIENT_PACKET_QUEUE_MAX_UNKNOWN_PER_MIN;
 	
 	// --------------------------------------------------
 	
@@ -1699,6 +1699,38 @@ public final class Config
 	}
 	
 	/**
+	 * Loads network settings.<br>
+	 * MMO selector, client packets queue.
+	 */
+	private static final void loadNetwork()
+	{
+		final ExProperties network = initProperties(NETWORK_FILE);
+
+		RESERVE_HOST_ON_LOGIN = network.getProperty("ReserveHostOnLogin", false);
+
+		MMO_SELECTOR_SLEEP_TIME = network.getProperty("SelectorSleepTime", 20);
+		MMO_MAX_SEND_PER_PASS = network.getProperty("MaxSendPerPass", 80);
+		MMO_MAX_READ_PER_PASS = network.getProperty("MaxReadPerPass", 80);
+		MMO_HELPER_BUFFER_COUNT = network.getProperty("HelperBufferCount", 20);
+
+		CLIENT_PACKET_QUEUE_SIZE = network.getProperty("PacketQueueSize", 0);
+		if (CLIENT_PACKET_QUEUE_SIZE <= 0)
+			CLIENT_PACKET_QUEUE_SIZE = MMO_MAX_READ_PER_PASS + 2;
+
+		CLIENT_PACKET_QUEUE_MAX_BURST_SIZE = network.getProperty("PacketQueueMaxBurstSize", 0);
+		if (CLIENT_PACKET_QUEUE_MAX_BURST_SIZE <= 0)
+			CLIENT_PACKET_QUEUE_MAX_BURST_SIZE = MMO_MAX_READ_PER_PASS + 1;
+
+		CLIENT_PACKET_QUEUE_MAX_PACKETS_PER_SECOND = network.getProperty("PacketQueueMaxPacketsPerSecond", 160);
+		CLIENT_PACKET_QUEUE_MEASURE_INTERVAL = network.getProperty("PacketQueueMeasureInterval", 5);
+		CLIENT_PACKET_QUEUE_MAX_AVERAGE_PACKETS_PER_SECOND = network.getProperty("PacketQueueMaxAveragePacketsPerSecond", 80);
+		CLIENT_PACKET_QUEUE_MAX_FLOODS_PER_MIN = network.getProperty("PacketQueueMaxFloodsPerMin", 2);
+		CLIENT_PACKET_QUEUE_MAX_OVERFLOWS_PER_MIN = network.getProperty("PacketQueueMaxOverflowsPerMin", 1);
+		CLIENT_PACKET_QUEUE_MAX_UNDERFLOWS_PER_MIN = network.getProperty("PacketQueueMaxUnderflowsPerMin", 1);
+		CLIENT_PACKET_QUEUE_MAX_UNKNOWN_PER_MIN = network.getProperty("PacketQueueMaxUnknownPerMin", 5);
+	}
+
+	/**
 	 * Loads loginserver settings.<br>
 	 * IP addresses, database, account, misc.
 	 */
@@ -1735,6 +1767,7 @@ public final class Config
 		
 		// server settings
 		loadServer();
+		loadNetwork();
 		loadRates();
 		loadItems();
 		loadFeatures();
@@ -1781,11 +1814,12 @@ public final class Config
 	public static final void loadLoginServer()
 	{
 		LOGGER.info("Loading loginserver configuration files.");
-		
+
 		// login settings
 		loadLogin();
+		loadNetwork();
 	}
-	
+
 	public static final void loadAccountManager()
 	{
 		LOGGER.info("Loading account manager configuration files.");

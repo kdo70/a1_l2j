@@ -13,9 +13,9 @@ source/aCis_gameserver/      Java-код серверов (основной пр
   java/net/sf/l2j/           пакеты: gameserver, loginserver, commons,
                              accountmanager, gsregistering, Config.java
   config/                    *.properties: в корне общесерверные (server,
-                             rates, items, features, protection, development,
-                             clans, siege, geoengine, loginserver), дальше по
-                             папкам players/, npcs/, events/ и mods/ —
+                             network, rates, items, features, protection,
+                             development, clans, siege, geoengine, loginserver),
+                             дальше по папкам players/, npcs/, events/ и mods/ —
                              в последней живут модификации сборки
                              (gatekeeper, droplist, championmobs, offlineshop,
                              client)
