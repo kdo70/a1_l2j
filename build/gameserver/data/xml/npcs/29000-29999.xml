@@ -2,7 +2,6 @@
 <list>
 	<npc id="29001" name="Queen Ant" title="Epic Boss Lvl 40*" alias="queen_ant">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="53.0"/>
@@ -52,7 +51,6 @@
 	</npc>
 	<npc id="29002" name="Queen Ant Larva" title="Epic Fighter Lvl 38*" alias="queen_ant_larva">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="8.0"/>
@@ -101,7 +99,6 @@
 	</npc>
 	<npc id="29003" name="Nurse Ant" title="Epic Fighter Lvl 35*" alias="nurse_ant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="15.0"/>
@@ -150,7 +147,6 @@
 	</npc>
 	<npc id="29004" name="Guard Ant" title="Epic Fighter Lvl 37*" alias="guard_ant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="15.0"/>
@@ -204,7 +200,6 @@
 	</npc>
 	<npc id="29005" name="Royal Guard Ant" title="Epic Fighter Lvl 39*" alias="royal_guard_ant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="15.0"/>
@@ -258,7 +253,6 @@
 	</npc>
 	<npc id="29006" name="Core" title="Epic Boss Lvl 50*" alias="core">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="140.0"/>
 		<set name="height" val="75.0"/>
@@ -307,7 +301,6 @@
 	</npc>
 	<npc id="29007" name="Death Knight" title="Epic Fighter Lvl 50*" alias="b02_death_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -363,7 +356,6 @@
 	</npc>
 	<npc id="29008" name="Death Wraith" title="Epic Fighter Lvl 55*" alias="b02_death_blader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -420,7 +412,6 @@
 	</npc>
 	<npc id="29009" name="Dicor" title="Epic Fighter Lvl 47*" alias="b02_dicor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="25.5"/>
@@ -475,7 +466,6 @@
 	</npc>
 	<npc id="29010" name="Validus" title="Epic Fighter Lvl 46*" alias="b02_validus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="29.0"/>
@@ -529,7 +519,6 @@
 	</npc>
 	<npc id="29011" name="Susceptor" title="Epic Fighter Lvl 49*" alias="b02_susceptor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -584,7 +573,6 @@
 	</npc>
 	<npc id="29012" name="Perum" title="Epic Fighter Lvl 48*" alias="b02_perum">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="34.0"/>
@@ -642,7 +630,6 @@
 	</npc>
 	<npc id="29013" name="Premo" title="Epic Fighter Lvl 45*" alias="b02_premo">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="35.0"/>
@@ -696,7 +683,6 @@
 	</npc>
 	<npc id="29014" name="Orfen" title="Epic Boss Lvl 50*" alias="orfen">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="143.0"/>
@@ -751,7 +737,6 @@
 	</npc>
 	<npc id="29015" name="Raikel" title="Epic Fighter Lvl 48*" alias="raikel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="64.0"/>
@@ -805,7 +790,6 @@
 	</npc>
 	<npc id="29016" name="Raikel Leos" title="Epic Fighter Lvl 49*" alias="raikel_leos">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="64.0"/>
@@ -859,7 +843,6 @@
 	</npc>
 	<npc id="29017" name="Riba" title="Epic Fighter Lvl 48*" alias="riba">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="72.0"/>
@@ -913,7 +896,6 @@
 	</npc>
 	<npc id="29018" name="Riba Iren" title="Epic Fighter Lvl 49*" alias="riba_iren">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="72.0"/>
@@ -962,7 +944,6 @@
 	</npc>
 	<npc id="29019" name="Antharas" title="Epic Boss Lvl 79*" alias="antaras">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="300.0"/>
 		<set name="height" val="300.0"/>
@@ -1010,7 +991,6 @@
 	</npc>
 	<npc id="29020" name="Baium" title="Epic Boss Lvl 75*" alias="baium">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="65.0"/>
 		<set name="height" val="174.0"/>
@@ -1058,7 +1038,6 @@
 	</npc>
 	<npc id="29021" name="Archangel" title="Epic Fighter Lvl 74*" alias="archangel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -1105,7 +1084,6 @@
 	</npc>
 	<npc id="29022" name="Zaken" title="Epic Boss Lvl 60*" alias="zaken">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="32.0"/>
@@ -1152,7 +1130,6 @@
 	</npc>
 	<npc id="29023" name="Doll Blader" title="Epic Fighter Lvl 58*" alias="doll_blader_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="12.0"/>
@@ -1209,7 +1186,6 @@
 	</npc>
 	<npc id="29024" name="Vale master" title="Epic Fighter Lvl 59*" alias="vale_master_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -1311,7 +1287,6 @@
 	</npc>
 	<npc id="29026" name="Pirate Zombie Captain" title="Epic Fighter Lvl 60*" alias="pirates_zombie_captain_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="28.0"/>
@@ -1365,7 +1340,6 @@
 	</npc>
 	<npc id="29027" name="Pirate Zombie" title="Epic Fighter Lvl 57*" alias="pirates_zombie_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -1419,7 +1393,6 @@
 	</npc>
 	<npc id="29028" name="Valakas" title="Epic Boss Lvl 85*" alias="valakas">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="190.0"/>
 		<set name="height" val="335.0"/>
@@ -1469,7 +1442,6 @@
 	</npc>
 	<npc id="29029" name="Lavasaurus Elder" title="Epic Fighter Lvl 83*" alias="valakas_lavasaurus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="75.0"/>
@@ -1522,7 +1494,6 @@
 	</npc>
 	<npc id="29030" name="Fenril Hound Kerinne" title="Raid Boss Lvl 81*" alias="fenril_hound_kerinne">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="30.0"/>
@@ -1580,7 +1551,6 @@
 	</npc>
 	<npc id="29031" name="Kerinne's Ifrit" title="Raid Fighter Lvl 80*" alias="kerinnes_ifrit_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -1631,7 +1601,6 @@
 	</npc>
 	<npc id="29032" name="Kerinne's Golem" title="Raid Fighter Lvl 80*" alias="kerinnes_inferno_golem">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -1680,7 +1649,6 @@
 	</npc>
 	<npc id="29033" name="Fenril Hound Freki" title="Raid Boss Lvl 82*" alias="fenril_hound_freki">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="82"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="30.0"/>
@@ -1738,7 +1706,6 @@
 	</npc>
 	<npc id="29034" name="Freki's Ifrit" title="Raid Fighter Lvl 81*" alias="frekis_ifrit_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -1789,7 +1756,6 @@
 	</npc>
 	<npc id="29035" name="Freki's Golem" title="Raid Fighter Lvl 81*" alias="frekis_inferno_golem">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -1838,7 +1804,6 @@
 	</npc>
 	<npc id="29036" name="Fenril Hound Uruz" title="Raid Boss Lvl 83*" alias="fenril_hound_uruz">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="30.0"/>
@@ -1893,7 +1858,6 @@
 	</npc>
 	<npc id="29037" name="Fenril Hound Kinaz" title="Raid Boss Lvl 84*" alias="fenril_hound_kinaz">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="30.0"/>
@@ -1953,7 +1917,6 @@
 	</npc>
 	<npc id="29038" name="Kinaz's Ifrit" title="Raid Fighter Lvl 81*" alias="kinazs_ifrit_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -2004,7 +1967,6 @@
 	</npc>
 	<npc id="29039" name="Kinaz's Ifrit" title="Raid Fighter Lvl 81*" alias="kinazs_ifrit_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -2055,7 +2017,6 @@
 	</npc>
 	<npc id="29040" name="Wings of Flame, Ixion" title="Raid Boss Lvl 85*" alias="valakas_sentinel_ixion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="29.0"/>
 		<set name="height" val="42.0"/>
@@ -2116,7 +2077,6 @@
 	</npc>
 	<npc id="29041" name="Inferno Golem" title="Raid Fighter Lvl 81*" alias="inferno_golem_d3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -2166,7 +2126,6 @@
 	</npc>
 	<npc id="29042" name="Inferno Golem" title="Raid Fighter Lvl 81*" alias="inferno_golem_dh">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -2215,7 +2174,6 @@
 	</npc>
 	<npc id="29043" name="Howling Ifrit" title="Raid Fighter Lvl 81*" alias="howling_ifrit_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -2266,7 +2224,6 @@
 	</npc>
 	<npc id="29044" name="Howling Ifrit" title="Raid Fighter Lvl 81*" alias="howling_ifrit_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -2317,7 +2274,6 @@
 	</npc>
 	<npc id="29045" name="Frintezza" title="Epic Boss Lvl 85" alias="frintessa">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="42.7"/>
@@ -2365,7 +2321,6 @@
 	</npc>
 	<npc id="29046" name="Scarlet van Halisha" title="Epic Boss Lvl 85*" alias="follower_of_frintessa">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="90.7"/>
@@ -2417,7 +2372,6 @@
 	</npc>
 	<npc id="29047" name="Scarlet van Halisha" title="Epic Boss Lvl 85*" alias="follower_of_frintessa_tr">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="92.0"/>
 		<set name="height" val="112.8"/>
@@ -2469,7 +2423,6 @@
 	</npc>
 	<npc id="29048" name="Evil Spirit" title="Epic Fighter Lvl 84" alias="evilate_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="100.0"/>
@@ -2518,7 +2471,6 @@
 	</npc>
 	<npc id="29049" name="Evil Spirit" title="Epic Fighter Lvl 84" alias="evilate_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="100.0"/>
@@ -2567,7 +2519,6 @@
 	</npc>
 	<npc id="29050" name="Breath of Halisha" title="Epic Fighter Lvl 84*" alias="portrait_spirit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="40.0"/>
@@ -2616,7 +2567,6 @@
 	</npc>
 	<npc id="29051" name="Breath of Halisha" title="Epic Fighter Lvl 84*" alias="portrait_spirit_winged">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="40.0"/>
@@ -2757,7 +2707,6 @@
 	</npc>
 	<npc id="29054" name="Benom" title="Raid Boss Lvl 75*" alias="benom">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="56.0"/>
@@ -2864,7 +2813,6 @@
 	</npc>
 	<npc id="29056" name="Ice Fairy Sirra" title="Raid Boss Lvl 60*" alias="ice_fairy_sirr">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="35.6"/>
@@ -2926,7 +2874,6 @@
 	</npc>
 	<npc id="29057" name="Sirra's Page" title="Raid Fighter Lvl 59" alias="ice_fairy_chamberlain">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="39.7"/>
@@ -2979,7 +2926,6 @@
 	</npc>
 	<npc id="29058" name="Sirra's Beholder" title="Raid Fighter Lvl 59" alias="ice_fairy_beholder">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="36.0"/>
@@ -3076,7 +3022,6 @@
 	</npc>
 	<npc id="29060" name="Captain of the Ice Queen's Royal Guard" title="Raid Boss Lvl 59*" alias="freya_royalguard">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="61.0"/>
@@ -3177,7 +3122,6 @@
 	</npc>
 	<npc id="29062" name="High Priestess van Halter" title="Raid Boss Lvl 80*" alias="triolls_priest_andreas">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.3"/>
@@ -3234,7 +3178,6 @@
 	</npc>
 	<npc id="29063" name="Andreas' Acolyte" title="Raid Fighter Lvl 80" alias="andreas_s_acolyte_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="7.7"/>
 		<set name="height" val="28.4"/>
@@ -3286,7 +3229,6 @@
 	</npc>
 	<npc id="29064" name="Andreas' Acolyte" title="Raid Fighter Lvl 80" alias="andreas_s_acolyte_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="7.7"/>
 		<set name="height" val="28.4"/>
@@ -3338,7 +3280,6 @@
 	</npc>
 	<npc id="29065" name="Sailren" title="Epic Boss Lvl 80*" alias="sailren">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="100.0"/>
 		<set name="height" val="82.1"/>
@@ -3391,7 +3332,6 @@
 	</npc>
 	<npc id="29066" name="Antharas" title="Epic Boss Lvl 79*" alias="antharas1">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="300.0"/>
 		<set name="height" val="300.0"/>
@@ -3439,7 +3379,6 @@
 	</npc>
 	<npc id="29067" name="Antharas" title="Epic Boss Lvl 79*" alias="antharas2">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="300.0"/>
 		<set name="height" val="300.0"/>
@@ -3487,7 +3426,6 @@
 	</npc>
 	<npc id="29068" name="Antharas" title="Epic Boss Lvl 79*" alias="antharas3">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="300.0"/>
 		<set name="height" val="300.0"/>
@@ -3535,7 +3473,6 @@
 	</npc>
 	<npc id="29069" name="Behemoth Dragon" title="Epic Fighter Lvl 78*" alias="behemoth_dragon1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="63.0"/>
 		<set name="height" val="54.0"/>
@@ -3589,7 +3526,6 @@
 	</npc>
 	<npc id="29070" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3640,7 +3576,6 @@
 	</npc>
 	<npc id="29071" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3691,7 +3626,6 @@
 	</npc>
 	<npc id="29072" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3742,7 +3676,6 @@
 	</npc>
 	<npc id="29073" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3793,7 +3726,6 @@
 	</npc>
 	<npc id="29074" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber5">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3844,7 +3776,6 @@
 	</npc>
 	<npc id="29075" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber6">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="28.0"/>
@@ -3895,7 +3826,6 @@
 	</npc>
 	<npc id="29076" name="Dragon Bomber" title="Epic Fighter Lvl 78*" alias="dragon_bomber7">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="34.5"/>
@@ -3946,7 +3876,6 @@
 	</npc>
 	<npc id="29095" name="Gordon" title="Raid Boss Lvl 80" alias="gordon">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="43.0"/>
 		<set name="height" val="46.6"/>
@@ -4002,7 +3931,6 @@
 	</npc>
 	<npc id="29096" name="Lord of Splendor Anays" title="Raid Boss Lvl 80*" alias="anais_brilliance_master">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="41.8"/>
@@ -4065,7 +3993,6 @@
 	</npc>
 	<npc id="29097" name="Splendor Disciple" title="Raid Fighter Lvl 80" alias="brilliance_apostle">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="47.0"/>
@@ -4116,7 +4043,6 @@
 	</npc>
 	<npc id="29098" name="Splendor Worshiper" title="Raid Fighter Lvl 80" alias="brilliance_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="47.0"/>

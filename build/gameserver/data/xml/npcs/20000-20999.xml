@@ -13613,7 +13613,6 @@
 	</npc>
 	<npc id="20253" name="Delu Lizardman Warrior" title="Quest Monster Lvl 30*" alias="delu_lizardman_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>

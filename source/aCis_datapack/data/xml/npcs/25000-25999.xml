@@ -2,7 +2,6 @@
 <list>
 	<npc id="25001" name="Greyclaw Kutus" title="Raid Boss Lvl 23*" alias="greyclaw_kutus">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="23"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="43.5"/>
@@ -61,7 +60,6 @@
 	</npc>
 	<npc id="25002" name="Guard of Kutus" title="Raid Fighter Lvl 22*" alias="guard_of_kutus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -111,7 +109,6 @@
 	</npc>
 	<npc id="25003" name="Pawn of Kutus" title="Raid Fighter Lvl 22*" alias="pawn_of_kutus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -160,7 +157,6 @@
 	</npc>
 	<npc id="25004" name="Turek Mercenary Captain" title="Raid Boss Lvl 30*" alias="turek_mercenary_boss">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="35.0"/>
@@ -220,7 +216,6 @@
 	</npc>
 	<npc id="25005" name="Turek Mercenary Archer" title="Raid Fighter Lvl 29*" alias="turek_mercenary_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -269,7 +264,6 @@
 	</npc>
 	<npc id="25006" name="Turek Mercenary Warrior" title="Raid Fighter Lvl 29*" alias="turek_mercenary_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -316,7 +310,6 @@
 	</npc>
 	<npc id="25007" name="Retreat Spider Cletu" title="Raid Boss Lvl 42*" alias="retreat_spider_cletu">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="27.0"/>
 		<set name="height" val="25.5"/>
@@ -375,7 +368,6 @@
 	</npc>
 	<npc id="25008" name="Cletu's Retainer" title="Raid Fighter Lvl 41*" alias="cletus_retainer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="25.5"/>
@@ -425,7 +417,6 @@
 	</npc>
 	<npc id="25009" name="Cletu's Pawn" title="Raid Fighter Lvl 41*" alias="cletus_pawn">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="25.5"/>
@@ -472,7 +463,6 @@
 	</npc>
 	<npc id="25010" name="Furious Thieles" title="Raid Boss Lvl 55*" alias="furious_thieles">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="90.0"/>
@@ -532,7 +522,6 @@
 	</npc>
 	<npc id="25011" name="Guard of Thieles" title="Raid Fighter Lvl 54*" alias="guard_of_thieles">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="30.0"/>
@@ -581,7 +570,6 @@
 	</npc>
 	<npc id="25012" name="Follower of Thieles" title="Raid Fighter Lvl 54*" alias="following_of_thieles">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="20.0"/>
@@ -629,7 +617,6 @@
 	</npc>
 	<npc id="25013" name="Ghost of Peasant Leader" title="Raid Boss Lvl 50*" alias="ghost_of_peasant_leader">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="39.0"/>
@@ -693,7 +680,6 @@
 	</npc>
 	<npc id="25014" name="Ghost of Peasant" title="Raid Fighter Lvl 49*" alias="ghost_of_peasant_f">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="25.0"/>
@@ -744,7 +730,6 @@
 	</npc>
 	<npc id="25015" name="Ghost of Peasant" title="Raid Fighter Lvl 49*" alias="ghost_of_peasant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -794,7 +779,6 @@
 	</npc>
 	<npc id="25016" name="The 3rd Underwater Guardian" title="Raid Boss Lvl 60*" alias="guardian_3_of_garden">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="73.0"/>
@@ -854,7 +838,6 @@
 	</npc>
 	<npc id="25017" name="Escort of the 3rd Guardian" title="Raid Fighter Lvl 59*" alias="escort_of_guardian_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -904,7 +887,6 @@
 	</npc>
 	<npc id="25018" name="Support of the 3rd Guardian" title="Raid Fighter Lvl 59*" alias="support_of_guardian_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -952,7 +934,6 @@
 	</npc>
 	<npc id="25019" name="Pan Dryad" title="Raid Boss Lvl 25*" alias="pan_draid">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="73.0"/>
@@ -1008,7 +989,6 @@
 	</npc>
 	<npc id="25020" name="Breka Warlock Pastu" title="Raid Boss Lvl 34*" alias="breka_warlock_pastu">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="35.0"/>
@@ -1068,7 +1048,6 @@
 	</npc>
 	<npc id="25021" name="Pastu's Silhouette" title="Raid Fighter Lvl 33*" alias="pastu_silhouette">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -1120,7 +1099,6 @@
 	</npc>
 	<npc id="25022" name="Pastu's Shadow" title="Raid Fighter Lvl 33*" alias="pastu_shadow">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="30.0"/>
@@ -1170,7 +1148,6 @@
 	</npc>
 	<npc id="25023" name="Stakato Queen Zyrnna" title="Raid Boss Lvl 34*" alias="jeruna_queen">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="76.0"/>
@@ -1232,7 +1209,6 @@
 	</npc>
 	<npc id="25024" name="Jeruna's Guard Captain" title="Raid Fighter Lvl 33*" alias="jeruna_drone">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="24.0"/>
@@ -1280,7 +1256,6 @@
 	</npc>
 	<npc id="25025" name="Jeruna's Guard" title="Raid Fighter Lvl 33*" alias="jeruna_soldier">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -1327,7 +1302,6 @@
 	</npc>
 	<npc id="25026" name="Katu Van Leader Atui" title="Raid Boss Lvl 49*" alias="katu_van_atui">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -1387,7 +1361,6 @@
 	</npc>
 	<npc id="25027" name="Katu Van Marksman" title="Raid Fighter Lvl 48*" alias="katu_van_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -1436,7 +1409,6 @@
 	</npc>
 	<npc id="25028" name="Katu Van Raider" title="Raid Fighter Lvl 48*" alias="katu_van_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -1483,7 +1455,6 @@
 	</npc>
 	<npc id="25029" name="Atraiban" title="Raid Boss Lvl 53*" alias="atraiban">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="96.0"/>
@@ -1542,7 +1513,6 @@
 	</npc>
 	<npc id="25030" name="Atraiban's Top Disciple" title="Raid Fighter Lvl 52*" alias="atraiban_disciple_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -1592,7 +1562,6 @@
 	</npc>
 	<npc id="25031" name="Atraiban's Disciple" title="Raid Fighter Lvl 52*" alias="atraiban_disciple">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="28.0"/>
@@ -1639,7 +1608,6 @@
 	</npc>
 	<npc id="25032" name="Eva's Guardian Millenu" title="Raid Boss Lvl 58*" alias="eva_guardian_millenu">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="38.0"/>
@@ -1700,7 +1668,6 @@
 	</npc>
 	<npc id="25033" name="Millenu Guard Shaman" title="Raid Fighter Lvl 57*" alias="millenu_guard_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="32.0"/>
@@ -1750,7 +1717,6 @@
 	</npc>
 	<npc id="25034" name="Mellenu Guard Warrior" title="Raid Fighter Lvl 57*" alias="millenu_guard_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -1800,7 +1766,6 @@
 	</npc>
 	<npc id="25035" name="Shilen's Messenger Cabrio" title="Raid Boss Lvl 70*" alias="domb_death_cabrio">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="63.0"/>
@@ -1862,7 +1827,6 @@
 	</npc>
 	<npc id="25036" name="Cabrio Captor" title="Raid Fighter Lvl 69*" alias="cabrio_captor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -1913,7 +1877,6 @@
 	</npc>
 	<npc id="25037" name="Cabrio Blader" title="Raid Fighter Lvl 69*" alias="cabrio_blader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="12.0"/>
@@ -1962,7 +1925,6 @@
 	</npc>
 	<npc id="25038" name="Tirak" title="Raid Boss Lvl 28*" alias="tirak">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="75.0"/>
@@ -2026,7 +1988,6 @@
 	</npc>
 	<npc id="25039" name="Tirak's Guard" title="Raid Fighter Lvl 27*" alias="tiraks_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -2076,7 +2037,6 @@
 	</npc>
 	<npc id="25040" name="Tirak's Knight" title="Raid Fighter Lvl 27*" alias="tirak_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="25.0"/>
@@ -2126,7 +2086,6 @@
 	</npc>
 	<npc id="25041" name="Remmel" title="Raid Boss Lvl 35*" alias="remmel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="76.0"/>
@@ -2186,7 +2145,6 @@
 	</npc>
 	<npc id="25042" name="Remmel's Archer" title="Raid Fighter Lvl 34*" alias="remmels_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="21.5"/>
@@ -2235,7 +2193,6 @@
 	</npc>
 	<npc id="25043" name="Remmel's Guard" title="Raid Fighter Lvl 34*" alias="remmels_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -2282,7 +2239,6 @@
 	</npc>
 	<npc id="25044" name="Barion" title="Raid Boss Lvl 47*" alias="barion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="39.0"/>
@@ -2343,7 +2299,6 @@
 	</npc>
 	<npc id="25045" name="Dark Mage's of Barion" title="Raid Fighter Lvl 46*" alias="dark_mages_of_barion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="16.0"/>
@@ -2393,7 +2348,6 @@
 	</npc>
 	<npc id="25046" name="Barion's Grunt" title="Raid Fighter Lvl 46*" alias="barions_grunt">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -2443,7 +2397,6 @@
 	</npc>
 	<npc id="25047" name="Karte" title="Raid Boss Lvl 49*" alias="karte">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="45.0"/>
@@ -2507,7 +2460,6 @@
 	</npc>
 	<npc id="25048" name="Karte's Chief Knight" title="Raid Fighter Lvl 48*" alias="kartes_chief_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -2557,7 +2509,6 @@
 	</npc>
 	<npc id="25049" name="Karte's Royal Guard" title="Raid Fighter Lvl 48*" alias="kartes_royal_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -2607,7 +2558,6 @@
 	</npc>
 	<npc id="25050" name="Verfa" title="Raid Boss Lvl 51*" alias="verfa">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="141.0"/>
@@ -2665,7 +2615,6 @@
 	</npc>
 	<npc id="25051" name="Rahha" title="Raid Boss Lvl 65*" alias="rahha">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="34.0"/>
@@ -2726,7 +2675,6 @@
 	</npc>
 	<npc id="25052" name="Priestess of Rahha" title="Raid Fighter Lvl 64*" alias="priestess_of_rahha">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -2776,7 +2724,6 @@
 	</npc>
 	<npc id="25053" name="Fanatics of Rahha" title="Raid Fighter Lvl 64*" alias="fanatics_of_rahha">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -2824,7 +2771,6 @@
 	</npc>
 	<npc id="25054" name="Kernon" title="Raid Boss Lvl 75*" alias="kernon">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="40.0"/>
@@ -2888,7 +2834,6 @@
 	</npc>
 	<npc id="25055" name="Taliadon" title="Raid Fighter Lvl 74*" alias="taliadon">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -2938,7 +2883,6 @@
 	</npc>
 	<npc id="25056" name="Vemsk" title="Raid Fighter Lvl 74*" alias="vemsk">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -2987,7 +2931,6 @@
 	</npc>
 	<npc id="25057" name="Biconne of Blue Sky" title="Raid Boss Lvl 45*" alias="biconne_of_blue_sky">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -3047,7 +2990,6 @@
 	</npc>
 	<npc id="25058" name="Biconne's Shooter" title="Raid Fighter Lvl 44*" alias="bicoones_shooter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -3098,7 +3040,6 @@
 	</npc>
 	<npc id="25059" name="Biconne's Warrior" title="Raid Fighter Lvl 44*" alias="bicoones_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -3147,7 +3088,6 @@
 	</npc>
 	<npc id="25060" name="Unrequited Kael" title="Raid Boss Lvl 24*" alias="love_reverser_kael">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="75.0"/>
@@ -3209,7 +3149,6 @@
 	</npc>
 	<npc id="25061" name="Kael's Bead" title="Raid Fighter Lvl 23*" alias="kaels_bid">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="23"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -3259,7 +3198,6 @@
 	</npc>
 	<npc id="25062" name="Kael's Escort" title="Raid Fighter Lvl 23*" alias="kaels_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="23"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -3308,7 +3246,6 @@
 	</npc>
 	<npc id="25063" name="Chertuba of Great Soul" title="Raid Boss Lvl 35*" alias="grandeur_soul_chertuba">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="51.0"/>
@@ -3364,7 +3301,6 @@
 	</npc>
 	<npc id="25064" name="Wizard of Storm Teruk" title="Raid Boss Lvl 40*" alias="wizard_of_storm_teruk">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="55.0"/>
@@ -3427,7 +3363,6 @@
 	</npc>
 	<npc id="25065" name="Teruk's Escort" title="Raid Fighter Lvl 39*" alias="teruks_guardian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -3475,7 +3410,6 @@
 	</npc>
 	<npc id="25066" name="Teruk's Knight" title="Raid Fighter Lvl 39*" alias="teruks_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -3522,7 +3456,6 @@
 	</npc>
 	<npc id="25067" name="Captain of Red Flag Shaka" title="Raid Boss Lvl 52*" alias="master_of_ledflag_shaka">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="60.0"/>
@@ -3582,7 +3515,6 @@
 	</npc>
 	<npc id="25068" name="Shaka's Shooter" title="Raid Fighter Lvl 51*" alias="shakas_shooter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -3631,7 +3563,6 @@
 	</npc>
 	<npc id="25069" name="Shaka's Follower" title="Raid Fighter Lvl 51*" alias="shakas_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="61.0"/>
@@ -3678,7 +3609,6 @@
 	</npc>
 	<npc id="25070" name="Enchanted Forest Watcher Ruell" title="Raid Boss Lvl 55*" alias="fairys_watcher_ruell">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="90.0"/>
@@ -3737,7 +3667,6 @@
 	</npc>
 	<npc id="25071" name="Ruell's Wind" title="Raid Fighter Lvl 54*" alias="ruells_wind">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="35.0"/>
@@ -3787,7 +3716,6 @@
 	</npc>
 	<npc id="25072" name="Ruell's Unicorn" title="Raid Fighter Lvl 54*" alias="ruells_unicorn">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="30.0"/>
@@ -3836,7 +3764,6 @@
 	</npc>
 	<npc id="25073" name="Bloody Priest Rudelto" title="Raid Boss Lvl 69*" alias="bloody_priest_rudelto">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="50.0"/>
 		<set name="height" val="180.0"/>
@@ -3897,7 +3824,6 @@
 	</npc>
 	<npc id="25074" name="Rudelto's Banshee" title="Raid Fighter Lvl 68*" alias="rudeltos_banshee">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="23.0"/>
@@ -3948,7 +3874,6 @@
 	</npc>
 	<npc id="25075" name="Rudelto's Dre Vanul" title="Raid Fighter Lvl 68*" alias="rudeltos_dre_vanul">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -3997,7 +3922,6 @@
 	</npc>
 	<npc id="25076" name="Princess Molrang" title="Raid Boss Lvl 25*" alias="princess_molrang">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="20.0"/>
@@ -4059,7 +3983,6 @@
 	</npc>
 	<npc id="25077" name="Captain Dogun" title="Raid Fighter Lvl 24*" alias="dogun">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -4107,7 +4030,6 @@
 	</npc>
 	<npc id="25078" name="Princess' Guard" title="Raid Fighter Lvl 24*" alias="princess_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -4154,7 +4076,6 @@
 	</npc>
 	<npc id="25079" name="Cat's Eye Bandit" title="Raid Boss Lvl 30*" alias="catseye">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="25.0"/>
@@ -4213,7 +4134,6 @@
 	</npc>
 	<npc id="25080" name="Mercenary" title="Raid Fighter Lvl 29*" alias="mercenary_healer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="22.0"/>
@@ -4263,7 +4183,6 @@
 	</npc>
 	<npc id="25081" name="Cat's Eye Bandit" title="Raid Fighter Lvl 29*" alias="catseye_bandit_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -4310,7 +4229,6 @@
 	</npc>
 	<npc id="25082" name="Leader of Cat Gang" title="Raid Boss Lvl 39*" alias="lost_cat_the_cat_a">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="26.0"/>
@@ -4369,7 +4287,6 @@
 	</npc>
 	<npc id="25083" name="Cat Gang" title="Raid Fighter Lvl 38*" alias="lost_cuti_cat">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="15.0"/>
@@ -4418,7 +4335,6 @@
 	</npc>
 	<npc id="25084" name="Cat Gang" title="Raid Fighter Lvl 38*" alias="lost_cat_the_cat_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="16.0"/>
@@ -4466,7 +4382,6 @@
 	</npc>
 	<npc id="25085" name="Timak Orc Chief Ranger" title="Raid Boss Lvl 44*" alias="timak_orc_hunter_a">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="51.0"/>
@@ -4526,7 +4441,6 @@
 	</npc>
 	<npc id="25086" name="Timak Orc Ranger" title="Raid Fighter Lvl 43*" alias="timak_orc_hunter_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -4575,7 +4489,6 @@
 	</npc>
 	<npc id="25087" name="Timak Orc Ranger" title="Raid Fighter Lvl 43*" alias="timak_orc_hunter_c">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="29.0"/>
@@ -4622,7 +4535,6 @@
 	</npc>
 	<npc id="25088" name="Crazy Mechanic Golem" title="Raid Boss Lvl 43*" alias="crazy_mechanic_golem">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="63.0"/>
@@ -4678,7 +4590,6 @@
 	</npc>
 	<npc id="25089" name="Soulless Wild Boar" title="Raid Boss Lvl 59*" alias="soulless_wild_boar">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="27.0"/>
@@ -4737,7 +4648,6 @@
 	</npc>
 	<npc id="25090" name="Soulless Wolf" title="Raid Fighter Lvl 58*" alias="soulless_wolf">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="11.0"/>
@@ -4787,7 +4697,6 @@
 	</npc>
 	<npc id="25091" name="Soulless Bear" title="Raid Fighter Lvl 58*" alias="soulless_bear">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="36.0"/>
@@ -4835,7 +4744,6 @@
 	</npc>
 	<npc id="25092" name="Korim" title="Raid Boss Lvl 70*" alias="korim">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="19.5"/>
 		<set name="height" val="51.0"/>
@@ -4898,7 +4806,6 @@
 	</npc>
 	<npc id="25093" name="Korim Chief Guard Kaywon" title="Raid Fighter Lvl 69*" alias="koriim_chief_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="31.0"/>
@@ -4946,7 +4853,6 @@
 	</npc>
 	<npc id="25094" name="Korim Guards" title="Raid Fighter Lvl 69*" alias="koriim_guards">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="29.0"/>
@@ -4993,7 +4899,6 @@
 	</npc>
 	<npc id="25095" name="Elf Renoa" title="Raid Boss Lvl 29*" alias="elf_renoa">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="7.0"/>
 		<set name="height" val="21.0"/>
@@ -5054,7 +4959,6 @@
 	</npc>
 	<npc id="25096" name="Renoa's Elpy" title="Raid Fighter Lvl 28*" alias="renoa_s_elpy">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="3.5"/>
@@ -5104,7 +5008,6 @@
 	</npc>
 	<npc id="25097" name="Renoa's Hog" title="Raid Fighter Lvl 28*" alias="renoa_s_hog">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="27.0"/>
@@ -5152,7 +5055,6 @@
 	</npc>
 	<npc id="25098" name="Sejarr's Servitor" title="Raid Boss Lvl 35*" alias="sejarr_s_summoner">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="43.0"/>
@@ -5208,7 +5110,6 @@
 	</npc>
 	<npc id="25099" name="Rotten Tree Repiro" title="Raid Boss Lvl 44*" alias="repiro_rot_tree">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="80.0"/>
@@ -5269,7 +5170,6 @@
 	</npc>
 	<npc id="25100" name="Spirit of Sea of Spores" title="Raid Fighter Lvl 43*" alias="rot_fairy">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -5319,7 +5219,6 @@
 	</npc>
 	<npc id="25101" name="Fighter of Sea of Spores" title="Raid Fighter Lvl 43*" alias="rot_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="35.0"/>
@@ -5366,7 +5265,6 @@
 	</npc>
 	<npc id="25102" name="Shacram" title="Raid Boss Lvl 45*" alias="shacram">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="94.0"/>
@@ -5422,7 +5320,6 @@
 	</npc>
 	<npc id="25103" name="Sorcerer Isirr" title="Raid Boss Lvl 55*" alias="sorcery_isirr">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="63.0"/>
@@ -5485,7 +5382,6 @@
 	</npc>
 	<npc id="25104" name="Isirr's Guard" title="Raid Fighter Lvl 54*" alias="isirr_s_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -5533,7 +5429,6 @@
 	</npc>
 	<npc id="25105" name="Isirr's Guards" title="Raid Fighter Lvl 54*" alias="isirr_s_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -5580,7 +5475,6 @@
 	</npc>
 	<npc id="25106" name="Ghost of the Well Lidia" title="Raid Boss Lvl 60*" alias="manes_lidia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="85.0"/>
@@ -5642,7 +5536,6 @@
 	</npc>
 	<npc id="25107" name="Lidia's Archer" title="Raid Fighter Lvl 59*" alias="lidia_s_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -5693,7 +5586,6 @@
 	</npc>
 	<npc id="25108" name="Lidia's Fighter" title="Raid Fighter Lvl 59*" alias="lidia_s_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -5742,7 +5634,6 @@
 	</npc>
 	<npc id="25109" name="Antharas Priest Cloe" title="Raid Boss Lvl 74*" alias="antaras_cloe">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="75.0"/>
@@ -5804,7 +5695,6 @@
 	</npc>
 	<npc id="25110" name="Cloe's Servitor" title="Raid Fighter Lvl 73*" alias="cloe_s_summoner">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -5855,7 +5745,6 @@
 	</npc>
 	<npc id="25111" name="Cloe's Servitor" title="Raid Fighter Lvl 73*" alias="cloe_s_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="30.0"/>
@@ -5905,7 +5794,6 @@
 	</npc>
 	<npc id="25112" name="Agent of Beres, Meana" title="Raid Boss Lvl 30*" alias="meana_agent_of_beres">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="53.0"/>
@@ -5965,7 +5853,6 @@
 	</npc>
 	<npc id="25113" name="Meana's Maid" title="Raid Fighter Lvl 29*" alias="meanas_maid">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -6017,7 +5904,6 @@
 	</npc>
 	<npc id="25114" name="Meana's Guard Doll" title="Raid Fighter Lvl 29*" alias="meanas_guard_doll">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="38.0"/>
@@ -6067,7 +5953,6 @@
 	</npc>
 	<npc id="25115" name="Icarus Sample 1" title="Raid Boss Lvl 40*" alias="icarus_sample_21">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="42.0"/>
@@ -6127,7 +6012,6 @@
 	</npc>
 	<npc id="25116" name="Icarus Sample 2" title="Raid Fighter Lvl 39*" alias="icarus_sample_19">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -6176,7 +6060,6 @@
 	</npc>
 	<npc id="25117" name="Icarus Sample 3" title="Raid Fighter Lvl 39*" alias="icarus_sample_08">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -6223,7 +6106,6 @@
 	</npc>
 	<npc id="25118" name="Guilotine, Warden of the Execution Grounds" title="Raid Boss Lvl 35*" alias="warden_guillotine">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="58.0"/>
@@ -6282,7 +6164,6 @@
 	</npc>
 	<npc id="25119" name="Messenger of Fairy Queen Berun" title="Raid Boss Lvl 50*" alias="obern_mgr_of_fairyqueen">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="73.0"/>
@@ -6341,7 +6222,6 @@
 	</npc>
 	<npc id="25120" name="Berun's Officer" title="Raid Fighter Lvl 49*" alias="oberns_officer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="35.0"/>
@@ -6390,7 +6270,6 @@
 	</npc>
 	<npc id="25121" name="Berun's Prattler" title="Raid Fighter Lvl 49*" alias="oberns_prattler">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -6439,7 +6318,6 @@
 	</npc>
 	<npc id="25122" name="Refugee Hopeful Leo" title="Raid Boss Lvl 56*" alias="refuge_hoper_leo">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="22.5"/>
 		<set name="height" val="54.0"/>
@@ -6502,7 +6380,6 @@
 	</npc>
 	<npc id="25123" name="Leo's Servant" title="Raid Fighter Lvl 55*" alias="leo_servant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -6550,7 +6427,6 @@
 	</npc>
 	<npc id="25124" name="Leo's Steward" title="Raid Fighter Lvl 55*" alias="leo_steward">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -6597,7 +6473,6 @@
 	</npc>
 	<npc id="25125" name="Fierce Tiger King Angel" title="Raid Boss Lvl 65*" alias="fiercetiger_king_angel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="72.0"/>
 		<set name="height" val="87.0"/>
@@ -6653,7 +6528,6 @@
 	</npc>
 	<npc id="25126" name="Longhorn Golkonda" title="Raid Boss Lvl 79*" alias="golkonda_longhorn">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="94.0"/>
@@ -6709,7 +6583,6 @@
 	</npc>
 	<npc id="25127" name="Langk Matriarch Rashkos" title="Raid Boss Lvl 24*" alias="langk_matriarch_rashkos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="57.0"/>
@@ -6766,7 +6639,6 @@
 	</npc>
 	<npc id="25128" name="Vuku Grand Seer Gharmash" title="Raid Boss Lvl 33*" alias="vuku_witchdr_gharmash">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="35.0"/>
@@ -6826,7 +6698,6 @@
 	</npc>
 	<npc id="25129" name="Vuku Shaman" title="Raid Fighter Lvl 32*" alias="vuku_seer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="22.0"/>
@@ -6876,7 +6747,6 @@
 	</npc>
 	<npc id="25130" name="Gharmash's Pet Trimden" title="Raid Fighter Lvl 32*" alias="gharmashs_pet_trimden">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="27.0"/>
 		<set name="height" val="25.5"/>
@@ -6924,7 +6794,6 @@
 	</npc>
 	<npc id="25131" name="Carnage Lord Gato" title="Raid Boss Lvl 50*" alias="carnage_lord_gato">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="57.0"/>
@@ -6984,7 +6853,6 @@
 	</npc>
 	<npc id="25132" name="Gato's Marksman" title="Raid Fighter Lvl 49*" alias="gatos_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -7033,7 +6901,6 @@
 	</npc>
 	<npc id="25133" name="Gato's Troop Leader" title="Raid Fighter Lvl 49*" alias="gatos_champion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="27.0"/>
@@ -7080,7 +6947,6 @@
 	</npc>
 	<npc id="25134" name="Leto Chief Talkin" title="Raid Boss Lvl 40*" alias="leto_chief_talkin">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="37.5"/>
@@ -7140,7 +7006,6 @@
 	</npc>
 	<npc id="25135" name="Talkin's Seer" title="Raid Fighter Lvl 39*" alias="talkins_seer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="29.0"/>
@@ -7190,7 +7055,6 @@
 	</npc>
 	<npc id="25136" name="Talkin's Bodyguard" title="Raid Fighter Lvl 39*" alias="talkins_bodyguard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -7237,7 +7101,6 @@
 	</npc>
 	<npc id="25137" name="Beleth's Seer Sephia" title="Raid Boss Lvl 55*" alias="bereths_seer_sephia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="85.0"/>
@@ -7298,7 +7161,6 @@
 	</npc>
 	<npc id="25138" name="Soul Drinker" title="Raid Fighter Lvl 54*" alias="soul_drinker">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -7347,7 +7209,6 @@
 	</npc>
 	<npc id="25139" name="Sephia's Salve" title="Raid Fighter Lvl 54*" alias="sephias_slave">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="40.0"/>
@@ -7397,7 +7258,6 @@
 	</npc>
 	<npc id="25140" name="Hekaton Prime" title="Raid Boss Lvl 65*" alias="hekaton_prime">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -7459,7 +7319,6 @@
 	</npc>
 	<npc id="25141" name="Hekaton Cottus" title="Raid Fighter Lvl 64*" alias="hekaton_cottus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -7507,7 +7366,6 @@
 	</npc>
 	<npc id="25142" name="Hekaton Chires" title="Raid Fighter Lvl 64*" alias="hekaton_chires">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -7554,7 +7412,6 @@
 	</npc>
 	<npc id="25143" name="Fire of Wrath Shuriel" title="Raid Boss Lvl 78*" alias="shuriel_fire_of_wrath">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="36.5"/>
@@ -7613,7 +7470,6 @@
 	</npc>
 	<npc id="25144" name="Shuriel's Oracle" title="Raid Fighter Lvl 78*" alias="shuriels_oracle">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="34.0"/>
@@ -7663,7 +7519,6 @@
 	</npc>
 	<npc id="25145" name="Shuriel's Paladin" title="Raid Fighter Lvl 78*" alias="shuriels_paladin">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="32.0"/>
@@ -7710,7 +7565,6 @@
 	</npc>
 	<npc id="25146" name="Serpent Demon Bifrons" title="Raid Boss Lvl 21*" alias="serpent_demon_bifrons">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="21"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="72.0"/>
@@ -7770,7 +7624,6 @@
 	</npc>
 	<npc id="25147" name="Assassin of Bifrons" title="Raid Fighter Lvl 20*" alias="assassin_of_bifrons">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -7819,7 +7672,6 @@
 	</npc>
 	<npc id="25148" name="Butcher of Bifrons" title="Raid Fighter Lvl 20*" alias="butcher_of_bifrons">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -7866,7 +7718,6 @@
 	</npc>
 	<npc id="25149" name="Zombie Lord Crowl" title="Raid Boss Lvl 25*" alias="zombie_lord_crowl">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="21.25"/>
@@ -7928,7 +7779,6 @@
 	</npc>
 	<npc id="25150" name="Evil Spirit Archer" title="Raid Fighter Lvl 24*" alias="evil_soul_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -7979,7 +7829,6 @@
 	</npc>
 	<npc id="25151" name="Evil Spirit Warrior" title="Raid Fighter Lvl 24*" alias="evil_soul_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="25.0"/>
@@ -8029,7 +7878,6 @@
 	</npc>
 	<npc id="25152" name="Flame Lord Shadar" title="Raid Boss Lvl 35*" alias="flamelord_shadar">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="75.0"/>
@@ -8093,7 +7941,6 @@
 	</npc>
 	<npc id="25153" name="Claws of Shadar" title="Raid Fighter Lvl 34*" alias="sword_of_shadar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="24.0"/>
@@ -8142,7 +7989,6 @@
 	</npc>
 	<npc id="25154" name="Whip of Shadar" title="Raid Fighter Lvl 34*" alias="whip_of_shadar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -8192,7 +8038,6 @@
 	</npc>
 	<npc id="25155" name="Shaman King Selu" title="Raid Boss Lvl 40*" alias="shaman_king_selu">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="52.0"/>
@@ -8251,7 +8096,6 @@
 	</npc>
 	<npc id="25156" name="Fanatic Shaman" title="Raid Fighter Lvl 39*" alias="fanatic_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="16.0"/>
@@ -8301,7 +8145,6 @@
 	</npc>
 	<npc id="25157" name="Fanatic Soldier" title="Raid Fighter Lvl 39*" alias="fanatic_soldier">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -8349,7 +8192,6 @@
 	</npc>
 	<npc id="25158" name="King Tarlk" title="Raid Boss Lvl 48*" alias="king_tarlk">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="126.0"/>
@@ -8405,7 +8247,6 @@
 	</npc>
 	<npc id="25159" name="Paniel the Unicorn" title="Raid Boss Lvl 54*" alias="unicorn_paniel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="30.0"/>
@@ -8465,7 +8306,6 @@
 	</npc>
 	<npc id="25160" name="Rapini the Unicorn" title="Raid Fighter Lvl 53*" alias="unicorn_rapini">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="18.0"/>
@@ -8515,7 +8355,6 @@
 	</npc>
 	<npc id="25161" name="Ririf the Unicorn" title="Raid Fighter Lvl 53*" alias="unicorn_ririf">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="17.5"/>
@@ -8563,7 +8402,6 @@
 	</npc>
 	<npc id="25162" name="Giant Marpanak" title="Raid Boss Lvl 60*" alias="giant_marpanak">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="42.0"/>
 		<set name="height" val="91.0"/>
@@ -8619,7 +8457,6 @@
 	</npc>
 	<npc id="25163" name="Roaring Skylancer" title="Raid Boss Lvl 70*" alias="roar_skylancer">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="44.0"/>
 		<set name="height" val="51.5"/>
@@ -8675,7 +8512,6 @@
 	</npc>
 	<npc id="25166" name="Ikuntai" title="Raid Boss Lvl 25*" alias="ikuntai">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="39.0"/>
@@ -8736,7 +8572,6 @@
 	</npc>
 	<npc id="25167" name="Ikuntai's Servitor" title="Raid Fighter Lvl 24*" alias="summon_of_ikuntai">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -8787,7 +8622,6 @@
 	</npc>
 	<npc id="25168" name="Pawn of Ikuntai" title="Raid Fighter Lvl 24*" alias="pawn_of_ikuntai">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="28.0"/>
@@ -8837,7 +8671,6 @@
 	</npc>
 	<npc id="25169" name="Ragraman" title="Raid Boss Lvl 30*" alias="ragraman">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="52.0"/>
@@ -8893,7 +8726,6 @@
 	</npc>
 	<npc id="25170" name="Lizardmen Leader Hellion" title="Raid Boss Lvl 38*" alias="lizardman_leader_hellion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="63.0"/>
@@ -8954,7 +8786,6 @@
 	</npc>
 	<npc id="25171" name="Hellion's Archers" title="Raid Fighter Lvl 37*" alias="archer_of_hellion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="30.0"/>
@@ -9003,7 +8834,6 @@
 	</npc>
 	<npc id="25172" name="Hellion's Guards" title="Raid Fighter Lvl 37*" alias="guard_of_hellion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -9050,7 +8880,6 @@
 	</npc>
 	<npc id="25173" name="Tiger King Karuta" title="Raid Boss Lvl 45*" alias="king_tiger_karuta">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="72.0"/>
 		<set name="height" val="87.0"/>
@@ -9109,7 +8938,6 @@
 	</npc>
 	<npc id="25174" name="Karuta's Follower" title="Raid Fighter Lvl 44*" alias="follower_karuta">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="31.5"/>
@@ -9158,7 +8986,6 @@
 	</npc>
 	<npc id="25175" name="Karuta's Inferiors" title="Raid Fighter Lvl 44*" alias="men_under_karuta">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="36.0"/>
@@ -9205,7 +9032,6 @@
 	</npc>
 	<npc id="25176" name="Black Lily" title="Raid Boss Lvl 55*" alias="witch_wimere">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.7"/>
@@ -9269,7 +9095,6 @@
 	</npc>
 	<npc id="25177" name="Guardian Knight of Black Lily" title="Raid Fighter Lvl 54*" alias="guard_of_wimere">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -9319,7 +9144,6 @@
 	</npc>
 	<npc id="25178" name="Servitor of Black Lily" title="Raid Fighter Lvl 54*" alias="summon_of_wimere">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -9368,7 +9192,6 @@
 	</npc>
 	<npc id="25179" name="Guardian of the Statue of Giant Karum" title="Raid Boss Lvl 60*" alias="hatos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="66.0"/>
@@ -9427,7 +9250,6 @@
 	</npc>
 	<npc id="25180" name="Karum's Guard" title="Raid Fighter Lvl 59*" alias="daughter_of_hatos">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -9476,7 +9298,6 @@
 	</npc>
 	<npc id="25181" name="Karum's Warrior" title="Raid Fighter Lvl 59*" alias="guard_of_hatos">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -9524,7 +9345,6 @@
 	</npc>
 	<npc id="25182" name="Demon Kurikups" title="Raid Boss Lvl 59*" alias="kurikups">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="50.0"/>
 		<set name="height" val="180.0"/>
@@ -9585,7 +9405,6 @@
 	</npc>
 	<npc id="25183" name="Kurikups' Wife" title="Raid Fighter Lvl 58*" alias="wife_of_kurikups">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="40.0"/>
@@ -9636,7 +9455,6 @@
 	</npc>
 	<npc id="25184" name="Devil Blader of Chaos" title="Raid Fighter Lvl 58*" alias="devil_blader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -9685,7 +9503,6 @@
 	</npc>
 	<npc id="25185" name="Tasaba Patriarch Hellena" title="Raid Boss Lvl 35*" alias="tasaba_patriarch_hellena">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="40.0"/>
@@ -9746,7 +9563,6 @@
 	</npc>
 	<npc id="25186" name="Hellena's Marksman" title="Raid Fighter Lvl 34*" alias="hellenas_sniper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="30.0"/>
@@ -9795,7 +9611,6 @@
 	</npc>
 	<npc id="25187" name="Helena's Soldier" title="Raid Fighter Lvl 34*" alias="hellenas_grunt">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -9842,7 +9657,6 @@
 	</npc>
 	<npc id="25188" name="Apepi" title="Raid Boss Lvl 30*" alias="apepi">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -9898,7 +9712,6 @@
 	</npc>
 	<npc id="25189" name="Cronos's Servitor Mumu" title="Raid Boss Lvl 34*" alias="cronoss_summons_mumu">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="15.0"/>
@@ -9957,7 +9770,6 @@
 	</npc>
 	<npc id="25190" name="Mumu's Wizard" title="Raid Fighter Lvl 33*" alias="mumus_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="15.0"/>
@@ -10006,7 +9818,6 @@
 	</npc>
 	<npc id="25191" name="Mumu's Warrior" title="Raid Fighter Lvl 33*" alias="mumus_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="16.0"/>
@@ -10054,7 +9865,6 @@
 	</npc>
 	<npc id="25192" name="Earth Protector Panathen" title="Raid Boss Lvl 43*" alias="earth_protecter_panathen">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="31.0"/>
@@ -10116,7 +9926,6 @@
 	</npc>
 	<npc id="25193" name="Panathen's Knight" title="Raid Fighter Lvl 42*" alias="panathens_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="42.0"/>
@@ -10164,7 +9973,6 @@
 	</npc>
 	<npc id="25194" name="Panathen's Protectors" title="Raid Fighter Lvl 42*" alias="panathens_protecters">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="28.0"/>
@@ -10212,7 +10020,6 @@
 	</npc>
 	<npc id="25198" name="Fafurion's Herald Lokness" title="Raid Boss Lvl 70*" alias="faf_herald_lokness">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="55.0"/>
 		<set name="height" val="80.5"/>
@@ -10268,7 +10075,6 @@
 	</npc>
 	<npc id="25199" name="Water Dragon Seer Sheshark" title="Raid Boss Lvl 72*" alias="wdragon_priest_sheshark">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="29.0"/>
@@ -10329,7 +10135,6 @@
 	</npc>
 	<npc id="25200" name="Family of Sheshark" title="Raid Fighter Lvl 71*" alias="sheshark_familiar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -10378,7 +10183,6 @@
 	</npc>
 	<npc id="25201" name="Guard of Sheshark" title="Raid Fighter Lvl 71*" alias="sheshark_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -10426,7 +10230,6 @@
 	</npc>
 	<npc id="25202" name="Krokian Padisha Sobekk" title="Raid Boss Lvl 74*" alias="krokian_padisha_sobekk">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="52.0"/>
 		<set name="height" val="86.0"/>
@@ -10485,7 +10288,6 @@
 	</npc>
 	<npc id="25203" name="Parhit Padisha Sobekk" title="Raid Fighter Lvl 73*" alias="parhit_sha_sobekk">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="32.0"/>
 		<set name="height" val="65.0"/>
@@ -10534,7 +10336,6 @@
 	</npc>
 	<npc id="25204" name="Krokian Padisha Sobekk" title="Raid Fighter Lvl 73*" alias="krokian_sha_sobekk">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="36.0"/>
 		<set name="height" val="61.0"/>
@@ -10582,7 +10383,6 @@
 	</npc>
 	<npc id="25205" name="Ocean Flame Ashakiel" title="Raid Boss Lvl 76*" alias="ocean_flame_ashakiel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="120.0"/>
@@ -10644,7 +10444,6 @@
 	</npc>
 	<npc id="25206" name="Ashakia's Blade" title="Raid Fighter Lvl 75*" alias="ashakiel_blade">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -10692,7 +10491,6 @@
 	</npc>
 	<npc id="25207" name="Ashakiel's Rod" title="Raid Fighter Lvl 75*" alias="ashakiel_rod">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -10740,7 +10538,6 @@
 	</npc>
 	<npc id="25208" name="Water Couatle Ateka" title="Raid Boss Lvl 40*" alias="water_couatl_ateka">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -10799,7 +10596,6 @@
 	</npc>
 	<npc id="25209" name="Ateka's Shaman" title="Raid Fighter Lvl 39*" alias="atekas_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -10848,7 +10644,6 @@
 	</npc>
 	<npc id="25210" name="Ateka's Grunt" title="Raid Fighter Lvl 39*" alias="atekas_grunt">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -10896,7 +10691,6 @@
 	</npc>
 	<npc id="25211" name="Sebek" title="Raid Boss Lvl 36*" alias="sebek">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="26.0"/>
 		<set name="height" val="42.0"/>
@@ -10956,7 +10750,6 @@
 	</npc>
 	<npc id="25212" name="Sebek's Priest" title="Raid Fighter Lvl 35*" alias="sebeks_priest">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="30.0"/>
@@ -11005,7 +10798,6 @@
 	</npc>
 	<npc id="25213" name="Sebek's Fanatic" title="Raid Fighter Lvl 35*" alias="sebeks_fanatic">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="28.0"/>
@@ -11052,7 +10844,6 @@
 	</npc>
 	<npc id="25214" name="Fafurion's Page Sika" title="Raid Boss Lvl 40*" alias="fafurions_pagehood_sika">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="44.0"/>
@@ -11111,7 +10902,6 @@
 	</npc>
 	<npc id="25215" name="Sika's Wizard" title="Raid Fighter Lvl 39*" alias="sikas_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -11161,7 +10951,6 @@
 	</npc>
 	<npc id="25216" name="Sika's Fighter" title="Raid Fighter Lvl 39*" alias="sirkas_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -11210,7 +10999,6 @@
 	</npc>
 	<npc id="25217" name="Cursed Clara" title="Raid Boss Lvl 50*" alias="cursed_clala">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -11271,7 +11059,6 @@
 	</npc>
 	<npc id="25218" name="Clara's Marksman" title="Raid Fighter Lvl 49*" alias="clalas_sniper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -11320,7 +11107,6 @@
 	</npc>
 	<npc id="25219" name="Clara's Pawn" title="Raid Fighter Lvl 49*" alias="clalas_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -11367,7 +11153,6 @@
 	</npc>
 	<npc id="25220" name="Death Lord Hallate" title="Raid Boss Lvl 73*" alias="hallate_the_death_lord">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -11428,7 +11213,6 @@
 	</npc>
 	<npc id="25221" name="Death Mage Krician" title="Raid Fighter Lvl 72*" alias="death_mage_krician">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -11479,7 +11263,6 @@
 	</npc>
 	<npc id="25222" name="Death Fighter Harik" title="Raid Fighter Lvl 72*" alias="death_fighter_harik">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -11529,7 +11312,6 @@
 	</npc>
 	<npc id="25223" name="Soul Collector Acheron" title="Raid Boss Lvl 35*" alias="soul_collector_acheron">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="63.0"/>
@@ -11590,7 +11372,6 @@
 	</npc>
 	<npc id="25224" name="Soul Slasher" title="Raid Fighter Lvl 34*" alias="soul_slasher">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -11642,7 +11423,6 @@
 	</npc>
 	<npc id="25225" name="Soul Strainer" title="Raid Fighter Lvl 34*" alias="soul_strainer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="40.0"/>
@@ -11693,7 +11473,6 @@
 	</npc>
 	<npc id="25226" name="Roaring Lord Kastor" title="Raid Boss Lvl 62*" alias="roaring_seer_kastor">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="22.5"/>
 		<set name="height" val="54.0"/>
@@ -11753,7 +11532,6 @@
 	</npc>
 	<npc id="25227" name="Kastor's Seer" title="Raid Fighter Lvl 61*" alias="kastors_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="34.0"/>
@@ -11803,7 +11581,6 @@
 	</npc>
 	<npc id="25228" name="Kastor's Prefect" title="Raid Fighter Lvl 61*" alias="kastors_warlord">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="38.0"/>
@@ -11851,7 +11628,6 @@
 	</npc>
 	<npc id="25229" name="Storm Winged Naga" title="Raid Boss Lvl 75*" alias="storm_winged_naga">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="58.0"/>
 		<set name="height" val="108.0"/>
@@ -11907,7 +11683,6 @@
 	</npc>
 	<npc id="25230" name="Timak Seer Ragoth" title="Raid Boss Lvl 57*" alias="timak_seer_ragoth">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="25.0"/>
@@ -11970,7 +11745,6 @@
 	</npc>
 	<npc id="25231" name="Ragoth's Guard" title="Raid Fighter Lvl 56*" alias="ragoths_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -12018,7 +11792,6 @@
 	</npc>
 	<npc id="25232" name="Ragoth's Herald" title="Raid Fighter Lvl 56*" alias="ragoths_herald">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -12065,7 +11838,6 @@
 	</npc>
 	<npc id="25233" name="Spirit of Andras, the Betrayer" title="Raid Boss Lvl 69*" alias="spirit_andras_betrayer">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="46.5"/>
@@ -12125,7 +11897,6 @@
 	</npc>
 	<npc id="25234" name="Ancient Weird Drake" title="Raid Boss Lvl 60*" alias="ancient_weird_drake">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="150.0"/>
@@ -12182,7 +11953,6 @@
 	</npc>
 	<npc id="25235" name="Vanor Chief Kandra" title="Raid Boss Lvl 72*" alias="vanor_chief_kandra">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="43.5"/>
@@ -12241,7 +12011,6 @@
 	</npc>
 	<npc id="25236" name="Kandra's Healer" title="Raid Fighter Lvl 71*" alias="kandras_healer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="32.0"/>
@@ -12291,7 +12060,6 @@
 	</npc>
 	<npc id="25237" name="Kandra's Guard" title="Raid Fighter Lvl 71*" alias="kandras_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="31.0"/>
@@ -12338,7 +12106,6 @@
 	</npc>
 	<npc id="25238" name="Abyss Brukunt" title="Raid Boss Lvl 59*" alias="nightmare_drake">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="150.0"/>
@@ -12397,7 +12164,6 @@
 	</npc>
 	<npc id="25239" name="Monstrous Beast of Abyss Brukunt" title="Raid Fighter Lvl 58*" alias="nightmare_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="65.0"/>
@@ -12447,7 +12213,6 @@
 	</npc>
 	<npc id="25240" name="Wild Beast of Abyss Brukunt" title="Raid Fighter Lvl 58*" alias="nightmare_beast">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="34.0"/>
 		<set name="height" val="28.0"/>
@@ -12495,7 +12260,6 @@
 	</npc>
 	<npc id="25241" name="Harit Hero Tamash" title="Raid Boss Lvl 55*" alias="harit_hero_tamash">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="53.0"/>
@@ -12555,7 +12319,6 @@
 	</npc>
 	<npc id="25242" name="Tamash's Advisor" title="Raid Fighter Lvl 54*" alias="tamashs_advisor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -12605,7 +12368,6 @@
 	</npc>
 	<npc id="25243" name="Tamash's Servant" title="Raid Fighter Lvl 54*" alias="tamashs_servant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -12653,7 +12415,6 @@
 	</npc>
 	<npc id="25244" name="Last Lesser Giant Olkuth" title="Raid Boss Lvl 75*" alias="last_lesser_olkuth">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="31.5"/>
 		<set name="height" val="69.0"/>
@@ -12709,7 +12470,6 @@
 	</npc>
 	<npc id="25245" name="Last Lesser Giant Glaki" title="Raid Boss Lvl 78*" alias="last_lesser_glaki">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="66.0"/>
@@ -12771,7 +12531,6 @@
 	</npc>
 	<npc id="25246" name="Glaki's Henchman" title="Raid Fighter Lvl 77*" alias="glakis_henchman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -12819,7 +12578,6 @@
 	</npc>
 	<npc id="25247" name="Glaki's Servant" title="Raid Fighter Lvl 77*" alias="glakis_servant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -12866,7 +12624,6 @@
 	</npc>
 	<npc id="25248" name="Doom Blade Tanatos" title="Raid Boss Lvl 72*" alias="doom_blade_tanatos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="32.5"/>
@@ -12926,7 +12683,6 @@
 	</npc>
 	<npc id="25249" name="Palatanos of Horrific Power" title="Raid Boss Lvl 75*" alias="bloody_tree_vermilion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="60.0"/>
 		<set name="height" val="47.0"/>
@@ -12989,7 +12745,6 @@
 	</npc>
 	<npc id="25250" name="Man-Eating Plant of Palatanos" title="Raid Fighter Lvl 74*" alias="vermilion_spirit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="26.0"/>
@@ -13040,7 +12795,6 @@
 	</npc>
 	<npc id="25251" name="Sapling of Palatanos" title="Raid Fighter Lvl 74*" alias="vermilion_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="26.0"/>
@@ -13092,7 +12846,6 @@
 	</npc>
 	<npc id="25252" name="Palibati Queen Themis" title="Raid Boss Lvl 70*" alias="palibati_queen_themis">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="98.0"/>
@@ -13154,7 +12907,6 @@
 	</npc>
 	<npc id="25253" name="Handmaiden of Themis" title="Raid Fighter Lvl 69*" alias="themis_maiden">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -13206,7 +12958,6 @@
 	</npc>
 	<npc id="25254" name="Themis's Sentinel" title="Raid Fighter Lvl 69*" alias="themis_sentinel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -13258,7 +13009,6 @@
 	</npc>
 	<npc id="25255" name="Gargoyle Lord Tiphon" title="Raid Boss Lvl 65*" alias="gargoyle_lord_tiphon">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="98.0"/>
@@ -13314,7 +13064,6 @@
 	</npc>
 	<npc id="25256" name="Taik High Prefect Arak" title="Raid Boss Lvl 60*" alias="taik_prefect_arak">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="37.0"/>
@@ -13374,7 +13123,6 @@
 	</npc>
 	<npc id="25257" name="Arak's Archer" title="Raid Fighter Lvl 59*" alias="araks_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -13423,7 +13171,6 @@
 	</npc>
 	<npc id="25258" name="Arak's Footman" title="Raid Fighter Lvl 59*" alias="araks_footman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="29.0"/>
@@ -13470,7 +13217,6 @@
 	</npc>
 	<npc id="25259" name="Zaken's Butcher Krantz" title="Raid Boss Lvl 55*" alias="zakens_butcher_krantz">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="66.0"/>
@@ -13526,7 +13272,6 @@
 	</npc>
 	<npc id="25260" name="Iron Giant Totem" title="Raid Boss Lvl 45*" alias="iron_giant_totem">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="46.38"/>
@@ -13589,7 +13334,6 @@
 	</npc>
 	<npc id="25261" name="Totem Guard Archer" title="Raid Fighter Lvl 44*" alias="timak_totem_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="21.5"/>
@@ -13638,7 +13382,6 @@
 	</npc>
 	<npc id="25262" name="Totem Guard" title="Raid Fighter Lvl 44*" alias="timak_totem_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -13685,7 +13428,6 @@
 	</npc>
 	<npc id="25263" name="Kernon's Faithful Servant Kelone" title="Raid Boss Lvl 67*" alias="malruks_oracle_sekina">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="53.0"/>
@@ -13745,7 +13487,6 @@
 	</npc>
 	<npc id="25264" name="Kelone's Assassin" title="Raid Fighter Lvl 66*" alias="sekinas_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -13798,7 +13539,6 @@
 	</npc>
 	<npc id="25265" name="Kelone's Secret Knight" title="Raid Fighter Lvl 66*" alias="sekinas_drake">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -13847,7 +13587,6 @@
 	</npc>
 	<npc id="25266" name="Bloody Empress Decarbia" title="Raid Boss Lvl 75*" alias="bloody_empress_decarbia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="31.0"/>
@@ -13912,7 +13651,6 @@
 	</npc>
 	<npc id="25267" name="Decarbia's Royal Guard" title="Raid Fighter Lvl 74*" alias="decarbia_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -13963,7 +13701,6 @@
 	</npc>
 	<npc id="25268" name="Decarbia's Escort" title="Raid Fighter Lvl 74*" alias="decarbia_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -14015,7 +13752,6 @@
 	</npc>
 	<npc id="25269" name="Beast Lord Behemoth" title="Raid Boss Lvl 70*" alias="beastlord_behemoth">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="46.0"/>
 		<set name="height" val="71.5"/>
@@ -14075,7 +13811,6 @@
 	</npc>
 	<npc id="25270" name="Behemoth Javeliner" title="Raid Fighter Lvl 69*" alias="behemoth_javeliner">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -14124,7 +13859,6 @@
 	</npc>
 	<npc id="25271" name="Behemoth Flare" title="Raid Fighter Lvl 69*" alias="behemoth_flare">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -14171,7 +13905,6 @@
 	</npc>
 	<npc id="25272" name="Partisan Leader Talakin" title="Raid Boss Lvl 28*" alias="partisan_leader_talakin">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="43.5"/>
@@ -14227,7 +13960,6 @@
 	</npc>
 	<npc id="25273" name="Carnamakos" title="Raid Boss Lvl 50*" alias="carnamakos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="46.38"/>
@@ -14288,7 +14020,6 @@
 	</npc>
 	<npc id="25274" name="Carnabarun" title="Raid Fighter Lvl 49*" alias="carnabarun">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -14338,7 +14069,6 @@
 	</npc>
 	<npc id="25275" name="Carnassiud" title="Raid Fighter Lvl 49*" alias="carnassiud">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="36.0"/>
@@ -14388,7 +14118,6 @@
 	</npc>
 	<npc id="25276" name="Death Lord Ipos" title="Raid Boss Lvl 75*" alias="ipos_the_death_lord">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="31.0"/>
 		<set name="height" val="61.5"/>
@@ -14448,7 +14177,6 @@
 	</npc>
 	<npc id="25277" name="Lilith's Witch Marilion" title="Raid Boss Lvl 50*" alias="liliths_oracle_marilion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="64.0"/>
@@ -14510,7 +14238,6 @@
 	</npc>
 	<npc id="25278" name="Dead Soul of Stigma" title="Raid Fighter Lvl 49*" alias="dead_soul_of_stigma">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -14563,7 +14290,6 @@
 	</npc>
 	<npc id="25279" name="Evil Spirit of Stigma" title="Raid Fighter Lvl 49*" alias="evil_spirit_of_stigma">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -14614,7 +14340,6 @@
 	</npc>
 	<npc id="25280" name="Pagan Watcher Cerberon" title="Raid Boss Lvl 55*" alias="pagan_warder_cerberon">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="48.0"/>
@@ -14670,7 +14395,6 @@
 	</npc>
 	<npc id="25281" name="Anakim's Nemesis Zakaron" title="Raid Boss Lvl 70*" alias="anakims_nemesis_zakaron">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="136.5"/>
@@ -14728,7 +14452,6 @@
 	</npc>
 	<npc id="25282" name="Death Lord Shax" title="Raid Boss Lvl 75*" alias="shax_the_death_lord">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="31.0"/>
 		<set name="height" val="61.5"/>
@@ -14788,7 +14511,6 @@
 	</npc>
 	<npc id="25283" name="Lilith" title="Raid Boss Lvl 80*" alias="lilith">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="42.5"/>
 		<set name="height" val="55.0"/>
@@ -14849,7 +14571,6 @@
 	</npc>
 	<npc id="25284" name="Lilith's Agent" title="Raid Fighter Lvl 79*" alias="liliths_agent_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="34.0"/>
@@ -14900,7 +14621,6 @@
 	</npc>
 	<npc id="25285" name="Lilith's Escort" title="Raid Fighter Lvl 79*" alias="liliths_shadow_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -14951,7 +14671,6 @@
 	</npc>
 	<npc id="25286" name="Anakim" title="Raid Boss Lvl 80*" alias="anakim">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.5"/>
 		<set name="height" val="29.0"/>
@@ -15010,7 +14729,6 @@
 	</npc>
 	<npc id="25287" name="Anakim's Guardian" title="Raid Fighter Lvl 79*" alias="anakims_holly_guardian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="40.5"/>
@@ -15059,7 +14777,6 @@
 	</npc>
 	<npc id="25288" name="Anakim's Royal Guard" title="Raid Fighter Lvl 79*" alias="anakims_divine_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="43.0"/>
@@ -15107,7 +14824,6 @@
 	</npc>
 	<npc id="25289" name="Anakim's Executor" title="Raid Fighter Lvl 79*" alias="anakims_sacred_executor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="36.0"/>
@@ -15154,7 +14870,6 @@
 	</npc>
 	<npc id="25290" name="Daimon the White-Eyed" title="Raid Boss Lvl 78*" alias="daemon_of_hundred_eyes">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="55.0"/>
@@ -15215,7 +14930,6 @@
 	</npc>
 	<npc id="25291" name="Family of Daimon" title="Raid Fighter Lvl 77*" alias="spawn_of_daemon">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="36.0"/>
@@ -15265,7 +14979,6 @@
 	</npc>
 	<npc id="25292" name="Family of Daimon" title="Raid Fighter Lvl 77*" alias="spawn_of_daemon_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="63.0"/>
@@ -15317,7 +15030,6 @@
 	</npc>
 	<npc id="25293" name="Hestia, Guardian Deity of the Hot Springs" title="Raid Boss Lvl 78*" alias="geyser_guardian_hestia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="54.0"/>
@@ -15379,7 +15091,6 @@
 	</npc>
 	<npc id="25294" name="Fighter of Hestia" title="Raid Fighter Lvl 77*" alias="champion_of_hestia">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="27.5"/>
@@ -15428,7 +15139,6 @@
 	</npc>
 	<npc id="25295" name="Follower of Hestia" title="Raid Fighter Lvl 77*" alias="follower_of_hestia">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="27.5"/>
@@ -15476,7 +15186,6 @@
 	</npc>
 	<npc id="25296" name="Icicle Emperor Bumbalump" title="Raid Boss Lvl 74*" alias="icicle_king_umpaloopa">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="18.0"/>
 		<set name="height" val="32.0"/>
@@ -15536,7 +15245,6 @@
 	</npc>
 	<npc id="25297" name="Icicle Giant" title="Raid Fighter Lvl 73*" alias="ice_gaint_mage">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="31.0"/>
@@ -15589,7 +15297,6 @@
 	</npc>
 	<npc id="25298" name="Icicle Giant" title="Raid Fighter Lvl 73*" alias="ice_gaint_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="31.0"/>
@@ -15641,7 +15348,6 @@
 	</npc>
 	<npc id="25299" name="Ketra's Hero Hekaton" title="Raid Boss Lvl 80*" alias="ketra_hero_hekaton">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.2"/>
@@ -15701,7 +15407,6 @@
 	</npc>
 	<npc id="25300" name="Scout of Hekaton" title="Raid Fighter Lvl 79*" alias="hekatons_scout">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -15749,7 +15454,6 @@
 	</npc>
 	<npc id="25301" name="Servant of Hekaton" title="Raid Fighter Lvl 79*" alias="hekatons_squire">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="29.0"/>
@@ -15797,7 +15501,6 @@
 	</npc>
 	<npc id="25302" name="Ketra's Commander Tayr" title="Raid Boss Lvl 84*" alias="ketra_commander_tayr">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -15856,7 +15559,6 @@
 	</npc>
 	<npc id="25303" name="Tayr's Aide" title="Raid Fighter Lvl 83*" alias="tayrs_aide">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -15906,7 +15608,6 @@
 	</npc>
 	<npc id="25304" name="Tayr's Guard" title="Raid Fighter Lvl 83*" alias="tayrs_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="29.0"/>
@@ -15955,7 +15656,6 @@
 	</npc>
 	<npc id="25305" name="Ketra's Chief Brakki" title="Raid Boss Lvl 87*" alias="ketra_chief_brakki">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="87"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="33.5"/>
@@ -16011,7 +15711,6 @@
 	</npc>
 	<npc id="25306" name="Soul of Fire Nastron" title="Raid Boss Lvl 87*" alias="flame_spirit_nastron">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="87"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -16075,7 +15774,6 @@
 	</npc>
 	<npc id="25307" name="Family of Nastron" title="Raid Fighter Lvl 86*" alias="nastrons_kin1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="86"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -16126,7 +15824,6 @@
 	</npc>
 	<npc id="25308" name="Family of Nastron" title="Raid Fighter Lvl 86*" alias="nastrons_kin2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="86"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -16176,7 +15873,6 @@
 	</npc>
 	<npc id="25309" name="Varka's Hero Shadith" title="Raid Boss Lvl 80*" alias="varka_hero_shadith">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="47.5"/>
@@ -16238,7 +15934,6 @@
 	</npc>
 	<npc id="25310" name="Shadith's Royal Guard Captain" title="Raid Fighter Lvl 79*" alias="shadiths_guard_captn">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="41.0"/>
@@ -16287,7 +15982,6 @@
 	</npc>
 	<npc id="25311" name="Shadith's Sentinel" title="Raid Fighter Lvl 79*" alias="shadiths_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="38.0"/>
@@ -16335,7 +16029,6 @@
 	</npc>
 	<npc id="25312" name="Varka's Commander Mos" title="Raid Boss Lvl 84*" alias="varka_commnder_mos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="51.0"/>
@@ -16394,7 +16087,6 @@
 	</npc>
 	<npc id="25313" name="Mos' Aide" title="Raid Fighter Lvl 83*" alias="mos_aide">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="41.5"/>
@@ -16444,7 +16136,6 @@
 	</npc>
 	<npc id="25314" name="Mos' Guard" title="Raid Fighter Lvl 83*" alias="mos_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="38.0"/>
@@ -16492,7 +16183,6 @@
 	</npc>
 	<npc id="25315" name="Varka's Chief Horus" title="Raid Boss Lvl 87*" alias="varka_chief_horuth">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="87"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="51.0"/>
@@ -16548,7 +16238,6 @@
 	</npc>
 	<npc id="25316" name="Soul of Water Ashutar" title="Raid Boss Lvl 87*" alias="water_spirit_ashutar">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="87"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="27.0"/>
@@ -16612,7 +16301,6 @@
 	</npc>
 	<npc id="25317" name="Family of Ashutar" title="Raid Fighter Lvl 86*" alias="ashutars_kin1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="86"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -16663,7 +16351,6 @@
 	</npc>
 	<npc id="25318" name="Family of Ashutar" title="Raid Fighter Lvl 86*" alias="ashutars_kin2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="86"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -16713,7 +16400,6 @@
 	</npc>
 	<npc id="25319" name="Ember" title="Raid Boss Lvl 85*" alias="amber">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="48.0"/>
 		<set name="height" val="73.0"/>
@@ -16774,7 +16460,6 @@
 	</npc>
 	<npc id="25320" name="Sentinel of Ember" title="Raid Fighter Lvl 84*" alias="ambers_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -16827,7 +16512,6 @@
 	</npc>
 	<npc id="25321" name="Messenger of Ember" title="Raid Fighter Lvl 84*" alias="ambers_herald">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -16877,7 +16561,6 @@
 	</npc>
 	<npc id="25322" name="Demon's Agent Falston" title="Raid Boss Lvl 66*" alias="demonic_agent_falston">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="31.5"/>
@@ -16938,7 +16621,6 @@
 	</npc>
 	<npc id="25323" name="Falston's Disciple" title="Raid Fighter Lvl 65*" alias="falstons_apprentice">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="5.5"/>
 		<set name="height" val="28.0"/>
@@ -16990,7 +16672,6 @@
 	</npc>
 	<npc id="25324" name="Servant of Falston" title="Raid Fighter Lvl 65*" alias="falstons_servant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -17039,7 +16720,6 @@
 	</npc>
 	<npc id="25325" name="Flame of Splendor Barakiel" title="Raid Boss Lvl 70*" alias="blinding_fire_barakiel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -17101,7 +16781,6 @@
 	</npc>
 	<npc id="25326" name="Barakiel's Disciple" title="Raid Fighter Lvl 69*" alias="barakiels_apostle">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -17150,7 +16829,6 @@
 	</npc>
 	<npc id="25327" name="Barakiel's Acolyte" title="Raid Fighter Lvl 69*" alias="barakiels_acolyte">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -17198,7 +16876,6 @@
 	</npc>
 	<npc id="25328" name="Eilhalder von Hellmann" title="Raid Boss Lvl 71*" alias="raid_boss_von_helman">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="7.5"/>
 		<set name="height" val="25.8"/>
@@ -17259,7 +16936,6 @@
 	</npc>
 	<npc id="25329" name="Violet" title="Raid Fighter Lvl 70*" alias="raid_wiz_violet">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="21.5"/>
@@ -17311,7 +16987,6 @@
 	</npc>
 	<npc id="25330" name="Kurstin" title="Raid Fighter Lvl 70*" alias="raid_wiz_kurstin">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="21.5"/>
@@ -17363,7 +17038,6 @@
 	</npc>
 	<npc id="25331" name="Mina" title="Raid Fighter Lvl 70*" alias="raid_wiz_mina">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="21.5"/>
@@ -17415,7 +17089,6 @@
 	</npc>
 	<npc id="25332" name="Dorian" title="Raid Fighter Lvl 70*" alias="raid_zzol_dorian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="23.5"/>
@@ -17466,7 +17139,6 @@
 	</npc>
 	<npc id="25333" name="Anakazel" title="Raid Boss Lvl 28*" alias="r08_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="54.0"/>
@@ -17524,7 +17196,6 @@
 	</npc>
 	<npc id="25334" name="Anakazel" title="Raid Boss Lvl 38*" alias="r18_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="54.0"/>
@@ -17582,7 +17253,6 @@
 	</npc>
 	<npc id="25335" name="Anakazel" title="Raid Boss Lvl 48*" alias="r28_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="48.0"/>
@@ -17640,7 +17310,6 @@
 	</npc>
 	<npc id="25336" name="Anakazel" title="Raid Boss Lvl 58*" alias="r38_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="48.0"/>
@@ -17698,7 +17367,6 @@
 	</npc>
 	<npc id="25337" name="Anakazel" title="Raid Boss Lvl 68*" alias="r48_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -17756,7 +17424,6 @@
 	</npc>
 	<npc id="25338" name="Anakazel" title="Raid Boss Lvl 78*" alias="r58_leader_anakazel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -17814,7 +17481,6 @@
 	</npc>
 	<npc id="25339" name="Shadow of Halisha" title="Raid Boss Lvl 81*" alias="halisha_alectia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -17875,7 +17541,6 @@
 	</npc>
 	<npc id="25340" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_a_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -17927,7 +17592,6 @@
 	</npc>
 	<npc id="25341" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_b_zzol">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="35.0"/>
@@ -17977,7 +17641,6 @@
 	</npc>
 	<npc id="25342" name="Shadow of Halisha" title="Raid Boss Lvl 81*" alias="halisha_tishas">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -18038,7 +17701,6 @@
 	</npc>
 	<npc id="25343" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_c_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -18090,7 +17752,6 @@
 	</npc>
 	<npc id="25344" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_d_arc">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="55.0"/>
@@ -18140,7 +17801,6 @@
 	</npc>
 	<npc id="25345" name="Knight of shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_e_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="34.0"/>
@@ -18192,7 +17852,6 @@
 	</npc>
 	<npc id="25346" name="Shadow of Halisha" title="Raid Boss Lvl 81*" alias="halisha_mekara">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -18253,7 +17912,6 @@
 	</npc>
 	<npc id="25347" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_f_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="34.0"/>
@@ -18305,7 +17963,6 @@
 	</npc>
 	<npc id="25348" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_g_fig">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -18358,7 +18015,6 @@
 	</npc>
 	<npc id="25349" name="Shadow of Halisha" title="Raid Boss Lvl 81*" alias="halisha_morigul">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -18421,7 +18077,6 @@
 	</npc>
 	<npc id="25350" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_h_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="34.0"/>
@@ -18473,7 +18128,6 @@
 	</npc>
 	<npc id="25351" name="Knight of Shadow" title="Raid Fighter Lvl 80*" alias="shadow_knight_i_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -18525,7 +18179,6 @@
 	</npc>
 	<npc id="25352" name="Giant Wasteland Basilisk" title="Raid Boss Lvl 30*" alias="giant_wasteland_basil">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="34.0"/>
 		<set name="height" val="25.0"/>
@@ -18583,7 +18236,6 @@
 	</npc>
 	<npc id="25353" name="Giant Wasteland Basilisk" title="Raid Fighter Lvl 29*" alias="wasteland_basilisk">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="32.0"/>
 		<set name="height" val="22.0"/>
@@ -18632,7 +18284,6 @@
 	</npc>
 	<npc id="25354" name="Gargoyle Lord Sirocco" title="Raid Boss Lvl 35*" alias="gargoyle_lord_sirocco">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="65.0"/>
@@ -18697,7 +18348,6 @@
 	</npc>
 	<npc id="25355" name="Sirocco's Gargoyle" title="Raid Fighter Lvl 34*" alias="sirocco_gargoyle">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="50.0"/>
@@ -18748,7 +18398,6 @@
 	</npc>
 	<npc id="25356" name="Sirocco's Guards" title="Raid Fighter Lvl 34*" alias="sirocco_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="50.0"/>
@@ -18800,7 +18449,6 @@
 	</npc>
 	<npc id="25357" name="Sukar Wererat Chief" title="Raid Boss Lvl 21*" alias="sukar_wererat_chief">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="21"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -18858,7 +18506,6 @@
 	</npc>
 	<npc id="25358" name="Sukar Wererat Guard" title="Raid Fighter Lvl 20*" alias="sukar_wererat_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="18.7"/>
@@ -18907,7 +18554,6 @@
 	</npc>
 	<npc id="25359" name="Sukar Wererat Priest" title="Raid Fighter Lvl 20*" alias="sukar_wererat_healer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="18.7"/>
@@ -18957,7 +18603,6 @@
 	</npc>
 	<npc id="25360" name="Tiger Hornet" title="Raid Boss Lvl 26*" alias="tiger_hornet">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="26"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="32.0"/>
@@ -19015,7 +18660,6 @@
 	</npc>
 	<npc id="25361" name="Yellow Hornet" title="Raid Fighter Lvl 25*" alias="yellow_hornet">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="24.5"/>
@@ -19064,7 +18708,6 @@
 	</npc>
 	<npc id="25362" name="Tracker Leader Sharuk" title="Raid Boss Lvl 23*" alias="tracker_sharuk">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="23"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -19124,7 +18767,6 @@
 	</npc>
 	<npc id="25363" name="Sharuk's Tracker" title="Raid Fighter Lvl 22*" alias="sharuks_henchmen">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -19172,7 +18814,6 @@
 	</npc>
 	<npc id="25364" name="Sharuk's Marksman" title="Raid Fighter Lvl 22*" alias="sharuks_sniper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -19220,7 +18861,6 @@
 	</npc>
 	<npc id="25365" name="Patriarch Kuroboros" title="Raid Boss Lvl 26*" alias="patriarch_kuroboros">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="26"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="34.5"/>
@@ -19276,7 +18916,6 @@
 	</npc>
 	<npc id="25366" name="Kuroboros' Priest" title="Raid Boss Lvl 23*" alias="priest_of_kuroboros">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="23"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="37.0"/>
@@ -19334,7 +18973,6 @@
 	</npc>
 	<npc id="25367" name="Kuroboros' Follower" title="Raid Fighter Lvl 22*" alias="follower_of_kuroboros">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -19383,7 +19021,6 @@
 	</npc>
 	<npc id="25368" name="Kuroboros' Discipline" title="Raid Fighter Lvl 22*" alias="disciple_of_kuroboros">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="29.0"/>
@@ -19433,7 +19070,6 @@
 	</npc>
 	<npc id="25369" name="Soul Scavenger" title="Raid Boss Lvl 25*" alias="soul_scavenger">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="42.0"/>
@@ -19499,7 +19135,6 @@
 	</npc>
 	<npc id="25370" name="Corpse Scavenger" title="Raid Fighter Lvl 24*" alias="corpse_scavenger">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="31.0"/>
@@ -19552,7 +19187,6 @@
 	</npc>
 	<npc id="25371" name="Anima Scavenger" title="Raid Fighter Lvl 24*" alias="anima_scavenger">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -19604,7 +19238,6 @@
 	</npc>
 	<npc id="25372" name="Discarded Guardian" title="Raid Boss Lvl 20*" alias="discard_guardian">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="40.3"/>
@@ -19663,7 +19296,6 @@
 	</npc>
 	<npc id="25373" name="Malex Herald of Dagoniel" title="Raid Boss Lvl 21*" alias="malex_herald_of_dagoniel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="21"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="54.0"/>
@@ -19723,7 +19355,6 @@
 	</npc>
 	<npc id="25374" name="Abyss Flyer" title="Raid Fighter Lvl 20*" alias="abyss_flyer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="33.5"/>
@@ -19772,7 +19403,6 @@
 	</npc>
 	<npc id="25375" name="Zombie Lord Farakelsus" title="Raid Boss Lvl 20*" alias="zombie_lord_farakelsus">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="27.5"/>
@@ -19834,7 +19464,6 @@
 	</npc>
 	<npc id="25376" name="Warrior Zombie of Farakelsus" title="Raid Fighter Lvl 19*" alias="farakelsus_zombie_fig">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -19887,7 +19516,6 @@
 	</npc>
 	<npc id="25377" name="Priest Zombie of Farakelsus" title="Raid Fighter Lvl 19*" alias="farakelsus_zombie_pri">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -19941,7 +19569,6 @@
 	</npc>
 	<npc id="25378" name="Madness Beast" title="Raid Boss Lvl 20*" alias="madness_beast">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="18.7"/>
@@ -19999,7 +19626,6 @@
 	</npc>
 	<npc id="25379" name="Dementia Beast" title="Raid Fighter Lvl 19*" alias="dementia_beast">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="14.5"/>
@@ -20048,7 +19674,6 @@
 	</npc>
 	<npc id="25380" name="Kaysha Herald of Icarus" title="Raid Boss Lvl 21*" alias="kaysha_herald_of_ikaros">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="21"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="43.2"/>
@@ -20112,7 +19737,6 @@
 	</npc>
 	<npc id="25381" name="Nightmare Flyer" title="Raid Fighter Lvl 19*" alias="nightmare_flyer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -20161,7 +19785,6 @@
 	</npc>
 	<npc id="25382" name="Hostile Flyer" title="Raid Fighter Lvl 19*" alias="hostile_flyer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="33.5"/>
@@ -20209,7 +19832,6 @@
 	</npc>
 	<npc id="25383" name="Revenant of Sir Calibus" title="Raid Boss Lvl 34*" alias="revenant_of_sir_calibus">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -20271,7 +19893,6 @@
 	</npc>
 	<npc id="25384" name="Servant of Calibus" title="Raid Fighter Lvl 33*" alias="squire_of_calibus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -20324,7 +19945,6 @@
 	</npc>
 	<npc id="25385" name="Evil Spirit Tempest" title="Raid Boss Lvl 36*" alias="demon_tempest">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="54.0"/>
@@ -20388,7 +20008,6 @@
 	</npc>
 	<npc id="25386" name="Ghost of the Execution Grounds" title="Raid Fighter Lvl 35*" alias="revenant_of_the_executed">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="31.0"/>
@@ -20441,7 +20060,6 @@
 	</npc>
 	<npc id="25387" name="Malignant Spirit of the Execution Grounds" title="Raid Fighter Lvl 35*" alias="ghost_of_the_executed">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="25.0"/>
@@ -20493,7 +20111,6 @@
 	</npc>
 	<npc id="25388" name="Red Eye Captain Trakia" title="Raid Boss Lvl 35*" alias="redeye_leader_trakia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="55.0"/>
@@ -20553,7 +20170,6 @@
 	</npc>
 	<npc id="25389" name="Red Eye Archer" title="Raid Fighter Lvl 34*" alias="redeye_bowman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -20601,7 +20217,6 @@
 	</npc>
 	<npc id="25390" name="Red Eye Guards" title="Raid Fighter Lvl 34*" alias="redeye_guards">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="27.0"/>
@@ -20649,7 +20264,6 @@
 	</npc>
 	<npc id="25391" name="Nurka's Messenger" title="Raid Boss Lvl 33*" alias="nurkas_messenger">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.5"/>
@@ -20705,7 +20319,6 @@
 	</npc>
 	<npc id="25392" name="Captain of Queen's Royal Guards" title="Raid Boss Lvl 32*" alias="queens_nobel_leader">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="37.0"/>
@@ -20763,7 +20376,6 @@
 	</npc>
 	<npc id="25393" name="Marsh Stakato Noble" title="Raid Fighter Lvl 31*" alias="marsh_stakato_noble">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="31"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="24.0"/>
@@ -20812,7 +20424,6 @@
 	</npc>
 	<npc id="25394" name="Premo Prime" title="Raid Boss Lvl 38*" alias="premo_prime_the_creature">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="39.0"/>
@@ -20871,7 +20482,6 @@
 	</npc>
 	<npc id="25395" name="Archon Suscepter" title="Raid Boss Lvl 45*" alias="archon_susceptor">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="72.0"/>
@@ -20929,7 +20539,6 @@
 	</npc>
 	<npc id="25396" name="Kusion Suscepter" title="Raid Fighter Lvl 44*" alias="kusion_susceptor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -20979,7 +20588,6 @@
 	</npc>
 	<npc id="25397" name="Gustos Suscepter" title="Raid Fighter Lvl 44*" alias="gustos_susceptor">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -21028,7 +20636,6 @@
 	</npc>
 	<npc id="25398" name="Eye of Beleth" title="Raid Boss Lvl 35*" alias="eyes_of_bereth">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="43.0"/>
@@ -21089,7 +20696,6 @@
 	</npc>
 	<npc id="25399" name="Apprentice of Watchman" title="Raid Fighter Lvl 34*" alias="disciple_of_the_eye">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -21139,7 +20745,6 @@
 	</npc>
 	<npc id="25400" name="Page of Watchman" title="Raid Fighter Lvl 34*" alias="follower_of_the_eye">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -21189,7 +20794,6 @@
 	</npc>
 	<npc id="25401" name="Skyla" title="Raid Boss Lvl 32*" alias="antaras_adherent_skyla">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="63.0"/>
@@ -21248,7 +20852,6 @@
 	</npc>
 	<npc id="25402" name="Retainer of Skyla" title="Raid Fighter Lvl 31*" alias="skylas_retainer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="31"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -21297,7 +20900,6 @@
 	</npc>
 	<npc id="25403" name="Follower of Skyla" title="Raid Fighter Lvl 31*" alias="skylas_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="31"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -21347,7 +20949,6 @@
 	</npc>
 	<npc id="25404" name="Corsair Captain Kylon" title="Raid Boss Lvl 33*" alias="corsair_captain_kylon">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="28.0"/>
@@ -21409,7 +21010,6 @@
 	</npc>
 	<npc id="25405" name="Kylon's Pirate" title="Raid Fighter Lvl 32*" alias="kylons_pirate">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="40.0"/>
@@ -21462,7 +21062,6 @@
 	</npc>
 	<npc id="25406" name="Kylon's Mate" title="Raid Fighter Lvl 32*" alias="kylons_officer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="39.0"/>
@@ -21515,7 +21114,6 @@
 	</npc>
 	<npc id="25407" name="Lord Ishka" title="Raid Boss Lvl 60*" alias="lord_ishka">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="67.0"/>
@@ -21577,7 +21175,6 @@
 	</npc>
 	<npc id="25408" name="Ishka's Elite Officer" title="Raid Fighter Lvl 59*" alias="ishkas_elite_officer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -21630,7 +21227,6 @@
 	</npc>
 	<npc id="25409" name="Ishka's Elite Soldier" title="Raid Fighter Lvl 59*" alias="ishkas_elite_soldier">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.5"/>
@@ -21683,7 +21279,6 @@
 	</npc>
 	<npc id="25410" name="Road Scavenger Leader" title="Raid Boss Lvl 40*" alias="road_scavenger_leader">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="38.0"/>
@@ -21741,7 +21336,6 @@
 	</npc>
 	<npc id="25411" name="Road Scavenger Henchman" title="Raid Fighter Lvl 39*" alias="road_scavenger_henchman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="24.0"/>
@@ -21790,7 +21384,6 @@
 	</npc>
 	<npc id="25412" name="Necrosentinel Royal Guard" title="Raid Boss Lvl 47*" alias="necrosentinel_guard">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -21854,7 +21447,6 @@
 	</npc>
 	<npc id="25413" name="Necrosentinel Archer" title="Raid Fighter Lvl 46*" alias="necrosentinel_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -21906,7 +21498,6 @@
 	</npc>
 	<npc id="25414" name="Necrosentinel Soldier" title="Raid Fighter Lvl 46*" alias="necrosentinel_soldier">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -21958,7 +21549,6 @@
 	</npc>
 	<npc id="25415" name="Nakondas" title="Raid Boss Lvl 40*" alias="nakondas">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="37.0"/>
 		<set name="height" val="125.0"/>
@@ -22019,7 +21609,6 @@
 	</npc>
 	<npc id="25416" name="Nakondas' Slave" title="Raid Fighter Lvl 39*" alias="slave_of_nakondas">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="29.0"/>
 		<set name="height" val="72.0"/>
@@ -22069,7 +21658,6 @@
 	</npc>
 	<npc id="25417" name="Nakondas' Chain" title="Raid Fighter Lvl 39*" alias="chain_of_nakondas">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -22121,7 +21709,6 @@
 	</npc>
 	<npc id="25418" name="Dread Avenger Kraven" title="Raid Boss Lvl 44*" alias="dread_avenger_kraven">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -22183,7 +21770,6 @@
 	</npc>
 	<npc id="25419" name="Dread Panther" title="Raid Fighter Lvl 43*" alias="dread_panther">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="14.5"/>
@@ -22232,7 +21818,6 @@
 	</npc>
 	<npc id="25420" name="Orfen's Handmaiden" title="Raid Boss Lvl 48*" alias="handmaiden_of_orfen">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="72.0"/>
@@ -22293,7 +21878,6 @@
 	</npc>
 	<npc id="25421" name="Trisalim Escort" title="Raid Fighter Lvl 47*" alias="trisalim_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="38.0"/>
@@ -22343,7 +21927,6 @@
 	</npc>
 	<npc id="25422" name="Page of Rotting Tree" title="Raid Fighter Lvl 47*" alias="follower_of_rot_tree">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="80.0"/>
@@ -22393,7 +21976,6 @@
 	</npc>
 	<npc id="25423" name="Fairy Queen Timiniel" title="Raid Boss Lvl 61*" alias="fairy_queen_timiniel">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="54.0"/>
@@ -22458,7 +22040,6 @@
 	</npc>
 	<npc id="25424" name="Timiniel's Royal Guards" title="Raid Fighter Lvl 60*" alias="timiniels_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -22509,7 +22090,6 @@
 	</npc>
 	<npc id="25425" name="Timiniel's Royal Guard Captain" title="Raid Fighter Lvl 60*" alias="timiniels_escort_leader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -22561,7 +22141,6 @@
 	</npc>
 	<npc id="25426" name="Betrayer of Urutu Freki" title="Raid Boss Lvl 25*" alias="betrayer_of_urutu_freki">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="29.7"/>
@@ -22619,7 +22198,6 @@
 	</npc>
 	<npc id="25427" name="Freki's Vampire Bat" title="Raid Fighter Lvl 24*" alias="frekis_bloodseeker_bats">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="33.5"/>
@@ -22668,7 +22246,6 @@
 	</npc>
 	<npc id="25428" name="Freki's Wild Bear" title="Raid Fighter Lvl 24*" alias="frekis_outrage_bear">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -22717,7 +22294,6 @@
 	</npc>
 	<npc id="25429" name="Mammon Collector Talos" title="Raid Boss Lvl 25*" alias="mammons_collector_talos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="37.5"/>
@@ -22778,7 +22354,6 @@
 	</npc>
 	<npc id="25430" name="Talos' Cohort" title="Raid Fighter Lvl 22*" alias="talos_cohort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -22830,7 +22405,6 @@
 	</npc>
 	<npc id="25431" name="Flamestone Golem" title="Raid Boss Lvl 44*" alias="flamestone_golem">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -22892,7 +22466,6 @@
 	</npc>
 	<npc id="25432" name="Elemental of Flame" title="Raid Fighter Lvl 43*" alias="flame_elemental">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -22945,7 +22518,6 @@
 	</npc>
 	<npc id="25433" name="Elemental of Spark" title="Raid Fighter Lvl 43*" alias="spark_elemental">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -22996,7 +22568,6 @@
 	</npc>
 	<npc id="25434" name="Bandit Leader Barda" title="Raid Boss Lvl 55*" alias="bandit_leader_barda">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="60.0"/>
@@ -23055,7 +22626,6 @@
 	</npc>
 	<npc id="25435" name="Barda's Bandit" title="Raid Fighter Lvl 54*" alias="barda_bandit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="37.0"/>
@@ -23104,7 +22674,6 @@
 	</npc>
 	<npc id="25436" name="Barda's Shaman" title="Raid Fighter Lvl 54*" alias="barda_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="34.0"/>
@@ -23154,7 +22723,6 @@
 	</npc>
 	<npc id="25437" name="Timak Orc Gosmos" title="Raid Boss Lvl 45*" alias="timak_orc_gosmos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="52.0"/>
@@ -23212,7 +22780,6 @@
 	</npc>
 	<npc id="25438" name="Thief Kelbar" title="Raid Boss Lvl 44*" alias="kelbar">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="50.0"/>
@@ -23272,7 +22839,6 @@
 	</npc>
 	<npc id="25439" name="Kelbar's Inferior" title="Raid Fighter Lvl 43*" alias="kelbars_man">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="38.0"/>
@@ -23321,7 +22887,6 @@
 	</npc>
 	<npc id="25440" name="Kelbar's Wizard" title="Raid Fighter Lvl 43*" alias="kelbars_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -23371,7 +22936,6 @@
 	</npc>
 	<npc id="25441" name="Evil Spirit Cyrion" title="Raid Boss Lvl 45*" alias="monster_cyrion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="150.0"/>
@@ -23435,7 +22999,6 @@
 	</npc>
 	<npc id="25442" name="Evil Creature of Forest" title="Raid Fighter Lvl 44*" alias="forest_monster">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="19.0"/>
 		<set name="height" val="36.0"/>
@@ -23483,7 +23046,6 @@
 	</npc>
 	<npc id="25443" name="Anger of Forest" title="Raid Fighter Lvl 44*" alias="forest_animosity">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="27.0"/>
@@ -23532,7 +23094,6 @@
 	</npc>
 	<npc id="25444" name="Enmity Ghost Ramdal" title="Raid Boss Lvl 65*" alias="enmity_ghost_ramdal">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="40.0"/>
 		<set name="height" val="70.0"/>
@@ -23596,7 +23157,6 @@
 	</npc>
 	<npc id="25445" name="Enmity Ghosts" title="Raid Fighter Lvl 64*" alias="enmity_ghost">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="38.0"/>
@@ -23648,7 +23208,6 @@
 	</npc>
 	<npc id="25446" name="Shooter of Enmity" title="Raid Fighter Lvl 64*" alias="enmity_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -23700,7 +23259,6 @@
 	</npc>
 	<npc id="25447" name="Immortal Savior Mardil" title="Raid Boss Lvl 71*" alias="hope_immortality_mardil">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="38.0"/>
@@ -23761,7 +23319,6 @@
 	</npc>
 	<npc id="25448" name="Immortal Savior" title="Raid Fighter Lvl 70*" alias="hope_immortality">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="21.0"/>
@@ -23813,7 +23370,6 @@
 	</npc>
 	<npc id="25449" name="Immortal Guide" title="Raid Fighter Lvl 70*" alias="guide_immortality">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="28.0"/>
@@ -23863,7 +23419,6 @@
 	</npc>
 	<npc id="25450" name="Cherub Galaxia" title="Raid Boss Lvl 79*" alias="cherub_garacsia">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="120.0"/>
@@ -23924,7 +23479,6 @@
 	</npc>
 	<npc id="25451" name="Galaxia's Guards" title="Raid Fighter Lvl 78*" alias="garacsias_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="36.5"/>
@@ -23974,7 +23528,6 @@
 	</npc>
 	<npc id="25452" name="Messenger of Angel" title="Raid Fighter Lvl 79*" alias="cherub_messenger">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="36.5"/>
@@ -24024,7 +23577,6 @@
 	</npc>
 	<npc id="25453" name="Meanas Anor" title="Raid Boss Lvl 70*" alias="meanas_anor">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="58.0"/>
 		<set name="height" val="108.0"/>
@@ -24085,7 +23637,6 @@
 	</npc>
 	<npc id="25454" name="Wyvern of Marsh" title="Raid Fighter Lvl 69*" alias="anor_marsh_drake">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="29.0"/>
 		<set name="height" val="72.0"/>
@@ -24135,7 +23686,6 @@
 	</npc>
 	<npc id="25455" name="Succubus of Marsh" title="Raid Fighter Lvl 69*" alias="anor_marsh_succubus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -24187,7 +23737,6 @@
 	</npc>
 	<npc id="25456" name="Mirror of Oblivion" title="Raid Boss Lvl 49*" alias="oblivion_s_mirror">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="78.0"/>
@@ -24247,7 +23796,6 @@
 	</npc>
 	<npc id="25457" name="Shards of Oblivion" title="Raid Fighter Lvl 48*" alias="deprivation_man_h">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="22.0"/>
@@ -24299,7 +23847,6 @@
 	</npc>
 	<npc id="25458" name="Shadow of Oblivion" title="Raid Fighter Lvl 48*" alias="deprivation_man_e">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="7.0"/>
 		<set name="height" val="21.0"/>
@@ -24353,7 +23900,6 @@
 	</npc>
 	<npc id="25459" name="Shards of Oblivion" title="Raid Fighter Lvl 48*" alias="deprivation_man_d">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="18.7"/>
@@ -24405,7 +23951,6 @@
 	</npc>
 	<npc id="25460" name="Deadman Ereve" title="Raid Boss Lvl 51*" alias="ereve_deathman">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="141.0"/>
@@ -24467,7 +24012,6 @@
 	</npc>
 	<npc id="25461" name="Ereve's Knight" title="Raid Fighter Lvl 50*" alias="ereves_knight">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -24520,7 +24064,6 @@
 	</npc>
 	<npc id="25462" name="Ereve's Squire" title="Raid Fighter Lvl 50*" alias="ereve_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="28.0"/>
@@ -24573,7 +24116,6 @@
 	</npc>
 	<npc id="25463" name="Harit Guardian Garangky" title="Raid Boss Lvl 56*" alias="harit_tutelar_garangky">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="34.0"/>
 		<set name="height" val="28.0"/>
@@ -24631,7 +24173,6 @@
 	</npc>
 	<npc id="25464" name="Garangky Guard Captain" title="Raid Fighter Lvl 55*" alias="garangkys_guard_leader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -24680,7 +24221,6 @@
 	</npc>
 	<npc id="25465" name="Garangky Guard Shaman" title="Raid Fighter Lvl 55*" alias="garangkys_shaman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -24730,7 +24270,6 @@
 	</npc>
 	<npc id="25466" name="Garangky Guard" title="Raid Fighter Lvl 55*" alias="garangkys_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -24779,7 +24318,6 @@
 	</npc>
 	<npc id="25467" name="Gorgolos" title="Raid Boss Lvl 64*" alias="gorgolos">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="96.0"/>
@@ -24843,7 +24381,6 @@
 	</npc>
 	<npc id="25468" name="Cursed Life" title="Raid Fighter Lvl 63*" alias="cursed_soul">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="36.0"/>
@@ -24893,7 +24430,6 @@
 	</npc>
 	<npc id="25469" name="Cursed Soul" title="Raid Fighter Lvl 63*" alias="cursed_spirit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="36.0"/>
@@ -24944,7 +24480,6 @@
 	</npc>
 	<npc id="25470" name="Last Titan Utenus" title="Raid Boss Lvl 66*" alias="last_lesser_utenus">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -25006,7 +24541,6 @@
 	</npc>
 	<npc id="25471" name="Utenus's Wizard" title="Raid Fighter Lvl 65*" alias="utenus_magician">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="44.0"/>
@@ -25059,7 +24593,6 @@
 	</npc>
 	<npc id="25472" name="Utenus's Guard" title="Raid Fighter Lvl 65*" alias="utenus_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="35.0"/>
@@ -25111,7 +24644,6 @@
 	</npc>
 	<npc id="25473" name="Grave Robber Kim" title="Raid Boss Lvl 52*" alias="grave_rabber_khim">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="42.0"/>
@@ -25169,7 +24701,6 @@
 	</npc>
 	<npc id="25474" name="Kim's Gang" title="Raid Fighter Lvl 51*" alias="grave_rabber">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -25218,7 +24749,6 @@
 	</npc>
 	<npc id="25475" name="Ghost Knight Kabed" title="Raid Boss Lvl 55*" alias="ghost_kabed">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="46.5"/>
@@ -25283,7 +24813,6 @@
 	</npc>
 	<npc id="25476" name="Kabed's Soldier" title="Raid Fighter Lvl 54*" alias="kabed_soldier">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -25335,7 +24864,6 @@
 	</npc>
 	<npc id="25477" name="Kabed's Archer" title="Raid Fighter Lvl 54*" alias="kabed_archer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="27.0"/>
@@ -25387,7 +24915,6 @@
 	</npc>
 	<npc id="25478" name="Shilen's Priest Hisilrome" title="Raid Boss Lvl 65*" alias="priest_hisilrome">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="65.0"/>
@@ -25448,7 +24975,6 @@
 	</npc>
 	<npc id="25479" name="Hisilrome's Servitor" title="Raid Fighter Lvl 64*" alias="hisilrome_summoner">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.0"/>
@@ -25498,7 +25024,6 @@
 	</npc>
 	<npc id="25480" name="Hisilrome's Page" title="Raid Fighter Lvl 64*" alias="hisilrome_steward">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="64"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="50.0"/>
@@ -25548,7 +25073,6 @@
 	</npc>
 	<npc id="25481" name="Magus Kenishee" title="Raid Boss Lvl 53*" alias="magician_kenishee">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="38.0"/>
@@ -25608,7 +25132,6 @@
 	</npc>
 	<npc id="25482" name="Shadow of Kenishee" title="Raid Fighter Lvl 52*" alias="kenishees_shadow">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="30.0"/>
@@ -25659,7 +25182,6 @@
 	</npc>
 	<npc id="25483" name="Phantom of Kenishee" title="Raid Fighter Lvl 52*" alias="kenishees_silhouette">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -25711,7 +25233,6 @@
 	</npc>
 	<npc id="25484" name="Zaken's Chief Mate Tillion" title="Raid Boss Lvl 50*" alias="chief_mate_tilion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="39.0"/>
@@ -25773,7 +25294,6 @@
 	</npc>
 	<npc id="25485" name="Tillion's Inferior" title="Raid Fighter Lvl 49*" alias="tilions_follower">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="31.0"/>
@@ -25826,7 +25346,6 @@
 	</npc>
 	<npc id="25486" name="Tillion's Bat" title="Raid Fighter Lvl 49*" alias="tilions_bat">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="33.5"/>
@@ -25875,7 +25394,6 @@
 	</npc>
 	<npc id="25487" name="Water Spirit Lian" title="Raid Boss Lvl 40*" alias="water_spirit_lian">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="54.0"/>
@@ -25936,7 +25454,6 @@
 	</npc>
 	<npc id="25488" name="Spirit of Gildor" title="Raid Fighter Lvl 39*" alias="gildor_s_water_spirit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -25988,7 +25505,6 @@
 	</npc>
 	<npc id="25489" name="Guardian of Gildor" title="Raid Fighter Lvl 39*" alias="gildor_s_guardian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -26039,7 +25555,6 @@
 	</npc>
 	<npc id="25490" name="Gwindorr" title="Raid Boss Lvl 40*" alias="gwindorr">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.0"/>
@@ -26099,7 +25614,6 @@
 	</npc>
 	<npc id="25491" name="Guard of Gwindorr" title="Raid Fighter Lvl 39*" alias="gwindorr_s_guard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -26147,7 +25661,6 @@
 	</npc>
 	<npc id="25492" name="Follower of Gwindorr" title="Raid Fighter Lvl 39*" alias="gwindorr_s_minion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -26195,7 +25708,6 @@
 	</npc>
 	<npc id="25493" name="Eva's Spirit Niniel" title="Raid Boss Lvl 55*" alias="niniel_spirit_eva">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="15.0"/>
@@ -26257,7 +25769,6 @@
 	</npc>
 	<npc id="25494" name="Spirit of Niniel" title="Raid Fighter Lvl 54*" alias="niniel_spirits_wiz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -26306,7 +25817,6 @@
 	</npc>
 	<npc id="25495" name="Spirit of Niniel" title="Raid Fighter Lvl 54*" alias="niniel_spirits_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="5.0"/>
 		<set name="height" val="25.0"/>
@@ -26354,7 +25864,6 @@
 	</npc>
 	<npc id="25496" name="Fafurion's Envoy Pingolpin" title="Raid Boss Lvl 52*" alias="papurrion_pingolpin">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="72.0"/>
@@ -26415,7 +25924,6 @@
 	</npc>
 	<npc id="25497" name="Fafurion's Envoy  " title="Raid Fighter Lvl 51*" alias="papurrion_envoy">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -26464,7 +25972,6 @@
 	</npc>
 	<npc id="25498" name="Fafurion's Henchman Istary" title="Raid Boss Lvl 45*" alias="istary_papurrion">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="24.0"/>
 		<set name="height" val="48.0"/>
@@ -26526,7 +26033,6 @@
 	</npc>
 	<npc id="25499" name="Alligator of Istary" title="Raid Fighter Lvl 44*" alias="crocodile_istary_fig">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="11.5"/>
@@ -26575,7 +26081,6 @@
 	</npc>
 	<npc id="25500" name="Alligator of Istary" title="Raid Fighter Lvl 44*" alias="crocodile_istary_zzol">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="11.5"/>
@@ -26623,7 +26128,6 @@
 	</npc>
 	<npc id="25501" name="Boss Akata" title="Raid Boss Lvl 30" alias="grave_robber_akata">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="23.6"/>
@@ -26683,7 +26187,6 @@
 	</npc>
 	<npc id="25502" name="Akata's Thug" title="Raid Fighter Lvl 30" alias="akata_s_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="22.0"/>
@@ -26732,7 +26235,6 @@
 	</npc>
 	<npc id="25503" name="Akata's Lackey" title="Raid Fighter Lvl 30" alias="akata_s_privates">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.4"/>
@@ -26780,7 +26282,6 @@
 	</npc>
 	<npc id="25504" name="Nellis' Vengeful Spirit" title="Raid Boss Lvl 39" alias="spirits_of_nellis">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="28.1"/>
@@ -26840,7 +26341,6 @@
 	</npc>
 	<npc id="25505" name="Nellis' Follower" title="Raid Fighter Lvl 38" alias="follower_of_nellis">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="16.5"/>
@@ -26891,7 +26391,6 @@
 	</npc>
 	<npc id="25506" name="Rayito the Looter" title="Raid Boss Lvl 37" alias="rayito_the_looter">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="33.2"/>
@@ -26950,7 +26449,6 @@
 	</npc>
 	<npc id="25507" name="Rayito's Henchman" title="Raid Fighter Lvl 36" alias="rayito_follower_ogre">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="14.5"/>
 		<set name="height" val="28.0"/>
@@ -26999,7 +26497,6 @@
 	</npc>
 	<npc id="25508" name="Rayito's Henchman" title="Raid Fighter Lvl 36" alias="rayito_follower_kobold">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="16.6"/>
@@ -27049,7 +26546,6 @@
 	</npc>
 	<npc id="25509" name="Dark Shaman Varangka" title="Raid Boss Lvl 53" alias="darkness_shaman_baranka">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="20.8"/>
@@ -27111,7 +26607,6 @@
 	</npc>
 	<npc id="25510" name="Varangka's Descendant" title="Raid Fighter Lvl 52" alias="baranka_descendants">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="26.9"/>
@@ -27160,7 +26655,6 @@
 	</npc>
 	<npc id="25511" name="Varangka's Page" title="Raid Fighter Lvl 52" alias="baranka_chamberlain">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="18.8"/>
@@ -27208,7 +26702,6 @@
 	</npc>
 	<npc id="25512" name="Gigantic Chaos Golem" title="Epic Boss Lvl 52*" alias="dr_chaos_gigantic_golem">
 		<set name="type" val="GrandBoss"/>
-		<set name="nameColor" val="FF0000"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="31.0"/>
 		<set name="height" val="51.8"/>
@@ -27268,7 +26761,6 @@
 	</npc>
 	<npc id="25514" name="Queen Shyeed" title="Raid Boss Lvl 80*" alias="spike_stakato_qn_shyid">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="50.8"/>
@@ -27327,7 +26819,6 @@
 	</npc>
 	<npc id="25515" name="Spiked Stakato " title="Raid Fighter Lvl 79" alias="spike_stakato_mage">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -27377,7 +26868,6 @@
 	</npc>
 	<npc id="25516" name="Spiked Stakato " title="Raid Fighter Lvl 79" alias="spike_stakato_private">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="79"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.2"/>
@@ -27426,7 +26916,6 @@
 	</npc>
 	<npc id="25523" name="Plague Golem" title="Raid Boss Lvl 73" alias="degeneration_golem">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="46.3765"/>
@@ -27482,7 +26971,6 @@
 	</npc>
 	<npc id="25524" name="Flamestone Giant" title="Raid Boss Lvl 76" alias="flame_stone_golem">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -27541,7 +27029,6 @@
 	</npc>
 	<npc id="25525" name="Flame Spirit" title="Raid Fighter Lvl 75" alias="flame_elemental_heal">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -27591,7 +27078,6 @@
 	</npc>
 	<npc id="25526" name="Charged Spirit" title="Raid Fighter Lvl 75" alias="spark_elemental_zzol">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -27639,7 +27125,6 @@
 	</npc>
 	<npc id="25527" name="Uruka" title="Raid Boss Lvl 80" alias="uruka">
 		<set name="type" val="RaidBoss"/>
-		<set name="nameColor" val="FE8B3F"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="30.0"/>
 		<set name="height" val="42.5105"/>

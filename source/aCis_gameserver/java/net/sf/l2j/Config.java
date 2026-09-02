@@ -17,9 +17,11 @@ import net.sf.l2j.commons.logging.CLogger;
 
 import net.sf.l2j.gameserver.enums.ChampionType;
 import net.sf.l2j.gameserver.enums.GeoType;
+import net.sf.l2j.gameserver.enums.MonsterKind;
 import net.sf.l2j.gameserver.model.ChampionSettings;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
+import net.sf.l2j.gameserver.model.records.MonsterNameplate;
 
 /**
  * This class contains global server configuration.<br>
@@ -62,6 +64,7 @@ public final class Config
 	private static final String NPCS_BOSSES_FILE = "./config/npcs/bosses.properties";
 	private static final String NPCS_MANAGERS_FILE = "./config/npcs/managers.properties";
 	private static final String NPCS_FILE = "./config/npcs/npcs.properties";
+	private static final String NPCS_NAMEPLATES_FILE = "./config/npcs/nameplates.properties";
 	
 	private static final String PLAYERS_ADMIN_FILE = "./config/players/admin.properties";
 	private static final String PLAYERS_AUGMENTATION_FILE = "./config/players/augmentation.properties";
@@ -332,7 +335,14 @@ public final class Config
 	
 	/** Misc */
 	public static boolean FREE_TELEPORT;
-	
+
+	// --------------------------------------------------
+	// NPCs - monster nameplates
+	// --------------------------------------------------
+
+	/** The two line plate every kind of monster wears above its head - the words its title is made of, the colors both lines are painted with, and the way the level and the aggression are written. */
+	public static final Map<MonsterKind, MonsterNameplate> MONSTER_NAMEPLATES = new EnumMap<>(MonsterKind.class);
+
 	// --------------------------------------------------
 	// NPCs - bosses
 	// --------------------------------------------------
@@ -797,7 +807,11 @@ public final class Config
 			settings.setPassive(championMobs.getProperty(prefix + "Passive", false));
 			settings.setFrequency(championMobs.getProperty(prefix + "Frequency", 0));
 			settings.setTitle(championMobs.getProperty(prefix + "Title", "Champion"));
-			settings.setNameColor(NpcTemplate.parseNameColor(championMobs.getProperty(prefix + "NameColor", String.format("%06X", type.getDefaultNameColor()))));
+			// The title takes the name's color when the config names none of its own, which is what one single color used to mean.
+			final String nameColor = championMobs.getProperty(prefix + "NameColor", String.format("%06X", type.getDefaultNameColor()));
+			settings.setNameColor(NpcTemplate.parseNameColor(nameColor));
+			settings.setTitleColor(NpcTemplate.parseNameColor(championMobs.getProperty(prefix + "TitleColor", nameColor)));
+
 			settings.setLevelRange(championMobs.getProperty(prefix + "MinLevel", 1), championMobs.getProperty(prefix + "MaxLevel", 85));
 
 			settings.setStatMultipliers(championMobs.getProperty(prefix + "HpMultiplier", 1), championMobs.getProperty(prefix + "PAtkMultiplier", 1.), championMobs.getProperty(prefix + "PDefMultiplier", 1.), championMobs.getProperty(prefix + "MAtkMultiplier", 1.), championMobs.getProperty(prefix + "MDefMultiplier", 1.));
@@ -1212,7 +1226,35 @@ public final class Config
 		
 		FREE_TELEPORT = npcs.getProperty("FreeTeleport", false);
 	}
-	
+
+	/**
+	 * Loads the plates monsters wear above their head.<br>
+	 * The words naming every kind of monster, and the colors that kind's two lines are painted with.
+	 */
+	private static final void loadNameplates()
+	{
+		final ExProperties nameplates = initProperties(NPCS_NAMEPLATES_FILE);
+
+		// Both are shared by every kind : a title is "<text> <level label> <level><aggressive mark>".
+		final String levelLabel = nameplates.getProperty("MonsterLevelLabel", "Lvl");
+		final String aggressiveMark = nameplates.getProperty("MonsterAggressiveMark", "*");
+
+		MONSTER_NAMEPLATES.clear();
+
+		for (MonsterKind kind : MonsterKind.values())
+		{
+			final String prefix = "Monster" + kind.getPrefix();
+
+			final String text = nameplates.getProperty(prefix + "Text", kind.getDefaultText());
+
+			// The title takes the name's color when the config names none of its own, so a kind written the way the one color of the older protocol was still paints both lines alike.
+			final String nameColor = nameplates.getProperty(prefix + "NameColor", (kind.getDefaultNameColor() == NpcTemplate.NO_NAME_COLOR) ? "" : String.format("%06X", kind.getDefaultNameColor()));
+			final String titleColor = nameplates.getProperty(prefix + "TitleColor", nameColor);
+
+			MONSTER_NAMEPLATES.put(kind, new MonsterNameplate(text, NpcTemplate.parseNameColor(nameColor), NpcTemplate.parseNameColor(titleColor), levelLabel, aggressiveMark));
+		}
+	}
+
 	/**
 	 * Loads raid bosses and grand bosses settings.
 	 */
@@ -1778,6 +1820,7 @@ public final class Config
 		
 		// NPCs settings
 		loadNpcs();
+		loadNameplates();
 		loadBosses();
 		loadNpcManagers();
 		

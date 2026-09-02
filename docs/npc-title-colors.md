@@ -26,8 +26,10 @@
 
 **Цвет титула тоже переехал на сервер** — врезками того же
 [patch_engine_npc_packet_color.ps1](../tools/client/patch_engine_npc_packet_color.ps1),
-см. [npc-name-colors.md](npc-name-colors.md), раздел 7. Свойство `nameColor` в
-`data/xml/npcs` красит обе строки, и оно перебивает то, что лежит в `npcname-e.dat`.
+см. [npc-name-colors.md](npc-name-colors.md), раздел 7. У имени и у титула свой
+цвет: `nameColor` и `titleColor` в `data/xml/npcs` (а у монстров — вид монстра из
+`config/npcs/nameplates.properties`), и любой из них перебивает то, что лежит в
+`npcname-e.dat`. Без `titleColor` титул берёт цвет имени.
 
 Всё, что ниже, остаётся в силе для NPC, про которых сервер цвета не присылает, — но с
 важной оговоркой, которая нашлась при отладке этих врезок: **при включённом

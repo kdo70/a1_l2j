@@ -62,6 +62,7 @@ public class ChampionSettings
 	private int _frequency;
 	private String _title = "";
 	private int _nameColor = NpcTemplate.NO_NAME_COLOR;
+	private int _titleColor = NpcTemplate.NO_NAME_COLOR;
 	private int _minLevel;
 	private int _maxLevel;
 
@@ -133,11 +134,20 @@ public class ChampionSettings
 	}
 
 	/**
-	 * @return The color both the name and the title of such a champion are painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR} to leave them alone.
+	 * @return The color the name of such a champion - the lower line - is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR} to leave it alone.
 	 */
 	public int getNameColor()
 	{
 		return _nameColor;
+	}
+
+	/**
+	 * @return The color the title of such a champion - the upper line - is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR} to leave it alone. A config naming no color of its own for it
+	 *         gives it the name's, which is what one single color used to mean.
+	 */
+	public int getTitleColor()
+	{
+		return _titleColor;
 	}
 
 	public int getHpMultiplier()
@@ -221,6 +231,11 @@ public class ChampionSettings
 	public void setNameColor(int nameColor)
 	{
 		_nameColor = nameColor;
+	}
+
+	public void setTitleColor(int titleColor)
+	{
+		_titleColor = titleColor;
 	}
 
 	public void setLevelRange(int minLevel, int maxLevel)

@@ -112,6 +112,7 @@ public class Npc extends Creature
 	private int _scriptValue = 0;
 
 	private int _nameColor;
+	private int _titleColor;
 
 	private int _visualEffect;
 	private int _visualSkillId;
@@ -195,8 +196,9 @@ public class Npc extends Creature
 		_currentCollisionHeight = template.getCollisionHeight();
 		_currentCollisionRadius = template.getCollisionRadius();
 
-		// the template color is only a starting point ; a script may repaint this very NPC
+		// the template colors are only a starting point ; a script may repaint this very NPC
 		_nameColor = template.getNameColor();
+		_titleColor = template.getTitleColor();
 
 		// same for the permanent visual effect ; a script or a GM may give it to this very NPC
 		_visualEffect = template.getVisualEffect();
@@ -972,7 +974,7 @@ public class Npc extends Creature
 	}
 
 	/**
-	 * @return the color this NPC's name is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR}.
+	 * @return the color this NPC's name - the lower line - is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR}.
 	 */
 	public int getNameColor()
 	{
@@ -987,6 +989,24 @@ public class Npc extends Creature
 	public void setNameColor(int nameColor)
 	{
 		_nameColor = nameColor;
+	}
+
+	/**
+	 * @return the color this NPC's title - the upper line - is painted with, as RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR}.
+	 */
+	public int getTitleColor()
+	{
+		return _titleColor;
+	}
+
+	/**
+	 * Repaint this very NPC's title. Same deal as {@link #setNameColor(int)} : it reaches the players who
+	 * already see the NPC only on the next NpcInfo.
+	 * @param titleColor : RRGGBB, or {@link NpcTemplate#NO_NAME_COLOR} to hand the title back to the client.
+	 */
+	public void setTitleColor(int titleColor)
+	{
+		_titleColor = titleColor;
 	}
 
 	/**

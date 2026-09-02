@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-    Writes the level, the kind of monster and the matching name color into every
-    monster's title in data/xml/npcs.
+    Writes the level and the kind of monster into every monster's title in
+    data/xml/npcs, out of the texts config/npcs/nameplates.properties holds.
 
 .DESCRIPTION
     The title an NPC carries above its head is the only line a server can write
@@ -16,9 +16,16 @@
         Epic Boss Lvl 80*      a grand boss
         Epic Fighter Lvl 80*   its minion
 
-    The three named kinds also get a "nameColor", which a patched client paints
-    both lines with : orange for quests and raids, red for epics. See
-    docs/npc-name-colors.md.
+    Every word of that - the name of each kind, the "Lvl" and the "*" - is read
+    from config/npcs/nameplates.properties, not written here.
+
+    The three named kinds are also painted, orange for quests and raids, red for
+    epics, with a color per line - the name and the title carry one each. Those
+    colors are NOT written into the datapack : the very same config file holds
+    them, and the server reads them back off the title this script writes. A
+    "nameColor" or a "titleColor" left in data/xml/npcs therefore means "this one
+    NPC, whatever the config says" - so this script clears the colors it owns and
+    leaves anything else alone. See docs/npc-name-colors.md.
 
     Who is what :
 
@@ -41,8 +48,9 @@
 
     Levels and aggression are read from the same XML the titles are written to,
     so re-running this after a stat change refreshes the titles. The script is
-    idempotent : it rewrites the title attribute and the nameColor property
-    outright rather than prepending to them.
+    idempotent : it rewrites the title attribute outright rather than prepending
+    to it. Renaming a kind in the config needs a re-run too, or the datapack
+    keeps the old wording and the server stops recognizing it.
 
 .PARAMETER NpcDirs
     The data/xml/npcs folders to rewrite. Both copies of the datapack by default
@@ -50,6 +58,10 @@
 
 .PARAMETER SpawnlistSql
     sql/spawnlist.sql, read for the minion table.
+
+.PARAMETER NameplatesConfig
+    config/npcs/nameplates.properties, holding the words every kind is written
+    with and the colors its two lines are painted with.
 
 .PARAMETER WhatIf
     Report what would change and write nothing.
@@ -63,20 +75,38 @@ param(
 		"$PSScriptRoot\..\..\source\aCis_datapack\data\xml\npcs"
 	),
 	[string] $SpawnlistSql = "$PSScriptRoot\..\..\source\aCis_datapack\sql\spawnlist.sql",
+	[string] $NameplatesConfig = "$PSScriptRoot\..\..\source\aCis_gameserver\config\npcs\nameplates.properties",
 	[string[]] $BossFiles = @('25000-25999.xml', '29000-29999.xml'),
 	[switch] $WhatIf
 )
 
 $ErrorActionPreference = 'Stop'
 
-# The kinds, in the order they win when an npc could be several of them.
-$KINDS = [ordered]@{
-	epic         = @{ Prefix = 'Epic Boss';     Color = 'FF0000' }
-	epicMinion   = @{ Prefix = 'Epic Fighter';  Color = 'FF0000' }
-	raid         = @{ Prefix = 'Raid Boss';     Color = 'FE8B3F' }
-	raidMinion   = @{ Prefix = 'Raid Fighter';  Color = 'FE8B3F' }
-	quest        = @{ Prefix = 'Quest Monster'; Color = 'FF8000' }
-	plain        = @{ Prefix = '';              Color = $null }
+# The kinds, in the order they win when an npc could be several of them. Each
+# one carries the name it goes by in the config file, the words and the color it
+# falls back to when the config says nothing, and whether its own words are read
+# back out of a title - which is how the client's own markings, and this
+# script's previous run, are recognized.
+$KIND_DEFAULTS = [ordered]@{
+	epic       = @{ Key = 'Epic';       Text = 'Epic Boss';     Color = 'FF0000'; FromTitle = $false }
+	epicMinion = @{ Key = 'EpicMinion'; Text = 'Epic Fighter';  Color = 'FF0000'; FromTitle = $true }
+	raid       = @{ Key = 'Raid';       Text = 'Raid Boss';     Color = 'FE8B3F'; FromTitle = $false }
+	raidMinion = @{ Key = 'RaidMinion'; Text = 'Raid Fighter';  Color = 'FE8B3F'; FromTitle = $true }
+	quest      = @{ Key = 'Quest';      Text = 'Quest Monster'; Color = 'FF8000'; FromTitle = $true }
+	plain      = @{ Key = 'Plain';      Text = '';              Color = '';       FromTitle = $false }
+}
+
+# The two properties the color of a monster used to be written into. Both are
+# the server's business now, so both are cleared from the datapack.
+$COLOR_KEYS = @('nameColor', 'titleColor')
+
+# What the stock client calls these two kinds, in the titles data/xml/npcs came
+# to hold from npcname-e.dat. They are read on top of the configured words, so
+# renaming a kind in the config does not throw away the very marking the whole
+# sorting rests on.
+$STOCK_TEXTS = [ordered]@{
+	'Quest Monster' = 'quest'
+	'Raid Fighter'  = 'raidMinion'
 }
 
 # Everything deriving from Monster, plus FriendlyMonster, which derives from
@@ -88,6 +118,113 @@ $MONSTER_TYPES = @(
 
 $NPC_LINE = '^(?<head>\s*<npc\s+id="(?<id>\d+)".*?title=")(?<title>[^"]*)(?<tail>".*)$'
 $SET_LINE = '^(?<indent>\s*)<set\s+name="(?<key>[^"]+)"\s+val="(?<val>[^"]*)"\s*/>\s*$'
+
+# --------------------------------------------------------------------------
+# The config file : every word a title is made of, and every color.
+# --------------------------------------------------------------------------
+function Read-Properties([string] $path)
+{
+	$props = @{}
+
+	foreach ($line in [System.IO.File]::ReadLines($path))
+	{
+		$entry = $line.Trim()
+
+		if ($entry -eq '' -or $entry.StartsWith('#') -or $entry.StartsWith('!'))
+		{
+			continue
+		}
+
+		$eq = $entry.IndexOf('=')
+		if ($eq -lt 1)
+		{
+			continue
+		}
+
+		$props[$entry.Substring(0, $eq).Trim()] = $entry.Substring($eq + 1).Trim()
+	}
+
+	return $props
+}
+
+$props = Read-Properties (Resolve-Path $NameplatesConfig)
+
+function Get-Prop([string] $key, [string] $fallback)
+{
+	if ($props.ContainsKey($key))
+	{
+		return $props[$key]
+	}
+
+	return $fallback
+}
+
+$LEVEL_LABEL = Get-Prop 'MonsterLevelLabel' 'Lvl'
+$AGGRESSIVE_MARK = Get-Prop 'MonsterAggressiveMark' '*'
+
+if ($LEVEL_LABEL -eq '')
+{
+	throw "MonsterLevelLabel is empty in $NameplatesConfig ; the level needs a word to be announced with."
+}
+
+$KINDS = [ordered]@{}
+
+foreach ($name in $KIND_DEFAULTS.Keys)
+{
+	$default = $KIND_DEFAULTS[$name]
+	$color = (Get-Prop ('Monster' + $default.Key + 'NameColor') $default.Color).ToUpperInvariant()
+
+	$KINDS[$name] = @{
+		Text       = Get-Prop ('Monster' + $default.Key + 'Text') $default.Text
+		Color      = $color
+		# Left out of the config, the title takes the name's color, the way the server reads it.
+		TitleColor = (Get-Prop ('Monster' + $default.Key + 'TitleColor') $color).ToUpperInvariant()
+	}
+}
+
+# The words a title is recognized by : what the config calls each kind, plus the
+# client's own markings for the two kinds it marks itself.
+$TEXT_TO_KIND = @{}
+
+foreach ($name in $KIND_DEFAULTS.Keys)
+{
+	$text = $KINDS[$name].Text
+
+	if ($KIND_DEFAULTS[$name].FromTitle -and $text -ne '' -and -not $TEXT_TO_KIND.ContainsKey($text))
+	{
+		$TEXT_TO_KIND[$text] = $name
+	}
+}
+
+foreach ($text in $STOCK_TEXTS.Keys)
+{
+	if (-not $TEXT_TO_KIND.ContainsKey($text))
+	{
+		$TEXT_TO_KIND[$text] = $STOCK_TEXTS[$text]
+	}
+}
+
+# The colors this script owns : the ones the config gives a kind, and the ones
+# it used to write before they moved to the config. A "nameColor" holding one of
+# them is this script's own leftover and goes ; anything else is a hand made
+# override of one NPC and stays.
+$OWNED_COLORS = @{}
+
+foreach ($name in $KIND_DEFAULTS.Keys)
+{
+	foreach ($color in @($KIND_DEFAULTS[$name].Color, $KINDS[$name].Color, $KINDS[$name].TitleColor))
+	{
+		if ($color -ne '')
+		{
+			$OWNED_COLORS[$color.ToUpperInvariant()] = $true
+		}
+	}
+}
+
+# "<words> <label> <level><mark>", read from the back : this is what tells a
+# title this script wrote from the bare marking the client left behind.
+$MARK_PATTERN = if ($AGGRESSIVE_MARK -eq '') { '' } else { '(?:' + [regex]::Escape($AGGRESSIVE_MARK) + ')?' }
+$TITLE_TAIL = '\s*' + [regex]::Escape($LEVEL_LABEL) + ' \d+' + $MARK_PATTERN + '$'
 
 # --------------------------------------------------------------------------
 # Read every npc : id, kind-deciding stock title, type, level, aggro range.
@@ -188,14 +325,12 @@ function Get-Kinds($npcs, $minions)
 		# The title is read back the same way it is written, so a second run
 		# sees what the first one decided and does not lose the stock marking
 		# it replaced.
-		$prefix = ($npc.Title -replace '\s*Lvl \d+\*?$', '').Trim()
+		$text = ($npc.Title -replace $TITLE_TAIL, '').Trim()
 
 		$kind[$npc.Id] =
 			if ($npc.Type -eq 'GrandBoss') { 'epic' }
 			elseif ($npc.Type -eq 'RaidBoss') { 'raid' }
-			elseif ($prefix -eq 'Epic Fighter') { 'epicMinion' }
-			elseif ($prefix -eq 'Raid Fighter') { 'raidMinion' }
-			elseif ($prefix -eq 'Quest Monster') { 'quest' }
+			elseif ($text -ne '' -and $TEXT_TO_KIND.ContainsKey($text)) { $TEXT_TO_KIND[$text] }
 			else { 'plain' }
 	}
 
@@ -271,15 +406,15 @@ function Get-Kinds($npcs, $minions)
 
 function Get-Title($npc, [string] $kind)
 {
-	$prefix = $KINDS[$kind].Prefix
-	$star = if ($npc.AggroRange -gt 0) { '*' } else { '' }
+	$text = $KINDS[$kind].Text
+	$mark = if ($npc.AggroRange -gt 0) { $AGGRESSIVE_MARK } else { '' }
 
-	return ("$prefix Lvl $($npc.Level)$star").Trim()
+	return ("$text $LEVEL_LABEL $($npc.Level)$mark").Trim()
 }
 
 # --------------------------------------------------------------------------
-# Rewrite one file : the title attribute, and the nameColor property, which is
-# kept right under "type" the way the hand-written ones are.
+# Rewrite one file : the title attribute, and away with the nameColor property
+# this script used to write there before the color moved to the config.
 # --------------------------------------------------------------------------
 function Update-File([string] $path, $npcs, $kind)
 {
@@ -293,25 +428,13 @@ function Update-File([string] $path, $npcs, $kind)
 	$out = New-Object System.Collections.Generic.List[string]
 	$stats = @{ Titles = 0; Colors = 0 }
 
-	# What each npc in this file carries today, so a rewrite that changes
-	# nothing is not reported as one.
-	$has = @{}
 	$id = 0
-	foreach ($line in $lines)
-	{
-		if ($line -match $NPC_LINE) { $id = [int]$Matches['id'] }
-		elseif ($line -match $SET_LINE -and $Matches['key'] -eq 'nameColor') { $has[$id] = $Matches['val'] }
-	}
-
-	$id = 0
-	$wanted = $null
 
 	foreach ($line in $lines)
 	{
 		if ($line -match $NPC_LINE)
 		{
 			$id = [int]$Matches['id']
-			$wanted = if ($kind.ContainsKey($id)) { $KINDS[$kind[$id]].Color } else { $null }
 
 			if ($kind.ContainsKey($id))
 			{
@@ -322,38 +445,19 @@ function Update-File([string] $path, $npcs, $kind)
 					$line = $Matches['head'] + $title + $Matches['tail']
 					$stats.Titles++
 				}
-
-				$had = if ($has.ContainsKey($id)) { $has[$id] } else { $null }
-				if ($had -ne $wanted)
-				{
-					$stats.Colors++
-				}
 			}
 
 			$out.Add($line)
 			continue
 		}
 
-		if ($line -match $SET_LINE)
+		# The colors of a monster live in config/npcs/nameplates.properties and
+		# are looked up by the title written just above, so the datapack carries
+		# none - but a color this script never chose is somebody's decision
+		# about that one NPC, and the server lets it win, so it stays.
+		if ($line -match $SET_LINE -and $COLOR_KEYS -contains $Matches['key'] -and $kind.ContainsKey($id) -and $OWNED_COLORS.ContainsKey($Matches['val'].ToUpperInvariant()))
 		{
-			$key = $Matches['key']
-
-			# Ours to own only on the npcs this script names ; a nameColor set
-			# by hand on anything else stays where it is. The wanted one goes
-			# back right under "type", where the hand-written ones sit.
-			if ($key -eq 'nameColor' -and $kind.ContainsKey($id))
-			{
-				continue
-			}
-
-			$out.Add($line)
-
-			if ($key -eq 'type' -and $null -ne $wanted)
-			{
-				$out.Add($Matches['indent'] + '<set name="nameColor" val="' + $wanted + '"/>')
-				$wanted = $null
-			}
-
+			$stats.Colors++
 			continue
 		}
 
@@ -374,6 +478,15 @@ function Update-File([string] $path, $npcs, $kind)
 }
 
 # --------------------------------------------------------------------------
+
+"Titles read from $((Resolve-Path $NameplatesConfig).Path)."
+
+foreach ($name in $KINDS.Keys)
+{
+	"  {0,-12} {1,-22} name {2,-8} title {3}" -f $name, (Get-Title ([pscustomobject]@{ Level = 80; AggroRange = 1 }) $name), $(if ($KINDS[$name].Color -eq '') { '-' } else { $KINDS[$name].Color }), $(if ($KINDS[$name].TitleColor -eq '') { '-' } else { $KINDS[$name].TitleColor })
+}
+
+""
 
 $minions = Read-Minions (Resolve-Path $SpawnlistSql)
 "$($minions.Count) npc ids are spawned as minions."
@@ -404,10 +517,10 @@ foreach ($dir in $NpcDirs)
 
 		if ($s.Titles -gt 0 -or $s.Colors -gt 0)
 		{
-			"  {0,-20} titles {1,5}   colors {2,5}" -f $file.Name, $s.Titles, $s.Colors
+			"  {0,-20} titles {1,5}   colors dropped {2,5}" -f $file.Name, $s.Titles, $s.Colors
 		}
 	}
 
 	"  ---"
-	"  {0,-20} titles {1,5}   colors {2,5}{3}" -f 'total', $titles, $colors, $(if ($WhatIf) { '   (nothing written)' } else { '' })
+	"  {0,-20} titles {1,5}   colors dropped {2,5}{3}" -f 'total', $titles, $colors, $(if ($WhatIf) { '   (nothing written)' } else { '' })
 }

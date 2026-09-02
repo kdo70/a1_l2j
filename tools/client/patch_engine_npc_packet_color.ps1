@@ -9,33 +9,45 @@
 # says nothing about keeps whatever the other patch gives it. Either patch works
 # on its own.
 #
-# How the colour travels : the server appends one dword, 0xC0RRGGBB, to the very
-# end of NpcInfo, and only for the NPCs that have a colour. The client parses a
-# packet through format strings ("ddddddddddddddddddffffdddcccccSSddd" and then
-# "dddddccffdd" for NpcInfo) and bounds-checks every field against the end of the
-# packet, so the four extra bytes are never read by a stock client - it keeps
-# working, it just shows white names.
+# How the colour travels : the server appends TWO dwords to the very end of
+# NpcInfo, and only for the NPCs that have a colour at all -
+#
+#     0xC0RRGGBB   the NAME  - the line the engine draws below the title
+#     0xC1RRGGBB   the TITLE - the line above it
+#
+# - each one tagged in its top byte, so it is told apart both from the last dword
+# of an untouched packet (isFlying, 0 or 1) and from the other colour. A line the
+# server does not paint is sent as a plain 0, which no tag matches, and keeps
+# whatever colour the client has for it.
+#
+# The client parses a packet through format strings
+# ("ddddddddddddddddddffffdddcccccSSddd" and then "dddddccffdd" for NpcInfo) and
+# bounds-checks every field against the end of the packet, so the eight extra
+# bytes are never read by a stock client - it keeps working, it just shows white
+# names.
 #
 # The patched client reads them **from the cursor the parser returns**, which
-# points at the first byte it did not parse - that is exactly our dword. Reading
-# from the end of the packet instead does not work : whatever [reader+4EF8h]
-# counts, it is not the last payload byte, and the tag never matched.
+# points at the first byte it did not parse - that is exactly our first dword.
+# Reading from the end of the packet instead does not work : whatever
+# [reader+4EF8h] counts, it is not the last payload byte, and the tag never
+# matched.
 #
-# The same colour also paints the TITLE, the line above the name. Its colour is
-# User+190h, which the handler fills from npcname-e.dat - per npc id, the same
-# for every spawn of it. Overwriting it here is what moves the title's colour to
-# the server, so a datapack that says nameColor="FF0000" gets both lines red and
-# an NPC the server says nothing about keeps the colour the client has for it.
+# The title's colour is User+190h, which the handler fills from npcname-e.dat -
+# per npc id, the same for every spawn of it. Overwriting it is what moves the
+# title's colour to the server. A server that appends only the one dword the
+# older protocol had still paints both lines with it : the title falls back to
+# the name's slot when its own carries no tag.
 #
 # Cuts, all into the 0xCC padding behind the NpcInfo handler:
 #
 #   - right after the second parse call, where the cursor is still in eax and the
-#     packet reader is still the first argument on the stack. It checks that at
-#     least four bytes are left, reads them, and parks the value in the cave.
+#     packet reader is still the first argument on the stack. It checks how many
+#     bytes are left, reads what is there, and parks both values in the cave.
 #   - where the handler starts filling the User, esi being the User. It picks the
-#     value back up, checks the tag and writes User::UniqueNameColor.
-#   - where it writes User+190h, the title colour, which is a six byte store and
-#     so has room for a jump on its own. Same value, same tag check.
+#     name's value back up, checks the tag and writes User::UniqueNameColor.
+#   - where both halves of the title have been dealt with. It picks the title's
+#     value up, falls back to the name's when it carries no tag of its own, and
+#     writes User+190h.
 #
 # The last two come in pairs, one per path the handler takes.
 #
@@ -59,8 +71,8 @@ param(
 	#   every NPC turns that colour  -> the cut runs, the field is right, the tag never matched
 	#   nothing changes              -> the cut never runs, or the field is wrong
 	[string] $Diagnose,
-	# Second half of the same trick, one level up: this colour is parked when the
-	# packet had fewer than four bytes left, i.e. when the server appended nothing.
+	# Second half of the same trick, one level up: this colour is parked in both slots
+	# when the packet had nothing left in it, i.e. when the server appended nothing.
 	# Tagged, so it comes out of the check as a real colour. With both set, one relog
 	# separates the three cases that otherwise all look the same:
 	#
@@ -123,7 +135,7 @@ $LEN_TITLE2     = 8
 $OFF_TITLE2_RET = 0x13A1D4
 
 $OFF_CAVE     = 0x13A710   # 0xCC padding behind the handler (928 bytes of it)
-$LEN_CAVE     = 0x180
+$LEN_CAVE     = 0x280
 
 # Both cut sites, byte for byte. Refuses to touch anything else.
 $SIG_READ_AT = 0x139A84
@@ -141,7 +153,8 @@ $SIG_TITLE     = '89991050000066399C240C010000740A'   # mov [ecx+5010h],ebx / th
 $FLD_TITLECOLOR  = 0x190    # the title's colour, read inline - GetNickColor is never called
 $FLD_UNIQUECOLOR = 0x308    # User::GetUniqueNameColor returns exactly this
 $FLD_PACKET_END  = 0x4EF8   # what the parser bounds-checks every field against
-$TAG             = 0xC0     # top byte of the appended dword
+$TAG_NAME        = 0xC0     # top byte of the first appended dword, the name's
+$TAG_TITLE       = 0xC1     # ... and of the second, the title's
 
 # ------------------------------------------------------------------ helpers --
 function Get-Hex([byte[]] $bytes, [int] $at, [int] $len)
@@ -192,45 +205,84 @@ if ($Diagnose)
 	Write-Host "DIAGNOSTIC BUILD : every NPC the server sends no colour for is painted $t."
 }
 
-# What gets parked when the packet held nothing extra. -1 means "no colour" and is
-# what the tag check turns into the fallback above ; a diagnostic value is tagged,
-# so it comes out as a colour of its own and tells the two cases apart.
-$emptyValue = [Convert]::ToUInt32('FFFFFFFF', 16)
+# What gets parked in a slot the packet held nothing for. -1 means "no colour" and
+# is what the tag check turns into the fallback above ; a diagnostic value is
+# tagged - with the tag of its own slot, or it would not come back out of it - so
+# it comes out as a colour and tells the two cases apart.
+$emptyName = [Convert]::ToUInt32('FFFFFFFF', 16)
+$emptyTitle = [Convert]::ToUInt32('FFFFFFFF', 16)
 if ($DiagnoseEmpty)
 {
 	$t = $DiagnoseEmpty -replace '^0[xX]', ''
 	if ($t -notmatch '^[0-9a-fA-F]{6}$') { throw "-DiagnoseEmpty wants RRGGBB, got '$DiagnoseEmpty'." }
-	$emptyValue = ([uint32]$TAG -shl 24) -bor [Convert]::ToUInt32($t, 16)
+	$emptyName = ([uint32]$TAG_NAME -shl 24) -bor [Convert]::ToUInt32($t, 16)
+	$emptyTitle = ([uint32]$TAG_TITLE -shl 24) -bor [Convert]::ToUInt32($t, 16)
 	Write-Host "DIAGNOSTIC BUILD : an NpcInfo with nothing appended is painted $t."
+}
+
+# Every "mov reg,[origin+slot]" and "mov [origin+slot],reg" in the cave, gathered
+# so the two parked dwords can be laid down after the code and the displacements
+# filled in once their offsets are known.
+$slotRefs = @()
+function SlotRef([int] $origin, [int] $fixup, [string] $slot)
+{
+	$script:slotRefs += @{ Origin = $origin; Fixup = $fixup; Slot = $slot }
 }
 
 # ============================== cave 1 : read ================================
 # Entry: eax = the cursor the parser returned, [esp] = its first argument, the
 # packet reader, because the arguments of both calls are still on the stack.
 # edx is dead here - the stock code reloads it before its next use.
+#
+# Two dwords have to come out of here and only eax and edx are ours, so the
+# second one is pushed and popped back : the stack is free as long as esp is
+# level again by the displaced "add esp,0D8h", and [esp] holds the reader again
+# by then too.
+#
+# Three cases, and a packet from an older server - eight bytes short but four
+# bytes long - is one of them : the name gets its dword and the title falls back
+# to it later, which is exactly how that server meant it.
 $cave1 = 0
 
 Emit @(0x8B, 0x14, 0x24)                    # mov edx,[esp]            ; the reader
 Emit @(0x8B, 0x92)                          # mov edx,[edx+4EF8h]      ; end of packet
 EmitU32 ([uint32]$FLD_PACKET_END)
 Emit @(0x2B, 0xD0)                          # sub edx,eax              ; bytes left
+Emit @(0x83, 0xFA, 0x08)                    # cmp edx,8
+$jbBothAt = $code.Count
+Emit @(0x72, 0x00)                          # jb one                   ; not both of them
+
+Emit @(0xFF, 0x70, 0x04)                    # push dword [eax+4]       ; the title's
+Emit @(0x8B, 0x00)                          # mov eax,[eax]            ; the name's
+$jmpPark1At = $code.Count
+Emit @(0xEB, 0x00)                          # jmp park
+
+$labelOne = $code.Count
 Emit @(0x83, 0xFA, 0x04)                    # cmp edx,4
-$jbAt = $code.Count
+$jbNoneAt = $code.Count
 Emit @(0x72, 0x00)                          # jb none                  ; nothing appended
-Emit @(0x8B, 0x00)                          # mov eax,[eax]            ; the appended dword
-$jmpParkAt = $code.Count
+Emit @(0x68)                                # push <no title>          ; only the name came
+EmitU32 $emptyTitle
+Emit @(0x8B, 0x00)                          # mov eax,[eax]
+$jmpPark2At = $code.Count
 Emit @(0xEB, 0x00)                          # jmp park
 
 $labelNone = $code.Count
+Emit @(0x68)                                # push <nothing appended>
+EmitU32 $emptyTitle
 Emit @(0xB8)                                # mov eax,<nothing appended>
-EmitU32 $emptyValue
+EmitU32 $emptyName
 
 $labelPark = $code.Count
 Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)        # call $+5                 \ position independent
 $parkOrigin = $code.Count                   # "call $+5" pushed the address of the pop below,
 Emit @(0x5A)                                # pop edx                  / so that is what edx holds
-$parkFixup = $code.Count
-Emit @(0x89, 0x82)                          # mov [edx+<slot>],eax
+SlotRef $parkOrigin $code.Count 'Name'
+Emit @(0x89, 0x82)                          # mov [edx+<name slot>],eax
+EmitU32 0
+Emit @(0x58)                                # pop eax                  ; the title's, off the stack
+SlotRef $parkOrigin $code.Count 'Title'
+Emit @(0x89, 0x82)                          # mov [edx+<title slot>],eax
 EmitU32 0
 
 Emit @(0x81, 0xC4)                          # add esp,0D8h             ; the displaced instruction
@@ -247,7 +299,6 @@ Emit @(0xE9, 0, 0, 0, 0)                    # jmp <back>
 # three instructions. Patching only the first one does nothing at all: NPCs in a
 # town go down the second.
 $stores = @()
-$picks = @()
 $jmpBacks = @()
 
 foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
@@ -259,10 +310,10 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 	Emit @(0x89, 0x56, 0x0C)                # mov [esi+0Ch],edx
 
 	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
-	$picks += @{ Origin = $code.Count }
+	$pickOrigin = $code.Count
 	Emit @(0x58)                            # pop eax
-	$picks[-1].Fixup = $code.Count
-	Emit @(0x8B, 0x80)                      # mov eax,[eax+<slot>]
+	SlotRef $pickOrigin $code.Count 'Name'
+	Emit @(0x8B, 0x80)                      # mov eax,[eax+<name slot>]
 	EmitU32 0
 
 	if (!$DiagnoseRaw)
@@ -273,7 +324,7 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 		# would be compared as 0FFFFFFC0h, which never matches. Cost a full round of
 		# diagnostics.
 		Emit @(0x81, 0xFA)                  # cmp edx,0C0h
-		EmitU32 ([uint32]$TAG)
+		EmitU32 ([uint32]$TAG_NAME)
 		$jeAt = $code.Count
 		Emit @(0x74, 0x00)                  # je tagged
 		Emit @(0xB8)                        # mov eax,<"no colour", or the diagnostic colour>
@@ -307,32 +358,57 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 #
 # ebx has to survive - the displaced cmp compares against bx - and eax, ecx and
 # edx are all reloaded by both successors before they are read, so edx is ours.
-# One register is all there is anyway, hence the tag checked as a range instead
+# One register is all there is anyway, hence every tag checked as a range instead
 # of shifting a copy out of the way the way the name cave does.
+#
+# The title's own slot is read first. When it carries no tag - an older server
+# that appends the one dword and means it for both lines - the name's slot is
+# read instead, which is what that server's client used to do with it.
 $titles = @()
-$titlePicks = @()
 
 foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 {
 	$titles += $code.Count
 
 	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
-	$titlePicks += @{ Origin = $code.Count }
+	$titleOrigin = $code.Count
 	Emit @(0x5A)                            # pop edx
-	$titlePicks[-1].Fixup = $code.Count
-	Emit @(0x8B, 0x92)                      # mov edx,[edx+<slot>]
+	SlotRef $titleOrigin $code.Count 'Title'
+	Emit @(0x8B, 0x92)                      # mov edx,[edx+<title slot>]
 	EmitU32 0
 
-	# 0xC0RRGGBB is exactly the half-open range below ; "no colour" is 0xFFFFFFFF
+	# 0xC1RRGGBB is exactly the half-open range below ; "no colour" is 0xFFFFFFFF
 	# and falls out of it. imm32 again - the short form would sign-extend.
+	Emit @(0x81, 0xFA)                      # cmp edx,0C1000000h
+	EmitU32 ([uint32]$TAG_TITLE -shl 24)
+	$jbFallbackAt = $code.Count
+	Emit @(0x72, 0x00)                      # jb fallback
+	Emit @(0x81, 0xFA)                      # cmp edx,0C2000000h
+	EmitU32 (([uint32]$TAG_TITLE + 1) -shl 24)
+	$jbPaintAt = $code.Count
+	Emit @(0x72, 0x00)                      # jb paint                ; tagged for the title
+
+	$labelFallback = $code.Count
+	$shortFixups += @{ At = $jbFallbackAt; To = $labelFallback }
+
+	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
+	$fallbackOrigin = $code.Count
+	Emit @(0x5A)                            # pop edx
+	SlotRef $fallbackOrigin $code.Count 'Name'
+	Emit @(0x8B, 0x92)                      # mov edx,[edx+<name slot>]
+	EmitU32 0
+
 	Emit @(0x81, 0xFA)                      # cmp edx,0C0000000h
-	EmitU32 ([uint32]$TAG -shl 24)
-	$jbAt2 = $code.Count
+	EmitU32 ([uint32]$TAG_NAME -shl 24)
+	$jbKeepAt = $code.Count
 	Emit @(0x72, 0x00)                      # jb keep
 	Emit @(0x81, 0xFA)                      # cmp edx,0C1000000h
-	EmitU32 (([uint32]$TAG + 1) -shl 24)
-	$jaeAt = $code.Count
+	EmitU32 ([uint32]$TAG_TITLE -shl 24)
+	$jaeKeepAt = $code.Count
 	Emit @(0x73, 0x00)                      # jae keep
+
+	$labelPaint = $code.Count
+	$shortFixups += @{ At = $jbPaintAt; To = $labelPaint }
 
 	Emit @(0x81, 0xE2)                      # and edx,00FFFFFFh
 	EmitU32 ([uint32]0x00FFFFFF)
@@ -342,8 +418,8 @@ foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 	EmitU32 ([uint32]$FLD_TITLECOLOR)
 
 	$labelKeep = $code.Count
-	$shortFixups += @{ At = $jbAt2; To = $labelKeep }
-	$shortFixups += @{ At = $jaeAt; To = $labelKeep }
+	$shortFixups += @{ At = $jbKeepAt; To = $labelKeep }
+	$shortFixups += @{ At = $jaeKeepAt; To = $labelKeep }
 
 	# Last, so the flags the next stock instruction branches on are its own.
 	Emit @(0x66, 0x39, 0x9C, 0x24, 0x0C, 0x01, 0x00, 0x00)   # cmp word [esp+10Ch],bx
@@ -352,9 +428,12 @@ foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 	Emit @(0xE9, 0, 0, 0, 0)                # jmp <back>
 }
 
-# ============================== the parked value =============================
+# ============================= the parked values =============================
 while ($code.Count % 4 -ne 0) { Emit @(0x90) }
-$slot = $code.Count
+$slots = @{}
+$slots['Name'] = $code.Count
+EmitU32 ([Convert]::ToUInt32('FFFFFFFF', 16))
+$slots['Title'] = $code.Count
 EmitU32 ([Convert]::ToUInt32('FFFFFFFF', 16))
 
 if ($code.Count -gt $LEN_CAVE) { throw "The code is $($code.Count) bytes, only $LEN_CAVE claimed." }
@@ -373,16 +452,16 @@ function FixRel32([int] $at, [int] $targetFileOff)
 	[Array]::Copy([BitConverter]::GetBytes([int]$rel), 0, $blob, $at + 1, 4)
 }
 
-FixShort $jbAt $labelNone
-FixShort $jmpParkAt $labelPark
+FixShort $jbBothAt $labelOne
+FixShort $jbNoneAt $labelNone
+FixShort $jmpPark1At $labelPark
+FixShort $jmpPark2At $labelPark
 foreach ($f in $shortFixups) { FixShort $f.At $f.To }
 FixRel32 $jmpBack1At $OFF_READ_RET
 foreach ($j in $jmpBacks) { FixRel32 $j.At $j.Ret }
 
-# the parked dword, addressed off whatever call/pop left in the register
-[Array]::Copy([BitConverter]::GetBytes([int]($slot - $parkOrigin)), 0, $blob, $parkFixup + 2, 4)
-foreach ($p in $picks) { [Array]::Copy([BitConverter]::GetBytes([int]($slot - $p.Origin)), 0, $blob, $p.Fixup + 2, 4) }
-foreach ($p in $titlePicks) { [Array]::Copy([BitConverter]::GetBytes([int]($slot - $p.Origin)), 0, $blob, $p.Fixup + 2, 4) }
+# the parked dwords, each addressed off whatever call/pop left in the register
+foreach ($r in $slotRefs) { [Array]::Copy([BitConverter]::GetBytes([int]($slots[$r.Slot] - $r.Origin)), 0, $blob, $r.Fixup + 2, 4) }
 
 # ------------------------------------------------------------ the two jumps --
 function Site([int] $len, [int] $from, [int] $to)
@@ -430,4 +509,4 @@ Write-Host ("  fill  : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL, $stores[0])
 Write-Host ("  fill2 : 0x{0:X} -> cave+0x{1:X}" -f $OFF_FILL2, $stores[1])
 Write-Host ("  title : 0x{0:X} -> cave+0x{1:X}" -f $OFF_TITLE, $titles[0])
 Write-Host ("  title2: 0x{0:X} -> cave+0x{1:X}" -f $OFF_TITLE2, $titles[1])
-Write-Host ("  cave  : 0x{0:X} .. 0x{1:X}, {2} of {3} bytes, parked value at +0x{4:X}" -f $OFF_CAVE, ($OFF_CAVE + $blob.Length - 1), $blob.Length, $LEN_CAVE, $slot)
+Write-Host ("  cave  : 0x{0:X} .. 0x{1:X}, {2} of {3} bytes, parked values at +0x{4:X} (name) and +0x{5:X} (title)" -f $OFF_CAVE, ($OFF_CAVE + $blob.Length - 1), $blob.Length, $LEN_CAVE, $slots['Name'], $slots['Title'])

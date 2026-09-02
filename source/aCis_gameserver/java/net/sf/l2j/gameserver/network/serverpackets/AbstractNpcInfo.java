@@ -65,13 +65,17 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 	 */
 	public static class NpcInfo extends AbstractNpcInfo
 	{
-		/** Top byte of the trailing name color dword, so a client can tell it from a stock packet. */
+		/** Top byte of the first trailing color dword, the name's, so a client can tell it from a stock packet. */
 		private static final int NAME_COLOR_TAG = 0xC0000000;
+
+		/** ... and of the second, the title's, so a client can tell the two of them apart. */
+		private static final int TITLE_COLOR_TAG = 0xC1000000;
 
 		private final Npc _npc;
 		private final int _team;
 
 		private int _nameColor;
+		private int _titleColor;
 
 		public NpcInfo(Npc npc, Player attacker)
 		{
@@ -79,6 +83,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 
 			_npc = npc;
 			_nameColor = npc.getNameColor();
+			_titleColor = npc.getTitleColor();
 
 			_enchantEffect = _npc.getEnchantEffect();
 			_isAttackable = _npc.isAttackableWithoutForceBy(attacker);
@@ -115,7 +120,7 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			if (Config.SHOW_NPC_LVL && _npc instanceof Monster monster)
 				_title = "Lv " + monster.getStatus().getLevel() + (monster.getTemplate().getAggroRange() > 0 ? "* " : " ") + _title;
 			
-			// A champion glows with the aura of its own flavor, and wears its colors : one single color paints both its name and its title. An empty title leaves the datapack one alone.
+			// A champion glows with the aura of its own flavor, and wears its colors. An empty title leaves the datapack one alone.
 			final ChampionSettings champion = _npc.getChampionSettings();
 			if (champion != null)
 			{
@@ -126,6 +131,9 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 
 				if (champion.getNameColor() != NpcTemplate.NO_NAME_COLOR)
 					_nameColor = champion.getNameColor();
+
+				if (champion.getTitleColor() != NpcTemplate.NO_NAME_COLOR)
+					_titleColor = champion.getTitleColor();
 			}
 			else
 				_team = TeamType.NONE.getId();
@@ -219,13 +227,18 @@ public abstract class AbstractNpcInfo extends L2GameServerPacket
 			writeD(_enchantEffect);
 			writeD(_npc.isFlying() ? 1 : 0);
 
-			// Interlude has no color field for an NPC name, so a rebuilt engine.dll reads one from
-			// the very end of this packet - tagged, because the last dword of an untouched packet is
-			// isFlying. Sent only for the NPCs that carry a color : the client reads every field
-			// against the packet's end, so four bytes it does not expect are simply never read, and a
-			// stock client keeps working. See docs/npc-name-colors.md.
-			if (_nameColor != NpcTemplate.NO_NAME_COLOR)
-				writeD(NAME_COLOR_TAG | (_nameColor & 0x00FFFFFF));
+			// Interlude has no color field for an NPC, so a rebuilt engine.dll reads two from the very
+			// end of this packet - one per line, each tagged in its top byte, because the last dword of
+			// an untouched packet is isFlying and because the two have to be told apart. Sent only for
+			// the NPCs that carry a color at all : the client reads every field against the packet's
+			// end, so eight bytes it does not expect are simply never read, and a stock client keeps
+			// working. A line that carries none goes out as a plain 0, which no tag matches, and stays
+			// whatever color the client gives it. See docs/npc-name-colors.md.
+			if (_nameColor != NpcTemplate.NO_NAME_COLOR || _titleColor != NpcTemplate.NO_NAME_COLOR)
+			{
+				writeD((_nameColor == NpcTemplate.NO_NAME_COLOR) ? 0 : NAME_COLOR_TAG | (_nameColor & 0x00FFFFFF));
+				writeD((_titleColor == NpcTemplate.NO_NAME_COLOR) ? 0 : TITLE_COLOR_TAG | (_titleColor & 0x00FFFFFF));
+			}
 		}
 	}
 	

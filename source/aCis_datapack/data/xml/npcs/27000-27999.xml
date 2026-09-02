@@ -102,7 +102,6 @@
 	</npc>
 	<npc id="27003" name="Spirit Of Mirrors" title="Quest Monster Lvl 9*" alias="spirit_of_mirrors1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="9"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="10.0"/>
@@ -153,7 +152,6 @@
 	</npc>
 	<npc id="27004" name="Spirit Of Mirrors" title="Quest Monster Lvl 10*" alias="spirit_of_mirrors2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="10"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -204,7 +202,6 @@
 	</npc>
 	<npc id="27005" name="Spirit Of Mirrors" title="Quest Monster Lvl 11*" alias="spirit_of_mirrors3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="11"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="26.0"/>
@@ -455,7 +452,6 @@
 	</npc>
 	<npc id="27016" name="Nerkas" title="Quest Monster Lvl 22*" alias="nerkas">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -508,7 +504,6 @@
 	</npc>
 	<npc id="27017" name="Plague Zombie" title="Quest Monster Lvl 14*" alias="plague_zombie">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="14"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -666,7 +661,6 @@
 	</npc>
 	<npc id="27020" name="Varool Foulclaw" title="Quest Monster Lvl 20*" alias="varool_foulclaw">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -717,7 +711,6 @@
 	</npc>
 	<npc id="27021" name="Kirunak" title="Quest Monster Lvl 22*" alias="kirunak">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -772,7 +765,6 @@
 	</npc>
 	<npc id="27022" name="Merkenis" title="Quest Monster Lvl 22*" alias="merkenis">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="22"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -825,7 +817,6 @@
 	</npc>
 	<npc id="27024" name="Undead Priest" title="Quest Monster Lvl 17*" alias="undead_priest">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -883,7 +874,6 @@
 	</npc>
 	<npc id="27029" name="Phantom Salamander" title="Quest Monster Lvl 17*" alias="phantom_of_salamander">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="6.8"/>
@@ -934,7 +924,6 @@
 	</npc>
 	<npc id="27030" name="Water Seer" title="Quest Monster Lvl 17*" alias="water_seer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="43.0"/>
@@ -985,7 +974,6 @@
 	</npc>
 	<npc id="27031" name="Ol Mahum Sentry" title="Quest Monster Lvl 17*" alias="ol_mahum_sentry">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -1038,7 +1026,6 @@
 	</npc>
 	<npc id="27032" name="Lizardman Warrior" title="Quest Monster Lvl 13*" alias="q409_lizardman_warrior">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="13"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -1089,7 +1076,6 @@
 	</npc>
 	<npc id="27033" name="Lizardman Scout" title="Quest Monster Lvl 12*" alias="q409_lizardman_scout">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="12"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -1140,7 +1126,6 @@
 	</npc>
 	<npc id="27034" name="Lizardman" title="Quest Monster Lvl 11*" alias="q409_lizardman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="11"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -1191,7 +1176,6 @@
 	</npc>
 	<npc id="27035" name="Tamil" title="Quest Monster Lvl 19*" alias="tamato">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="19"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="35.0"/>
@@ -1242,7 +1226,6 @@
 	</npc>
 	<npc id="27036" name="Calpico" title="Quest Monster Lvl 13*" alias="calpico">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="13"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -1293,7 +1276,6 @@
 	</npc>
 	<npc id="27037" name="Calpico's Goons" title="Quest Monster Lvl 10*" alias="calpicos_goons">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="10"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="21.0"/>
@@ -1344,7 +1326,6 @@
 	</npc>
 	<npc id="27038" name="Cat's Eye Bandit" title="Quest Monster Lvl 15*" alias="catseye_bandit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="15"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -1397,7 +1378,6 @@
 	</npc>
 	<npc id="27041" name="Baranka's Messenger" title="Quest Monster Lvl 12*" alias="baranka_messenger">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="12"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -1450,7 +1430,6 @@
 	</npc>
 	<npc id="27042" name="Orc Escort" title="Quest Monster Lvl 12*" alias="orc_escort">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="12"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -1503,7 +1482,6 @@
 	</npc>
 	<npc id="27043" name="Varangka's Tracker" title="Quest Monster Lvl 11*" alias="varangkas_tracker">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="11"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="33.5"/>
@@ -1556,7 +1534,6 @@
 	</npc>
 	<npc id="27044" name="Kasha Bear Totem Spirit" title="Quest Monster Lvl 17*" alias="kasha_bear_totem">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -1611,7 +1588,6 @@
 	</npc>
 	<npc id="27045" name="Kuruka Ratman Leader" title="Quest Monster Lvl 18*" alias="kuruka_ratman_leader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="18"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -2080,7 +2056,6 @@
 	</npc>
 	<npc id="27054" name="Umbar Orc" title="Quest Monster Lvl 20*" alias="orc_betrayer_umbar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -2185,7 +2160,6 @@
 	</npc>
 	<npc id="27056" name="Durka Spirit" title="Quest Monster Lvl 18*" alias="durka_spirit">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="18"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -2240,7 +2214,6 @@
 	</npc>
 	<npc id="27058" name="Honey Bear" title="Quest Monster Lvl 17*" alias="honey_bear">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="17"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -2501,7 +2474,6 @@
 	</npc>
 	<npc id="27063" name="Tanukia's Warhound" title="Quest Monster Lvl 4*" alias="tanukias_warhound">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="4"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="9.0"/>
@@ -2658,7 +2630,6 @@
 	</npc>
 	<npc id="27066" name="Roko's Warhound" title="Quest Monster Lvl 4*" alias="rokos_warhound">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="4"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="9.0"/>
@@ -2815,7 +2786,6 @@
 	</npc>
 	<npc id="27069" name="Murtika's Warhound" title="Quest Monster Lvl 4*" alias="murtikas_warhound">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="4"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="9.0"/>
@@ -2868,7 +2838,6 @@
 	</npc>
 	<npc id="27070" name="Tumran Orc Brigand" title="Quest Monster Lvl 11*" alias="tumran_orc_brigand">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="11"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="22.0"/>
@@ -2921,7 +2890,6 @@
 	</npc>
 	<npc id="27077" name="Unicorn Of Eva" title="Quest Monster Lvl 30*" alias="unicorn_of_eva">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="30.0"/>
@@ -2972,7 +2940,6 @@
 	</npc>
 	<npc id="27078" name="Trimden Lord" title="Quest Monster Lvl 39*" alias="trimden_lord">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="27.0"/>
 		<set name="height" val="25.5"/>
@@ -3023,7 +2990,6 @@
 	</npc>
 	<npc id="27079" name="Black Willow Lurker" title="Quest Monster Lvl 39*" alias="black_willow_lurker">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="80.0"/>
@@ -3076,7 +3042,6 @@
 	</npc>
 	<npc id="27080" name="Pashika Son Of Voltar" title="Quest Monster Lvl 37*" alias="pashika_sonof_voltar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -3129,7 +3094,6 @@
 	</npc>
 	<npc id="27081" name="Vultus Son Of Voltar" title="Quest Monster Lvl 37*" alias="vultus_sonof_voltar">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -3182,7 +3146,6 @@
 	</npc>
 	<npc id="27082" name="Enku Orc Overlord" title="Quest Monster Lvl 33*" alias="enku_orc_overlord">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="20.0"/>
@@ -3235,7 +3198,6 @@
 	</npc>
 	<npc id="27083" name="Makum Bugbear Thug" title="Quest Monster Lvl 37*" alias="makum_bugbear_thug">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="35.0"/>
@@ -3288,7 +3250,6 @@
 	</npc>
 	<npc id="27086" name="Revenant of Tantos Chief" title="Quest Monster Lvl 39*" alias="revenant_of_tantos_chief">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -3343,7 +3304,6 @@
 	</npc>
 	<npc id="27088" name="Harpy Matriarch" title="Quest Monster Lvl 34*" alias="harpy_martriarch">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -3394,7 +3354,6 @@
 	</npc>
 	<npc id="27089" name="Road Collector" title="Quest Monster Lvl 36*" alias="road_collector">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="25.0"/>
@@ -3445,7 +3404,6 @@
 	</npc>
 	<npc id="27090" name="Serpent Demon Kadesh" title="Quest Monster Lvl 41*" alias="serpent_demon_kadesh">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.0"/>
@@ -3496,7 +3454,6 @@
 	</npc>
 	<npc id="27092" name="Neer Bodyguard" title="Quest Monster Lvl 33*" alias="neer_bodyguard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="22.0"/>
@@ -3551,7 +3508,6 @@
 	</npc>
 	<npc id="27093" name="Delu Chief Kalkis" title="Quest Monster Lvl 37*" alias="delu_chief_kalkis">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="37.0"/>
@@ -3604,7 +3560,6 @@
 	</npc>
 	<npc id="27094" name="Delu Lizardman Assassin" title="Quest Monster Lvl 36*" alias="delu_lizardman_assassin">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -3657,7 +3612,6 @@
 	</npc>
 	<npc id="27095" name="Singing Flower Phantasm" title="Quest Monster Lvl 44*" alias="singing_flower_phantasm">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="25.5"/>
@@ -3708,7 +3662,6 @@
 	</npc>
 	<npc id="27096" name="Singing Flower Nightmare" title="Quest Monster Lvl 44*" alias="singing_flower_nightmare">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="25.5"/>
@@ -3759,7 +3712,6 @@
 	</npc>
 	<npc id="27097" name="Singing Flower Darkling" title="Quest Monster Lvl 44*" alias="singing_flower_darkling">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="25.5"/>
@@ -3810,7 +3762,6 @@
 	</npc>
 	<npc id="27098" name="Ghost Fire" title="Quest Monster Lvl 42*" alias="ghost_fire">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -3861,7 +3812,6 @@
 	</npc>
 	<npc id="27099" name="Nameless Revenant" title="Quest Monster Lvl 38*" alias="nameless_revenant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="21.0"/>
@@ -3921,7 +3871,6 @@
 	</npc>
 	<npc id="27100" name="Skeletal Mercenary" title="Quest Monster Lvl 39*" alias="skeletal_mercenary">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -3976,7 +3925,6 @@
 	</npc>
 	<npc id="27101" name="Drevanul Prince Zeruel" title="Quest Monster Lvl 42*" alias="drevanul_prince_zeruel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -4029,7 +3977,6 @@
 	</npc>
 	<npc id="27102" name="Pako The Cat" title="Quest Monster Lvl 38*" alias="pako_the_cat">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="16.0"/>
@@ -4080,7 +4027,6 @@
 	</npc>
 	<npc id="27103" name="Unicorn Racer" title="Quest Monster Lvl 38*" alias="unicorn_racer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="18.0"/>
@@ -4131,7 +4077,6 @@
 	</npc>
 	<npc id="27104" name="Shadow Turen" title="Quest Monster Lvl 39*" alias="shadow_turen">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="30.0"/>
@@ -4182,7 +4127,6 @@
 	</npc>
 	<npc id="27105" name="Mimi The Cat" title="Quest Monster Lvl 39*" alias="mimi_the_cat">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="15.0"/>
@@ -4233,7 +4177,6 @@
 	</npc>
 	<npc id="27106" name="Unicorn Phantasm" title="Quest Monster Lvl 40*" alias="unicorn_phantasm">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="17.5"/>
@@ -4284,7 +4227,6 @@
 	</npc>
 	<npc id="27107" name="Silhouette Tilfo" title="Quest Monster Lvl 40*" alias="silhouette_tilfo">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="41.5"/>
@@ -4337,7 +4279,6 @@
 	</npc>
 	<npc id="27108" name="Stenoa Gorgon Queen" title="Quest Monster Lvl 37*" alias="stenoa_gorgon_queen">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="65.0"/>
@@ -4388,7 +4329,6 @@
 	</npc>
 	<npc id="27109" name="Handmaiden Of Stenoa" title="Quest Monster Lvl 33*" alias="handmaiden_of_stenoa">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -4439,7 +4379,6 @@
 	</npc>
 	<npc id="27110" name="Shyslassys" title="Quest Monster Lvl 36*" alias="shyslassys">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -4492,7 +4431,6 @@
 	</npc>
 	<npc id="27111" name="Cave Basilisk" title="Quest Monster Lvl 30*" alias="cave_basilisk">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="34.0"/>
 		<set name="height" val="25.0"/>
@@ -4543,7 +4481,6 @@
 	</npc>
 	<npc id="27112" name="Gorr" title="Quest Monster Lvl 36*" alias="gorr">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -4596,7 +4533,6 @@
 	</npc>
 	<npc id="27113" name="Baraham" title="Quest Monster Lvl 36*" alias="baraham">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -4649,7 +4585,6 @@
 	</npc>
 	<npc id="27114" name="Succubus Queen" title="Quest Monster Lvl 34*" alias="queen_of_succubus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -4704,7 +4639,6 @@
 	</npc>
 	<npc id="27115" name="Claw Of Succubus" title="Quest Monster Lvl 28*" alias="claw_succubus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -4759,7 +4693,6 @@
 	</npc>
 	<npc id="27116" name="Lava Salamander" title="Quest Monster Lvl 35*" alias="lava_salamander">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="6.8"/>
@@ -4812,7 +4745,6 @@
 	</npc>
 	<npc id="27117" name="Nahir" title="Quest Monster Lvl 35*" alias="nahir">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -4865,7 +4797,6 @@
 	</npc>
 	<npc id="27118" name="Black Willow" title="Quest Monster Lvl 30*" alias="black_willow">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="80.0"/>
@@ -4921,7 +4852,6 @@
 	</npc>
 	<npc id="27119" name="Spirit of Sir Herod" title="Quest Monster Lvl 35*" alias="spirit_of_sir_herod">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -4977,7 +4907,6 @@
 	</npc>
 	<npc id="27120" name="Luell Of Zephyr Winds" title="Quest Monster Lvl 37*" alias="luell_of_zephyr_winds">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="35.0"/>
@@ -5031,7 +4960,6 @@
 	</npc>
 	<npc id="27121" name="Actea Of Verdant Wilds" title="Quest Monster Lvl 37*" alias="actea_of_verdant_wilds">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="20.0"/>
@@ -5084,7 +5012,6 @@
 	</npc>
 	<npc id="27122" name="Leto Lizardman Agent" title="Quest Monster Lvl 35*" alias="leto_lizardman_agent">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -5137,7 +5064,6 @@
 	</npc>
 	<npc id="27123" name="Leto Lizardman Leader" title="Quest Monster Lvl 38*" alias="leto_lizardman_leader">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -5190,7 +5116,6 @@
 	</npc>
 	<npc id="27124" name="Leto Lizardman Assassin" title="Quest Monster Lvl 37*" alias="leto_lizardman_assassin">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="32.0"/>
@@ -5243,7 +5168,6 @@
 	</npc>
 	<npc id="27125" name="Leto Lizardman Sniper" title="Quest Monster Lvl 36*" alias="leto_lizardman_sniper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="30.0"/>
@@ -5296,7 +5220,6 @@
 	</npc>
 	<npc id="27126" name="Leto Lizardman Wizard" title="Quest Monster Lvl 39*" alias="leto_lizardman_wizard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -5350,7 +5273,6 @@
 	</npc>
 	<npc id="27127" name="Leto Lizardman Lord" title="Quest Monster Lvl 40*" alias="leto_lizardman_lord">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="40.0"/>
@@ -5403,7 +5325,6 @@
 	</npc>
 	<npc id="27128" name="Aruraune" title="Quest Monster Lvl 40*" alias="aruraune">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="25.5"/>
@@ -5454,7 +5375,6 @@
 	</npc>
 	<npc id="27129" name="Ol Mahum Inspector" title="Quest Monster Lvl 38*" alias="ol_mahum_inspector">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -5505,7 +5425,6 @@
 	</npc>
 	<npc id="27130" name="Ol Mahum Betrayer" title="Quest Monster Lvl 36*" alias="ol_mahum_betrayer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="13.5"/>
 		<set name="height" val="25.0"/>
@@ -5556,7 +5475,6 @@
 	</npc>
 	<npc id="27131" name="Crimson Werewolf" title="Quest Monster Lvl 36*" alias="crimsha_werewolf">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="26.0"/>
@@ -5609,7 +5527,6 @@
 	</npc>
 	<npc id="27132" name="Krudel Lizardman" title="Quest Monster Lvl 36*" alias="krudel_lizardman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -5662,7 +5579,6 @@
 	</npc>
 	<npc id="27133" name="Evil Eye Lord" title="Quest Monster Lvl 37*" alias="evil_eye_lord">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="43.0"/>
@@ -5715,7 +5631,6 @@
 	</npc>
 	<npc id="27134" name="Tatoma" title="Quest Monster Lvl 32*" alias="tatoma">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -5768,7 +5683,6 @@
 	</npc>
 	<npc id="27135" name="Grima" title="Quest Monster Lvl 50*" alias="grima">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="35.0"/>
@@ -5819,7 +5733,6 @@
 	</npc>
 	<npc id="27136" name="Succubus Of Seduction" title="Quest Monster Lvl 40*" alias="succubus_of_seduction">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -5872,7 +5785,6 @@
 	</npc>
 	<npc id="27137" name="Demon King" title="Quest Monster Lvl 50*" alias="demon_king">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -5925,7 +5837,6 @@
 	</npc>
 	<npc id="27138" name="Great Demon King" title="Quest Monster Lvl 60*" alias="great_demon_king">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="30.0"/>
@@ -5978,7 +5889,6 @@
 	</npc>
 	<npc id="27139" name="Secret Keeper Tree" title="Quest Monster Lvl 47*" alias="secret_keeper_tree">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="90.0"/>
@@ -6031,7 +5941,6 @@
 	</npc>
 	<npc id="27140" name="Breka Overlord Haka" title="Quest Monster Lvl 36*" alias="breka_overlord_haka">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -6083,7 +5992,6 @@
 	</npc>
 	<npc id="27141" name="Breka Overlord Jaka" title="Quest Monster Lvl 36*" alias="breka_overlord_jaka">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -6135,7 +6043,6 @@
 	</npc>
 	<npc id="27142" name="Breka Overlord Marka" title="Quest Monster Lvl 36*" alias="breka_overlord_marka">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -6187,7 +6094,6 @@
 	</npc>
 	<npc id="27143" name="Windsus Aleph" title="Quest Monster Lvl 42*" alias="windsus_aleph">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="27.0"/>
@@ -6238,7 +6144,6 @@
 	</npc>
 	<npc id="27144" name="Tarlk Raider Athu" title="Quest Monster Lvl 48*" alias="talk_raider_athu">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -6289,7 +6194,6 @@
 	</npc>
 	<npc id="27145" name="Tarlk Raider Lanka" title="Quest Monster Lvl 48*" alias="talk_raider_lanka">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -6340,7 +6244,6 @@
 	</npc>
 	<npc id="27146" name="Tarlk Raider Triska" title="Quest Monster Lvl 48*" alias="talk_raider_triska">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -6391,7 +6294,6 @@
 	</npc>
 	<npc id="27147" name="Tarlk Raider Motura" title="Quest Monster Lvl 48*" alias="talk_raider_motura">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -6442,7 +6344,6 @@
 	</npc>
 	<npc id="27148" name="Tarlk Raider Kalath" title="Quest Monster Lvl 48*" alias="talk_raider_kalath">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="40.0"/>
@@ -6493,7 +6394,6 @@
 	</npc>
 	<npc id="27149" name="Gremlin Filcher" title="Quest Monster Lvl 12*" alias="gremlin_filcher">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="12"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="15.0"/>
@@ -6544,7 +6444,6 @@
 	</npc>
 	<npc id="27150" name="Black Legion Stormtrooper" title="Quest Monster Lvl 43*" alias="b_legion_stormtrooper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -6597,7 +6496,6 @@
 	</npc>
 	<npc id="27151" name="Delu Lizardman Headhunter" title="Quest Monster Lvl 28*" alias="delu_lizardm_headhunter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="22.0"/>
@@ -6648,7 +6546,6 @@
 	</npc>
 	<npc id="27152" name="Marsh Stakato Marquess" title="Quest Monster Lvl 35*" alias="marsh_stakato_marquess">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="37.0"/>
@@ -6858,7 +6755,6 @@
 	</npc>
 	<npc id="27156" name="Leto Shaman Ketz" title="Quest Monster Lvl 40*" alias="leto_shaman_ketz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -6911,7 +6807,6 @@
 	</npc>
 	<npc id="27157" name="Leto Chief Narak" title="Quest Monster Lvl 41*" alias="leto_chief_narak">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="40.0"/>
@@ -6962,7 +6857,6 @@
 	</npc>
 	<npc id="27158" name="Timak Raider Kaikee" title="Quest Monster Lvl 43*" alias="timak_raider_kaikee">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -7013,7 +6907,6 @@
 	</npc>
 	<npc id="27159" name="Timak Overlord Okun" title="Quest Monster Lvl 46*" alias="timak_overlord_okun">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -7114,7 +7007,6 @@
 	</npc>
 	<npc id="27161" name="Taik Overlord Kakran" title="Quest Monster Lvl 45*" alias="taik_overlord_kakran">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -7165,7 +7057,6 @@
 	</npc>
 	<npc id="27162" name="Hatar Chieftain Kubel" title="Quest Monster Lvl 52*" alias="hatar_chieftain_kubel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="25.0"/>
@@ -7216,7 +7107,6 @@
 	</npc>
 	<npc id="27163" name="Vanor Elder Kerunos" title="Quest Monster Lvl 51*" alias="vanor_elder_kerunos">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="31.5"/>
@@ -7267,7 +7157,6 @@
 	</npc>
 	<npc id="27164" name="Karul Chief Orooto" title="Quest Monster Lvl 43*" alias="karul_chief_orooto">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="35.0"/>
@@ -7474,7 +7363,6 @@
 	</npc>
 	<npc id="27168" name="Jewel Guardian Mara" title="Quest Monster Lvl 53*" alias="jewel_guardian_mara">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -7527,7 +7415,6 @@
 	</npc>
 	<npc id="27169" name="Jewel Guardian Musfel" title="Quest Monster Lvl 53*" alias="jewel_guardian_musfel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -7580,7 +7467,6 @@
 	</npc>
 	<npc id="27170" name="Jewel Guardian Pyton" title="Quest Monster Lvl 58*" alias="jewel_guardian_pyton">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.0"/>
@@ -7633,7 +7519,6 @@
 	</npc>
 	<npc id="27171" name="Sacrifice Of The Sacrificed" title="Quest Monster Lvl 20*" alias="sacrifice_of_sacrificed">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="20.0"/>
@@ -7688,7 +7573,6 @@
 	</npc>
 	<npc id="27172" name="Harit Lizardman Zealot" title="Quest Monster Lvl 55*" alias="harit_lizardman_zealot">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="35.0"/>
@@ -7984,7 +7868,6 @@
 	</npc>
 	<npc id="27178" name="Blitz Wyrm" title="Quest Monster Lvl 60*" alias="blitz_wyrm">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="29.0"/>
 		<set name="height" val="72.0"/>
@@ -8037,7 +7920,6 @@
 	</npc>
 	<npc id="27179" name="Grave Keymaster" title="Quest Monster Lvl 65*" alias="grave_keymaster">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="50.0"/>
@@ -8093,7 +7975,6 @@
 	</npc>
 	<npc id="27180" name="Imperial Slave" title="Quest Monster Lvl 56*" alias="imperial_slave">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="21.0"/>
@@ -8148,7 +8029,6 @@
 	</npc>
 	<npc id="27181" name="Imperial Gravekeeper" title="Quest Monster Lvl 60*" alias="imperial_gravekeeper">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="45.0"/>
@@ -8198,7 +8078,6 @@
 	</npc>
 	<npc id="27182" name="Ark Guardian Elberoth" title="Quest Monster Lvl 60*" alias="ark_guardian_elberoth">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -8252,7 +8131,6 @@
 	</npc>
 	<npc id="27183" name="Ark Guardian Shadowfang" title="Quest Monster Lvl 60*" alias="ark_guardian_shadowfang">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="27.0"/>
@@ -8307,7 +8185,6 @@
 	</npc>
 	<npc id="27184" name="Angel Killer" title="Quest Monster Lvl 60*" alias="angel_killer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -8367,7 +8244,6 @@
 	</npc>
 	<npc id="27185" name="Fairy Tree of Wind" title="Quest Monster Lvl 55*" alias="tree_q0421_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="90.0"/>
@@ -8422,7 +8298,6 @@
 	</npc>
 	<npc id="27186" name="Fairy Tree of Star" title="Quest Monster Lvl 55*" alias="tree_q0421_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="90.0"/>
@@ -8476,7 +8351,6 @@
 	</npc>
 	<npc id="27187" name="Fairy Tree of Twilight" title="Quest Monster Lvl 55*" alias="tree_q0421_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="90.0"/>
@@ -8530,7 +8404,6 @@
 	</npc>
 	<npc id="27188" name="Fairy Tree of Abyss" title="Quest Monster Lvl 55*" alias="tree_q0421_4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="35.0"/>
 		<set name="height" val="90.0"/>
@@ -8584,7 +8457,6 @@
 	</npc>
 	<npc id="27189" name="Soul of Tree Guardian" title="Quest Monster Lvl 50*" alias="guardian_of_tree">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="7.0"/>
 		<set name="height" val="21.0"/>
@@ -8641,7 +8513,6 @@
 	</npc>
 	<npc id="27190" name="Ol Mahum Support Troop" title="Quest Monster Lvl 26*" alias="ol_mahum_support_troop">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="26"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="27.0"/>
@@ -8695,7 +8566,6 @@
 	</npc>
 	<npc id="27191" name="Malcom" title="Quest Monster Lvl 25*" alias="bear_prince_malcom">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -8747,7 +8617,6 @@
 	</npc>
 	<npc id="27192" name="Succubus Handmaiden" title="Quest Monster Lvl 18*" alias="succubus_handmaiden">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="18"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="36.0"/>
@@ -8803,7 +8672,6 @@
 	</npc>
 	<npc id="27193" name="Goblin Servant" title="Quest Monster Lvl 12*" alias="goblin_servant">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="12"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="16.5"/>
@@ -8855,7 +8723,6 @@
 	</npc>
 	<npc id="27194" name="Julie the Ripper" title="Quest Monster Lvl 40*" alias="julie_the_ripper_imd">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="12.0"/>
@@ -8913,7 +8780,6 @@
 	</npc>
 	<npc id="27195" name="Male Ant" title="Quest Monster Lvl 32*" alias="noble_ant_lesser">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="48.0"/>
@@ -8960,7 +8826,6 @@
 	</npc>
 	<npc id="27196" name="Bluebacked Alligator" title="Quest Monster Lvl 40*" alias="croc_blueback">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="11.5"/>
@@ -9016,7 +8881,6 @@
 	</npc>
 	<npc id="27197" name="Bejewelled Alligator" title="Quest Monster Lvl 40*" alias="croc_jewel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="28.0"/>
 		<set name="height" val="11.5"/>
@@ -9072,7 +8936,6 @@
 	</npc>
 	<npc id="27199" name="Crimson Werewolf" title="Quest Monster Lvl 36*" alias="crimsha_werewolf_f">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="26.0"/>
@@ -9125,7 +8988,6 @@
 	</npc>
 	<npc id="27200" name="Krudel Lizardman" title="Quest Monster Lvl 36*" alias="krudel_lizardman_f">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -9816,7 +9678,6 @@
 	</npc>
 	<npc id="27214" name="Guardian of Forbidden Knowledge" title="Quest Monster Lvl 76*" alias="guardian_of_secrets_a">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -9870,7 +9731,6 @@
 	</npc>
 	<npc id="27215" name="Guardian of Forbidden Knowledge" title="Quest Monster Lvl 76*" alias="guardian_of_secrets_b">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -9924,7 +9784,6 @@
 	</npc>
 	<npc id="27216" name="Guardian of Forbidden Knowledge" title="Quest Monster Lvl 76*" alias="guardian_of_secrets_c">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -9978,7 +9837,6 @@
 	</npc>
 	<npc id="27217" name="Soul of Well" title="Quest Monster Lvl 63*" alias="ghost_of_umul">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="35.0"/>
@@ -10031,7 +9889,6 @@
 	</npc>
 	<npc id="27218" name="Triol's Pawn" title="Quest Monster Lvl 65*" alias="triyol_zzolda">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="36.0"/>
@@ -10084,7 +9941,6 @@
 	</npc>
 	<npc id="27219" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_01">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10136,7 +9992,6 @@
 	</npc>
 	<npc id="27220" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_02">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10188,7 +10043,6 @@
 	</npc>
 	<npc id="27221" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_03">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10240,7 +10094,6 @@
 	</npc>
 	<npc id="27222" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_04">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10292,7 +10145,6 @@
 	</npc>
 	<npc id="27223" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_05">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10344,7 +10196,6 @@
 	</npc>
 	<npc id="27224" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_06">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10396,7 +10247,6 @@
 	</npc>
 	<npc id="27225" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_07">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10448,7 +10298,6 @@
 	</npc>
 	<npc id="27226" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_08">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10500,7 +10349,6 @@
 	</npc>
 	<npc id="27227" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_09">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10552,7 +10400,6 @@
 	</npc>
 	<npc id="27228" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_10">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10604,7 +10451,6 @@
 	</npc>
 	<npc id="27229" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_11">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10656,7 +10502,6 @@
 	</npc>
 	<npc id="27230" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_12">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10708,7 +10553,6 @@
 	</npc>
 	<npc id="27231" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_13">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10760,7 +10604,6 @@
 	</npc>
 	<npc id="27232" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_14">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10812,7 +10655,6 @@
 	</npc>
 	<npc id="27233" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_15">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10864,7 +10706,6 @@
 	</npc>
 	<npc id="27234" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_16">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10916,7 +10757,6 @@
 	</npc>
 	<npc id="27235" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_17">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -10968,7 +10808,6 @@
 	</npc>
 	<npc id="27236" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_18">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11020,7 +10859,6 @@
 	</npc>
 	<npc id="27237" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_19">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11072,7 +10910,6 @@
 	</npc>
 	<npc id="27238" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_20">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11124,7 +10961,6 @@
 	</npc>
 	<npc id="27239" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_21">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11176,7 +11012,6 @@
 	</npc>
 	<npc id="27240" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_22">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11228,7 +11063,6 @@
 	</npc>
 	<npc id="27241" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_23">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11280,7 +11114,6 @@
 	</npc>
 	<npc id="27242" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_24">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11332,7 +11165,6 @@
 	</npc>
 	<npc id="27243" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_25">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11384,7 +11216,6 @@
 	</npc>
 	<npc id="27244" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_26">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11436,7 +11267,6 @@
 	</npc>
 	<npc id="27245" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_27">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11488,7 +11318,6 @@
 	</npc>
 	<npc id="27246" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_28">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11540,7 +11369,6 @@
 	</npc>
 	<npc id="27247" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_29">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11592,7 +11420,6 @@
 	</npc>
 	<npc id="27248" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_30">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11644,7 +11471,6 @@
 	</npc>
 	<npc id="27249" name="Archon of Halisha" title="Quest Monster Lvl 76*" alias="argos_boss_31">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="57.75"/>
@@ -11696,7 +11522,6 @@
 	</npc>
 	<npc id="27250" name="Fallen Angel Allector" title="Quest Monster Lvl 76*" alias="fallenangel_allector_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -11753,7 +11578,6 @@
 	</npc>
 	<npc id="27251" name="Fallen Angel Allector" title="Quest Monster Lvl 76*" alias="fallenangel_allector_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -11810,7 +11634,6 @@
 	</npc>
 	<npc id="27252" name="Fallen Angel Allector" title="Quest Monster Lvl 76*" alias="fallenangel_allector_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -11867,7 +11690,6 @@
 	</npc>
 	<npc id="27253" name="Hell Fire" title="Quest Monster Lvl 76*" alias="allector_private">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -11924,7 +11746,6 @@
 	</npc>
 	<npc id="27254" name="Unknown Stopper" title="Quest Monster Lvl 81*" alias="mystery_inhibitor_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="55.0"/>
@@ -11977,7 +11798,6 @@
 	</npc>
 	<npc id="27255" name="Unknown Stopper" title="Quest Monster Lvl 81*" alias="mystery_inhibitor_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="55.0"/>
@@ -12030,7 +11850,6 @@
 	</npc>
 	<npc id="27256" name="Unknown Stopper" title="Quest Monster Lvl 81*" alias="mystery_inhibitor_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="55.0"/>
@@ -12083,7 +11902,6 @@
 	</npc>
 	<npc id="27257" name="Archangel Iconoclasis" title="Quest Monster Lvl 76*" alias="angel_iconoclasis_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -12139,7 +11957,6 @@
 	</npc>
 	<npc id="27258" name="Archangel Iconoclasis" title="Quest Monster Lvl 76*" alias="angel_iconoclasis_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -12197,7 +12014,6 @@
 	</npc>
 	<npc id="27259" name="Archangel Iconoclasis" title="Quest Monster Lvl 76*" alias="angel_iconoclasis_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -12254,7 +12070,6 @@
 	</npc>
 	<npc id="27260" name="Archangel Iconoclasis" title="Quest Monster Lvl 76*" alias="angel_iconoclasis_4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -12311,7 +12126,6 @@
 	</npc>
 	<npc id="27261" name="Bead of Sacred Flame" title="Quest Monster Lvl 76*" alias="iconaclasis_private">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="22.0"/>
@@ -12363,7 +12177,6 @@
 	</npc>
 	<npc id="27262" name="Death Lord Hallate" title="Quest Monster Lvl 81*" alias="boss_hallate_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -12416,7 +12229,6 @@
 	</npc>
 	<npc id="27263" name="Death Lord Hallate" title="Quest Monster Lvl 81*" alias="boss_hallate_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -12469,7 +12281,6 @@
 	</npc>
 	<npc id="27264" name="Death Lord Hallate" title="Quest Monster Lvl 81*" alias="boss_hallate_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="40.0"/>
@@ -12522,7 +12333,6 @@
 	</npc>
 	<npc id="27265" name="Lich King Icarus" title="Quest Monster Lvl 81*" alias="lich_king_acron">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -12575,7 +12385,6 @@
 	</npc>
 	<npc id="27266" name="Fallen Angel Haures" title="Quest Monster Lvl 76*" alias="fallenangel_haures_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="42.0"/>
@@ -12633,7 +12442,6 @@
 	</npc>
 	<npc id="27267" name="Fallen Angel Haures" title="Quest Monster Lvl 76*" alias="fallenangel_haures_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="42.0"/>
@@ -12691,7 +12499,6 @@
 	</npc>
 	<npc id="27268" name="Guard of Haures" title="Quest Monster Lvl 76*" alias="haures_private">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="22.0"/>
@@ -12743,7 +12550,6 @@
 	</npc>
 	<npc id="27269" name="Fallen Angel Naverius" title="Quest Monster Lvl 76*" alias="fallenangel_naverius_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="23.0"/>
@@ -12798,7 +12604,6 @@
 	</npc>
 	<npc id="27270" name="Fallen Angel Naverius" title="Quest Monster Lvl 76*" alias="fallenangel_naverius_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="23.0"/>
@@ -12853,7 +12658,6 @@
 	</npc>
 	<npc id="27271" name="Chimera Golem" title="Quest Monster Lvl 76*" alias="kimera_golem">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="22.0"/>
 		<set name="height" val="45.0"/>
@@ -12911,7 +12715,6 @@
 	</npc>
 	<npc id="27272" name="Hallate's Dancer Lillian" title="Quest Monster Lvl 76*" alias="dark_ballerina_lilian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="23.0"/>
@@ -12967,7 +12770,6 @@
 	</npc>
 	<npc id="27273" name="Assassin Pezel" title="Quest Monster Lvl 81*" alias="assassin_pezel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="28.5"/>
@@ -13020,7 +12822,6 @@
 	</npc>
 	<npc id="27274" name="Fallen Angel Tanakia" title="Quest Monster Lvl 81*" alias="fallenangel_tanakia_1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -13073,7 +12874,6 @@
 	</npc>
 	<npc id="27275" name="Fallen Angel Tanakia" title="Quest Monster Lvl 81*" alias="fallenangel_tanakia_2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -13126,7 +12926,6 @@
 	</npc>
 	<npc id="27276" name="Fallen Angel Tanakia" title="Quest Monster Lvl 81*" alias="fallenangel_tanakia_3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -13179,7 +12978,6 @@
 	</npc>
 	<npc id="27277" name="Fallen Angel Tanakia" title="Quest Monster Lvl 81*" alias="fallenangel_tanakia_4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="23.0"/>
 		<set name="height" val="60.0"/>
@@ -13232,7 +13030,6 @@
 	</npc>
 	<npc id="27278" name="Shadow of Beleth" title="Quest Monster Lvl 81*" alias="shadow_of_bereth">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="40.0"/>
@@ -13285,7 +13082,6 @@
 	</npc>
 	<npc id="27279" name="Cursed Kesadein" title="Quest Monster Lvl 81*" alias="cursed_kesad_ehin">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="20.0"/>
 		<set name="height" val="42.0"/>
@@ -13338,7 +13134,6 @@
 	</npc>
 	<npc id="27280" name="Fallen Angel Narcissus" title="Quest Monster Lvl 81*" alias="fallenangel_narsis">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -13391,7 +13186,6 @@
 	</npc>
 	<npc id="27281" name="Fallen Angel Metellus" title="Quest Monster Lvl 81*" alias="fallenangel_metelus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="25.0"/>
 		<set name="height" val="90.0"/>
@@ -13444,7 +13238,6 @@
 	</npc>
 	<npc id="27282" name="Reverse Angel Odiel" title="Quest Monster Lvl 81*" alias="darkpower_othiel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -13497,7 +13290,6 @@
 	</npc>
 	<npc id="27283" name="Grandpapa Askalius" title="Quest Monster Lvl 81*" alias="grandpapa_askalius">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="45.0"/>
 		<set name="height" val="72.0"/>
@@ -13550,7 +13342,6 @@
 	</npc>
 	<npc id="27284" name="Flame Evil Spirit Azira" title="Quest Monster Lvl 81*" alias="flame_of_death_azira">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="42.0"/>
@@ -13603,7 +13394,6 @@
 	</npc>
 	<npc id="27285" name="Lizard's Totem Sharuhi" title="Quest Monster Lvl 81*" alias="totem_of_lizard_sarhi">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="17.0"/>
 		<set name="height" val="46.0"/>
@@ -13656,7 +13446,6 @@
 	</npc>
 	<npc id="27286" name="Fallen Knight Adhil" title="Quest Monster Lvl 76*" alias="lost_knight_adhil">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="24.0"/>
@@ -13714,7 +13503,6 @@
 	</npc>
 	<npc id="27287" name="Bound Elf Panacea" title="Quest Monster Lvl 76*" alias="binding_elf_panacea">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="23.5"/>
@@ -13772,7 +13560,6 @@
 	</npc>
 	<npc id="27288" name="Sword Player Biel" title="Quest Monster Lvl 76*" alias="swordplayer_baiel">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="22.5"/>
@@ -13828,7 +13615,6 @@
 	</npc>
 	<npc id="27289" name="Ancient Sword Master Iron" title="Quest Monster Lvl 76*" alias="swordmaster_aion">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="55.0"/>
@@ -13887,7 +13673,6 @@
 	</npc>
 	<npc id="27290" name="White Wing Commander" title="Quest Monster Lvl 76*" alias="whitewing_commander">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -13946,7 +13731,6 @@
 	</npc>
 	<npc id="27291" name="White Wing Fighter" title="Quest Monster Lvl 76*" alias="whitewing_fighter">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="30.0"/>
@@ -13998,7 +13782,6 @@
 	</npc>
 	<npc id="27292" name="Fallen Noble Orc Muhark" title="Quest Monster Lvl 76*" alias="fallen_orc_muhark">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -14057,7 +13840,6 @@
 	</npc>
 	<npc id="27293" name="Khavatari Uruz" title="Quest Monster Lvl 76*" alias="kavatari_uruz">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -14116,7 +13898,6 @@
 	</npc>
 	<npc id="27294" name="Overlord Atrus" title="Quest Monster Lvl 76*" alias="overlord_atrus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -14177,7 +13958,6 @@
 	</npc>
 	<npc id="27295" name="Sharuhi Mouth Mudaha" title="Quest Monster Lvl 76*" alias="mouth_of_saruhi_mudaha">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -14238,7 +14018,6 @@
 	</npc>
 	<npc id="27296" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14297,7 +14076,6 @@
 	</npc>
 	<npc id="27297" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14356,7 +14134,6 @@
 	</npc>
 	<npc id="27298" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14415,7 +14192,6 @@
 	</npc>
 	<npc id="27299" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14473,7 +14249,6 @@
 	</npc>
 	<npc id="27300" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel5">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14531,7 +14306,6 @@
 	</npc>
 	<npc id="27301" name="Monument Watcher Ezekiel" title="Quest Monster Lvl 76*" alias="guardian_ejekiel6">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14589,7 +14363,6 @@
 	</npc>
 	<npc id="27302" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14642,7 +14415,6 @@
 	</npc>
 	<npc id="27303" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14695,7 +14467,6 @@
 	</npc>
 	<npc id="27304" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14748,7 +14519,6 @@
 	</npc>
 	<npc id="27305" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael4">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14801,7 +14571,6 @@
 	</npc>
 	<npc id="27306" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael5">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14854,7 +14623,6 @@
 	</npc>
 	<npc id="27307" name="Monument Defender Azrael" title="Quest Monster Lvl 81*" alias="defender_azrael6">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
 		<set name="height" val="80.0"/>
@@ -14907,7 +14675,6 @@
 	</npc>
 	<npc id="27308" name="Assassin Frost" title="Quest Monster Lvl 81*" alias="assassin_frost">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="8.0"/>
 		<set name="height" val="23.5"/>
@@ -14960,7 +14727,6 @@
 	</npc>
 	<npc id="27309" name="Minervia Van Hacken" title="Quest Monster Lvl 81*" alias="minervia_van_haken">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="6.0"/>
 		<set name="height" val="21.5"/>
@@ -15013,7 +14779,6 @@
 	</npc>
 	<npc id="27310" name="Kitanis Van Hacken" title="Quest Monster Lvl 81*" alias="kitanis_van_haken">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.5"/>
 		<set name="height" val="25.8"/>
@@ -15066,7 +14831,6 @@
 	</npc>
 	<npc id="27311" name="Judgment Hound Dog Kelvas" title="Quest Monster Lvl 81*" alias="hound_judge_kelvas">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
 		<set name="height" val="35.0"/>
@@ -15119,7 +14883,6 @@
 	</npc>
 	<npc id="27312" name="Mysterious Servitor" title="Quest Monster Lvl 81*" alias="mysterious_servitor1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
 		<set name="height" val="28.0"/>
@@ -15172,7 +14935,6 @@
 	</npc>
 	<npc id="27313" name="Vision Guardian Shakiel" title="Quest Monster Lvl 76*" alias="secret_keeper_shakiel1">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -15228,7 +14990,6 @@
 	</npc>
 	<npc id="27314" name="Vision Guardian Shakiel" title="Quest Monster Lvl 76*" alias="secret_keeper_shakiel2">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -15284,7 +15045,6 @@
 	</npc>
 	<npc id="27315" name="Vision Guardian Shakiel" title="Quest Monster Lvl 76*" alias="secret_keeper_shakiel3">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="11.0"/>
 		<set name="height" val="38.5"/>
@@ -15340,7 +15100,6 @@
 	</npc>
 	<npc id="27316" name="Fallen Chieftain Vegus" title="Quest Monster Lvl 55*" alias="fallen_chief_vergus">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="12.0"/>
 		<set name="height" val="24.0"/>
@@ -15392,7 +15151,6 @@
 	</npc>
 	<npc id="27317" name="Restrainer of Glory" title="Quest Monster Lvl 70*" alias="radiant_constrainer">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="13.0"/>
 		<set name="height" val="32.0"/>
@@ -15444,7 +15202,6 @@
 	</npc>
 	<npc id="27318" name="Wendy's Guardian" title="Quest Monster Lvl 46*" alias="q_wendy_guardian">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="16.0"/>
 		<set name="height" val="37.2"/>
@@ -15495,7 +15252,6 @@
 	</npc>
 	<npc id="27319" name="Black Leopard" title="Quest Monster Lvl 18*" alias="q_black_leopard">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="18"/>
 		<set name="radius" val="14.0"/>
 		<set name="height" val="14.5"/>
@@ -15546,7 +15302,6 @@
 	</npc>
 	<npc id="27320" name="Timora Orc" title="Quest Monster Lvl 20*" alias="orc_betrayer_timora">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="9.0"/>
 		<set name="height" val="21.5"/>
@@ -15597,7 +15352,6 @@
 	</npc>
 	<npc id="27321" name="Bruin Lizardman" title="Quest Monster Lvl 20*" alias="brun_lizardman">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="10.0"/>
 		<set name="height" val="23.0"/>
@@ -15643,7 +15397,6 @@
 	</npc>
 	<npc id="27322" name="Picot Araneid" title="Quest Monster Lvl 27*" alias="picat_araneid">
 		<set name="type" val="Monster"/>
-		<set name="nameColor" val="FF8000"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="39.0"/>
 		<set name="height" val="38.0"/>

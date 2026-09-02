@@ -10,6 +10,7 @@ import net.sf.l2j.commons.data.StatSet;
 import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.util.ArraysUtil;
 
+import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.ClanHallManager;
 import net.sf.l2j.gameserver.data.sql.DropTable;
@@ -20,6 +21,7 @@ import net.sf.l2j.gameserver.enums.actors.NpcSkillType;
 import net.sf.l2j.gameserver.enums.skills.AbnormalEffect;
 import net.sf.l2j.gameserver.model.item.DropCategory;
 import net.sf.l2j.gameserver.model.memo.NpcMemo;
+import net.sf.l2j.gameserver.model.records.MonsterNameplate;
 import net.sf.l2j.gameserver.model.records.PrivateData;
 import net.sf.l2j.gameserver.model.residence.Residence;
 import net.sf.l2j.gameserver.model.residence.castle.Castle;
@@ -51,6 +53,7 @@ public class NpcTemplate extends CreatureTemplate
 	private final boolean _usingServerSideName;
 	private final boolean _usingServerSideTitle;
 	private final int _nameColor;
+	private final int _titleColor;
 	private final int _visualEffect;
 	private final int _visualSkillId;
 	private final int _visualSkillLevel;
@@ -111,7 +114,17 @@ public class NpcTemplate extends CreatureTemplate
 		
 		_usingServerSideName = set.getBool("usingServerSideName", false);
 		_usingServerSideTitle = set.getBool("usingServerSideTitle", false);
-		_nameColor = parseNameColor(set.getString("nameColor", null));
+		// A monster is painted by its kind, which its title names ; a color of its own overrides that, and is the only way anything but a monster gets one at all.
+		final MonsterNameplate nameplate = getConfiguredNameplate(_title);
+
+		final int nameColor = parseNameColor(set.getString("nameColor", null));
+		final int titleColor = parseNameColor(set.getString("titleColor", null));
+
+		_nameColor = (nameColor != NO_NAME_COLOR) ? nameColor : (nameplate == null) ? NO_NAME_COLOR : nameplate.nameColor();
+
+		// A "nameColor" on its own paints both lines, the way it did when there was only one color to give : a datapack saying nothing about the title means the two match.
+		_titleColor = (titleColor != NO_NAME_COLOR) ? titleColor : (nameColor != NO_NAME_COLOR) ? nameColor : (nameplate == null) ? NO_NAME_COLOR : nameplate.titleColor();
+
 		_visualEffect = parseVisualEffect(set.getString("visualEffect", null));
 
 		final int[] visualSkill = parseVisualSkill(set.getString("visualSkill", null));
@@ -229,11 +242,19 @@ public class NpcTemplate extends CreatureTemplate
 	}
 
 	/**
-	 * @return the color this NPC's name is painted with, as RRGGBB, or {@link #NO_NAME_COLOR}.
+	 * @return the color this NPC's name - the lower line - is painted with, as RRGGBB, or {@link #NO_NAME_COLOR}.
 	 */
 	public int getNameColor()
 	{
 		return _nameColor;
+	}
+
+	/**
+	 * @return the color this NPC's title - the upper line - is painted with, as RRGGBB, or {@link #NO_NAME_COLOR}.
+	 */
+	public int getTitleColor()
+	{
+		return _titleColor;
 	}
 
 	/**
@@ -260,6 +281,29 @@ public class NpcTemplate extends CreatureTemplate
 
 		LOGGER.warn("Invalid nameColor '{}' ; 6 hexadecimal digits (RRGGBB) were expected.", value);
 		return NO_NAME_COLOR;
+	}
+
+	/**
+	 * Find the kind of monster config/npcs/nameplates.properties gives the NPC wearing the given title, and with it the colors of its two lines. The title is the only thing saying which kind of
+	 * monster it is : sorting them out needs the spawn list and the stock client markings, so it is done once, outside the server, by tools/datapack/npc_level_titles.ps1 - and the title it writes is
+	 * what is read back here.<br>
+	 * <br>
+	 * Only a title reading exactly the way that script writes one counts, so a hand written title starting with the same words is left alone.
+	 * @param title : the title of the NPC, as data/xml/npcs holds it.
+	 * @return the {@link MonsterNameplate} of that kind, or null when the title is no generated one or its kind is not painted at all.
+	 */
+	private static MonsterNameplate getConfiguredNameplate(String title)
+	{
+		if (title.isEmpty())
+			return null;
+
+		for (MonsterNameplate nameplate : Config.MONSTER_NAMEPLATES.values())
+		{
+			if (nameplate.isPainted() && nameplate.matches(title))
+				return nameplate;
+		}
+
+		return null;
 	}
 
 	/**
