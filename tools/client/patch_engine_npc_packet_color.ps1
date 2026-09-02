@@ -361,9 +361,14 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 # One register is all there is anyway, hence every tag checked as a range instead
 # of shifting a copy out of the way the way the name cave does.
 #
-# The title's own slot is read first. When it carries no tag - an older server
-# that appends the one dword and means it for both lines - the name's slot is
-# read instead, which is what that server's client used to do with it.
+# The title's own slot is read first. Three ways it can go :
+#
+#   0xC1RRGGBB   a colour, and the title takes it
+#   anything     the server said "leave this line alone" - a plain 0 - and the
+#   else         field keeps whatever the handler put there
+#   -1           no second dword came at all : an older server that appends the
+#                one and means it for both lines, so the name's slot is read
+#                instead, which is what that server's client used to do with it
 $titles = @()
 
 foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
@@ -381,15 +386,25 @@ foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 	# and falls out of it. imm32 again - the short form would sign-extend.
 	Emit @(0x81, 0xFA)                      # cmp edx,0C1000000h
 	EmitU32 ([uint32]$TAG_TITLE -shl 24)
-	$jbFallbackAt = $code.Count
-	Emit @(0x72, 0x00)                      # jb fallback
+	$jbUntaggedAt = $code.Count
+	Emit @(0x72, 0x00)                      # jb untagged
 	Emit @(0x81, 0xFA)                      # cmp edx,0C2000000h
 	EmitU32 (([uint32]$TAG_TITLE + 1) -shl 24)
 	$jbPaintAt = $code.Count
 	Emit @(0x72, 0x00)                      # jb paint                ; tagged for the title
 
-	$labelFallback = $code.Count
-	$shortFixups += @{ At = $jbFallbackAt; To = $labelFallback }
+	# Untagged is not the same as absent, and the difference is the whole point :
+	# a server that means "leave this line alone" sends a plain 0 for it, and only
+	# a packet that carried no second dword at all parks -1 here. Falling back on
+	# the 0 would paint the title with the name's colour and there would be no way
+	# to ask for a coloured name over a stock title.
+	$labelUntagged = $code.Count
+	$shortFixups += @{ At = $jbUntaggedAt; To = $labelUntagged }
+
+	Emit @(0x81, 0xFA)                      # cmp edx,0FFFFFFFFh
+	EmitU32 ([Convert]::ToUInt32('FFFFFFFF', 16))
+	$jneKeepAt = $code.Count
+	Emit @(0x75, 0x00)                      # jne keep                ; the server spoke : no colour
 
 	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
 	$fallbackOrigin = $code.Count
@@ -418,6 +433,7 @@ foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 	EmitU32 ([uint32]$FLD_TITLECOLOR)
 
 	$labelKeep = $code.Count
+	$shortFixups += @{ At = $jneKeepAt; To = $labelKeep }
 	$shortFixups += @{ At = $jbKeepAt; To = $labelKeep }
 	$shortFixups += @{ At = $jaeKeepAt; To = $labelKeep }
 
