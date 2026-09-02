@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import net.sf.l2j.commons.logging.CLogger;
@@ -21,8 +20,8 @@ import net.sf.l2j.gameserver.model.item.DropData;
  * <br>
  * Both flavors are read the very same way, out of the very same keys prefixed by their own name, so nothing but the prefix tells them apart on the config file.<br>
  * <br>
- * The schedule is a single property shared by the two of them, since one window names the flavor it opens : "1-20:23:red" is a red Monday evening. It is read into a list of {@link Window}s per
- * flavor, and an empty property hands every flavor a window covering the whole week - a server which doesn't care about hours simply doesn't write one.
+ * The schedule of a flavor is its own too : a list of {@link Window}s read from "ChampionMobs&lt;flavor&gt;Schedule", "1-5-0:24" being every working day. A flavor whose property is empty is handed
+ * out around the clock, which is what a server not caring about hours writes.
  */
 public class ChampionSettings
 {
@@ -254,21 +253,19 @@ public class ChampionSettings
 	}
 
 	/**
-	 * Read the "ChampionMobsSchedule" property and hand every window it holds to the flavor it names.<br>
+	 * Read the "ChampionMobs&lt;flavor&gt;Schedule" property of this flavor, holding the hours it is handed out at : a list of windows written as "days-from:to", the days being cut off on the last
+	 * dash so a range can carry one of its own. "1-5-0:24" is every working day, "6,7-0:24" every weekend, "1-20:23" a Monday evening, and an end hour below the start hour wraps over midnight.<br>
 	 * <br>
-	 * One entry reads "days-from:to:flavor", the days being cut off on the last dash so a range can carry one of its own : "1-20:23:red" is Monday from 20:00 to 23:00, "1-5-0:24:blue" is every
-	 * working day, "*-22:2:all" is every night for both flavors. An end hour below the start hour wraps over midnight, and an empty property hands every flavor the whole week.
+	 * An empty property means no restriction at all : this flavor is then handed out around the clock, and its own "Enable" is the only switch left.
 	 * @param value : The raw property.
-	 * @param settings : The settings of every flavor, the windows are added to.
 	 */
-	public static void parseSchedule(String value, Map<ChampionType, ChampionSettings> settings)
+	public void setSchedule(String value)
 	{
+		_schedule.clear();
+
 		if (value == null || value.isBlank())
 		{
-			// Without a schedule there is no restriction at all : the "Enable" of a flavor is the only switch left.
-			for (ChampionSettings flavor : settings.values())
-				flavor._schedule.add(new Window(EnumSet.allOf(DayOfWeek.class), 0, END_OF_DAY));
-
+			_schedule.add(new Window(EnumSet.allOf(DayOfWeek.class), 0, END_OF_DAY));
 			return;
 		}
 
@@ -278,68 +275,61 @@ public class ChampionSettings
 			if (entry.isEmpty())
 				continue;
 
-			final int dash = entry.lastIndexOf('-');
-			if (dash <= 0)
-			{
-				LOGGER.warn("Couldn't read the champion schedule entry '{}' ; days-from:to:flavor was expected.", entry);
-				continue;
-			}
-
-			final String[] parts = entry.substring(dash + 1).split(":");
-			if (parts.length != 3)
-			{
-				LOGGER.warn("Couldn't read the champion schedule entry '{}' ; days-from:to:flavor was expected.", entry);
-				continue;
-			}
-
-			final Set<DayOfWeek> days = parseDays(entry.substring(0, dash));
-			if (days == null || days.isEmpty())
-			{
-				LOGGER.warn("Couldn't read the days of the champion schedule entry '{}' ; 1 is Monday and 7 is Sunday.", entry);
-				continue;
-			}
-
-			final int from;
-			final int to;
-
-			try
-			{
-				from = Integer.parseInt(parts[0].trim());
-				to = Integer.parseInt(parts[1].trim());
-			}
-			catch (NumberFormatException e)
-			{
-				LOGGER.warn("Couldn't read the hours of the champion schedule entry '{}' ; two hours were expected.", entry);
-				continue;
-			}
-
-			// An empty window would either never open or, once wrapped over midnight, never close.
-			if (from < 0 || from >= END_OF_DAY || to <= 0 || to > END_OF_DAY || from == to)
-			{
-				LOGGER.warn("Couldn't read the hours of the champion schedule entry '{}' ; they must differ and sit between 0 and 24.", entry);
-				continue;
-			}
-
-			final Window window = new Window(days, from, to);
-			final String flavor = parts[2].trim();
-
-			if (flavor.equals("*") || flavor.equalsIgnoreCase("all"))
-			{
-				for (ChampionSettings champion : settings.values())
-					champion._schedule.add(window);
-
-				continue;
-			}
-
-			final ChampionType type = ChampionType.parse(flavor);
-			if (type == null)
-			{
-				LOGGER.warn("Couldn't read the flavor of the champion schedule entry '{}' ; red, blue or all was expected.", entry);
-				continue;
-			}
-
-			settings.get(type)._schedule.add(window);
+			final Window window = parseWindow(entry);
+			if (window != null)
+				_schedule.add(window);
 		}
+	}
+
+	/**
+	 * @param entry : The entry to read, "days-from:to". The days are cut off on the last dash, so a day range may carry one of its own.
+	 * @return The window the given entry holds, null when it doesn't read as one - a warning is logged in that case.
+	 */
+	private static Window parseWindow(String entry)
+	{
+		final int dash = entry.lastIndexOf('-');
+		if (dash <= 0)
+		{
+			LOGGER.warn("Couldn't read the champion schedule entry '{}' ; days-from:to was expected.", entry);
+			return null;
+		}
+
+		final String[] parts = entry.substring(dash + 1).split(":");
+		if (parts.length != 2)
+		{
+			LOGGER.warn("Couldn't read the champion schedule entry '{}' ; days-from:to was expected.", entry);
+			return null;
+		}
+
+		final Set<DayOfWeek> days = parseDays(entry.substring(0, dash));
+		if (days == null || days.isEmpty())
+		{
+			LOGGER.warn("Couldn't read the days of the champion schedule entry '{}' ; 1 is Monday and 7 is Sunday.", entry);
+			return null;
+		}
+
+		final int from;
+		final int to;
+
+		try
+		{
+			from = Integer.parseInt(parts[0].trim());
+			to = Integer.parseInt(parts[1].trim());
+		}
+		catch (NumberFormatException e)
+		{
+			LOGGER.warn("Couldn't read the hours of the champion schedule entry '{}' ; two hours were expected.", entry);
+			return null;
+		}
+
+		// An empty window would either never open or, once wrapped over midnight, never close.
+		if (from < 0 || from >= END_OF_DAY || to <= 0 || to > END_OF_DAY || from == to)
+		{
+			LOGGER.warn("Couldn't read the hours of the champion schedule entry '{}' ; they must differ and sit between 0 and 24.", entry);
+			return null;
+		}
+
+		return new Window(days, from, to);
 	}
 
 	/**

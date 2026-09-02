@@ -8,6 +8,7 @@ import net.sf.l2j.gameserver.handler.IAdminCommandHandler;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Creature;
 import net.sf.l2j.gameserver.model.actor.Player;
+import net.sf.l2j.gameserver.model.actor.instance.Monster;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.taskmanager.DecayTaskManager;
 
@@ -124,7 +125,11 @@ public class AdminManage implements IAdminCommandHandler
 			return;
 		
 		creature.stopAllEffects();
-		creature.reduceCurrentHp(creature.getStatus().getMaxHp() + creature.getStatus().getMaxCp() + 1d, player, null);
+
+		// A champion doesn't own a bigger HP pool, it takes reduced damages instead - so the blow has to be as big as the pool that reduction amounts to, otherwise it survives it.
+		final double maxHp = (creature instanceof Monster monster) ? monster.getEffectiveMaxHp() : creature.getStatus().getMaxHp();
+
+		creature.reduceCurrentHp(maxHp + creature.getStatus().getMaxCp() + 1d, player, null);
 	}
 	
 	private static void resurrect(Creature creature)

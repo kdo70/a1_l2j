@@ -804,11 +804,10 @@ public final class Config
 			settings.setRewardMultipliers(championMobs.getProperty(prefix + "XpMultiplier", 1.), championMobs.getProperty(prefix + "SpMultiplier", 1.), championMobs.getProperty(prefix + "AdenaMultiplier", 1.), Math.max(0., championMobs.getProperty(prefix + "DropMultiplier", 2.)), Math.max(0., championMobs.getProperty(prefix + "SpoilMultiplier", 2.)));
 
 			settings.setDrops(ChampionSettings.parseDrops(prefix + "Drop", championMobs.getProperty(prefix + "Drop", "")));
+			settings.setSchedule(championMobs.getProperty(prefix + "Schedule", ""));
 
 			CHAMPION_MOBS.put(type, settings);
 		}
-
-		ChampionSettings.parseSchedule(championMobs.getProperty("ChampionMobsSchedule", ""), CHAMPION_MOBS);
 	}
 	
 	/**

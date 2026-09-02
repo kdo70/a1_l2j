@@ -43,22 +43,4 @@ public enum ChampionType
 	{
 		return _defaultNameColor;
 	}
-
-	/**
-	 * @param value : The name to read, case insensitive.
-	 * @return The matching {@link ChampionType}, null when the given name isn't one.
-	 */
-	public static ChampionType parse(String value)
-	{
-		if (value == null)
-			return null;
-
-		for (ChampionType type : values())
-		{
-			if (type.name().equalsIgnoreCase(value.trim()))
-				return type;
-		}
-
-		return null;
-	}
 }
