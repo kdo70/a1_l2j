@@ -69,6 +69,12 @@ public final class Chest extends Monster
 		_isInteracted = false;
 	}
 	
+	@Override
+	public boolean canBeChampion()
+	{
+		return false;
+	}
+
 	public boolean isBox()
 	{
 		return _isBox;

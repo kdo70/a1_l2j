@@ -394,8 +394,17 @@ public class Monster extends Attackable
 	}
 
 	/**
-	 * Roll the flavor of champion this {@link Monster} spawns as. Raid bosses, minions and summoned monsters are excluded, and so is any flavor which isn't running right now - either because it is
-	 * disabled, or because the hour sits outside of its schedule.<br>
+	 * @return True if this {@link Monster} is allowed to become a champion at all, whatever the configs say. Overriden by the {@link Monster}s which aren't fought the regular way - a chest is opened,
+	 *         not hunted, so a champion one would only be a chest nobody can crack.
+	 */
+	public boolean canBeChampion()
+	{
+		return true;
+	}
+
+	/**
+	 * Roll the flavor of champion this {@link Monster} spawns as. Chests, raid bosses, minions and summoned monsters are excluded, and so is any flavor which isn't running right now - either because
+	 * it is disabled, or because the hour sits outside of its schedule.<br>
 	 * <br>
 	 * The flavors are rolled one after the other and the first hit wins, but the starting point is picked at random : rolling them in a fixed order would give the first one of the list every monster
 	 * both of them could have taken.
@@ -403,7 +412,7 @@ public class Monster extends Attackable
 	 */
 	private ChampionType rollChampionType()
 	{
-		if (isRaidRelated() || hasMaster())
+		if (!canBeChampion() || isRaidRelated() || hasMaster())
 			return null;
 
 		final ChampionType[] types = ChampionType.values();

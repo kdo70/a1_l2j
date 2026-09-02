@@ -14,6 +14,12 @@ public final class HalishaChest extends Monster
 	}
 	
 	@Override
+	public boolean canBeChampion()
+	{
+		return false;
+	}
+
+	@Override
 	public boolean isMovementDisabled()
 	{
 		return true;
