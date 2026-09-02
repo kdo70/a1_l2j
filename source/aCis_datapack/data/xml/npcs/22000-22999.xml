@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
-	<npc id="22001" name="Grim Wolf" title="Lvl 25*" alias="scavenger_wolf">
+	<npc id="22001" name="Grim Wolf" title="" alias="scavenger_wolf">
 		<set name="type" val="Monster"/>
 		<set name="level" val="25"/>
 		<set name="radius" val="13.0"/>
@@ -59,7 +59,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22002" name="Grim Grizzly" title="Lvl 26*" alias="grave_greybear">
+	<npc id="22002" name="Grim Grizzly" title="" alias="grave_greybear">
 		<set name="type" val="Monster"/>
 		<set name="level" val="26"/>
 		<set name="radius" val="21.0"/>
@@ -118,7 +118,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22003" name="Grave Robber Scout" title="Lvl 27*" alias="thief_patroller_archer">
+	<npc id="22003" name="Grave Robber Scout" title="" alias="thief_patroller_archer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="7.0"/>
@@ -177,7 +177,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22004" name="Grave Robber Lookout" title="Lvl 27*" alias="thief_patroller">
+	<npc id="22004" name="Grave Robber Lookout" title="" alias="thief_patroller">
 		<set name="type" val="Monster"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="9.0"/>
@@ -237,7 +237,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22005" name="Grave Robber Ranger" title="Lvl 28*" alias="thief_guard">
+	<npc id="22005" name="Grave Robber Ranger" title="" alias="thief_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="8.0"/>
@@ -297,7 +297,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22006" name="Grave Robber Guard" title="Lvl 29*" alias="grave_robber_swordscout">
+	<npc id="22006" name="Grave Robber Guard" title="" alias="grave_robber_swordscout">
 		<set name="type" val="Monster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="8.0"/>
@@ -357,7 +357,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22007" name="Ghost of a Soldier" title="Lvl 29*" alias="grudge_private">
+	<npc id="22007" name="Ghost of a Soldier" title="" alias="grudge_private">
 		<set name="type" val="Monster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="10.0"/>
@@ -418,7 +418,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22008" name="Grave Robber Fighter" title="Lvl 30*" alias="thief_fighter">
+	<npc id="22008" name="Grave Robber Fighter" title="" alias="thief_fighter">
 		<set name="type" val="Monster"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="8.0"/>
@@ -479,7 +479,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22009" name="Ghost of a Loyal Vassal" title="Lvl 31*" alias="grudge_fighter">
+	<npc id="22009" name="Ghost of a Loyal Vassal" title="" alias="grudge_fighter">
 		<set name="type" val="Monster"/>
 		<set name="level" val="31"/>
 		<set name="radius" val="9.0"/>
@@ -543,7 +543,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22010" name="Ghost of a General" title="Lvl 32*" alias="grudge_general">
+	<npc id="22010" name="Ghost of a General" title="" alias="grudge_general">
 		<set name="type" val="Monster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="12.0"/>
@@ -606,7 +606,7 @@
 			<skill id="4612" level="3" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22011" name="Ghost of a Batur Chief" title="Lvl 33*" alias="elder_batur_grudge">
+	<npc id="22011" name="Ghost of a Batur Chief" title="" alias="elder_batur_grudge">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -671,7 +671,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22012" name="Ghost of a Batur Chief" title="Lvl 33*" alias="elder_batur_grudge2">
+	<npc id="22012" name="Ghost of a Batur Chief" title="" alias="elder_batur_grudge2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -736,7 +736,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22013" name="Ghost of a Morek Chief" title="Lvl 33*" alias="elder_morek_grudge">
+	<npc id="22013" name="Ghost of a Morek Chief" title="" alias="elder_morek_grudge">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -801,7 +801,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22014" name="Ghost of a Morek Chief" title="Lvl 33*" alias="elder_morek_grudge2">
+	<npc id="22014" name="Ghost of a Morek Chief" title="" alias="elder_morek_grudge2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -866,7 +866,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22015" name="Ghost of a Turka Chief" title="Lvl 33*" alias="elder_turka_gudege">
+	<npc id="22015" name="Ghost of a Turka Chief" title="" alias="elder_turka_gudege">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -931,7 +931,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22016" name="Ghost of a Turka Chief" title="Lvl 33*" alias="elder_turka_gudege2">
+	<npc id="22016" name="Ghost of a Turka Chief" title="" alias="elder_turka_gudege2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="10.0"/>
@@ -996,7 +996,7 @@
 			<skill id="4458" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22017" name="Bandit Sweeper" title="Lvl 30*" alias="brigand_sweeper">
+	<npc id="22017" name="Bandit Sweeper" title="" alias="brigand_sweeper">
 		<set name="type" val="Monster"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="4.0"/>
@@ -1059,7 +1059,7 @@
 			<skill id="4470" level="1" type="EFFECT_SKILL"/>
 		</skills>
 	</npc>
-	<npc id="22018" name="Bandit Hound" title="Lvl 31*" alias="brigand_hound">
+	<npc id="22018" name="Bandit Hound" title="" alias="brigand_hound">
 		<set name="type" val="Monster"/>
 		<set name="level" val="31"/>
 		<set name="radius" val="13.0"/>
@@ -1117,7 +1117,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22019" name="Bandit Watchman" title="Lvl 32*" alias="brigand_watcher">
+	<npc id="22019" name="Bandit Watchman" title="" alias="brigand_watcher">
 		<set name="type" val="Monster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="14.0"/>
@@ -1178,7 +1178,7 @@
 			<skill id="4450" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22020" name="Snow Lynx" title="Lvl 33*" alias="sirasoni_snow">
+	<npc id="22020" name="Snow Lynx" title="" alias="sirasoni_snow">
 		<set name="type" val="Monster"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="14.0"/>
@@ -1235,7 +1235,7 @@
 			<skill id="4416" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22021" name="Bandit Undertaker" title="Lvl 34*" alias="brigand_undertaker">
+	<npc id="22021" name="Bandit Undertaker" title="" alias="brigand_undertaker">
 		<set name="type" val="Monster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="6.0"/>
@@ -1296,7 +1296,7 @@
 			<skill id="4450" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22022" name="Bandit Assassin" title="Lvl 35*" alias="brigand_assassin">
+	<npc id="22022" name="Bandit Assassin" title="" alias="brigand_assassin">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="14.0"/>
@@ -1356,7 +1356,7 @@
 			<skill id="5040" level="3" type="MAGIC_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="22023" name="Bandit Warrior" title="Lvl 36*" alias="brigand_fighter">
+	<npc id="22023" name="Bandit Warrior" title="" alias="brigand_fighter">
 		<set name="type" val="Monster"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="13.5"/>
@@ -1418,7 +1418,7 @@
 			<skill id="5040" level="3" type="MAGIC_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="22024" name="Bandit Inspector" title="Lvl 37*" alias="brigand_inspector">
+	<npc id="22024" name="Bandit Inspector" title="" alias="brigand_inspector">
 		<set name="type" val="Monster"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="7.0"/>
@@ -1479,7 +1479,7 @@
 			<skill id="4470" level="1" type="EFFECT_SKILL"/>
 		</skills>
 	</npc>
-	<npc id="22025" name="Frozen Wasteland Werewolf" title="Lvl 38*" alias="wolf_snow">
+	<npc id="22025" name="Frozen Wasteland Werewolf" title="" alias="wolf_snow">
 		<set name="type" val="Monster"/>
 		<set name="level" val="38"/>
 		<set name="radius" val="10.0"/>
@@ -1536,7 +1536,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22026" name="Bandit Captain" title="Lvl 40*" alias="brigand_captain">
+	<npc id="22026" name="Bandit Captain" title="" alias="brigand_captain">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="14.0"/>
@@ -1598,7 +1598,7 @@
 			<skill id="5040" level="4" type="MAGIC_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="22027" name="Forgotten Crewman" title="Lvl 39*" alias="forgotten_carman">
+	<npc id="22027" name="Forgotten Crewman" title="" alias="forgotten_carman">
 		<set name="type" val="Monster"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="9.0"/>
@@ -1661,7 +1661,7 @@
 			<skill id="4412" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22028" name="Vagabond of the Ruins" title="Lvl 40*" alias="wanderer_ruins">
+	<npc id="22028" name="Vagabond of the Ruins" title="" alias="wanderer_ruins">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="8.0"/>
@@ -1724,7 +1724,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22029" name="Ragna Orc" title="Lvl 40*" alias="ragna_orc">
+	<npc id="22029" name="Ragna Orc" title="" alias="ragna_orc">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="9.0"/>
@@ -1782,7 +1782,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22030" name="Ragna Orc Shaman" title="Lvl 42*" alias="ragna_orc_shaman">
+	<npc id="22030" name="Ragna Orc Shaman" title="" alias="ragna_orc_shaman">
 		<set name="type" val="Monster"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="11.0"/>
@@ -1840,7 +1840,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22031" name="Ragna Orc Archer" title="Lvl 43*" alias="ragna_orc_archer">
+	<npc id="22031" name="Ragna Orc Archer" title="" alias="ragna_orc_archer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="11.0"/>
@@ -1897,7 +1897,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22032" name="Ragna Orc Warrior" title="Lvl 44*" alias="ragna_orc_warrior">
+	<npc id="22032" name="Ragna Orc Warrior" title="" alias="ragna_orc_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="10.0"/>
@@ -1956,7 +1956,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22033" name="Ragna Orc Mage" title="Lvl 45*" alias="ragna_orc_mage_a">
+	<npc id="22033" name="Ragna Orc Mage" title="" alias="ragna_orc_mage_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="11.0"/>
@@ -2017,7 +2017,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22034" name="Ragna Orc Mage" title="Lvl 45*" alias="ragna_orc_mage_b">
+	<npc id="22034" name="Ragna Orc Mage" title="" alias="ragna_orc_mage_b">
 		<set name="type" val="Monster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="11.0"/>
@@ -2074,7 +2074,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22035" name="Ragna Orc Mage" title="Lvl 45*" alias="ragna_orc_mage_c">
+	<npc id="22035" name="Ragna Orc Mage" title="" alias="ragna_orc_mage_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="11.0"/>
@@ -2137,7 +2137,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22036" name="Ragna Orc Mage" title="Lvl 45*" alias="ragna_orc_mage_d">
+	<npc id="22036" name="Ragna Orc Mage" title="" alias="ragna_orc_mage_d">
 		<set name="type" val="Monster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="11.0"/>
@@ -2196,7 +2196,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22037" name="Ragna Orc Healer" title="Lvl 45*" alias="ragna_orc_healer">
+	<npc id="22037" name="Ragna Orc Healer" title="" alias="ragna_orc_healer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="11.0"/>
@@ -2254,7 +2254,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22038" name="Ragna Orc Hero" title="Lvl 48*" alias="ragna_orc_hero">
+	<npc id="22038" name="Ragna Orc Hero" title="" alias="ragna_orc_hero">
 		<set name="type" val="Monster"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="12.0"/>
@@ -2313,7 +2313,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22039" name="Ragna Orc Commander" title="Lvl 49*" alias="ragna_orc_commander">
+	<npc id="22039" name="Ragna Orc Commander" title="" alias="ragna_orc_commander">
 		<set name="type" val="Monster"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="12.0"/>
@@ -2372,7 +2372,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22040" name="Ragna Orc Sniper" title="Lvl 47*" alias="ragna_orc_sniper">
+	<npc id="22040" name="Ragna Orc Sniper" title="" alias="ragna_orc_sniper">
 		<set name="type" val="Monster"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="11.0"/>
@@ -2429,7 +2429,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22041" name="Ragna Orc Sorcerer" title="Lvl 50*" alias="ragna_orc_wizard_a">
+	<npc id="22041" name="Ragna Orc Sorcerer" title="" alias="ragna_orc_wizard_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -2490,7 +2490,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22042" name="Ragna Orc Sorcerer" title="Lvl 50*" alias="ragna_orc_wizard_b">
+	<npc id="22042" name="Ragna Orc Sorcerer" title="" alias="ragna_orc_wizard_b">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -2547,7 +2547,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22043" name="Ragna Orc Sorcerer" title="Lvl 50*" alias="ragna_orc_wizard_c">
+	<npc id="22043" name="Ragna Orc Sorcerer" title="" alias="ragna_orc_wizard_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -2610,7 +2610,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22044" name="Ragna Orc Sorcerer" title="Lvl 50*" alias="ragna_orc_wizard_d">
+	<npc id="22044" name="Ragna Orc Sorcerer" title="" alias="ragna_orc_wizard_d">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -2669,7 +2669,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22045" name="Dark Corpse" title="Lvl 40*" alias="dark_corpse">
+	<npc id="22045" name="Dark Corpse" title="" alias="dark_corpse">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="13.0"/>
@@ -2727,7 +2727,7 @@
 			<skill id="4413" level="14" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22046" name="Varangka's Dre Vanul" title="Lvl 46*" alias="baranka_dre_vanul">
+	<npc id="22046" name="Varangka's Dre Vanul" title="" alias="baranka_dre_vanul">
 		<set name="type" val="Monster"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="14.0"/>
@@ -2786,7 +2786,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22047" name="Guardian of the Ghost Town" title="Lvl 44*" alias="derelict_viliage_monitor">
+	<npc id="22047" name="Guardian of the Ghost Town" title="" alias="derelict_viliage_monitor">
 		<set name="type" val="Monster"/>
 		<set name="level" val="44"/>
 		<set name="radius" val="21.0"/>
@@ -2845,7 +2845,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22048" name="Dark Spider" title="Lvl 42*" alias="darkness_spider">
+	<npc id="22048" name="Dark Spider" title="" alias="darkness_spider">
 		<set name="type" val="Monster"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="26.0"/>
@@ -2903,7 +2903,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22049" name="Varangka's Succubus" title="Lvl 49*" alias="baranka_succubus">
+	<npc id="22049" name="Varangka's Succubus" title="" alias="baranka_succubus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="10.0"/>
@@ -2962,7 +2962,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22050" name="Probe Golem Prodigy IV" title="Lvl 46*" alias="intellect_scope_forth">
+	<npc id="22050" name="Probe Golem Prodigy IV" title="" alias="intellect_scope_forth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="46"/>
 		<set name="radius" val="12.0"/>
@@ -3024,7 +3024,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22051" name="Spelunking Spider" title="Lvl 47*" alias="mine_poison_spider">
+	<npc id="22051" name="Spelunking Spider" title="" alias="mine_poison_spider">
 		<set name="type" val="Monster"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="26.0"/>
@@ -3082,7 +3082,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22052" name="Menacing Jackhammer Golem" title="Lvl 47*" alias="strong_shovel_golem">
+	<npc id="22052" name="Menacing Jackhammer Golem" title="" alias="strong_shovel_golem">
 		<set name="type" val="Monster"/>
 		<set name="level" val="47"/>
 		<set name="radius" val="23.0"/>
@@ -3146,7 +3146,7 @@
 			<skill id="4472" level="5" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22053" name="Horrifying Cannon Golem I" title="Lvl 48*" alias="horrorble_cannon_first">
+	<npc id="22053" name="Horrifying Cannon Golem I" title="" alias="horrorble_cannon_first">
 		<set name="type" val="Monster"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="23.5"/>
@@ -3211,7 +3211,7 @@
 			<skill id="4473" level="4" type="LONG_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22054" name="Horrifying Cannon Golem IV" title="Lvl 48*" alias="horrorble_cannon_forth">
+	<npc id="22054" name="Horrifying Cannon Golem IV" title="" alias="horrorble_cannon_forth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="23.5"/>
@@ -3281,7 +3281,7 @@
 			<skill id="4492" level="5" type="DEBUFF1"/>
 		</skills>
 	</npc>
-	<npc id="22055" name="Cruel Vice Golem" title="Lvl 49*" alias="cruelty_nipper_golem">
+	<npc id="22055" name="Cruel Vice Golem" title="" alias="cruelty_nipper_golem">
 		<set name="type" val="Monster"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="23.0"/>
@@ -3345,7 +3345,7 @@
 			<skill id="4472" level="5" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22056" name="Probe Golem Champion I" title="Lvl 49*" alias="mighty_scope_first">
+	<npc id="22056" name="Probe Golem Champion I" title="" alias="mighty_scope_first">
 		<set name="type" val="Monster"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="12.0"/>
@@ -3407,7 +3407,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22057" name="Spelunking Ant" title="Lvl 50*" alias="mine_ant">
+	<npc id="22057" name="Spelunking Ant" title="" alias="mine_ant">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="35.0"/>
@@ -3464,7 +3464,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22058" name="Horrifying Excavator Golem III" title="Lvl 51*" alias="horrorble_shovel_golem_3">
+	<npc id="22058" name="Horrifying Excavator Golem III" title="" alias="horrorble_shovel_golem_3">
 		<set name="type" val="Monster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="23.0"/>
@@ -3528,7 +3528,7 @@
 			<skill id="4472" level="5" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22059" name="Bloodthirsty Ginzu Golem VII" title="Lvl 51*" alias="shivering_blade_seventh">
+	<npc id="22059" name="Bloodthirsty Ginzu Golem VII" title="" alias="shivering_blade_seventh">
 		<set name="type" val="Monster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="16.0"/>
@@ -3598,7 +3598,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22060" name="Horrifying Cannon Golem" title="Lvl 52*" alias="horrorble_cannon_zero">
+	<npc id="22060" name="Horrifying Cannon Golem" title="" alias="horrorble_cannon_zero">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="23.5"/>
@@ -3664,7 +3664,7 @@
 			<skill id="4663" level="1" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22061" name="Horrifying Cannon Golem III" title="Lvl 51*" alias="horrorble_cannon_third">
+	<npc id="22061" name="Horrifying Cannon Golem III" title="" alias="horrorble_cannon_third">
 		<set name="type" val="Monster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="12.0"/>
@@ -3727,7 +3727,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22062" name="Horrifying Jackhammer Golem" title="Lvl 52*" alias="horrorble_drill_golem">
+	<npc id="22062" name="Horrifying Jackhammer Golem" title="" alias="horrorble_drill_golem">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="23.0"/>
@@ -3792,7 +3792,7 @@
 			<skill id="4472" level="5" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22063" name="Ginzu Golem Prodigy X" title="Lvl 52*" alias="intellect_blade_tenth">
+	<npc id="22063" name="Ginzu Golem Prodigy X" title="" alias="intellect_blade_tenth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="16.0"/>
@@ -3862,7 +3862,7 @@
 			<skill id="4641" level="5" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22064" name="Bloodthirsty Ginzu Golem II" title="Lvl 52*" alias="shivering_blade_second">
+	<npc id="22064" name="Bloodthirsty Ginzu Golem II" title="" alias="shivering_blade_second">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="16.0"/>
@@ -3932,7 +3932,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22065" name="Horrifying Ginzu Golem V" title="Lvl 53*" alias="horrorble_blade_fifth">
+	<npc id="22065" name="Horrifying Ginzu Golem V" title="" alias="horrorble_blade_fifth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="18.0"/>
@@ -4002,7 +4002,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22066" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_a">
+	<npc id="22066" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4067,7 +4067,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22067" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_b">
+	<npc id="22067" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_b">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4132,7 +4132,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22068" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_c">
+	<npc id="22068" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4197,7 +4197,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22069" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_d">
+	<npc id="22069" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_d">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4262,7 +4262,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22070" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_e">
+	<npc id="22070" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_e">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4327,7 +4327,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22071" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_f">
+	<npc id="22071" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_f">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4392,7 +4392,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22072" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_g">
+	<npc id="22072" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_g">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4457,7 +4457,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22073" name="Horrifying Cannon Golem VI" title="Lvl 53*" alias="horrorble_cannon_sixth_h">
+	<npc id="22073" name="Horrifying Cannon Golem VI" title="" alias="horrorble_cannon_sixth_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4522,7 +4522,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22074" name="Epic Cannon Golem" title="Lvl 53*" alias="horrorble_cannon_great">
+	<npc id="22074" name="Epic Cannon Golem" title="" alias="horrorble_cannon_great">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="21.0"/>
@@ -4588,7 +4588,7 @@
 			<skill id="4663" level="1" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22075" name="Epic Cannon Golem Adjunct" title="Lvl 52*" alias="follow_of_the_great">
+	<npc id="22075" name="Epic Cannon Golem Adjunct" title="" alias="follow_of_the_great">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="12.0"/>
@@ -4651,7 +4651,7 @@
 			<skill id="4457" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22076" name="Deadly Ginzu Golem V" title="Lvl 53*" alias="killer_blade_fifth">
+	<npc id="22076" name="Deadly Ginzu Golem V" title="" alias="killer_blade_fifth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="18.0"/>
@@ -4721,7 +4721,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22077" name="Horrifying Ginzu Golem VIII" title="Lvl 54*" alias="horrorble_blade_eighth">
+	<npc id="22077" name="Horrifying Ginzu Golem VIII" title="" alias="horrorble_blade_eighth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="18.0"/>
@@ -4791,7 +4791,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22078" name="Deadly Ginzu Golem VIII" title="Lvl 54*" alias="killer_blade_eighth">
+	<npc id="22078" name="Deadly Ginzu Golem VIII" title="" alias="killer_blade_eighth">
 		<set name="type" val="Monster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="18.0"/>
@@ -4861,7 +4861,7 @@
 			<skill id="4641" level="5" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22079" name="Lost Bandersnatch" title="Lvl 53*" alias="maze_bandersnatch">
+	<npc id="22079" name="Lost Bandersnatch" title="" alias="maze_bandersnatch">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="18.0"/>
@@ -4918,7 +4918,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22080" name="Massive Maze Bandersnatch" title="Lvl 54*" alias="maze_bandersnatch_bulky">
+	<npc id="22080" name="Massive Maze Bandersnatch" title="" alias="maze_bandersnatch_bulky">
 		<set name="type" val="Monster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="18.0"/>
@@ -4975,7 +4975,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22081" name="Lost Watcher" title="Lvl 53*" alias="maze_watcher">
+	<npc id="22081" name="Lost Watcher" title="" alias="maze_watcher">
 		<set name="type" val="Monster"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="15.0"/>
@@ -5034,7 +5034,7 @@
 			<skill id="4460" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22082" name="Elder Lost Watcher" title="Lvl 54*" alias="maze_watcher_elder">
+	<npc id="22082" name="Elder Lost Watcher" title="" alias="maze_watcher_elder">
 		<set name="type" val="Monster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="16.0"/>
@@ -5094,7 +5094,7 @@
 			<skill id="4460" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22083" name="Baby Panthera" title="Lvl 55*" alias="panthera_baby">
+	<npc id="22083" name="Baby Panthera" title="" alias="panthera_baby">
 		<set name="type" val="Monster"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="29.0"/>
@@ -5152,7 +5152,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22084" name="Panthera" title="Lvl 56*" alias="panthera">
+	<npc id="22084" name="Panthera" title="" alias="panthera">
 		<set name="type" val="Monster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="34.0"/>
@@ -5210,7 +5210,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22085" name="Lost Gargoyle" title="Lvl 55*" alias="maze_gargoyle">
+	<npc id="22085" name="Lost Gargoyle" title="" alias="maze_gargoyle">
 		<set name="type" val="Monster"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="16.0"/>
@@ -5268,7 +5268,7 @@
 			<skill id="4461" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22086" name="Lost Gargoyle Youngling" title="Lvl 56*" alias="maze_gargoyle_lad">
+	<npc id="22086" name="Lost Gargoyle Youngling" title="" alias="maze_gargoyle_lad">
 		<set name="type" val="Monster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="17.5"/>
@@ -5329,7 +5329,7 @@
 			<skill id="4461" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22087" name="Pronghorn Spirit" title="Lvl 56*" alias="pronghorn_spirit">
+	<npc id="22087" name="Pronghorn Spirit" title="" alias="pronghorn_spirit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="17.0"/>
@@ -5388,7 +5388,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22088" name="Pronghorn" title="Lvl 57*" alias="pronghorn">
+	<npc id="22088" name="Pronghorn" title="" alias="pronghorn">
 		<set name="type" val="Monster"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="19.0"/>
@@ -5445,7 +5445,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22089" name="Ice Tarantula" title="Lvl 57*" alias="tarantula_ice">
+	<npc id="22089" name="Ice Tarantula" title="" alias="tarantula_ice">
 		<set name="type" val="Monster"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="26.0"/>
@@ -5502,7 +5502,7 @@
 			<skill id="4460" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22090" name="Frost Tarantula" title="Lvl 58*" alias="tarantula_intense_cold">
+	<npc id="22090" name="Frost Tarantula" title="" alias="tarantula_intense_cold">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="32.0"/>
@@ -5559,7 +5559,7 @@
 			<skill id="4460" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22091" name="Lost Iron Golem" title="Lvl 58*" alias="maze_iron_golem">
+	<npc id="22091" name="Lost Iron Golem" title="" alias="maze_iron_golem">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="22.0"/>
@@ -5622,7 +5622,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22092" name="Frost Iron Golem" title="Lvl 59*" alias="iron_golem_intense_cold">
+	<npc id="22092" name="Frost Iron Golem" title="" alias="iron_golem_intense_cold">
 		<set name="type" val="Monster"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="24.0"/>
@@ -5685,7 +5685,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22093" name="Lost Buffalo" title="Lvl 60*" alias="maze_buffalo">
+	<npc id="22093" name="Lost Buffalo" title="" alias="maze_buffalo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="22.0"/>
@@ -5743,7 +5743,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22094" name="Frost Buffalo" title="Lvl 61*" alias="buffalo_intense_cold">
+	<npc id="22094" name="Frost Buffalo" title="" alias="buffalo_intense_cold">
 		<set name="type" val="Monster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="24.0"/>
@@ -5800,7 +5800,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22095" name="Ursus Cub" title="Lvl 61*" alias="ursus_baby">
+	<npc id="22095" name="Ursus Cub" title="" alias="ursus_baby">
 		<set name="type" val="Monster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="21.0"/>
@@ -5857,7 +5857,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22096" name="Ursus" title="Lvl 62*" alias="ursus">
+	<npc id="22096" name="Ursus" title="" alias="ursus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="21.0"/>
@@ -5915,7 +5915,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22097" name="Lost Yeti" title="Lvl 62*" alias="maze_yeti">
+	<npc id="22097" name="Lost Yeti" title="" alias="maze_yeti">
 		<set name="type" val="Monster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="15.0"/>
@@ -5972,7 +5972,7 @@
 			<skill id="4461" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22098" name="Frost Yeti" title="Lvl 63*" alias="yeti_intense_cold">
+	<npc id="22098" name="Frost Yeti" title="" alias="yeti_intense_cold">
 		<set name="type" val="Monster"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="20.0"/>
@@ -6029,7 +6029,7 @@
 			<skill id="4461" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22099" name="Freya's Buffalo" title="Lvl 57*" alias="freya_buffalo">
+	<npc id="22099" name="Freya's Buffalo" title="" alias="freya_buffalo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="22.0"/>
@@ -6093,7 +6093,7 @@
 			<skill id="5044" level="2" type="BUFF"/>
 		</skills>
 	</npc>
-	<npc id="22100" name="Freya's Gardener" title="Lvl 58*" alias="freya_gardener">
+	<npc id="22100" name="Freya's Gardener" title="" alias="freya_gardener">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="15.0"/>
@@ -6158,7 +6158,7 @@
 			<skill id="4578" level="1" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22101" name="Freya's Servant" title="Lvl 58*" alias="freya_secretary_private1">
+	<npc id="22101" name="Freya's Servant" title="" alias="freya_secretary_private1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="16.0"/>
@@ -6220,7 +6220,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22102" name="Freya's Servant" title="Lvl 58*" alias="freya_secretary_leader">
+	<npc id="22102" name="Freya's Servant" title="" alias="freya_secretary_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="16.0"/>
@@ -6279,7 +6279,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22103" name="Freya's White Bear" title="Lvl 57*" alias="freya_bear">
+	<npc id="22103" name="Freya's White Bear" title="" alias="freya_bear">
 		<set name="type" val="Monster"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="21.0"/>
@@ -6343,7 +6343,7 @@
 			<skill id="4439" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22104" name="Freya's Dog" title="Lvl 58*" alias="freya_pet">
+	<npc id="22104" name="Freya's Dog" title="" alias="freya_pet">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="18.0"/>
@@ -6407,7 +6407,7 @@
 			<skill id="5044" level="2" type="SELF_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="22105" name="Spiked Stakato" title="Lvl 72*" alias="spike_stakato">
+	<npc id="22105" name="Spiked Stakato" title="" alias="spike_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="18.0"/>
@@ -6466,7 +6466,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22106" name="Spiked Stakato Worker" title="Lvl 73*" alias="spike_stakato_worker">
+	<npc id="22106" name="Spiked Stakato Worker" title="" alias="spike_stakato_worker">
 		<set name="type" val="Monster"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="22.0"/>
@@ -6525,7 +6525,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22107" name="Spiked Stakato Guard" title="Lvl 74*" alias="spike_stakato_guard">
+	<npc id="22107" name="Spiked Stakato Guard" title="" alias="spike_stakato_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="16.0"/>
@@ -6584,7 +6584,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22108" name="Female Spiked Stakato" title="Lvl 74*" alias="female_spike_stakato">
+	<npc id="22108" name="Female Spiked Stakato" title="" alias="female_spike_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="17.0"/>
@@ -6649,7 +6649,7 @@
 			<skill id="4439" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22109" name="Male Spiked Stakato" title="Lvl 74*" alias="male_spike_stakato">
+	<npc id="22109" name="Male Spiked Stakato" title="" alias="male_spike_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="18.0"/>
@@ -6713,7 +6713,7 @@
 			<skill id="4439" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22110" name="Male Spiked Stakato" title="Lvl 74*" alias="male_spike_stakato_c">
+	<npc id="22110" name="Male Spiked Stakato" title="" alias="male_spike_stakato_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="16.0"/>
@@ -6777,7 +6777,7 @@
 			<skill id="4571" level="7" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22111" name="Spiked Stakato Sorcerer" title="Lvl 75*" alias="spike_stakato_shaman">
+	<npc id="22111" name="Spiked Stakato Sorcerer" title="" alias="spike_stakato_shaman">
 		<set name="type" val="Monster"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="24.0"/>
@@ -6837,7 +6837,7 @@
 			<skill id="4563" level="7" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22112" name="Cannibalistic Stakato Follower" title="Lvl 74*" alias="cannibal_stakato">
+	<npc id="22112" name="Cannibalistic Stakato Follower" title="" alias="cannibal_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="74"/>
 		<set name="radius" val="17.0"/>
@@ -6900,7 +6900,7 @@
 			<skill id="4439" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22113" name="Cannibalistic Stakato Leader" title="Lvl 75*" alias="leader_canni_stakato">
+	<npc id="22113" name="Cannibalistic Stakato Leader" title="" alias="leader_canni_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="34.0"/>
@@ -6965,7 +6965,7 @@
 			<skill id="4485" level="1" type="EFFECT_SKILL"/>
 		</skills>
 	</npc>
-	<npc id="22114" name="Cannibalistic Stakato Leader" title="Lvl 75*" alias="leader_canni_stakato_c">
+	<npc id="22114" name="Cannibalistic Stakato Leader" title="" alias="leader_canni_stakato_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="40.0"/>
@@ -7029,7 +7029,7 @@
 			<skill id="4571" level="8" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22115" name="Spiked Stakato Soldier" title="Lvl 76*" alias="spike_stakato_soldier">
+	<npc id="22115" name="Spiked Stakato Soldier" title="" alias="spike_stakato_soldier">
 		<set name="type" val="Monster"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="18.0"/>
@@ -7088,7 +7088,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22116" name="Spiked Stakato Drone" title="Lvl 77*" alias="spike_stakato_drone">
+	<npc id="22116" name="Spiked Stakato Drone" title="" alias="spike_stakato_drone">
 		<set name="type" val="Monster"/>
 		<set name="level" val="77"/>
 		<set name="radius" val="28.0"/>
@@ -7147,7 +7147,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22117" name="Spiked Stakato Captain" title="Lvl 78*" alias="spike_stakato_raider">
+	<npc id="22117" name="Spiked Stakato Captain" title="" alias="spike_stakato_raider">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -7206,7 +7206,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22118" name="Spiked Stakato Nurse" title="Lvl 78*" alias="nurse_spike_stakato">
+	<npc id="22118" name="Spiked Stakato Nurse" title="" alias="nurse_spike_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="26.0"/>
@@ -7270,7 +7270,7 @@
 			<skill id="4571" level="8" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22119" name="Spiked Stakato Nurse" title="Lvl 78*" alias="nurse_spike_stakato_c">
+	<npc id="22119" name="Spiked Stakato Nurse" title="" alias="nurse_spike_stakato_c">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="18.0"/>
@@ -7334,7 +7334,7 @@
 			<skill id="4486" level="7" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22120" name="Spiked Stakato Baby" title="Lvl 78*" alias="baby_spike_stakato">
+	<npc id="22120" name="Spiked Stakato Baby" title="" alias="baby_spike_stakato">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="16.0"/>
@@ -7398,7 +7398,7 @@
 			<skill id="4585" level="3" type="BUFF"/>
 		</skills>
 	</npc>
-	<npc id="22121" name="Spiked Stakato Shaman" title="Lvl 78*" alias="spike_stakato_shaman_s">
+	<npc id="22121" name="Spiked Stakato Shaman" title="" alias="spike_stakato_shaman_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="24.0"/>
@@ -7459,7 +7459,7 @@
 			<skill id="4563" level="8" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22122" name="Monastic Pilgrim" title="Lvl 78*" alias="cloister_pilgrim">
+	<npc id="22122" name="Monastic Pilgrim" title="" alias="cloister_pilgrim">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -7516,7 +7516,7 @@
 			<skill id="4423" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22123" name="Monastic Crusader" title="Lvl 78*" alias="cloister_crusader">
+	<npc id="22123" name="Monastic Crusader" title="" alias="cloister_crusader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -7573,7 +7573,7 @@
 			<skill id="4423" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22124" name="Solina Brother" title="Lvl 78*" alias="solina_brother">
+	<npc id="22124" name="Solina Brother" title="" alias="solina_brother">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -7633,7 +7633,7 @@
 			<skill id="4589" level="10" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22125" name="Solina Lay Brother" title="Lvl 78*" alias="solina_lay_brother">
+	<npc id="22125" name="Solina Lay Brother" title="" alias="solina_lay_brother">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -7692,7 +7692,7 @@
 			<skill id="4613" level="9" type="MAGIC_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="22126" name="Silent Seeker" title="Lvl 78*" alias="silence_seeker">
+	<npc id="22126" name="Silent Seeker" title="" alias="silence_seeker">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -7752,7 +7752,7 @@
 			<skill id="4589" level="10" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22127" name="Silent Brother" title="Lvl 78*" alias="silence_brother">
+	<npc id="22127" name="Silent Brother" title="" alias="silence_brother">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -7811,7 +7811,7 @@
 			<skill id="5021" level="9" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22128" name="Monastery Guardian" title="Lvl 78*" alias="cloister_protector">
+	<npc id="22128" name="Monastery Guardian" title="" alias="cloister_protector">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -7870,7 +7870,7 @@
 			<skill id="4614" level="8" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22129" name="Warrior Monk" title="Lvl 78*" alias="monk_warrior">
+	<npc id="22129" name="Warrior Monk" title="" alias="monk_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -7931,7 +7931,7 @@
 			<skill id="4643" level="10" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22130" name="Divine Advocate" title="Lvl 78*" alias="divinity_advocate">
+	<npc id="22130" name="Divine Advocate" title="" alias="divinity_advocate">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -7989,7 +7989,7 @@
 			<skill id="4423" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22131" name="Pilgrim of Light" title="Lvl 78*" alias="light_pligrim">
+	<npc id="22131" name="Pilgrim of Light" title="" alias="light_pligrim">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -8051,7 +8051,7 @@
 			<skill id="4423" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22132" name="Judge of Light" title="Lvl 78*" alias="light_judge">
+	<npc id="22132" name="Judge of Light" title="" alias="light_judge">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -8109,7 +8109,7 @@
 			<skill id="4491" level="9" type="LONG_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22133" name="Guardian of the Grail" title="Lvl 78*" alias="protector_holy_grail">
+	<npc id="22133" name="Guardian of the Grail" title="" alias="protector_holy_grail">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -8171,7 +8171,7 @@
 			<skill id="4671" level="1" type="TELEPORT_EFFECT"/>
 		</skills>
 	</npc>
-	<npc id="22134" name="Guardian of the Holy Land" title="Lvl 78*" alias="sacred_guard">
+	<npc id="22134" name="Guardian of the Holy Land" title="" alias="sacred_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -8230,7 +8230,7 @@
 			<skill id="4613" level="9" type="MAGIC_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="22135" name="Beholder of Light" title="Lvl 78*" alias="light_guard">
+	<npc id="22135" name="Beholder of Light" title="" alias="light_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -8288,7 +8288,7 @@
 			<skill id="4574" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22136" name="Gatekeeper Zombie" title="Lvl 78*" alias="sewer_guard_zombie">
+	<npc id="22136" name="Gatekeeper Zombie" title="" alias="sewer_guard_zombie">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -8344,7 +8344,7 @@
 			<skill id="5043" level="10" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22137" name="Penance Guard" title="Lvl 78*" alias="penance_roomguard">
+	<npc id="22137" name="Penance Guard" title="" alias="penance_roomguard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="40.0"/>
@@ -8401,7 +8401,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22138" name="Chapel Guard" title="Lvl 78*" alias="chapel_guard">
+	<npc id="22138" name="Chapel Guard" title="" alias="chapel_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="40.0"/>
@@ -8458,7 +8458,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22139" name="Old Aristocrat's Soldier" title="Lvl 78*" alias="zombie_enlisted_man">
+	<npc id="22139" name="Old Aristocrat's Soldier" title="" alias="zombie_enlisted_man">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -8517,7 +8517,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22140" name="Zombie Worker" title="Lvl 78*" alias="zombie_laborer">
+	<npc id="22140" name="Zombie Worker" title="" alias="zombie_laborer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -8576,7 +8576,7 @@
 			<skill id="4649" level="9" type="SELF_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22141" name="Forgotten Victim" title="Lvl 78*" alias="forgotten_victim">
+	<npc id="22141" name="Forgotten Victim" title="" alias="forgotten_victim">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -8634,7 +8634,7 @@
 			<skill id="4612" level="9" type="SELF_RANGE_PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22142" name="Triol's Layperson" title="Lvl 78*" alias="trioll_s_laity">
+	<npc id="22142" name="Triol's Layperson" title="" alias="trioll_s_laity">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -8702,7 +8702,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22143" name="Triol's Believer" title="Lvl 78*" alias="penance_1st_rboss">
+	<npc id="22143" name="Triol's Believer" title="" alias="penance_1st_rboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -8771,7 +8771,7 @@
 			<skill id="4668" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22144" name="Resurrected Temple Knight" title="Lvl 78*" alias="zombie_em_knight">
+	<npc id="22144" name="Resurrected Temple Knight" title="" alias="zombie_em_knight">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -8829,7 +8829,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22145" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_penance">
+	<npc id="22145" name="Ritual Sacrifice" title="" alias="ritual_victim_penance">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -8888,7 +8888,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22146" name="Triol's Priest" title="Lvl 78*" alias="chapel_1st_rboss">
+	<npc id="22146" name="Triol's Priest" title="" alias="chapel_1st_rboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -8956,7 +8956,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22147" name="Ritual Offering" title="Lvl 78*" alias="ritual_immolation_range">
+	<npc id="22147" name="Ritual Offering" title="" alias="ritual_immolation_range">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -9013,7 +9013,7 @@
 			<skill id="4615" level="9" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22148" name="Triol's Believer" title="Lvl 78*" alias="trioll_s_devotee">
+	<npc id="22148" name="Triol's Believer" title="" alias="trioll_s_devotee">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9071,7 +9071,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22149" name="Ritual Offering" title="Lvl 78*" alias="ritual_immolation_one">
+	<npc id="22149" name="Ritual Offering" title="" alias="ritual_immolation_one">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -9129,7 +9129,7 @@
 			<skill id="4649" level="9" type="SELF_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22150" name="Triol's Believer" title="Lvl 78*" alias="triolls_devotee_debuffer">
+	<npc id="22150" name="Triol's Believer" title="" alias="triolls_devotee_debuffer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9188,7 +9188,7 @@
 			<skill id="4668" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22151" name="Triol's Priest" title="Lvl 78*" alias="chapel_2nd_rboss">
+	<npc id="22151" name="Triol's Priest" title="" alias="chapel_2nd_rboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9257,7 +9257,7 @@
 			<skill id="4668" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22152" name="Temple Guard" title="Lvl 78*" alias="sanctuary_guards">
+	<npc id="22152" name="Temple Guard" title="" alias="sanctuary_guards">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -9314,7 +9314,7 @@
 			<skill id="4615" level="9" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22153" name="Temple Guard Captain" title="Lvl 78*" alias="sanctuary_guard_captains">
+	<npc id="22153" name="Temple Guard Captain" title="" alias="sanctuary_guard_captains">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -9372,7 +9372,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22154" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_chapel">
+	<npc id="22154" name="Ritual Sacrifice" title="" alias="ritual_victim_chapel">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -9431,7 +9431,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22155" name="Triol's High Priest" title="Lvl 78*" alias="highprist_partyleader01">
+	<npc id="22155" name="Triol's High Priest" title="" alias="highprist_partyleader01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -9490,7 +9490,7 @@
 			<skill id="4641" level="10" type="SPECIAL_ATTACK"/>
 		</skills>
 	</npc>
-	<npc id="22156" name="Triol's Priest" title="Lvl 78*" alias="prist_privates_mage01">
+	<npc id="22156" name="Triol's Priest" title="" alias="prist_privates_mage01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9546,7 +9546,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22157" name="Triol's Priest" title="Lvl 78*" alias="privates_debuffer01">
+	<npc id="22157" name="Triol's Priest" title="" alias="privates_debuffer01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9602,7 +9602,7 @@
 			<skill id="4466" level="3" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22158" name="Triol's Believer" title="Lvl 78*" alias="privates_runaway01">
+	<npc id="22158" name="Triol's Believer" title="" alias="privates_runaway01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9660,7 +9660,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22159" name="Triol's High Priest" title="Lvl 78*" alias="highprist_partyleader02">
+	<npc id="22159" name="Triol's High Priest" title="" alias="highprist_partyleader02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -9719,7 +9719,7 @@
 			<skill id="4641" level="10" type="SPECIAL_ATTACK"/>
 		</skills>
 	</npc>
-	<npc id="22160" name="Triol's Priest" title="Lvl 78*" alias="privates_debuffer02">
+	<npc id="22160" name="Triol's Priest" title="" alias="privates_debuffer02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9775,7 +9775,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22161" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_party02">
+	<npc id="22161" name="Ritual Sacrifice" title="" alias="ritual_victim_party02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -9833,7 +9833,7 @@
 			<skill id="4614" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22162" name="Triol's Believer" title="Lvl 78*" alias="privates_runaway02">
+	<npc id="22162" name="Triol's Believer" title="" alias="privates_runaway02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -9891,7 +9891,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22163" name="Triol's High Priest" title="Lvl 78*" alias="highprist_partyleader03">
+	<npc id="22163" name="Triol's High Priest" title="" alias="highprist_partyleader03">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -9951,7 +9951,7 @@
 			<skill id="4641" level="10" type="SPECIAL_ATTACK"/>
 		</skills>
 	</npc>
-	<npc id="22164" name="Triol's Believer" title="Lvl 78*" alias="prist_privates_fanatic03">
+	<npc id="22164" name="Triol's Believer" title="" alias="prist_privates_fanatic03">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10007,7 +10007,7 @@
 			<skill id="4612" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22165" name="Triol's Priest" title="Lvl 78*" alias="privates_debuffer03">
+	<npc id="22165" name="Triol's Priest" title="" alias="privates_debuffer03">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10065,7 +10065,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22166" name="Triol's Believer" title="Lvl 78*" alias="prist_privates_mage03">
+	<npc id="22166" name="Triol's Believer" title="" alias="prist_privates_mage03">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10122,7 +10122,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22167" name="Triol's High Priest" title="Lvl 78*" alias="highprist_partyleader04">
+	<npc id="22167" name="Triol's High Priest" title="" alias="highprist_partyleader04">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -10181,7 +10181,7 @@
 			<skill id="4641" level="10" type="SPECIAL_ATTACK"/>
 		</skills>
 	</npc>
-	<npc id="22168" name="Triol's Priest" title="Lvl 78*" alias="privates_debuffer04">
+	<npc id="22168" name="Triol's Priest" title="" alias="privates_debuffer04">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10239,7 +10239,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22169" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_party04">
+	<npc id="22169" name="Ritual Sacrifice" title="" alias="ritual_victim_party04">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -10297,7 +10297,7 @@
 			<skill id="4614" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22170" name="Triol's Believer" title="Lvl 78*" alias="prist_privates_warrior04">
+	<npc id="22170" name="Triol's Believer" title="" alias="prist_privates_warrior04">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10353,7 +10353,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22171" name="Triol's High Priest" title="Lvl 78*" alias="highprist_partyleader05">
+	<npc id="22171" name="Triol's High Priest" title="" alias="highprist_partyleader05">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -10413,7 +10413,7 @@
 			<skill id="4641" level="10" type="SPECIAL_ATTACK"/>
 		</skills>
 	</npc>
-	<npc id="22172" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_party05">
+	<npc id="22172" name="Ritual Sacrifice" title="" alias="ritual_victim_party05">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -10471,7 +10471,7 @@
 			<skill id="4614" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22173" name="Triol's Priest" title="Lvl 78*" alias="prist_privates_mage05">
+	<npc id="22173" name="Triol's Priest" title="" alias="prist_privates_mage05">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10529,7 +10529,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22174" name="Triol's Priest" title="Lvl 78*" alias="privates_debuffer05">
+	<npc id="22174" name="Triol's Priest" title="" alias="privates_debuffer05">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="7.7"/>
@@ -10587,7 +10587,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22175" name="Andreas' Captain of the Royal Guard" title="Lvl 78*" alias="guardchief_of_andreas">
+	<npc id="22175" name="Andreas' Captain of the Royal Guard" title="" alias="guardchief_of_andreas">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -10657,7 +10657,7 @@
 			<skill id="4612" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22176" name="Andreas' Royal Guards" title="Lvl 78*" alias="bodyguard_of_andreas">
+	<npc id="22176" name="Andreas' Royal Guards" title="" alias="bodyguard_of_andreas">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -10716,7 +10716,7 @@
 			<skill id="4649" level="9" type="SELF_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="22188" name="Andreas' Captain of the Royal Guard" title="Lvl 78*" alias="raid_partyleader_01">
+	<npc id="22188" name="Andreas' Captain of the Royal Guard" title="" alias="raid_partyleader_01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -10774,7 +10774,7 @@
 			<skill id="4612" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22189" name="Andreas' Royal Guards" title="Lvl 78*" alias="raid_privates_warrior_01">
+	<npc id="22189" name="Andreas' Royal Guards" title="" alias="raid_privates_warrior_01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -10831,7 +10831,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22190" name="Ritual Sacrifice" title="Lvl 78*" alias="raid_privates_bomb_01">
+	<npc id="22190" name="Ritual Sacrifice" title="" alias="raid_privates_bomb_01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -10889,7 +10889,7 @@
 			<skill id="4614" level="9" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22191" name="Andreas' Captain of the Royal Guard" title="Lvl 78*" alias="raid_partyleader_02">
+	<npc id="22191" name="Andreas' Captain of the Royal Guard" title="" alias="raid_partyleader_02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -10948,7 +10948,7 @@
 			<skill id="4622" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22192" name="Andreas' Royal Guards" title="Lvl 78*" alias="raid_privates_curse_02">
+	<npc id="22192" name="Andreas' Royal Guards" title="" alias="raid_privates_curse_02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -11006,7 +11006,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22193" name="Andreas' Royal Guards" title="Lvl 78*" alias="raid_privates_wizard_02">
+	<npc id="22193" name="Andreas' Royal Guards" title="" alias="raid_privates_wizard_02">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -11063,7 +11063,7 @@
 			<skill id="4665" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22194" name="Penance Guard" title="Lvl 78*" alias="penance_roomguard_01">
+	<npc id="22194" name="Penance Guard" title="" alias="penance_roomguard_01">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="40.0"/>
@@ -11115,7 +11115,7 @@
 			<skill id="4422" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22195" name="Ritual Sacrifice" title="Lvl 78*" alias="ritual_victim_penance_a">
+	<npc id="22195" name="Ritual Sacrifice" title="" alias="ritual_victim_penance_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -11174,7 +11174,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="22196" name="Velociraptor" title="Lvl 80*" alias="velociraptor_leader">
+	<npc id="22196" name="Velociraptor" title="" alias="velociraptor_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="20.0"/>
@@ -11234,7 +11234,7 @@
 			<skill id="5082" level="2" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22197" name="Velociraptor" title="Lvl 80*" alias="velociraptor">
+	<npc id="22197" name="Velociraptor" title="" alias="velociraptor">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="20.0"/>
@@ -11288,7 +11288,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22198" name="Velociraptor" title="Lvl 80*" alias="velociraptor_s">
+	<npc id="22198" name="Velociraptor" title="" alias="velociraptor_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="20.0"/>
@@ -11349,7 +11349,7 @@
 			<skill id="5082" level="2" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22199" name="Pterosaur" title="Lvl 80*" alias="rhamphorhynchus">
+	<npc id="22199" name="Pterosaur" title="" alias="rhamphorhynchus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="36.0"/>
@@ -11411,7 +11411,7 @@
 			<skill id="5120" level="1" type="LONG_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="22200" name="Ornithomimus" title="Lvl 80*" alias="ornithomimus_leader">
+	<npc id="22200" name="Ornithomimus" title="" alias="ornithomimus_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.0"/>
@@ -11471,7 +11471,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22201" name="Ornithomimus" title="Lvl 80*" alias="ornithomimus">
+	<npc id="22201" name="Ornithomimus" title="" alias="ornithomimus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.0"/>
@@ -11525,7 +11525,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22202" name="Ornithomimus" title="Lvl 80*" alias="ornithomimus_s">
+	<npc id="22202" name="Ornithomimus" title="" alias="ornithomimus_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.0"/>
@@ -11586,7 +11586,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22203" name="Deinonychus" title="Lvl 80*" alias="deinonychus_leader">
+	<npc id="22203" name="Deinonychus" title="" alias="deinonychus_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -11646,7 +11646,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22204" name="Deinonychus" title="Lvl 80*" alias="deinonychus">
+	<npc id="22204" name="Deinonychus" title="" alias="deinonychus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -11700,7 +11700,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22205" name="Deinonychus" title="Lvl 80*" alias="deinonychus_s">
+	<npc id="22205" name="Deinonychus" title="" alias="deinonychus_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -11761,7 +11761,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22208" name="Pachycephalosaurus" title="Lvl 80*" alias="pachycephalosaurus_ldr">
+	<npc id="22208" name="Pachycephalosaurus" title="" alias="pachycephalosaurus_ldr">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
@@ -11821,7 +11821,7 @@
 			<skill id="5083" level="1" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22209" name="Pachycephalosaurus" title="Lvl 80*" alias="pachycephalosaurus">
+	<npc id="22209" name="Pachycephalosaurus" title="" alias="pachycephalosaurus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
@@ -11875,7 +11875,7 @@
 			<skill id="5083" level="1" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22210" name="Pachycephalosaurus" title="Lvl 80*" alias="pachycephalosaurus_s">
+	<npc id="22210" name="Pachycephalosaurus" title="" alias="pachycephalosaurus_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
@@ -11936,7 +11936,7 @@
 			<skill id="5083" level="1" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22211" name="Wild Strider" title="Lvl 80*" alias="wild_strider_leader">
+	<npc id="22211" name="Wild Strider" title="" alias="wild_strider_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="32.0"/>
@@ -11996,7 +11996,7 @@
 			<skill id="5081" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22212" name="Wild Strider" title="Lvl 80*" alias="wild_strider">
+	<npc id="22212" name="Wild Strider" title="" alias="wild_strider">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="32.0"/>
@@ -12050,7 +12050,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22213" name="Wild Strider" title="Lvl 80*" alias="wild_strider_s">
+	<npc id="22213" name="Wild Strider" title="" alias="wild_strider_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="32.0"/>
@@ -12111,7 +12111,7 @@
 			<skill id="5081" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22214" name="Elroki" title="Lvl 80*" alias="elcroki">
+	<npc id="22214" name="Elroki" title="" alias="elcroki">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="25.0"/>
@@ -12173,7 +12173,7 @@
 			<skill id="5178" level="1" type="SELF_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="22215" name="Tyrannosaurus" title="Lvl 80*" alias="tyrannosaurus">
+	<npc id="22215" name="Tyrannosaurus" title="" alias="tyrannosaurus">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="60.0"/>
@@ -12252,7 +12252,7 @@
 			<skill id="5120" level="1" type="LONG_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="22216" name="Tyrannosaurus" title="Lvl 80*" alias="tyrannosaurus_soul">
+	<npc id="22216" name="Tyrannosaurus" title="" alias="tyrannosaurus_soul">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="60.0"/>
@@ -12331,7 +12331,7 @@
 			<skill id="5120" level="1" type="LONG_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="22217" name="Tyrannosaurus" title="Lvl 80*" alias="tyrannosaurus_s">
+	<npc id="22217" name="Tyrannosaurus" title="" alias="tyrannosaurus_s">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="60.0"/>
@@ -12409,7 +12409,7 @@
 			<skill id="5120" level="1" type="LONG_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="22218" name="Velociraptor" title="Lvl 80*" alias="velociraptor_n">
+	<npc id="22218" name="Velociraptor" title="" alias="velociraptor_n">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="20.0"/>
@@ -12458,7 +12458,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22219" name="Ornithomimus" title="Lvl 80*" alias="ornithomimus_n">
+	<npc id="22219" name="Ornithomimus" title="" alias="ornithomimus_n">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.0"/>
@@ -12507,7 +12507,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22220" name="Deinonychus" title="Lvl 80*" alias="deinonychus_n">
+	<npc id="22220" name="Deinonychus" title="" alias="deinonychus_n">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -12556,7 +12556,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22221" name="Pachycephalosaurus" title="Lvl 80*" alias="pachycephalosaurus_n">
+	<npc id="22221" name="Pachycephalosaurus" title="" alias="pachycephalosaurus_n">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
@@ -12605,7 +12605,7 @@
 			<skill id="5083" level="1" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="22222" name="Wild Strider" title="Lvl 80*" alias="wild_strider_n">
+	<npc id="22222" name="Wild Strider" title="" alias="wild_strider_n">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="32.0"/>
@@ -12654,7 +12654,7 @@
 			<skill id="4416" level="24" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="22223" name="Velociraptor" title="Lvl 80*" alias="velociraptor_leader2">
+	<npc id="22223" name="Velociraptor" title="" alias="velociraptor_leader2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="20.0"/>
@@ -12714,7 +12714,7 @@
 			<skill id="5082" level="1" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22224" name="Ornithomimus" title="Lvl 80*" alias="ornithomimus_leader2">
+	<npc id="22224" name="Ornithomimus" title="" alias="ornithomimus_leader2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="15.0"/>
@@ -12774,7 +12774,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22225" name="Deinonychus" title="Lvl 80*" alias="deinonychus_leader2">
+	<npc id="22225" name="Deinonychus" title="" alias="deinonychus_leader2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -12834,7 +12834,7 @@
 			<skill id="5084" level="1" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="22226" name="Pachycephalosaurus" title="Lvl 80*" alias="pachycephalosaurus_ldr2">
+	<npc id="22226" name="Pachycephalosaurus" title="" alias="pachycephalosaurus_ldr2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="22.0"/>
@@ -12894,7 +12894,7 @@
 			<skill id="5083" level="1" type="PHYSICAL_SPECIAL2"/>
 		</skills>
 	</npc>
-	<npc id="22227" name="Wild Strider" title="Lvl 80*" alias="wild_strider_leader2">
+	<npc id="22227" name="Wild Strider" title="" alias="wild_strider_leader2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="32.0"/>

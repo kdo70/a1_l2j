@@ -18066,7 +18066,7 @@
 			<skill id="4416" level="14" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35368" name="Bloody Lord Nurka" title="Lvl 55*" alias="bloody_lord_nurka1">
+	<npc id="35368" name="Bloody Lord Nurka" title="" alias="bloody_lord_nurka1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="20.0"/>
@@ -18114,7 +18114,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35369" name="Partisan Healer" title="Lvl 40*" alias="partisan_healer1">
+	<npc id="35369" name="Partisan Healer" title="" alias="partisan_healer1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="11.0"/>
@@ -18162,7 +18162,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35370" name="Partisan Court Guard" title="Lvl 40*" alias="partisan_guard_sword1">
+	<npc id="35370" name="Partisan Court Guard" title="" alias="partisan_guard_sword1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="14.0"/>
@@ -18210,7 +18210,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35371" name="Partisan Court Guard" title="Lvl 40*" alias="partisan_guard_bow1">
+	<npc id="35371" name="Partisan Court Guard" title="" alias="partisan_guard_bow1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="14.0"/>
@@ -18258,7 +18258,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35372" name="Partisan Soldier" title="Lvl 35*" alias="partisan_soldier1">
+	<npc id="35372" name="Partisan Soldier" title="" alias="partisan_soldier1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="13.5"/>
@@ -18306,7 +18306,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35373" name="Partisan Sorcerer" title="Lvl 35*" alias="partisan_socerer1">
+	<npc id="35373" name="Partisan Sorcerer" title="" alias="partisan_socerer1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
@@ -18354,7 +18354,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35374" name="Partisan Archer" title="Lvl 35*" alias="partisan_archer1">
+	<npc id="35374" name="Partisan Archer" title="" alias="partisan_archer1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="14.0"/>
@@ -18402,7 +18402,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35375" name="Bloody Lord Nurka" title="Lvl 55*" alias="bloody_lord_nurka2">
+	<npc id="35375" name="Bloody Lord Nurka" title="" alias="bloody_lord_nurka2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="20.0"/>
@@ -18450,7 +18450,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35376" name="Partisan Healer" title="Lvl 40*" alias="partisan_healer2">
+	<npc id="35376" name="Partisan Healer" title="" alias="partisan_healer2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="11.0"/>
@@ -18498,7 +18498,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35377" name="Partisan Court Guard" title="Lvl 40*" alias="partisan_guard_sword2">
+	<npc id="35377" name="Partisan Court Guard" title="" alias="partisan_guard_sword2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="14.0"/>
@@ -18546,7 +18546,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35378" name="Partisan Court Guard" title="Lvl 40*" alias="partisan_guard_bow2">
+	<npc id="35378" name="Partisan Court Guard" title="" alias="partisan_guard_bow2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="14.0"/>
@@ -18594,7 +18594,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35379" name="Partisan Soldier" title="Lvl 35*" alias="partisan_soldier2">
+	<npc id="35379" name="Partisan Soldier" title="" alias="partisan_soldier2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="13.5"/>
@@ -18642,7 +18642,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35380" name="Partisan Sorcerer" title="Lvl 35*" alias="partisan_socerer2">
+	<npc id="35380" name="Partisan Sorcerer" title="" alias="partisan_socerer2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="11.0"/>
@@ -18690,7 +18690,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35381" name="Partisan Archer" title="Lvl 35*" alias="partisan_archer2">
+	<npc id="35381" name="Partisan Archer" title="" alias="partisan_archer2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="14.0"/>
@@ -20038,7 +20038,7 @@
 			<skill id="4416" level="14" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35408" name="Dietrich" title="Lvl 67*" alias="dietrich">
+	<npc id="35408" name="Dietrich" title="" alias="dietrich">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="21.0"/>
@@ -20090,7 +20090,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35409" name="Mikhail" title="Lvl 67*" alias="mikhail">
+	<npc id="35409" name="Mikhail" title="" alias="mikhail">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="21.0"/>
@@ -20142,7 +20142,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35410" name="Gustav" title="Lvl 70*" alias="gustav">
+	<npc id="35410" name="Gustav" title="" alias="gustav">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="21.0"/>
@@ -20194,7 +20194,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35411" name="Doom Servant" title="Lvl 65*" alias="doom_servant_agit">
+	<npc id="35411" name="Doom Servant" title="" alias="doom_servant_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="13.0"/>
@@ -20254,7 +20254,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35412" name="Doom Guard" title="Lvl 66*" alias="doom_guard_agit">
+	<npc id="35412" name="Doom Guard" title="" alias="doom_guard_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="13.0"/>
@@ -20313,7 +20313,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35413" name="Doom Archer" title="Lvl 67*" alias="doom_archer_agit">
+	<npc id="35413" name="Doom Archer" title="" alias="doom_archer_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="11.0"/>
@@ -20373,7 +20373,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35414" name="Doom Trooper" title="Lvl 68*" alias="doom_trooper_agit">
+	<npc id="35414" name="Doom Trooper" title="" alias="doom_trooper_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="10.0"/>
@@ -20432,7 +20432,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35415" name="Doom Warrior" title="Lvl 69*" alias="doom_warrior_agit">
+	<npc id="35415" name="Doom Warrior" title="" alias="doom_warrior_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="10.0"/>
@@ -20492,7 +20492,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35416" name="Doom Knight" title="Lvl 70*" alias="doom_knight_agit">
+	<npc id="35416" name="Doom Knight" title="" alias="doom_knight_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="15.0"/>
@@ -21089,7 +21089,7 @@
 			<skill id="4416" level="19" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35428" name="Oel Mahum Berserker" title="Lvl 60*" alias="oel_mahum_berserker">
+	<npc id="35428" name="Oel Mahum Berserker" title="" alias="oel_mahum_berserker">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="20.0"/>
@@ -21134,7 +21134,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35429" name="Oel Mahum Scout" title="Lvl 60*" alias="oel_mahum_scout">
+	<npc id="35429" name="Oel Mahum Scout" title="" alias="oel_mahum_scout">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="20.0"/>
@@ -21179,7 +21179,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35430" name="Oel Mahum Leader" title="Lvl 60*" alias="oel_mahum_leader">
+	<npc id="35430" name="Oel Mahum Leader" title="" alias="oel_mahum_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="15.0"/>
@@ -21224,7 +21224,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35431" name="Oel Mahum Cleric" title="Lvl 60*" alias="oel_mahum_cleric">
+	<npc id="35431" name="Oel Mahum Cleric" title="" alias="oel_mahum_cleric">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="15.0"/>
@@ -21269,7 +21269,7 @@
 			<skill id="4416" level="6" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35432" name="Oel Mahum Thief" title="Lvl 60*" alias="oel_mahum_thief">
+	<npc id="35432" name="Oel Mahum Thief" title="" alias="oel_mahum_thief">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="12.0"/>
@@ -29607,7 +29607,7 @@
 			<skill id="4416" level="11" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35593" name="Treasure Chest" title="Lvl 52*" alias="azit_mimic_a">
+	<npc id="35593" name="Treasure Chest" title="" alias="azit_mimic_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -29660,7 +29660,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35594" name="Treasure Chest" title="Lvl 52*" alias="azit_mimic_b">
+	<npc id="35594" name="Treasure Chest" title="" alias="azit_mimic_b">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -29714,7 +29714,7 @@
 			<skill id="4992" level="1" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="35595" name="Treasure Chest" title="Lvl 52*" alias="azit_treasurebox_a">
+	<npc id="35595" name="Treasure Chest" title="" alias="azit_treasurebox_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -31583,7 +31583,7 @@
 			<skill id="4416" level="8" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35629" name="Lidia von Hellmann" title="Lvl 73*" alias="lidia_von_helmann">
+	<npc id="35629" name="Lidia von Hellmann" title="" alias="lidia_von_helmann">
 		<set name="type" val="Monster"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="10.0"/>
@@ -31642,7 +31642,7 @@
 			<skill id="4999" level="1" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="35630" name="Alfred von Hellmann" title="Lvl 72*" alias="alfred_von_helmann">
+	<npc id="35630" name="Alfred von Hellmann" title="" alias="alfred_von_helmann">
 		<set name="type" val="Monster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="19.0"/>
@@ -31703,7 +31703,7 @@
 			<skill id="5001" level="1" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="35631" name="Giselle von Hellmann" title="Lvl 72*" alias="giselle_von_helmann">
+	<npc id="35631" name="Giselle von Hellmann" title="" alias="giselle_von_helmann">
 		<set name="type" val="Monster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="5.5"/>
@@ -31761,7 +31761,7 @@
 			<skill id="5003" level="1" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="35632" name="Vampire Adept" title="Lvl 68*" alias="vampire_servant_agit">
+	<npc id="35632" name="Vampire Adept" title="" alias="vampire_servant_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="6.0"/>
@@ -31822,7 +31822,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35633" name="Vampire Soldier" title="Lvl 69*" alias="vampire_guard_agit">
+	<npc id="35633" name="Vampire Soldier" title="" alias="vampire_guard_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="8.0"/>
@@ -31882,7 +31882,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35634" name="Vampire Caster" title="Lvl 70*" alias="vampire_archer_agit">
+	<npc id="35634" name="Vampire Caster" title="" alias="vampire_archer_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
@@ -31943,7 +31943,7 @@
 			<skill id="5056" level="7" type="W_FIEND_ARCHER"/>
 		</skills>
 	</npc>
-	<npc id="35635" name="Vampire Magister" title="Lvl 71*" alias="vampire_trooper_agit">
+	<npc id="35635" name="Vampire Magister" title="" alias="vampire_trooper_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="71"/>
 		<set name="radius" val="5.5"/>
@@ -32004,7 +32004,7 @@
 			<skill id="5051" level="6" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="35636" name="Vampire Warlord" title="Lvl 72*" alias="vampire_warrior_agit">
+	<npc id="35636" name="Vampire Warlord" title="" alias="vampire_warrior_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="9.0"/>
@@ -32065,7 +32065,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35637" name="Vampire Leader" title="Lvl 73*" alias="vampire_knight_agit">
+	<npc id="35637" name="Vampire Leader" title="" alias="vampire_knight_agit">
 		<set name="type" val="Monster"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="7.5"/>
@@ -32523,7 +32523,7 @@
 			<skill id="4416" level="17" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35646" name="Vampire Caster" title="Lvl 70*" alias="vampire_archer_agit_p">
+	<npc id="35646" name="Vampire Caster" title="" alias="vampire_archer_agit_p">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="6.0"/>
@@ -32583,7 +32583,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="35647" name="Vampire Leader" title="Lvl 73*" alias="vampire_knight_agit_p">
+	<npc id="35647" name="Vampire Leader" title="" alias="vampire_knight_agit_p">
 		<set name="type" val="Monster"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="7.5"/>

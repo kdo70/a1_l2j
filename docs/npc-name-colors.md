@@ -396,8 +396,8 @@ dword.
 ```
 
 То есть цвет из `npcname-e.dat` ставится **только** тем NPC, у кого титул в
-пакете пустой. А `ServerSideNpcTitle` включён, и после
-[npc_level_titles.md](npc-level-titles.md) титул есть у каждого монстра, — так
+пакете пустой. А `ServerSideNpcTitle` включён, и титул сервер шлёт каждому
+монстру — см. [npc-level-titles.md](npc-level-titles.md), — так
 что верхняя ветка стала единственной живой, и врезка в `0x13A1BD` не красила
 ничего. Проверено заходом: имя красилось, титул нет.
 
@@ -464,7 +464,7 @@ dword.
 
 | файл | что |
 |---|---|
-| `model/actor/template/NpcTemplate.java` | свойства `nameColor` / `titleColor` (`RRGGBB`), `NO_NAME_COLOR`, разбор с `WARN` на кривом значении; `getConfiguredNameplate()` — цвета по виду монстра, когда свойств нет |
+| `model/actor/template/NpcTemplate.java` | свойства `nameColor` / `titleColor` (`RRGGBB`), `NO_NAME_COLOR`, разбор с `WARN` на кривом значении; когда их нет — цвета по виду монстра из `monsterKind` |
 | `model/actor/Npc.java` | `getNameColor()` / `setNameColor()` и та же пара для титула — шаблон задаёт начальные значения, скрипт может перекрасить конкретного NPC |
 | `network/serverpackets/AbstractNpcInfo.java` | дописывает `0xC0RRGGBB` и `0xC1RRGGBB` в конец `NpcInfo`, только когда есть хоть один цвет |
 
@@ -667,9 +667,9 @@ dword.
 `nameColor` с сервера, а если его нет, то `npcname-e.dat` по id NPC. Красится то,
 что приехало текстом, чем бы оно ни было.
 
-Так и написан [npc_level_titles.ps1](../tools/datapack/npc_level_titles.ps1): он
-кладёт в `title` вид и уровень монстра, а цвета обеих строк по этому виду сервер
-потом берёт из `config/npcs/nameplates.properties`. См.
+Так это и устроено у монстров: [npc_level_titles.ps1](../tools/datapack/npc_level_titles.ps1)
+кладёт в `data/xml/npcs` вид монстра, а сервер по этому виду и собирает титул, и
+берёт цвета обеих строк — всё из `config/npcs/nameplates.properties`. См.
 [npc-level-titles.md](npc-level-titles.md).
 
 ### Порядок бэкапов

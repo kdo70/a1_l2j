@@ -419,7 +419,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="13016" name="King Squash" title="Lvl 1*" alias="kg_small_adult_gourd">
+	<npc id="13016" name="King Squash" title="" alias="kg_small_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="23.0"/>
@@ -461,7 +461,7 @@
 		<set name="canMove" val="true"/>
 		<set name="seedable" val="false"/>
 	</npc>
-	<npc id="13017" name="Emperor Squash" title="Lvl 1*" alias="kg_big_adult_gourd">
+	<npc id="13017" name="Emperor Squash" title="" alias="kg_big_adult_gourd">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="34.0"/>

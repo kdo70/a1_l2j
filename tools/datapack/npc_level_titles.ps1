@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-    Writes the level and the kind of monster into every monster's title in
-    data/xml/npcs, out of the texts config/npcs/nameplates.properties holds.
+    Sorts every monster in data/xml/npcs into its kind and writes that, and only
+    that, into its "monsterKind" property.
 
 .DESCRIPTION
     The title an NPC carries above its head is the only line a server can write
@@ -16,16 +16,19 @@
         Epic Boss Lvl 80*      a grand boss
         Epic Fighter Lvl 80*   its minion
 
-    Every word of that - the name of each kind, the "Lvl" and the "*" - is read
-    from config/npcs/nameplates.properties, not written here.
+    None of that is written here. The SERVER builds those titles, out of
+    config/npcs/nameplates.properties and the kind this script leaves behind, for
+    every monster whose own title in the datapack is empty - so this script
+    clears the ones it used to write and puts the kind in their place. A monster
+    carrying a title of its own keeps it, words for words.
 
     The three named kinds are also painted, orange for quests and raids, red for
     epics, with a color per line - the name and the title carry one each. Those
-    colors are NOT written into the datapack : the very same config file holds
-    them, and the server reads them back off the title this script writes. A
-    "nameColor" or a "titleColor" left in data/xml/npcs therefore means "this one
-    NPC, whatever the config says" - so this script clears the colors it owns and
-    leaves anything else alone. See docs/npc-name-colors.md.
+    colors come from the very same config file, by the very same kind, and are
+    not written into the datapack either. A "nameColor" or a "titleColor" left in
+    data/xml/npcs therefore means "this one NPC, whatever the config says" - so
+    this script clears the colors it owns and leaves anything else alone. See
+    docs/npc-name-colors.md.
 
     Who is what :
 
@@ -46,11 +49,13 @@
       - quest         the stock title is "Quest Monster", again the client's own
                       marking, or the npc is a private of one such monster.
 
-    Levels and aggression are read from the same XML the titles are written to,
-    so re-running this after a stat change refreshes the titles. The script is
-    idempotent : it rewrites the title attribute outright rather than prepending
-    to it. Renaming a kind in the config needs a re-run too, or the datapack
-    keeps the old wording and the server stops recognizing it.
+    The script is idempotent : a second run in a row changes nothing, because the
+    kind it settled on is read straight back out of the property it wrote. Levels
+    and aggression are the server's to read now, so a stat change needs no run at
+    all, and neither does a change of wording in the config.
+
+    Re-run it when the spawn list changes, or when a monster is added : those are
+    what decide the kinds.
 
 .PARAMETER NpcDirs
     The data/xml/npcs folders to rewrite. Both copies of the datapack by default
@@ -204,6 +209,14 @@ foreach ($text in $STOCK_TEXTS.Keys)
 	}
 }
 
+# The other way round : what a "monsterKind" property holds -> the kind itself.
+$KEY_TO_KIND = @{}
+
+foreach ($name in $KIND_DEFAULTS.Keys)
+{
+	$KEY_TO_KIND[$KIND_DEFAULTS[$name].Key] = $name
+}
+
 # The colors this script owns : the ones the config gives a kind, and the ones
 # it used to write before they moved to the config. A "nameColor" holding one of
 # them is this script's own leftover and goes ; anything else is a hand made
@@ -244,7 +257,7 @@ function Read-Npcs([string] $dir)
 			{
 				$cur = [pscustomobject]@{
 					Id = [int]$Matches['id']; Title = $Matches['title']
-					Type = ''; Level = 0; AggroRange = 0
+					Type = ''; Level = 0; AggroRange = 0; Kind = ''
 					File = $file.Name; Order = $order++
 				}
 				$npcs[$cur.Id] = $cur
@@ -256,6 +269,7 @@ function Read-Npcs([string] $dir)
 					'type' { $cur.Type = $Matches['val'] }
 					'level' { $cur.Level = [int]$Matches['val'] }
 					'aggroRange' { $cur.AggroRange = [int]$Matches['val'] }
+					'monsterKind' { $cur.Kind = $Matches['val'] }
 				}
 			}
 		}
@@ -322,14 +336,16 @@ function Get-Kinds($npcs, $minions)
 			continue
 		}
 
-		# The title is read back the same way it is written, so a second run
-		# sees what the first one decided and does not lose the stock marking
-		# it replaced.
+		# What a previous run settled on, and - for the very first one, before the
+		# kind had a property of its own - the marking left in the title, either
+		# the client's own or the one this script wrote over it.
+		$marked = $KEY_TO_KIND[$npc.Kind]
 		$text = ($npc.Title -replace $TITLE_TAIL, '').Trim()
 
 		$kind[$npc.Id] =
 			if ($npc.Type -eq 'GrandBoss') { 'epic' }
 			elseif ($npc.Type -eq 'RaidBoss') { 'raid' }
+			elseif ($null -ne $marked) { $marked }
 			elseif ($text -ne '' -and $TEXT_TO_KIND.ContainsKey($text)) { $TEXT_TO_KIND[$text] }
 			else { 'plain' }
 	}
@@ -412,9 +428,35 @@ function Get-Title($npc, [string] $kind)
 	return ("$text $LEVEL_LABEL $($npc.Level)$mark").Trim()
 }
 
+# True when the given title is one nobody typed by hand : either the shape this
+# script used to write into the datapack before the server started building it -
+# "<words> <label> <level><mark>" and nothing else - or one of the two bare
+# markings the stock client left behind, whose meaning now lives in the
+# "monsterKind" property instead. Anything else is somebody's own words.
+function Test-GeneratedTitle([string] $title)
+{
+	if ($STOCK_TEXTS.Contains($title))
+	{
+		return $true
+	}
+
+	foreach ($name in $KINDS.Keys)
+	{
+		$text = $KINDS[$name].Text
+		$head = if ($text -eq '') { '' } else { [regex]::Escape($text) + ' ' }
+
+		if ($title -match ('^' + $head + [regex]::Escape($LEVEL_LABEL) + ' \d+' + $MARK_PATTERN + '$'))
+		{
+			return $true
+		}
+	}
+
+	return $false
+}
+
 # --------------------------------------------------------------------------
-# Rewrite one file : the title attribute, and away with the nameColor property
-# this script used to write there before the color moved to the config.
+# Rewrite one file : in with the "monsterKind" property, out with the generated
+# title and the colors that both moved to the server.
 # --------------------------------------------------------------------------
 function Update-File([string] $path, $npcs, $kind)
 {
@@ -426,24 +468,36 @@ function Update-File([string] $path, $npcs, $kind)
 
 	$lines = [System.IO.File]::ReadAllLines($path)
 	$out = New-Object System.Collections.Generic.List[string]
-	$stats = @{ Titles = 0; Colors = 0 }
+	$stats = @{ Titles = 0; Kinds = 0; Colors = 0 }
 
 	$id = 0
+	$wanted = $null
 
 	foreach ($line in $lines)
 	{
 		if ($line -match $NPC_LINE)
 		{
 			$id = [int]$Matches['id']
+			$wanted = $null
 
 			if ($kind.ContainsKey($id))
 			{
-				$title = Get-Title $npcs[$id] $kind[$id]
+				$wanted = if ($kind[$id] -eq 'plain') { $null } else { $KIND_DEFAULTS[$kind[$id]].Key }
 
-				if ($Matches['title'] -ne $title)
+				# The title is the server's to build, out of the kind written
+				# just below and the config - so the datapack carries none. Only
+				# a title this script wrote is cleared : a hand written one is
+				# somebody's decision about that one monster, and the server
+				# lets it win, so it stays.
+				if ($Matches['title'] -ne '' -and (Test-GeneratedTitle $Matches['title']))
 				{
-					$line = $Matches['head'] + $title + $Matches['tail']
+					$line = $Matches['head'] + $Matches['tail']
 					$stats.Titles++
+				}
+
+				if ($npcs[$id].Kind -ne [string]$wanted)
+				{
+					$stats.Kinds++
 				}
 			}
 
@@ -451,20 +505,43 @@ function Update-File([string] $path, $npcs, $kind)
 			continue
 		}
 
-		# The colors of a monster live in config/npcs/nameplates.properties and
-		# are looked up by the title written just above, so the datapack carries
-		# none - but a color this script never chose is somebody's decision
-		# about that one NPC, and the server lets it win, so it stays.
-		if ($line -match $SET_LINE -and $COLOR_KEYS -contains $Matches['key'] -and $kind.ContainsKey($id) -and $OWNED_COLORS.ContainsKey($Matches['val'].ToUpperInvariant()))
+		if ($line -match $SET_LINE)
 		{
-			$stats.Colors++
+			$key = $Matches['key']
+
+			# Ours to own, and rewritten from scratch rather than edited.
+			if ($key -eq 'monsterKind' -and $kind.ContainsKey($id))
+			{
+				continue
+			}
+
+			# The colors of a monster live in config/npcs/nameplates.properties
+			# and are looked up by the kind, so the datapack carries none - but a
+			# color this script never chose is, again, somebody's decision, and
+			# it stays.
+			if ($COLOR_KEYS -contains $key -and $kind.ContainsKey($id) -and $OWNED_COLORS.ContainsKey($Matches['val'].ToUpperInvariant()))
+			{
+				$stats.Colors++
+				continue
+			}
+
+			$out.Add($line)
+
+			# The kind goes right under "type", where a reader looks for what an
+			# NPC is.
+			if ($key -eq 'type' -and $null -ne $wanted)
+			{
+				$out.Add($Matches['indent'] + '<set name="monsterKind" val="' + $wanted + '"/>')
+				$wanted = $null
+			}
+
 			continue
 		}
 
 		$out.Add($line)
 	}
 
-	if ($stats.Titles -gt 0 -or $stats.Colors -gt 0)
+	if ($stats.Titles -gt 0 -or $stats.Kinds -gt 0 -or $stats.Colors -gt 0)
 	{
 		if (-not $WhatIf)
 		{
@@ -506,21 +583,25 @@ foreach ($dir in $NpcDirs)
 		"  {0,-12} {1,5}" -f $k, $n
 	}
 
-	$titles = 0
-	$colors = 0
+	# Not "$kinds" : PowerShell tells no variable apart by case, and that one
+	# would be the $KINDS table read by every function below.
+	$titlesCleared = 0
+	$kindsWritten = 0
+	$colorsDropped = 0
 
 	foreach ($file in Get-ChildItem $dir -Filter *.xml)
 	{
 		$s = Update-File $file.FullName $npcs $kind
-		$titles += $s.Titles
-		$colors += $s.Colors
+		$titlesCleared += $s.Titles
+		$kindsWritten += $s.Kinds
+		$colorsDropped += $s.Colors
 
-		if ($s.Titles -gt 0 -or $s.Colors -gt 0)
+		if ($s.Titles -gt 0 -or $s.Kinds -gt 0 -or $s.Colors -gt 0)
 		{
-			"  {0,-20} titles {1,5}   colors dropped {2,5}" -f $file.Name, $s.Titles, $s.Colors
+			"  {0,-20} kinds {1,5}   titles cleared {2,5}   colors dropped {3,5}" -f $file.Name, $s.Kinds, $s.Titles, $s.Colors
 		}
 	}
 
 	"  ---"
-	"  {0,-20} titles {1,5}   colors dropped {2,5}{3}" -f 'total', $titles, $colors, $(if ($WhatIf) { '   (nothing written)' } else { '' })
+	"  {0,-20} kinds {1,5}   titles cleared {2,5}   colors dropped {3,5}{4}" -f 'total', $kindsWritten, $titlesCleared, $colorsDropped, $(if ($WhatIf) { '   (nothing written)' } else { '' })
 }

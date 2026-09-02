@@ -1,9 +1,12 @@
 package net.sf.l2j.gameserver.enums;
 
+import net.sf.l2j.commons.logging.CLogger;
+
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 
 /**
- * The kinds a monster is sorted into by tools/datapack/npc_level_titles.ps1, which writes the kind and the level of every monster into its title - "Raid Boss Lvl 80*".<br>
+ * The kinds a monster is sorted into by tools/datapack/npc_level_titles.ps1, which writes the one it settled on into the monster's own "monsterKind" property in data/xml/npcs. Sorting them out needs
+ * the spawn list and the stock client markings, so it is done once, outside the server ; the server only reads the answer, and builds the plate the monster wears out of it - "Raid Boss Lvl 80*".<br>
  * <br>
  * What each kind is called and which colors its two lines are painted with lives on config/npcs/nameplates.properties, under the keys "Monster&lt;kind&gt;Text", "Monster&lt;kind&gt;NameColor" and
  * "Monster&lt;kind&gt;TitleColor" - the name below sitting right after "Monster". The script writes the titles out of that very file, and the server reads the colors back out of it, so nothing but
@@ -21,6 +24,8 @@ public enum MonsterKind
 	QUEST("Quest", "Quest Monster", 0xFF8000),
 	PLAIN("Plain", "", NpcTemplate.NO_NAME_COLOR);
 
+	private static final CLogger LOGGER = new CLogger(MonsterKind.class.getName());
+
 	private final String _prefix;
 	private final String _defaultText;
 	private final int _defaultNameColor;
@@ -33,11 +38,30 @@ public enum MonsterKind
 	}
 
 	/**
-	 * @return The name this kind is written with on config/npcs/nameplates.properties, sitting between "Monster" and the setting itself.
+	 * @return The name this kind goes by : on config/npcs/nameplates.properties it sits between "Monster" and the setting itself, and it is what the "monsterKind" property of an NPC holds.
 	 */
 	public String getPrefix()
 	{
 		return _prefix;
+	}
+
+	/**
+	 * @param value : the raw "monsterKind" property, or null when the NPC carries none.
+	 * @return the kind it names, {@link #PLAIN} when it names none - which is what a monster the script found nothing special about is.
+	 */
+	public static MonsterKind parse(String value)
+	{
+		if (value == null || value.isEmpty())
+			return PLAIN;
+
+		for (MonsterKind kind : values())
+		{
+			if (kind.getPrefix().equalsIgnoreCase(value))
+				return kind;
+		}
+
+		LOGGER.warn("Invalid monsterKind '{}' ; it is treated as an ordinary monster.", value);
+		return PLAIN;
 	}
 
 	/**

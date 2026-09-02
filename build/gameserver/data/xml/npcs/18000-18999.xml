@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
-	<npc id="18001" name="Blood Queen" title="Lvl 60*" alias="bloody_queen">
+	<npc id="18001" name="Blood Queen" title="" alias="bloody_queen">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="14.0"/>
@@ -58,7 +58,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18002" name="Blood Queen" title="Lvl 60*" alias="bloody_queen_hold">
+	<npc id="18002" name="Blood Queen" title="" alias="bloody_queen_hold">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="14.0"/>
@@ -116,7 +116,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18003" name="Bearded Keltir" title="Lvl 1*" alias="tuto_keltir">
+	<npc id="18003" name="Bearded Keltir" title="" alias="tuto_keltir">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="13.0"/>
@@ -166,7 +166,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18004" name="Susceptor Prime" title="Lvl 49*" alias="suceptor_prime">
+	<npc id="18004" name="Susceptor Prime" title="" alias="suceptor_prime">
 		<set name="type" val="Monster"/>
 		<set name="level" val="49"/>
 		<set name="radius" val="45.0"/>
@@ -214,7 +214,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18005" name="Mimic" title="Lvl 52" alias="mimic">
+	<npc id="18005" name="Mimic" title="" alias="mimic">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -260,7 +260,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18006" name="Maruk Lord" title="Lvl 68*" alias="malruk_lord_a">
+	<npc id="18006" name="Maruk Lord" title="" alias="malruk_lord_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="68"/>
 		<set name="radius" val="15.0"/>
@@ -318,7 +318,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18007" name="Limal Karinness" title="Lvl 69*" alias="limal_karinness_a">
+	<npc id="18007" name="Limal Karinness" title="" alias="limal_karinness_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="14.0"/>
@@ -375,7 +375,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18008" name="Karik" title="Lvl 70*" alias="karik_a">
+	<npc id="18008" name="Karik" title="" alias="karik_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="25.0"/>
@@ -434,7 +434,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18009" name="Offering of Branded Elder" title="Lvl 34*" alias="dusk_1_1_corner_leader">
+	<npc id="18009" name="Offering of Branded Elder" title="" alias="dusk_1_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="12.0"/>
@@ -494,7 +494,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18010" name="Offering of the Branded" title="Lvl 32*" alias="dusk_1_1_corner_private">
+	<npc id="18010" name="Offering of the Branded" title="" alias="dusk_1_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="10.0"/>
@@ -547,7 +547,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18011" name="Offering of Branded Archer" title="Lvl 28*" alias="dusk_1_1_corner_archer">
+	<npc id="18011" name="Offering of Branded Archer" title="" alias="dusk_1_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="14.0"/>
@@ -598,7 +598,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18012" name="Offering of Branded Warrior" title="Lvl 29*" alias="dusk_1_2_heavy_trp_1">
+	<npc id="18012" name="Offering of Branded Warrior" title="" alias="dusk_1_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="10.0"/>
@@ -652,7 +652,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18013" name="Offering of Branded Follower" title="Lvl 29*" alias="dusk_1_2_light_trp_1">
+	<npc id="18013" name="Offering of Branded Follower" title="" alias="dusk_1_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="9.0"/>
@@ -708,7 +708,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18014" name="Offering of Branded Berserker" title="Lvl 37*" alias="dusk_1_2_heavy_trp_2">
+	<npc id="18014" name="Offering of Branded Berserker" title="" alias="dusk_1_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="10.0"/>
@@ -764,7 +764,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18015" name="Offering of Branded Zealot" title="Lvl 34*" alias="dusk_1_2_light_trp_2">
+	<npc id="18015" name="Offering of Branded Zealot" title="" alias="dusk_1_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="12.0"/>
@@ -818,7 +818,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18016" name="Offering of Branded Marksman" title="Lvl 32*" alias="dusk_1_3_mid_archer">
+	<npc id="18016" name="Offering of Branded Marksman" title="" alias="dusk_1_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="16.0"/>
@@ -869,7 +869,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18017" name="Offering of Branded Disciple" title="Lvl 34*" alias="dusk_1_4_last_trp_1">
+	<npc id="18017" name="Offering of Branded Disciple" title="" alias="dusk_1_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="9.0"/>
@@ -920,7 +920,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18018" name="Offering of Branded Saint" title="Lvl 39*" alias="dusk_1_4_last_trp_2">
+	<npc id="18018" name="Offering of Branded Saint" title="" alias="dusk_1_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
@@ -974,7 +974,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18019" name="Apostate's Offering Elder" title="Lvl 45*" alias="dusk_2_1_corner_leader">
+	<npc id="18019" name="Apostate's Offering Elder" title="" alias="dusk_2_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
@@ -1032,7 +1032,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18020" name="Apostate's Offering" title="Lvl 43*" alias="dusk_2_1_corner_private">
+	<npc id="18020" name="Apostate's Offering" title="" alias="dusk_2_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="12.0"/>
@@ -1085,7 +1085,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18021" name="Apostate's Offering Archer" title="Lvl 39*" alias="dusk_2_1_corner_archer">
+	<npc id="18021" name="Apostate's Offering Archer" title="" alias="dusk_2_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
@@ -1136,7 +1136,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18022" name="Apostate's Offering Warrior" title="Lvl 40*" alias="dusk_2_2_heavy_trp_1">
+	<npc id="18022" name="Apostate's Offering Warrior" title="" alias="dusk_2_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="10.0"/>
@@ -1190,7 +1190,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18023" name="Apostate's Offering Follower" title="Lvl 40*" alias="dusk_2_2_light_trp_1">
+	<npc id="18023" name="Apostate's Offering Follower" title="" alias="dusk_2_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="11.0"/>
@@ -1246,7 +1246,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18024" name="Apostate's Offering Berserker" title="Lvl 48*" alias="dusk_2_2_heavy_trp_2">
+	<npc id="18024" name="Apostate's Offering Berserker" title="" alias="dusk_2_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="11.0"/>
@@ -1301,7 +1301,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18025" name="Apostate's Offering Zealot" title="Lvl 45*" alias="dusk_2_2_light_trp_2">
+	<npc id="18025" name="Apostate's Offering Zealot" title="" alias="dusk_2_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="10.0"/>
@@ -1356,7 +1356,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18026" name="Apostate's Offering Marksman" title="Lvl 43*" alias="dusk_2_3_mid_archer">
+	<npc id="18026" name="Apostate's Offering Marksman" title="" alias="dusk_2_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="13.0"/>
@@ -1407,7 +1407,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18027" name="Apostate's Offering Disciple" title="Lvl 45*" alias="dusk_2_4_last_trp_1">
+	<npc id="18027" name="Apostate's Offering Disciple" title="" alias="dusk_2_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
@@ -1458,7 +1458,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18028" name="Apostate's Offering Saint" title="Lvl 50*" alias="dusk_2_4_last_trp_2">
+	<npc id="18028" name="Apostate's Offering Saint" title="" alias="dusk_2_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="14.0"/>
@@ -1512,7 +1512,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18029" name="Witch's Offering Elder" title="Lvl 56*" alias="dusk_3_1_corner_leader">
+	<npc id="18029" name="Witch's Offering Elder" title="" alias="dusk_3_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="12.0"/>
@@ -1570,7 +1570,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18030" name="Witch's Offering" title="Lvl 54*" alias="dusk_3_1_corner_private">
+	<npc id="18030" name="Witch's Offering" title="" alias="dusk_3_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="9.0"/>
@@ -1623,7 +1623,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18031" name="Witch's Offering Archer" title="Lvl 50*" alias="dusk_3_1_corner_archer">
+	<npc id="18031" name="Witch's Offering Archer" title="" alias="dusk_3_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -1674,7 +1674,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18032" name="Witch's Offering Warrior" title="Lvl 51*" alias="dusk_3_2_heavy_trp_1">
+	<npc id="18032" name="Witch's Offering Warrior" title="" alias="dusk_3_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="10.0"/>
@@ -1728,7 +1728,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18033" name="Witch's Offering Follower" title="Lvl 51*" alias="dusk_3_2_light_trp_1">
+	<npc id="18033" name="Witch's Offering Follower" title="" alias="dusk_3_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="11.0"/>
@@ -1784,7 +1784,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18034" name="Witch's Offering Berserker" title="Lvl 59*" alias="dusk_3_2_heavy_trp_2">
+	<npc id="18034" name="Witch's Offering Berserker" title="" alias="dusk_3_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
@@ -1840,7 +1840,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18035" name="Witch's Offering Zealot" title="Lvl 56*" alias="dusk_3_2_light_trp_2">
+	<npc id="18035" name="Witch's Offering Zealot" title="" alias="dusk_3_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="10.0"/>
@@ -1895,7 +1895,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18036" name="Witch's Offering Marksman" title="Lvl 54*" alias="dusk_3_3_mid_archer">
+	<npc id="18036" name="Witch's Offering Marksman" title="" alias="dusk_3_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="13.0"/>
@@ -1946,7 +1946,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18037" name="Witch's Offering Disciple" title="Lvl 56*" alias="dusk_3_4_last_trp_1">
+	<npc id="18037" name="Witch's Offering Disciple" title="" alias="dusk_3_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="12.0"/>
@@ -1997,7 +1997,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18038" name="Witch's Offering Saint" title="Lvl 61*" alias="dusk_3_4_last_trp_2">
+	<npc id="18038" name="Witch's Offering Saint" title="" alias="dusk_3_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="14.0"/>
@@ -2051,7 +2051,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18039" name="Dark Omen Offering Elder" title="Lvl 67*" alias="dusk_4_1_corner_leader">
+	<npc id="18039" name="Dark Omen Offering Elder" title="" alias="dusk_4_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -2109,7 +2109,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18040" name="Dark Omen Offering" title="Lvl 65*" alias="dusk_4_1_corner_private">
+	<npc id="18040" name="Dark Omen Offering" title="" alias="dusk_4_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="9.0"/>
@@ -2162,7 +2162,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18041" name="Dark Omen Offering Archer" title="Lvl 61*" alias="dusk_4_1_corner_archer">
+	<npc id="18041" name="Dark Omen Offering Archer" title="" alias="dusk_4_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="11.0"/>
@@ -2213,7 +2213,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18042" name="Dark Omen Offering Warrior" title="Lvl 62*" alias="dusk_4_2_heavy_trp_1">
+	<npc id="18042" name="Dark Omen Offering Warrior" title="" alias="dusk_4_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="10.0"/>
@@ -2267,7 +2267,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18043" name="Dark Omen Offering Follower" title="Lvl 62*" alias="dusk_4_2_light_trp_1">
+	<npc id="18043" name="Dark Omen Offering Follower" title="" alias="dusk_4_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="11.0"/>
@@ -2323,7 +2323,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18044" name="Dark Omen Offering Berserker" title="Lvl 70*" alias="dusk_4_2_heavy_trp_2">
+	<npc id="18044" name="Dark Omen Offering Berserker" title="" alias="dusk_4_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="12.0"/>
@@ -2379,7 +2379,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18045" name="Dark Omen Offering Zealot" title="Lvl 67*" alias="dusk_4_2_light_trp_2">
+	<npc id="18045" name="Dark Omen Offering Zealot" title="" alias="dusk_4_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="10.0"/>
@@ -2434,7 +2434,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18046" name="Dark Omen Offering Marksman" title="Lvl 65*" alias="dusk_4_3_mid_archer">
+	<npc id="18046" name="Dark Omen Offering Marksman" title="" alias="dusk_4_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="13.0"/>
@@ -2485,7 +2485,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18047" name="Dark Omen Offering Disciple" title="Lvl 67*" alias="dusk_4_4_last_trp_1">
+	<npc id="18047" name="Dark Omen Offering Disciple" title="" alias="dusk_4_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -2536,7 +2536,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18048" name="Dark Omen Offering Saint" title="Lvl 72*" alias="dusk_4_4_last_trp_2">
+	<npc id="18048" name="Dark Omen Offering Saint" title="" alias="dusk_4_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="14.0"/>
@@ -2590,7 +2590,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18049" name="Offering of Forbidden Path Elder" title="Lvl 78*" alias="dusk_5_1_corner_leader">
+	<npc id="18049" name="Offering of Forbidden Path Elder" title="" alias="dusk_5_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -2648,7 +2648,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18050" name="Offering of Forbidden Path" title="Lvl 76*" alias="dusk_5_1_corner_private">
+	<npc id="18050" name="Offering of Forbidden Path" title="" alias="dusk_5_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="10.0"/>
@@ -2701,7 +2701,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18051" name="Offering of Forbidden Path Archer" title="Lvl 80*" alias="dusk_5_1_corner_archer">
+	<npc id="18051" name="Offering of Forbidden Path Archer" title="" alias="dusk_5_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
@@ -2752,7 +2752,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18052" name="Offering of Forbidden Path Warrior" title="Lvl 80*" alias="dusk_5_2_heavy_trp_1">
+	<npc id="18052" name="Offering of Forbidden Path Warrior" title="" alias="dusk_5_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
@@ -2806,7 +2806,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18053" name="Offering of Forbidden Path Follower" title="Lvl 80*" alias="dusk_5_2_light_trp_1">
+	<npc id="18053" name="Offering of Forbidden Path Follower" title="" alias="dusk_5_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="10.0"/>
@@ -2862,7 +2862,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18054" name="Offering of Forbidden Path Berserker" title="Lvl 81*" alias="dusk_5_2_heavy_trp_2">
+	<npc id="18054" name="Offering of Forbidden Path Berserker" title="" alias="dusk_5_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="13.0"/>
@@ -2918,7 +2918,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18055" name="Offering of Forbidden Path Zealot" title="Lvl 78*" alias="dusk_5_2_light_trp_2">
+	<npc id="18055" name="Offering of Forbidden Path Zealot" title="" alias="dusk_5_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -2973,7 +2973,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18056" name="Offering of Forbidden Path Marksman" title="Lvl 76*" alias="dusk_5_3_mid_archer">
+	<npc id="18056" name="Offering of Forbidden Path Marksman" title="" alias="dusk_5_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
@@ -3024,7 +3024,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18057" name="Offering of Forbidden Path Disciple" title="Lvl 78*" alias="dusk_5_4_last_trp_1">
+	<npc id="18057" name="Offering of Forbidden Path Disciple" title="" alias="dusk_5_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -3075,7 +3075,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18058" name="Offering of Forbidden Path Saint" title="Lvl 80*" alias="dusk_5_4_last_trp_2">
+	<npc id="18058" name="Offering of Forbidden Path Saint" title="" alias="dusk_5_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="14.0"/>
@@ -3129,7 +3129,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18059" name="Offering of Branded Elder" title="Lvl 34*" alias="dawn_1_1_corner_leader">
+	<npc id="18059" name="Offering of Branded Elder" title="" alias="dawn_1_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="12.0"/>
@@ -3187,7 +3187,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18060" name="Offering of the Branded" title="Lvl 32*" alias="dawn_1_1_corner_private">
+	<npc id="18060" name="Offering of the Branded" title="" alias="dawn_1_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="10.0"/>
@@ -3240,7 +3240,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18061" name="Offering of Branded Archer" title="Lvl 28*" alias="dawn_1_1_corner_archer">
+	<npc id="18061" name="Offering of Branded Archer" title="" alias="dawn_1_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="28"/>
 		<set name="radius" val="14.0"/>
@@ -3291,7 +3291,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18062" name="Offering of Branded Warrior" title="Lvl 29*" alias="dawn_1_2_heavy_trp_1">
+	<npc id="18062" name="Offering of Branded Warrior" title="" alias="dawn_1_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="10.0"/>
@@ -3345,7 +3345,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18063" name="Offering of Branded Follower" title="Lvl 29*" alias="dawn_1_2_light_trp_1">
+	<npc id="18063" name="Offering of Branded Follower" title="" alias="dawn_1_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="29"/>
 		<set name="radius" val="9.0"/>
@@ -3401,7 +3401,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18064" name="Offering of Branded Berserker" title="Lvl 37*" alias="dawn_1_2_heavy_trp_2">
+	<npc id="18064" name="Offering of Branded Berserker" title="" alias="dawn_1_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="37"/>
 		<set name="radius" val="10.0"/>
@@ -3457,7 +3457,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18065" name="Offering of Branded Zealot" title="Lvl 34*" alias="dawn_1_2_light_trp_2">
+	<npc id="18065" name="Offering of Branded Zealot" title="" alias="dawn_1_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="12.0"/>
@@ -3512,7 +3512,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18066" name="Offering of Branded Marksman" title="Lvl 32*" alias="dawn_1_3_mid_archer">
+	<npc id="18066" name="Offering of Branded Marksman" title="" alias="dawn_1_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="32"/>
 		<set name="radius" val="16.0"/>
@@ -3563,7 +3563,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18067" name="Offering of Branded Disciple" title="Lvl 34*" alias="dawn_1_4_last_trp_1">
+	<npc id="18067" name="Offering of Branded Disciple" title="" alias="dawn_1_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="34"/>
 		<set name="radius" val="9.0"/>
@@ -3614,7 +3614,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18068" name="Offering of Branded Saint" title="Lvl 39*" alias="dawn_1_4_last_trp_2">
+	<npc id="18068" name="Offering of Branded Saint" title="" alias="dawn_1_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="10.0"/>
@@ -3668,7 +3668,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18069" name="Apostate's Offering Elder" title="Lvl 45*" alias="dawn_2_1_corner_leader">
+	<npc id="18069" name="Apostate's Offering Elder" title="" alias="dawn_2_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
@@ -3726,7 +3726,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18070" name="Apostate's Offering" title="Lvl 43*" alias="dawn_2_1_corner_private">
+	<npc id="18070" name="Apostate's Offering" title="" alias="dawn_2_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="12.0"/>
@@ -3779,7 +3779,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18071" name="Apostate's Offering Archer" title="Lvl 39*" alias="dawn_2_1_corner_archer">
+	<npc id="18071" name="Apostate's Offering Archer" title="" alias="dawn_2_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="11.0"/>
@@ -3830,7 +3830,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18072" name="Apostate's Offering Warrior" title="Lvl 40*" alias="dawn_2_2_heavy_trp_1">
+	<npc id="18072" name="Apostate's Offering Warrior" title="" alias="dawn_2_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="10.0"/>
@@ -3884,7 +3884,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18073" name="Apostate's Offering Follower" title="Lvl 40*" alias="dawn_2_2_light_trp_1">
+	<npc id="18073" name="Apostate's Offering Follower" title="" alias="dawn_2_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="11.0"/>
@@ -3940,7 +3940,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18074" name="Apostate's Offering Berserker" title="Lvl 48*" alias="dawn_2_2_heavy_trp_2">
+	<npc id="18074" name="Apostate's Offering Berserker" title="" alias="dawn_2_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="11.0"/>
@@ -3996,7 +3996,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18075" name="Apostate's Offering Zealot" title="Lvl 45*" alias="dawn_2_2_light_trp_2">
+	<npc id="18075" name="Apostate's Offering Zealot" title="" alias="dawn_2_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="10.0"/>
@@ -4051,7 +4051,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18076" name="Apostate's Offering Marksman" title="Lvl 43*" alias="dawn_2_3_mid_archer">
+	<npc id="18076" name="Apostate's Offering Marksman" title="" alias="dawn_2_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="13.0"/>
@@ -4102,7 +4102,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18077" name="Apostate's Offering Disciple" title="Lvl 45*" alias="dawn_2_4_last_trp_1">
+	<npc id="18077" name="Apostate's Offering Disciple" title="" alias="dawn_2_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="12.0"/>
@@ -4153,7 +4153,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18078" name="Apostate's Offering Saint" title="Lvl 50*" alias="dawn_2_4_last_trp_2">
+	<npc id="18078" name="Apostate's Offering Saint" title="" alias="dawn_2_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="14.0"/>
@@ -4207,7 +4207,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18079" name="Witch's Offering Elder" title="Lvl 56*" alias="dawn_3_1_corner_leader">
+	<npc id="18079" name="Witch's Offering Elder" title="" alias="dawn_3_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="12.0"/>
@@ -4265,7 +4265,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18080" name="Witch's Offering" title="Lvl 54*" alias="dawn_3_1_corner_private">
+	<npc id="18080" name="Witch's Offering" title="" alias="dawn_3_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="9.0"/>
@@ -4318,7 +4318,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18081" name="Witch's Offering Archer" title="Lvl 50*" alias="dawn_3_1_corner_archer">
+	<npc id="18081" name="Witch's Offering Archer" title="" alias="dawn_3_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="11.0"/>
@@ -4369,7 +4369,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18082" name="Witch's Offering Warrior" title="Lvl 51*" alias="dawn_3_2_heavy_trp_1">
+	<npc id="18082" name="Witch's Offering Warrior" title="" alias="dawn_3_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="10.0"/>
@@ -4423,7 +4423,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18083" name="Witch's Offering Follower" title="Lvl 51*" alias="dawn_3_2_light_trp_1">
+	<npc id="18083" name="Witch's Offering Follower" title="" alias="dawn_3_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="11.0"/>
@@ -4479,7 +4479,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18084" name="Witch's Offering Berserker" title="Lvl 59*" alias="dawn_3_2_heavy_trp_2">
+	<npc id="18084" name="Witch's Offering Berserker" title="" alias="dawn_3_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="59"/>
 		<set name="radius" val="12.0"/>
@@ -4535,7 +4535,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18085" name="Witch's Offering Zealot" title="Lvl 56*" alias="dawn_3_2_light_trp_2">
+	<npc id="18085" name="Witch's Offering Zealot" title="" alias="dawn_3_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="10.0"/>
@@ -4590,7 +4590,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18086" name="Witch's Offering Marksman" title="Lvl 54*" alias="dawn_3_3_mid_archer">
+	<npc id="18086" name="Witch's Offering Marksman" title="" alias="dawn_3_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="13.0"/>
@@ -4641,7 +4641,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18087" name="Witch's Offering Disciple" title="Lvl 56*" alias="dawn_3_4_last_trp_1">
+	<npc id="18087" name="Witch's Offering Disciple" title="" alias="dawn_3_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="56"/>
 		<set name="radius" val="12.0"/>
@@ -4692,7 +4692,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18088" name="Witch's Offering Saint" title="Lvl 61*" alias="dawn_3_4_last_trp_2">
+	<npc id="18088" name="Witch's Offering Saint" title="" alias="dawn_3_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="14.0"/>
@@ -4746,7 +4746,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18089" name="Dark Omen Offering Elder" title="Lvl 67*" alias="dawn_4_1_corner_leader">
+	<npc id="18089" name="Dark Omen Offering Elder" title="" alias="dawn_4_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -4804,7 +4804,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18090" name="Dark Omen Offering" title="Lvl 65*" alias="dawn_4_1_corner_private">
+	<npc id="18090" name="Dark Omen Offering" title="" alias="dawn_4_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="9.0"/>
@@ -4857,7 +4857,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18091" name="Dark Omen Offering Archer" title="Lvl 61*" alias="dawn_4_1_corner_archer">
+	<npc id="18091" name="Dark Omen Offering Archer" title="" alias="dawn_4_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="61"/>
 		<set name="radius" val="11.0"/>
@@ -4908,7 +4908,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18092" name="Dark Omen Offering Warrior" title="Lvl 62*" alias="dawn_4_2_heavy_trp_1">
+	<npc id="18092" name="Dark Omen Offering Warrior" title="" alias="dawn_4_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="10.0"/>
@@ -4962,7 +4962,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18093" name="Dark Omen Offering Follower" title="Lvl 62*" alias="dawn_4_2_light_trp_1">
+	<npc id="18093" name="Dark Omen Offering Follower" title="" alias="dawn_4_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="62"/>
 		<set name="radius" val="11.0"/>
@@ -5018,7 +5018,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18094" name="Dark Omen Offering Berserker" title="Lvl 70*" alias="dawn_4_2_heavy_trp_2">
+	<npc id="18094" name="Dark Omen Offering Berserker" title="" alias="dawn_4_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="12.0"/>
@@ -5074,7 +5074,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18095" name="Dark Omen Offering Zealot" title="Lvl 67*" alias="dawn_4_2_light_trp_2">
+	<npc id="18095" name="Dark Omen Offering Zealot" title="" alias="dawn_4_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="10.0"/>
@@ -5129,7 +5129,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18096" name="Dark Omen Offering Marksman" title="Lvl 65*" alias="dawn_4_3_mid_archer">
+	<npc id="18096" name="Dark Omen Offering Marksman" title="" alias="dawn_4_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="13.0"/>
@@ -5180,7 +5180,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18097" name="Dark Omen Offering Disciple" title="Lvl 67*" alias="dawn_4_4_last_trp_1">
+	<npc id="18097" name="Dark Omen Offering Disciple" title="" alias="dawn_4_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -5231,7 +5231,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18098" name="Dark Omen Offering Saint" title="Lvl 72*" alias="dawn_4_4_last_trp_2">
+	<npc id="18098" name="Dark Omen Offering Saint" title="" alias="dawn_4_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="14.0"/>
@@ -5285,7 +5285,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18099" name="Offering of Forbidden Path Elder" title="Lvl 78*" alias="dawn_5_1_corner_leader">
+	<npc id="18099" name="Offering of Forbidden Path Elder" title="" alias="dawn_5_1_corner_leader">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -5343,7 +5343,7 @@
 			<skill id="4444" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18100" name="Offering of Forbidden Path" title="Lvl 76*" alias="dawn_5_1_corner_private">
+	<npc id="18100" name="Offering of Forbidden Path" title="" alias="dawn_5_1_corner_private">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="10.0"/>
@@ -5396,7 +5396,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18101" name="Offering of Forbidden Path Archer" title="Lvl 80*" alias="dawn_5_1_corner_archer">
+	<npc id="18101" name="Offering of Forbidden Path Archer" title="" alias="dawn_5_1_corner_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
@@ -5447,7 +5447,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18102" name="Offering of Forbidden Path Warrior" title="Lvl 80*" alias="dawn_5_2_heavy_trp_1">
+	<npc id="18102" name="Offering of Forbidden Path Warrior" title="" alias="dawn_5_2_heavy_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="12.0"/>
@@ -5501,7 +5501,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18103" name="Offering of Forbidden Path Follower" title="Lvl 80*" alias="dawn_5_2_light_trp_1">
+	<npc id="18103" name="Offering of Forbidden Path Follower" title="" alias="dawn_5_2_light_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="10.0"/>
@@ -5557,7 +5557,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18104" name="Offering of Forbidden Path Berserker" title="Lvl 80*" alias="dawn_5_2_heavy_trp_2">
+	<npc id="18104" name="Offering of Forbidden Path Berserker" title="" alias="dawn_5_2_heavy_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="13.0"/>
@@ -5613,7 +5613,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18105" name="Offering of Forbidden Path Zealot" title="Lvl 78*" alias="dawn_5_2_light_trp_2">
+	<npc id="18105" name="Offering of Forbidden Path Zealot" title="" alias="dawn_5_2_light_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="14.0"/>
@@ -5668,7 +5668,7 @@
 			<skill id="4445" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18106" name="Offering of Forbidden Path Marksman" title="Lvl 76*" alias="dawn_5_3_mid_archer">
+	<npc id="18106" name="Offering of Forbidden Path Marksman" title="" alias="dawn_5_3_mid_archer">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="76"/>
 		<set name="radius" val="14.0"/>
@@ -5719,7 +5719,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18107" name="Offering of Forbidden Path Disciple" title="Lvl 78*" alias="dawn_5_4_last_trp_1">
+	<npc id="18107" name="Offering of Forbidden Path Disciple" title="" alias="dawn_5_4_last_trp_1">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -5770,7 +5770,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18108" name="Offering of Forbidden Path Saint" title="Lvl 83*" alias="dawn_5_4_last_trp_2">
+	<npc id="18108" name="Offering of Forbidden Path Saint" title="" alias="dawn_5_4_last_trp_2">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="14.0"/>
@@ -5824,7 +5824,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18109" name="Treasures of the Festival" title="Lvl 30" alias="dusk_1_box">
+	<npc id="18109" name="Treasures of the Festival" title="" alias="dusk_1_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="8.5"/>
@@ -5877,7 +5877,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18110" name="Treasures of the Festival" title="Lvl 41" alias="dusk_2_box">
+	<npc id="18110" name="Treasures of the Festival" title="" alias="dusk_2_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="8.5"/>
@@ -5930,7 +5930,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18111" name="Treasures of the Festival" title="Lvl 52" alias="dusk_3_box">
+	<npc id="18111" name="Treasures of the Festival" title="" alias="dusk_3_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -5983,7 +5983,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18112" name="Treasures of the Festival" title="Lvl 63" alias="dusk_4_box">
+	<npc id="18112" name="Treasures of the Festival" title="" alias="dusk_4_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="8.5"/>
@@ -6036,7 +6036,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18113" name="Treasures of the Festival" title="Lvl 72" alias="dusk_5_box">
+	<npc id="18113" name="Treasures of the Festival" title="" alias="dusk_5_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="8.5"/>
@@ -6089,7 +6089,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18114" name="Treasures of the Festival" title="Lvl 30" alias="dawn_1_box">
+	<npc id="18114" name="Treasures of the Festival" title="" alias="dawn_1_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="8.5"/>
@@ -6142,7 +6142,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18115" name="Treasures of the Festival" title="Lvl 41" alias="dawn_2_box">
+	<npc id="18115" name="Treasures of the Festival" title="" alias="dawn_2_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="41"/>
 		<set name="radius" val="8.5"/>
@@ -6195,7 +6195,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18116" name="Treasures of the Festival" title="Lvl 52" alias="dawn_3_box">
+	<npc id="18116" name="Treasures of the Festival" title="" alias="dawn_3_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -6248,7 +6248,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18117" name="Treasures of the Festival" title="Lvl 63" alias="dawn_4_box">
+	<npc id="18117" name="Treasures of the Festival" title="" alias="dawn_4_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="8.5"/>
@@ -6301,7 +6301,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18118" name="Treasures of the Festival" title="Lvl 72" alias="dawn_5_box">
+	<npc id="18118" name="Treasures of the Festival" title="" alias="dawn_5_box">
 		<set name="type" val="FestivalMonster"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="8.5"/>
@@ -6354,7 +6354,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18119" name="Corpse of Deadman" title="Lvl 63*" alias="wasted_corpse">
+	<npc id="18119" name="Corpse of Deadman" title="" alias="wasted_corpse">
 		<set name="type" val="Monster"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="13.0"/>
@@ -6402,7 +6402,7 @@
 			<skill id="4290" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18120" name="Halisha's Officer" title="Lvl 81*" alias="r11_roomboss_strong">
+	<npc id="18120" name="Halisha's Officer" title="" alias="r11_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6465,7 +6465,7 @@
 			<skill id="4589" level="9" type="RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18121" name="Halisha's Officer" title="Lvl 81*" alias="r11_roomboss_weak">
+	<npc id="18121" name="Halisha's Officer" title="" alias="r11_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6528,7 +6528,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18122" name="Halisha's Officer" title="Lvl 81*" alias="r11_roomboss_teleport">
+	<npc id="18122" name="Halisha's Officer" title="" alias="r11_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6590,7 +6590,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18123" name="Halisha's Officer" title="Lvl 81*" alias="r12_roomboss_strong">
+	<npc id="18123" name="Halisha's Officer" title="" alias="r12_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6653,7 +6653,7 @@
 			<skill id="4589" level="9" type="RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18124" name="Halisha's Officer" title="Lvl 81*" alias="r12_roomboss_weak">
+	<npc id="18124" name="Halisha's Officer" title="" alias="r12_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6716,7 +6716,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18125" name="Halisha's Officer" title="Lvl 81*" alias="r12_roomboss_teleport">
+	<npc id="18125" name="Halisha's Officer" title="" alias="r12_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6778,7 +6778,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18126" name="Halisha's Officer" title="Lvl 81*" alias="r13_roomboss_strong">
+	<npc id="18126" name="Halisha's Officer" title="" alias="r13_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6841,7 +6841,7 @@
 			<skill id="4589" level="9" type="RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18127" name="Halisha's Officer" title="Lvl 81*" alias="r13_roomboss_weak">
+	<npc id="18127" name="Halisha's Officer" title="" alias="r13_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6904,7 +6904,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18128" name="Halisha's Officer" title="Lvl 81*" alias="r13_roomboss_teleport">
+	<npc id="18128" name="Halisha's Officer" title="" alias="r13_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -6966,7 +6966,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18129" name="Halisha's Officer" title="Lvl 81*" alias="r14_roomboss_strong">
+	<npc id="18129" name="Halisha's Officer" title="" alias="r14_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -7029,7 +7029,7 @@
 			<skill id="4589" level="9" type="RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18130" name="Halisha's Officer" title="Lvl 81*" alias="r14_roomboss_weak">
+	<npc id="18130" name="Halisha's Officer" title="" alias="r14_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -7092,7 +7092,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18131" name="Halisha's Officer" title="Lvl 81*" alias="r14_roomboss_teleport">
+	<npc id="18131" name="Halisha's Officer" title="" alias="r14_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -7154,7 +7154,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18132" name="Imperial Healer" title="Lvl 81*" alias="r1_beatle_healer">
+	<npc id="18132" name="Imperial Healer" title="" alias="r1_beatle_healer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="19.0"/>
@@ -7213,7 +7213,7 @@
 			<skill id="4640" level="9" type="W_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="18133" name="Imperial Mosaic" title="Lvl 81*" alias="r1_scorpion_warrior">
+	<npc id="18133" name="Imperial Mosaic" title="" alias="r1_scorpion_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="28.0"/>
@@ -7269,7 +7269,7 @@
 			<skill id="4582" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18134" name="Imperial Mosaic" title="Lvl 81*" alias="r1_warrior_longatk1_h">
+	<npc id="18134" name="Imperial Mosaic" title="" alias="r1_warrior_longatk1_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="28.0"/>
@@ -7324,7 +7324,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18135" name="Imperial Mosaic" title="Lvl 81*" alias="r1_warrior_longatk2">
+	<npc id="18135" name="Imperial Mosaic" title="" alias="r1_warrior_longatk2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="28.0"/>
@@ -7380,7 +7380,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18136" name="Imperial Mosaic" title="Lvl 81*" alias="r1_warrior_selfbuff">
+	<npc id="18136" name="Imperial Mosaic" title="" alias="r1_warrior_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="28.0"/>
@@ -7436,7 +7436,7 @@
 			<skill id="4582" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18137" name="Imperial Mosaic" title="Lvl 81*" alias="r1_wizard_h">
+	<npc id="18137" name="Imperial Mosaic" title="" alias="r1_wizard_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7492,7 +7492,7 @@
 			<skill id="4563" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18138" name="Imperial Mosaic" title="Lvl 81*" alias="r1_wizard_clanbuff">
+	<npc id="18138" name="Imperial Mosaic" title="" alias="r1_wizard_clanbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7549,7 +7549,7 @@
 			<skill id="4609" level="4" type="W_CLAN_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="18139" name="Imperial Mosaic" title="Lvl 81*" alias="r1_wizard_debuff">
+	<npc id="18139" name="Imperial Mosaic" title="" alias="r1_wizard_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7606,7 +7606,7 @@
 			<skill id="4587" level="9" type="W_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="18140" name="Imperial Mosaic" title="Lvl 81*" alias="r1_wizard_selfbuff">
+	<npc id="18140" name="Imperial Mosaic" title="" alias="r1_wizard_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7662,7 +7662,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18141" name="Beetle of Grave" title="Lvl 81*" alias="r21_scarab_roombosss">
+	<npc id="18141" name="Beetle of Grave" title="" alias="r21_scarab_roombosss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7721,7 +7721,7 @@
 			<skill id="4576" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18142" name="Beetle of Grave" title="Lvl 81*" alias="r22_scarab_roombosss">
+	<npc id="18142" name="Beetle of Grave" title="" alias="r22_scarab_roombosss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7780,7 +7780,7 @@
 			<skill id="4576" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18143" name="Beetle of Grave" title="Lvl 81*" alias="r23_scarab_roombosss">
+	<npc id="18143" name="Beetle of Grave" title="" alias="r23_scarab_roombosss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7839,7 +7839,7 @@
 			<skill id="4576" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18144" name="Beetle of Grave" title="Lvl 81*" alias="r24_scarab_roombosss">
+	<npc id="18144" name="Beetle of Grave" title="" alias="r24_scarab_roombosss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7898,7 +7898,7 @@
 			<skill id="4576" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18145" name="Beetle of Grave" title="Lvl 81*" alias="r2_wizard_clanbuff">
+	<npc id="18145" name="Beetle of Grave" title="" alias="r2_wizard_clanbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -7955,7 +7955,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18146" name="Beetle of Grave" title="Lvl 81*" alias="r2_warrior_longatk2">
+	<npc id="18146" name="Beetle of Grave" title="" alias="r2_warrior_longatk2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -8011,7 +8011,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18147" name="Beetle of Grave" title="Lvl 81*" alias="r2_wizard">
+	<npc id="18147" name="Beetle of Grave" title="" alias="r2_wizard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -8067,7 +8067,7 @@
 			<skill id="4416" level="12" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18148" name="Beetle of Grave" title="Lvl 81*" alias="r2_warrior">
+	<npc id="18148" name="Beetle of Grave" title="" alias="r2_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -8123,7 +8123,7 @@
 			<skill id="4581" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18149" name="Beetle of Grave" title="Lvl 81*" alias="r2_bomb">
+	<npc id="18149" name="Beetle of Grave" title="" alias="r2_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -8180,7 +8180,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18150" name="Victim" title="Lvl 81*" alias="r31_mission_roomboss1">
+	<npc id="18150" name="Victim" title="" alias="r31_mission_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8232,7 +8232,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18151" name="Victim" title="Lvl 81*" alias="r31_mission_roomboss2">
+	<npc id="18151" name="Victim" title="" alias="r31_mission_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8284,7 +8284,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18152" name="Victim" title="Lvl 81*" alias="r32_mission_roomboss1">
+	<npc id="18152" name="Victim" title="" alias="r32_mission_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8336,7 +8336,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18153" name="Victim" title="Lvl 81*" alias="r32_mission_roomboss2">
+	<npc id="18153" name="Victim" title="" alias="r32_mission_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8388,7 +8388,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18154" name="Victim" title="Lvl 81*" alias="r33_mission_roomboss1">
+	<npc id="18154" name="Victim" title="" alias="r33_mission_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8440,7 +8440,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18155" name="Victim" title="Lvl 81*" alias="r33_mission_roomboss2">
+	<npc id="18155" name="Victim" title="" alias="r33_mission_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8492,7 +8492,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18156" name="Victim" title="Lvl 81*" alias="r34_mission_roomboss1">
+	<npc id="18156" name="Victim" title="" alias="r34_mission_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8544,7 +8544,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18157" name="Victim" title="Lvl 81*" alias="r34_mission_roomboss2">
+	<npc id="18157" name="Victim" title="" alias="r34_mission_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="7.0"/>
@@ -8596,7 +8596,7 @@
 			<skill id="4697" level="9" type="MOB_HATE"/>
 		</skills>
 	</npc>
-	<npc id="18158" name="Executioner of Halisha" title="Lvl 81*" alias="r31_roomboss1">
+	<npc id="18158" name="Executioner of Halisha" title="" alias="r31_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8656,7 +8656,7 @@
 			<skill id="4621" level="9" type="SELF_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18159" name="Executioner of Halisha" title="Lvl 81*" alias="r31_roomboss2">
+	<npc id="18159" name="Executioner of Halisha" title="" alias="r31_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8716,7 +8716,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18160" name="Executioner of Halisha" title="Lvl 81*" alias="r32_roomboss1">
+	<npc id="18160" name="Executioner of Halisha" title="" alias="r32_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8776,7 +8776,7 @@
 			<skill id="4621" level="9" type="SELF_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18161" name="Executioner of Halisha" title="Lvl 81*" alias="r32_roomboss2">
+	<npc id="18161" name="Executioner of Halisha" title="" alias="r32_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8836,7 +8836,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18162" name="Executioner of Halisha" title="Lvl 81*" alias="r33_roomboss1">
+	<npc id="18162" name="Executioner of Halisha" title="" alias="r33_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8896,7 +8896,7 @@
 			<skill id="4621" level="9" type="SELF_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18163" name="Executioner of Halisha" title="Lvl 81*" alias="r33_roomboss2">
+	<npc id="18163" name="Executioner of Halisha" title="" alias="r33_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -8956,7 +8956,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18164" name="Executioner of Halisha" title="Lvl 81*" alias="r34_roomboss1">
+	<npc id="18164" name="Executioner of Halisha" title="" alias="r34_roomboss1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -9016,7 +9016,7 @@
 			<skill id="4621" level="9" type="SELF_RANGE_DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18165" name="Executioner of Halisha" title="Lvl 81*" alias="r34_roomboss2">
+	<npc id="18165" name="Executioner of Halisha" title="" alias="r34_roomboss2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -9076,7 +9076,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC1"/>
 		</skills>
 	</npc>
-	<npc id="18166" name="Imperial Guard" title="Lvl 81*" alias="r3_warrior">
+	<npc id="18166" name="Imperial Guard" title="" alias="r3_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -9134,7 +9134,7 @@
 			<skill id="4572" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18167" name="Imperial Guard" title="Lvl 81*" alias="r3_warrior_longatk1_h">
+	<npc id="18167" name="Imperial Guard" title="" alias="r3_warrior_longatk1_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -9192,7 +9192,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18168" name="Imperial Guard" title="Lvl 81*" alias="r3_warrior_longatk2">
+	<npc id="18168" name="Imperial Guard" title="" alias="r3_warrior_longatk2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -9250,7 +9250,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18169" name="Imperial Guard" title="Lvl 81*" alias="r3_warrior_selfbuff">
+	<npc id="18169" name="Imperial Guard" title="" alias="r3_warrior_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -9308,7 +9308,7 @@
 			<skill id="4574" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18170" name="Imperial Guard" title="Lvl 81*" alias="r3_wizard_h">
+	<npc id="18170" name="Imperial Guard" title="" alias="r3_wizard_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="20.0"/>
@@ -9366,7 +9366,7 @@
 			<skill id="4603" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18171" name="Imperial Guard" title="Lvl 81*" alias="r3_wizard_clanbuff">
+	<npc id="18171" name="Imperial Guard" title="" alias="r3_wizard_clanbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="20.0"/>
@@ -9424,7 +9424,7 @@
 			<skill id="4609" level="4" type="W_CLAN_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="18172" name="Imperial Guard" title="Lvl 81*" alias="r3_wizard_selfbuff">
+	<npc id="18172" name="Imperial Guard" title="" alias="r3_wizard_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="20.0"/>
@@ -9481,7 +9481,7 @@
 			<skill id="4589" level="9" type="W_SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18173" name="Halisha's Foreman" title="Lvl 81*" alias="r41_roomboss_strong">
+	<npc id="18173" name="Halisha's Foreman" title="" alias="r41_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9542,7 +9542,7 @@
 			<skill id="4601" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18174" name="Halisha's Foreman" title="Lvl 81*" alias="r41_roomboss_weak">
+	<npc id="18174" name="Halisha's Foreman" title="" alias="r41_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9605,7 +9605,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18175" name="Halisha's Foreman" title="Lvl 81*" alias="r41_roomboss_teleport">
+	<npc id="18175" name="Halisha's Foreman" title="" alias="r41_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9667,7 +9667,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18176" name="Halisha's Foreman" title="Lvl 81*" alias="r42_roomboss_strong">
+	<npc id="18176" name="Halisha's Foreman" title="" alias="r42_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9728,7 +9728,7 @@
 			<skill id="4601" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18177" name="Halisha's Foreman" title="Lvl 81*" alias="r42_roomboss_weak">
+	<npc id="18177" name="Halisha's Foreman" title="" alias="r42_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9791,7 +9791,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18178" name="Halisha's Foreman" title="Lvl 81*" alias="r42_roomboss_teleport">
+	<npc id="18178" name="Halisha's Foreman" title="" alias="r42_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9853,7 +9853,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18179" name="Halisha's Foreman" title="Lvl 81*" alias="r43_roomboss_strong">
+	<npc id="18179" name="Halisha's Foreman" title="" alias="r43_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9914,7 +9914,7 @@
 			<skill id="4601" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18180" name="Halisha's Foreman" title="Lvl 81*" alias="r43_roomboss_weak">
+	<npc id="18180" name="Halisha's Foreman" title="" alias="r43_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -9977,7 +9977,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18181" name="Halisha's Foreman" title="Lvl 81*" alias="r43_roomboss_teleport">
+	<npc id="18181" name="Halisha's Foreman" title="" alias="r43_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -10039,7 +10039,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18182" name="Halisha's Foreman" title="Lvl 81*" alias="r44_roomboss_strong">
+	<npc id="18182" name="Halisha's Foreman" title="" alias="r44_roomboss_strong">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -10100,7 +10100,7 @@
 			<skill id="4601" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18183" name="Halisha's Foreman" title="Lvl 81*" alias="r44_roomboss_weak">
+	<npc id="18183" name="Halisha's Foreman" title="" alias="r44_roomboss_weak">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -10163,7 +10163,7 @@
 			<skill id="4696" level="1" type="SELF_DEBUFF3"/>
 		</skills>
 	</npc>
-	<npc id="18184" name="Halisha's Foreman" title="Lvl 81*" alias="r44_roomboss_teleport">
+	<npc id="18184" name="Halisha's Foreman" title="" alias="r44_roomboss_teleport">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="24.0"/>
@@ -10225,7 +10225,7 @@
 			<skill id="4657" level="9" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18185" name="Evil Astrologer" title="Lvl 81*" alias="r4_healer_srddmagic">
+	<npc id="18185" name="Evil Astrologer" title="" alias="r4_healer_srddmagic">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="6.0"/>
@@ -10284,7 +10284,7 @@
 			<skill id="4613" level="9" type="W_RANGE_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="18186" name="Evil Astrologer" title="Lvl 81*" alias="r4_hearler_srdebuff">
+	<npc id="18186" name="Evil Astrologer" title="" alias="r4_hearler_srdebuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="6.0"/>
@@ -10344,7 +10344,7 @@
 			<skill id="4657" level="9" type="W_SELF_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="18187" name="Knight of Darkness" title="Lvl 81*" alias="r4_warrior">
+	<npc id="18187" name="Knight of Darkness" title="" alias="r4_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -10402,7 +10402,7 @@
 			<skill id="4582" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18188" name="Knight of Darkness" title="Lvl 81*" alias="r4_warrior_longatk1_h">
+	<npc id="18188" name="Knight of Darkness" title="" alias="r4_warrior_longatk1_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -10458,7 +10458,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18189" name="Knight of Darkness" title="Lvl 81*" alias="r4_warrior_longatk2">
+	<npc id="18189" name="Knight of Darkness" title="" alias="r4_warrior_longatk2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -10516,7 +10516,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18190" name="Knight of Darkness" title="Lvl 81*" alias="r4_warrior_selfbuff">
+	<npc id="18190" name="Knight of Darkness" title="" alias="r4_warrior_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="21.0"/>
@@ -10574,7 +10574,7 @@
 			<skill id="4582" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18191" name="Witch of dust" title="Lvl 81*" alias="r4_wizard_h">
+	<npc id="18191" name="Witch of dust" title="" alias="r4_wizard_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -10631,7 +10631,7 @@
 			<skill id="4563" level="9" type="W_LONG_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18192" name="Witch of dust" title="Lvl 81*" alias="r4_wizard_clanbuff">
+	<npc id="18192" name="Witch of dust" title="" alias="r4_wizard_clanbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -10690,7 +10690,7 @@
 			<skill id="4609" level="4" type="W_CLAN_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="18193" name="Witch of dust" title="Lvl 81*" alias="r4_wizard_debuff">
+	<npc id="18193" name="Witch of dust" title="" alias="r4_wizard_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -10749,7 +10749,7 @@
 			<skill id="4587" level="9" type="W_RANGE_DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="18194" name="Witch of dust" title="Lvl 81*" alias="r4_wizard_selfbuff">
+	<npc id="18194" name="Witch of dust" title="" alias="r4_wizard_selfbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -10807,7 +10807,7 @@
 			<skill id="4416" level="9" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18195" name="Signet of Emperor" title="Lvl 81*" alias="r4_bomb">
+	<npc id="18195" name="Signet of Emperor" title="" alias="r4_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -11776,7 +11776,7 @@
 			<skill id="4628" level="1" type="STATUS_EFFECT"/>
 		</skills>
 	</npc>
-	<npc id="18212" name="Archon of Halisha" title="Lvl 81*" alias="r51_roomboss_clanbuff1">
+	<npc id="18212" name="Archon of Halisha" title="" alias="r51_roomboss_clanbuff1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -11839,7 +11839,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18213" name="Archon of Halisha" title="Lvl 81*" alias="r51_roomboss_clanbuff2">
+	<npc id="18213" name="Archon of Halisha" title="" alias="r51_roomboss_clanbuff2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -11902,7 +11902,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18214" name="Archon of Halisha" title="Lvl 81*" alias="r52_roomboss_clanbuff1">
+	<npc id="18214" name="Archon of Halisha" title="" alias="r52_roomboss_clanbuff1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -11965,7 +11965,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18215" name="Archon of Halisha" title="Lvl 81*" alias="r52_roomboss_clanbuff2">
+	<npc id="18215" name="Archon of Halisha" title="" alias="r52_roomboss_clanbuff2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -12028,7 +12028,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18216" name="Archon of Halisha" title="Lvl 81*" alias="r53_roomboss_clanbuff1">
+	<npc id="18216" name="Archon of Halisha" title="" alias="r53_roomboss_clanbuff1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -12091,7 +12091,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18217" name="Archon of Halisha" title="Lvl 81*" alias="r53_roomboss_clanbuff2">
+	<npc id="18217" name="Archon of Halisha" title="" alias="r53_roomboss_clanbuff2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -12154,7 +12154,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18218" name="Archon of Halisha" title="Lvl 81*" alias="r54_roomboss_clanbuff1">
+	<npc id="18218" name="Archon of Halisha" title="" alias="r54_roomboss_clanbuff1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -12217,7 +12217,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18219" name="Archon of Halisha" title="Lvl 81*" alias="r54_roomboss_clanbuff2">
+	<npc id="18219" name="Archon of Halisha" title="" alias="r54_roomboss_clanbuff2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="14.0"/>
@@ -12280,7 +12280,7 @@
 			<skill id="4639" level="3" type="CLAN_BUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18220" name="Shaman of Darkness" title="Lvl 81*" alias="r5_healer1">
+	<npc id="18220" name="Shaman of Darkness" title="" alias="r5_healer1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -12341,7 +12341,7 @@
 			<skill id="4613" level="9" type="W_RANGE_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="18221" name="Shaman of Darkness" title="Lvl 81*" alias="r5_healer2">
+	<npc id="18221" name="Shaman of Darkness" title="" alias="r5_healer2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="9.0"/>
@@ -12403,7 +12403,7 @@
 			<skill id="4613" level="9" type="W_RANGE_HEAL"/>
 		</skills>
 	</npc>
-	<npc id="18222" name="Assassin of Darkness" title="Lvl 81*" alias="r5_warrior">
+	<npc id="18222" name="Assassin of Darkness" title="" alias="r5_warrior">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="13.0"/>
@@ -12461,7 +12461,7 @@
 			<skill id="4560" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18223" name="Assassin of Darkness" title="Lvl 81*" alias="r5_warrior_longatk1_h">
+	<npc id="18223" name="Assassin of Darkness" title="" alias="r5_warrior_longatk1_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="13.0"/>
@@ -12517,7 +12517,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18224" name="Assassin of Darkness" title="Lvl 81*" alias="r5_warrior_longatk2">
+	<npc id="18224" name="Assassin of Darkness" title="" alias="r5_warrior_longatk2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="13.0"/>
@@ -12575,7 +12575,7 @@
 			<skill id="4573" level="9" type="PHYSICAL_SPECIAL1"/>
 		</skills>
 	</npc>
-	<npc id="18225" name="Assassin of Darkness" title="Lvl 81*" alias="r5_warrior_sbuff">
+	<npc id="18225" name="Assassin of Darkness" title="" alias="r5_warrior_sbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="13.0"/>
@@ -12633,7 +12633,7 @@
 			<skill id="4560" level="9" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18226" name="Caster of Darkness" title="Lvl 81*" alias="r5_wizard_h">
+	<npc id="18226" name="Caster of Darkness" title="" alias="r5_wizard_h">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -12690,7 +12690,7 @@
 			<skill id="4561" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18227" name="Caster of Darkness" title="Lvl 81*" alias="r5_wizard_clanbuff">
+	<npc id="18227" name="Caster of Darkness" title="" alias="r5_wizard_clanbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -12749,7 +12749,7 @@
 			<skill id="4575" level="2" type="W_CLAN_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="18228" name="Caster of Darkness" title="Lvl 81*" alias="r5_wizard_debuff">
+	<npc id="18228" name="Caster of Darkness" title="" alias="r5_wizard_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -12808,7 +12808,7 @@
 			<skill id="4561" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18229" name="Caster of Darkness" title="Lvl 81*" alias="r5_wizard_slefbuff">
+	<npc id="18229" name="Caster of Darkness" title="" alias="r5_wizard_slefbuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -12866,7 +12866,7 @@
 			<skill id="4561" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18230" name="Signet of Emperor" title="Lvl 81*" alias="r5_bomb">
+	<npc id="18230" name="Signet of Emperor" title="" alias="r5_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="12.0"/>
@@ -12923,7 +12923,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18231" name="Statue of Protection" title="Lvl 81*" alias="r612_roomboss">
+	<npc id="18231" name="Statue of Protection" title="" alias="r612_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -12980,7 +12980,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18232" name="Statue of Protection" title="Lvl 81*" alias="r613_roomboss">
+	<npc id="18232" name="Statue of Protection" title="" alias="r613_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13037,7 +13037,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18233" name="Statue of Protection" title="Lvl 81*" alias="r614_roomboss">
+	<npc id="18233" name="Statue of Protection" title="" alias="r614_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13094,7 +13094,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18234" name="Statue of Protection" title="Lvl 81*" alias="r622_roomboss">
+	<npc id="18234" name="Statue of Protection" title="" alias="r622_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13151,7 +13151,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18235" name="Statue of Protection" title="Lvl 81*" alias="r623_roomboss">
+	<npc id="18235" name="Statue of Protection" title="" alias="r623_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13208,7 +13208,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18236" name="Statue of Protection" title="Lvl 81*" alias="r624_roomboss">
+	<npc id="18236" name="Statue of Protection" title="" alias="r624_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13265,7 +13265,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18237" name="Statue of Protection" title="Lvl 81*" alias="r632_roomboss">
+	<npc id="18237" name="Statue of Protection" title="" alias="r632_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13322,7 +13322,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18238" name="Statue of Protection" title="Lvl 81*" alias="r633_roomboss">
+	<npc id="18238" name="Statue of Protection" title="" alias="r633_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13379,7 +13379,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18239" name="Statue of Protection" title="Lvl 81*" alias="r634_roomboss">
+	<npc id="18239" name="Statue of Protection" title="" alias="r634_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13436,7 +13436,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18240" name="Statue of Protection" title="Lvl 81*" alias="r642_roomboss">
+	<npc id="18240" name="Statue of Protection" title="" alias="r642_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13493,7 +13493,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18241" name="Statue of Protection" title="Lvl 81*" alias="r643_roomboss">
+	<npc id="18241" name="Statue of Protection" title="" alias="r643_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13550,7 +13550,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18242" name="Statue of Protection" title="Lvl 81*" alias="r644_roomboss">
+	<npc id="18242" name="Statue of Protection" title="" alias="r644_roomboss">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13607,7 +13607,7 @@
 			<skill id="4437" level="5" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18243" name="Statue of Protection" title="Lvl 81*" alias="r6_guard_statue">
+	<npc id="18243" name="Statue of Protection" title="" alias="r6_guard_statue">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="15.0"/>
@@ -13669,7 +13669,7 @@
 			<skill id="4620" level="9" type="DEBUFF"/>
 		</skills>
 	</npc>
-	<npc id="18244" name="Watchman of Grave" title="Lvl 81*" alias="d1_afflict_bomb">
+	<npc id="18244" name="Watchman of Grave" title="" alias="d1_afflict_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13722,7 +13722,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18245" name="Watchman of Grave" title="Lvl 81*" alias="d1_afflict_heal">
+	<npc id="18245" name="Watchman of Grave" title="" alias="d1_afflict_heal">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13775,7 +13775,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18246" name="Watchman of Grave" title="Lvl 81*" alias="d1_afflict_debuff">
+	<npc id="18246" name="Watchman of Grave" title="" alias="d1_afflict_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13828,7 +13828,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18247" name="Watchman of Grave" title="Lvl 81*" alias="d2_afflict_bomb">
+	<npc id="18247" name="Watchman of Grave" title="" alias="d2_afflict_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13881,7 +13881,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18248" name="Watchman of Grave" title="Lvl 81*" alias="d2_afflict_heal">
+	<npc id="18248" name="Watchman of Grave" title="" alias="d2_afflict_heal">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13934,7 +13934,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18249" name="Watchman of Grave" title="Lvl 81*" alias="d2_afflict_debuff">
+	<npc id="18249" name="Watchman of Grave" title="" alias="d2_afflict_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -13987,7 +13987,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18250" name="Watchman of Grave" title="Lvl 81*" alias="d3_afflict_bomb">
+	<npc id="18250" name="Watchman of Grave" title="" alias="d3_afflict_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14040,7 +14040,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18251" name="Watchman of Grave" title="Lvl 81*" alias="d3_afflict_heal">
+	<npc id="18251" name="Watchman of Grave" title="" alias="d3_afflict_heal">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14093,7 +14093,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18252" name="Watchman of Grave" title="Lvl 81*" alias="d3_afflict_debuff">
+	<npc id="18252" name="Watchman of Grave" title="" alias="d3_afflict_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14146,7 +14146,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18253" name="Watchman of Grave" title="Lvl 81*" alias="d4_afflict_bomb">
+	<npc id="18253" name="Watchman of Grave" title="" alias="d4_afflict_bomb">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14199,7 +14199,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18254" name="Watchman of Grave" title="Lvl 81*" alias="d4_afflict_heal">
+	<npc id="18254" name="Watchman of Grave" title="" alias="d4_afflict_heal">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14252,7 +14252,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18255" name="Watchman of Grave" title="Lvl 81*" alias="d4_afflict_debuff">
+	<npc id="18255" name="Watchman of Grave" title="" alias="d4_afflict_debuff">
 		<set name="type" val="Monster"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="11.0"/>
@@ -14305,7 +14305,7 @@
 			<skill id="4614" level="9" type="AFFLICT_SKILL1"/>
 		</skills>
 	</npc>
-	<npc id="18256" name="Halisha's Treasure Box" title="Lvl 85" alias="halisha_treasurebox">
+	<npc id="18256" name="Halisha's Treasure Box" title="" alias="halisha_treasurebox">
 		<set name="type" val="HalishaChest"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="8.5"/>
@@ -14351,7 +14351,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18257" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_1">
+	<npc id="18257" name="Treasure Chest" title="" alias="valakas_treasurebox_1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14397,7 +14397,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18258" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_2">
+	<npc id="18258" name="Treasure Chest" title="" alias="valakas_treasurebox_2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14443,7 +14443,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18259" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_3">
+	<npc id="18259" name="Treasure Chest" title="" alias="valakas_treasurebox_3">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14489,7 +14489,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18260" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_4">
+	<npc id="18260" name="Treasure Chest" title="" alias="valakas_treasurebox_4">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14535,7 +14535,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18261" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_5">
+	<npc id="18261" name="Treasure Chest" title="" alias="valakas_treasurebox_5">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14581,7 +14581,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18262" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_6">
+	<npc id="18262" name="Treasure Chest" title="" alias="valakas_treasurebox_6">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14627,7 +14627,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18263" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_7">
+	<npc id="18263" name="Treasure Chest" title="" alias="valakas_treasurebox_7">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14673,7 +14673,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18264" name="Treasure Chest" title="Lvl 52" alias="valakas_treasurebox_8">
+	<npc id="18264" name="Treasure Chest" title="" alias="valakas_treasurebox_8">
 		<set name="type" val="Monster"/>
 		<set name="level" val="52"/>
 		<set name="radius" val="8.5"/>
@@ -14719,7 +14719,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18265" name="Treasure Chest" title="Lvl 21" alias="treasure_box_21">
+	<npc id="18265" name="Treasure Chest" title="" alias="treasure_box_21">
 		<set name="type" val="Chest"/>
 		<set name="level" val="21"/>
 		<set name="radius" val="8.5"/>
@@ -14764,7 +14764,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18266" name="Treasure Chest" title="Lvl 24" alias="treasure_box_24">
+	<npc id="18266" name="Treasure Chest" title="" alias="treasure_box_24">
 		<set name="type" val="Chest"/>
 		<set name="level" val="24"/>
 		<set name="radius" val="8.5"/>
@@ -14809,7 +14809,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18267" name="Treasure Chest" title="Lvl 27" alias="treasure_box_27">
+	<npc id="18267" name="Treasure Chest" title="" alias="treasure_box_27">
 		<set name="type" val="Chest"/>
 		<set name="level" val="27"/>
 		<set name="radius" val="8.5"/>
@@ -14854,7 +14854,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18268" name="Treasure Chest" title="Lvl 30" alias="treasure_box_30">
+	<npc id="18268" name="Treasure Chest" title="" alias="treasure_box_30">
 		<set name="type" val="Chest"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="8.5"/>
@@ -14899,7 +14899,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18269" name="Treasure Chest" title="Lvl 33" alias="treasure_box_33">
+	<npc id="18269" name="Treasure Chest" title="" alias="treasure_box_33">
 		<set name="type" val="Chest"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="8.5"/>
@@ -14944,7 +14944,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18270" name="Treasure Chest" title="Lvl 36" alias="treasure_box_36">
+	<npc id="18270" name="Treasure Chest" title="" alias="treasure_box_36">
 		<set name="type" val="Chest"/>
 		<set name="level" val="36"/>
 		<set name="radius" val="8.5"/>
@@ -14989,7 +14989,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18271" name="Treasure Chest" title="Lvl 39" alias="treasure_box_39">
+	<npc id="18271" name="Treasure Chest" title="" alias="treasure_box_39">
 		<set name="type" val="Chest"/>
 		<set name="level" val="39"/>
 		<set name="radius" val="8.5"/>
@@ -15034,7 +15034,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18272" name="Treasure Chest" title="Lvl 42" alias="treasure_box_42">
+	<npc id="18272" name="Treasure Chest" title="" alias="treasure_box_42">
 		<set name="type" val="Chest"/>
 		<set name="level" val="42"/>
 		<set name="radius" val="8.5"/>
@@ -15079,7 +15079,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18273" name="Treasure Chest" title="Lvl 45" alias="treasure_box_45">
+	<npc id="18273" name="Treasure Chest" title="" alias="treasure_box_45">
 		<set name="type" val="Chest"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="8.5"/>
@@ -15124,7 +15124,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18274" name="Treasure Chest" title="Lvl 48" alias="treasure_box_48">
+	<npc id="18274" name="Treasure Chest" title="" alias="treasure_box_48">
 		<set name="type" val="Chest"/>
 		<set name="level" val="48"/>
 		<set name="radius" val="8.5"/>
@@ -15169,7 +15169,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18275" name="Treasure Chest" title="Lvl 51" alias="treasure_box_51">
+	<npc id="18275" name="Treasure Chest" title="" alias="treasure_box_51">
 		<set name="type" val="Chest"/>
 		<set name="level" val="51"/>
 		<set name="radius" val="8.5"/>
@@ -15214,7 +15214,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18276" name="Treasure Chest" title="Lvl 54" alias="treasure_box_54">
+	<npc id="18276" name="Treasure Chest" title="" alias="treasure_box_54">
 		<set name="type" val="Chest"/>
 		<set name="level" val="54"/>
 		<set name="radius" val="8.5"/>
@@ -15259,7 +15259,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18277" name="Treasure Chest" title="Lvl 57" alias="treasure_box_57">
+	<npc id="18277" name="Treasure Chest" title="" alias="treasure_box_57">
 		<set name="type" val="Chest"/>
 		<set name="level" val="57"/>
 		<set name="radius" val="8.5"/>
@@ -15304,7 +15304,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18278" name="Treasure Chest" title="Lvl 60" alias="treasure_box_60">
+	<npc id="18278" name="Treasure Chest" title="" alias="treasure_box_60">
 		<set name="type" val="Chest"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="8.5"/>
@@ -15349,7 +15349,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18279" name="Treasure Chest" title="Lvl 63" alias="treasure_box_63">
+	<npc id="18279" name="Treasure Chest" title="" alias="treasure_box_63">
 		<set name="type" val="Chest"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="8.5"/>
@@ -15394,7 +15394,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18280" name="Treasure Chest" title="Lvl 66" alias="treasure_box_66">
+	<npc id="18280" name="Treasure Chest" title="" alias="treasure_box_66">
 		<set name="type" val="Chest"/>
 		<set name="level" val="66"/>
 		<set name="radius" val="8.5"/>
@@ -15439,7 +15439,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18281" name="Treasure Chest" title="Lvl 69" alias="treasure_box_69">
+	<npc id="18281" name="Treasure Chest" title="" alias="treasure_box_69">
 		<set name="type" val="Chest"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="8.5"/>
@@ -15484,7 +15484,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18282" name="Treasure Chest" title="Lvl 72" alias="treasure_box_72">
+	<npc id="18282" name="Treasure Chest" title="" alias="treasure_box_72">
 		<set name="type" val="Chest"/>
 		<set name="level" val="72"/>
 		<set name="radius" val="8.5"/>
@@ -15529,7 +15529,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18283" name="Treasure Chest" title="Lvl 75" alias="treasure_box_75">
+	<npc id="18283" name="Treasure Chest" title="" alias="treasure_box_75">
 		<set name="type" val="Chest"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="8.5"/>
@@ -15574,7 +15574,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18284" name="Treasure Chest" title="Lvl 78" alias="treasure_box_78">
+	<npc id="18284" name="Treasure Chest" title="" alias="treasure_box_78">
 		<set name="type" val="Chest"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.5"/>
@@ -15619,7 +15619,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18285" name="Treasure Chest" title="Lvl 81" alias="treasure_box_81">
+	<npc id="18285" name="Treasure Chest" title="" alias="treasure_box_81">
 		<set name="type" val="Chest"/>
 		<set name="level" val="81"/>
 		<set name="radius" val="8.5"/>
@@ -15664,7 +15664,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18286" name="Treasure Chest" title="Lvl 84" alias="treasure_box_84">
+	<npc id="18286" name="Treasure Chest" title="" alias="treasure_box_84">
 		<set name="type" val="Chest"/>
 		<set name="level" val="84"/>
 		<set name="radius" val="8.5"/>
@@ -15709,7 +15709,7 @@
 			<skill id="4045" level="1" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18287" name="Otherworldly Invader Food" title="Lvl 33" alias="r04_invader_box_a">
+	<npc id="18287" name="Otherworldly Invader Food" title="" alias="r04_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="33"/>
 		<set name="radius" val="8.5"/>
@@ -15757,7 +15757,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18288" name="Otherworldly Invader Food" title="Lvl 35" alias="r06_invader_box_b">
+	<npc id="18288" name="Otherworldly Invader Food" title="" alias="r06_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="35"/>
 		<set name="radius" val="8.5"/>
@@ -15805,7 +15805,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18289" name="Dimension Invader Food" title="Lvl 43" alias="r14_invader_box_a">
+	<npc id="18289" name="Dimension Invader Food" title="" alias="r14_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="43"/>
 		<set name="radius" val="8.5"/>
@@ -15853,7 +15853,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18290" name="Dimension Invader Food" title="Lvl 45" alias="r16_invader_box_b">
+	<npc id="18290" name="Dimension Invader Food" title="" alias="r16_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="45"/>
 		<set name="radius" val="8.5"/>
@@ -15901,7 +15901,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18291" name="Purgatory Invader Food" title="Lvl 53" alias="r24_invader_box_a">
+	<npc id="18291" name="Purgatory Invader Food" title="" alias="r24_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="53"/>
 		<set name="radius" val="8.5"/>
@@ -15949,7 +15949,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18292" name="Purgatory Invader Food" title="Lvl 55" alias="r26_invader_box_b">
+	<npc id="18292" name="Purgatory Invader Food" title="" alias="r26_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="55"/>
 		<set name="radius" val="8.5"/>
@@ -15997,7 +15997,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18293" name="Forbidden Path Invader Food" title="Lvl 63" alias="r34_invader_box_a">
+	<npc id="18293" name="Forbidden Path Invader Food" title="" alias="r34_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="63"/>
 		<set name="radius" val="8.5"/>
@@ -16045,7 +16045,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18294" name="Forbidden Path Invader Food" title="Lvl 65" alias="r36_invader_box_b">
+	<npc id="18294" name="Forbidden Path Invader Food" title="" alias="r36_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="8.5"/>
@@ -16093,7 +16093,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18295" name="Dark Omen Invader Food" title="Lvl 73" alias="r44_invader_box_a">
+	<npc id="18295" name="Dark Omen Invader Food" title="" alias="r44_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="73"/>
 		<set name="radius" val="8.5"/>
@@ -16141,7 +16141,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18296" name="Dark Omen Invader Food" title="Lvl 75" alias="r46_invader_box_b">
+	<npc id="18296" name="Dark Omen Invader Food" title="" alias="r46_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="75"/>
 		<set name="radius" val="8.5"/>
@@ -16189,7 +16189,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18297" name="Messenger Invader Food" title="Lvl 83" alias="r54_invader_box_a">
+	<npc id="18297" name="Messenger Invader Food" title="" alias="r54_invader_box_a">
 		<set name="type" val="Chest"/>
 		<set name="level" val="83"/>
 		<set name="radius" val="8.5"/>
@@ -16237,7 +16237,7 @@
 			<skill id="4416" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18298" name="Messenger Invader Food" title="Lvl 85" alias="r56_invader_box_b">
+	<npc id="18298" name="Messenger Invader Food" title="" alias="r56_invader_box_b">
 		<set name="type" val="Chest"/>
 		<set name="level" val="85"/>
 		<set name="radius" val="8.5"/>
@@ -17345,7 +17345,7 @@
 			<skill id="4572" level="8" type="PHYSICAL_SPECIAL"/>
 		</skills>
 	</npc>
-	<npc id="18319" name="Caught Frog" title="Lvl 10*" alias="fishing_blocker_1">
+	<npc id="18319" name="Caught Frog" title="" alias="fishing_blocker_1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="10"/>
 		<set name="radius" val="20.0"/>
@@ -17400,7 +17400,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18320" name="Caught Undine" title="Lvl 20*" alias="fishing_blocker_2">
+	<npc id="18320" name="Caught Undine" title="" alias="fishing_blocker_2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="20"/>
 		<set name="radius" val="12.0"/>
@@ -17455,7 +17455,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18321" name="Caught Rakul" title="Lvl 30*" alias="fishing_blocker_3">
+	<npc id="18321" name="Caught Rakul" title="" alias="fishing_blocker_3">
 		<set name="type" val="Monster"/>
 		<set name="level" val="30"/>
 		<set name="radius" val="30.0"/>
@@ -17510,7 +17510,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18322" name="Caught Sea Giant" title="Lvl 40*" alias="fishing_blocker_4">
+	<npc id="18322" name="Caught Sea Giant" title="" alias="fishing_blocker_4">
 		<set name="type" val="Monster"/>
 		<set name="level" val="40"/>
 		<set name="radius" val="13.0"/>
@@ -17565,7 +17565,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18323" name="Caught Sea Horse Soldier" title="Lvl 50*" alias="fishing_blocker_5">
+	<npc id="18323" name="Caught Sea Horse Soldier" title="" alias="fishing_blocker_5">
 		<set name="type" val="Monster"/>
 		<set name="level" val="50"/>
 		<set name="radius" val="9.0"/>
@@ -17620,7 +17620,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18324" name="Caught Homunculus" title="Lvl 60*" alias="fishing_blocker_6">
+	<npc id="18324" name="Caught Homunculus" title="" alias="fishing_blocker_6">
 		<set name="type" val="Monster"/>
 		<set name="level" val="60"/>
 		<set name="radius" val="12.0"/>
@@ -17675,7 +17675,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18325" name="Caught Flava" title="Lvl 70*" alias="fishing_blocker_7">
+	<npc id="18325" name="Caught Flava" title="" alias="fishing_blocker_7">
 		<set name="type" val="Monster"/>
 		<set name="level" val="70"/>
 		<set name="radius" val="18.0"/>
@@ -17730,7 +17730,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18326" name="Caught Gigantic Eye" title="Lvl 80*" alias="fishing_blocker_8">
+	<npc id="18326" name="Caught Gigantic Eye" title="" alias="fishing_blocker_8">
 		<set name="type" val="Monster"/>
 		<set name="level" val="80"/>
 		<set name="radius" val="21.0"/>
@@ -17785,7 +17785,7 @@
 			<skill id="4439" level="2" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18327" name="Freya's Servant" title="Lvl 58*" alias="freya_secretary_private2">
+	<npc id="18327" name="Freya's Servant" title="" alias="freya_secretary_private2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="58"/>
 		<set name="radius" val="16.0"/>
@@ -17843,7 +17843,7 @@
 			<skill id="4416" level="3" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18328" name="Hall Alarm Device" title="Lvl 78" alias="hall_alarm_device">
+	<npc id="18328" name="Hall Alarm Device" title="" alias="hall_alarm_device">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="8.0"/>
@@ -17889,7 +17889,7 @@
 			<skill id="4413" level="16" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18329" name="Hall Keeper Captain" title="Lvl 78*" alias="hall_keeper_captain">
+	<npc id="18329" name="Hall Keeper Captain" title="" alias="hall_keeper_captain">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="21.0"/>
@@ -17945,7 +17945,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18330" name="Hall Keeper Wizard" title="Lvl 78*" alias="hall_keeper_wizard">
+	<npc id="18330" name="Hall Keeper Wizard" title="" alias="hall_keeper_wizard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -18001,7 +18001,7 @@
 			<skill id="4560" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18331" name="Hall Keeper Guard" title="Lvl 78*" alias="hall_keeper_guard">
+	<npc id="18331" name="Hall Keeper Guard" title="" alias="hall_keeper_guard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="12.0"/>
@@ -18057,7 +18057,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18332" name="Hall Keeper Patrol" title="Lvl 78*" alias="hall_keeper_patrol">
+	<npc id="18332" name="Hall Keeper Patrol" title="" alias="hall_keeper_patrol">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="21.0"/>
@@ -18113,7 +18113,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18333" name="Hall Keeper Suicidal Soldier" title="Lvl 78*" alias="hall_keeper_destruction">
+	<npc id="18333" name="Hall Keeper Suicidal Soldier" title="" alias="hall_keeper_destruction">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -18168,7 +18168,7 @@
 			<skill id="4614" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18334" name="Dark Choir Captain" title="Lvl 78*" alias="undeadband_bandmaster">
+	<npc id="18334" name="Dark Choir Captain" title="" alias="undeadband_bandmaster">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="21.0"/>
@@ -18217,7 +18217,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18335" name="Dark Choir Prima Donna" title="Lvl 78*" alias="undeadband_member_leader">
+	<npc id="18335" name="Dark Choir Prima Donna" title="" alias="undeadband_member_leader">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="23.0"/>
@@ -18273,7 +18273,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18336" name="Dark Choir Lancer" title="Lvl 78*" alias="undeadband_member_lance">
+	<npc id="18336" name="Dark Choir Lancer" title="" alias="undeadband_member_lance">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="15.0"/>
@@ -18329,7 +18329,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18337" name="Dark Choir Archer" title="Lvl 78*" alias="undeadband_member_archer">
+	<npc id="18337" name="Dark Choir Archer" title="" alias="undeadband_member_archer">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="13.0"/>
@@ -18384,7 +18384,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18338" name="Dark Choir Witch Doctor" title="Lvl 78*" alias="undeadband_member_wizard">
+	<npc id="18338" name="Dark Choir Witch Doctor" title="" alias="undeadband_member_wizard">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="23.0"/>
@@ -18440,7 +18440,7 @@
 			<skill id="4560" level="9" type="W_SHORT_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18339" name="Dark Choir Player" title="Lvl 78*" alias="undeadband_player">
+	<npc id="18339" name="Dark Choir Player" title="" alias="undeadband_player">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="11.0"/>
@@ -18494,7 +18494,7 @@
 			<skill id="4412" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18340" name="Hall Keeper Suicidal Soldier" title="Lvl 78*" alias="hall_timer_bomb1">
+	<npc id="18340" name="Hall Keeper Suicidal Soldier" title="" alias="hall_timer_bomb1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -18544,7 +18544,7 @@
 			<skill id="5042" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18341" name="Hall Keeper Suicidal Soldier" title="Lvl 78*" alias="hall_timer_bomb2">
+	<npc id="18341" name="Hall Keeper Suicidal Soldier" title="" alias="hall_timer_bomb2">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="9.0"/>
@@ -18594,7 +18594,7 @@
 			<skill id="5042" level="9" type="SELF_RANGE_DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18342" name="Gremlin" title="Lvl 1*" alias="tutorial_gremlin">
+	<npc id="18342" name="Gremlin" title="" alias="tutorial_gremlin">
 		<set name="type" val="Monster"/>
 		<set name="level" val="1"/>
 		<set name="radius" val="10.0"/>
@@ -18644,7 +18644,7 @@
 			<skill id="4416" level="13" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="18343" name="Gatekeeper Zombie" title="Lvl 78*" alias="sewer_guard_zombie1">
+	<npc id="18343" name="Gatekeeper Zombie" title="" alias="sewer_guard_zombie1">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="17.0"/>
@@ -18700,7 +18700,7 @@
 			<skill id="5043" level="10" type="DD_MAGIC"/>
 		</skills>
 	</npc>
-	<npc id="18344" name="Ancient Egg" title="Lvl 78*" alias="ancient_egg">
+	<npc id="18344" name="Ancient Egg" title="" alias="ancient_egg">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="43.0"/>
@@ -18745,7 +18745,7 @@
 			<set name="BroadCastRange" val="300"/>
 		</ai>
 	</npc>
-	<npc id="18345" name="Sprigant" title="Lvl 78*" alias="arachnoid">
+	<npc id="18345" name="Sprigant" title="" alias="arachnoid">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="45.0"/>
@@ -18796,7 +18796,7 @@
 			<skill id="5085" level="1" type="SELF_RANGE_DEBUFF1"/>
 		</skills>
 	</npc>
-	<npc id="18346" name="Sprigant" title="Lvl 78*" alias="arachnoid_a">
+	<npc id="18346" name="Sprigant" title="" alias="arachnoid_a">
 		<set name="type" val="Monster"/>
 		<set name="level" val="78"/>
 		<set name="radius" val="45.0"/>

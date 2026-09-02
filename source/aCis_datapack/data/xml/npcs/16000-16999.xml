@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
-	<npc id="16013" name="Trained Buffalo" title="Lvl 67*" alias="tamed_buffalo_war">
+	<npc id="16013" name="Trained Buffalo" title="" alias="tamed_buffalo_war">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="22.0"/>
@@ -55,7 +55,7 @@
 			<skill id="5197" level="2" type="DEBUFF2"/>
 		</skills>
 	</npc>
-	<npc id="16014" name="Trained Buffalo" title="Lvl 67*" alias="tamed_buffalo_wiz">
+	<npc id="16014" name="Trained Buffalo" title="" alias="tamed_buffalo_wiz">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="22.0"/>
@@ -110,7 +110,7 @@
 			<skill id="5201" level="1" type="BUFF3"/>
 		</skills>
 	</npc>
-	<npc id="16015" name="Trained Cougar" title="Lvl 69*" alias="tamed_cougar_war">
+	<npc id="16015" name="Trained Cougar" title="" alias="tamed_cougar_war">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="34.0"/>
@@ -165,7 +165,7 @@
 			<skill id="5197" level="3" type="DEBUFF2"/>
 		</skills>
 	</npc>
-	<npc id="16016" name="Trained Cougar" title="Lvl 69*" alias="tamed_cougar_wiz">
+	<npc id="16016" name="Trained Cougar" title="" alias="tamed_cougar_wiz">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="34.0"/>
@@ -220,7 +220,7 @@
 			<skill id="5201" level="2" type="BUFF3"/>
 		</skills>
 	</npc>
-	<npc id="16017" name="Trained Kookaburra" title="Lvl 65*" alias="tamed_kukaburo_war">
+	<npc id="16017" name="Trained Kookaburra" title="" alias="tamed_kukaburo_war">
 		<set name="type" val="Monster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="10.0"/>
@@ -275,7 +275,7 @@
 			<skill id="5197" level="1" type="DEBUFF2"/>
 		</skills>
 	</npc>
-	<npc id="16018" name="Trained Kookaburra" title="Lvl 65*" alias="tamed_kukaburo_wiz">
+	<npc id="16018" name="Trained Kookaburra" title="" alias="tamed_kukaburo_wiz">
 		<set name="type" val="Monster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="10.0"/>
@@ -330,7 +330,7 @@
 			<skill id="5201" level="1" type="BUFF3"/>
 		</skills>
 	</npc>
-	<npc id="16019" name="Tiny Baby Buffalo" title="Lvl 67" alias="mon_tiny_buffalo">
+	<npc id="16019" name="Tiny Baby Buffalo" title="" alias="mon_tiny_buffalo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -391,7 +391,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="16020" name="Tame Tiny Baby Buffalo" title="Lvl 67" alias="tnpc_tiny_buffalo">
+	<npc id="16020" name="Tame Tiny Baby Buffalo" title="" alias="tnpc_tiny_buffalo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="67"/>
 		<set name="radius" val="12.0"/>
@@ -446,7 +446,7 @@
 			<skill id="5197" level="2" type="DEBUFF2"/>
 		</skills>
 	</npc>
-	<npc id="16021" name="Tiny Baby Cougar" title="Lvl 69" alias="mon_tiny_cougar">
+	<npc id="16021" name="Tiny Baby Cougar" title="" alias="mon_tiny_cougar">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="11.0"/>
@@ -507,7 +507,7 @@
 			<skill id="4416" level="4" type="PASSIVE"/>
 		</skills>
 	</npc>
-	<npc id="16022" name="Tame Tiny Baby Cougar" title="Lvl 69" alias="tnpc_tiny_cougar">
+	<npc id="16022" name="Tame Tiny Baby Cougar" title="" alias="tnpc_tiny_cougar">
 		<set name="type" val="Monster"/>
 		<set name="level" val="69"/>
 		<set name="radius" val="11.0"/>
@@ -562,7 +562,7 @@
 			<skill id="5197" level="3" type="DEBUFF2"/>
 		</skills>
 	</npc>
-	<npc id="16023" name="Tiny Baby Kookaburra" title="Lvl 65" alias="mon_tiny_kukaburo">
+	<npc id="16023" name="Tiny Baby Kookaburra" title="" alias="mon_tiny_kukaburo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="7.0"/>
@@ -624,7 +624,7 @@
 			<skill id="4633" level="3" type="SELF_BUFF"/>
 		</skills>
 	</npc>
-	<npc id="16024" name="Tame Tiny Baby Kookaburra" title="Lvl 65" alias="tnpc_tiny_kukaburo">
+	<npc id="16024" name="Tame Tiny Baby Kookaburra" title="" alias="tnpc_tiny_kukaburo">
 		<set name="type" val="Monster"/>
 		<set name="level" val="65"/>
 		<set name="radius" val="7.0"/>

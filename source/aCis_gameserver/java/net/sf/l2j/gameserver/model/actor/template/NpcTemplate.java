@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sf.l2j.commons.data.StatSet;
 import net.sf.l2j.commons.logging.CLogger;
@@ -15,6 +16,7 @@ import net.sf.l2j.gameserver.data.manager.CastleManager;
 import net.sf.l2j.gameserver.data.manager.ClanHallManager;
 import net.sf.l2j.gameserver.data.sql.DropTable;
 import net.sf.l2j.gameserver.enums.EventHandler;
+import net.sf.l2j.gameserver.enums.MonsterKind;
 import net.sf.l2j.gameserver.enums.actors.ClassId;
 import net.sf.l2j.gameserver.enums.actors.NpcRace;
 import net.sf.l2j.gameserver.enums.actors.NpcSkillType;
@@ -43,6 +45,12 @@ public class NpcTemplate extends CreatureTemplate
 	/** Delay, in ms, between two replays of a visual skill, when the template doesn't set one. */
 	public static final int DEFAULT_VISUAL_SKILL_PERIOD = 3000;
 
+	/**
+	 * The "type" values that make an NPC a monster, and so give it the plate its {@link MonsterKind} describes. Everything deriving from Monster, plus FriendlyMonster, which derives from Attackable
+	 * but is a monster all the same. tools/datapack/npc_level_titles.ps1 sorts the very same list.
+	 */
+	private static final Set<String> MONSTER_TYPES = Set.of("Monster", "RaidBoss", "GrandBoss", "FestivalMonster", "FeedableBeast", "Chest", "HalishaChest", "FriendlyMonster");
+
 	private final int _npcId;
 	private final int _idTemplate;
 	
@@ -52,6 +60,7 @@ public class NpcTemplate extends CreatureTemplate
 	
 	private final boolean _usingServerSideName;
 	private final boolean _usingServerSideTitle;
+	private final MonsterKind _monsterKind;
 	private final int _nameColor;
 	private final int _titleColor;
 	private final int _visualEffect;
@@ -109,13 +118,20 @@ public class NpcTemplate extends CreatureTemplate
 		_idTemplate = set.getInteger("idTemplate", _npcId);
 		
 		_name = set.getString("name");
-		_title = set.getString("title", "");
 		_alias = set.getString("alias", "");
-		
+
 		_usingServerSideName = set.getBool("usingServerSideName", false);
 		_usingServerSideTitle = set.getBool("usingServerSideTitle", false);
-		// A monster is painted by its kind, which its title names ; a color of its own overrides that, and is the only way anything but a monster gets one at all.
-		final MonsterNameplate nameplate = getConfiguredNameplate(_title);
+
+		// Everything a monster wears above its head comes from the kind tools/datapack/npc_level_titles.ps1 sorted it into : the title, and the colors of both its lines. The datapack overrides any
+		// of the three on its own, so a title written by hand keeps its words and a color written by hand keeps its color.
+		_monsterKind = MonsterKind.parse(set.getString("monsterKind", null));
+
+		// Nothing but a monster wears one : an NPC of any other kind keeps the title the datapack gives it and the color the client gives it, unless it names a color of its own.
+		final MonsterNameplate nameplate = MONSTER_TYPES.contains(set.getString("type")) ? Config.MONSTER_NAMEPLATES.get(_monsterKind) : null;
+
+		final String title = set.getString("title", "");
+		_title = (!title.isEmpty() || nameplate == null) ? title : nameplate.format(set.getInteger("level", 1), set.getInteger("aggroRange", 0) > 0);
 
 		final int nameColor = parseNameColor(set.getString("nameColor", null));
 		final int titleColor = parseNameColor(set.getString("titleColor", null));
@@ -284,26 +300,12 @@ public class NpcTemplate extends CreatureTemplate
 	}
 
 	/**
-	 * Find the kind of monster config/npcs/nameplates.properties gives the NPC wearing the given title, and with it the colors of its two lines. The title is the only thing saying which kind of
-	 * monster it is : sorting them out needs the spawn list and the stock client markings, so it is done once, outside the server, by tools/datapack/npc_level_titles.ps1 - and the title it writes is
-	 * what is read back here.<br>
-	 * <br>
-	 * Only a title reading exactly the way that script writes one counts, so a hand written title starting with the same words is left alone.
-	 * @param title : the title of the NPC, as data/xml/npcs holds it.
-	 * @return the {@link MonsterNameplate} of that kind, or null when the title is no generated one or its kind is not painted at all.
+	 * @return the kind of monster this NPC is, which is what its title and the colors of both its lines come from. {@link MonsterKind#PLAIN} for everything the datapack says nothing about, an NPC
+	 *         that is no monster at all included.
 	 */
-	private static MonsterNameplate getConfiguredNameplate(String title)
+	public MonsterKind getMonsterKind()
 	{
-		if (title.isEmpty())
-			return null;
-
-		for (MonsterNameplate nameplate : Config.MONSTER_NAMEPLATES.values())
-		{
-			if (nameplate.isPainted() && nameplate.matches(title))
-				return nameplate;
-		}
-
-		return null;
+		return _monsterKind;
 	}
 
 	/**
