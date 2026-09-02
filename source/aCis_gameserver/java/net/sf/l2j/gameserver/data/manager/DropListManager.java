@@ -17,6 +17,7 @@ import net.sf.l2j.gameserver.data.xml.DropListData;
 import net.sf.l2j.gameserver.data.xml.ItemData;
 import net.sf.l2j.gameserver.data.xml.ItemIconData;
 import net.sf.l2j.gameserver.enums.DropType;
+import net.sf.l2j.gameserver.model.ChampionSettings;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.actor.Player;
@@ -42,7 +43,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * The shown chance is the chance of the whole draw : the category rolls first ({@link DropCategory#getChance()}), the item is then picked inside of it ({@link DropData#chance()}). The server rates
  * are folded in when "DropListApplyRates" is set - they multiply the amount of rolls of a category, so the result is capped at 100% - and the deep blue penalty of the {@link Player} himself when
  * "DropListApplyLevelPenalty" is, which is what makes the window tell what that very player gets rather than what the table holds. The champion bonus of the monster rides along the rates, since it
- * is one : a champion simply rolls its categories more often.<br>
+ * is one : a champion simply rolls its categories more often. The extra drops a champion carries on top of that table make a group of their own, sitting on top of the list : they are rolled one by
+ * one, so the group itself always rolls and only the deep blue penalty ever lowers a row.<br>
  * <br>
  * The first page carries a header laid out the way the status window of a {@link Player} is - two blocks of two columns - telling what the kill itself is worth and what the monster fights with : the
  * HP that has to be dealt and the MP of the monster, the XP and the SP that very {@link Player} earns, then its physical and magical attack, defence and speed. Every number carries the champion
@@ -84,8 +86,8 @@ public class DropListManager
 	{
 	}
 
-	/** A single rendered {@link DropCategory} : the chance the group rolls, and its already sorted rows. */
-	private record DropGroup(DropType type, double chance, List<DropRow> rows)
+	/** A single rendered {@link DropCategory} : the chance the group rolls, and its already sorted rows. The champion group is the one holding the extra drops of a champion monster. */
+	private record DropGroup(DropType type, boolean champion, double chance, List<DropRow> rows)
 	{
 	}
 
@@ -191,7 +193,7 @@ public class DropListManager
 
 		for (DropGroup group : groups)
 		{
-			final int number = (group.type() == DropType.SPOIL) ? ++spoils : ++drops;
+			final String caption = (group.champion()) ? data.getChampionLabel() : data.getGroupLabel(group.type(), (group.type() == DropType.SPOIL) ? ++spoils : ++drops);
 
 			final int start = offset;
 			offset += group.rows().size();
@@ -200,7 +202,7 @@ public class DropListManager
 			if (offset <= first || start >= last)
 				continue;
 
-			sb.append(getGroupHeader(group, number, getBandColor(band++)));
+			sb.append(getGroupHeader(group, caption, getBandColor(band++)));
 			shownGroups++;
 
 			for (int i = Math.max(first, start); i < Math.min(last, offset); i++)
@@ -262,21 +264,39 @@ public class DropListManager
 
 			rows.sort(Comparator.<DropRow> comparingDouble(DropRow::chance).reversed());
 
-			groups.add(new DropGroup(type, chance, rows));
+			groups.add(new DropGroup(type, false, chance, rows));
 		}
 
-		groups.sort(Comparator.comparingInt((DropGroup group) -> getRank(group.type())).thenComparing(Comparator.<DropGroup> comparingDouble(DropGroup::chance).reversed()));
+		// The extra drops of a champion make a group of their own, sitting on top of the list : they are the very reason a player hunts that monster. Each one is rolled on its own, so the group
+		// itself always rolls, and only the deep blue penalty ever lowers a row - the rates multiply the amount of rolls of a category, and these aren't ones.
+		final ChampionSettings champion = monster.getChampionSettings();
+		if (champion != null && !champion.getDrops().isEmpty())
+		{
+			final List<DropRow> rows = new ArrayList<>(champion.getDrops().size());
+
+			for (DropData drop : champion.getDrops())
+				rows.add(new DropRow(drop.itemId(), Math.min(100, drop.chance() * levelMultiplier), drop.minDrop(), drop.maxDrop()));
+
+			rows.sort(Comparator.<DropRow> comparingDouble(DropRow::chance).reversed());
+
+			groups.add(new DropGroup(DropType.DROP, true, 100, rows));
+		}
+
+		groups.sort(Comparator.comparingInt(DropListManager::getRank).thenComparing(Comparator.<DropGroup> comparingDouble(DropGroup::chance).reversed()));
 
 		return groups;
 	}
 
 	/**
-	 * @param type : The {@link DropType} to rank.
-	 * @return The sort key pushing the spoil groups after the regular drops, and the herb ones after the spoil.
+	 * @param group : The {@link DropGroup} to rank.
+	 * @return The sort key pulling the champion group on top of the list, pushing the spoil groups after the regular drops, and the herb ones after the spoil.
 	 */
-	private static int getRank(DropType type)
+	private static int getRank(DropGroup group)
 	{
-		switch (type)
+		if (group.champion())
+			return -1;
+
+		switch (group.type())
 		{
 			case SPOIL:
 				return 1;
@@ -293,18 +313,18 @@ public class DropListManager
 	 * The header of a group, generated out of the very same width as its rows and framed by the separator of the datapack - a background color would fight the alternating rows sitting right under
 	 * it, a pair of rules simply cuts the list into groups.
 	 * @param group : The {@link DropGroup} to introduce.
-	 * @param number : The rank of the group among the ones sharing its caption, 1 being the first.
+	 * @param caption : The caption of the group, already carrying its rank when it owns one.
 	 * @param color : The background color of the header, empty keeping it see-through.
 	 * @return The header row of the given group : its caption on the left, the chance the whole group rolls on the right.
 	 */
-	private static String getGroupHeader(DropGroup group, int number, String color)
+	private static String getGroupHeader(DropGroup group, String caption, String color)
 	{
 		final DropListData data = DropListData.getInstance();
 		final StringBuilder sb = new StringBuilder(320);
 
 		sb.append(getSeparator());
 		StringUtil.append(sb, "<table width=", data.getWidth(), (color.isEmpty()) ? "" : " bgcolor=\"" + color + "\"", "><tr>");
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(data.getGroupLabel(group.type(), number)))));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(caption))));
 		StringUtil.append(sb, getCell(data.getChanceWidth(), 0, "right", colorize(data.getChanceColor(group.chance()), getChanceText(group.chance()))));
 		sb.append(ROW_END);
 		sb.append(getSeparator());

@@ -61,6 +61,7 @@ public class DropListData implements IXmlReader
 
 	private String _dropLabel;
 	private String _spoilLabel;
+	private String _championLabel;
 	private String _hpLabel;
 	private String _mpLabel;
 	private String _expLabel;
@@ -166,6 +167,7 @@ public class DropListData implements IXmlReader
 
 				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
+				_championLabel = parseString(attrs, "champion", _championLabel);
 				_hpLabel = parseString(attrs, "hp", _hpLabel);
 				_mpLabel = parseString(attrs, "mp", _mpLabel);
 				_expLabel = parseString(attrs, "exp", _expLabel);
@@ -242,6 +244,7 @@ public class DropListData implements IXmlReader
 	{
 		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
+		_championLabel = "Champion";
 		_hpLabel = "HP";
 		_mpLabel = "MP";
 		_expLabel = "Exp";
@@ -333,6 +336,14 @@ public class DropListData implements IXmlReader
 	public String getGroupLabel(DropType type, int number)
 	{
 		return ((type == DropType.SPOIL) ? _spoilLabel : _dropLabel) + _numberPrefix + number;
+	}
+
+	/**
+	 * @return The caption of the header row of the group holding the extra drops of a champion monster. It doesn't carry any rank : a monster only ever owns one such group.
+	 */
+	public String getChampionLabel()
+	{
+		return _championLabel;
 	}
 
 	/**

@@ -99,17 +99,28 @@ $OFF_FILL2     = 0x13A02F  # the same three instructions on the other path
 $LEN_FILL2     = 10
 $OFF_FILL2_RET = 0x13A039
 
-# "mov [esi+190h],edx" - the title colour, as the handler read it out of
-# npcname-e.dat. Six bytes, so the jump fits without displacing anything else.
-# One per path again, and further down each of them than the fill above, so the
-# parked value is already there by the time these run.
-$OFF_TITLE      = 0x139CC8
-$LEN_TITLE      = 6
-$OFF_TITLE_RET  = 0x139CCE
+# The title colour, at the point both halves of the title have been dealt with.
+#
+# Not at "mov [esi+190h],edx", the obvious place, because that store is on one
+# branch of two and it is the branch nobody takes here. The handler decides:
+#
+#   cmp [esp+13Ch],bx     ; the title string that came in the packet
+#   je  <read npcname-e.dat, and set the colour from it>
+#   ...                   ; not empty : take the title from the server
+#   jmp <join>            ; and never touch the colour at all
+#
+# With ServerSideNpcTitle on, every NPC carrying a title in data/xml/npcs goes
+# down the upper branch, so hooking the store paints nothing. Hooking where the
+# two join catches both. "cmp word [esp+10Ch],bx" is eight bytes and the flags
+# it sets are read by the very next instruction, so it is displaced to the END
+# of the cave rather than the start.
+$OFF_TITLE      = 0x139CD7
+$LEN_TITLE      = 8
+$OFF_TITLE_RET  = 0x139CDF
 
-$OFF_TITLE2     = 0x13A1BD
-$LEN_TITLE2     = 6
-$OFF_TITLE2_RET = 0x13A1C3
+$OFF_TITLE2     = 0x13A1CC
+$LEN_TITLE2     = 8
+$OFF_TITLE2_RET = 0x13A1D4
 
 $OFF_CAVE     = 0x13A710   # 0xCC padding behind the handler (928 bytes of it)
 $LEN_CAVE     = 0x180
@@ -122,10 +133,10 @@ $SIG_FILL    = '8B7004EB0233F6897E088B54245089560C899E94000000'
 $SIG_FILL2_AT = 0x13A022
 $SIG_FILL2    = '8BF0EB0233F68B4C2418894E18897E088B54245089560C89'
 
-# Both title stores carry the same three instructions around them.
-$SIG_TITLE_AT  = 0x139CC2
-$SIG_TITLE2_AT = 0x13A1B7
-$SIG_TITLE     = '8B571C8B45088996900100008B4848'   # mov edx,[edi+1Ch] / mov eax,[ebp+8] / the store / mov ecx,[eax+48h]
+# Both join points carry the same bytes around them.
+$SIG_TITLE_AT  = 0x139CD1
+$SIG_TITLE2_AT = 0x13A1C6
+$SIG_TITLE     = '89991050000066399C240C010000740A'   # mov [ecx+5010h],ebx / the cmp / je
 
 $FLD_TITLECOLOR  = 0x190    # the title's colour, read inline - GetNickColor is never called
 $FLD_UNIQUECOLOR = 0x308    # User::GetUniqueNameColor returns exactly this
@@ -148,7 +159,7 @@ function EmitI32([int] $v) { [void]$code.AddRange([BitConverter]::GetBytes($v)) 
 if (!(Test-Path $In)) { throw "No such file: $In" }
 $bytes = [System.IO.File]::ReadAllBytes($In)
 
-foreach ($s in @(@($SIG_READ_AT, $SIG_READ, 'the parse tail'), @($SIG_FILL_AT, $SIG_FILL, 'the first User fill'), @($SIG_FILL2_AT, $SIG_FILL2, 'the second User fill'), @($SIG_TITLE_AT, $SIG_TITLE, 'the first title colour store'), @($SIG_TITLE2_AT, $SIG_TITLE, 'the second title colour store')))
+foreach ($s in @(@($SIG_READ_AT, $SIG_READ, 'the parse tail'), @($SIG_FILL_AT, $SIG_FILL, 'the first User fill'), @($SIG_FILL2_AT, $SIG_FILL2, 'the second User fill'), @($SIG_TITLE_AT, $SIG_TITLE, 'the first title join'), @($SIG_TITLE2_AT, $SIG_TITLE, 'the second title join')))
 {
 	$found = Get-Hex $bytes $s[0] ($s[1].Length / 2)
 	if ($found -ne $s[1])
@@ -288,22 +299,22 @@ foreach ($ret in @($OFF_FILL_RET, $OFF_FILL2_RET))
 }
 
 # =========================== caves 4, 5 : the title ==========================
-# Entry: esi is the User, edx the colour the handler just read out of
-# npcname-e.dat, and eax is LIVE - it holds [ebp+8] and the next stock
-# instruction indexes off it. edx is the only register free here, so the tag is
-# checked as a range rather than by shifting a copy out of the way.
+# Entry: esi is the User, and both branches of the title have already run - the
+# one that took the text from the packet and the one that took it, and its
+# colour, from npcname-e.dat. So the colour is written here only when the server
+# sent one ; otherwise whatever is in the field stays, which is exactly what the
+# NPC looks like today.
 #
-# Written unconditionally first, then overwritten when the server sent a colour,
-# so an NPC the server says nothing about keeps the client's own.
+# ebx has to survive - the displaced cmp compares against bx - and eax, ecx and
+# edx are all reloaded by both successors before they are read, so edx is ours.
+# One register is all there is anyway, hence the tag checked as a range instead
+# of shifting a copy out of the way the way the name cave does.
 $titles = @()
 $titlePicks = @()
 
 foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 {
 	$titles += $code.Count
-
-	Emit @(0x89, 0x96)                      # mov [esi+190h],edx       ; the displaced store
-	EmitU32 ([uint32]$FLD_TITLECOLOR)
 
 	Emit @(0xE8, 0x00, 0x00, 0x00, 0x00)    # call $+5
 	$titlePicks += @{ Origin = $code.Count }
@@ -333,6 +344,9 @@ foreach ($ret in @($OFF_TITLE_RET, $OFF_TITLE2_RET))
 	$labelKeep = $code.Count
 	$shortFixups += @{ At = $jbAt2; To = $labelKeep }
 	$shortFixups += @{ At = $jaeAt; To = $labelKeep }
+
+	# Last, so the flags the next stock instruction branches on are its own.
+	Emit @(0x66, 0x39, 0x9C, 0x24, 0x0C, 0x01, 0x00, 0x00)   # cmp word [esp+10Ch],bx
 
 	$jmpBacks += @{ At = $code.Count; Ret = $ret }
 	Emit @(0xE9, 0, 0, 0, 0)                # jmp <back>

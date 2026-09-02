@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +15,10 @@ import java.util.StringTokenizer;
 import net.sf.l2j.commons.config.ExProperties;
 import net.sf.l2j.commons.logging.CLogger;
 
+import net.sf.l2j.gameserver.enums.ChampionType;
 import net.sf.l2j.gameserver.enums.GeoType;
+import net.sf.l2j.gameserver.model.ChampionSettings;
+import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
 
 /**
@@ -71,24 +75,8 @@ public final class Config
 	// Mods - champion mobs
 	// --------------------------------------------------
 	
-	public static boolean CHAMPION_MOBS_ENABLE;
-	public static boolean CHAMPION_MOBS_PASSIVE;
-	public static int CHAMPION_MOBS_FREQUENCY;
-	public static String CHAMPION_MOBS_TITLE;
-	public static int CHAMPION_MOBS_MIN_LEVEL;
-	public static int CHAMPION_MOBS_MAX_LEVEL;
-	public static int CHAMPION_MOBS_HP_MULTIPLIER;
-	public static double CHAMPION_MOBS_PATK_MULTIPLIER;
-	public static double CHAMPION_MOBS_PDEF_MULTIPLIER;
-	public static double CHAMPION_MOBS_MATK_MULTIPLIER;
-	public static double CHAMPION_MOBS_MDEF_MULTIPLIER;
-	public static int CHAMPION_MOBS_XPSP_MULTIPLIER;
-	public static double CHAMPION_MOBS_ADENA_MULTIPLIER;
-	public static double CHAMPION_MOBS_DROP_MULTIPLIER;
-	public static double CHAMPION_MOBS_SPOIL_MULTIPLIER;
-	public static int CHAMPION_MOBS_REWARD_ITEM_ID;
-	public static int CHAMPION_MOBS_REWARD_ITEM_QTY;
-	public static int CHAMPION_MOBS_REWARD_CHANCE;
+	/** Settings of every flavor of champion monster - red and blue - each one holding its own frequency, multipliers, extra drops and schedule. */
+	public static final Map<ChampionType, ChampionSettings> CHAMPION_MOBS = new EnumMap<>(ChampionType.class);
 	
 	// --------------------------------------------------
 	// Clans
@@ -795,28 +783,32 @@ public final class Config
 	private static final void loadChampionMobs()
 	{
 		final ExProperties championMobs = initProperties(MODS_CHAMPION_MOBS_FILE);
-		
-		CHAMPION_MOBS_ENABLE = championMobs.getProperty("ChampionMobsEnable", false);
-		CHAMPION_MOBS_PASSIVE = championMobs.getProperty("ChampionMobsPassive", false);
-		CHAMPION_MOBS_FREQUENCY = championMobs.getProperty("ChampionMobsFrequency", 0);
-		CHAMPION_MOBS_TITLE = championMobs.getProperty("ChampionMobsTitle", "Champion");
-		CHAMPION_MOBS_MIN_LEVEL = championMobs.getProperty("ChampionMobsMinLevel", 1);
-		CHAMPION_MOBS_MAX_LEVEL = championMobs.getProperty("ChampionMobsMaxLevel", 85);
-		
-		CHAMPION_MOBS_HP_MULTIPLIER = championMobs.getProperty("ChampionMobsHpMultiplier", 1);
-		CHAMPION_MOBS_PATK_MULTIPLIER = championMobs.getProperty("ChampionMobsPAtkMultiplier", 1.);
-		CHAMPION_MOBS_PDEF_MULTIPLIER = championMobs.getProperty("ChampionMobsPDefMultiplier", 1.);
-		CHAMPION_MOBS_MATK_MULTIPLIER = championMobs.getProperty("ChampionMobsMAtkMultiplier", 1.);
-		CHAMPION_MOBS_MDEF_MULTIPLIER = championMobs.getProperty("ChampionMobsMDefMultiplier", 1.);
-		
-		CHAMPION_MOBS_XPSP_MULTIPLIER = championMobs.getProperty("ChampionMobsXpSpMultiplier", 1);
-		CHAMPION_MOBS_ADENA_MULTIPLIER = championMobs.getProperty("ChampionMobsAdenaMultiplier", 1.);
-		CHAMPION_MOBS_DROP_MULTIPLIER = Math.max(0., championMobs.getProperty("ChampionMobsDropMultiplier", 2.));
-		CHAMPION_MOBS_SPOIL_MULTIPLIER = Math.max(0., championMobs.getProperty("ChampionMobsSpoilMultiplier", 2.));
-		
-		CHAMPION_MOBS_REWARD_ITEM_ID = championMobs.getProperty("ChampionMobsRewardItemId", 0);
-		CHAMPION_MOBS_REWARD_ITEM_QTY = championMobs.getProperty("ChampionMobsRewardItemQty", 1);
-		CHAMPION_MOBS_REWARD_CHANCE = championMobs.getProperty("ChampionMobsRewardChance", 0);
+
+		CHAMPION_MOBS.clear();
+
+		// Both flavors are read out of the very same keys, only prefixed by their own name.
+		for (ChampionType type : ChampionType.values())
+		{
+			final String prefix = "ChampionMobs" + type.getPrefix();
+
+			final ChampionSettings settings = new ChampionSettings(type);
+
+			settings.setEnabled(championMobs.getProperty(prefix + "Enable", false));
+			settings.setPassive(championMobs.getProperty(prefix + "Passive", false));
+			settings.setFrequency(championMobs.getProperty(prefix + "Frequency", 0));
+			settings.setTitle(championMobs.getProperty(prefix + "Title", "Champion"));
+			settings.setNameColor(NpcTemplate.parseNameColor(championMobs.getProperty(prefix + "NameColor", String.format("%06X", type.getDefaultNameColor()))));
+			settings.setLevelRange(championMobs.getProperty(prefix + "MinLevel", 1), championMobs.getProperty(prefix + "MaxLevel", 85));
+
+			settings.setStatMultipliers(championMobs.getProperty(prefix + "HpMultiplier", 1), championMobs.getProperty(prefix + "PAtkMultiplier", 1.), championMobs.getProperty(prefix + "PDefMultiplier", 1.), championMobs.getProperty(prefix + "MAtkMultiplier", 1.), championMobs.getProperty(prefix + "MDefMultiplier", 1.));
+			settings.setRewardMultipliers(championMobs.getProperty(prefix + "XpMultiplier", 1.), championMobs.getProperty(prefix + "SpMultiplier", 1.), championMobs.getProperty(prefix + "AdenaMultiplier", 1.), Math.max(0., championMobs.getProperty(prefix + "DropMultiplier", 2.)), Math.max(0., championMobs.getProperty(prefix + "SpoilMultiplier", 2.)));
+
+			settings.setDrops(ChampionSettings.parseDrops(prefix + "Drop", championMobs.getProperty(prefix + "Drop", "")));
+
+			CHAMPION_MOBS.put(type, settings);
+		}
+
+		ChampionSettings.parseSchedule(championMobs.getProperty("ChampionMobsSchedule", ""), CHAMPION_MOBS);
 	}
 	
 	/**

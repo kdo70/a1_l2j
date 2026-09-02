@@ -27,6 +27,7 @@ import net.sf.l2j.gameserver.enums.skills.EffectType;
 import net.sf.l2j.gameserver.enums.skills.SkillType;
 import net.sf.l2j.gameserver.enums.skills.Stats;
 import net.sf.l2j.gameserver.geoengine.GeoEngine;
+import net.sf.l2j.gameserver.model.ChampionSettings;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.WorldObject;
 import net.sf.l2j.gameserver.model.WorldRegion;
@@ -576,7 +577,15 @@ public abstract class Creature extends WorldObject
 	{
 		return false;
 	}
-	
+
+	/**
+	 * @return The {@link ChampionSettings} this object is a champion of, null when it isn't one.
+	 */
+	public ChampionSettings getChampionSettings()
+	{
+		return null;
+	}
+
 	public final boolean isAfraid()
 	{
 		return isAffected(EffectFlag.FEAR);
@@ -1650,8 +1659,10 @@ public abstract class Creature extends WorldObject
 	public void reduceCurrentHp(double i, Creature attacker, boolean awake, boolean isDOT, L2Skill skill)
 	{
 		// Champion mobs take reduced damages, acting as an effective HP multiplier.
-		if (isChampion() && Config.CHAMPION_MOBS_HP_MULTIPLIER > 1)
-			getStatus().reduceHp(i / Config.CHAMPION_MOBS_HP_MULTIPLIER, attacker, awake, isDOT, false);
+		final ChampionSettings champion = getChampionSettings();
+
+		if (champion != null && champion.getHpMultiplier() > 1)
+			getStatus().reduceHp(i / champion.getHpMultiplier(), attacker, awake, isDOT, false);
 		else
 			getStatus().reduceHp(i, attacker, awake, isDOT, false);
 	}
