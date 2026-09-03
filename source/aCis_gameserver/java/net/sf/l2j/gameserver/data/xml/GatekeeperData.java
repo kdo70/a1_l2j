@@ -12,6 +12,7 @@ import net.sf.l2j.commons.data.xml.IXmlReader;
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
+import net.sf.l2j.gameserver.enums.GatekeeperTerritory;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperColumn;
@@ -78,8 +79,8 @@ public class GatekeeperData implements IXmlReader
 	private String _disabledColor;
 	private String _pageColor;
 	private String _activePageColor;
+	private String _territoryColor;
 
-	private String _goLabel;
 	private String _nobleLabel;
 	private String _lockedLabel;
 	private String _freeLabel;
@@ -87,6 +88,7 @@ public class GatekeeperData implements IXmlReader
 	private String _backLabel;
 	private String _prevPageLabel;
 	private String _nextPageLabel;
+	private String _listLabel;
 	private String _popupSeparator;
 	private int _currencyChars;
 	private boolean _isCurrencyLowerCase;
@@ -191,13 +193,13 @@ public class GatekeeperData implements IXmlReader
 				_disabledColor = parseToken(attrs, "disabled", _disabledColor);
 				_pageColor = parseToken(attrs, "page", _pageColor);
 				_activePageColor = parseToken(attrs, "activePage", _activePageColor);
+				_territoryColor = parseToken(attrs, "territory", _territoryColor);
 			});
 
 			forEach(listNode, "labels", labelsNode ->
 			{
 				final NamedNodeMap attrs = labelsNode.getAttributes();
 
-				_goLabel = parseString(attrs, "go", _goLabel);
 				_nobleLabel = parseString(attrs, "noble", _nobleLabel);
 				_lockedLabel = parseString(attrs, "locked", _lockedLabel);
 				_freeLabel = parseString(attrs, "free", _freeLabel);
@@ -205,6 +207,7 @@ public class GatekeeperData implements IXmlReader
 				_backLabel = parseString(attrs, "back", _backLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
+				_listLabel = parseString(attrs, "list", _listLabel);
 				_popupSeparator = parseString(attrs, "popupSeparator", _popupSeparator);
 				_currencyChars = Math.max(0, parseInt(attrs, "currencyChars", _currencyChars));
 				_isCurrencyLowerCase = parseBool(attrs, "currencyLowerCase", _isCurrencyLowerCase);
@@ -378,8 +381,9 @@ public class GatekeeperData implements IXmlReader
 		// Noblesse points own their own default price, since they are usually free on retail.
 		final GatekeeperPointType type = parseEnum(attrs, GatekeeperPointType.class, "type", GatekeeperPointType.STANDARD);
 		final int defaultPrice = (type == GatekeeperPointType.NOBLE) ? areaNoblePrice : areaPrice;
+		final GatekeeperTerritory territory = parseEnum(attrs, GatekeeperTerritory.class, "territory", GatekeeperTerritory.FIELDS);
 
-		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
+		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, territory, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
 
 		final GatekeeperPoint existing = _points.put(id, point);
 		if (existing != null)
@@ -603,11 +607,11 @@ public class GatekeeperData implements IXmlReader
 		_disabledColor = "707070";
 		_pageColor = "";
 		_activePageColor = "LEVEL";
+		_territoryColor = "FFFFFF";
 	}
 
 	private void setDefaultLabels()
 	{
-		_goLabel = "&gt;&gt;";
 		_nobleLabel = "noble";
 		_lockedLabel = "-";
 		_freeLabel = "0";
@@ -615,6 +619,7 @@ public class GatekeeperData implements IXmlReader
 		_backLabel = "<< back";
 		_prevPageLabel = "<<";
 		_nextPageLabel = ">>";
+		_listLabel = "List";
 		_popupSeparator = " -- ";
 		_currencyChars = 0;
 		_isCurrencyLowerCase = false;
@@ -928,11 +933,11 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The label of the teleport link, shown on the action column.
+	 * @return The color of the territory type, shown on the action column of the teleport points lists.
 	 */
-	public String getGoLabel()
+	public String getTerritoryColor()
 	{
-		return _goLabel;
+		return _territoryColor;
 	}
 
 	/**
@@ -973,6 +978,14 @@ public class GatekeeperData implements IXmlReader
 	public String getBackLabel()
 	{
 		return _backLabel;
+	}
+
+	/**
+	 * @return The label shown on the action column, when the row leads to a sub list instead of teleporting.
+	 */
+	public String getListLabel()
+	{
+		return _listLabel;
 	}
 
 	/**

@@ -245,8 +245,8 @@ public class GlobalGatekeeper extends Quest
 			final GatekeeperPoint main = area.getMainPoint();
 
 			// A direct row teleports right away ; a regular one leads to the points list of its area.
-			final String name = (area.isDirect()) ? getPointLink(main, player, tab.getIndex(), FROM_AREAS, page, truncate(area.getName(), nameColumn.getMaxChars())) : "<a action=\"bypass -h Quest " + getName() + " Area " + tab.getIndex() + " " + i + " 0\">" + colorize(data.getNameColor(), escape(truncate(area.getName(), nameColumn.getMaxChars()))) + "</a>";
-			final String action = (area.isDirect()) ? getActionText(main, player, tab.getIndex(), FROM_AREAS, page) : getCapitalText(area, player, tab.getIndex(), page, capitalColumn);
+			final String name = (area.isDirect()) ? getFullNameLink(main, player, tab.getIndex(), FROM_AREAS, page, nameColumn.getMaxChars()) : "<a action=\"bypass -h Quest " + getName() + " Area " + tab.getIndex() + " " + i + " 0\">" + colorize(data.getNameColor(), escape(truncate(area.getName(), nameColumn.getMaxChars()))) + "</a>";
+			final String action = (area.isDirect()) ? getTerritoryText(main, player) : getCapitalText(area, player, tab.getIndex(), page, capitalColumn);
 
 			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), name), priceColumn.getCell(0, getPriceText(main, player)), capitalColumn.getCell(0, action), ROW_END);
 		}
@@ -289,7 +289,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameText(point, player, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getActionText(point, player, tab.getIndex(), area.getIndex(), page)), ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), ROW_END);
 		}
 
 		String content = getHtmlText("locations.htm");
@@ -336,7 +336,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameText(point, player, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getActionText(point, player, tab.getIndex(), FROM_POPULAR, page)), ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), FROM_POPULAR, page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), ROW_END);
 		}
 
 		String content = getHtmlText("popular.htm");
@@ -478,12 +478,12 @@ public class GlobalGatekeeper extends Quest
 	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
 	 * @param page : The current page of the areas list, used to build the bypass.
 	 * @param column : The {@link GatekeeperColumn} holding the cell, used to shorten the capital name.
-	 * @return The capital cell content, being a direct teleport link to the main point of the area.
+	 * @return The capital cell content, being a direct teleport link to the main point of the area - the list label when the area doesn't own a capital shortcut.
 	 */
 	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page, GatekeeperColumn column)
 	{
 		if (area.getCapital().isEmpty())
-			return "";
+			return colorize(GatekeeperData.getInstance().getTerritoryColor(), escape(GatekeeperData.getInstance().getListLabel()));
 
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final String capital = truncate(area.getCapital(), column.getMaxChars());
@@ -737,7 +737,37 @@ public class GlobalGatekeeper extends Quest
 		if (!point.isAvailableFor(player))
 			return colorize(data.getDisabledColor(), escape(text));
 
-		// The separator may have been cut away by the shortening ; only split when it survived.
+		return colorizeFullName(text, data);
+	}
+
+	/**
+	 * @param point : The {@link GatekeeperPoint} to reach.
+	 * @param player : The {@link Player} used to test conditions.
+	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
+	 * @param areaIndex : The index of the current {@link GatekeeperArea}, -1 when fired from the popular tab.
+	 * @param page : The currently shown page index.
+	 * @param maxChars : The maximum amount of characters of the name column.
+	 * @return The name cell content of a given {@link GatekeeperPoint}, turned into a teleport link - greyed and left plain if the {@link Player} can't use it.
+	 */
+	private static String getFullNameLink(GatekeeperPoint point, Player player, int tabIndex, int areaIndex, int page, int maxChars)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final String text = truncate(point.getFullName(), maxChars);
+
+		if (!point.isAvailableFor(player))
+			return colorize(data.getDisabledColor(), escape(text));
+
+		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + getPopupText(point, player) + "\">" + colorizeFullName(text, data) + "</a>";
+	}
+
+	/**
+	 * The sub-point name doesn't own its own column anymore ; it is appended to the location name, and kept apart by its own color.
+	 * @param text : The already shortened full name of a {@link GatekeeperPoint}.
+	 * @param data : The {@link GatekeeperData} holding the colors to apply.
+	 * @return The given name, colored apart from its sub-point suffix (if any survived the shortening).
+	 */
+	private static String colorizeFullName(String text, GatekeeperData data)
+	{
 		final int index = text.indexOf(GatekeeperPoint.POINT_SEPARATOR);
 		if (index < 0)
 			return colorize(data.getNameColor(), escape(text));
@@ -746,42 +776,18 @@ public class GlobalGatekeeper extends Quest
 	}
 
 	/**
-	 * @param point : The {@link GatekeeperPoint} to reach, can be null.
-	 * @param player : The {@link Player} used to test conditions.
-	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to refresh the dialog on failure.
-	 * @param areaIndex : The index of the current {@link GatekeeperArea}.
-	 * @param page : The currently shown page index.
-	 * @param name : The name to render, already shortened.
-	 * @return The given name, turned into a teleport link - greyed and left plain if the {@link Player} can't use the point.
-	 */
-	private static String getPointLink(GatekeeperPoint point, Player player, int tabIndex, int areaIndex, int page, String name)
-	{
-		if (point == null)
-			return "";
-
-		final GatekeeperData data = GatekeeperData.getInstance();
-		if (!point.isAvailableFor(player))
-			return colorize(data.getDisabledColor(), escape(name));
-
-		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + getPopupText(point, player) + "\">" + colorize(data.getNameColor(), escape(name)) + "</a>";
-	}
-
-	/**
 	 * @param point : The {@link GatekeeperPoint} to render.
 	 * @param player : The {@link Player} used to test conditions.
-	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to refresh the dialog on failure.
-	 * @param areaIndex : The index of the current {@link GatekeeperArea}, -1 when fired from the popular tab.
-	 * @param page : The currently shown page index.
-	 * @return The action cell content of a given {@link GatekeeperPoint}.
+	 * @return The action cell content of a given {@link GatekeeperPoint} - the noble/locked label when out of reach, its territory otherwise.
 	 */
-	private static String getActionText(GatekeeperPoint point, Player player, int tabIndex, int areaIndex, int page)
+	private static String getTerritoryText(GatekeeperPoint point, Player player)
 	{
 		final GatekeeperData data = GatekeeperData.getInstance();
 
 		if (!point.isAvailableFor(player))
 			return colorize(data.getDisabledColor(), escape((point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel()));
 
-		return "<a action=\"bypass -h Quest " + GatekeeperData.SCRIPT_NAME + " Tp " + tabIndex + " " + areaIndex + " " + page + " " + point.getId() + "\" msg=\"811;" + getPopupText(point, player) + "\">" + escape(data.getGoLabel()) + "</a>";
+		return colorize(data.getTerritoryColor(), escape(point.getTerritory().getLabel()));
 	}
 
 	/**
