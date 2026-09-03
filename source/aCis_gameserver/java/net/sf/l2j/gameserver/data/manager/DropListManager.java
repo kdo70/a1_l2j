@@ -48,8 +48,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * <br>
  * The first page carries a header laid out the way the status window of a {@link Player} is - two blocks of two columns - telling what the kill itself is worth and what the monster fights with : the
  * HP that has to be dealt and the MP of the monster, the XP and the SP that very {@link Player} earns, then its physical and magical attack, defence and speed. Every number carries the champion
- * bonuses. Those blocks open on a caption band naming them, and they are cut from the drop list by a spacer holding a dimmed notice - the stats and the drops are two sections, and a page reads as
- * such. The header eats whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
+ * bonuses. Those blocks open on a caption band naming them, and the drop list sitting under them opens on a dimmed notice band of its own - the stats and the drops are two sections, and a page reads
+ * as such. The header eats whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
  * <br>
  * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
@@ -342,8 +342,8 @@ public class DropListManager
 	 * column and the magical ones on the right : attack, defence and speed. Every number carries the champion bonuses of the monster - the damage reduction standing in for an HP pool, the stat
 	 * multipliers being folded in by {@link AttackableStatus} itself.<br>
 	 * <br>
-	 * The drop list is a section of its own, and it is cut from the stats the same way : a plain spacer opens a gap wide enough to read as a break, and a dimmed notice band sitting in it tells what
-	 * the chances listed under it are worth. Both bands are dropped whenever the datapack empties their own label, and the height math follows.
+	 * The drop list is a section of its own, and it is opened the same way : a dimmed notice band, framed by the very same rules, tells what the chances listed under it are worth. Both bands are
+	 * dropped whenever the datapack empties their own label, and the height math follows.
 	 * @param player : The {@link Player} the rewards are computed for - the level gap penalty is his own.
 	 * @param monster : The {@link Monster} to describe.
 	 * @return The header block, closed by the same rule which frames the group headers.
@@ -374,10 +374,6 @@ public class DropListManager
 		sb.append(getHeaderRow(data.getAtkSpdLabel(), status.getPAtkSpd(), data.getCastSpdLabel(), status.getMAtkSpd()));
 		sb.append("</table>");
 		sb.append(getSeparator());
-
-		// The gap is what actually cuts the two sections apart : the notice only names the one opening under it.
-		if (data.getListGap() > 0)
-			StringUtil.append(sb, "<img height=", data.getListGap(), ">");
 
 		if (!data.getListInfo().isEmpty())
 		{
@@ -456,14 +452,13 @@ public class DropListManager
 	/**
 	 * The bands the datapack switched off don't take any room, so this walks the very same conditions {@link #getHeader(Player, Monster)} does - a height read out of a header which isn't the one
 	 * being drawn would throw the bottom padding of the page off.
-	 * @return The height, in pixels, the header of the first page takes : its caption band, its two stat blocks, the gap cutting them from the list and the notice band, the rules framing all of them
-	 *         included.
+	 * @return The height, in pixels, the header of the first page takes : its caption band, its two stat blocks and the notice band opening the list, the rules framing all of them included.
 	 */
 	private static int getHeaderHeight()
 	{
 		final DropListData data = DropListData.getInstance();
 
-		int height = HEADER_ROWS * data.getHeaderHeight() + data.getListGap();
+		int height = HEADER_ROWS * data.getHeaderHeight();
 		int separators = HEADER_SEPARATORS;
 
 		if (!data.getStatsTitle().isEmpty())

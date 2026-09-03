@@ -39,7 +39,6 @@ public class DropListData implements IXmlReader
 	private int _headerGap;
 	private int _titleHeight;
 	private int _infoHeight;
-	private int _listGap;
 
 	private int _iconWidth;
 	private int _nameWidth;
@@ -138,7 +137,6 @@ public class DropListData implements IXmlReader
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
 				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
 				_infoHeight = Math.max(1, parseInt(attrs, "infoHeight", _infoHeight));
-				_listGap = Math.max(0, parseInt(attrs, "listGap", _listGap));
 
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
@@ -227,7 +225,6 @@ public class DropListData implements IXmlReader
 		_headerGap = 6;
 		_titleHeight = 18;
 		_infoHeight = 18;
-		_listGap = 8;
 
 		_iconWidth = 36;
 		_nameWidth = 190;
@@ -448,14 +445,6 @@ public class DropListData implements IXmlReader
 	public int getInfoHeight()
 	{
 		return _infoHeight;
-	}
-
-	/**
-	 * @return The height, in pixels, of the spacer cutting the stats of the monster apart from the drop list sitting under them. 0 drops the spacer, which glues both sections back together.
-	 */
-	public int getListGap()
-	{
-		return _listGap;
 	}
 
 	/**

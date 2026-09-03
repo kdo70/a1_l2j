@@ -36,13 +36,12 @@
 		Физ.Защита ...  Маг.Защита ...     the magical ones on the right
 		Скор.Атаки ...  Скор.Каста ...
 		========================
-		                           the "listGap" spacer, which is what cuts the two sections apart
-		Drop chances are ...       the "listInfo" notice opening the drop list
+		List of possible ...       the "listInfo" notice opening the drop list
 		========================
 
-	The stats and the drops are two sections of the very same page : the first one is named by the
-	band opening it, the second one by the notice sitting in the gap which cuts them apart. Emptying
-	"statsTitle" or "listInfo" drops the related band altogether, and the page padding follows.
+	The stats and the drops are two sections of the very same page, and each one is named by the band
+	opening it. Emptying "statsTitle" or "listInfo" drops the related band altogether, and the page
+	padding follows.
 
 	The HP is the amount which has to be dealt to kill the monster, and the experience and the SP are
 	what the very player reading the window earns for it. Every number carries the champion bonuses of
@@ -102,8 +101,6 @@
 		infoHeight       : height, in pixels, of the "listInfo" band closing the header. The notice has
 		                   to fit one single line : a wrapped one is taller than this, which throws the
 		                   bottom padding of the page off. Unused when that label is empty.
-		listGap          : height, in pixels, of the spacer cutting the stats apart from the drop list.
-		                   0 drops it, which glues both sections back together.
 		overhead    : height, in pixels, everything but the group headers and the list rows takes on
 		              the HTM - separators and the page selector row. Substracted from pageHeight to
 		              know how much the page has to be padded with. Only worth touching after
@@ -160,10 +157,9 @@
 		                      lowers a chance.
 		statsTitle          : caption of the band opening the header of the first page, naming the two
 		                      stat blocks sitting under it. Empty drops the band.
-		listInfo            : notice closing the header of the first page, telling what the chances of
-		                      the drop list opening under it are worth. It sits in the gap cutting the
-		                      stats apart from the drops, and it has to fit one single line - keep it
-		                      roughly under 45 characters at the stock width. Empty drops the band.
+		listInfo            : notice closing the header of the first page, naming the drop list opening
+		                      under it. It has to fit one single line - keep it roughly under 45
+		                      characters at the stock width. Empty drops the band.
 		hp / mp / exp / sp  : captions of the first block of the header of the first page - the HP
 		                      which has to be dealt to kill the monster and its MP pool on the left
 		                      column, the experience and the SP the kill is worth to the player
@@ -196,7 +192,7 @@
 		                      cell, so keep them short.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" infoHeight="18" listGap="8" iconWidth="36" nameWidth="190" chanceWidth="54" />
+	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" infoHeight="18" iconWidth="36" nameWidth="190" chanceWidth="54" />
 
 	<colors row="000000" altRow="" groupText="BDB76B" headerText="808080" headerValue="B09878" title="FFFFFF" info="FFFFFF" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
 
