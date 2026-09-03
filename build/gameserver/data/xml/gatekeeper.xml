@@ -162,24 +162,24 @@
 <list>
 	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="390" ellipsis="...">
 		<table id="areas" overhead="104">
-			<column id="name" header="Destination" width="135" maxChars="22" align="left" />
+			<column id="name" header="Destination" width="160" maxChars="22" align="left" />
 			<column id="price" header="Price" width="60" maxChars="0" align="left" />
-			<column id="capital" header="Capital" width="85" maxChars="14" align="left" />
+			<column id="capital" header="Capital" width="60" maxChars="14" align="left" />
 		</table>
 		<table id="mixed" overhead="104">
-			<column id="name" header="Destination" width="150" maxChars="25" align="left" />
-			<column id="price" header="Price" width="75" maxChars="0" align="left" />
-			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
+			<column id="name" header="Destination" width="175" maxChars="25" align="left" />
+			<column id="price" header="Price" width="60" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="50" maxChars="0" align="center" />
 		</table>
 		<table id="points" overhead="96">
-			<column id="name" header="Location" width="150" maxChars="25" align="left" />
-			<column id="price" header="Price" width="75" maxChars="0" align="left" />
-			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
+			<column id="name" header="Location" width="175" maxChars="35" align="left" />
+			<column id="price" header="Price" width="60" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="50" maxChars="0" align="center" />
 		</table>
 		<table id="popular" overhead="96">
-			<column id="name" header="Location" width="150" maxChars="25" align="left" />
-			<column id="price" header="Price" width="75" maxChars="0" align="left" />
-			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
+			<column id="name" header="Location" width="175" maxChars="25" align="left" />
+			<column id="price" header="Price" width="60" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="50" maxChars="0" align="center" />
 		</table>
 	</layout>
 
@@ -211,7 +211,7 @@
 		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. Leave it empty to show the "list" label of <labels> instead. -->
 		<item name="Города" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 0">
 			<area name="Town of Dion" capital="Dion">
-				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
+				<loc id="1" lvl="22-31" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
 				<loc id="2" lvl="47" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
 				<loc id="3" lvl="47" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
 				<loc id="4" lvl="30-33" name="Cruma Tower" point="" type="STANDARD" x="17225" y="114173" z="-3440"/>
@@ -225,7 +225,7 @@
 				<loc id="12" lvl="31-32" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
 			</area>
 			<area name="Town of Gludio" capital="Gludio">
-				<loc id="13" name="Town of Gludio" point="" type="STANDARD" x="-12739" y="122740" z="-3112" castleId="1"/>
+				<loc id="13" lvl="18-20" name="Town of Gludio" point="" type="STANDARD" x="-12739" y="122740" z="-3112" castleId="1"/>
 				<loc id="14" lvl="16-19" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
 				<loc id="15" lvl="19-23" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
 				<loc id="16" lvl="25-31" name="The Ant Nest" point="" type="STANDARD" x="-9959" y="176184" z="-4160"/>
@@ -248,7 +248,7 @@
 				<loc id="31" lvl="33-35" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
 			</area>
 			<area name="Town of Goddard" capital="Goddard">
-				<loc id="32" name="Town of Goddard" point="" type="STANDARD" x="147964" y="-55305" z="-2728" castleId="7"/>
+				<loc id="32" lvl="68-69" name="Town of Goddard" point="" type="STANDARD" x="147964" y="-55305" z="-2728" castleId="7"/>
 				<loc id="33" lvl="80" name="Varka Silenos" point="Village" type="NOBLE" x="107929" y="-52248" z="-2408"/>
 				<loc id="34" lvl="77-80" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
 				<loc id="35" lvl="80" name="Ketra Orc" point="Village" type="NOBLE" x="149817" y="-80053" z="-5576"/>
@@ -301,7 +301,7 @@
 				<loc id="78" lvl="38-40" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
 			</area>
 			<area name="Town of Rune" capital="Rune">
-				<loc id="79" name="Town of Rune" point="" type="STANDARD" x="43831" y="-47748" z="-792" castleId="8"/>
+				<loc id="79" lvl="69-72" name="Town of Rune" point="" type="STANDARD" x="43831" y="-47748" z="-792" castleId="8"/>
 				<loc id="80" lvl="68" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
 				<loc id="81" lvl="60-62" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
 				<loc id="82" lvl="61-67" name="Valley of Saints" point="Center" type="NOBLE" x="84092" y="-80084" z="-3504"/>
@@ -371,7 +371,7 @@
 				<loc id="134" lvl="53-55" name="Forest of Mirrors" point="Center" type="NOBLE" x="166080" y="75574" z="-2992" />
 				<loc id="135" lvl="40-45" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112" />
 			</area>
-			<area name="Talking Island Village" capital="Talking Island">
+			<area name="Talking Island Village" capital="Talking I...">
 				<loc id="136" lvl="1-3" name="Talking Island Village" point="" type="STANDARD" x="-84153" y="244542" z="-3728" />
 				<loc id="137" lvl="9-17" name="Elven Ruins" point="" type="STANDARD" x="-112367" y="234703" z="-3688" />
 				<loc id="138" lvl="9-10" name="Elven Ruins" point="Center" type="NOBLE" x="49315" y="248452" z="-5960" />
