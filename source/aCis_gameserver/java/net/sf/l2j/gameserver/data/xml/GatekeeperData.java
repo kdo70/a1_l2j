@@ -382,14 +382,45 @@ public class GatekeeperData implements IXmlReader
 		final GatekeeperPointType type = parseEnum(attrs, GatekeeperPointType.class, "type", GatekeeperPointType.STANDARD);
 		final int defaultPrice = (type == GatekeeperPointType.NOBLE) ? areaNoblePrice : areaPrice;
 		final GatekeeperTerritory territory = parseEnum(attrs, GatekeeperTerritory.class, "territory", GatekeeperTerritory.FIELDS);
+		final int[] mobLevels = parseMobLevels(attrs, areaName);
 
-		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, territory, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
+		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, territory, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), mobLevels[0], mobLevels[1], parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
 
 		final GatekeeperPoint existing = _points.put(id, point);
 		if (existing != null)
 			LOGGER.warn("Gatekeeper point id {} is used more than once ; teleport counters will be shared.", id);
 
 		return point;
+	}
+
+	/**
+	 * A tolerant reader of the "lvl" attribute, holding a single value ("47") or a range ("20-25") of monster levels.
+	 * @param attrs : The attributes to read.
+	 * @param areaName : The area name, only used to log a clear warning.
+	 * @return A {min, max} pair, both -1 when the attribute is missing or malformed.
+	 */
+	private static int[] parseMobLevels(NamedNodeMap attrs, String areaName)
+	{
+		final String value = parseTrimmed(attrs, "lvl");
+		if (value == null)
+			return new int[] { -1, -1 };
+
+		try
+		{
+			final int dash = value.indexOf('-');
+			if (dash < 0)
+			{
+				final int level = Integer.parseInt(value);
+				return new int[] { level, level };
+			}
+
+			return new int[] { Integer.parseInt(value.substring(0, dash)), Integer.parseInt(value.substring(dash + 1)) };
+		}
+		catch (NumberFormatException e)
+		{
+			LOGGER.warn("The gatekeeper point of the area '{}' holds an invalid lvl attribute '{}'.", areaName, value);
+			return new int[] { -1, -1 };
+		}
 	}
 
 	/**

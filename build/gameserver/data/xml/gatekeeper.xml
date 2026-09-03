@@ -29,7 +29,7 @@
 		              the padding. Raise it until the scrollbar shows up on every tab, no more.
 
 		<table id="areas">   : columns of the areas list page. Ids : name, price, capital.
-		<table id="points">  : columns of the teleport points list page. Ids : name, price, action.
+		<table id="points">  : columns of the teleport points list page. Ids : name, price, action, lvl.
 		<table id="popular"> : columns of the most used points page. Ids : name, price, action.
 
 		overhead : height, in pixels, everything but the tab bar and the list rows takes on the HTM of
@@ -130,6 +130,9 @@
 		point    : optional sub-point name, appended to the name after a " - " and colored apart.
 		type     : STANDARD or NOBLE (requires a noblesse player).
 		territory: TOWN, VILLAGE, FIELDS or DUNGEON, shown on the action column. Defaults to FIELDS.
+		lvl      : optional, monster level(s) roaming this spot, shown on the "lvl" column of the teleport
+		           points list. Either a single value ("47") or a range ("20-25"). Unset shows the
+		           "locked" label of <labels> instead - most often true of a real city or a village.
 		x / y / z: destination.
 		castleId : optional, forbids the teleport while the castle siege is in progress.
 		minLevel / maxLevel : optional level restriction.
@@ -143,14 +146,15 @@
 			<column id="capital" header="Столица" width="65" maxChars="13" align="right" />
 		</table>
 		<table id="points" overhead="96">
-			<column id="name" header="Локация" width="175" maxChars="35" align="left" />
-			<column id="price" header="Цена" width="65" maxChars="0" align="left" />
-			<column id="action" header="" width="65" maxChars="0" align="right" />
+			<column id="name" header="Локация" width="140" maxChars="24" align="left" />
+			<column id="price" header="Цена" width="55" maxChars="0" align="left" />
+			<column id="action" header="Тип" width="50" maxChars="0" align="right" />
+			<column id="lvl" header="lvl" width="35" maxChars="0" align="center" />
 		</table>
 		<table id="popular" overhead="96">
 			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
 			<column id="price" header="Цена" width="92" maxChars="0" align="left" />
-			<column id="action" header="" width="55" maxChars="0" align="right" />
+			<column id="action" header="Тип" width="55" maxChars="0" align="right" />
 		</table>
 	</layout>
 
@@ -183,206 +187,206 @@
 		<item name="Города" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 0">
 			<area name="Town of Dion" capital="Teleport">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" territory="TOWN" x="15637" y="142947" z="-2696" castleId="2"/>
-				<loc id="2" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
-				<loc id="3" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
-				<loc id="4" name="Cruma Tower" point="" type="STANDARD" territory="DUNGEON" x="17225" y="114173" z="-3440"/>
+				<loc id="2" lvl="47" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
+				<loc id="3" lvl="47" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
+				<loc id="4" lvl="30-33" name="Cruma Tower" point="" type="STANDARD" territory="DUNGEON" x="17225" y="114173" z="-3440"/>
 				<loc id="5" name="Cruma Tower" point="First Floor" type="NOBLE" territory="DUNGEON" x="17724" y="113950" z="-11672"/>
-				<loc id="6" name="Cruma Tower" point="Second Floor" type="NOBLE" territory="DUNGEON" x="17723" y="108284" z="-9056"/>
-				<loc id="7" name="Fortress of Resistanance" point="" type="STANDARD" x="47382" y="111278" z="-2104"/>
-				<loc id="8" name="Plains of Dion" point="" type="STANDARD" x="630" y="179184" z="-3720"/>
-				<loc id="9" name="Bee Hive" point="" type="STANDARD" x="34475" y="188095" z="-2976"/>
-				<loc id="10" name="Tanor Canyon" point="" type="STANDARD" x="60374" y="164301" z="-2856"/>
-				<loc id="11" name="Execution Ground" point="" type="NOBLE" x="46165" y="150008" z="-3208"/>
-				<loc id="12" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
+				<loc id="6" lvl="46-47" name="Cruma Tower" point="Second Floor" type="NOBLE" territory="DUNGEON" x="17723" y="108284" z="-9056"/>
+				<loc id="7" lvl="55" name="Fortress of Resistanance" point="" type="STANDARD" x="47382" y="111278" z="-2104"/>
+				<loc id="8" lvl="24-26" name="Plains of Dion" point="" type="STANDARD" x="630" y="179184" z="-3720"/>
+				<loc id="9" lvl="35-40" name="Bee Hive" point="" type="STANDARD" x="34475" y="188095" z="-2976"/>
+				<loc id="10" lvl="46-50" name="Tanor Canyon" point="" type="STANDARD" x="60374" y="164301" z="-2856"/>
+				<loc id="11" lvl="31-34" name="Execution Ground" point="" type="NOBLE" x="46165" y="150008" z="-3208"/>
+				<loc id="12" lvl="31-32" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
 			</area>
 			<area name="Town of Gludio" capital="Teleport">
 				<loc id="13" name="Town of Gludio" point="" type="STANDARD" territory="TOWN" x="-12739" y="122740" z="-3112" castleId="1"/>
 				<loc id="14" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
 				<loc id="15" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
-				<loc id="16" name="The Ant Nest" point="" type="STANDARD" territory="DUNGEON" x="-9959" y="176184" z="-4160"/>
-				<loc id="17" name="Windawood Manor" point="" type="STANDARD" x="-28327" y="155125" z="-3496"/>
-				<loc id="18" name="Evil Hunting Grounds" point="" type="NOBLE" x="-6989" y="109503" z="-3040"/>
+				<loc id="16" lvl="25-31" name="The Ant Nest" point="" type="STANDARD" territory="DUNGEON" x="-9959" y="176184" z="-4160"/>
+				<loc id="17" lvl="22-23" name="Windawood Manor" point="" type="STANDARD" x="-28327" y="155125" z="-3496"/>
+				<loc id="18" lvl="18-20" name="Evil Hunting Grounds" point="" type="NOBLE" x="-6989" y="109503" z="-3040"/>
 			</area>
 			<area name="Town of Giran" capital="Teleport">
 				<loc id="19" name="Town of Giran" point="" type="STANDARD" territory="TOWN" x="83393" y="147975" z="-3400" castleId="3"/>
 				<loc id="20" name="Giran Harbor" point="" type="STANDARD" x="47938" y="186864" z="-3480"/>
-				<loc id="21" name="Hardin's Academy" point="" type="STANDARD" x="105918" y="109759" z="-3170"/>
-				<loc id="22" name="Dragon Valley" point="" type="STANDARD" x="73024" y="118485" z="-3688"/>
-				<loc id="23" name="Dragon Valley" point="Center" type="NOBLE" x="122824" y="110836" z="-3727"/>
-				<loc id="24" name="Antharas' Lair" point="" type="STANDARD" territory="DUNGEON" x="131557" y="114509" z="-3712"/>
-				<loc id="25" name="Antharas' Lair" point="1st Level" type="NOBLE" territory="DUNGEON" x="147071" y="120156" z="-4520"/>
-				<loc id="26" name="Antharas' Lair" point="2nd Level" type="NOBLE" territory="DUNGEON" x="151689" y="112615" z="-5520"/>
-				<loc id="27" name="Antharas' Lair" point="Bridge" type="NOBLE" territory="DUNGEON" x="146425" y="109898" z="-3424"/>
-				<loc id="28" name="Antharas' Lair" point="Heart" type="NOBLE" territory="DUNGEON" x="154396" y="121235" z="-3808"/>
-				<loc id="29" name="Devil's Isle" point="" type="STANDARD" territory="DUNGEON" x="43408" y="206881" z="-3752"/>
-				<loc id="30" name="Breka's Stronghold" point="" type="STANDARD" x="85546" y="131328" z="-3672"/>
-				<loc id="31" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
+				<loc id="21" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105918" y="109759" z="-3170"/>
+				<loc id="22" lvl="35-46" name="Dragon Valley" point="" type="STANDARD" x="73024" y="118485" z="-3688"/>
+				<loc id="23" lvl="49-60" name="Dragon Valley" point="Center" type="NOBLE" x="122824" y="110836" z="-3727"/>
+				<loc id="24" lvl="49-62" name="Antharas' Lair" point="" type="STANDARD" territory="DUNGEON" x="131557" y="114509" z="-3712"/>
+				<loc id="25" lvl="65-68" name="Antharas' Lair" point="1st Level" type="NOBLE" territory="DUNGEON" x="147071" y="120156" z="-4520"/>
+				<loc id="26" lvl="69-75" name="Antharas' Lair" point="2nd Level" type="NOBLE" territory="DUNGEON" x="151689" y="112615" z="-5520"/>
+				<loc id="27" lvl="63-75" name="Antharas' Lair" point="Bridge" type="NOBLE" territory="DUNGEON" x="146425" y="109898" z="-3424"/>
+				<loc id="28" lvl="73-75" name="Antharas' Lair" point="Heart" type="NOBLE" territory="DUNGEON" x="154396" y="121235" z="-3808"/>
+				<loc id="29" lvl="44" name="Devil's Isle" point="" type="STANDARD" territory="DUNGEON" x="43408" y="206881" z="-3752"/>
+				<loc id="30" lvl="30-32" name="Breka's Stronghold" point="" type="STANDARD" x="85546" y="131328" z="-3672"/>
+				<loc id="31" lvl="33-35" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
 			</area>
 			<area name="Town of Goddard" capital="Teleport">
 				<loc id="32" name="Town of Goddard" point="" type="STANDARD" territory="TOWN" x="147964" y="-55305" z="-2728" castleId="7"/>
 				<loc id="33" name="Varka Silenos" point="Village" type="NOBLE" territory="VILLAGE" x="107929" y="-52248" z="-2408"/>
-				<loc id="34" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
-				<loc id="35" name="Ketra Orc" point="Village" type="NOBLE" territory="VILLAGE" x="149817" y="-80053" z="-5576"/>
-				<loc id="36" name="Ketra Orc" point="Outpost" type="STANDARD" x="146990" y="-67128" z="-3640"/>
-				<loc id="37" name="Hot Springs" point="" type="STANDARD" x="144880" y="-113468" z="-2560"/>
-				<loc id="38" name="Hot Springs" point="Center" type="NOBLE" x="144625" y="-101291" z="-3384"/>
-				<loc id="39" name="Wall of Argos" point="" type="STANDARD" x="164564" y="-48145" z="-3536"/>
-				<loc id="40" name="Wall of Argos" point="Center" type="NOBLE" x="183140" y="-53307" z="-1896"/>
+				<loc id="34" lvl="77-80" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
+				<loc id="35" lvl="80" name="Ketra Orc" point="Village" type="NOBLE" territory="VILLAGE" x="149817" y="-80053" z="-5576"/>
+				<loc id="36" lvl="68-69" name="Ketra Orc" point="Outpost" type="STANDARD" x="146990" y="-67128" z="-3640"/>
+				<loc id="37" lvl="73-76" name="Hot Springs" point="" type="STANDARD" x="144880" y="-113468" z="-2560"/>
+				<loc id="38" lvl="73-76" name="Hot Springs" point="Center" type="NOBLE" x="144625" y="-101291" z="-3384"/>
+				<loc id="39" lvl="68-69" name="Wall of Argos" point="" type="STANDARD" x="164564" y="-48145" z="-3536"/>
+				<loc id="40" lvl="72-75" name="Wall of Argos" point="Center" type="NOBLE" x="183140" y="-53307" z="-1896"/>
 				<loc id="41" name="Monastery of Silence" point="Entry" type="STANDARD" territory="DUNGEON" x="124161" y="-74828" z="-2904"/>
 				<loc id="42" name="Monastery of Silence" point="Exit" type="NOBLE" territory="DUNGEON" x="106414" y="-87799" z="-2920"/>
-				<loc id="43" name="Devil's Pass" point="" type="NOBLE" x="106349" y="-61870" z="-2904"/>
-				<loc id="44" name="Garden of Wild Beasts" point="" type="NOBLE" x="132997" y="-60608" z="-2960"/>
-				<loc id="45" name="Shrine of Loyalty" point="" type="NOBLE" x="187987" y="-59566" z="-2826"/>
-				<loc id="46" name="Four Sepulchers" point="" type="NOBLE" territory="DUNGEON" x="178127" y="-84435" z="-7215"/>
-				<loc id="47" name="Imperial Tomb" point="" type="NOBLE" territory="DUNGEON" x="186699" y="-75915" z="-2826"/>
+				<loc id="43" lvl="65-69" name="Devil's Pass" point="" type="NOBLE" x="106349" y="-61870" z="-2904"/>
+				<loc id="44" lvl="69-70" name="Garden of Wild Beasts" point="" type="NOBLE" x="132997" y="-60608" z="-2960"/>
+				<loc id="45" lvl="70-74" name="Shrine of Loyalty" point="" type="NOBLE" x="187987" y="-59566" z="-2826"/>
+				<loc id="46" lvl="80-81" name="Four Sepulchers" point="" type="NOBLE" territory="DUNGEON" x="178127" y="-84435" z="-7215"/>
+				<loc id="47" lvl="79-80" name="Imperial Tomb" point="" type="NOBLE" territory="DUNGEON" x="186699" y="-75915" z="-2826"/>
 				<loc id="48" name="Forge of the Gods" point="Entry" type="NOBLE" territory="DUNGEON" x="169533" y="-116228" z="-2312"/>
-				<loc id="49" name="Forge of the Gods" point="Top Level" type="NOBLE" territory="DUNGEON" x="173436" y="-112725" z="-3680"/>
-				<loc id="50" name="Forge of the Gods" point="Lower Level" type="NOBLE" territory="DUNGEON" x="180260" y="-111913" z="-5851"/>
+				<loc id="49" lvl="79-80" name="Forge of the Gods" point="Top Level" type="NOBLE" territory="DUNGEON" x="173436" y="-112725" z="-3680"/>
+				<loc id="50" lvl="80" name="Forge of the Gods" point="Lower Level" type="NOBLE" territory="DUNGEON" x="180260" y="-111913" z="-5851"/>
 			</area>
 			<area name="Town of Aden" capital="Teleport">
 				<loc id="51" name="Town of Aden" point="" type="STANDARD" territory="TOWN" x="146811" y="25810" z="-2008" castleId="5"/>
-				<loc id="52" name="Forsaken Plains" point="" type="STANDARD" x="168217" y="37990" z="-4072"/>
-				<loc id="53" name="Seal of Shilen" point="" type="STANDARD" x="184742" y="19745" z="-3168"/>
-				<loc id="54" name="Forest of Mirrors" point="" type="STANDARD" x="142065" y="81300" z="-3000"/>
-				<loc id="55" name="Blazing Swamp" point="" type="STANDARD" x="155310" y="-16339" z="-3320"/>
-				<loc id="56" name="Fields of Massacre" point="" type="STANDARD" x="183543" y="-14974" z="-2776"/>
-				<loc id="57" name="Ancient Battleground" point="" type="STANDARD" x="106517" y="-2871" z="-3416"/>
-				<loc id="58" name="Silent Valley" point="" type="STANDARD" x="170838" y="55776" z="-5280"/>
-				<loc id="59" name="Tower of Insolence" point="" type="STANDARD" territory="DUNGEON" x="114649" y="11115" z="-5120"/>
-				<loc id="60" name="The Giant's Cave" point="Entrance" type="NOBLE" territory="DUNGEON" x="181737" y="46469" z="-4352"/>
-				<loc id="61" name="Plains of Glory" point="" type="NOBLE" x="135580" y="19467" z="-3424"/>
-				<loc id="62" name="War-Torn Plains" point="" type="NOBLE" x="156898" y="11217" z="-4032"/>
-				<loc id="63" name="Tower of Insolence" point="3rd Floor" type="NOBLE" territory="DUNGEON" x="110848" y="16154" z="-2120"/>
-				<loc id="64" name="Tower of Insolence" point="5th Floor" type="NOBLE" territory="DUNGEON" x="118404" y="15988" z="832"/>
-				<loc id="65" name="Tower of Insolence" point="7th Floor" type="NOBLE" territory="DUNGEON" x="115064" y="12181" z="2960"/>
-				<loc id="66" name="Tower of Insolence" point="10th Floor" type="NOBLE" territory="DUNGEON" x="118525" y="16455" z="5984"/>
-				<loc id="67" name="Tower of Insolence" point="13th Floor" type="NOBLE" territory="DUNGEON" x="115384" y="16820" z="9000"/>
-				<loc id="68" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112"/>
-				<loc id="69" name="Anghel Waterfall" point="" type="NOBLE" x="166182" y="91560" z="-3168"/>
+				<loc id="52" lvl="54-58" name="Forsaken Plains" point="" type="STANDARD" x="168217" y="37990" z="-4072"/>
+				<loc id="53" lvl="53-62" name="Seal of Shilen" point="" type="STANDARD" x="184742" y="19745" z="-3168"/>
+				<loc id="54" lvl="43-45" name="Forest of Mirrors" point="" type="STANDARD" x="142065" y="81300" z="-3000"/>
+				<loc id="55" lvl="70-75" name="Blazing Swamp" point="" type="STANDARD" x="155310" y="-16339" z="-3320"/>
+				<loc id="56" lvl="55-60" name="Fields of Massacre" point="" type="STANDARD" x="183543" y="-14974" z="-2776"/>
+				<loc id="57" lvl="64" name="Ancient Battleground" point="" type="STANDARD" x="106517" y="-2871" z="-3416"/>
+				<loc id="58" lvl="55-77" name="Silent Valley" point="" type="STANDARD" x="170838" y="55776" z="-5280"/>
+				<loc id="59" lvl="60-63" name="Tower of Insolence" point="" type="STANDARD" territory="DUNGEON" x="114649" y="11115" z="-5120"/>
+				<loc id="60" lvl="58-60" name="The Giant's Cave" point="Entrance" type="NOBLE" territory="DUNGEON" x="181737" y="46469" z="-4352"/>
+				<loc id="61" lvl="45-47" name="Plains of Glory" point="" type="NOBLE" x="135580" y="19467" z="-3424"/>
+				<loc id="62" lvl="48-50" name="War-Torn Plains" point="" type="NOBLE" x="156898" y="11217" z="-4032"/>
+				<loc id="63" lvl="63-66" name="Tower of Insolence" point="3rd Floor" type="NOBLE" territory="DUNGEON" x="110848" y="16154" z="-2120"/>
+				<loc id="64" lvl="63-66" name="Tower of Insolence" point="5th Floor" type="NOBLE" territory="DUNGEON" x="118404" y="15988" z="832"/>
+				<loc id="65" lvl="67-72" name="Tower of Insolence" point="7th Floor" type="NOBLE" territory="DUNGEON" x="115064" y="12181" z="2960"/>
+				<loc id="66" lvl="72-75" name="Tower of Insolence" point="10th Floor" type="NOBLE" territory="DUNGEON" x="118525" y="16455" z="5984"/>
+				<loc id="67" lvl="73-75" name="Tower of Insolence" point="13th Floor" type="NOBLE" territory="DUNGEON" x="115384" y="16820" z="9000"/>
+				<loc id="68" lvl="40-45" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112"/>
+				<loc id="69" lvl="53-55" name="Anghel Waterfall" point="" type="NOBLE" x="166182" y="91560" z="-3168"/>
 			</area>
 			<area name="Town of Schuttgart" capital="Teleport">
 				<loc id="70" name="Town of Schuttgard" point="" type="STANDARD" territory="TOWN" x="87053" y="-143387" z="-1288" castleId="9"/>
-				<loc id="71" name="Den of Evil" point="" type="STANDARD" x="68693" y="-110438" z="-1904"/>
-				<loc id="72" name="Plunderous Plains" point="" type="STANDARD" x="111965" y="-154172" z="-1528"/>
-				<loc id="73" name="Ice Merchant Cabin" point="" type="STANDARD" x="113903" y="-108752" z="-848"/>
-				<loc id="74" name="Crypts of Disgrace" point="" type="STANDARD" territory="DUNGEON" x="47692" y="-115745" z="-3744"/>
-				<loc id="75" name="Pavel Ruins" point="" type="STANDARD" x="91280" y="-117152" z="-3928"/>
+				<loc id="71" lvl="44-49" name="Den of Evil" point="" type="STANDARD" x="68693" y="-110438" z="-1904"/>
+				<loc id="72" lvl="30-34" name="Plunderous Plains" point="" type="STANDARD" x="111965" y="-154172" z="-1528"/>
+				<loc id="73" lvl="55" name="Ice Merchant Cabin" point="" type="STANDARD" x="113903" y="-108752" z="-848"/>
+				<loc id="74" lvl="25" name="Crypts of Disgrace" point="" type="STANDARD" territory="DUNGEON" x="47692" y="-115745" z="-3744"/>
+				<loc id="75" lvl="48-51" name="Pavel Ruins" point="" type="STANDARD" x="91280" y="-117152" z="-3928"/>
 				<loc id="76" name="Frost Lake" point="" type="NOBLE" x="107577" y="-122392" z="-3632"/>
-				<loc id="77" name="Crypts of Disgrace" point="Center" type="NOBLE" territory="DUNGEON" x="44221" y="-114232" z="-2784"/>
-				<loc id="78" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
+				<loc id="77" lvl="25-27" name="Crypts of Disgrace" point="Center" type="NOBLE" territory="DUNGEON" x="44221" y="-114232" z="-2784"/>
+				<loc id="78" lvl="38-40" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
 			</area>
 			<area name="Town of Rune" capital="Teleport">
 				<loc id="79" name="Town of Rune" point="" type="STANDARD" territory="TOWN" x="43831" y="-47748" z="-792" castleId="8"/>
-				<loc id="80" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
-				<loc id="81" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
-				<loc id="82" name="Valley of Saints" point="Center" type="NOBLE" x="84092" y="-80084" z="-3504"/>
-				<loc id="83" name="Forest of the Dead" point="" type="STANDARD" x="52107" y="-54328" z="-3158"/>
-				<loc id="84" name="Forest of the Dead" point="Center" type="NOBLE" x="54425" y="-41692" z="-3072"/>
-				<loc id="85" name="Swamp of Screams" point="" type="STANDARD" x="69340" y="-50203" z="-3314"/>
+				<loc id="80" lvl="68" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
+				<loc id="81" lvl="60-62" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
+				<loc id="82" lvl="61-67" name="Valley of Saints" point="Center" type="NOBLE" x="84092" y="-80084" z="-3504"/>
+				<loc id="83" lvl="63-68" name="Forest of the Dead" point="" type="STANDARD" x="52107" y="-54328" z="-3158"/>
+				<loc id="84" lvl="72-73" name="Forest of the Dead" point="Center" type="NOBLE" x="54425" y="-41692" z="-3072"/>
+				<loc id="85" lvl="66-69" name="Swamp of Screams" point="" type="STANDARD" x="69340" y="-50203" z="-3314"/>
 				<loc id="86" name="Monastery of Silence" point="Entry" type="STANDARD" territory="DUNGEON" x="124161" y="-74828" z="-2904"/>
 				<loc id="87" name="Monastery of Silence" point="Exit" type="NOBLE" territory="DUNGEON" x="106414" y="-87799" z="-2920"/>
-				<loc id="88" name="Cursed Village" point="" type="NOBLE" territory="VILLAGE" x="57670" y="-41672" z="-3154"/>
-				<loc id="89" name="Stakato Nest" point="" type="NOBLE" territory="DUNGEON" x="90355" y="-44088" z="-2144"/>
+				<loc id="88" lvl="72-73" name="Cursed Village" point="" type="NOBLE" territory="VILLAGE" x="57670" y="-41672" z="-3154"/>
+				<loc id="89" lvl="72-78" name="Stakato Nest" point="" type="NOBLE" territory="DUNGEON" x="90355" y="-44088" z="-2144"/>
 			</area>
 			<area name="Town of Heine" capital="Teleport">
 				<loc id="90" name="Town of Heine" point="" type="STANDARD" territory="TOWN" x="111385" y="219338" z="-3544" castleId="6"/>
 				<loc id="91" name="Giran Harbor" point="" type="STANDARD" x="47935" y="186810" z="-3420"/>
-				<loc id="92" name="Field of Silence" point="" type="STANDARD" x="91088" y="182384" z="-3192"/>
+				<loc id="92" lvl="35-39" name="Field of Silence" point="" type="STANDARD" x="91088" y="182384" z="-3192"/>
 				<loc id="93" name="Field of Whispers" point="" type="STANDARD" x="74592" y="207656" z="-3032"/>
-				<loc id="94" name="Alligator Island" point="" type="STANDARD" x="115583" y="192261" z="-3488"/>
-				<loc id="95" name="Alligator Island" point="Center" type="NOBLE" x="113708" y="178387" z="-3232"/>
+				<loc id="94" lvl="40-41" name="Alligator Island" point="" type="STANDARD" x="115583" y="192261" z="-3488"/>
+				<loc id="95" lvl="41-43" name="Alligator Island" point="Center" type="NOBLE" x="113708" y="178387" z="-3232"/>
 				<loc id="96" name="Garden of Eva" point="" type="STANDARD" x="84413" y="234334" z="-3656"/>
 				<loc id="97" name="Field of Silence" point="Western" type="NOBLE" x="69748" y="186111" z="-2872"/>
-				<loc id="98" name="Field of Whispers" point="Eastern" type="NOBLE" x="97786" y="209303" z="-3040"/>
-				<loc id="99" name="Inside the Garden of Eva" point="" type="NOBLE" territory="DUNGEON" x="82693" y="242220" z="-6712"/>
-				<loc id="100" name="Garden of Eva" point="2nd level" type="NOBLE" territory="DUNGEON" x="79248" y="247390" z="-8816"/>
-				<loc id="101" name="Garden of Eva" point="3rd level" type="NOBLE" territory="DUNGEON" x="77868" y="250400" z="-9328"/>
-				<loc id="102" name="Garden of Eva" point="4th level" type="NOBLE" territory="DUNGEON" x="78721" y="253309" z="-9840"/>
-				<loc id="103" name="Garden of Eva" point="5th level" type="NOBLE" territory="DUNGEON" x="82570" y="252464" z="-10592"/>
+				<loc id="98" lvl="36-37" name="Field of Whispers" point="Eastern" type="NOBLE" x="97786" y="209303" z="-3040"/>
+				<loc id="99" lvl="40-42" name="Inside the Garden of Eva" point="" type="NOBLE" territory="DUNGEON" x="82693" y="242220" z="-6712"/>
+				<loc id="100" lvl="43-45" name="Garden of Eva" point="2nd level" type="NOBLE" territory="DUNGEON" x="79248" y="247390" z="-8816"/>
+				<loc id="101" lvl="40-49" name="Garden of Eva" point="3rd level" type="NOBLE" territory="DUNGEON" x="77868" y="250400" z="-9328"/>
+				<loc id="102" lvl="43-50" name="Garden of Eva" point="4th level" type="NOBLE" territory="DUNGEON" x="78721" y="253309" z="-9840"/>
+				<loc id="103" lvl="47-50" name="Garden of Eva" point="5th level" type="NOBLE" territory="DUNGEON" x="82570" y="252464" z="-10592"/>
 			</area>
 			<area name="Town of Oren" capital="Teleport">
 				<loc id="104" name="Town of Oren" point="" type="STANDARD" territory="TOWN" x="82917" y="53173" z="-1488" castleId="4"/>
-				<loc id="105" name="Ivory Tower" point="" type="STANDARD" x="85391" y="16228" z="-3640" castleId="4"/>
+				<loc id="105" lvl="42" name="Ivory Tower" point="" type="STANDARD" x="85391" y="16228" z="-3640" castleId="4"/>
 				<loc id="106" name="Hunters Village" point="" type="STANDARD" territory="VILLAGE" x="117110" y="76883" z="-2670"/>
-				<loc id="107" name="Hardin's Academy" point="" type="STANDARD" x="105884" y="109744" z="-3170"/>
-				<loc id="108" name="Skyshadow Meadow" point="" type="STANDARD" x="89914" y="46276" z="-3616"/>
-				<loc id="109" name="Plains of the Lizardmen" point="" type="STANDARD" x="87252" y="85514" z="-3056"/>
-				<loc id="110" name="Outlaw Forest" point="" type="STANDARD" x="91539" y="-12204" z="-2440"/>
-				<loc id="111" name="Sea of Spores" point="" type="STANDARD" x="64328" y="26803" z="-3768"/>
-				<loc id="112" name="Forest of Evil" point="" type="NOBLE" x="93218" y="16969" z="-3904"/>
+				<loc id="107" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105884" y="109744" z="-3170"/>
+				<loc id="108" lvl="57-60" name="Skyshadow Meadow" point="" type="STANDARD" x="89914" y="46276" z="-3616"/>
+				<loc id="109" lvl="35-40" name="Plains of the Lizardmen" point="" type="STANDARD" x="87252" y="85514" z="-3056"/>
+				<loc id="110" lvl="50-54" name="Outlaw Forest" point="" type="STANDARD" x="91539" y="-12204" z="-2440"/>
+				<loc id="111" lvl="40-42" name="Sea of Spores" point="" type="STANDARD" x="64328" y="26803" z="-3768"/>
+				<loc id="112" lvl="41-48" name="Forest of Evil" point="" type="NOBLE" x="93218" y="16969" z="-3904"/>
 				<loc id="113" name="Timak Outpost" point="" type="NOBLE" x="67097" y="68815" z="-3648"/>
-				<loc id="114" name="Altar of Rites" point="" type="NOBLE" x="-44566" y="77508" z="-3736"/>
+				<loc id="114" lvl="60-65" name="Altar of Rites" point="" type="NOBLE" x="-44566" y="77508" z="-3736"/>
 			</area>
 		</item>
 		<item name="Деревни" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 1">
 			<area name="Floran Village" capital="Teleport">
-				<loc id="115" name="Floran Village" point="" type="STANDARD" territory="VILLAGE" x="17430" y="170103" z="-3506" />
+				<loc id="115" lvl="34-35" name="Floran Village" point="" type="STANDARD" territory="VILLAGE" x="17430" y="170103" z="-3506" />
 			</area>
 			<area name="Gludin Village" capital="Teleport">
 				<loc id="116" name="Gludin Village" point="" type="STANDARD" territory="VILLAGE" x="-80804" y="149833" z="-3040" />
-				<loc id="117" name="Lizardmen Dwellings" point="" type="STANDARD" x="-44763" y="203497" z="-3592" />
-				<loc id="118" name="Windmill Hill" point="" type="STANDARD" x="-75437" y="168800" z="-3632" />
-				<loc id="119" name="Harvesting Grounds" point="" type="STANDARD" x="-63736" y="101522" z="-3552" />
-				<loc id="120" name="Forgotten Temple" point="" type="STANDARD" territory="DUNGEON" x="-53001" y="191425" z="-3568" />
-				<loc id="121" name="Forgotten Temple" point="Center" type="NOBLE" territory="DUNGEON" x="-54026" y="179504" z="-4650" />
-				<loc id="122" name="Orc Barracks" point="" type="STANDARD" x="-89763" y="105359" z="-3576" />
-				<loc id="123" name="Windy Hill" point="" type="STANDARD" x="-88539" y="83389" z="-2864" />
-				<loc id="124" name="Abandoned Camp" point="" type="STANDARD" x="-49853" y="147089" z="-2784" />
+				<loc id="117" lvl="19-25" name="Lizardmen Dwellings" point="" type="STANDARD" x="-44763" y="203497" z="-3592" />
+				<loc id="118" lvl="15-18" name="Windmill Hill" point="" type="STANDARD" x="-75437" y="168800" z="-3632" />
+				<loc id="119" lvl="14-16" name="Harvesting Grounds" point="" type="STANDARD" x="-63736" y="101522" z="-3552" />
+				<loc id="120" lvl="27-28" name="Forgotten Temple" point="" type="STANDARD" territory="DUNGEON" x="-53001" y="191425" z="-3568" />
+				<loc id="121" lvl="31-33" name="Forgotten Temple" point="Center" type="NOBLE" territory="DUNGEON" x="-54026" y="179504" z="-4650" />
+				<loc id="122" lvl="24-34" name="Orc Barracks" point="" type="STANDARD" x="-89763" y="105359" z="-3576" />
+				<loc id="123" lvl="28-30" name="Windy Hill" point="" type="STANDARD" x="-88539" y="83389" z="-2864" />
+				<loc id="124" lvl="21-22" name="Abandoned Camp" point="" type="STANDARD" x="-49853" y="147089" z="-2784" />
 				<loc id="125" name="Wastelands" point="" type="STANDARD" x="-16526" y="208032" z="-3664" />
-				<loc id="126" name="Wastelands" point="Western" type="NOBLE" x="-47506" y="179572" z="-3632" />
+				<loc id="126" lvl="25-33" name="Wastelands" point="Western" type="NOBLE" x="-47506" y="179572" z="-3632" />
 				<loc id="127" name="Red Rock Ridge" point="" type="STANDARD" x="-42256" y="198333" z="-2800" />
 			</area>
 			<area name="Hunters Village" capital="Teleport">
 				<loc id="128" name="Hunters Village" point="" type="STANDARD" territory="VILLAGE" x="117052" y="76905" z="-2704" />
-				<loc id="129" name="Hardin's Academy" point="" type="STANDARD" x="105846" y="109762" z="-3170" castleId="3" />
-				<loc id="130" name="Enchanted Valley" point="Southern" type="STANDARD" x="124904" y="61992" z="-3973" />
+				<loc id="129" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105846" y="109762" z="-3170" castleId="3" />
+				<loc id="130" lvl="45-46" name="Enchanted Valley" point="Southern" type="STANDARD" x="124904" y="61992" z="-3973" />
 				<loc id="131" name="Enchanted Valley" point="Northern" type="STANDARD" x="104426" y="33746" z="-3825" />
-				<loc id="132" name="Enchanted Valley" point="Center" type="NOBLE" x="114674" y="44150" z="-3376" />
-				<loc id="133" name="Forest of Mirrors" point="" type="STANDARD" x="142065" y="81300" z="-3000" />
-				<loc id="134" name="Forest of Mirrors" point="Center" type="NOBLE" x="166080" y="75574" z="-2992" />
-				<loc id="135" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112" />
+				<loc id="132" lvl="45-55" name="Enchanted Valley" point="Center" type="NOBLE" x="114674" y="44150" z="-3376" />
+				<loc id="133" lvl="43-45" name="Forest of Mirrors" point="" type="STANDARD" x="142065" y="81300" z="-3000" />
+				<loc id="134" lvl="53-55" name="Forest of Mirrors" point="Center" type="NOBLE" x="166080" y="75574" z="-2992" />
+				<loc id="135" lvl="40-45" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112" />
 			</area>
 			<area name="Talking Island Village" capital="Teleport">
-				<loc id="136" name="Talking Island Village" point="" type="STANDARD" territory="VILLAGE" x="-84153" y="244542" z="-3728" />
+				<loc id="136" lvl="1-3" name="Talking Island Village" point="" type="STANDARD" territory="VILLAGE" x="-84153" y="244542" z="-3728" />
 				<loc id="137" name="Elven Ruins" point="" type="STANDARD" x="-112367" y="234703" z="-3688" />
-				<loc id="138" name="Elven Ruins" point="Center" type="NOBLE" x="49315" y="248452" z="-5960" />
+				<loc id="138" lvl="9-10" name="Elven Ruins" point="Center" type="NOBLE" x="49315" y="248452" z="-5960" />
 				<loc id="139" name="Singing Waterfall" point="" type="STANDARD" x="-111728" y="244330" z="-3448" />
-				<loc id="140" name="Western Territory" point="" type="STANDARD" x="-106696" y="214691" z="-3424" />
-				<loc id="141" name="Obelisk of Victory" point="" type="STANDARD" x="-99586" y="237637" z="-3568" />
+				<loc id="140" lvl="13-15" name="Western Territory" point="" type="STANDARD" x="-106696" y="214691" z="-3424" />
+				<loc id="141" lvl="4-10" name="Obelisk of Victory" point="" type="STANDARD" x="-99586" y="237637" z="-3568" />
 			</area>
 			<area name="Elven Village" capital="Teleport">
 				<loc id="142" name="Elven Village" point="" type="STANDARD" territory="VILLAGE" x="46874" y="51457" z="-2976" />
-				<loc id="143" name="Elven Forest" point="" type="STANDARD" x="21362" y="51122" z="-3688" />
+				<loc id="143" lvl="12-13" name="Elven Forest" point="" type="STANDARD" x="21362" y="51122" z="-3688" />
 				<loc id="144" name="Elven Fortress" point="" type="STANDARD" x="29294" y="74968" z="-3776" />
-				<loc id="145" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
-				<loc id="146" name="Neutral Zone" point="Center" type="NOBLE" x="-10612" y="75881" z="-3592" />
+				<loc id="145" lvl="56-58" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
+				<loc id="146" lvl="56-58" name="Neutral Zone" point="Center" type="NOBLE" x="-10612" y="75881" z="-3592" />
 			</area>
 			<area name="Dark Elven Village" capital="Teleport">
 				<loc id="147" name="Dark Elf Village" point="" type="STANDARD" territory="VILLAGE" x="9738" y="15567" z="-4568" />
 				<loc id="148" name="Dark Forest" point="" type="STANDARD" x="-22224" y="14168" z="-3232" />
 				<loc id="149" name="Dark Forest" point="Center" type="NOBLE" x="-22224" y="14168" z="-3232" />
-				<loc id="150" name="Swampland" point="" type="STANDARD" x="-21966" y="40544" z="-3192" />
-				<loc id="151" name="Spider Nest" point="" type="STANDARD" territory="DUNGEON" x="-61095" y="75104" z="-3352" />
-				<loc id="152" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
-				<loc id="153" name="Neutral Zone" point="Center" type="NOBLE" x="-18415" y="85624" z="-3680" />
-				<loc id="154" name="School of Dark Arts" point="Center" type="NOBLE" territory="DUNGEON" x="-49185" y="49441" z="-5912" />
+				<loc id="150" lvl="13-14" name="Swampland" point="" type="STANDARD" x="-21966" y="40544" z="-3192" />
+				<loc id="151" lvl="16-18" name="Spider Nest" point="" type="STANDARD" territory="DUNGEON" x="-61095" y="75104" z="-3352" />
+				<loc id="152" lvl="56-58" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
+				<loc id="153" lvl="56-60" name="Neutral Zone" point="Center" type="NOBLE" x="-18415" y="85624" z="-3680" />
+				<loc id="154" lvl="15-22" name="School of Dark Arts" point="Center" type="NOBLE" territory="DUNGEON" x="-49185" y="49441" z="-5912" />
 			</area>
 			<area name="Orc Village" capital="Teleport">
 				<loc id="155" name="Orc Village" point="" type="STANDARD" territory="VILLAGE" x="-45177" y="-112512" z="-240" />
-				<loc id="156" name="Immortal Plateau" point="" type="STANDARD" x="10983" y="-117484" z="-2464" />
-				<loc id="157" name="Immortal Plateau" point="Southern" type="STANDARD" x="-4190" y="-80040" z="-2696" />
+				<loc id="156" lvl="18-20" name="Immortal Plateau" point="" type="STANDARD" x="10983" y="-117484" z="-2464" />
+				<loc id="157" lvl="18-21" name="Immortal Plateau" point="Southern" type="STANDARD" x="-4190" y="-80040" z="-2696" />
 				<loc id="158" name="Immortal Plateau" point="Northern" type="NOBLE" x="-8804" y="-114748" z="-3030" />
 				<loc id="159" name="Cave of Trials" point="" type="STANDARD" territory="DUNGEON" x="9340" y="-112509" z="-2536" />
-				<loc id="160" name="Frozen Waterfall" point="" type="STANDARD" x="8652" y="-139941" z="-1144" />
+				<loc id="160" lvl="13-17" name="Frozen Waterfall" point="" type="STANDARD" x="8652" y="-139941" z="-1144" />
 			</area>
 			<area name="Dwarven Village" capital="Teleport">
 				<loc id="161" name="Dwarven Village" point="" type="STANDARD" territory="VILLAGE" x="115129" y="-178177" z="-912" />
-				<loc id="162" name="Mithril Mines" point="" type="STANDARD" territory="DUNGEON" x="171946" y="-173352" z="3440" />
-				<loc id="163" name="Mithril Mines" point="Center" type="NOBLE" territory="DUNGEON" x="175499" y="-181586" z="-904" />
-				<loc id="164" name="Abandoned Coal Mines" point="" type="STANDARD" territory="DUNGEON" x="139714" y="-177456" z="-1536" />
-				<loc id="165" name="Abandoned Coal Mines" point="Center" type="NOBLE" territory="DUNGEON" x="144706" y="-173223" z="-1520" />
-				<loc id="166" name="Mining Zone" point="Eastern" type="STANDARD" x="169008" y="-208272" z="-3496" />
-				<loc id="167" name="Mining Zone" point="Western" type="STANDARD" x="136910" y="-205082" z="-3664" />
+				<loc id="162" lvl="19-21" name="Mithril Mines" point="" type="STANDARD" territory="DUNGEON" x="171946" y="-173352" z="3440" />
+				<loc id="163" lvl="19-27" name="Mithril Mines" point="Center" type="NOBLE" territory="DUNGEON" x="175499" y="-181586" z="-904" />
+				<loc id="164" lvl="17-19" name="Abandoned Coal Mines" point="" type="STANDARD" territory="DUNGEON" x="139714" y="-177456" z="-1536" />
+				<loc id="165" lvl="10-17" name="Abandoned Coal Mines" point="Center" type="NOBLE" territory="DUNGEON" x="144706" y="-173223" z="-1520" />
+				<loc id="166" lvl="18-23" name="Mining Zone" point="Eastern" type="STANDARD" x="169008" y="-208272" z="-3496" />
+				<loc id="167" lvl="12-17" name="Mining Zone" point="Western" type="STANDARD" x="136910" y="-205082" z="-3664" />
 			</area>
 		</item>
 		<!--
@@ -394,16 +398,16 @@
 			Drop the <area> below and the tab falls back to the flat points page.
 		-->
 		<item name="Локации">
-			<loc id="168" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
+			<loc id="168" lvl="28-30" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
 			<loc id="169" name="Coliseum" point="" type="STANDARD" x="146440" y="46723" z="-3400"/>
 			<loc id="170" name="Primeval Isle" point="Wharf" type="NOBLE" x="11320" y="-23504" z="-3640"/>
 			<!-- A sub list living next to the direct rows. An empty "capital" shows the "list" label of <labels> instead, since the row only opens the list. -->
 			<area name="Подземелья" capital="">
-				<loc id="171" name="Cruma Tower" point="" type="STANDARD" territory="DUNGEON" x="17225" y="114173" z="-3440"/>
-				<loc id="172" name="The Ant Nest" point="" type="STANDARD" territory="DUNGEON" x="-9959" y="176184" z="-4160"/>
-				<loc id="173" name="Tower of Insolence" point="" type="STANDARD" territory="DUNGEON" x="114649" y="11115" z="-5120"/>
-				<loc id="174" name="Devil's Isle" point="" type="STANDARD" territory="DUNGEON" x="43408" y="206881" z="-3752"/>
-				<loc id="175" name="Forgotten Temple" point="" type="STANDARD" territory="DUNGEON" x="-53001" y="191425" z="-3568"/>
+				<loc id="171" lvl="30-33" name="Cruma Tower" point="" type="STANDARD" territory="DUNGEON" x="17225" y="114173" z="-3440"/>
+				<loc id="172" lvl="25-31" name="The Ant Nest" point="" type="STANDARD" territory="DUNGEON" x="-9959" y="176184" z="-4160"/>
+				<loc id="173" lvl="60-63" name="Tower of Insolence" point="" type="STANDARD" territory="DUNGEON" x="114649" y="11115" z="-5120"/>
+				<loc id="174" lvl="44" name="Devil's Isle" point="" type="STANDARD" territory="DUNGEON" x="43408" y="206881" z="-3752"/>
+				<loc id="175" lvl="27-28" name="Forgotten Temple" point="" type="STANDARD" territory="DUNGEON" x="-53001" y="191425" z="-3568"/>
 			</area>
 		</item>
 		<item name="Популярное" type="popular"/>

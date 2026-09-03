@@ -26,8 +26,10 @@ public class GatekeeperPoint extends Location
 	private final int _castleId;
 	private final int _minLevel;
 	private final int _maxLevel;
+	private final int _mobMinLevel;
+	private final int _mobMaxLevel;
 
-	public GatekeeperPoint(int id, String name, String point, GatekeeperPointType type, GatekeeperTerritory territory, int priceId, int price, int castleId, int minLevel, int maxLevel, int x, int y, int z)
+	public GatekeeperPoint(int id, String name, String point, GatekeeperPointType type, GatekeeperTerritory territory, int priceId, int price, int castleId, int minLevel, int maxLevel, int mobMinLevel, int mobMaxLevel, int x, int y, int z)
 	{
 		super(x, y, z);
 
@@ -41,6 +43,8 @@ public class GatekeeperPoint extends Location
 		_castleId = castleId;
 		_minLevel = minLevel;
 		_maxLevel = maxLevel;
+		_mobMinLevel = mobMinLevel;
+		_mobMaxLevel = mobMaxLevel;
 	}
 
 	@Override
@@ -111,6 +115,30 @@ public class GatekeeperPoint extends Location
 	public int getMaxLevel()
 	{
 		return _maxLevel;
+	}
+
+	/**
+	 * @return True if this point has a known monster level range, shown on the "lvl" column of the teleport points list.
+	 */
+	public boolean hasMobLevel()
+	{
+		return _mobMinLevel > 0 && _mobMaxLevel > 0;
+	}
+
+	/**
+	 * @return The lowest level of the monsters roaming this spot, -1 when unknown.
+	 */
+	public int getMobMinLevel()
+	{
+		return _mobMinLevel;
+	}
+
+	/**
+	 * @return The highest level of the monsters roaming this spot, -1 when unknown.
+	 */
+	public int getMobMaxLevel()
+	{
+		return _mobMaxLevel;
 	}
 
 	/**

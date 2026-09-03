@@ -273,6 +273,7 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperColumn nameColumn = table.getColumn("name");
 		final GatekeeperColumn priceColumn = table.getColumn("price");
 		final GatekeeperColumn actionColumn = table.getColumn("action");
+		final GatekeeperColumn lvlColumn = table.getColumn("lvl");
 
 		final List<GatekeeperPoint> points = area.getPoints();
 		final int perPage = data.getRowsPerPage();
@@ -289,7 +290,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), lvlColumn.getCell(0, getMobLevelText(point)), ROW_END);
 		}
 
 		String content = getHtmlText("locations.htm");
@@ -788,6 +789,23 @@ public class GlobalGatekeeper extends Quest
 			return colorize(data.getDisabledColor(), escape((point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel()));
 
 		return colorize(data.getTerritoryColor(), escape(point.getTerritory().getLabel()));
+	}
+
+	/**
+	 * @param point : The {@link GatekeeperPoint} to render.
+	 * @return The "lvl" cell content of a given {@link GatekeeperPoint} - the "locked" label of <labels> when the monster levels aren't set.
+	 */
+	private static String getMobLevelText(GatekeeperPoint point)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+
+		if (!point.hasMobLevel())
+			return colorize(data.getDisabledColor(), escape(data.getLockedLabel()));
+
+		final int min = point.getMobMinLevel();
+		final int max = point.getMobMaxLevel();
+
+		return (min == max) ? String.valueOf(min) : min + "-" + max;
 	}
 
 	/**
