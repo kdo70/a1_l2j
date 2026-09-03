@@ -37,6 +37,9 @@ public class DropListData implements IXmlReader
 	private int _headerHeight;
 	private int _headerLabelWidth;
 	private int _headerGap;
+	private int _titleHeight;
+	private int _infoHeight;
+	private int _listGap;
 
 	private int _iconWidth;
 	private int _nameWidth;
@@ -50,6 +53,8 @@ public class DropListData implements IXmlReader
 	private String _groupTextColor;
 	private String _headerTextColor;
 	private String _headerValueColor;
+	private String _titleColor;
+	private String _infoColor;
 	private String _nameColor;
 	private String _countColor;
 	private String _highChanceColor;
@@ -62,6 +67,8 @@ public class DropListData implements IXmlReader
 	private String _dropLabel;
 	private String _spoilLabel;
 	private String _championLabel;
+	private String _statsTitle;
+	private String _listInfo;
 	private String _hpLabel;
 	private String _mpLabel;
 	private String _expLabel;
@@ -129,6 +136,9 @@ public class DropListData implements IXmlReader
 				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
 				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
+				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
+				_infoHeight = Math.max(1, parseInt(attrs, "infoHeight", _infoHeight));
+				_listGap = Math.max(0, parseInt(attrs, "listGap", _listGap));
 
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
@@ -151,6 +161,8 @@ public class DropListData implements IXmlReader
 				_groupTextColor = parseToken(attrs, "groupText", _groupTextColor);
 				_headerTextColor = parseToken(attrs, "headerText", _headerTextColor);
 				_headerValueColor = parseToken(attrs, "headerValue", _headerValueColor);
+				_titleColor = parseToken(attrs, "title", _titleColor);
+				_infoColor = parseToken(attrs, "info", _infoColor);
 				_nameColor = parseToken(attrs, "name", _nameColor);
 				_countColor = parseToken(attrs, "count", _countColor);
 				_highChanceColor = parseToken(attrs, "highChance", _highChanceColor);
@@ -168,6 +180,8 @@ public class DropListData implements IXmlReader
 				_dropLabel = parseString(attrs, "drop", _dropLabel);
 				_spoilLabel = parseString(attrs, "spoil", _spoilLabel);
 				_championLabel = parseString(attrs, "champion", _championLabel);
+				_statsTitle = parseString(attrs, "statsTitle", _statsTitle);
+				_listInfo = parseString(attrs, "listInfo", _listInfo);
 				_hpLabel = parseString(attrs, "hp", _hpLabel);
 				_mpLabel = parseString(attrs, "mp", _mpLabel);
 				_expLabel = parseString(attrs, "exp", _expLabel);
@@ -211,6 +225,9 @@ public class DropListData implements IXmlReader
 		_headerHeight = 16;
 		_headerLabelWidth = 76;
 		_headerGap = 6;
+		_titleHeight = 18;
+		_infoHeight = 18;
+		_listGap = 8;
 
 		_iconWidth = 36;
 		_nameWidth = 190;
@@ -230,6 +247,8 @@ public class DropListData implements IXmlReader
 		_groupTextColor = "LEVEL";
 		_headerTextColor = "B09878";
 		_headerValueColor = "FFFFFF";
+		_titleColor = "LEVEL";
+		_infoColor = "808080";
 		_nameColor = "";
 		_countColor = "B09878";
 		_highChanceColor = "90EE90";
@@ -245,6 +264,8 @@ public class DropListData implements IXmlReader
 		_dropLabel = "Drop";
 		_spoilLabel = "Spoil";
 		_championLabel = "Champion";
+		_statsTitle = "Combat stats";
+		_listInfo = "Drop chances are per single kill.";
 		_hpLabel = "HP";
 		_mpLabel = "MP";
 		_expLabel = "Exp";
@@ -414,6 +435,30 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
+	 * @return The height, in pixels, of the caption band opening the header of the first page.
+	 */
+	public int getTitleHeight()
+	{
+		return _titleHeight;
+	}
+
+	/**
+	 * @return The height, in pixels, of the notice band closing the header of the first page.
+	 */
+	public int getInfoHeight()
+	{
+		return _infoHeight;
+	}
+
+	/**
+	 * @return The height, in pixels, of the spacer cutting the stats of the monster apart from the drop list sitting under them. 0 drops the spacer, which glues both sections back together.
+	 */
+	public int getListGap()
+	{
+		return _listGap;
+	}
+
+	/**
 	 * @return The size, in pixels, the item icons are drawn at.
 	 */
 	public int getIconSize()
@@ -538,6 +583,22 @@ public class DropListData implements IXmlReader
 	}
 
 	/**
+	 * @return The color of the caption band opening the header of the first page.
+	 */
+	public String getTitleColor()
+	{
+		return _titleColor;
+	}
+
+	/**
+	 * @return The color of the notice band closing the header of the first page - a dimmed one, the notice being a hint rather than a stat.
+	 */
+	public String getInfoColor()
+	{
+		return _infoColor;
+	}
+
+	/**
 	 * @return The color of the item names ; empty keeps the client default.
 	 */
 	public String getNameColor()
@@ -566,6 +627,23 @@ public class DropListData implements IXmlReader
 	public String getActivePageColor()
 	{
 		return _activePageColor;
+	}
+
+	/**
+	 * @return The caption of the band opening the header of the first page, introducing the stats block sitting under it. An empty {@link String} drops the band altogether.
+	 */
+	public String getStatsTitle()
+	{
+		return _statsTitle;
+	}
+
+	/**
+	 * @return The notice closing the header of the first page, telling what the chances of the drop list sitting under it are worth. It has to fit one single line - a wrapped one is taller than
+	 *         {@link #getInfoHeight()}, which throws the bottom padding of the page off. An empty {@link String} drops the band altogether.
+	 */
+	public String getListInfo()
+	{
+		return _listInfo;
 	}
 
 	/**

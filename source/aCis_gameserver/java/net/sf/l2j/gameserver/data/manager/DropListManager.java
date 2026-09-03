@@ -48,7 +48,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  * <br>
  * The first page carries a header laid out the way the status window of a {@link Player} is - two blocks of two columns - telling what the kill itself is worth and what the monster fights with : the
  * HP that has to be dealt and the MP of the monster, the XP and the SP that very {@link Player} earns, then its physical and magical attack, defence and speed. Every number carries the champion
- * bonuses. The header eats whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
+ * bonuses. Those blocks open on a caption band naming them, and they are cut from the drop list by a spacer holding a dimmed notice - the stats and the drops are two sections, and a page reads as
+ * such. The header eats whatever amount of item rows its own height takes, so a page keeps the very same height whether it holds the header or not.<br>
  * <br>
  * A row draws the icon on the left, then the item name on one line and the dropped amount right under it : an amount as long as an adena one doesn't fit next to a name on a single line.<br>
  * <br>
@@ -75,7 +76,7 @@ public class DropListManager
 	 */
 	private static final int HEADER_ROWS = 5;
 
-	/** Amount of rules the header of the first page draws : one cutting its two blocks apart, one closing it. */
+	/** Amount of rules the header of the first page always draws : one cutting its two stat blocks apart, one closing them. The caption and the notice bands frame themselves with one more each. */
 	private static final int HEADER_SEPARATORS = 2;
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse a list at once, so the formatter is built per cell ; only its symbols are shared. */
@@ -336,9 +337,13 @@ public class DropListManager
 	 * The header of the first page, telling what the list of the drops can't : what the kill is worth, and what the monster fights with. It is laid out the way the status window of a {@link Player}
 	 * is - two blocks of two columns, a caption on the left of a column and its value on the right - so a player reads a monster the same way he reads himself.<br>
 	 * <br>
-	 * The first block holds the pools on the left column and the rewards on the right one : the HP that has to be dealt and the MP of the monster, then the XP and the SP that very {@link Player} is
-	 * given. The second one holds the physical stats on the left column and the magical ones on the right : attack, defence and speed. Every number carries the champion bonuses of the monster - the
-	 * damage reduction standing in for an HP pool, the stat multipliers being folded in by {@link AttackableStatus} itself.
+	 * The stats open on a caption band of their own, so the two blocks read as one titled section rather than as a pair of loose tables. The first block holds the pools on the left column and the
+	 * rewards on the right one : the HP that has to be dealt and the MP of the monster, then the XP and the SP that very {@link Player} is given. The second one holds the physical stats on the left
+	 * column and the magical ones on the right : attack, defence and speed. Every number carries the champion bonuses of the monster - the damage reduction standing in for an HP pool, the stat
+	 * multipliers being folded in by {@link AttackableStatus} itself.<br>
+	 * <br>
+	 * The drop list is a section of its own, and it is cut from the stats the same way : a plain spacer opens a gap wide enough to read as a break, and a dimmed notice band sitting in it tells what
+	 * the chances listed under it are worth. Both bands are dropped whenever the datapack empties their own label, and the height math follows.
 	 * @param player : The {@link Player} the rewards are computed for - the level gap penalty is his own.
 	 * @param monster : The {@link Monster} to describe.
 	 * @return The header block, closed by the same rule which frames the group headers.
@@ -349,7 +354,13 @@ public class DropListManager
 		final AttackableStatus status = monster.getStatus();
 		final long[] expSp = monster.getExpSpFor(player.getStatus().getLevel());
 
-		final StringBuilder sb = new StringBuilder(1024);
+		final StringBuilder sb = new StringBuilder(1536);
+
+		if (!data.getStatsTitle().isEmpty())
+		{
+			sb.append(getHeaderBand(data.getTitleHeight(), data.getTitleColor(), data.getStatsTitle()));
+			sb.append(getSeparator());
+		}
 
 		sb.append(getHeaderBlockStart());
 		sb.append(getHeaderRow(data.getHpLabel(), monster.getEffectiveMaxHp(), data.getExpLabel(), expSp[0]));
@@ -363,6 +374,35 @@ public class DropListManager
 		sb.append(getHeaderRow(data.getAtkSpdLabel(), status.getPAtkSpd(), data.getCastSpdLabel(), status.getMAtkSpd()));
 		sb.append("</table>");
 		sb.append(getSeparator());
+
+		// The gap is what actually cuts the two sections apart : the notice only names the one opening under it.
+		if (data.getListGap() > 0)
+			StringUtil.append(sb, "<img height=", data.getListGap(), ">");
+
+		if (!data.getListInfo().isEmpty())
+		{
+			sb.append(getHeaderBand(data.getInfoHeight(), data.getInfoColor(), data.getListInfo()));
+			sb.append(getSeparator());
+		}
+
+		return sb.toString();
+	}
+
+	/**
+	 * One full width band of the header - the caption opening the stats, and the notice opening the drop list. Both are drawn on the plain band color of the list, the way the stat blocks sitting
+	 * between them are, and their text is centered : a band names a whole section rather than a column of it.
+	 * @param height : The height, in pixels, of the band.
+	 * @param color : The color of the text.
+	 * @param text : The datapack text to write.
+	 * @return The band, rendered as its own table.
+	 */
+	private static String getHeaderBand(int height, String color, String text)
+	{
+		final StringBuilder sb = new StringBuilder(192);
+
+		sb.append(getHeaderBlockStart()).append("<tr>");
+		sb.append(getCell(DropListData.getInstance().getWidth(), height, "center", colorize(color, escape(text))));
+		sb.append(ROW_END);
 
 		return sb.toString();
 	}
@@ -414,13 +454,31 @@ public class DropListManager
 	}
 
 	/**
-	 * @return The height, in pixels, the header of the first page takes, the rules cutting its blocks apart and closing it included.
+	 * The bands the datapack switched off don't take any room, so this walks the very same conditions {@link #getHeader(Player, Monster)} does - a height read out of a header which isn't the one
+	 * being drawn would throw the bottom padding of the page off.
+	 * @return The height, in pixels, the header of the first page takes : its caption band, its two stat blocks, the gap cutting them from the list and the notice band, the rules framing all of them
+	 *         included.
 	 */
 	private static int getHeaderHeight()
 	{
 		final DropListData data = DropListData.getInstance();
 
-		return HEADER_ROWS * data.getHeaderHeight() + ((data.getSeparator().isEmpty()) ? 0 : HEADER_SEPARATORS * SEPARATOR_HEIGHT);
+		int height = HEADER_ROWS * data.getHeaderHeight() + data.getListGap();
+		int separators = HEADER_SEPARATORS;
+
+		if (!data.getStatsTitle().isEmpty())
+		{
+			height += data.getTitleHeight();
+			separators++;
+		}
+
+		if (!data.getListInfo().isEmpty())
+		{
+			height += data.getInfoHeight();
+			separators++;
+		}
+
+		return height + ((data.getSeparator().isEmpty()) ? 0 : separators * SEPARATOR_HEIGHT);
 	}
 
 	/**
