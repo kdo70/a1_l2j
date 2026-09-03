@@ -358,7 +358,7 @@ public class DropListManager
 
 		if (!data.getStatsTitle().isEmpty())
 		{
-			sb.append(getHeaderBand(data.getTitleHeight(), data.getTitleColor(), data.getStatsTitle()));
+			sb.append(getHeaderBand(data.getTitleHeight(), data.getTitleAlign(), data.getTitleColor(), data.getStatsTitle()));
 			sb.append(getSeparator());
 		}
 
@@ -377,7 +377,7 @@ public class DropListManager
 
 		if (!data.getListInfo().isEmpty())
 		{
-			sb.append(getHeaderBand(data.getInfoHeight(), data.getInfoColor(), data.getListInfo()));
+			sb.append(getHeaderBand(data.getInfoHeight(), data.getInfoAlign(), data.getInfoColor(), data.getListInfo()));
 			sb.append(getSeparator());
 		}
 
@@ -386,18 +386,20 @@ public class DropListManager
 
 	/**
 	 * One full width band of the header - the caption opening the stats, and the notice opening the drop list. Both are drawn on the plain band color of the list, the way the stat blocks sitting
-	 * between them are, and their text is centered : a band names a whole section rather than a column of it.
+	 * between them are, and both take the alignment the datapack gave them : a band names a whole section, so it owns the whole width whatever edge its text sits on - "left" lining it up with the
+	 * captions of the group headers of the list.
 	 * @param height : The height, in pixels, of the band.
+	 * @param align : The alignment of the text inside the band.
 	 * @param color : The color of the text.
 	 * @param text : The datapack text to write.
 	 * @return The band, rendered as its own table.
 	 */
-	private static String getHeaderBand(int height, String color, String text)
+	private static String getHeaderBand(int height, String align, String color, String text)
 	{
 		final StringBuilder sb = new StringBuilder(192);
 
 		sb.append(getHeaderBlockStart()).append("<tr>");
-		sb.append(getCell(DropListData.getInstance().getWidth(), height, "center", colorize(color, escape(text))));
+		sb.append(getCell(DropListData.getInstance().getWidth(), height, align, colorize(color, escape(text))));
 		sb.append(ROW_END);
 
 		return sb.toString();

@@ -101,6 +101,10 @@
 		infoHeight       : height, in pixels, of the "listInfo" band closing the header. The notice has
 		                   to fit one single line : a wrapped one is taller than this, which throws the
 		                   bottom padding of the page off. Unused when that label is empty.
+		titleAlign       : alignment of the "statsTitle" text - "left", "center" or "right". A band owns
+		                   the whole width whatever edge its text sits on ; "left" is what lines it up
+		                   with the captions of the group headers of the list.
+		infoAlign        : alignment of the "listInfo" text, same three values.
 		overhead    : height, in pixels, everything but the group headers and the list rows takes on
 		              the HTM - separators and the page selector row. Substracted from pageHeight to
 		              know how much the page has to be padded with. Only worth touching after
@@ -192,7 +196,7 @@
 		                      cell, so keep them short.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" infoHeight="18" iconWidth="36" nameWidth="190" chanceWidth="54" />
+	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" infoHeight="18" titleAlign="left" infoAlign="left" iconWidth="36" nameWidth="190" chanceWidth="54" />
 
 	<colors row="000000" altRow="" groupText="BDB76B" headerText="808080" headerValue="B09878" title="FFFFFF" info="FFFFFF" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
 

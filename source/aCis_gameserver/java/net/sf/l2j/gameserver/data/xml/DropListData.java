@@ -39,6 +39,8 @@ public class DropListData implements IXmlReader
 	private int _headerGap;
 	private int _titleHeight;
 	private int _infoHeight;
+	private String _titleAlign;
+	private String _infoAlign;
 
 	private int _iconWidth;
 	private int _nameWidth;
@@ -137,6 +139,8 @@ public class DropListData implements IXmlReader
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
 				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
 				_infoHeight = Math.max(1, parseInt(attrs, "infoHeight", _infoHeight));
+				_titleAlign = parseAlign(attrs, "titleAlign", _titleAlign);
+				_infoAlign = parseAlign(attrs, "infoAlign", _infoAlign);
 
 				_iconWidth = Math.max(1, parseInt(attrs, "iconWidth", _iconWidth));
 				_nameWidth = Math.max(1, parseInt(attrs, "nameWidth", _nameWidth));
@@ -225,6 +229,8 @@ public class DropListData implements IXmlReader
 		_headerGap = 6;
 		_titleHeight = 18;
 		_infoHeight = 18;
+		_titleAlign = "left";
+		_infoAlign = "left";
 
 		_iconWidth = 36;
 		_nameWidth = 190;
@@ -312,6 +318,30 @@ public class DropListData implements IXmlReader
 			LOGGER.warn("The drop list attribute '{}' holds '{}', which isn't a number ; {} is used instead.", name, value, defaultValue);
 			return defaultValue;
 		}
+	}
+
+	/**
+	 * The alignment lands as is on the "align" attribute of a generated cell, so a typo would silently make the client fall back to its own default rather than to the value of the datapack.
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @param defaultValue : The value returned when the attribute is missing, empty or not a known alignment.
+	 * @return The parsed alignment, being one of "left", "center" and "right".
+	 */
+	private String parseAlign(NamedNodeMap attrs, String name, String defaultValue)
+	{
+		final String value = parseTrimmed(attrs, name);
+		if (value == null)
+			return defaultValue;
+
+		final String align = value.toLowerCase();
+
+		if (!align.equals("left") && !align.equals("center") && !align.equals("right"))
+		{
+			LOGGER.warn("The drop list attribute '{}' holds '{}', which isn't an alignment ; {} is used instead.", name, value, defaultValue);
+			return defaultValue;
+		}
+
+		return align;
 	}
 
 	/**
@@ -445,6 +475,22 @@ public class DropListData implements IXmlReader
 	public int getInfoHeight()
 	{
 		return _infoHeight;
+	}
+
+	/**
+	 * @return The alignment of the caption band opening the header of the first page, "left" lining it up with the captions of the group headers of the list.
+	 */
+	public String getTitleAlign()
+	{
+		return _titleAlign;
+	}
+
+	/**
+	 * @return The alignment of the notice band closing the header of the first page.
+	 */
+	public String getInfoAlign()
+	{
+		return _infoAlign;
 	}
 
 	/**
