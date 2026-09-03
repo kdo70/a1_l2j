@@ -88,8 +88,24 @@ public class AttackableAI<T extends Attackable> extends NpcAI<T>
 				}
 				else
 					thinkWander();
-			}, _currentIntention.getTimer() * 1000L);
+			}, getRandomizedWanderDelay());
 		}
+	}
+	
+	/**
+	 * @return The WANDER intention timer in milliseconds, altered by +/- 40%.<br>
+	 *         <br>
+	 *         Attackables sharing the same template share the very same wander timer, and their AI ticks used to be
+	 *         aligned on a single world-wide boundary. Randomizing that delay makes each of them pick its own moment to
+	 *         move, instead of the whole spawn group stepping off at once.
+	 */
+	private long getRandomizedWanderDelay()
+	{
+		final long delay = _currentIntention.getTimer() * 1000L;
+		if (delay <= 0)
+			return 0;
+		
+		return Math.max(1000L, (delay * Rnd.get(60, 140)) / 100L);
 	}
 	
 	@Override

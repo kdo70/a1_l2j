@@ -652,6 +652,32 @@ public class Quest
 	 */
 	public final boolean startQuestTimerAtFixedRate(String name, Npc npc, Player player, long initial, long period)
 	{
+		return startQuestTimer(name, npc, player, initial, period, false);
+	}
+	
+	/**
+	 * Add new {@link QuestTimer}, if it doesn't exist already.<br>
+	 * <br>
+	 * The timer is repeatable, but unlike {@link #startQuestTimerAtFixedRate(String, Npc, Player, long, long)} its
+	 * first tick is spread over the whole period and each following period is altered by +/- 30%.<br>
+	 * <br>
+	 * Use it for ambient behaviors (idle social animations, random shouts), so {@link Npc}s created by a single spawn
+	 * pass - which otherwise share the very same timer phase - don't act in lockstep. Don't use it for anything relying
+	 * on an exact timing (cinematics, spawn cycles, counters).
+	 * @param name : The name of the timer (can't be null).
+	 * @param npc : The {@link Npc} associated with the timer (optional, can be null).
+	 * @param player : The {@link Player} associated with the timer (optional, can be null).
+	 * @param initial : Time in milliseconds to fire the timer (initially), before randomization.
+	 * @param period : Time in milliseconds to fire the timer repeatedly, before randomization.
+	 * @return True, if new {@link QuestTimer} has been created. False, if already exists.
+	 */
+	public final boolean startQuestTimerAtRandomRate(String name, Npc npc, Player player, long initial, long period)
+	{
+		return startQuestTimer(name, npc, player, initial, period, true);
+	}
+	
+	private boolean startQuestTimer(String name, Npc npc, Player player, long initial, long period, boolean isRandomized)
+	{
 		// Name must exist.
 		if (name == null)
 		{
@@ -664,7 +690,7 @@ public class Quest
 			return false;
 		
 		// Add new timer.
-		_timers.add(new QuestTimer(this, name, npc, player, initial, period));
+		_timers.add(new QuestTimer(this, name, npc, player, initial, period, isRandomized));
 		return true;
 	}
 	

@@ -38,7 +38,7 @@ public class Wizard extends WizardBase
 			npc.broadcastNpcShout(NpcStringId.get(shoutMsg1));
 		
 		if (getNpcIntAIParam(npc, "MoveAroundSocial") > 0 || getNpcIntAIParam(npc, "ShoutMsg2") > 0 || getNpcIntAIParam(npc, "ShoutMsg3") > 0)
-			startQuestTimerAtFixedRate("1001", npc, null, 10000, 10000);
+			startQuestTimerAtRandomRate("1001", npc, null, 10000, 10000);
 		
 		startQuestTimerAtFixedRate("1002", npc, null, 10000, 10000);
 		

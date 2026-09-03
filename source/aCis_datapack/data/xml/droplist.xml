@@ -198,7 +198,7 @@
 <list>
 	<layout width="280" rowHeight="36" groupHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="30" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" infoHeight="18" listGap="8" iconWidth="36" nameWidth="190" chanceWidth="54" />
 
-	<colors row="000000" altRow="" groupText="LEVEL" headerText="B09878" headerValue="FFFFFF" title="LEVEL" info="808080" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
+	<colors row="000000" altRow="" groupText="BDB76B" headerText="808080" headerValue="B09878" title="FFFFFF" info="FFFFFF" name="" count="B09878" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" disabled="707070" page="" activePage="LEVEL" highChanceFrom="80" mediumChanceFrom="5" />
 
-	<labels drop="Дроп" spoil="Спойл" champion="Чемпион" statsTitle="Боевые характеристики" listInfo="Drop chances are per single kill." hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" numberPrefix=" #" countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" empty="Здесь ничего не выпадает" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels drop="Category" spoil="Spoil" champion="Champion" statsTitle="Боевые характеристики" listInfo="List of possible awards" hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" numberPrefix=" №" countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" empty="-" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 </list>

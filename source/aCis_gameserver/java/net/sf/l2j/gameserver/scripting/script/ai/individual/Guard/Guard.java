@@ -28,7 +28,7 @@ public class Guard extends DefaultNpc
 		final int moveAroundSocial = getNpcIntAIParam(npc, "MoveAroundSocial");
 		
 		if (moveAroundSocial > 0 || moveAroundSocial1 > 0)
-			startQuestTimerAtFixedRate("1671", npc, null, 10000, 10000);
+			startQuestTimerAtRandomRate("1671", npc, null, 10000, 10000);
 		
 		startQuestTimerAtFixedRate("9903", npc, null, 60000, 60000);
 		

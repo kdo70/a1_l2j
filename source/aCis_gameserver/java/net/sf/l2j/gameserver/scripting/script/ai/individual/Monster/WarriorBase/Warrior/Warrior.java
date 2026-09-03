@@ -341,7 +341,7 @@ public class Warrior extends WarriorBase
 			npc.broadcastNpcShout(NpcStringId.getNpcMessage(shoutMsg1));
 		
 		if (getNpcIntAIParam(npc, "MoveAroundSocial") > 0 || getNpcIntAIParam(npc, "ShoutMsg2") > 0 || getNpcIntAIParam(npc, "ShoutMsg3") > 0)
-			startQuestTimerAtFixedRate("1001", npc, null, 10000, 10000);
+			startQuestTimerAtRandomRate("1001", npc, null, 10000, 10000);
 		
 		super.onCreated(npc);
 	}
