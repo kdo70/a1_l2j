@@ -29,8 +29,24 @@
 		              the padding. Raise it until the scrollbar shows up on every tab, no more.
 
 		<table id="areas">   : columns of the areas list page. Ids : name, price, capital.
+		<table id="mixed">   : same page, used by the tab mixing areas and direct points - it shows a
+		                      level where "areas" shows a capital. Ids : name, price, lvl.
 		<table id="points">  : columns of the teleport points list page. Ids : name, price, lvl.
 		<table id="popular"> : columns of the most used points page. Ids : name, price, lvl.
+
+		Those four ids are the defaults ; a tab picks any other <table> through its "table" attribute,
+		which is how two tabs of the same kind can own different columns. Add as many tables as needed.
+		That attribute describes the list the tab itself generates : the sub lists opened from an areas
+		tab are pages of their own, and always use the "points" table.
+
+		Column ids the script knows, whatever the page :
+		  name    : the destination, itself the teleport link (or the link opening the sub list).
+		  price   : the price to pay.
+		  capital : on an areas row, the "capital" shortcut of the area ; on a direct row without any
+		            capital of its own, its level ; on a points row, the level.
+		  lvl     : the monster level. A row leading to a sub list shows the "locked" label instead,
+		            since a whole area owns no level of its own.
+		An unknown id renders an empty cell, and the columns are drawn in the order they are written.
 
 		overhead : height, in pixels, everything but the tab bar and the list rows takes on the HTM of
 		           that page - separators, headline, header row and the %footer% row. Substracted from
@@ -70,8 +86,7 @@
 		disabled      : everything out of reach - locked points, unreachable capitals, empty lists.
 		page / activePage : page selector links, and the current page.
 		level         : monster level shown on the "lvl" column of the lists, and on the third column of
-		                a direct row of the areas list. It also colors the "list" label of the capital
-		                column.
+		                a direct row of the areas list.
 
 	<labels>
 		Every generated text of the dialog. The static texts live on the HTMs of
@@ -79,11 +94,11 @@
 
 		noble    : label shown on the "lvl" column, when the point requires noblesse.
 		locked   : label shown on the "lvl" column, when the point is out of reach, or when its monster
-		           levels are unset.
+		           levels are unset. It also fills the third column of the areas list, on a row leading
+		           to a sub list without any "capital" shortcut - a whole area owns no level of its own.
 		free     : label shown on the price column, when the teleport is free.
 		empty    : label shown instead of an empty list.
 		back     : label of the link leading back to the areas list, shown on the left of the footer row.
-		list     : label shown on the capital column, when the row leads to a sub list instead of teleporting.
 		prevPage / nextPage : labels of the page selector arrows, shown on the right of the footer row.
 		popupSeparator    : written between the destination and its price, on the confirmation box
 		                    shown before a teleport. Beware, a double dash can't be written inside
@@ -113,13 +128,16 @@
 		                            they are written. On such a direct row, the name itself is the
 		                            teleport link and the third column shows its monster level ; on a
 		                            regular row leading to a sub list, that column shows the "capital"
-		                            shortcut when set, or the "list" label of <labels> otherwise.
+		                            shortcut when set, or the "locked" label of <labels> otherwise.
 		- holding <loc> nodes only: generates the points list page (locations.htm), without any area.
 		- type="popular"          : generates the most used points page (popular.htm).
 		- page="somefile.htm"     : shows an additional datapack HTM of the script folder.
 		- bypass="..."            : any regular bypass, handled by the core (multisell, quest, ...).
 		name / color              : label and color of the tab, the default color being the "tab" one of
 		                            <colors>. %objectId% is supported on bypasses.
+		table                     : id of the <table> of <layout> used to render the list of this tab.
+		                            Unset uses the default one of the kind of tab : "areas", "points"
+		                            or "popular". The sub lists of an areas tab always use "points".
 		intro / introHeight       : optional HTM fragment of the script folder, shown above the tab bar
 		                            of the areas list page, and its height in pixels. Since the script
 		                            can't measure a text on its own, that height is what keeps the page
@@ -144,25 +162,30 @@
 <list>
 	<layout width="280" rowHeight="18" headerHeight="18" tabHeight="18" tabColumns="4" maxPages="10" pageHeight="390" ellipsis="...">
 		<table id="areas" overhead="104">
-			<column id="name" header="Направление" width="150" maxChars="22" align="left" />
-			<column id="price" header="Цена" width="65" maxChars="0" align="left" />
-			<column id="capital" header="Столица" width="65" maxChars="13" align="right" />
+			<column id="name" header="Destination" width="135" maxChars="22" align="left" />
+			<column id="price" header="Price" width="60" maxChars="0" align="left" />
+			<column id="capital" header="Capital" width="85" maxChars="14" align="left" />
+		</table>
+		<table id="mixed" overhead="104">
+			<column id="name" header="Destination" width="150" maxChars="25" align="left" />
+			<column id="price" header="Price" width="75" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
 		</table>
 		<table id="points" overhead="96">
-			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
-			<column id="price" header="Цена" width="75" maxChars="0" align="left" />
-			<column id="lvl" header="Ур." width="55" maxChars="0" align="center" />
+			<column id="name" header="Location" width="150" maxChars="25" align="left" />
+			<column id="price" header="Price" width="75" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
 		</table>
 		<table id="popular" overhead="96">
-			<column id="name" header="Локация" width="150" maxChars="25" align="left" />
-			<column id="price" header="Цена" width="75" maxChars="0" align="left" />
-			<column id="lvl" header="Ур." width="55" maxChars="0" align="center" />
+			<column id="name" header="Location" width="150" maxChars="25" align="left" />
+			<column id="price" header="Price" width="75" maxChars="0" align="left" />
+			<column id="lvl" header="Level" width="55" maxChars="0" align="center" />
 		</table>
 	</layout>
 
 	<colors row="000000" altRow="" header="000000" headerText="9F9F9F" title="8F8F8F" tabBar="000000" tab="FFFFFF" activeTab="LEVEL" name="" point="8F8F8F" price="LEVEL" free="00FF00" disabled="707070" page="" activePage="LEVEL" level="FFFFFF" />
 
-	<labels noble="noble" locked="-" free="0" empty="Пока никто никуда не отправлялся." back="&lt;&lt; К списку" list="List" prevPage="&lt;&lt;" nextPage="&gt;&gt;" popupSeparator=" за " currencyChars="1" currencyLowerCase="true" />
+	<labels noble="noble" locked="-" free="0" empty="Пока никто никуда не отправлялся." back="&lt;&lt; К списку" prevPage="&lt;&lt;" nextPage="&gt;&gt;" popupSeparator=" за " currencyChars="1" currencyLowerCase="true" />
 
 	<!-- Town gatekeepers. -->
 	<npc id="30006" menu="0" />
@@ -187,12 +210,12 @@
 	<menu id="0">
 		<!-- The "capital" attribute is shown on the third column of the areas list, as a direct teleport link to the first <loc> of the area. Leave it empty to show the "list" label of <labels> instead. -->
 		<item name="Города" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 0">
-			<area name="Town of Dion" capital="Teleport">
+			<area name="Town of Dion" capital="Dion">
 				<loc id="1" name="Town of Dion" point="" type="STANDARD" x="15637" y="142947" z="-2696" castleId="2"/>
 				<loc id="2" lvl="47" name="Cruma Marshlands" point="" type="STANDARD" x="5106" y="126916" z="-3664"/>
 				<loc id="3" lvl="47" name="Cruma Marshlands" point="Center" type="NOBLE" x="5941" y="125455" z="-3400"/>
 				<loc id="4" lvl="30-33" name="Cruma Tower" point="" type="STANDARD" x="17225" y="114173" z="-3440"/>
-				<loc id="5" name="Cruma Tower" point="First Floor" type="NOBLE" x="17724" y="113950" z="-11672"/>
+				<loc id="5" lvl="41-43" name="Cruma Tower" point="First Floor" type="NOBLE" x="17724" y="113950" z="-11672"/>
 				<loc id="6" lvl="46-47" name="Cruma Tower" point="Second Floor" type="NOBLE" x="17723" y="108284" z="-9056"/>
 				<loc id="7" lvl="55" name="Fortress of Resistanance" point="" type="STANDARD" x="47382" y="111278" z="-2104"/>
 				<loc id="8" lvl="24-26" name="Plains of Dion" point="" type="STANDARD" x="630" y="179184" z="-3720"/>
@@ -201,15 +224,15 @@
 				<loc id="11" lvl="31-34" name="Execution Ground" point="" type="NOBLE" x="46165" y="150008" z="-3208"/>
 				<loc id="12" lvl="31-32" name="Floran Agricultural Area" point="" type="NOBLE" x="15227" y="161866" z="-3608"/>
 			</area>
-			<area name="Town of Gludio" capital="Teleport">
+			<area name="Town of Gludio" capital="Gludio">
 				<loc id="13" name="Town of Gludio" point="" type="STANDARD" x="-12739" y="122740" z="-3112" castleId="1"/>
-				<loc id="14" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
-				<loc id="15" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
+				<loc id="14" lvl="16-19" name="Ruins of Agony" point="" type="STANDARD" x="-41248" y="122848" z="-2904"/>
+				<loc id="15" lvl="19-23" name="Ruins of Despair" point="" type="STANDARD" x="-19120" y="136816" z="-3752"/>
 				<loc id="16" lvl="25-31" name="The Ant Nest" point="" type="STANDARD" x="-9959" y="176184" z="-4160"/>
 				<loc id="17" lvl="22-23" name="Windawood Manor" point="" type="STANDARD" x="-28327" y="155125" z="-3496"/>
 				<loc id="18" lvl="18-20" name="Evil Hunting Grounds" point="" type="NOBLE" x="-6989" y="109503" z="-3040"/>
 			</area>
-			<area name="Town of Giran" capital="Teleport">
+			<area name="Town of Giran" capital="Giran">
 				<loc id="19" name="Town of Giran" point="" type="STANDARD" x="83393" y="147975" z="-3400" castleId="3"/>
 				<loc id="20" name="Giran Harbor" point="" type="STANDARD" x="47938" y="186864" z="-3480"/>
 				<loc id="21" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105918" y="109759" z="-3170"/>
@@ -224,9 +247,9 @@
 				<loc id="30" lvl="30-32" name="Breka's Stronghold" point="" type="STANDARD" x="85546" y="131328" z="-3672"/>
 				<loc id="31" lvl="33-35" name="Gorgon Flower Garden" point="" type="NOBLE" x="113553" y="134813" z="-3668"/>
 			</area>
-			<area name="Town of Goddard" capital="Teleport">
+			<area name="Town of Goddard" capital="Goddard">
 				<loc id="32" name="Town of Goddard" point="" type="STANDARD" x="147964" y="-55305" z="-2728" castleId="7"/>
-				<loc id="33" name="Varka Silenos" point="Village" type="NOBLE" x="107929" y="-52248" z="-2408"/>
+				<loc id="33" lvl="80" name="Varka Silenos" point="Village" type="NOBLE" x="107929" y="-52248" z="-2408"/>
 				<loc id="34" lvl="77-80" name="Varka Silenos" point="Stronghold" type="STANDARD" x="125740" y="-40864" z="-3736"/>
 				<loc id="35" lvl="80" name="Ketra Orc" point="Village" type="NOBLE" x="149817" y="-80053" z="-5576"/>
 				<loc id="36" lvl="68-69" name="Ketra Orc" point="Outpost" type="STANDARD" x="146990" y="-67128" z="-3640"/>
@@ -234,18 +257,18 @@
 				<loc id="38" lvl="73-76" name="Hot Springs" point="Center" type="NOBLE" x="144625" y="-101291" z="-3384"/>
 				<loc id="39" lvl="68-69" name="Wall of Argos" point="" type="STANDARD" x="164564" y="-48145" z="-3536"/>
 				<loc id="40" lvl="72-75" name="Wall of Argos" point="Center" type="NOBLE" x="183140" y="-53307" z="-1896"/>
-				<loc id="41" name="Monastery of Silence" point="Entry" type="STANDARD" x="124161" y="-74828" z="-2904"/>
-				<loc id="42" name="Monastery of Silence" point="Exit" type="NOBLE" x="106414" y="-87799" z="-2920"/>
+				<loc id="41" lvl="78" name="Monastery of Silence" point="Entry" type="STANDARD" x="124161" y="-74828" z="-2904"/>
+				<loc id="42" lvl="78" name="Monastery of Silence" point="Exit" type="NOBLE" x="106414" y="-87799" z="-2920"/>
 				<loc id="43" lvl="65-69" name="Devil's Pass" point="" type="NOBLE" x="106349" y="-61870" z="-2904"/>
 				<loc id="44" lvl="69-70" name="Garden of Wild Beasts" point="" type="NOBLE" x="132997" y="-60608" z="-2960"/>
 				<loc id="45" lvl="70-74" name="Shrine of Loyalty" point="" type="NOBLE" x="187987" y="-59566" z="-2826"/>
 				<loc id="46" lvl="80-81" name="Four Sepulchers" point="" type="NOBLE" x="178127" y="-84435" z="-7215"/>
 				<loc id="47" lvl="79-80" name="Imperial Tomb" point="" type="NOBLE" x="186699" y="-75915" z="-2826"/>
-				<loc id="48" name="Forge of the Gods" point="Entry" type="NOBLE" x="169533" y="-116228" z="-2312"/>
+				<loc id="48" lvl="79-80" name="Forge of the Gods" point="Entry" type="NOBLE" x="169533" y="-116228" z="-2312"/>
 				<loc id="49" lvl="79-80" name="Forge of the Gods" point="Top Level" type="NOBLE" x="173436" y="-112725" z="-3680"/>
 				<loc id="50" lvl="80" name="Forge of the Gods" point="Lower Level" type="NOBLE" x="180260" y="-111913" z="-5851"/>
 			</area>
-			<area name="Town of Aden" capital="Teleport">
+			<area name="Town of Aden" capital="Aden">
 				<loc id="51" name="Town of Aden" point="" type="STANDARD" x="146811" y="25810" z="-2008" castleId="5"/>
 				<loc id="52" lvl="54-58" name="Forsaken Plains" point="" type="STANDARD" x="168217" y="37990" z="-4072"/>
 				<loc id="53" lvl="53-62" name="Seal of Shilen" point="" type="STANDARD" x="184742" y="19745" z="-3168"/>
@@ -266,18 +289,18 @@
 				<loc id="68" lvl="40-45" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112"/>
 				<loc id="69" lvl="53-55" name="Anghel Waterfall" point="" type="NOBLE" x="166182" y="91560" z="-3168"/>
 			</area>
-			<area name="Town of Schuttgart" capital="Teleport">
+			<area name="Town of Schuttgart" capital="Schuttgart">
 				<loc id="70" name="Town of Schuttgard" point="" type="STANDARD" x="87053" y="-143387" z="-1288" castleId="9"/>
 				<loc id="71" lvl="44-49" name="Den of Evil" point="" type="STANDARD" x="68693" y="-110438" z="-1904"/>
 				<loc id="72" lvl="30-34" name="Plunderous Plains" point="" type="STANDARD" x="111965" y="-154172" z="-1528"/>
 				<loc id="73" lvl="55" name="Ice Merchant Cabin" point="" type="STANDARD" x="113903" y="-108752" z="-848"/>
 				<loc id="74" lvl="25" name="Crypts of Disgrace" point="" type="STANDARD" x="47692" y="-115745" z="-3744"/>
 				<loc id="75" lvl="48-51" name="Pavel Ruins" point="" type="STANDARD" x="91280" y="-117152" z="-3928"/>
-				<loc id="76" name="Frost Lake" point="" type="NOBLE" x="107577" y="-122392" z="-3632"/>
+				<loc id="76" lvl="53-58" name="Frost Lake" point="" type="NOBLE" x="107577" y="-122392" z="-3632"/>
 				<loc id="77" lvl="25-27" name="Crypts of Disgrace" point="Center" type="NOBLE" x="44221" y="-114232" z="-2784"/>
 				<loc id="78" lvl="38-40" name="Sky Wagon Relic" point="" type="NOBLE" x="121618" y="-141554" z="-1496"/>
 			</area>
-			<area name="Town of Rune" capital="Teleport">
+			<area name="Town of Rune" capital="Rune">
 				<loc id="79" name="Town of Rune" point="" type="STANDARD" x="43831" y="-47748" z="-792" castleId="8"/>
 				<loc id="80" lvl="68" name="Wild Beast Pastures" point="" type="STANDARD" x="43805" y="-88010" z="-2752"/>
 				<loc id="81" lvl="60-62" name="Valley of Saints" point="" type="STANDARD" x="65307" y="-71445" z="-3688"/>
@@ -285,20 +308,20 @@
 				<loc id="83" lvl="63-68" name="Forest of the Dead" point="" type="STANDARD" x="52107" y="-54328" z="-3158"/>
 				<loc id="84" lvl="72-73" name="Forest of the Dead" point="Center" type="NOBLE" x="54425" y="-41692" z="-3072"/>
 				<loc id="85" lvl="66-69" name="Swamp of Screams" point="" type="STANDARD" x="69340" y="-50203" z="-3314"/>
-				<loc id="86" name="Monastery of Silence" point="Entry" type="STANDARD" x="124161" y="-74828" z="-2904"/>
-				<loc id="87" name="Monastery of Silence" point="Exit" type="NOBLE" x="106414" y="-87799" z="-2920"/>
+				<loc id="86" lvl="78" name="Monastery of Silence" point="Entry" type="STANDARD" x="124161" y="-74828" z="-2904"/>
+				<loc id="87" lvl="78" name="Monastery of Silence" point="Exit" type="NOBLE" x="106414" y="-87799" z="-2920"/>
 				<loc id="88" lvl="72-73" name="Cursed Village" point="" type="NOBLE" x="57670" y="-41672" z="-3154"/>
 				<loc id="89" lvl="72-78" name="Stakato Nest" point="" type="NOBLE" x="90355" y="-44088" z="-2144"/>
 			</area>
-			<area name="Town of Heine" capital="Teleport">
+			<area name="Town of Heine" capital="Heine">
 				<loc id="90" name="Town of Heine" point="" type="STANDARD" x="111385" y="219338" z="-3544" castleId="6"/>
 				<loc id="91" name="Giran Harbor" point="" type="STANDARD" x="47935" y="186810" z="-3420"/>
 				<loc id="92" lvl="35-39" name="Field of Silence" point="" type="STANDARD" x="91088" y="182384" z="-3192"/>
-				<loc id="93" name="Field of Whispers" point="" type="STANDARD" x="74592" y="207656" z="-3032"/>
+				<loc id="93" lvl="35-37" name="Field of Whispers" point="" type="STANDARD" x="74592" y="207656" z="-3032"/>
 				<loc id="94" lvl="40-41" name="Alligator Island" point="" type="STANDARD" x="115583" y="192261" z="-3488"/>
 				<loc id="95" lvl="41-43" name="Alligator Island" point="Center" type="NOBLE" x="113708" y="178387" z="-3232"/>
-				<loc id="96" name="Garden of Eva" point="" type="STANDARD" x="84413" y="234334" z="-3656"/>
-				<loc id="97" name="Field of Silence" point="Western" type="NOBLE" x="69748" y="186111" z="-2872"/>
+				<loc id="96" lvl="38-42" name="Garden of Eva" point="" type="STANDARD" x="84413" y="234334" z="-3656"/>
+				<loc id="97" lvl="37-39" name="Field of Silence" point="Western" type="NOBLE" x="69748" y="186111" z="-2872"/>
 				<loc id="98" lvl="36-37" name="Field of Whispers" point="Eastern" type="NOBLE" x="97786" y="209303" z="-3040"/>
 				<loc id="99" lvl="40-42" name="Inside the Garden of Eva" point="" type="NOBLE" x="82693" y="242220" z="-6712"/>
 				<loc id="100" lvl="43-45" name="Garden of Eva" point="2nd level" type="NOBLE" x="79248" y="247390" z="-8816"/>
@@ -306,26 +329,26 @@
 				<loc id="102" lvl="43-50" name="Garden of Eva" point="4th level" type="NOBLE" x="78721" y="253309" z="-9840"/>
 				<loc id="103" lvl="47-50" name="Garden of Eva" point="5th level" type="NOBLE" x="82570" y="252464" z="-10592"/>
 			</area>
-			<area name="Town of Oren" capital="Teleport">
+			<area name="Town of Oren" capital="Oren">
 				<loc id="104" name="Town of Oren" point="" type="STANDARD" x="82917" y="53173" z="-1488" castleId="4"/>
 				<loc id="105" lvl="42" name="Ivory Tower" point="" type="STANDARD" x="85391" y="16228" z="-3640" castleId="4"/>
-				<loc id="106" name="Hunters Village" point="" type="STANDARD" x="117110" y="76883" z="-2670"/>
+				<loc id="106" lvl="40-42" name="Hunters Village" point="" type="STANDARD" x="117110" y="76883" z="-2670"/>
 				<loc id="107" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105884" y="109744" z="-3170"/>
 				<loc id="108" lvl="57-60" name="Skyshadow Meadow" point="" type="STANDARD" x="89914" y="46276" z="-3616"/>
 				<loc id="109" lvl="35-40" name="Plains of the Lizardmen" point="" type="STANDARD" x="87252" y="85514" z="-3056"/>
 				<loc id="110" lvl="50-54" name="Outlaw Forest" point="" type="STANDARD" x="91539" y="-12204" z="-2440"/>
 				<loc id="111" lvl="40-42" name="Sea of Spores" point="" type="STANDARD" x="64328" y="26803" z="-3768"/>
 				<loc id="112" lvl="41-48" name="Forest of Evil" point="" type="NOBLE" x="93218" y="16969" z="-3904"/>
-				<loc id="113" name="Timak Outpost" point="" type="NOBLE" x="67097" y="68815" z="-3648"/>
+				<loc id="113" lvl="42-45" name="Timak Outpost" point="" type="NOBLE" x="67097" y="68815" z="-3648"/>
 				<loc id="114" lvl="60-65" name="Altar of Rites" point="" type="NOBLE" x="-44566" y="77508" z="-3736"/>
 			</area>
 		</item>
 		<item name="Деревни" intro="intro.htm" introHeight="91" bypass="Quest GlobalGatekeeper List 1">
-			<area name="Floran Village" capital="Teleport">
+			<area name="Floran Village" capital="Floran">
 				<loc id="115" lvl="34-35" name="Floran Village" point="" type="STANDARD" x="17430" y="170103" z="-3506" />
 			</area>
-			<area name="Gludin Village" capital="Teleport">
-				<loc id="116" name="Gludin Village" point="" type="STANDARD" x="-80804" y="149833" z="-3040" />
+			<area name="Gludin Village" capital="Gludin">
+				<loc id="116" lvl="15-16" name="Gludin Village" point="" type="STANDARD" x="-80804" y="149833" z="-3040" />
 				<loc id="117" lvl="19-25" name="Lizardmen Dwellings" point="" type="STANDARD" x="-44763" y="203497" z="-3592" />
 				<loc id="118" lvl="15-18" name="Windmill Hill" point="" type="STANDARD" x="-75437" y="168800" z="-3632" />
 				<loc id="119" lvl="14-16" name="Harvesting Grounds" point="" type="STANDARD" x="-63736" y="101522" z="-3552" />
@@ -334,55 +357,55 @@
 				<loc id="122" lvl="24-34" name="Orc Barracks" point="" type="STANDARD" x="-89763" y="105359" z="-3576" />
 				<loc id="123" lvl="28-30" name="Windy Hill" point="" type="STANDARD" x="-88539" y="83389" z="-2864" />
 				<loc id="124" lvl="21-22" name="Abandoned Camp" point="" type="STANDARD" x="-49853" y="147089" z="-2784" />
-				<loc id="125" name="Wastelands" point="" type="STANDARD" x="-16526" y="208032" z="-3664" />
+				<loc id="125" lvl="22-25" name="Wastelands" point="" type="STANDARD" x="-16526" y="208032" z="-3664" />
 				<loc id="126" lvl="25-33" name="Wastelands" point="Western" type="NOBLE" x="-47506" y="179572" z="-3632" />
-				<loc id="127" name="Red Rock Ridge" point="" type="STANDARD" x="-42256" y="198333" z="-2800" />
+				<loc id="127" lvl="32-34" name="Red Rock Ridge" point="" type="STANDARD" x="-42256" y="198333" z="-2800" />
 			</area>
-			<area name="Hunters Village" capital="Teleport">
-				<loc id="128" name="Hunters Village" point="" type="STANDARD" x="117052" y="76905" z="-2704" />
+			<area name="Hunters Village" capital="Hunters">
+				<loc id="128" lvl="40-42" name="Hunters Village" point="" type="STANDARD" x="117052" y="76905" z="-2704" />
 				<loc id="129" lvl="52-56" name="Hardin's Academy" point="" type="STANDARD" x="105846" y="109762" z="-3170" castleId="3" />
 				<loc id="130" lvl="45-46" name="Enchanted Valley" point="Southern" type="STANDARD" x="124904" y="61992" z="-3973" />
-				<loc id="131" name="Enchanted Valley" point="Northern" type="STANDARD" x="104426" y="33746" z="-3825" />
+				<loc id="131" lvl="46-50" name="Enchanted Valley" point="Northern" type="STANDARD" x="104426" y="33746" z="-3825" />
 				<loc id="132" lvl="45-55" name="Enchanted Valley" point="Center" type="NOBLE" x="114674" y="44150" z="-3376" />
 				<loc id="133" lvl="43-45" name="Forest of Mirrors" point="" type="STANDARD" x="142065" y="81300" z="-3000" />
 				<loc id="134" lvl="53-55" name="Forest of Mirrors" point="Center" type="NOBLE" x="166080" y="75574" z="-2992" />
 				<loc id="135" lvl="40-45" name="Hunters Valley" point="" type="NOBLE" x="114306" y="86573" z="-3112" />
 			</area>
-			<area name="Talking Island Village" capital="Teleport">
+			<area name="Talking Island Village" capital="Talking Island">
 				<loc id="136" lvl="1-3" name="Talking Island Village" point="" type="STANDARD" x="-84153" y="244542" z="-3728" />
-				<loc id="137" name="Elven Ruins" point="" type="STANDARD" x="-112367" y="234703" z="-3688" />
+				<loc id="137" lvl="9-17" name="Elven Ruins" point="" type="STANDARD" x="-112367" y="234703" z="-3688" />
 				<loc id="138" lvl="9-10" name="Elven Ruins" point="Center" type="NOBLE" x="49315" y="248452" z="-5960" />
-				<loc id="139" name="Singing Waterfall" point="" type="STANDARD" x="-111728" y="244330" z="-3448" />
+				<loc id="139" lvl="10-17" name="Singing Waterfall" point="" type="STANDARD" x="-111728" y="244330" z="-3448" />
 				<loc id="140" lvl="13-15" name="Western Territory" point="" type="STANDARD" x="-106696" y="214691" z="-3424" />
 				<loc id="141" lvl="4-10" name="Obelisk of Victory" point="" type="STANDARD" x="-99586" y="237637" z="-3568" />
 			</area>
-			<area name="Elven Village" capital="Teleport">
-				<loc id="142" name="Elven Village" point="" type="STANDARD" x="46874" y="51457" z="-2976" />
+			<area name="Elven Village" capital="Elven">
+				<loc id="142" lvl="4-8" name="Elven Village" point="" type="STANDARD" x="46874" y="51457" z="-2976" />
 				<loc id="143" lvl="12-13" name="Elven Forest" point="" type="STANDARD" x="21362" y="51122" z="-3688" />
-				<loc id="144" name="Elven Fortress" point="" type="STANDARD" x="29294" y="74968" z="-3776" />
+				<loc id="144" lvl="10-13" name="Elven Fortress" point="" type="STANDARD" x="29294" y="74968" z="-3776" />
 				<loc id="145" lvl="56-58" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
 				<loc id="146" lvl="56-58" name="Neutral Zone" point="Center" type="NOBLE" x="-10612" y="75881" z="-3592" />
 			</area>
-			<area name="Dark Elven Village" capital="Teleport">
-				<loc id="147" name="Dark Elf Village" point="" type="STANDARD" x="9738" y="15567" z="-4568" />
-				<loc id="148" name="Dark Forest" point="" type="STANDARD" x="-22224" y="14168" z="-3232" />
-				<loc id="149" name="Dark Forest" point="Center" type="NOBLE" x="-22224" y="14168" z="-3232" />
+			<area name="Dark Elven Village" capital="Dark Elf">
+				<loc id="147" lvl="4-7" name="Dark Elf Village" point="" type="STANDARD" x="9738" y="15567" z="-4568" />
+				<loc id="148" lvl="10-12" name="Dark Forest" point="" type="STANDARD" x="-22224" y="14168" z="-3232" />
+				<loc id="149" lvl="10-12" name="Dark Forest" point="Center" type="NOBLE" x="-22224" y="14168" z="-3232" />
 				<loc id="150" lvl="13-14" name="Swampland" point="" type="STANDARD" x="-21966" y="40544" z="-3192" />
 				<loc id="151" lvl="16-18" name="Spider Nest" point="" type="STANDARD" x="-61095" y="75104" z="-3352" />
 				<loc id="152" lvl="56-58" name="Neutral Zone" point="" type="STANDARD" x="-10612" y="75881" z="-3592" />
 				<loc id="153" lvl="56-60" name="Neutral Zone" point="Center" type="NOBLE" x="-18415" y="85624" z="-3680" />
 				<loc id="154" lvl="15-22" name="School of Dark Arts" point="Center" type="NOBLE" x="-49185" y="49441" z="-5912" />
 			</area>
-			<area name="Orc Village" capital="Teleport">
-				<loc id="155" name="Orc Village" point="" type="STANDARD" x="-45177" y="-112512" z="-240" />
+			<area name="Orc Village" capital="Orc">
+				<loc id="155" lvl="1-3" name="Orc Village" point="" type="STANDARD" x="-45177" y="-112512" z="-240" />
 				<loc id="156" lvl="18-20" name="Immortal Plateau" point="" type="STANDARD" x="10983" y="-117484" z="-2464" />
 				<loc id="157" lvl="18-21" name="Immortal Plateau" point="Southern" type="STANDARD" x="-4190" y="-80040" z="-2696" />
-				<loc id="158" name="Immortal Plateau" point="Northern" type="NOBLE" x="-8804" y="-114748" z="-3030" />
-				<loc id="159" name="Cave of Trials" point="" type="STANDARD" x="9340" y="-112509" z="-2536" />
+				<loc id="158" lvl="12-22" name="Immortal Plateau" point="Northern" type="NOBLE" x="-8804" y="-114748" z="-3030" />
+				<loc id="159" lvl="18-20" name="Cave of Trials" point="" type="STANDARD" x="9340" y="-112509" z="-2536" />
 				<loc id="160" lvl="13-17" name="Frozen Waterfall" point="" type="STANDARD" x="8652" y="-139941" z="-1144" />
 			</area>
-			<area name="Dwarven Village" capital="Teleport">
-				<loc id="161" name="Dwarven Village" point="" type="STANDARD" x="115129" y="-178177" z="-912" />
+			<area name="Dwarven Village" capital="Dwarven">
+				<loc id="161" lvl="1-3" name="Dwarven Village" point="" type="STANDARD" x="115129" y="-178177" z="-912" />
 				<loc id="162" lvl="19-21" name="Mithril Mines" point="" type="STANDARD" x="171946" y="-173352" z="3440" />
 				<loc id="163" lvl="19-27" name="Mithril Mines" point="Center" type="NOBLE" x="175499" y="-181586" z="-904" />
 				<loc id="164" lvl="17-19" name="Abandoned Coal Mines" point="" type="STANDARD" x="139714" y="-177456" z="-1536" />
@@ -394,16 +417,18 @@
 		<!--
 			A tab mixing both kinds of rows, in the order they are written : a <loc> teleports right
 			away, an <area> opens its own sub list. Since an <area> is present, the tab is rendered as
-			an areas list page (areas.htm) instead of a flat points page - so the third column shows the
-			monster level of the direct rows, and the "list" label of <labels> for the ones opening a sub list.
+			an areas list page (areas.htm) instead of a flat points page.
 
-			Drop the <area> below and the tab falls back to the flat points page.
+			table="mixed" gives it a level column instead of the capital one of the "areas" table :
+			the direct rows show their own level, and the rows opening a sub list show the "locked"
+			label of <labels>, since a whole area owns no level. Drop that attribute to fall back on
+			the capital column, and drop the <area> below to fall back on the flat points page.
 		-->
-		<item name="Локации">
+		<item name="Локации" table="mixed">
 			<loc id="168" lvl="28-30" name="Monster Derby Track" point="" type="STANDARD" x="12661" y="181687" z="-3560"/>
 			<loc id="169" name="Coliseum" point="" type="STANDARD" x="146440" y="46723" z="-3400"/>
-			<loc id="170" name="Primeval Isle" point="Wharf" type="NOBLE" x="11320" y="-23504" z="-3640"/>
-			<!-- A sub list living next to the direct rows. An empty "capital" shows the "list" label of <labels> instead, since the row only opens the list. -->
+			<loc id="170" lvl="80" name="Primeval Isle" point="Wharf" type="NOBLE" x="11320" y="-23504" z="-3640"/>
+			<!-- A sub list living next to the direct rows. Its own level column shows the "locked" label, since the row only opens the list. -->
 			<area name="Подземелья" capital="">
 				<loc id="171" lvl="30-33" name="Cruma Tower" point="" type="STANDARD" x="17225" y="114173" z="-3440"/>
 				<loc id="172" lvl="25-31" name="The Ant Nest" point="" type="STANDARD" x="-9959" y="176184" z="-4160"/>

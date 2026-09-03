@@ -17,17 +17,19 @@ public class GatekeeperTab
 	private final String _name;
 	private final String _color;
 	private final GatekeeperTabType _type;
+	private final String _tableId;
 	private final String _bypass;
 	private final String _page;
 	private final String _intro;
 	private final int _introHeight;
 
-	public GatekeeperTab(int index, String name, String color, GatekeeperTabType type, String bypass, String page, String intro, int introHeight)
+	public GatekeeperTab(int index, String name, String color, GatekeeperTabType type, String tableId, String bypass, String page, String intro, int introHeight)
 	{
 		_index = index;
 		_name = name;
 		_color = color;
 		_type = type;
+		_tableId = tableId;
 		_bypass = bypass;
 		_page = page;
 		_intro = intro;
@@ -58,6 +60,16 @@ public class GatekeeperTab
 	public GatekeeperTabType getType()
 	{
 		return _type;
+	}
+
+	/**
+	 * A tab can pick any &lt;table&gt; of the layout through its "table" attribute, which is how two tabs of the very same {@link GatekeeperTabType} can own different columns - a tab mixing areas and
+	 * direct points wants a level column where a plain areas tab wants a capital one.
+	 * @return The id of the {@link GatekeeperTable} used to render the list of this tab, defaulting to the one of its {@link GatekeeperTabType}.
+	 */
+	public String getTableId()
+	{
+		return _tableId;
 	}
 
 	/**

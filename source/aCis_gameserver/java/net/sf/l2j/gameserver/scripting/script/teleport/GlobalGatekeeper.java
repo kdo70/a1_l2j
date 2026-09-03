@@ -223,10 +223,7 @@ public class GlobalGatekeeper extends Quest
 			return;
 
 		final GatekeeperData data = GatekeeperData.getInstance();
-		final GatekeeperTable table = data.getTable(GatekeeperData.AREAS_TABLE);
-		final GatekeeperColumn nameColumn = table.getColumn("name");
-		final GatekeeperColumn priceColumn = table.getColumn("price");
-		final GatekeeperColumn capitalColumn = table.getColumn("capital");
+		final GatekeeperTable table = data.getTable(tab.getTableId());
 
 		final List<GatekeeperArea> areas = tab.getAreas();
 		final int perPage = data.getRowsPerPage();
@@ -242,13 +239,17 @@ public class GlobalGatekeeper extends Quest
 		for (int i = first; i < last; i++)
 		{
 			final GatekeeperArea area = areas.get(i);
-			final GatekeeperPoint main = area.getMainPoint();
 
-			// A direct row teleports right away ; a regular one leads to the points list of its area.
-			final String name = (area.isDirect()) ? getFullNameLink(main, player, tab.getIndex(), FROM_AREAS, page, nameColumn.getMaxChars()) : "<a action=\"bypass -h Quest " + getName() + " Area " + tab.getIndex() + " " + i + " 0\">" + colorize(data.getNameColor(), escape(truncate(area.getName(), nameColumn.getMaxChars()))) + "</a>";
-			final String action = (area.isDirect()) ? getLevelText(main, player) : getCapitalText(area, player, tab.getIndex(), page, capitalColumn);
+			sb.append(getRowStart(i - first));
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), name), priceColumn.getCell(0, getPriceText(main, player)), capitalColumn.getCell(0, action), ROW_END);
+			boolean isFirst = true;
+			for (GatekeeperColumn column : table.getColumns())
+			{
+				sb.append(column.getCell((isFirst) ? data.getRowHeight() : 0, getAreaCell(column, area, player, tab.getIndex(), i, page)));
+				isFirst = false;
+			}
+
+			sb.append(ROW_END);
 		}
 
 		String content = getHtmlText("areas.htm");
@@ -269,10 +270,9 @@ public class GlobalGatekeeper extends Quest
 			return;
 
 		final GatekeeperData data = GatekeeperData.getInstance();
-		final GatekeeperTable table = data.getTable(GatekeeperData.POINTS_TABLE);
-		final GatekeeperColumn nameColumn = table.getColumn("name");
-		final GatekeeperColumn priceColumn = table.getColumn("price");
-		final GatekeeperColumn lvlColumn = table.getColumn("lvl");
+
+		// The table of the tab describes the list the tab itself generates ; the sub lists of an areas tab are a page of their own, whose overhead belongs to the points table.
+		final GatekeeperTable table = data.getTable((tab.isFlat()) ? tab.getTableId() : GatekeeperData.POINTS_TABLE);
 
 		final List<GatekeeperPoint> points = area.getPoints();
 		final int perPage = data.getRowsPerPage();
@@ -289,7 +289,16 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), lvlColumn.getCell(0, getLevelText(point, player)), ROW_END);
+			sb.append(getRowStart(i - first));
+
+			boolean isFirst = true;
+			for (GatekeeperColumn column : table.getColumns())
+			{
+				sb.append(column.getCell((isFirst) ? data.getRowHeight() : 0, getPointCell(column, point, player, tab.getIndex(), area.getIndex(), page)));
+				isFirst = false;
+			}
+
+			sb.append(ROW_END);
 		}
 
 		String content = getHtmlText("locations.htm");
@@ -311,10 +320,7 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final GatekeeperStatsManager stats = GatekeeperStatsManager.getInstance();
 
-		final GatekeeperTable table = data.getTable(GatekeeperData.POPULAR_TABLE);
-		final GatekeeperColumn nameColumn = table.getColumn("name");
-		final GatekeeperColumn priceColumn = table.getColumn("price");
-		final GatekeeperColumn lvlColumn = table.getColumn("lvl");
+		final GatekeeperTable table = data.getTable(tab.getTableId());
 
 		// Keep the points of this menu only, above the minimum amount of uses, up to the configured limit.
 		final List<GatekeeperPoint> points = stats.getRanking().stream().filter(id -> stats.getCount(id) >= data.getPopularMinCount()).map(id -> menu.getPoint(id)).filter(point -> point != null).limit(data.getPopularLimit()).toList();
@@ -336,7 +342,16 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), FROM_POPULAR, page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), lvlColumn.getCell(0, getLevelText(point, player)), ROW_END);
+			sb.append(getRowStart(i - first));
+
+			boolean isFirst = true;
+			for (GatekeeperColumn column : table.getColumns())
+			{
+				sb.append(column.getCell((isFirst) ? data.getRowHeight() : 0, getPointCell(column, point, player, tab.getIndex(), FROM_POPULAR, page)));
+				isFirst = false;
+			}
+
+			sb.append(ROW_END);
 		}
 
 		String content = getHtmlText("popular.htm");
@@ -473,17 +488,85 @@ public class GlobalGatekeeper extends Quest
 	}
 
 	/**
+	 * Rows are rendered column by column, out of the {@link GatekeeperTable} of the tab, so two tabs can show different columns of the very same areas list - a tab mixing areas and direct points
+	 * shows a level where a plain areas tab shows a capital.
+	 * @param column : The {@link GatekeeperColumn} to fill, whose id drives the content.
+	 * @param area : The {@link GatekeeperArea} to render.
+	 * @param player : The {@link Player} used to test conditions.
+	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
+	 * @param areaIndex : The index of the {@link GatekeeperArea} within its tab, used to build the bypass.
+	 * @param page : The current page of the areas list, used to build the bypass.
+	 * @return The content of the given cell, an empty {@link String} for an unknown column id.
+	 */
+	private String getAreaCell(GatekeeperColumn column, GatekeeperArea area, Player player, int tabIndex, int areaIndex, int page)
+	{
+		final GatekeeperData data = GatekeeperData.getInstance();
+		final GatekeeperPoint main = area.getMainPoint();
+
+		switch (column.getId())
+		{
+			case "name":
+				// A direct row teleports right away ; a regular one leads to the points list of its area.
+				return (area.isDirect()) ? getFullNameLink(main, player, tabIndex, FROM_AREAS, page, column.getMaxChars()) : "<a action=\"bypass -h Quest " + getName() + " Area " + tabIndex + " " + areaIndex + " 0\">" + colorize(data.getNameColor(), escape(truncate(area.getName(), column.getMaxChars()))) + "</a>";
+
+			case "price":
+				return getPriceText(main, player);
+
+			case "capital":
+				// A direct row owns no sub list to shortcut to ; it shows its own level, unless it defines a capital of its own.
+				return (area.isDirect() && area.getCapital().isEmpty()) ? getLevelText(main, player) : getCapitalText(area, player, tabIndex, page, column);
+
+			case "lvl":
+				// Only a direct row owns a level ; a whole area doesn't.
+				return (area.isDirect()) ? getLevelText(main, player) : colorize(data.getDisabledColor(), escape(data.getLockedLabel()));
+
+			default:
+				return "";
+		}
+	}
+
+	/**
+	 * @param column : The {@link GatekeeperColumn} to fill, whose id drives the content.
+	 * @param point : The {@link GatekeeperPoint} to render.
+	 * @param player : The {@link Player} used to test conditions.
+	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
+	 * @param areaIndex : The index of the current {@link GatekeeperArea}, {@link #FROM_POPULAR} when fired from the popular tab.
+	 * @param page : The currently shown page index, used to build the bypass.
+	 * @return The content of the given cell, an empty {@link String} for an unknown column id.
+	 */
+	private static String getPointCell(GatekeeperColumn column, GatekeeperPoint point, Player player, int tabIndex, int areaIndex, int page)
+	{
+		switch (column.getId())
+		{
+			case "name":
+				return getFullNameLink(point, player, tabIndex, areaIndex, page, column.getMaxChars());
+
+			case "price":
+				return getPriceText(point, player);
+
+			// "capital" is meaningless on a single point ; it is fed the level, so pointing a points tab at an areas table doesn't leave a blank column.
+			case "lvl":
+			case "capital":
+				return getLevelText(point, player);
+
+			default:
+				return "";
+		}
+	}
+
+	/**
 	 * @param area : The {@link GatekeeperArea} to render.
 	 * @param player : The {@link Player} used to test conditions.
 	 * @param tabIndex : The index of the current {@link GatekeeperTab}, used to build the bypass.
 	 * @param page : The current page of the areas list, used to build the bypass.
 	 * @param column : The {@link GatekeeperColumn} holding the cell, used to shorten the capital name.
-	 * @return The capital cell content, being a direct teleport link to the main point of the area - the list label when the area doesn't own a capital shortcut.
+	 * @return The capital cell content, being a direct teleport link to the main point of the area - the "locked" label of &lt;labels&gt; when the area doesn't own a capital shortcut, since a whole
+	 *         area doesn't own a level of its own.
 	 */
 	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page, GatekeeperColumn column)
 	{
 		if (area.getCapital().isEmpty())
-			return colorize(GatekeeperData.getInstance().getLevelColor(), escape(GatekeeperData.getInstance().getListLabel()));
+			return colorize(GatekeeperData.getInstance().getDisabledColor(), escape(GatekeeperData.getInstance().getLockedLabel()));
 
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final String capital = truncate(area.getCapital(), column.getMaxChars());

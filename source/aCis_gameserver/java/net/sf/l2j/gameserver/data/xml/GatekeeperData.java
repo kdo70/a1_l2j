@@ -87,7 +87,6 @@ public class GatekeeperData implements IXmlReader
 	private String _backLabel;
 	private String _prevPageLabel;
 	private String _nextPageLabel;
-	private String _listLabel;
 	private String _popupSeparator;
 	private int _currencyChars;
 	private boolean _isCurrencyLowerCase;
@@ -206,7 +205,6 @@ public class GatekeeperData implements IXmlReader
 				_backLabel = parseString(attrs, "back", _backLabel);
 				_prevPageLabel = parseString(attrs, "prevPage", _prevPageLabel);
 				_nextPageLabel = parseString(attrs, "nextPage", _nextPageLabel);
-				_listLabel = parseString(attrs, "list", _listLabel);
 				_popupSeparator = parseString(attrs, "popupSeparator", _popupSeparator);
 				_currencyChars = Math.max(0, parseInt(attrs, "currencyChars", _currencyChars));
 				_isCurrencyLowerCase = parseBool(attrs, "currencyLowerCase", _isCurrencyLowerCase);
@@ -276,7 +274,7 @@ public class GatekeeperData implements IXmlReader
 			}
 
 			final int index = tabIndex.getAndIncrement();
-			final GatekeeperTab tab = new GatekeeperTab(index, name, color, type, generateBypass(type, index, bypass, page), page, intro, parseInt(itemAttrs, "introHeight", 0));
+			final GatekeeperTab tab = new GatekeeperTab(index, name, color, type, findTableId(itemAttrs, type, menuId, name), generateBypass(type, index, bypass, page), page, intro, parseInt(itemAttrs, "introHeight", 0));
 
 			if (type == GatekeeperTabType.AREAS)
 			{
@@ -365,6 +363,33 @@ public class GatekeeperData implements IXmlReader
 		}
 
 		_menus.put(menuId, menu);
+	}
+
+	/**
+	 * The &lt;layout&gt; is parsed before the &lt;menu&gt;s, so an unknown table id is caught here rather than silently emptying a page at runtime.
+	 * @param attrs : The tab attributes.
+	 * @param type : The {@link GatekeeperTabType} of the tab, which drives the default table.
+	 * @param menuId : The menu id, only used to log a clear warning.
+	 * @param name : The tab name, only used to log a clear warning.
+	 * @return The id of the {@link GatekeeperTable} the tab renders its list with.
+	 */
+	private String findTableId(NamedNodeMap attrs, GatekeeperTabType type, int menuId, String name)
+	{
+		final String defaultId = switch (type)
+		{
+			case AREAS -> AREAS_TABLE;
+			case POINTS -> POINTS_TABLE;
+			case POPULAR -> POPULAR_TABLE;
+			default -> "";
+		};
+
+		final String tableId = parseToken(attrs, "table", defaultId);
+		if (tableId.isEmpty() || _tables.containsKey(tableId))
+			return tableId;
+
+		LOGGER.warn("The tab '{}' of the gatekeeper menu id {} refers to the missing layout table '{}' ; '{}' is used instead.", name, menuId, tableId, defaultId);
+
+		return defaultId;
 	}
 
 	private GatekeeperPoint parsePoint(Node locNode, String areaName, int areaPriceId, int areaPrice, int areaNoblePrice)
@@ -648,7 +673,6 @@ public class GatekeeperData implements IXmlReader
 		_backLabel = "<< back";
 		_prevPageLabel = "<<";
 		_nextPageLabel = ">>";
-		_listLabel = "List";
 		_popupSeparator = " -- ";
 		_currencyChars = 0;
 		_isCurrencyLowerCase = false;
@@ -962,7 +986,7 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The color of the monster level, shown on the "lvl" column of the lists - also used by the "list" label of the capital column.
+	 * @return The color of the monster level, shown on the "lvl" column of the lists.
 	 */
 	public String getLevelColor()
 	{
@@ -1007,14 +1031,6 @@ public class GatekeeperData implements IXmlReader
 	public String getBackLabel()
 	{
 		return _backLabel;
-	}
-
-	/**
-	 * @return The label shown on the capital column, when the row leads to a sub list instead of teleporting.
-	 */
-	public String getListLabel()
-	{
-		return _listLabel;
 	}
 
 	/**
