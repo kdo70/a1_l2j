@@ -165,9 +165,6 @@ public class GatekeeperData implements IXmlReader
 						return;
 					}
 
-					if (table.getWidth() != _width)
-						LOGGER.warn("The columns of the gatekeeper layout table '{}' sum up to {} instead of the layout width {} ; the rows won't be aligned.", tableId, table.getWidth(), _width);
-
 					_tables.put(tableId, table);
 				});
 			});
