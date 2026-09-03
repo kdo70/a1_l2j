@@ -12,7 +12,6 @@ import net.sf.l2j.commons.data.xml.IXmlReader;
 import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
 import net.sf.l2j.gameserver.enums.GatekeeperTabType;
-import net.sf.l2j.gameserver.enums.GatekeeperTerritory;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperArea;
 import net.sf.l2j.gameserver.model.gatekeeper.GatekeeperColumn;
@@ -79,7 +78,7 @@ public class GatekeeperData implements IXmlReader
 	private String _disabledColor;
 	private String _pageColor;
 	private String _activePageColor;
-	private String _territoryColor;
+	private String _levelColor;
 
 	private String _nobleLabel;
 	private String _lockedLabel;
@@ -193,7 +192,7 @@ public class GatekeeperData implements IXmlReader
 				_disabledColor = parseToken(attrs, "disabled", _disabledColor);
 				_pageColor = parseToken(attrs, "page", _pageColor);
 				_activePageColor = parseToken(attrs, "activePage", _activePageColor);
-				_territoryColor = parseToken(attrs, "territory", _territoryColor);
+				_levelColor = parseToken(attrs, "level", _levelColor);
 			});
 
 			forEach(listNode, "labels", labelsNode ->
@@ -381,10 +380,9 @@ public class GatekeeperData implements IXmlReader
 		// Noblesse points own their own default price, since they are usually free on retail.
 		final GatekeeperPointType type = parseEnum(attrs, GatekeeperPointType.class, "type", GatekeeperPointType.STANDARD);
 		final int defaultPrice = (type == GatekeeperPointType.NOBLE) ? areaNoblePrice : areaPrice;
-		final GatekeeperTerritory territory = parseEnum(attrs, GatekeeperTerritory.class, "territory", GatekeeperTerritory.FIELDS);
 		final int[] mobLevels = parseMobLevels(attrs, areaName);
 
-		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, territory, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), mobLevels[0], mobLevels[1], parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
+		final GatekeeperPoint point = new GatekeeperPoint(id, parseString(attrs, "name", areaName), parseString(attrs, "point", ""), type, parseInt(attrs, "priceId", areaPriceId), Math.max(-1, parseInt(attrs, "price", defaultPrice)), parseInt(attrs, "castleId", 0), parseInt(attrs, "minLevel", 1), parseInt(attrs, "maxLevel", 127), mobLevels[0], mobLevels[1], parseInt(attrs, "x", 0), parseInt(attrs, "y", 0), parseInt(attrs, "z", 0));
 
 		final GatekeeperPoint existing = _points.put(id, point);
 		if (existing != null)
@@ -608,13 +606,13 @@ public class GatekeeperData implements IXmlReader
 		final GatekeeperTable points = new GatekeeperTable(POINTS_TABLE, 96);
 		points.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
 		points.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
-		points.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
+		points.addColumn(new GatekeeperColumn("lvl", "Lvl", 38, 0, "center"));
 		_tables.put(points.getId(), points);
 
 		final GatekeeperTable popular = new GatekeeperTable(POPULAR_TABLE, 96);
 		popular.addColumn(new GatekeeperColumn("name", "Location", 150, 25, "left"));
 		popular.addColumn(new GatekeeperColumn("price", "Price", 92, 0, "left"));
-		popular.addColumn(new GatekeeperColumn("action", "", 38, 0, "right"));
+		popular.addColumn(new GatekeeperColumn("lvl", "Lvl", 38, 0, "center"));
 		_tables.put(popular.getId(), popular);
 	}
 
@@ -638,7 +636,7 @@ public class GatekeeperData implements IXmlReader
 		_disabledColor = "707070";
 		_pageColor = "";
 		_activePageColor = "LEVEL";
-		_territoryColor = "FFFFFF";
+		_levelColor = "FFFFFF";
 	}
 
 	private void setDefaultLabels()
@@ -964,15 +962,15 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The color of the territory type, shown on the action column of the teleport points lists.
+	 * @return The color of the monster level, shown on the "lvl" column of the lists - also used by the "list" label of the capital column.
 	 */
-	public String getTerritoryColor()
+	public String getLevelColor()
 	{
-		return _territoryColor;
+		return _levelColor;
 	}
 
 	/**
-	 * @return The label shown on the action column, when the point requires noblesse.
+	 * @return The label shown on the "lvl" column, when the point requires noblesse.
 	 */
 	public String getNobleLabel()
 	{
@@ -980,7 +978,7 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The label shown on the action column, when the point is unreachable.
+	 * @return The label shown on the "lvl" column, when the point is unreachable or when its monster levels are unknown.
 	 */
 	public String getLockedLabel()
 	{
@@ -1012,7 +1010,7 @@ public class GatekeeperData implements IXmlReader
 	}
 
 	/**
-	 * @return The label shown on the action column, when the row leads to a sub list instead of teleporting.
+	 * @return The label shown on the capital column, when the row leads to a sub list instead of teleporting.
 	 */
 	public String getListLabel()
 	{

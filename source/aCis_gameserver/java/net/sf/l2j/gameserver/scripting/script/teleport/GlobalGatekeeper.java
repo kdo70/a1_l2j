@@ -246,7 +246,7 @@ public class GlobalGatekeeper extends Quest
 
 			// A direct row teleports right away ; a regular one leads to the points list of its area.
 			final String name = (area.isDirect()) ? getFullNameLink(main, player, tab.getIndex(), FROM_AREAS, page, nameColumn.getMaxChars()) : "<a action=\"bypass -h Quest " + getName() + " Area " + tab.getIndex() + " " + i + " 0\">" + colorize(data.getNameColor(), escape(truncate(area.getName(), nameColumn.getMaxChars()))) + "</a>";
-			final String action = (area.isDirect()) ? getTerritoryText(main, player) : getCapitalText(area, player, tab.getIndex(), page, capitalColumn);
+			final String action = (area.isDirect()) ? getLevelText(main, player) : getCapitalText(area, player, tab.getIndex(), page, capitalColumn);
 
 			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), name), priceColumn.getCell(0, getPriceText(main, player)), capitalColumn.getCell(0, action), ROW_END);
 		}
@@ -272,7 +272,6 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperTable table = data.getTable(GatekeeperData.POINTS_TABLE);
 		final GatekeeperColumn nameColumn = table.getColumn("name");
 		final GatekeeperColumn priceColumn = table.getColumn("price");
-		final GatekeeperColumn actionColumn = table.getColumn("action");
 		final GatekeeperColumn lvlColumn = table.getColumn("lvl");
 
 		final List<GatekeeperPoint> points = area.getPoints();
@@ -290,7 +289,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), lvlColumn.getCell(0, getMobLevelText(point)), ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), area.getIndex(), page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), lvlColumn.getCell(0, getLevelText(point, player)), ROW_END);
 		}
 
 		String content = getHtmlText("locations.htm");
@@ -315,7 +314,7 @@ public class GlobalGatekeeper extends Quest
 		final GatekeeperTable table = data.getTable(GatekeeperData.POPULAR_TABLE);
 		final GatekeeperColumn nameColumn = table.getColumn("name");
 		final GatekeeperColumn priceColumn = table.getColumn("price");
-		final GatekeeperColumn actionColumn = table.getColumn("action");
+		final GatekeeperColumn lvlColumn = table.getColumn("lvl");
 
 		// Keep the points of this menu only, above the minimum amount of uses, up to the configured limit.
 		final List<GatekeeperPoint> points = stats.getRanking().stream().filter(id -> stats.getCount(id) >= data.getPopularMinCount()).map(id -> menu.getPoint(id)).filter(point -> point != null).limit(data.getPopularLimit()).toList();
@@ -337,7 +336,7 @@ public class GlobalGatekeeper extends Quest
 		{
 			final GatekeeperPoint point = points.get(i);
 
-			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), FROM_POPULAR, page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), actionColumn.getCell(0, getTerritoryText(point, player)), ROW_END);
+			StringUtil.append(sb, getRowStart(i - first), nameColumn.getCell(data.getRowHeight(), getFullNameLink(point, player, tab.getIndex(), FROM_POPULAR, page, nameColumn.getMaxChars())), priceColumn.getCell(0, getPriceText(point, player)), lvlColumn.getCell(0, getLevelText(point, player)), ROW_END);
 		}
 
 		String content = getHtmlText("popular.htm");
@@ -484,7 +483,7 @@ public class GlobalGatekeeper extends Quest
 	private String getCapitalText(GatekeeperArea area, Player player, int tabIndex, int page, GatekeeperColumn column)
 	{
 		if (area.getCapital().isEmpty())
-			return colorize(GatekeeperData.getInstance().getTerritoryColor(), escape(GatekeeperData.getInstance().getListLabel()));
+			return colorize(GatekeeperData.getInstance().getLevelColor(), escape(GatekeeperData.getInstance().getListLabel()));
 
 		final GatekeeperData data = GatekeeperData.getInstance();
 		final String capital = truncate(area.getCapital(), column.getMaxChars());
@@ -777,27 +776,20 @@ public class GlobalGatekeeper extends Quest
 	}
 
 	/**
-	 * @param point : The {@link GatekeeperPoint} to render.
+	 * The very same cell feeds the "lvl" column of the points lists and the third column of the direct rows of the areas list, so a location always shows its level wherever it is listed.
+	 * @param point : The {@link GatekeeperPoint} to render, can be null.
 	 * @param player : The {@link Player} used to test conditions.
-	 * @return The action cell content of a given {@link GatekeeperPoint} - the noble/locked label when out of reach, its territory otherwise.
+	 * @return The level cell content of a given {@link GatekeeperPoint} - the noble/locked label when out of reach, the "locked" label of &lt;labels&gt; when the monster levels aren't set.
 	 */
-	private static String getTerritoryText(GatekeeperPoint point, Player player)
+	private static String getLevelText(GatekeeperPoint point, Player player)
 	{
+		if (point == null)
+			return "";
+
 		final GatekeeperData data = GatekeeperData.getInstance();
 
 		if (!point.isAvailableFor(player))
 			return colorize(data.getDisabledColor(), escape((point.getType() == GatekeeperPointType.NOBLE) ? data.getNobleLabel() : data.getLockedLabel()));
-
-		return colorize(data.getTerritoryColor(), escape(point.getTerritory().getLabel()));
-	}
-
-	/**
-	 * @param point : The {@link GatekeeperPoint} to render.
-	 * @return The "lvl" cell content of a given {@link GatekeeperPoint} - the "locked" label of <labels> when the monster levels aren't set.
-	 */
-	private static String getMobLevelText(GatekeeperPoint point)
-	{
-		final GatekeeperData data = GatekeeperData.getInstance();
 
 		if (!point.hasMobLevel())
 			return colorize(data.getDisabledColor(), escape(data.getLockedLabel()));
@@ -805,7 +797,7 @@ public class GlobalGatekeeper extends Quest
 		final int min = point.getMobMinLevel();
 		final int max = point.getMobMaxLevel();
 
-		return (min == max) ? String.valueOf(min) : min + "-" + max;
+		return colorize(data.getLevelColor(), (min == max) ? String.valueOf(min) : min + "-" + max);
 	}
 
 	/**

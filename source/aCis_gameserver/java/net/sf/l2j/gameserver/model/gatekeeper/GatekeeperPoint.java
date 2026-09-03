@@ -2,7 +2,6 @@ package net.sf.l2j.gameserver.model.gatekeeper;
 
 import net.sf.l2j.gameserver.data.xml.GatekeeperData;
 import net.sf.l2j.gameserver.enums.GatekeeperPointType;
-import net.sf.l2j.gameserver.enums.GatekeeperTerritory;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.location.Location;
 
@@ -20,7 +19,6 @@ public class GatekeeperPoint extends Location
 	private final String _name;
 	private final String _point;
 	private final GatekeeperPointType _type;
-	private final GatekeeperTerritory _territory;
 	private final int _priceId;
 	private final int _price;
 	private final int _castleId;
@@ -29,7 +27,7 @@ public class GatekeeperPoint extends Location
 	private final int _mobMinLevel;
 	private final int _mobMaxLevel;
 
-	public GatekeeperPoint(int id, String name, String point, GatekeeperPointType type, GatekeeperTerritory territory, int priceId, int price, int castleId, int minLevel, int maxLevel, int mobMinLevel, int mobMaxLevel, int x, int y, int z)
+	public GatekeeperPoint(int id, String name, String point, GatekeeperPointType type, int priceId, int price, int castleId, int minLevel, int maxLevel, int mobMinLevel, int mobMaxLevel, int x, int y, int z)
 	{
 		super(x, y, z);
 
@@ -37,7 +35,6 @@ public class GatekeeperPoint extends Location
 		_name = name;
 		_point = point;
 		_type = type;
-		_territory = territory;
 		_priceId = priceId;
 		_price = price;
 		_castleId = castleId;
@@ -79,14 +76,6 @@ public class GatekeeperPoint extends Location
 	public GatekeeperPointType getType()
 	{
 		return _type;
-	}
-
-	/**
-	 * @return The kind of ground this point sits on, shown on the action column of the teleport points lists.
-	 */
-	public GatekeeperTerritory getTerritory()
-	{
-		return _territory;
 	}
 
 	public int getPriceId()
