@@ -40,6 +40,7 @@ public class RaidBookData implements IXmlReader
 	private int _headerHeight;
 	private int _headerLabelWidth;
 	private int _headerGap;
+	private int _titleHeight;
 	private int _iconSize;
 	private int _maxPages;
 	private int _pageWidth;
@@ -76,6 +77,34 @@ public class RaidBookData implements IXmlReader
 	private int _rankClanWidth;
 	private int _rankPointsWidth;
 
+	private String _listNameAlign;
+	private String _listLevelAlign;
+	private String _listButtonAlign;
+	private String _barCounterAlign;
+	private String _statLabelAlign;
+	private String _statValueAlign;
+	private String _dropIconAlign;
+	private String _dropNameAlign;
+	private String _dropChanceAlign;
+	private String _groupAlign;
+	private String _groupChanceAlign;
+	private String _rewardIconAlign;
+	private String _rewardNameAlign;
+	private String _rewardLevelAlign;
+	private String _historyNameAlign;
+	private String _historyClanAlign;
+	private String _historyTimeAlign;
+	private String _rankPosAlign;
+	private String _rankNameAlign;
+	private String _rankClanAlign;
+	private String _rankPointsAlign;
+	private String _menuAlign;
+	private String _emptyAlign;
+	private String _titleAlign;
+	private String _headerRankAlign;
+	private String _headerPointsAlign;
+	private String _headerLinkAlign;
+
 	private int _screenTime;
 
 	private int _highChance;
@@ -98,6 +127,7 @@ public class RaidBookData implements IXmlReader
 	private String _activePageColor;
 	private String _selfColor;
 	private String _disabledColor;
+	private String _titleColor;
 	private String _highChanceColor;
 	private String _mediumChanceColor;
 	private String _lowChanceColor;
@@ -115,8 +145,17 @@ public class RaidBookData implements IXmlReader
 	private String _colPointsLabel;
 	private String _colKillsLabel;
 	private String _colTimeLabel;
-	private String _colRewardLabel;
-	private String _colPlaceLabel;
+	private String _statsTitle;
+	private String _huntTitle;
+	private String _respawnLabel;
+	private String _respawnRange;
+	private String _respawnSuffix;
+	private String _respawnUnknown;
+	private String _respawnPattern;
+	private String _clearLabel;
+	private String _clearDoneLabel;
+	private String _titleSeparator;
+	private String _progressRange;
 	private String _killMessage;
 	private String _levelUpMessage;
 	private String _rewardMessage;
@@ -173,6 +212,7 @@ public class RaidBookData implements IXmlReader
 	public void load()
 	{
 		setDefaultLayout();
+		setDefaultAligns();
 		setDefaultColors();
 		setDefaultLabels();
 
@@ -208,6 +248,7 @@ public class RaidBookData implements IXmlReader
 				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
 				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
+				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
 				_iconSize = Math.max(1, parseInt(attrs, "iconSize", _iconSize));
 				_maxPages = Math.max(1, parseInt(attrs, "maxPages", _maxPages));
 				_pageWidth = Math.max(1, parseInt(attrs, "pageWidth", _pageWidth));
@@ -253,6 +294,45 @@ public class RaidBookData implements IXmlReader
 				checkColumns("rank", _rankPosWidth + _rankNameWidth + _rankClanWidth + _rankPointsWidth);
 			});
 
+			forEach(listNode, "aligns", alignsNode ->
+			{
+				final NamedNodeMap attrs = alignsNode.getAttributes();
+
+				_listNameAlign = parseAlign(attrs, "listName", _listNameAlign);
+				_listLevelAlign = parseAlign(attrs, "listLevel", _listLevelAlign);
+				_listButtonAlign = parseAlign(attrs, "listButton", _listButtonAlign);
+				_barCounterAlign = parseAlign(attrs, "barCounter", _barCounterAlign);
+
+				_statLabelAlign = parseAlign(attrs, "statLabel", _statLabelAlign);
+				_statValueAlign = parseAlign(attrs, "statValue", _statValueAlign);
+
+				_dropIconAlign = parseAlign(attrs, "dropIcon", _dropIconAlign);
+				_dropNameAlign = parseAlign(attrs, "dropName", _dropNameAlign);
+				_dropChanceAlign = parseAlign(attrs, "dropChance", _dropChanceAlign);
+				_groupAlign = parseAlign(attrs, "group", _groupAlign);
+				_groupChanceAlign = parseAlign(attrs, "groupChance", _groupChanceAlign);
+
+				_rewardIconAlign = parseAlign(attrs, "rewardIcon", _rewardIconAlign);
+				_rewardNameAlign = parseAlign(attrs, "rewardName", _rewardNameAlign);
+				_rewardLevelAlign = parseAlign(attrs, "rewardLevel", _rewardLevelAlign);
+
+				_historyNameAlign = parseAlign(attrs, "historyName", _historyNameAlign);
+				_historyClanAlign = parseAlign(attrs, "historyClan", _historyClanAlign);
+				_historyTimeAlign = parseAlign(attrs, "historyTime", _historyTimeAlign);
+
+				_rankPosAlign = parseAlign(attrs, "rankPos", _rankPosAlign);
+				_rankNameAlign = parseAlign(attrs, "rankName", _rankNameAlign);
+				_rankClanAlign = parseAlign(attrs, "rankClan", _rankClanAlign);
+				_rankPointsAlign = parseAlign(attrs, "rankPoints", _rankPointsAlign);
+
+				_menuAlign = parseAlign(attrs, "menu", _menuAlign);
+				_emptyAlign = parseAlign(attrs, "empty", _emptyAlign);
+				_titleAlign = parseAlign(attrs, "title", _titleAlign);
+				_headerRankAlign = parseAlign(attrs, "headerRank", _headerRankAlign);
+				_headerPointsAlign = parseAlign(attrs, "headerPoints", _headerPointsAlign);
+				_headerLinkAlign = parseAlign(attrs, "headerLink", _headerLinkAlign);
+			});
+
 			forEach(listNode, "colors", colorsNode ->
 			{
 				final NamedNodeMap attrs = colorsNode.getAttributes();
@@ -277,6 +357,7 @@ public class RaidBookData implements IXmlReader
 				_activePageColor = parseToken(attrs, "activePage", _activePageColor);
 				_selfColor = parseToken(attrs, "self", _selfColor);
 				_disabledColor = parseToken(attrs, "disabled", _disabledColor);
+				_titleColor = parseToken(attrs, "title", _titleColor);
 				_highChanceColor = parseToken(attrs, "highChance", _highChanceColor);
 				_mediumChanceColor = parseToken(attrs, "mediumChance", _mediumChanceColor);
 				_lowChanceColor = parseToken(attrs, "lowChance", _lowChanceColor);
@@ -299,8 +380,17 @@ public class RaidBookData implements IXmlReader
 				_colPointsLabel = parseString(attrs, "colPoints", _colPointsLabel);
 				_colKillsLabel = parseString(attrs, "colKills", _colKillsLabel);
 				_colTimeLabel = parseString(attrs, "colTime", _colTimeLabel);
-				_colRewardLabel = parseString(attrs, "colReward", _colRewardLabel);
-				_colPlaceLabel = parseString(attrs, "colPlace", _colPlaceLabel);
+				_statsTitle = parseString(attrs, "statsTitle", _statsTitle);
+				_huntTitle = parseString(attrs, "huntTitle", _huntTitle);
+				_respawnLabel = parseString(attrs, "respawn", _respawnLabel);
+				_respawnRange = parseString(attrs, "respawnRange", _respawnRange);
+				_respawnSuffix = parseString(attrs, "respawnSuffix", _respawnSuffix);
+				_respawnUnknown = parseString(attrs, "respawnUnknown", _respawnUnknown);
+				_respawnPattern = parseToken(attrs, "respawnPattern", _respawnPattern);
+				_clearLabel = parseString(attrs, "clear", _clearLabel);
+				_clearDoneLabel = parseString(attrs, "clearDone", _clearDoneLabel);
+				_titleSeparator = parseString(attrs, "titleSeparator", _titleSeparator);
+				_progressRange = parseString(attrs, "progressRange", _progressRange);
 				_killMessage = parseString(attrs, "msgKill", _killMessage);
 				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
 				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
@@ -369,6 +459,43 @@ public class RaidBookData implements IXmlReader
 			LOGGER.warn("The {} columns of the raid boss book sum up to {} instead of the layout width {} ; the rows won't be aligned.", name, total, _width);
 	}
 
+	private void setDefaultAligns()
+	{
+		_listNameAlign = "left";
+		_listLevelAlign = "center";
+		_listButtonAlign = "right";
+		_barCounterAlign = "left";
+
+		_statLabelAlign = "left";
+		_statValueAlign = "right";
+
+		_dropIconAlign = "center";
+		_dropNameAlign = "left";
+		_dropChanceAlign = "right";
+		_groupAlign = "left";
+		_groupChanceAlign = "right";
+
+		_rewardIconAlign = "center";
+		_rewardNameAlign = "left";
+		_rewardLevelAlign = "right";
+
+		_historyNameAlign = "left";
+		_historyClanAlign = "left";
+		_historyTimeAlign = "right";
+
+		_rankPosAlign = "center";
+		_rankNameAlign = "left";
+		_rankClanAlign = "left";
+		_rankPointsAlign = "right";
+
+		_menuAlign = "center";
+		_emptyAlign = "center";
+		_titleAlign = "left";
+		_headerRankAlign = "left";
+		_headerPointsAlign = "right";
+		_headerLinkAlign = "center";
+	}
+
 	private void setDefaultLayout()
 	{
 		_width = 280;
@@ -377,6 +504,7 @@ public class RaidBookData implements IXmlReader
 		_headerHeight = 16;
 		_headerLabelWidth = 76;
 		_headerGap = 6;
+		_titleHeight = 18;
 		_iconSize = 32;
 		_maxPages = 10;
 		_pageWidth = 26;
@@ -424,11 +552,11 @@ public class RaidBookData implements IXmlReader
 		_rowColor = "000000";
 		_altRowColor = "";
 		_nameColor = "";
-		_groupTextColor = "LEVEL";
+		_groupTextColor = "BDB76B";
 		_bossLevelColor = "B09878";
 		_huntLevelColor = "LEVEL";
-		_labelColor = "B09878";
-		_valueColor = "FFFFFF";
+		_labelColor = "808080";
+		_valueColor = "B09878";
 		_countColor = "B09878";
 		_tabColor = "";
 		_activeTabColor = "LEVEL";
@@ -438,6 +566,7 @@ public class RaidBookData implements IXmlReader
 		_activePageColor = "LEVEL";
 		_selfColor = "LEVEL";
 		_disabledColor = "707070";
+		_titleColor = "FFFFFF";
 		_highChanceColor = "90EE90";
 		_mediumChanceColor = "BDB76B";
 		_lowChanceColor = "F08080";
@@ -450,7 +579,7 @@ public class RaidBookData implements IXmlReader
 		_dailyTitle = "Daily rewards";
 		_dailyLabel = "Daily rewards";
 		_placeSuffix = " place";
-		_dropGroupLabel = "Drop";
+		_dropGroupLabel = "Category";
 		_numberPrefix = " #";
 		_colPosLabel = "#";
 		_colNameLabel = "Name";
@@ -458,8 +587,17 @@ public class RaidBookData implements IXmlReader
 		_colPointsLabel = "Points";
 		_colKillsLabel = "Kills";
 		_colTimeLabel = "Date";
-		_colRewardLabel = "Reward";
-		_colPlaceLabel = "Place";
+		_statsTitle = "      Stats";
+		_huntTitle = "      Hunt";
+		_respawnLabel = "Respawn";
+		_respawnRange = "-";
+		_respawnSuffix = "h";
+		_respawnUnknown = "?";
+		_respawnPattern = "#0.#";
+		_clearLabel = "x";
+		_clearDoneLabel = "The marker has been removed from your map.";
+		_titleSeparator = " - ";
+		_progressRange = "/";
 		_killMessage = "%boss% : +%points% ranking points.";
 		_levelUpMessage = "Hunting level %level% reached on %boss% !";
 		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
@@ -557,6 +695,24 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
+	 * The client only knows three alignments, and it silently drops a cell whose own one it doesn't understand - which is worth a warning rather than an empty column.
+	 * @param attrs : The attributes to read.
+	 * @param name : The attribute name to read.
+	 * @param defaultValue : The value returned when the attribute is missing, empty or not one of the three alignments.
+	 * @return The parsed alignment, being "left", "center" or "right".
+	 */
+	private String parseAlign(NamedNodeMap attrs, String name, String defaultValue)
+	{
+		final String value = parseToken(attrs, name, defaultValue);
+		if (value.equals("left") || value.equals("center") || value.equals("right"))
+			return value;
+
+		LOGGER.warn("The raid boss book alignment '{}' holds '{}', which is none of left, center or right ; {} is used instead.", name, value, defaultValue);
+
+		return defaultValue;
+	}
+
+	/**
 	 * @return The level ranges of the filter menu sitting on the head of the list, in the very order they are shown.
 	 */
 	public List<LevelFilter> getFilters()
@@ -626,6 +782,164 @@ public class RaidBookData implements IXmlReader
 	public int getHeaderGap()
 	{
 		return _headerGap;
+	}
+
+	/**
+	 * @return The height, in pixels, of a caption band - the one naming the statistics of a raid boss, and the one naming the hunting block sitting under it.
+	 */
+	public int getTitleHeight()
+	{
+		return _titleHeight;
+	}
+
+	public String getListNameAlign()
+	{
+		return _listNameAlign;
+	}
+
+	public String getListLevelAlign()
+	{
+		return _listLevelAlign;
+	}
+
+	public String getListButtonAlign()
+	{
+		return _listButtonAlign;
+	}
+
+	/**
+	 * @return The alignment of the counter written right after a progress bar.
+	 */
+	public String getBarCounterAlign()
+	{
+		return _barCounterAlign;
+	}
+
+	public String getStatLabelAlign()
+	{
+		return _statLabelAlign;
+	}
+
+	public String getStatValueAlign()
+	{
+		return _statValueAlign;
+	}
+
+	public String getDropIconAlign()
+	{
+		return _dropIconAlign;
+	}
+
+	public String getDropNameAlign()
+	{
+		return _dropNameAlign;
+	}
+
+	public String getDropChanceAlign()
+	{
+		return _dropChanceAlign;
+	}
+
+	/**
+	 * @return The alignment of the caption of a group header - a drop category, and a rewarded ranking position.
+	 */
+	public String getGroupAlign()
+	{
+		return _groupAlign;
+	}
+
+	/**
+	 * @return The alignment of the chance written on the right of a drop group header.
+	 */
+	public String getGroupChanceAlign()
+	{
+		return _groupChanceAlign;
+	}
+
+	public String getRewardIconAlign()
+	{
+		return _rewardIconAlign;
+	}
+
+	public String getRewardNameAlign()
+	{
+		return _rewardNameAlign;
+	}
+
+	public String getRewardLevelAlign()
+	{
+		return _rewardLevelAlign;
+	}
+
+	public String getHistoryNameAlign()
+	{
+		return _historyNameAlign;
+	}
+
+	public String getHistoryClanAlign()
+	{
+		return _historyClanAlign;
+	}
+
+	public String getHistoryTimeAlign()
+	{
+		return _historyTimeAlign;
+	}
+
+	public String getRankPosAlign()
+	{
+		return _rankPosAlign;
+	}
+
+	public String getRankNameAlign()
+	{
+		return _rankNameAlign;
+	}
+
+	public String getRankClanAlign()
+	{
+		return _rankClanAlign;
+	}
+
+	public String getRankPointsAlign()
+	{
+		return _rankPointsAlign;
+	}
+
+	/**
+	 * @return The alignment of every cell of a menu row - the level filters, the tabs, the buttons and the page selector.
+	 */
+	public String getMenuAlign()
+	{
+		return _menuAlign;
+	}
+
+	public String getEmptyAlign()
+	{
+		return _emptyAlign;
+	}
+
+	/**
+	 * @return The alignment of the text of a caption band.
+	 */
+	public String getTitleAlign()
+	{
+		return _titleAlign;
+	}
+
+	public String getHeaderRankAlign()
+	{
+		return _headerRankAlign;
+	}
+
+	public String getHeaderPointsAlign()
+	{
+		return _headerPointsAlign;
+	}
+
+	public String getHeaderLinkAlign()
+	{
+		return _headerLinkAlign;
 	}
 
 	public int getIconSize()
@@ -882,19 +1196,91 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
-	 * @return The caption of the item column of the daily reward page.
+	 * @return The caption of the band opening the statistics of a raid boss, an empty one dropping that band.
 	 */
-	public String getColRewardLabel()
+	public String getStatsTitle()
 	{
-		return _colRewardLabel;
+		return _statsTitle;
 	}
 
 	/**
-	 * @return The caption of the ranking position column of the daily reward page.
+	 * @return The caption of the band opening the hunting block of a detail page, an empty one dropping that band.
 	 */
-	public String getColPlaceLabel()
+	public String getHuntTitle()
 	{
-		return _colPlaceLabel;
+		return _huntTitle;
+	}
+
+	/**
+	 * @return The caption of the respawn window of a raid boss.
+	 */
+	public String getRespawnLabel()
+	{
+		return _respawnLabel;
+	}
+
+	/**
+	 * @return The text sitting between the two bounds of a respawn window.
+	 */
+	public String getRespawnRange()
+	{
+		return _respawnRange;
+	}
+
+	/**
+	 * @return The text appended to a respawn window, naming the unit it is written in.
+	 */
+	public String getRespawnSuffix()
+	{
+		return _respawnSuffix;
+	}
+
+	/**
+	 * @return The value shown instead of a respawn window, for a raid boss owning no spawn point at all.
+	 */
+	public String getRespawnUnknown()
+	{
+		return _respawnUnknown;
+	}
+
+	/**
+	 * @return The {@link java.text.DecimalFormat} pattern a respawn window is rendered with.
+	 */
+	public String getRespawnPattern()
+	{
+		return _respawnPattern;
+	}
+
+	/**
+	 * @return The caption of the link dropping the radar marker of a detail page.
+	 */
+	public String getClearLabel()
+	{
+		return _clearLabel;
+	}
+
+	/**
+	 * @return The message sent when the radar marker has been removed.
+	 */
+	public String getClearDoneLabel()
+	{
+		return _clearDoneLabel;
+	}
+
+	/**
+	 * @return The text sitting between the name and the level of a raid boss on the title bar of its detail page.
+	 */
+	public String getTitleSeparator()
+	{
+		return _titleSeparator;
+	}
+
+	/**
+	 * @return The text sitting between the two numbers of the counter written after a progress bar.
+	 */
+	public String getProgressRange()
+	{
+		return _progressRange;
 	}
 
 	/**
@@ -1018,6 +1404,14 @@ public class RaidBookData implements IXmlReader
 	public String getDisabledColor()
 	{
 		return _disabledColor;
+	}
+
+	/**
+	 * @return The color of the text of a caption band.
+	 */
+	public String getTitleColor()
+	{
+		return _titleColor;
 	}
 
 	public String getBookTitle()

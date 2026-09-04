@@ -155,6 +155,24 @@ client never reads those four bytes and keeps working; the tag byte covers the o
 patched client against a server that sends nothing. Both patches are independent, and both are in
 [../../docs/npc-name-colors.md](../../docs/npc-name-colors.md).
 
+## Cyrillic in the messages drawn over the screen
+
+Also not part of the `interface.u` rebuild — `patch_screen_message_font.ps1` rewrites `interface.xdat`:
+
+```
+powershell -ExecutionPolicy Bypass -File patch_screen_message_font.ps1 -ClientSystemDir "<client>\system"
+```
+
+The eight `OnScreenMessageWnd` windows an `ExShowScreenMessage` lands in draw their big line with
+`fontType` `LargeFontType_4`, which is not a font but a slot: the client resolves `LargeFontType_1..4`
+to the TrueType fonts declared in `TTFontInfo.ini` under the usages `zonetitle` / `benchmark` /
+`broadcast1` / `broadcast2`. An international client leaves `broadcast2` commented out, so those boxes
+fall back to a GDI default that draws Latin and nothing else — a Russian message shows an empty line
+while an English one shows fine. The script points them at a bitmap font from `Localization.ini`
+instead, whose glyph table does carry `U+0401..U+044F` — which is why the same text was always readable
+in chat. The reasoning, the `.gly` layout and the checks the script runs on itself are in
+[../../docs/screen-message-font.md](../../docs/screen-message-font.md).
+
 ## Rebuilding it
 
 You need an **L2-capable** `ucc`. A stock UT2003 one won't do: it has to read the `Lineage2Ver111` container
@@ -293,6 +311,9 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
 - `patch_engine_npc_name_color.ps1` — the `engine.dll` patch that makes an NPC's name take that color too.
 - `patch_engine_npc_packet_color.ps1` — the `engine.dll` patch that reads an NPC's name color out of the
   `NpcInfo` packet, so the server owns it per spawned NPC.
+- `patch_screen_message_font.ps1` / `screen_message_font.groovy` — the `interface.xdat` rewrite that gives
+  the on-screen messages a font with Cyrillic in it. Runs on the XDAT Editor's jars, like
+  `add_repeat_button.groovy`. Nothing to do with the `interface.u` build.
 - `Interface/Classes/` — 142 classes extracted from `interface.u`, with `ItemEnchantWnd.uc`, `ToolTip.uc`
   and `ChatWnd.uc` rebuilt. They are stored in the encoding they came out of the package with, Korean
   comments and all: edit them with a tool that leaves the bytes it does not touch alone.

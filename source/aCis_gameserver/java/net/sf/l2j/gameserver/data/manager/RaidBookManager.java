@@ -105,8 +105,11 @@ public class RaidBookManager
 	/** Height, in pixels, of the rule cutting the blocks of a page apart. The separator textures are hairlines, and the filler math relies on that height being fixed. */
 	private static final int SEPARATOR_HEIGHT = 1;
 
-	/** Amount of lines the statistics block of a detail page holds : two for the rewards, three for the combat stats. Both blocks are two columns wide, so a line carries two stats. */
-	private static final int STATS_ROWS = 5;
+	/**
+	 * Amount of lines the statistics block of a detail page holds : two for the pools and the rewards, one for the respawn window, three for the combat stats. Both blocks are two columns wide, so a
+	 * line carries two stats - the respawn one being the exception, it owns its whole line.
+	 */
+	private static final int STATS_ROWS = 6;
 
 	/** Amount of lines the hunting block of a detail page holds : the hunting level and the amount of kills, then the damage bonus and what the next level takes. */
 	private static final int HUNT_ROWS = 2;
@@ -240,22 +243,55 @@ public class RaidBookManager
 	}
 
 	/**
-	 * Hand the book over the first time a {@link Player} lays a hand on a raid boss - the moment the feature starts being worth anything to him, and the one moment he is bound to notice it.<br>
-	 * <br>
-	 * It is handed once and only once, whatever happens to the item afterwards : the marker lives on the character rather than on his inventory, so a book which somehow got destroyed isn't handed
-	 * again. The one case which does hand it again is a full inventory - nothing was given, so nothing is remembered.
-	 * @param attacker : The {@link Creature} which just hit the boss, its owner being the one handed the book.
+	 * Answer the very first hit a {@link Player} lands on a raid boss : the boss enters his own book, and the book itself is handed over when he owns none yet.
+	 * @param attacker : The {@link Creature} which just hit the boss, its owner being the one credited.
+	 * @param bossId : The npcId of the hit raid boss.
 	 */
-	public void onRaidBossAttacked(Creature attacker)
+	public void onRaidBossAttacked(Creature attacker, int bossId)
 	{
-		if (!Config.RAIDBOOK_ENABLED || Config.RAIDBOOK_ITEM_ID <= 0 || attacker == null)
+		if (!Config.RAIDBOOK_ENABLED || attacker == null)
 			return;
 
 		final Player player = attacker.getActingPlayer();
 		if (player == null)
 			return;
 
-		// A hit lands on this path from several threads at once - the character, his servitor, a damage over time - so the marker is claimed atomically rather than tested and then set.
+		discover(player, bossId);
+		giveBook(player);
+	}
+
+	/**
+	 * Write a raid boss into the book of a {@link Player}. A book opens empty and fills up as its owner meets the bosses : a list of the 213 raid bosses of the server tells nothing, a list of the ones
+	 * he actually fought is his own hunting record.<br>
+	 * <br>
+	 * The boss is remembered as a hunting record holding no kill yet, which is the very row a kill then bumps - so a discovery costs one single insert, and only the first hit ever pays it.
+	 * @param player : The {@link Player} which just hit the boss.
+	 * @param bossId : The npcId of the hit raid boss.
+	 */
+	private void discover(Player player, int bossId)
+	{
+		final Map<Integer, HuntData> playerData = _hunts.computeIfAbsent(player.getObjectId(), k -> new ConcurrentHashMap<>());
+
+		// A hit lands on this path from several threads at once - the character, his servitor, a damage over time - so the row is claimed atomically rather than tested and then written.
+		if (playerData.putIfAbsent(bossId, new HuntData(0, 0)) != null)
+			return;
+
+		saveHunt(player, bossId, 0, 0);
+	}
+
+	/**
+	 * Hand the book over the first time a {@link Player} lays a hand on a raid boss - the moment the feature starts being worth anything to him, and the one moment he is bound to notice it.<br>
+	 * <br>
+	 * It is handed once and only once, whatever happens to the item afterwards : the marker lives on the character rather than on his inventory, so a book which somehow got destroyed isn't handed
+	 * again. The one case which does hand it again is a full inventory - nothing was given, so nothing is remembered.
+	 * @param player : The {@link Player} to hand the book to.
+	 */
+	private static void giveBook(Player player)
+	{
+		if (Config.RAIDBOOK_ITEM_ID <= 0)
+			return;
+
+		// The marker is claimed atomically too, and for the very same reason.
 		if (player.getMemos().putIfAbsent(GIVEN_MEMO, Boolean.TRUE.toString()) != null)
 			return;
 
@@ -346,19 +382,7 @@ public class RaidBookManager
 
 		final int kills = current.kills();
 
-		try (Connection con = ConnectionPool.getConnection();
-			PreparedStatement ps = con.prepareStatement(SAVE_HUNT))
-		{
-			ps.setInt(1, player.getObjectId());
-			ps.setInt(2, bossId);
-			ps.setInt(3, kills);
-			ps.setInt(4, current.points());
-			ps.executeUpdate();
-		}
-		catch (Exception e)
-		{
-			LOGGER.error("Couldn't save the raid boss hunting record of {}.", e, player.getName());
-		}
+		saveHunt(player, bossId, kills, current.points());
 
 		inform(player, data.getKillMessage().replace("%boss%", boss.getName()).replace("%points%", String.valueOf(points)), false);
 
@@ -374,6 +398,30 @@ public class RaidBookManager
 
 				inform(player, data.getRewardMessage().replace("%level%", String.valueOf(level)).replace("%item%", getItemName(item.getId())).replace("%count%", StringUtil.formatNumber(item.getValue())), true);
 			}
+		}
+	}
+
+	/**
+	 * Write the hunting record of one {@link Player} on one raid boss, be it a fresh discovery holding no kill yet or a bumped one.
+	 * @param player : The {@link Player} owning the record.
+	 * @param bossId : The npcId of the raid boss the record belongs to.
+	 * @param kills : The amount of kills to write.
+	 * @param points : The amount of ranking points to write.
+	 */
+	private static void saveHunt(Player player, int bossId, int kills, int points)
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(SAVE_HUNT))
+		{
+			ps.setInt(1, player.getObjectId());
+			ps.setInt(2, bossId);
+			ps.setInt(3, kills);
+			ps.setInt(4, points);
+			ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't save the raid boss hunting record of {}.", e, player.getName());
 		}
 	}
 
@@ -736,6 +784,21 @@ public class RaidBookManager
 		return bosses;
 	}
 
+	/**
+	 * A book opens empty and fills up as its owner meets the bosses : the very first hit on a raid boss writes it in, and it stays there afterwards. A list of every raid boss of the server tells a
+	 * player nothing ; the list of the ones he actually fought is his own hunting record.
+	 * @param player : The {@link Player} reading his book.
+	 * @return The raid bosses that {@link Player} already laid a hand on, in the very order {@link #getBosses()} holds them.
+	 */
+	private List<NpcTemplate> getDiscovered(Player player)
+	{
+		final Map<Integer, HuntData> playerData = _hunts.get(player.getObjectId());
+		if (playerData == null || playerData.isEmpty())
+			return List.of();
+
+		return getBosses().stream().filter(t -> playerData.containsKey(t.getNpcId())).toList();
+	}
+
 	public void reload()
 	{
 		_bosses = null;
@@ -783,6 +846,11 @@ public class RaidBookManager
 
 					search(player, bossId);
 					showDetail(player, bossId, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					break;
+
+				case "x":
+					clear(player);
+					showDetail(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 					break;
 
 				case "r":
@@ -834,6 +902,21 @@ public class RaidBookManager
 	}
 
 	/**
+	 * Take the radar marker back off the map, which is what the "clear" link sitting next to the search one does : a marker outlives the page it was dropped from, and the arrow circling the character
+	 * keeps pointing at a boss he stopped caring about otherwise.<br>
+	 * <br>
+	 * Every marker goes, not only the one of the shown boss : {@link net.sf.l2j.gameserver.model.actor.container.player.RadarList#addMarker(int, int, int)} wipes the map before dropping its own, so
+	 * the marker of the book is the only one standing anyway.
+	 * @param player : The {@link Player} to clear the map of.
+	 */
+	private static void clear(Player player)
+	{
+		player.getRadarList().removeAllMarkers();
+
+		inform(player, RaidBookData.getInstance().getClearDoneLabel(), true);
+	}
+
+	/**
 	 * Generate and send the main page of the book : the ranking position of the {@link Player} on its head, the level filter menu right under it, then one row per raid boss.
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param filter : The index of the shown level filter.
@@ -846,7 +929,7 @@ public class RaidBookManager
 		filter = Math.min(Math.max(filter, 0), data.getFilters().size() - 1);
 
 		final LevelFilter levelFilter = data.getFilter(filter);
-		final List<NpcTemplate> bosses = getBosses().stream().filter(t -> levelFilter.matches(t.getLevel())).toList();
+		final List<NpcTemplate> bosses = getDiscovered(player).stream().filter(t -> levelFilter.matches(t.getLevel())).toList();
 
 		final int perPage = data.getRowsPerPage();
 		final int pages = Math.max(1, (bosses.size() + perPage - 1) / perPage);
@@ -905,9 +988,9 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(512);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - pointsWidth), data.getGroupHeight(), "left", colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
-		StringUtil.append(sb, getCell(pointsWidth, 0, "right", colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
-		StringUtil.append(sb, getCell(linkWidth, 0, "center", getLink(getBypass("r " + filter + " " + page + " 0"), data.getRankLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - pointsWidth), data.getGroupHeight(), data.getHeaderRankAlign(), colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
+		StringUtil.append(sb, getCell(pointsWidth, 0, data.getHeaderPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
+		StringUtil.append(sb, getCell(linkWidth, 0, data.getHeaderLinkAlign(), getLink(getBypass("r " + filter + " " + page + " 0"), data.getRankLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 		sb.append(getSeparator());
 
@@ -948,7 +1031,7 @@ public class RaidBookManager
 			final int width = (i == filters.size() - 1) ? Math.max(1, data.getWidth() - i * cellWidth) : cellWidth;
 			final String label = escape(filters.get(i).label());
 
-			StringUtil.append(sb, getCell(width, data.getGroupHeight(), "center", (i == filter) ? colorize(data.getActiveFilterColor(), label) : getLink(getBypass("l " + i + " 0"), filters.get(i).label(), data.getFilterColor())));
+			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == filter) ? colorize(data.getActiveFilterColor(), label) : getLink(getBypass("l " + i + " 0"), filters.get(i).label(), data.getFilterColor())));
 		}
 
 		StringUtil.append(sb, ROW_END);
@@ -985,9 +1068,9 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(1024);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getCell(data.getListNameWidth(), nameHeight, "left", name));
-		StringUtil.append(sb, getCell(data.getListLevelWidth(), 0, "center", colorize(data.getHuntLevelColor(), escape(data.getHuntLevelPrefix()) + level)));
-		StringUtil.append(sb, getCell(data.getListButtonWidth(), 0, "center", getLink(getBypass("i " + template.getNpcId() + " " + TAB_REWARDS + " 0 " + filter + " " + page), data.getDetailsLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(data.getListNameWidth(), nameHeight, data.getListNameAlign(), name));
+		StringUtil.append(sb, getCell(data.getListLevelWidth(), 0, data.getListLevelAlign(), colorize(data.getHuntLevelColor(), escape(data.getHuntLevelPrefix()) + level)));
+		StringUtil.append(sb, getCell(data.getListButtonWidth(), 0, data.getListButtonAlign(), getLink(getBypass("i " + template.getNpcId() + " " + TAB_REWARDS + " 0 " + filter + " " + page), data.getDetailsLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 
 		StringUtil.append(sb, getRowStart());
@@ -1070,14 +1153,14 @@ public class RaidBookManager
 		final String context = " " + shownTab + " " + page + " " + filter + " " + listPage;
 
 		String html = HtmCache.getInstance().getHtmForce(DETAIL_HTM);
-		html = html.replace("%title%", escape(template.getName()) + " - " + escape(data.getLevelPrefix()) + template.getLevel());
+		html = html.replace("%title%", escape(template.getName()) + escape(data.getTitleSeparator()) + escape(data.getLevelPrefix()) + template.getLevel());
 		html = html.replace("%stats%", getStats(player, template));
 		html = html.replace("%hunt%", getHunt(player, bossId));
 		html = html.replace("%buttons%", getDetailButtons(bossId, context, filter, listPage));
 		html = html.replace("%tabs%", getTabs(bossId, shownTab, filter, listPage));
 		html = html.replace("%content%", sb.toString());
 		html = html.replace("%footer%", getFooter(page, pages, p -> getBypass("i " + bossId + " " + shownTab + " " + p + " " + filter + " " + listPage)));
-		html = html.replace("%filler%", getFiller(getStatsHeight() + getHuntHeight() + data.getGroupHeight() + getBlockHeight() + ((content.columns().isEmpty()) ? 0 : data.getGroupHeight()) + shownGroups * groupHeight + shown * data.getGroupHeight()));
+		html = html.replace("%filler%", getFiller(getStatsHeight() + getHuntHeight() + data.getGroupHeight() + getBlockHeight() + getColumnsHeight(content.columns()) + shownGroups * groupHeight + shown * data.getGroupHeight()));
 		html = html.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, html);
@@ -1099,9 +1182,19 @@ public class RaidBookManager
 
 		final StringBuilder sb = new StringBuilder(1536);
 
+		// The block opens on a caption band of its own, the way the shift click window names the very same statistics.
+		if (!data.getStatsTitle().isEmpty())
+		{
+			sb.append(getBand(data.getStatsTitle()));
+			sb.append(getSeparator());
+		}
+
 		sb.append(getBlockStart());
 		sb.append(getStatRow(data.getHpLabel(), stats.hp(), data.getExpLabel(), stats.exp()));
 		sb.append(getStatRow(data.getMpLabel(), stats.mp(), data.getSpLabel(), stats.sp()));
+
+		// The respawn window owns a line of its own : it is the one number of the block which isn't a stat of the boss but a promise about when it can be hunted again.
+		sb.append(getStatRow(data.getRespawnLabel(), getRespawnText(template.getNpcId()), "", ""));
 		sb.append("</table>");
 		sb.append(getSeparator());
 
@@ -1113,6 +1206,28 @@ public class RaidBookManager
 		sb.append(getSeparator());
 
 		return sb.toString();
+	}
+
+	/**
+	 * The window a raid boss respawns in, written in hours : a hunter reads a raid boss for when it comes back, and the spawn holds a fixed delay plus a random spread on both of its sides.
+	 * @param bossId : The npcId of the raid boss to read.
+	 * @return The respawn window, as a single value when the spawn holds no random spread at all, and the "respawnUnknown" label for a boss owning no spawn point.
+	 */
+	private static String getRespawnText(int bossId)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final ASpawn spawn = SpawnManager.getInstance().getSpawn(bossId);
+		if (spawn == null || spawn.getRespawnDelay() <= 0)
+			return escape(data.getRespawnUnknown());
+
+		final int random = Math.min(spawn.getRespawnRandom(), spawn.getRespawnDelay());
+
+		final DecimalFormat format = new DecimalFormat(data.getRespawnPattern(), NUMBER_SYMBOLS);
+
+		final String window = (random <= 0) ? format.format((spawn.getRespawnDelay()) / 3600.) : format.format((spawn.getRespawnDelay() - random) / 3600.) + escape(data.getRespawnRange()) + format.format((spawn.getRespawnDelay() + random) / 3600.);
+
+		return window + escape(data.getRespawnSuffix());
 	}
 
 	/**
@@ -1167,9 +1282,17 @@ public class RaidBookManager
 
 		final StringBuilder sb = new StringBuilder(1024);
 
+		// The hunting block is a section of its own, so it opens on its own caption band - the way the statistics sitting right above it do.
+		if (!data.getHuntTitle().isEmpty())
+		{
+			sb.append(getBand(data.getHuntTitle()));
+			sb.append(getSeparator());
+		}
+
 		sb.append(getBlockStart());
 		sb.append(getStatRow(data.getHuntLabel(), String.valueOf(level), data.getKillsLabel(), String.valueOf(kills)));
-		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + "%", data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
+		// The damage bonus is a percentage too, so it is written with the very pattern and suffix a drop chance is.
+		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + escape(data.getChanceSuffix()), data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
 		sb.append("</table>");
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
@@ -1183,29 +1306,54 @@ public class RaidBookManager
 	}
 
 	/**
-	 * @return The height, in pixels, the statistics block of a detail page takes, the two rules framing it included.
+	 * @return The height, in pixels, the statistics block of a detail page takes - its caption band, its rows and the rules cutting it apart and closing it.
 	 */
 	private static int getStatsHeight()
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return STATS_ROWS * data.getHeaderHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
+		return STATS_ROWS * data.getHeaderHeight() + getBandHeight(data.getStatsTitle()) + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
 	}
 
 	/**
-	 * @return The height, in pixels, the hunting block of a detail page takes, the progress bar row and the closing rule included.
+	 * @return The height, in pixels, the hunting block of a detail page takes - its caption band, its rows, the progress bar row and the closing rule.
 	 */
 	private static int getHuntHeight()
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return HUNT_ROWS * data.getHeaderHeight() + data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
+		return HUNT_ROWS * data.getHeaderHeight() + data.getGroupHeight() + getBandHeight(data.getHuntTitle()) + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
 	}
 
 	/**
-	 * The button row of a detail page : the way back to the list on the left, the radar marker on the right.
+	 * A band the datapack silenced doesn't take any room at all, and neither does the rule closing it - a height read out of a band which isn't drawn would throw the bottom padding of the page off.
+	 * @param caption : The caption of the band, an empty one meaning no band at all.
+	 * @return The height, in pixels, the given caption band takes, the rule closing it included.
+	 */
+	private static int getBandHeight(String caption)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return (caption.isEmpty()) ? 0 : data.getTitleHeight() + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
+	}
+
+	/**
+	 * One full width band naming the section opening under it, drawn on the plain band color the blocks of a page use - the very way the shift click window opens its own statistics.
+	 * @param caption : The caption to write.
+	 * @return The band, rendered as its own table.
+	 */
+	private static String getBand(String caption)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return getBlockStart() + "<tr>" + getCell(data.getWidth(), data.getTitleHeight(), data.getTitleAlign(), colorize(data.getTitleColor(), escape(caption))) + ROW_END;
+	}
+
+	/**
+	 * The button row of a detail page : the way back to the list on the left, the radar marker on the right, and the link taking that marker back off the map right next to it - a marker outlives the
+	 * page it was dropped from, so dropping one has to be as reachable as undoing it.
 	 * @param bossId : The npcId of the shown raid boss.
-	 * @param context : The tab, page, filter and list page the search button has to come back to.
+	 * @param context : The tab, page, filter and list page both marker links have to come back to.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
 	 * @return The button row.
@@ -1214,13 +1362,16 @@ public class RaidBookManager
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int half = Math.max(1, data.getWidth() / 2);
+		// The "clear" link is a single character sitting next to the search one, so it takes a cell of the width of a page selector one rather than a third of the row.
+		final int clearWidth = Math.max(1, Math.min(data.getWidth() - 2, data.getPageWidth()));
+		final int half = Math.max(1, (data.getWidth() - clearWidth) / 2);
 
 		final StringBuilder sb = new StringBuilder(512);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getCell(half, data.getGroupHeight(), "center", getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - half), 0, "center", getLink(getBypass("f " + bossId + context), data.getSearchLabel(), data.getActiveTabColor())));
+		StringUtil.append(sb, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - half - clearWidth), 0, data.getMenuAlign(), getLink(getBypass("f " + bossId + context), data.getSearchLabel(), data.getActiveTabColor())));
+		StringUtil.append(sb, getCell(clearWidth, 0, data.getMenuAlign(), getLink(getBypass("x " + bossId + context), data.getClearLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1257,7 +1408,7 @@ public class RaidBookManager
 			// The last cell takes whatever is left of the layout width, which absorbs the rounding of an uneven division.
 			final int width = (i == TAB_COUNT - 1) ? Math.max(1, data.getWidth() - i * cellWidth) : cellWidth;
 
-			StringUtil.append(sb, getCell(width, data.getGroupHeight(), "center", (i == tab) ? colorize(data.getActiveTabColor(), escape(labels[i])) : getLink(getBypass("i " + bossId + " " + i + " 0 " + filter + " " + listPage), labels[i], data.getTabColor())));
+			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == tab) ? colorize(data.getActiveTabColor(), escape(labels[i])) : getLink(getBypass("i " + bossId + " " + i + " 0 " + filter + " " + listPage), labels[i], data.getTabColor())));
 		}
 
 		StringUtil.append(sb, ROW_END);
@@ -1316,9 +1467,9 @@ public class RaidBookManager
 				final StringBuilder sb = new StringBuilder(512);
 
 				StringUtil.append(sb, getRowStart());
-				StringUtil.append(sb, getCell(data.getRewardIconWidth(), data.getGroupHeight(), "center", getIcon(item.getId())));
-				StringUtil.append(sb, getCell(data.getRewardNameWidth(), 0, "left", colorize(data.getNameColor(), escape(truncate(getItemName(item.getId()), data.getNameChars()))) + " " + colorize(data.getCountColor(), escape(data.getCountPrefix()) + StringUtil.formatNumber(item.getValue()))));
-				StringUtil.append(sb, getCell(data.getRewardLevelWidth(), 0, "right", colorize(data.getHuntLevelColor(), escape(data.getLevelPrefix()) + shown)));
+				StringUtil.append(sb, getCell(data.getRewardIconWidth(), data.getGroupHeight(), data.getRewardIconAlign(), getIcon(item.getId())));
+				StringUtil.append(sb, getCell(data.getRewardNameWidth(), 0, data.getRewardNameAlign(), colorize(data.getNameColor(), escape(truncate(getItemName(item.getId()), data.getNameChars()))) + " " + colorize(data.getCountColor(), escape(data.getCountPrefix()) + StringUtil.formatNumber(item.getValue()))));
+				StringUtil.append(sb, getCell(data.getRewardLevelWidth(), 0, data.getRewardLevelAlign(), colorize(data.getHuntLevelColor(), escape(data.getLevelPrefix()) + shown)));
 				StringUtil.append(sb, ROW_END);
 
 				rows.add(new TabRow(sb.toString(), -1));
@@ -1408,8 +1559,8 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(384);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getDropChanceWidth()), data.getGroupHeight(), "left", colorize(data.getGroupTextColor(), escape(caption))));
-		StringUtil.append(sb, getCell(data.getDropChanceWidth(), 0, "right", colorize(data.getChanceColor(chance), getChanceText(chance))));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getDropChanceWidth()), data.getGroupHeight(), data.getGroupAlign(), colorize(data.getGroupTextColor(), escape(caption))));
+		StringUtil.append(sb, getCell(data.getDropChanceWidth(), 0, data.getGroupChanceAlign(), colorize(data.getChanceColor(chance), getChanceText(chance))));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1424,9 +1575,9 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(512);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getCell(data.getDropIconWidth(), data.getGroupHeight(), "center", getIcon(drop.itemId())));
-		StringUtil.append(sb, getCell(data.getDropNameWidth(), 0, "left", colorize(data.getNameColor(), escape(truncate(getItemName(drop.itemId()), data.getNameChars()))) + " " + colorize(data.getCountColor(), escape(data.getCountPrefix() + amount))));
-		StringUtil.append(sb, getCell(data.getDropChanceWidth(), 0, "right", colorize(data.getChanceColor(drop.chance()), getChanceText(drop.chance()))));
+		StringUtil.append(sb, getCell(data.getDropIconWidth(), data.getGroupHeight(), data.getDropIconAlign(), getIcon(drop.itemId())));
+		StringUtil.append(sb, getCell(data.getDropNameWidth(), 0, data.getDropNameAlign(), colorize(data.getNameColor(), escape(truncate(getItemName(drop.itemId()), data.getNameChars()))) + " " + colorize(data.getCountColor(), escape(data.getCountPrefix() + amount))));
+		StringUtil.append(sb, getCell(data.getDropChanceWidth(), 0, data.getDropChanceAlign(), colorize(data.getChanceColor(drop.chance()), getChanceText(drop.chance()))));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1469,9 +1620,9 @@ public class RaidBookManager
 			final StringBuilder sb = new StringBuilder(512);
 
 			StringUtil.append(sb, getRowStart());
-			StringUtil.append(sb, getCell(data.getHistoryNameWidth(), data.getGroupHeight(), "left", colorize(data.getValueColor(), escape(truncate(record.playerName(), data.getNameChars())))));
-			StringUtil.append(sb, getCell(data.getHistoryClanWidth(), 0, "left", colorize(data.getCountColor(), escape(truncate(clan, data.getNameChars())))));
-			StringUtil.append(sb, getCell(data.getHistoryTimeWidth(), 0, "right", colorize(data.getLabelColor(), escape(format.format(new Date(record.time()))))));
+			StringUtil.append(sb, getCell(data.getHistoryNameWidth(), data.getGroupHeight(), data.getHistoryNameAlign(), colorize(data.getValueColor(), escape(truncate(record.playerName(), data.getNameChars())))));
+			StringUtil.append(sb, getCell(data.getHistoryClanWidth(), 0, data.getHistoryClanAlign(), colorize(data.getCountColor(), escape(truncate(clan, data.getNameChars())))));
+			StringUtil.append(sb, getCell(data.getHistoryTimeWidth(), 0, data.getHistoryTimeAlign(), colorize(data.getLabelColor(), escape(format.format(new Date(record.time()))))));
 			StringUtil.append(sb, ROW_END);
 
 			rows.add(new TabRow(sb.toString(), -1));
@@ -1489,9 +1640,9 @@ public class RaidBookManager
 			data.getColTimeLabel()
 		}, new String[]
 		{
-			"left",
-			"left",
-			"right"
+			data.getHistoryNameAlign(),
+			data.getHistoryClanAlign(),
+			data.getHistoryTimeAlign()
 		}), rows, List.of(), true);
 	}
 
@@ -1544,10 +1695,10 @@ public class RaidBookManager
 			scoreLabel
 		}, new String[]
 		{
-			"center",
-			"left",
-			"left",
-			"right"
+			data.getRankPosAlign(),
+			data.getRankNameAlign(),
+			data.getRankClanAlign(),
+			data.getRankPointsAlign()
 		});
 	}
 
@@ -1556,7 +1707,7 @@ public class RaidBookManager
 	 * @param widths : The width of each column, which has to be the very same set the rows are cut out of.
 	 * @param labels : The caption of each column, an empty one leaving that column unnamed.
 	 * @param aligns : The alignment of each column.
-	 * @return The column header row, drawn on the plain band color the menus use.
+	 * @return The column header row, drawn on the plain band color the menus use and framed by the very rules a drop group header is framed by - both name what opens under them, so both read alike.
 	 */
 	private static String getColumns(int[] widths, String[] labels, String[] aligns)
 	{
@@ -1564,14 +1715,27 @@ public class RaidBookManager
 
 		final StringBuilder sb = new StringBuilder(448);
 
+		sb.append(getSeparator());
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
 
 		for (int i = 0; i < widths.length; i++)
 			StringUtil.append(sb, getCell(widths[i], (i == 0) ? data.getGroupHeight() : 0, aligns[i], colorize(data.getGroupTextColor(), escape(labels[i]))));
 
 		StringUtil.append(sb, ROW_END);
+		sb.append(getSeparator());
 
 		return sb.toString();
+	}
+
+	/**
+	 * @param columns : The already rendered column header, an empty one meaning the list holds none.
+	 * @return The height, in pixels, that header takes, the two rules framing it included.
+	 */
+	private static int getColumnsHeight(String columns)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return (columns.isEmpty()) ? 0 : data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
 	}
 
 	/**
@@ -1595,10 +1759,12 @@ public class RaidBookManager
 		final int first = page * perPage;
 		final int last = Math.min(rows.size(), first + perPage);
 
+		final String columns = getRankColumns(data.getColPointsLabel());
+
 		final StringBuilder sb = new StringBuilder(4096);
 
 		// The column header is drawn once on top of the list rather than sliced along with it, so it stays readable whatever page is browsed.
-		sb.append(getRankColumns(data.getColPointsLabel()));
+		sb.append(columns);
 
 		if (rows.isEmpty())
 			sb.append(getEmptyRow(data.getGroupHeight()));
@@ -1614,7 +1780,7 @@ public class RaidBookManager
 		content = content.replace("%header%", getRankHeader(player, filter, listPage));
 		content = content.replace("%list%", sb.toString());
 		content = content.replace("%footer%", getFooter(page, pages, p -> getBypass("r " + filter + " " + listPage + " " + p)));
-		content = content.replace("%filler%", getFiller(getBlockHeight() + data.getGroupHeight() + shown * data.getGroupHeight()));
+		content = content.replace("%filler%", getFiller(getBlockHeight() + getColumnsHeight(columns) + shown * data.getGroupHeight()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, content);
@@ -1642,10 +1808,10 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(640);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getCell(linkWidth, data.getGroupHeight(), "center", getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
-		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - dailyWidth - pointsWidth), 0, "right", colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
-		StringUtil.append(sb, getCell(pointsWidth, 0, "right", colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
-		StringUtil.append(sb, getCell(dailyWidth, 0, "center", getLink(getBypass("d " + filter + " " + listPage), data.getDailyLabel(), data.getActiveTabColor())));
+		StringUtil.append(sb, getCell(linkWidth, data.getGroupHeight(), data.getHeaderLinkAlign(), getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - dailyWidth - pointsWidth), 0, data.getHeaderPointsAlign(), colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
+		StringUtil.append(sb, getCell(pointsWidth, 0, data.getHeaderPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
+		StringUtil.append(sb, getCell(dailyWidth, 0, data.getHeaderLinkAlign(), getLink(getBypass("d " + filter + " " + listPage), data.getDailyLabel(), data.getActiveTabColor())));
 		StringUtil.append(sb, ROW_END);
 		sb.append(getSeparator());
 
@@ -1653,7 +1819,11 @@ public class RaidBookManager
 	}
 
 	/**
-	 * Generate and send the daily reward page : what each of the rewarded positions of the server wide ladder is handed every day.
+	 * Generate and send the daily reward page : what each of the rewarded positions of the server wide ladder is handed every day.<br>
+	 * <br>
+	 * It is laid out the way the shift click window lays out a drop list, since it holds the very same thing - items grouped under what hands them out : one group header per rewarded position,
+	 * framed by the rules cutting the page into groups, and the items of that position under it, an icon on the left and the amount written right under the name. A position handing out several items
+	 * simply owns several rows, and the header above them says once whose they are.
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
@@ -1662,71 +1832,53 @@ public class RaidBookManager
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final List<String> rows = new ArrayList<>();
+		final StringBuilder sb = new StringBuilder(2048);
+
+		int groups = 0;
+		int rows = 0;
 
 		if (Config.RAIDBOOK_DAILY_ENABLED)
 		{
 			final List<Integer> places = new ArrayList<>(Config.RAIDBOOK_DAILY_REWARDS.keySet());
 			places.sort(null);
 
+			// The head sitting right above is drawn on the plain band color, so the list starts on the other one rather than stacking two identical blocks.
+			int band = 1;
+
 			for (int place : places)
 			{
-				final List<IntIntHolder> items = Config.RAIDBOOK_DAILY_REWARDS.get(place);
+				sb.append(getSeparator());
+				sb.append(getPlaceHeader(place).replace(BAND, getBandAttribute(band++)));
+				sb.append(getSeparator());
 
-				for (int i = 0; i < items.size(); i++)
+				groups++;
+
+				for (IntIntHolder item : Config.RAIDBOOK_DAILY_REWARDS.get(place))
 				{
-					final IntIntHolder item = items.get(i);
+					sb.append(getRewardRow(item).replace(BAND, getBandAttribute(band++)));
 
-					// A position can hand out several items at once ; they are listed one per row, and only the first of them carries the position - repeating it would read as several winners.
-					final String place1 = (i == 0) ? colorize(data.getHuntLevelColor(), place + escape(data.getPlaceSuffix())) : "";
-
-					final StringBuilder row = new StringBuilder(512);
-
-					StringUtil.append(row, getRowStart());
-					StringUtil.append(row, getCell(data.getRewardIconWidth(), data.getGroupHeight(), "center", getIcon(item.getId())));
-					StringUtil.append(row, getCell(data.getRewardNameWidth(), 0, "left", colorize(data.getNameColor(), escape(truncate(getItemName(item.getId()), data.getNameChars()))) + " " + colorize(data.getCountColor(), escape(data.getCountPrefix()) + StringUtil.formatNumber(item.getValue()))));
-					StringUtil.append(row, getCell(data.getRewardLevelWidth(), 0, "right", place1));
-					StringUtil.append(row, ROW_END);
-
-					rows.add(row.toString());
+					rows++;
 				}
 			}
 		}
 
-		final StringBuilder sb = new StringBuilder(2048);
-
-		// The column header is drawn once on top of the list, the same way the ladders name their own columns.
-		sb.append(getColumns(new int[]
+		if (rows == 0)
 		{
-			data.getRewardIconWidth() + data.getRewardNameWidth(),
-			data.getRewardLevelWidth()
-		}, new String[]
-		{
-			data.getColRewardLabel(),
-			data.getColPlaceLabel()
-		}, new String[]
-		{
-			"left",
-			"right"
-		}));
+			sb.append(getEmptyRow(data.getRowHeight()));
 
-		if (rows.isEmpty())
-			sb.append(getEmptyRow(data.getGroupHeight()));
-
-		int band = 1;
-		for (String row : rows)
-			sb.append(row.replace(BAND, getBandAttribute(band++)));
-
-		final int shown = Math.max(1, rows.size());
+			rows = 1;
+		}
 
 		final int half = Math.max(1, data.getWidth() / 2);
 
 		final StringBuilder header = new StringBuilder(384);
 		StringUtil.append(header, getRowStart(data.getRowColor()));
-		StringUtil.append(header, getCell(half, data.getGroupHeight(), "center", getLink(getBypass("r " + filter + " " + listPage + " 0"), data.getRankLabel(), data.getTabColor())));
-		StringUtil.append(header, getCell(Math.max(1, data.getWidth() - half), 0, "center", colorize(data.getActiveTabColor(), escape(data.getDailyLabel()))));
+		StringUtil.append(header, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("r " + filter + " " + listPage + " 0"), data.getRankLabel(), data.getTabColor())));
+		StringUtil.append(header, getCell(Math.max(1, data.getWidth() - half), 0, data.getMenuAlign(), colorize(data.getActiveTabColor(), escape(data.getDailyLabel()))));
 		StringUtil.append(header, ROW_END);
 		header.append(getSeparator());
+
+		final int groupHeight = data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
 
 		String content = HtmCache.getInstance().getHtmForce(DAILY_HTM);
 		content = content.replace("%title%", escape(data.getDailyTitle()));
@@ -1735,10 +1887,41 @@ public class RaidBookManager
 
 		// The page holds everything it has to show, but the selector row is still emitted : it is what the shared "overhead" of the layout counts on.
 		content = content.replace("%footer%", getFooter(0, 1, p -> getBypass("d " + filter + " " + listPage)));
-		content = content.replace("%filler%", getFiller(getBlockHeight() + data.getGroupHeight() + shown * data.getGroupHeight()));
+		content = content.replace("%filler%", getFiller(getBlockHeight() + groups * groupHeight + rows * data.getRowHeight()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, content);
+	}
+
+	/**
+	 * @param place : The rewarded position of the ladder.
+	 * @return The header row opening the rewards of one position, cut out of the whole layout width - a position owns no chance to write on its right, where a drop group does.
+	 */
+	private static String getPlaceHeader(int place)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return getRowStart() + getCell(data.getWidth(), data.getGroupHeight(), data.getGroupAlign(), colorize(data.getGroupTextColor(), place + escape(data.getPlaceSuffix()))) + ROW_END;
+	}
+
+	/**
+	 * One row of the daily reward page, drawn the way the shift click window draws a dropped item : the icon on the left, then the name on one line and the amount right under it - an amount as long as
+	 * an adena one doesn't fit next to a name on a single line.
+	 * @param item : The rewarded item and its amount.
+	 * @return The row, its background color left as the {@link #BAND} placeholder.
+	 */
+	private static String getRewardRow(IntIntHolder item)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final StringBuilder sb = new StringBuilder(512);
+
+		StringUtil.append(sb, getRowStart());
+		StringUtil.append(sb, getCell(data.getRewardIconWidth(), data.getRowHeight(), data.getRewardIconAlign(), getIcon(item.getId())));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - data.getRewardIconWidth()), 0, data.getRewardNameAlign(), colorize(data.getNameColor(), escape(truncate(getItemName(item.getId()), data.getNameChars()))) + "<br1>" + colorize(data.getCountColor(), escape(data.getCountPrefix()) + StringUtil.formatNumber(item.getValue()))));
+		StringUtil.append(sb, ROW_END);
+
+		return sb.toString();
 	}
 
 	/**
@@ -1767,10 +1950,10 @@ public class RaidBookManager
 			final StringBuilder sb = new StringBuilder(512);
 
 			StringUtil.append(sb, getRowStart());
-			StringUtil.append(sb, getCell(data.getRankPosWidth(), data.getGroupHeight(), "center", colorize(data.getLabelColor(), String.valueOf(i + 1))));
-			StringUtil.append(sb, getCell(data.getRankNameWidth(), 0, "left", colorize((self) ? data.getSelfColor() : data.getNameColor(), escape(truncate(name, data.getNameChars())))));
-			StringUtil.append(sb, getCell(data.getRankClanWidth(), 0, "left", colorize(data.getCountColor(), escape(truncate(clan, data.getNameChars())))));
-			StringUtil.append(sb, getCell(data.getRankPointsWidth(), 0, "right", colorize(data.getCountColor(), StringUtil.formatNumber(row.score()))));
+			StringUtil.append(sb, getCell(data.getRankPosWidth(), data.getGroupHeight(), data.getRankPosAlign(), colorize(data.getLabelColor(), String.valueOf(i + 1))));
+			StringUtil.append(sb, getCell(data.getRankNameWidth(), 0, data.getRankNameAlign(), colorize((self) ? data.getSelfColor() : data.getNameColor(), escape(truncate(name, data.getNameChars())))));
+			StringUtil.append(sb, getCell(data.getRankClanWidth(), 0, data.getRankClanAlign(), colorize(data.getCountColor(), escape(truncate(clan, data.getNameChars())))));
+			StringUtil.append(sb, getCell(data.getRankPointsWidth(), 0, data.getRankPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(row.score()))));
 			StringUtil.append(sb, ROW_END);
 
 			rows.add(sb.toString());
@@ -1785,62 +1968,64 @@ public class RaidBookManager
 	 * Both halves are handed out as cells of their own rather than as two images written next to each other, because <b>the client breaks the line right after an image</b> - two of them inside one
 	 * single cell land on two lines, and the bar shows up cut in half.<br>
 	 * <br>
-	 * Those cells carry <b>no width of their own</b> : the image alone sizes them. A cell declaring the very width of the image it holds leaves the client no slack, and it wraps that image to the next
-	 * line - which is the very thing this layout is meant to avoid. Every image grid of the datapack which actually works - the lottery window, the tutorial pages - is written that way, so this one is
-	 * too. The bar still measures {@link RaidBookData#getBarWidth()} in total, since that is what its two images add up to.
+	 * Every one of those cells declares <b>its own width</b>, and the counter sitting after them takes the rest of the row : a cell which declares none is handed a share of the table the client
+	 * computes on its own, and the image it holds is then stretched to that share - which is what made every bar of the book read as the very same, whatever the progress it was meant to show. The
+	 * image itself is drawn one pixel short of its cell, since a cell holding an image of its very width leaves the client no slack and wraps that image onto the next line.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
 	 * @param height : The height, in pixels, of the row the bar sits on. It is written on the first emitted cell, the way every other row of the book does.
-	 * @return The cells holding the bar.
+	 * @return The cells holding the bar, which measure {@link #getBarSpan()} in total whatever the progress.
 	 */
 	private static String getBarCells(int kills, int height)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int width = data.getBarWidth();
+		final int width = getBarSpan();
 		final int filled = Math.min(width, Math.max(0, (int) Math.round(width * getProgress(kills))));
 
 		final StringBuilder sb = new StringBuilder(320);
 
 		if (filled > 0)
-			sb.append(getBarCell(height, getBarImage(data.getBarFilled(), filled)));
+			sb.append(getBarCell(filled, height, data.getBarFilled()));
 
 		// The height rides on the first emitted cell, so the empty half only carries it when the bar is completely empty.
 		if (filled < width)
-			sb.append(getBarCell((filled > 0) ? 0 : height, getBarImage(data.getBarEmpty(), width - filled)));
+			sb.append(getBarCell(width - filled, (filled > 0) ? 0 : height, data.getBarEmpty()));
 
 		return sb.toString();
 	}
 
 	/**
-	 * @param height : The height, in pixels, to reserve, 0 leaving it to the image.
-	 * @param content : The image to hold.
-	 * @return One cell of the progress bar, sized by its own content.
+	 * @return The width, in pixels, the whole bar takes on a row. The counter written right after it owns whatever is left of the layout width, so the bar always leaves it at least one pixel.
 	 */
-	private static String getBarCell(int height, String content)
+	private static int getBarSpan()
 	{
-		return "<td" + ((height > 0) ? " height=" + height : "") + ">" + content + "</td>";
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return Math.max(1, Math.min(data.getWidth() - 1, data.getBarWidth()));
 	}
 
 	/**
-	 * @param texture : The client texture to draw, an empty one leaving the cell blank - which is how a datapack drops one half of the bar.
-	 * @param width : The width, in pixels, to draw it at.
+	 * @param width : The width, in pixels, of the cell.
+	 * @param height : The height, in pixels, to reserve, 0 leaving it to the image.
+	 * @param texture : The client texture to draw, an empty one leaving the cell blank - which is how a datapack drops one half of the bar without moving anything, the cell keeping its width.
 	 * @return One half of the progress bar.
 	 */
-	private static String getBarImage(String texture, int width)
+	private static String getBarCell(int width, int height, String texture)
 	{
-		return (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + width + " height=" + RaidBookData.getInstance().getBarHeight() + ">";
+		final String image = (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + Math.max(1, width - 1) + " height=" + RaidBookData.getInstance().getBarHeight() + ">";
+
+		return "<td width=" + width + ((height > 0) ? " height=" + height : "") + " align=left>" + image + "</td>";
 	}
 
 	/**
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @return The cell holding the counter written right after the bar. It carries no width either : the bar cells sitting in front of it don't declare one, so there is nothing left to compute it out
-	 *         of - the client simply gives it whatever the bar leaves of the row.
+	 * @return The cell holding the counter written right after the bar, owning whatever the bar leaves of the layout width.
 	 */
 	private static String getBarCounterCell(int kills)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return "<td align=left>" + colorize(data.getCountColor(), " " + getProgressText(kills)) + "</td>";
+		return getCell(Math.max(1, data.getWidth() - getBarSpan()), 0, data.getBarCounterAlign(), colorize(data.getCountColor(), " " + getProgressText(kills)));
 	}
 
 	/**
@@ -1871,7 +2056,7 @@ public class RaidBookManager
 		if (Config.RAIDBOOK_MAX_LEVEL > 0 && level >= Config.RAIDBOOK_MAX_LEVEL)
 			return escape(data.getMaxLevelLabel());
 
-		return kills + "/" + getKillsForLevel(level + 1);
+		return kills + escape(data.getProgressRange()) + getKillsForLevel(level + 1);
 	}
 
 	/**
@@ -1959,7 +2144,7 @@ public class RaidBookManager
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, "center", colorize(data.getDisabledColor(), escape(data.getEmptyLabel()))) + ROW_END;
+		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, data.getEmptyAlign(), colorize(data.getDisabledColor(), escape(data.getEmptyLabel()))) + ROW_END;
 	}
 
 	/**
@@ -2008,16 +2193,16 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(512);
 
 		sb.append("<tr>");
-		sb.append(getCell(labelWidth, data.getHeaderHeight(), "left", colorize(data.getLabelColor(), escape(leftLabel))));
-		sb.append(getCell(columnWidth - labelWidth, 0, "right", colorize(data.getValueColor(), leftValue)));
+		sb.append(getCell(labelWidth, data.getHeaderHeight(), data.getStatLabelAlign(), colorize(data.getLabelColor(), escape(leftLabel))));
+		sb.append(getCell(columnWidth - labelWidth, 0, data.getStatValueAlign(), colorize(data.getValueColor(), leftValue)));
 
 		if (gap > 0)
-			sb.append(getCell(gap, 0, "left", ""));
+			sb.append(getCell(gap, 0, data.getStatLabelAlign(), ""));
 
-		sb.append(getCell(labelWidth, 0, "left", colorize(data.getLabelColor(), escape(rightLabel))));
+		sb.append(getCell(labelWidth, 0, data.getStatLabelAlign(), colorize(data.getLabelColor(), escape(rightLabel))));
 
 		// The last cell takes whatever is left of the layout width, which absorbs the rounding of an odd width.
-		sb.append(getCell(Math.max(1, data.getWidth() - columnWidth - gap - labelWidth), 0, "right", colorize(data.getValueColor(), rightValue)));
+		sb.append(getCell(Math.max(1, data.getWidth() - columnWidth - gap - labelWidth), 0, data.getStatValueAlign(), colorize(data.getValueColor(), rightValue)));
 		sb.append("</tr>");
 
 		return sb.toString();
@@ -2096,7 +2281,9 @@ public class RaidBookManager
 
 	private static String getPageCell(int width, String content)
 	{
-		return "<td width=" + width + " height=" + RaidBookData.getInstance().getGroupHeight() + " align=center>" + content + "</td>";
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return getCell(width, data.getGroupHeight(), data.getMenuAlign(), content);
 	}
 
 	private static String getCell(int width, int height, String align, String content)

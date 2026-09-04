@@ -2,10 +2,11 @@
 <!--
 	Appearance of the raid boss book, opened by right clicking the book item.
 
-	Everything the player sees is defined here - every single string included, so no player facing
-	text is left in the Java. The behavior (whether the book exists at all, how many kills a hunting
-	level takes, what a new level rewards, how many points a kill is worth and how much damage a
-	hunting level adds) lives server side, on config/mods/raidbook.properties.
+	Everything the player sees is defined here - every single string, every color and every text
+	alignment included, so no player facing text is left in the Java. The behavior (whether the book
+	exists at all, how many kills a hunting level takes, what a new level rewards, how many points a
+	kill is worth and how much damage a hunting level adds) lives server side, on
+	config/mods/raidbook.properties.
 
 	Which item opens the book isn't set anywhere here either : the book is bound to an item by the
 	"handler" attribute of data/xml/items ("RaidBossBook"), so any amount of items can carry it.
@@ -21,47 +22,68 @@
 		Greyclaw Kutus  Ур.23           ур.3   Инфо
 		[############........] 12/15
 
+	A book opens empty : a raid boss only shows up on that list once its owner has laid a hand on it,
+	and it stays there afterwards. A list of the 213 raid bosses of the server tells a player nothing ;
+	the list of the ones he actually fought is his own hunting record.
+
 	A row draws the name and the level of the boss on one line and the progress bar of the hunting
 	level right under it - the way the experience bar of a character reads - followed by the kills
 	done over the kills the next level takes.
 
 	The bar is built out of table cells, one per half, and not out of two images written next to each
 	other : the client breaks the line right after an image, so two of them inside one single cell
-	land on two lines and the bar shows up cut in half. Those cells carry no width of their own - the
-	image alone sizes them - because a cell declaring the very width of the image it holds leaves the
-	client no slack, and it wraps that image to the next line all the same. That is also why a row is
-	two stacked tables sharing one background color rather than one table : a bar can't share a table
-	with text sitting in columns of its own.
+	land on two lines and the bar shows up cut in half. Every one of those cells declares its own
+	width, and the counter written after them takes what is left of the row : a cell declaring none is
+	handed a share of the table the client computes on its own, and the image it holds is stretched to
+	that share - which made every bar read as the very same, whatever progress it was meant to show.
+	The image itself is drawn one pixel short of its cell, since a cell holding an image of its very
+	width leaves the client no slack and wraps that image onto the next line. That is also why a row
+	is two stacked tables sharing one background color rather than one table : a bar can't share a
+	table with text sitting in columns of its own.
 
 	A detail page opens on the statistics of the boss, laid out the way the status window of a
-	character is - two blocks of two columns - then the hunting block, the buttons, and the four tabs :
+	character is - two blocks of two columns, each opening on a caption band of its own, exactly like
+	the shift click window - then the hunting block, the buttons, and the four tabs :
 
+		      Боевые характеристики      the "statsTitle" band naming the section under it
+		========================
 		HP  ...   Exp ...          the pools on the left column, the rewards on the right one
 		MP  ...   SP  ...
+		Респаун 2-12 ч.            the window the boss comes back in, on a line of its own
 		========================   the hairline cutting the blocks apart
 		Физ.Атака  ...  Маг.Атака  ...
 		Физ.Защита ...  Маг.Защита ...
 		Скор.Атаки ...  Скор.Каста ...
 		========================
+		      Охота на рейдбосса         the "huntTitle" band
+		========================
 		Ур.охоты  3     Убийств    12
 		Бонус урона 3%  До уровня   3
-		     [############........] 12/15
+		[############........] 12/15
 		========================
-		Назад                 Искать
+		Назад          Искать     x
 		Награды  Дроп  История  Рейтинг
 
 	Every number of the statistics block is computed out of the template of the boss rather than out
 	of a live instance : a boss which is dead, or simply not spawned yet, has to be readable too. The
 	defences carry "RaidDefenceMultiplier" of config/npcs/bosses.properties, and the experience and
 	the SP are what the very player reading the book would earn for a solo kill - server rates and
-	level gap penalty folded in.
+	level gap penalty folded in. The respawn window is read off the spawn of the boss - the fixed
+	delay minus and plus its random spread - and written in hours.
 
 	"Искать" drops a radar marker on the spawn point of the boss, which is what the arrow circling the
-	character then points at. A boss standing in the world is marked where it actually stands.
+	character then points at. A boss standing in the world is marked where it actually stands. The
+	"clear" link sitting right next to it takes that marker back off the map : a marker outlives the
+	page it was dropped from, so dropping one has to be as reachable as undoing it.
 
 	The ladder page is the same list, holding the position, the name, the clan and the score of each
 	player, the row of the reader being written with the "self" color. Its head links to the daily
-	reward page, which tells what each rewarded position of the ladder is handed every day.
+	reward page, which tells what each rewarded position of the ladder is handed every day. That page
+	is laid out the way the shift click window lays out a drop list, since it holds the very same
+	thing - items grouped under what hands them out : one group header per rewarded position, framed
+	by the rules cutting a page into groups, and the items of that position under it, an icon on the
+	left and the amount written right under the name. A position handing out several items simply owns
+	several rows, and the header above them says once whose they are.
 
 	The item icons come from data/xml/itemIcons.xml.
 
@@ -71,12 +93,14 @@
 
 		width       : width, in pixels, of every generated table. Fed to the HTMs as %width%. Keep
 		              it below 290, so the scrollbar doesn't eat the last column.
-		rowHeight   : total height, in pixels, of a row of the main list. Such a row is two stacked
-		              lines - the name and the progress bar - and this is both of them together : the
-		              name line takes "groupHeight", the bar line whatever is left. So keep it above
+		rowHeight   : total height, in pixels, of a row of the main list, and of a row of the daily
+		              reward page. Such a row is two stacked lines - the name and the progress bar,
+		              or the item name and its amount - and this is both of them together : the name
+		              line takes "groupHeight", the other one whatever is left. So keep it above
 		              groupHeight, and roughly twice it.
 		groupHeight : height, in pixels, of the one line rows : the filter menu, the tab menu, the
-		              button row, the page selector and every row of a detail page tab.
+		              button row, the page selector, a group header, a column header and every row of
+		              a detail page tab.
 		headerHeight     : height, in pixels, of a single line of a two columns block - the
 		                   statistics of a boss and the hunting block.
 		headerLabelWidth : width, in pixels, of one caption cell of those blocks. A block is two
@@ -88,10 +112,14 @@
 		headerGap        : width, in pixels, of the spacer sitting between the two columns. Without
 		                   it the caption of the right column would touch the value of the left one,
 		                   which is right aligned on the column edge. 0 drops it.
+		titleHeight      : height, in pixels, of a caption band - the one naming the statistics of a
+		                   boss and the one naming the hunting block. Unused when both labels are
+		                   empty.
 		iconSize    : size, in pixels, the item icons are drawn at.
 		pageWidth   : width, in pixels, of a single cell of the page selector - a page link or an
-		              arrow. It is what keeps the selector on a single line : the amount of shown
-		              links is whatever fits "width" out of that. Raise it if a selector ever wraps.
+		              arrow - and of the "clear" link of a detail page. It is what keeps the selector
+		              on a single line : the amount of shown links is whatever fits "width" out of
+		              that. Raise it if a selector ever wraps.
 		maxPages    : maximum amount of page links shown by the page selector, centered on the
 		              current page. It only ever lowers the amount "pageWidth" already allows.
 		nameChars   : amount of characters above which an item or character name is shortened, on the
@@ -104,9 +132,9 @@
 		              name. Roughly (listNameWidth / 6) minus the length of "levelPrefix" and of the
 		              level itself.
 		ellipsis    : suffix appended to a shortened name.
-		separator   : client texture of the hairline cutting a page into blocks. It is always drawn
-		              1 pixel tall - the height a page is padded up to counts on that. An empty
-		              value drops every rule.
+		separator   : client texture of the hairline cutting a page into blocks and framing the group
+		              and column headers. It is always drawn 1 pixel tall - the height a page is
+		              padded up to counts on that. An empty value drops every rule.
 		overhead    : height, in pixels, everything but the rows takes on the HTM - the hairline
 		              above the page selector and the closing spacer. Substracted from pageHeight to
 		              know how much the page has to be padded with. Only worth touching after
@@ -122,9 +150,9 @@
 		              gets them too is "RaidBookScreenMessages" of the properties.
 
 		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level - barWidth is
-		                       what its two halves add up to. The bar owns a line of its own and
-		                       starts on the left edge, so it only has to leave room for the counter
-		                       written right after it, which takes whatever is left of the row.
+		                       what its two halves add up to, and what the counter written right
+		                       after it is cut out of : that counter owns (width - barWidth). Keep
+		                       barWidth under the layout width, so the counter is left a column.
 		barFilled / barEmpty : client textures the filled and the empty parts of that bar are drawn
 		                       with. They are the one place the bar gets its look from : swapping
 		                       them for the gauge textures of a rebuilt client is all it takes to
@@ -143,23 +171,53 @@
 		                                                         headers are cut out of the same
 		                                                         widths - caption on the left, group
 		                                                         chance on the "dropChanceWidth".
-		rewardIconWidth / rewardNameWidth / rewardLevelWidth   : rows of the "rewards" tab, and of
-		                                                         the daily reward page.
+		rewardIconWidth / rewardNameWidth / rewardLevelWidth   : rows of the "rewards" tab. The daily
+		                                                         reward page reuses the icon one and
+		                                                         gives its whole remainder to the
+		                                                         name, since a reward row there
+		                                                         carries no third column.
 		historyNameWidth / historyClanWidth / historyTimeWidth : rows of the "history" tab.
 		rankPosWidth / rankNameWidth / rankClanWidth
 		    / rankPointsWidth                                  : rows of the ladders.
 
+	<aligns>
+		Where the text of a cell sits inside it : "left", "center" or "right", and nothing else - an
+		unknown value is warned about in the log and falls back to the stock one. A column header
+		always takes the alignment of the column it names, so those two never drift apart.
+
+		listName / listLevel / listButton : columns of the main list. The "Инфо" link is right
+		                                    aligned out of the box, so it sits as close to the
+		                                    scrollbar as the layout width allows.
+		barCounter        : the counter written right after a progress bar.
+		statLabel / statValue : captions and values of the two columns blocks.
+		dropIcon / dropName / dropChance : columns of the "drop" tab.
+		group / groupChance : caption of a group header - a drop category, and a rewarded position of
+		                      the daily reward page - and the chance written on its right.
+		rewardIcon / rewardName / rewardLevel : columns of the "rewards" tab.
+		historyName / historyClan / historyTime : columns of the "history" tab.
+		rankPos / rankName / rankClan / rankPoints : columns of the ladders.
+		menu              : every cell of a menu row - the level filters, the tabs, the buttons and
+		                    the page selector.
+		empty             : the label shown instead of an empty list.
+		title             : the text of a caption band. A band owns the whole width whatever edge its
+		                    text sits on ; "left" is what lines it up with the captions of the group
+		                    headers.
+		headerRank / headerPoints / headerLink : the position, the score and the links of the head of
+		                                         a page.
+
 	<colors>
-		Every color of the book. An empty value keeps the client default : a transparent background
-		for a row, a plain white text for a label.
+		Every color of the book, taken from the shift click window (data/xml/droplist.xml) so both
+		read as one single feature. An empty value keeps the client default : a transparent
+		background for a row, a plain white text for a label.
 
 		row / altRow      : background of the odd / even bands of a page.
 		name              : names of the raid bosses, of the items and of the ranked players.
-		groupText         : caption of a drop group header.
+		groupText         : caption of a group header, and of a column header.
 		bossLevel         : level of a raid boss, written next to its name.
 		huntLevel         : hunting level of the reader, and the level a reward belongs to.
 		label / value     : captions and values of the two columns blocks.
 		count             : amounts - the dropped ones, the reward ones and the ranking points.
+		title             : the text of a caption band.
 		tab / activeTab   : tab links and buttons / the shown tab and the "Искать" button.
 		filter / activeFilter : filter links / the shown level range.
 		page / activePage : page links / the current page.
@@ -174,33 +232,38 @@
 		bookTitle / rankTitle / dailyTitle : title bars of the main list, of the ladder page and of
 		                        the daily reward page. A detail page titles itself with the name and
 		                        the level of its boss.
+		statsTitle            : caption of the band opening the statistics of a raid boss, naming the
+		                        two stat blocks sitting under it. It is the very caption the shift
+		                        click window uses. Empty drops the band.
+		huntTitle             : caption of the band opening the hunting block. Empty drops the band.
 		daily                 : caption of the link leading from the ladder to the daily rewards.
 		placeSuffix           : appended to a ranking position on that page, "1" reading as "1 место".
 		                        The leading space belongs to the attribute.
 		dropGroup             : caption of a drop group header, followed by the rank of the group -
-		                        a boss reads "Дроп #1, Дроп #2". Every group of a raid boss carries
-		                        it, since a raid boss isn't spoiled.
+		                        a boss reads "Category №1, Category №2". Every group of a raid boss
+		                        carries it, since a raid boss isn't spoiled. Both this and the prefix
+		                        below are what the shift click window writes.
 		numberPrefix          : sits between that caption and the rank of the group.
 
-		The captions below name the columns of the lists which need it - the ladders, the history and
-		the daily reward page. They are drawn once on top of their list rather than sliced along with
-		its rows, so they stay readable whatever page is browsed, and they take the "groupText" color.
-		The reward and the drop tabs have none : a reward list reads itself, and a drop group header
-		already says what sits under it.
+		The captions below name the columns of the lists which need it - the ladders and the history.
+		They are drawn once on top of their list rather than sliced along with its rows, so they stay
+		readable whatever page is browsed ; they take the "groupText" color and the very rules which
+		frame a group header, so both read alike. The reward and the drop tabs have none : a reward
+		list reads itself, and a drop group header already says what sits under it. Neither does the
+		daily reward page, whose group headers name the positions.
 
 		colPos / colName / colClan   : columns of the ladders - position, character, clan.
 		colPoints                    : score column of the server wide ladder, which counts points.
 		colKills                     : score column of a per boss ladder, which counts kills.
 		colName / colClan / colTime  : columns of the history - killer, his clan, when it happened.
-		colReward / colPlace         : columns of the daily reward page. A position handing out
-		                               several items lists them one per row, and only the first of
-		                               them carries the position.
 		levelPrefix           : put in front of the level of a raid boss, and of the level a reward
 		                        belongs to.
 		huntLevelPrefix       : put in front of the hunting level on a row of the main list. It sits
 		                        in a "listLevelWidth" wide cell, so keep it short.
-		details / search / back / rank : the four links - the detail page of a boss, the radar
-		                                 marker, the way back to the list, the ladder.
+		details / search / clear / back / rank : the five links - the detail page of a boss, the radar
+		                                 marker, the way to take that marker back off the map, the way
+		                                 back to the list, the ladder. "clear" lives in a "pageWidth"
+		                                 wide cell, so keep it to a character or two.
 		rankPrefix            : put in front of the position of the reader on the head of a page.
 		unranked              : shown instead of that position, to whoever holds no point at all.
 		points                : appended to the amount of ranking points on the head of a page - a
@@ -215,14 +278,28 @@
 		hp / mp / exp / sp    : captions of the first statistics block - the HP and the MP pools of
 		                        the boss on the left column, the experience and the SP the kill is
 		                        worth to the player reading the book on the right one.
+		respawn               : caption of the respawn window of the boss, which sits on a line of its
+		                        own under them.
+		respawnRange          : sits between the two bounds of that window. A spawn holding no random
+		                        spread at all is written as one single value instead.
+		respawnSuffix         : appended to it, naming the unit it is written in - it is written in
+		                        hours. The leading space belongs to the attribute.
+		respawnUnknown        : shown instead of it, for a boss owning no spawn point at all.
+		respawnPattern        : DecimalFormat pattern that window is rendered with.
 		pAtk / pDef / atkSpd  : captions of the left column of the second block.
 		mAtk / mDef / castSpd : captions of its right column.
 		noClan                : shown instead of the clan of a killer who had none.
-		empty                 : shown instead of an empty list.
+		empty                 : shown instead of an empty list - which is what a fresh book is, until
+		                        its owner lays a hand on his first raid boss.
 		notFound              : sent to whoever asks for a raid boss which doesn't exist any more.
 		noLocation            : sent to whoever asks to be pointed at a boss which owns no spawn
 		                        point at all.
 		searchDone            : sent along the radar marker.
+		clearDone             : sent when that marker has been taken back off the map.
+		titleSeparator        : sits between the name and the level of a raid boss on the title bar of
+		                        its detail page. The spaces around it belong to the attribute.
+		progressRange         : sits between the two numbers of the counter written after a progress
+		                        bar - the kills done over the kills the next level takes.
 
 		The four messages below are what the book tells a player about his own hunting. They all go
 		to the chat ; the last three also go to the screen when "RaidBookScreenMessages" allows it -
@@ -243,7 +320,8 @@
 		countRange            : sits between the two bounds of a dropped amount which isn't fixed.
 		chancePattern         : DecimalFormat pattern a chance is rendered with, its amount of
 		                        decimals included. It is used by the damage bonus too.
-		chanceSuffix          : appended to a rendered chance.
+		chanceSuffix          : appended to a rendered chance, and to the damage bonus for the very
+		                        same reason - both are percentages.
 		nearZero              : shown instead of a chance the pattern would round down to a bare
 		                        zero, which would read as "never". Holds its own suffix, and is
 		                        worth rewriting along with "chancePattern".
@@ -265,11 +343,13 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="17" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" screenTime="5000" barWidth="120" barHeight="7" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareGray" listNameWidth="160" listLevelWidth="54" listButtonWidth="66" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="36" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" screenTime="5000" barWidth="120" barHeight="7" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareGray" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
-	<colors row="000000" altRow="" name="" groupText="LEVEL" bossLevel="B09878" huntLevel="LEVEL" label="B09878" value="FFFFFF" count="B09878" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
+	<aligns listName="left" listLevel="center" listButton="right" barCounter="left" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" />
 
-	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг охотников" dailyTitle="Ежедневные награды" daily="Награды дня" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очк." hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Дроп" numberPrefix=" #" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colTime="Когда" colReward="Награда" colPlace="Место" hp="HP" mp="MP" exp="Exp" sp="SP" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
+
+	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг охотников" dailyTitle="Ежедневные награды" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очк." hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " progressRange="/" msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 
 	<filters>
 		<filter label="Все" min="0" max="0" />

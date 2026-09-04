@@ -254,6 +254,13 @@ ant -f source\aCis_gameserver\build.xml
 round trip и бэкапами `*.presets.bak`. Пересборка `interface.u` для этого не
 нужна. Устройство — `docs/armor-sets-all-grades.md`.
 
+Сообщения поверх экрана (`ExShowScreenMessage`) рисовались шрифтом без кириллицы:
+`OnScreenMessageWnd1..8` в `interface.xdat` просили `LargeFontType_4`, а это TrueType-слот
+`broadcast2` из `TTFontInfo.ini`, в интернациональном клиенте не объявленный. Лечится
+переводом этих боксов на растровый шрифт — `tools/client/patch_screen_message_font.ps1`,
+разбор в `docs/screen-message-font.md`. Правка клиентская, `ClientVersion` про xdat
+ничего не знает.
+
 Уровень заточки и количество на иконке предмета рисует не скрипт, а нативный
 код клиента — это бинарный патч `nwindow.dll`
 (`tools/client/patch_nwindow.ps1`), к пересборке `interface.u` отношения не
