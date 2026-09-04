@@ -40,6 +40,7 @@ public class RaidBookData implements IXmlReader
 	private int _headerHeight;
 	private int _headerLabelWidth;
 	private int _headerGap;
+	private int _lastKillWidth;
 	private int _titleHeight;
 	private int _searchRowHeight;
 	private int _searchHeight;
@@ -271,6 +272,7 @@ public class RaidBookData implements IXmlReader
 				_headerHeight = Math.max(1, parseInt(attrs, "headerHeight", _headerHeight));
 				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
+				_lastKillWidth = Math.max(1, parseInt(attrs, "lastKillWidth", _lastKillWidth));
 				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
 				_searchRowHeight = Math.max(1, parseInt(attrs, "searchRowHeight", _searchRowHeight));
 				_searchHeight = Math.max(1, parseInt(attrs, "searchHeight", _searchHeight));
@@ -552,6 +554,7 @@ public class RaidBookData implements IXmlReader
 		_headerHeight = 16;
 		_headerLabelWidth = 76;
 		_headerGap = 6;
+		_lastKillWidth = 36;
 		_titleHeight = 16;
 		_searchRowHeight = 22;
 		_searchHeight = 15;
@@ -570,9 +573,9 @@ public class RaidBookData implements IXmlReader
 		_separator = "L2UI.SquareGray";
 
 		_barWidth = 96;
-		_barHeight = 7;
+		_barHeight = 9;
 		_barFilled = "L2UI.SquareWhite";
-		_barEmpty = "L2UI.SquareGray";
+		_barEmpty = "L2UI.SquareBlank";
 
 		_listNameWidth = 160;
 		_listLevelWidth = 54;
@@ -851,6 +854,16 @@ public class RaidBookData implements IXmlReader
 	public int getHeaderGap()
 	{
 		return _headerGap;
+	}
+
+	/**
+	 * The date of the last kill is the longest value of the statistics block - a day and an hour - and its caption is one of the shortest, so that caption gets a cell of its own rather than the wide
+	 * one every other caption sits in : a value which doesn't fit wraps, and a wrapped line makes its whole row taller than the ones around it.
+	 * @return The width, in pixels, of the caption cell of the last kill date.
+	 */
+	public int getLastKillWidth()
+	{
+		return _lastKillWidth;
 	}
 
 	/**

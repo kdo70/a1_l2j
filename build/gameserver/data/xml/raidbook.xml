@@ -125,6 +125,11 @@
 		headerGap        : width, in pixels, of the spacer sitting between the two columns. Without
 		                   it the caption of the right column would touch the value of the left one,
 		                   which is right aligned on the column edge. 0 drops it.
+		lastKillWidth    : width, in pixels, of the caption cell of the last kill date, which is the
+		                   one caption not cut out of "headerLabelWidth". That date is the longest
+		                   value of the whole block - a day and an hour - and its caption one of the
+		                   shortest, so the wide cell every other caption sits in would leave it too
+		                   little room and the date would wrap onto a second line.
 		titleHeight      : height, in pixels, of a caption band - the ones naming the statistics of a
 		                   boss and the hunting block, and the one telling when the next ladder
 		                   reward is due. Unused when every one of those labels is empty.
@@ -132,8 +137,10 @@
 		                   a button, both taller than a text line, so keep it above "searchHeight".
 		searchHeight     : height, in pixels, of the search field itself and of the button next to it.
 		searchInputWidth / searchButtonWidth : widths, in pixels, of those two. Whatever the layout
-		                   width leaves of them goes to the running query and to the link dropping it,
-		                   so keep their sum under it.
+		                   width leaves of them is split between the running query and the link
+		                   dropping it - that link owning a "pageWidth" wide cell of its own, so it
+		                   doesn't read as the last letter of the query - so keep their sum well
+		                   under the layout width, or the query is left no room to be read in.
 		buttonBack / buttonFore : client textures the pressed and the idle states of a button are
 		                   drawn with. The stock pair is the small one the datapack uses at a height
 		                   of 15 ("sek.cbui94" / "sek.cbui92") ; the taller pair
@@ -183,9 +190,20 @@
 		barFilled / barEmpty : client textures the filled and the empty parts of that bar are drawn
 		                       with. They are the one place the bar gets its look from : swapping
 		                       them for the gauge textures of a rebuilt client is all it takes to
-		                       make it read exactly like the experience bar. An empty value leaves
-		                       that half of the bar blank without moving anything - the cell keeps
-		                       its width - so emptying "barEmpty" alone shows the filled part only.
+		                       make it read exactly like the experience bar.
+
+		                       The empty half is drawn with the blank texture out of the box, which
+		                       means the length of the bar itself is the progress it shows. That is
+		                       on purpose : "L2UI.SquareWhite" and "L2UI.SquareGray" are the two
+		                       hairline textures of the stock client and they read as the very same
+		                       grey once they sit next to each other, so a two toned bar built out
+		                       of them shows one single block whatever the progress - it looks
+		                       broken while being right. A track only pays off with two textures
+		                       which actually differ, a rebuilt client's gauge pair being the
+		                       obvious one.
+
+		                       An empty value leaves that half blank too, without moving anything -
+		                       the cell keeps its width either way.
 
 		The five sets of column widths below must each sum up to the layout width, otherwise the
 		rows of that table won't be aligned - a mismatch is warned about in the log.
@@ -397,7 +415,7 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="150" searchButtonWidth="60" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="7" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareGray" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="9" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareBlank" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
 	<aligns listName="left" listLevel="center" listButton="right" barCounter="left" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 

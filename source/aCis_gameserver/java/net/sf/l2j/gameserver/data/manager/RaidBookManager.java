@@ -1200,9 +1200,12 @@ public class RaidBookManager
 		final RaidBookData data = RaidBookData.getInstance();
 
 		final int width = data.getWidth();
-		final int inputWidth = Math.max(1, Math.min(width - 2, data.getSearchInputWidth()));
-		final int buttonWidth = Math.max(1, Math.min(width - inputWidth - 1, data.getSearchButtonWidth()));
-		final int restWidth = Math.max(1, width - inputWidth - buttonWidth);
+		final int inputWidth = Math.max(1, Math.min(width - 3, data.getSearchInputWidth()));
+		final int buttonWidth = Math.max(1, Math.min(width - inputWidth - 2, data.getSearchButtonWidth()));
+
+		// The link dropping the search owns a cell of its own, the way the one of a detail page does : written right after the query, it would read as the last letter of what is being searched for.
+		final int clearWidth = Math.max(1, Math.min(width - inputWidth - buttonWidth - 1, data.getPageWidth()));
+		final int queryWidth = Math.max(1, width - inputWidth - buttonWidth - clearWidth);
 
 		// The field owns a variable of its own, and the button hands its content over as the tail of the bypass.
 		final String field = "<edit var=\"q\" width=" + Math.max(1, inputWidth - 4) + " height=" + data.getSearchHeight() + ">";
@@ -1210,14 +1213,16 @@ public class RaidBookManager
 
 		// Whatever is being searched for is written next to the box, since the client can't be asked to keep it inside the field itself. It is cut down to what its cell holds - the query is allowed
 		// to be far longer than that, and a wrapped line would make the whole row taller.
-		final String running = (query.isEmpty()) ? "" : colorize(data.getValueColor(), escape(truncate(query, Math.max(1, restWidth / 6 - 2)))) + " " + getLink(getBypass("l " + filter + " 0"), data.getClearLabel(), data.getTabColor());
+		final String running = (query.isEmpty()) ? "" : colorize(data.getValueColor(), escape(truncate(query, Math.max(1, queryWidth / 6))));
+		final String clear = (query.isEmpty()) ? "" : getLink(getBypass("l " + filter + " 0"), data.getClearLabel(), data.getTabColor());
 
 		final StringBuilder sb = new StringBuilder(512);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
 		StringUtil.append(sb, getCell(inputWidth, data.getSearchRowHeight(), data.getSearchFieldAlign(), field));
 		StringUtil.append(sb, getCell(buttonWidth, 0, data.getMenuAlign(), button));
-		StringUtil.append(sb, getCell(restWidth, 0, data.getSearchQueryAlign(), running));
+		StringUtil.append(sb, getCell(queryWidth, 0, data.getSearchQueryAlign(), running));
+		StringUtil.append(sb, getCell(clearWidth, 0, data.getMenuAlign(), clear));
 		StringUtil.append(sb, ROW_END);
 		sb.append(getSeparator());
 
@@ -1465,8 +1470,9 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getHpLabel(), stats.hp(), data.getExpLabel(), stats.exp()));
 		sb.append(getStatRow(data.getMpLabel(), stats.mp(), data.getSpLabel(), stats.sp()));
 
-		// The two halves of one question - when the boss can be hunted again : the window it comes back in, and when it went down for the last time.
-		sb.append(getStatRow(data.getRespawnLabel(), getRespawnText(template.getNpcId()), data.getLastKillLabel(), getLastKillText(template.getNpcId())));
+		// The two halves of one question - when the boss can be hunted again : the window it comes back in, and when it went down for the last time. The date is the longest value of the whole block
+		// - a day and an hour - so its caption is given a cell of its own rather than the wide one every other caption sits in.
+		sb.append(getStatRow(data.getRespawnLabel(), getRespawnText(template.getNpcId()), data.getLastKillLabel(), getLastKillText(template.getNpcId()), data.getLastKillWidth()));
 		sb.append("</table>");
 		sb.append(getSeparator());
 
@@ -2563,12 +2569,27 @@ public class RaidBookManager
 	 */
 	private static String getStatRow(String leftLabel, String leftValue, String rightLabel, String rightValue)
 	{
+		return getStatRow(leftLabel, leftValue, rightLabel, rightValue, RaidBookData.getInstance().getHeaderLabelWidth());
+	}
+
+	/**
+	 * @param leftLabel : The caption of the left column.
+	 * @param leftValue : The already rendered value of the left column.
+	 * @param rightLabel : The caption of the right column.
+	 * @param rightValue : The already rendered value of the right column.
+	 * @param rightLabelWidth : The width, in pixels, of the caption cell of the right column. A short caption sitting in front of a long value is given one of its own : the value takes whatever the
+	 *            caption leaves of the column, and a value which doesn't fit wraps - which makes the whole row taller than the ones around it.
+	 * @return One line, as a pair of caption/value cells per column.
+	 */
+	private static String getStatRow(String leftLabel, String leftValue, String rightLabel, String rightValue, int rightLabelWidth)
+	{
 		final RaidBookData data = RaidBookData.getInstance();
 
 		// The gap sits between the two columns, so the caption of the right one never touches the value of the left one, which is right aligned on the column edge.
 		final int gap = Math.min(data.getHeaderGap(), data.getWidth() - 2);
 		final int columnWidth = Math.max(2, (data.getWidth() - gap) / 2);
 		final int labelWidth = Math.max(1, Math.min(data.getHeaderLabelWidth(), columnWidth - 1));
+		final int rightWidth = Math.max(1, Math.min(rightLabelWidth, columnWidth - 1));
 
 		final StringBuilder sb = new StringBuilder(512);
 
@@ -2579,10 +2600,10 @@ public class RaidBookManager
 		if (gap > 0)
 			sb.append(getCell(gap, 0, data.getStatLabelAlign(), ""));
 
-		sb.append(getCell(labelWidth, 0, data.getStatLabelAlign(), colorize(data.getLabelColor(), escape(rightLabel))));
+		sb.append(getCell(rightWidth, 0, data.getStatLabelAlign(), colorize(data.getLabelColor(), escape(rightLabel))));
 
 		// The last cell takes whatever is left of the layout width, which absorbs the rounding of an odd width.
-		sb.append(getCell(Math.max(1, data.getWidth() - columnWidth - gap - labelWidth), 0, data.getStatValueAlign(), colorize(data.getValueColor(), rightValue)));
+		sb.append(getCell(Math.max(1, data.getWidth() - columnWidth - gap - rightWidth), 0, data.getStatValueAlign(), colorize(data.getValueColor(), rightValue)));
 		sb.append("</tr>");
 
 		return sb.toString();
