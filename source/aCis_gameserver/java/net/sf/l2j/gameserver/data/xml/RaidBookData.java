@@ -581,9 +581,9 @@ public class RaidBookData implements IXmlReader
 		_separator = "L2UI.SquareGray";
 
 		_barWidth = 96;
-		_barHeight = 9;
+		_barHeight = 6;
 		_barCounterWidth = 44;
-		_barFilled = "L2UI.SquareWhite";
+		_barFilled = "L2UI_CH3.ps_cpbar";
 
 		_listNameWidth = 160;
 		_listLevelWidth = 54;
@@ -1176,7 +1176,7 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
-	 * @return The client texture the filled part of a progress bar is drawn with.
+	 * @return The client texture the filled part of a progress bar is drawn with. It is drawn as a button, so a gauge texture of the client is what it expects.
 	 */
 	public String getBarFilled()
 	{

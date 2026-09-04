@@ -119,11 +119,10 @@ public class RaidBookManager
 	private static final int BAR_SLACK = 2;
 
 	/**
-	 * The see-through texture the empty part of a progress bar is drawn with. It shows nothing at all - the track is a background color, and this is drawn over it.<br>
+	 * The see-through texture the empty part of a progress bar is drawn with. It shows nothing at all - the track is a background color, and this sits over it.<br>
 	 * <br>
-	 * Its one job is to give its cell the height of the bar : <b>a cell holding nothing is drawn as thin as the client feels like, whatever height it declares</b>, which left the track thinner than
-	 * the fill standing next to it. Filling both cells with an image of the very same height is what makes the bar one solid block, and it doesn't rely on the client honouring a height attribute at
-	 * all.
+	 * Its one job is to give its half of the bar the very height the filled half has : <b>a cell holding nothing is drawn as thin as the client feels like, whatever height it declares</b>, which
+	 * left the track thinner than the fill standing next to it.
 	 */
 	private static final String BAR_SPACER = "L2UI.SquareBlank";
 
@@ -2467,17 +2466,12 @@ public class RaidBookManager
 		// other row lines up on - and stretch the track past the fill which is supposed to cover it.
 		StringUtil.append(sb, "<table width=", span, " cellspacing=0 cellpadding=0 border=0", ((data.getBarTrackColor().isEmpty()) ? "" : " bgcolor=\"" + data.getBarTrackColor() + "\""), "><tr>");
 
-		// Both halves hold an image of the very same height - the fill its own texture, the rest a see-through one - so the bar is one solid block whatever the client makes of a height attribute.
-		// The only cell of a bar which is whole, or of one which is empty, is left unsized : its image alone fills the table, and no slack has to be left for it.
-		if (filled >= span)
-			StringUtil.append(sb, "<td height=", height, ">", getBarImage(data.getBarFilled(), span, height), "</td>");
-		else if (filled <= 0)
-			StringUtil.append(sb, "<td height=", height, ">", getBarImage(BAR_SPACER, span, height), "</td>");
-		else
-		{
-			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarImage(data.getBarFilled(), filled - 1, height), "</td>");
-			StringUtil.append(sb, "<td width=", span - filled, " height=", height, ">", getBarImage(BAR_SPACER, span - filled - 1, height), "</td>");
-		}
+		// Both halves are the very same kind of element and carry the very same height - the fill its gauge texture, the rest a see-through one - so the bar reads as one solid block.
+		if (filled > 0)
+			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarPart(data.getBarFilled(), filled, height), "</td>");
+
+		if (filled < span)
+			StringUtil.append(sb, "<td width=", span - filled, " height=", height, ">", getBarPart(BAR_SPACER, span - filled, height), "</td>");
 
 		sb.append(ROW_END);
 
@@ -2485,14 +2479,19 @@ public class RaidBookManager
 	}
 
 	/**
-	 * @param texture : The client texture to draw, an empty one drawing nothing at all - which is how a datapack drops the fill of the bar, leaving the bare track.
-	 * @param width : The width, in pixels, to draw the image at.
+	 * One half of the bar, drawn as a <b>button</b> rather than as an image.<br>
+	 * <br>
+	 * That is the whole trick, and the one thing which makes the bar work : a button carries the width and the height it is given, where an image of a client UI texture doesn't - it is drawn at
+	 * whatever size the client feels like, which is why every bar of the book used to read the same however it was sized. A button holding no action does nothing but show its texture, and the same
+	 * texture is given to both of its states so it never looks pressed.
+	 * @param texture : The client texture to draw, an empty one drawing nothing at all - which is how a datapack drops the fill, leaving the bare track.
+	 * @param width : The width, in pixels, to draw it at.
 	 * @param height : The height, in pixels, to draw it at.
-	 * @return One half of the bar.
+	 * @return That half of the bar.
 	 */
-	private static String getBarImage(String texture, int width, int height)
+	private static String getBarPart(String texture, int width, int height)
 	{
-		return (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + Math.max(1, width) + " height=" + height + ">";
+		return (texture.isEmpty()) ? "" : "<button width=" + Math.max(1, width) + " height=" + height + " back=\"" + texture + "\" fore=\"" + texture + "\">";
 	}
 
 	/**

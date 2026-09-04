@@ -42,15 +42,23 @@
 	done over the kills the next level takes.
 
 	The bar is a table of its own, nested inside the cell of the row : its background is the track, and
-	the image it holds is the filled part, stretched to the progress, so a full level covers the whole
-	track. It has to be a table, since the client only handles the bgcolor attribute on tables - a
-	bare cell can't be given a color of its own. Both that image and that table are drawn a pixel or
-	two short of what holds them : something of the very width of its cell leaves the client no slack
-	and gets wrapped onto the next line. That table carries no spacing of its own either - it sits in
-	a cell which already holds the spacing of its row, and a second layer of it pushed the bar off the
-	left edge every other row lines up on. A row of the main list is two stacked tables sharing one
-	background color rather than one table, because a bar can't share a table with text sitting in
-	columns of its own.
+	it holds two halves - the filled part, stretched to the progress, and a see-through spacer taking
+	the rest - so a full level covers the whole track. It has to be a table, since the client only
+	handles the bgcolor attribute on tables ; a bare cell can't be given a color of its own.
+
+	Both halves are drawn as <button> elements carrying a texture, and that is the one thing which
+	makes the bar work : a button carries the width and the height it is given, where an <img> of a
+	client UI texture is drawn at whatever size the client feels like - which kept every bar of the
+	book reading the same however it was sized. The spacer half is a button too, and for the same
+	reason : a cell holding nothing is drawn as thin as the client feels like, and the track then
+	showed up thinner than the fill next to it.
+
+	That table carries no spacing of its own - it sits in a cell which already holds the spacing of
+	its row, and a second layer of it pushed the bar off the left edge every other row lines up on -
+	and it is given a cell slightly wider than itself, since something of the very width of its cell
+	leaves the client no slack and gets wrapped onto the next line. A row of the main list is two
+	stacked tables sharing one background color rather than one table, because a bar can't share a
+	table with text sitting in columns of its own.
 
 	On a detail page the bar and its counter are centered together, since that page shows one single
 	boss ; on the main list the bar starts on the left edge, under the name of its boss.
@@ -197,11 +205,14 @@
 		                       the progress ; the track under it is a background color ("barTrack")
 		                       rather than a second texture, so a full level covers its whole track.
 
-		                       That is on purpose : "L2UI.SquareWhite" and "L2UI.SquareGray" are the
-		                       two hairline textures of the stock client and they read as the very
-		                       same grey once they sit next to each other, so a bar built out of both
-		                       showed one single block whatever the progress - broken looking while
-		                       being right. A color can't be mistaken for the texture sitting on it.
+		                       It is a <b>gauge</b> texture, and it is drawn as a button rather than
+		                       as an image - a button carries the size it is given, where an image of
+		                       a UI texture is drawn at whatever size the client feels like. The
+		                       stock value is the CP gauge of the character status window ; the HP
+		                       and MP ones sit next to it under the very same prefix.
+
+		                       Since it is a gauge, it is roughly four pixels tall of its own, so a
+		                       "barHeight" far above that blurs it.
 
 		                       An empty value leaves the bare track, without moving anything.
 
@@ -422,7 +433,7 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="9" barCounterWidth="44" barFilled="L2UI.SquareWhite" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="6" barCounterWidth="44" barFilled="L2UI_CH3.ps_cpbar" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
 	<aligns listName="left" listLevel="center" listButton="right" bar="left" barCounter="left" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 
