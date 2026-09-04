@@ -2421,7 +2421,9 @@ public class RaidBookManager
 
 		final StringBuilder sb = new StringBuilder(320);
 
-		StringUtil.append(sb, "<table width=", span, ((data.getBarTrackColor().isEmpty()) ? "" : " bgcolor=\"" + data.getBarTrackColor() + "\""), "><tr>");
+		// The nested table is stripped of its own spacing : it sits inside a cell which already carries the spacing of the row, and a second layer of it would push the bar off the left edge every
+		// other row lines up on - and stretch the track past the fill which is supposed to cover it.
+		StringUtil.append(sb, "<table width=", span, " cellspacing=0 cellpadding=0 border=0", ((data.getBarTrackColor().isEmpty()) ? "" : " bgcolor=\"" + data.getBarTrackColor() + "\""), "><tr>");
 
 		if (filled >= span)
 			StringUtil.append(sb, "<td height=", height, ">", getBarImage(span, height), "</td>");

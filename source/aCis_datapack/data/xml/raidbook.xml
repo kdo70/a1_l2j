@@ -46,7 +46,9 @@
 	track. It has to be a table, since the client only handles the bgcolor attribute on tables - a
 	bare cell can't be given a color of its own. Both that image and that table are drawn a pixel or
 	two short of what holds them : something of the very width of its cell leaves the client no slack
-	and gets wrapped onto the next line. A row of the main list is two stacked tables sharing one
+	and gets wrapped onto the next line. That table carries no spacing of its own either - it sits in
+	a cell which already holds the spacing of its row, and a second layer of it pushed the bar off the
+	left edge every other row lines up on. A row of the main list is two stacked tables sharing one
 	background color rather than one table, because a bar can't share a table with text sitting in
 	columns of its own.
 
