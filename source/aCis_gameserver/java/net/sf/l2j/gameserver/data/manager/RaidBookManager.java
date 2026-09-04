@@ -98,6 +98,8 @@ public class RaidBookManager
 	private static final String READ_PENDING = "SELECT place, item_id, count, kind FROM raidboss_daily_rewards WHERE char_id = ?";
 	private static final String CLEAR_PENDING = "DELETE FROM raidboss_daily_rewards WHERE char_id = ?";
 
+	private static final String CLEAR_POINTS = "UPDATE character_raidboss_kills SET points = 0 WHERE points > 0";
+
 	private static final String LOAD_WINS = "SELECT char_id, wins FROM raidboss_monthly_wins";
 	private static final String SAVE_WIN = "REPLACE INTO raidboss_monthly_wins (char_id, wins) VALUES (?,?)";
 	private static final String CLEAR_WINS = "DELETE FROM raidboss_monthly_wins";
@@ -525,10 +527,40 @@ public class RaidBookManager
 		if (!ranking.isEmpty())
 			addWin(ranking.get(0).objectId());
 
-		if (!Config.RAIDBOOK_DAILY_ENABLED || Config.RAIDBOOK_DAILY_REWARDS.isEmpty())
-			return;
+		int rewarded = 0;
 
-		LOGGER.info("Handed out the raid book daily rewards to {} player(s).", hand(ranking, Config.RAIDBOOK_DAILY_REWARDS, MODE_DAILY));
+		if (Config.RAIDBOOK_DAILY_ENABLED && !Config.RAIDBOOK_DAILY_REWARDS.isEmpty())
+			rewarded = hand(ranking, Config.RAIDBOOK_DAILY_REWARDS, MODE_DAILY);
+
+		// The day is over, so the board it was just read off starts again from zero - which is the very thing which makes that ladder a daily one rather than an all time one. It is wiped whether
+		// the day handed anything out or not : a ladder which is only reset when it pays would stop being daily the moment the rewards are switched off.
+		clearPoints();
+
+		LOGGER.info("Handed out the raid book daily rewards to {} player(s).", rewarded);
+	}
+
+	/**
+	 * Wipe the ranking points of every hunting record, which is what closes a day.<br>
+	 * <br>
+	 * The kills themselves are untouched : they are the hunting record of a character, and they drive his hunting levels. Only the points go, since they are what the daily ladder is ranked on.<br>
+	 * <br>
+	 * The memory is only cleared once the table is, so a failed wipe leaves the board standing rather than losing it silently.
+	 */
+	private void clearPoints()
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(CLEAR_POINTS))
+		{
+			ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't wipe the raid book ranking points ; they are kept, so the next day starts on the same board.", e);
+			return;
+		}
+
+		for (Map<Integer, HuntData> playerData : _hunts.values())
+			playerData.replaceAll((bossId, hunt) -> (hunt.points() == 0) ? hunt : new HuntData(hunt.kills(), 0));
 	}
 
 	/**
@@ -824,7 +856,7 @@ public class RaidBookManager
 
 	/**
 	 * @param objectId : The objectId of the {@link Player} to check.
-	 * @return The amount of ranking points that {@link Player} cumulated over every raid boss.
+	 * @return The amount of ranking points that {@link Player} cumulated over every raid boss <b>since the last daily handout</b> - the moment that handout runs, every board goes back to zero.
 	 */
 	private int getPoints(int objectId)
 	{
@@ -836,6 +868,7 @@ public class RaidBookManager
 	}
 
 	/**
+	 * The daily ladder : it is counted from the previous daily handout, since that handout wipes every board it just read. Whoever holds the most points when the next one runs wins the day.
 	 * @return The whole ladder, sorted by decreasing points, holding every {@link Player} owning at least one point.
 	 */
 	private List<RankRow> getRanking()
@@ -2430,7 +2463,9 @@ public class RaidBookManager
 		else if (filled > 0)
 		{
 			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarImage(filled - 1, height), "</td>");
-			StringUtil.append(sb, "<td width=", span - filled, "></td>");
+
+			// The rest of the track carries the very same height : a cell holding nothing is drawn at whatever height it can get away with, and the track then reads as thinner than the fill.
+			StringUtil.append(sb, "<td width=", span - filled, " height=", height, "></td>");
 		}
 		else
 			StringUtil.append(sb, "<td height=", height, "></td>");
