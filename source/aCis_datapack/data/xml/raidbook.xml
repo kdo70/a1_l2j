@@ -20,7 +20,7 @@
 		============================================
 		Все    1-20   20-40   40-60   60-80
 		Greyclaw Kutus  Ур.23           ур.3   Инфо
-		[############........] 12/15
+		[############........] 2/5
 
 	A book opens empty : a raid boss only shows up on that list once its owner has laid a hand on it,
 	and it stays there afterwards. A list of the 213 raid bosses of the server tells a player nothing ;
@@ -41,16 +41,17 @@
 	level right under it - the way the experience bar of a character reads - followed by the kills
 	done over the kills the next level takes.
 
-	The bar is built out of table cells, one per half, and not out of two images written next to each
-	other : the client breaks the line right after an image, so two of them inside one single cell
-	land on two lines and the bar shows up cut in half. Every one of those cells declares its own
-	width, and the counter written after them takes what is left of the row : a cell declaring none is
-	handed a share of the table the client computes on its own, and the image it holds is stretched to
-	that share - which made every bar read as the very same, whatever progress it was meant to show.
-	The image itself is drawn one pixel short of its cell, since a cell holding an image of its very
-	width leaves the client no slack and wraps that image onto the next line. That is also why a row
-	is two stacked tables sharing one background color rather than one table : a bar can't share a
-	table with text sitting in columns of its own.
+	The bar is a table of its own, nested inside the cell of the row : its background is the track, and
+	the image it holds is the filled part, stretched to the progress, so a full level covers the whole
+	track. It has to be a table, since the client only handles the bgcolor attribute on tables - a
+	bare cell can't be given a color of its own. Both that image and that table are drawn a pixel or
+	two short of what holds them : something of the very width of its cell leaves the client no slack
+	and gets wrapped onto the next line. A row of the main list is two stacked tables sharing one
+	background color rather than one table, because a bar can't share a table with text sitting in
+	columns of its own.
+
+	On a detail page the bar and its counter are centered together, since that page shows one single
+	boss ; on the main list the bar starts on the left edge, under the name of its boss.
 
 	A detail page opens on the statistics of the boss, laid out the way the status window of a
 	character is - two blocks of two columns, each opening on a caption band of its own, exactly like
@@ -70,7 +71,7 @@
 		========================
 		Ур.охоты  3     Убийств    12
 		Бонус урона 3%  До уровня   3
-		[############........] 12/15
+		      [############........] 2/5
 		========================
 		Назад          Искать     x
 		Награды  Дроп  История  Рейтинг
@@ -183,27 +184,24 @@
 		              player it is sent to. The chat always gets those messages ; whether the screen
 		              gets them too is "RaidBookScreenMessages" of the properties.
 
-		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level - barWidth is
-		                       what its two halves add up to, and what the counter written right
-		                       after it is cut out of : that counter owns (width - barWidth). Keep
-		                       barWidth under the layout width, so the counter is left a column.
-		barFilled / barEmpty : client textures the filled and the empty parts of that bar are drawn
-		                       with. They are the one place the bar gets its look from : swapping
-		                       them for the gauge textures of a rebuilt client is all it takes to
-		                       make it read exactly like the experience bar.
+		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level. Keep barWidth
+		                       a few pixels under the layout width, so the counter written next to it
+		                       is left a column of its own.
+		barCounterWidth      : width, in pixels, of that counter on a detail page, where the bar and
+		                       the counter are centered together as one block. On the main list the
+		                       counter takes whatever the bar leaves of the row instead, since the
+		                       bar starts on the left edge there.
+		barFilled            : client texture the filled part of the bar is drawn with, stretched to
+		                       the progress ; the track under it is a background color ("barTrack")
+		                       rather than a second texture, so a full level covers its whole track.
 
-		                       The empty half is drawn with the blank texture out of the box, which
-		                       means the length of the bar itself is the progress it shows. That is
-		                       on purpose : "L2UI.SquareWhite" and "L2UI.SquareGray" are the two
-		                       hairline textures of the stock client and they read as the very same
-		                       grey once they sit next to each other, so a two toned bar built out
-		                       of them shows one single block whatever the progress - it looks
-		                       broken while being right. A track only pays off with two textures
-		                       which actually differ, a rebuilt client's gauge pair being the
-		                       obvious one.
+		                       That is on purpose : "L2UI.SquareWhite" and "L2UI.SquareGray" are the
+		                       two hairline textures of the stock client and they read as the very
+		                       same grey once they sit next to each other, so a bar built out of both
+		                       showed one single block whatever the progress - broken looking while
+		                       being right. A color can't be mistaken for the texture sitting on it.
 
-		                       An empty value leaves that half blank too, without moving anything -
-		                       the cell keeps its width either way.
+		                       An empty value leaves the bare track, without moving anything.
 
 		The five sets of column widths below must each sum up to the layout width, otherwise the
 		rows of that table won't be aligned - a mismatch is warned about in the log.
@@ -244,9 +242,13 @@
 		menu              : every cell of a menu row - the level filters, the tabs, the buttons and
 		                    the page selector.
 		empty             : the label shown instead of an empty list.
-		title             : the text of a caption band. A band owns the whole width whatever edge its
-		                    text sits on ; "left" is what lines it up with the captions of the group
-		                    headers.
+		title             : the text of a caption band naming a section. A band owns the whole width
+		                    whatever edge its text sits on ; "left" is what lines it up with the
+		                    captions of the group headers.
+		nextReward        : the band telling when the next ladder reward is due, which stands on its
+		                    own rather than naming what opens under it.
+		bar               : the progress bar inside its own cell, and the spacers centering it on a
+		                    detail page.
 		headerRank / headerPoints / headerLink : the position, the score and the links of the head of
 		                                         a page.
 		searchField / searchQuery : the search field of the main list, and the query being searched
@@ -265,6 +267,9 @@
 		label / value     : captions and values of the two columns blocks.
 		count             : amounts - the dropped ones, the reward ones and the ranking points.
 		title             : the text of a caption band.
+		barTrack          : background of the track of a progress bar, which the filled part is drawn
+		                    over. An empty value leaves it see-through, and the length of the bar
+		                    alone tells the progress.
 		tab / activeTab   : tab links and buttons / the shown tab and the "Искать" button.
 		filter / activeFilter : filter links / the shown level range.
 		page / activePage : page links / the current page.
@@ -415,11 +420,11 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="9" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareBlank" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="9" barCounterWidth="44" barFilled="L2UI.SquareWhite" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
-	<aligns listName="left" listLevel="center" listButton="right" barCounter="left" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
+	<aligns listName="left" listLevel="center" listButton="right" bar="left" barCounter="left" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 
-	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
+	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" barTrack="333333" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
 
 	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг дня" monthlyRankTitle="Рейтинг месяца" dailyTitle="Награды дня" monthlyTitle="Награды месяца" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" monthly="Награды месяца" rankDaily="Рейтинг дня" rankMonthly="Рейтинг месяца" rewards="Награды" nextReward="      Следующая награда: " nextRewardPattern="HH:mm dd.MM.yy" nextRewardUnknown="-" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" searchName="Найти" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очков" wins=" побед" hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colWins="Побед" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" lastKill="Убит" lastKillNever="-" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " progressRange="/" msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgMonthly="Награда месяца за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 

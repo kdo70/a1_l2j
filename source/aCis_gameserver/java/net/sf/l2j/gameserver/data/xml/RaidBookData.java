@@ -60,8 +60,9 @@ public class RaidBookData implements IXmlReader
 
 	private int _barWidth;
 	private int _barHeight;
+	private int _barCounterWidth;
 	private String _barFilled;
-	private String _barEmpty;
+	private String _barTrackColor;
 
 	private int _listNameWidth;
 	private int _listLevelWidth;
@@ -87,7 +88,9 @@ public class RaidBookData implements IXmlReader
 	private String _listNameAlign;
 	private String _listLevelAlign;
 	private String _listButtonAlign;
+	private String _barAlign;
 	private String _barCounterAlign;
+	private String _nextRewardAlign;
 	private String _statLabelAlign;
 	private String _statValueAlign;
 	private String _dropIconAlign;
@@ -292,8 +295,8 @@ public class RaidBookData implements IXmlReader
 
 				_barWidth = Math.max(1, parseInt(attrs, "barWidth", _barWidth));
 				_barHeight = Math.max(1, parseInt(attrs, "barHeight", _barHeight));
+				_barCounterWidth = Math.max(1, parseInt(attrs, "barCounterWidth", _barCounterWidth));
 				_barFilled = parseToken(attrs, "barFilled", _barFilled);
-				_barEmpty = parseToken(attrs, "barEmpty", _barEmpty);
 
 				_listNameWidth = Math.max(1, parseInt(attrs, "listNameWidth", _listNameWidth));
 				_listLevelWidth = Math.max(1, parseInt(attrs, "listLevelWidth", _listLevelWidth));
@@ -332,7 +335,9 @@ public class RaidBookData implements IXmlReader
 				_listNameAlign = parseAlign(attrs, "listName", _listNameAlign);
 				_listLevelAlign = parseAlign(attrs, "listLevel", _listLevelAlign);
 				_listButtonAlign = parseAlign(attrs, "listButton", _listButtonAlign);
+				_barAlign = parseAlign(attrs, "bar", _barAlign);
 				_barCounterAlign = parseAlign(attrs, "barCounter", _barCounterAlign);
+				_nextRewardAlign = parseAlign(attrs, "nextReward", _nextRewardAlign);
 
 				_statLabelAlign = parseAlign(attrs, "statLabel", _statLabelAlign);
 				_statValueAlign = parseAlign(attrs, "statValue", _statValueAlign);
@@ -391,6 +396,7 @@ public class RaidBookData implements IXmlReader
 				_selfColor = parseToken(attrs, "self", _selfColor);
 				_disabledColor = parseToken(attrs, "disabled", _disabledColor);
 				_titleColor = parseToken(attrs, "title", _titleColor);
+				_barTrackColor = parseToken(attrs, "barTrack", _barTrackColor);
 				_highChanceColor = parseToken(attrs, "highChance", _highChanceColor);
 				_mediumChanceColor = parseToken(attrs, "mediumChance", _mediumChanceColor);
 				_lowChanceColor = parseToken(attrs, "lowChance", _lowChanceColor);
@@ -512,7 +518,9 @@ public class RaidBookData implements IXmlReader
 		_listNameAlign = "left";
 		_listLevelAlign = "center";
 		_listButtonAlign = "right";
+		_barAlign = "left";
 		_barCounterAlign = "left";
+		_nextRewardAlign = "center";
 
 		_statLabelAlign = "left";
 		_statValueAlign = "right";
@@ -574,8 +582,8 @@ public class RaidBookData implements IXmlReader
 
 		_barWidth = 96;
 		_barHeight = 9;
+		_barCounterWidth = 44;
 		_barFilled = "L2UI.SquareWhite";
-		_barEmpty = "L2UI.SquareBlank";
 
 		_listNameWidth = 160;
 		_listLevelWidth = 54;
@@ -624,6 +632,7 @@ public class RaidBookData implements IXmlReader
 		_selfColor = "LEVEL";
 		_disabledColor = "707070";
 		_titleColor = "FFFFFF";
+		_barTrackColor = "333333";
 		_highChanceColor = "90EE90";
 		_mediumChanceColor = "BDB76B";
 		_lowChanceColor = "F08080";
@@ -945,11 +954,27 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
+	 * @return The alignment of the progress bar inside its own cell, and of the spacers centering it on a detail page.
+	 */
+	public String getBarAlign()
+	{
+		return _barAlign;
+	}
+
+	/**
 	 * @return The alignment of the counter written right after a progress bar.
 	 */
 	public String getBarCounterAlign()
 	{
 		return _barCounterAlign;
+	}
+
+	/**
+	 * @return The alignment of the band telling when the next ladder reward is due.
+	 */
+	public String getNextRewardAlign()
+	{
+		return _nextRewardAlign;
 	}
 
 	public String getStatLabelAlign()
@@ -1143,6 +1168,14 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
+	 * @return The width, in pixels, of the counter written next to a centered progress bar. A bar which isn't centered leaves it whatever is left of the layout width instead.
+	 */
+	public int getBarCounterWidth()
+	{
+		return _barCounterWidth;
+	}
+
+	/**
 	 * @return The client texture the filled part of a progress bar is drawn with.
 	 */
 	public String getBarFilled()
@@ -1151,11 +1184,13 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
-	 * @return The client texture the empty part of a progress bar is drawn with.
+	 * The track of a progress bar is a background color rather than a second texture : the stock client only owns two hairline textures, and they read as the very same grey once they sit next to
+	 * each other - which showed one single block whatever the progress.
+	 * @return The background color of the track, an empty one leaving it see-through.
 	 */
-	public String getBarEmpty()
+	public String getBarTrackColor()
 	{
-		return _barEmpty;
+		return _barTrackColor;
 	}
 
 	public int getListNameWidth()

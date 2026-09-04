@@ -113,6 +113,9 @@ public class RaidBookManager
 	/** Height, in pixels, of the rule cutting the blocks of a page apart. The separator textures are hairlines, and the filler math relies on that height being fixed. */
 	private static final int SEPARATOR_HEIGHT = 1;
 
+	/** Slack, in pixels, left inside the cell holding the progress bar. A cell holding something of its very width leaves the client no room, and it wraps that content onto the next line. */
+	private static final int BAR_SLACK = 2;
+
 	/**
 	 * Amount of lines the statistics block of a detail page holds : two for the pools and the rewards, one for the respawn window, three for the combat stats. Both blocks are two columns wide, so a
 	 * line carries two stats - the respawn one being the exception, it owns its whole line.
@@ -785,6 +788,19 @@ public class RaidBookManager
 	}
 
 	/**
+	 * Where the progress bar of a hunting level starts counting from.<br>
+	 * <br>
+	 * It is the amount of kills the level takes, with one exception : the level 1 counts from zero rather than from the very kill which granted it. That kill is worth a level <b>and</b> a step
+	 * towards the next one - a bar reading 0/5 right after a raid boss went down reads as a kill which wasn't counted at all.
+	 * @param level : The hunting level to evaluate.
+	 * @return The amount of kills the bar of that level is counted from.
+	 */
+	private static int getLevelStart(int level)
+	{
+		return (level <= 1) ? 0 : getKillsForLevel(level);
+	}
+
+	/**
 	 * @param level : The hunting level to evaluate.
 	 * @return The items the given hunting level rewards - the ones listed for that very level, or the default reward when it holds none.
 	 */
@@ -1349,8 +1365,7 @@ public class RaidBookManager
 		StringUtil.append(sb, ROW_END);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getBarCells(kills, barHeight));
-		StringUtil.append(sb, getBarCounterCell(kills));
+		StringUtil.append(sb, getBarCells(kills, barHeight, false));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1591,9 +1606,9 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + escape(data.getChanceSuffix()), data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
 		sb.append("</table>");
 
+		// A detail page shows one single boss, so its bar owns the middle of the row rather than starting on the left edge the way a list row does.
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight()));
-		StringUtil.append(sb, getBarCounterCell(kills));
+		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight(), true));
 		StringUtil.append(sb, ROW_END);
 
 		sb.append(getSeparator());
@@ -1640,18 +1655,19 @@ public class RaidBookManager
 	 */
 	private static String getBand(String caption)
 	{
-		return getBandContent(escape(caption));
+		return getBandContent(escape(caption), RaidBookData.getInstance().getTitleAlign());
 	}
 
 	/**
 	 * @param content : The already escaped content of the band, which lets a band hold something built out of several labels.
+	 * @param align : The alignment of that content. A band naming a section lines up with the captions of the group headers, where the one dating the next reward stands on its own.
 	 * @return The band, rendered as its own table.
 	 */
-	private static String getBandContent(String content)
+	private static String getBandContent(String content, String align)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getBlockStart() + "<tr>" + getCell(data.getWidth(), data.getTitleHeight(), data.getTitleAlign(), colorize(data.getTitleColor(), content)) + ROW_END;
+		return getBlockStart() + "<tr>" + getCell(data.getWidth(), data.getTitleHeight(), align, colorize(data.getTitleColor(), content)) + ROW_END;
 	}
 
 	/**
@@ -2240,7 +2256,7 @@ public class RaidBookManager
 
 		if (!next.isEmpty())
 		{
-			header.append(getBandContent(next));
+			header.append(getBandContent(next, data.getNextRewardAlign()));
 			header.append(getSeparator());
 		}
 
@@ -2344,69 +2360,104 @@ public class RaidBookManager
 	}
 
 	/**
-	 * The progress bar of a hunting level : the filled part of the current level, then whatever is left of it.<br>
-	 * <br>
-	 * Both halves are handed out as cells of their own rather than as two images written next to each other, because <b>the client breaks the line right after an image</b> - two of them inside one
-	 * single cell land on two lines, and the bar shows up cut in half.<br>
-	 * <br>
-	 * Every one of those cells declares <b>its own width</b>, and the counter sitting after them takes the rest of the row : a cell which declares none is handed a share of the table the client
-	 * computes on its own, and the image it holds is then stretched to that share - which is what made every bar of the book read as the very same, whatever the progress it was meant to show. The
-	 * image itself is drawn one pixel short of its cell, since a cell holding an image of its very width leaves the client no slack and wraps that image onto the next line.
+	 * The whole progress bar line of a hunting level : the bar itself, the counter written next to it, and - when asked for - the spacers centering both of them on the row.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
 	 * @param height : The height, in pixels, of the row the bar sits on. It is written on the first emitted cell, the way every other row of the book does.
-	 * @return The cells holding the bar, which measure {@link #getBarSpan()} in total whatever the progress.
+	 * @param centered : Whether the bar and its counter are centered on the row, which is what a detail page does - a list row reads better with its bar starting under the name of its boss.
+	 * @return The cells of the line, which always add up to the layout width.
 	 */
-	private static String getBarCells(int kills, int height)
+	private static String getBarCells(int kills, int height, boolean centered)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int width = getBarSpan();
-		final int filled = Math.min(width, Math.max(0, (int) Math.round(width * getProgress(kills))));
+		final int width = data.getWidth();
 
-		final StringBuilder sb = new StringBuilder(320);
+		// The bar sits in a cell slightly wider than itself : a cell holding something of its very width leaves the client no slack, and it wraps that content onto the next line.
+		final int barWidth = Math.max(1, Math.min(width - 1, getBarSpan() + BAR_SLACK));
+		final int counterWidth = (centered) ? Math.max(1, Math.min(width - barWidth - 1, data.getBarCounterWidth())) : Math.max(1, width - barWidth);
+		final int pad = (centered) ? Math.max(0, (width - barWidth - counterWidth) / 2) : 0;
 
-		if (filled > 0)
-			sb.append(getBarCell(filled, height, data.getBarFilled()));
+		final StringBuilder sb = new StringBuilder(448);
 
-		// The height rides on the first emitted cell, so the empty half only carries it when the bar is completely empty.
-		if (filled < width)
-			sb.append(getBarCell(width - filled, (filled > 0) ? 0 : height, data.getBarEmpty()));
+		// The height rides on the very first emitted cell, whichever it turns out to be.
+		int first = height;
+
+		if (pad > 0)
+		{
+			sb.append(getCell(pad, first, data.getBarAlign(), ""));
+			first = 0;
+		}
+
+		sb.append(getCell(barWidth, first, data.getBarAlign(), getBar(kills)));
+		sb.append(getCell(counterWidth, 0, data.getBarCounterAlign(), colorize(data.getCountColor(), " " + getProgressText(kills))));
+
+		final int rest = width - pad - barWidth - counterWidth;
+		if (rest > 0)
+			sb.append(getCell(rest, 0, data.getBarAlign(), ""));
 
 		return sb.toString();
 	}
 
 	/**
-	 * @return The width, in pixels, the whole bar takes on a row. The counter written right after it owns whatever is left of the layout width, so the bar always leaves it at least one pixel.
+	 * The bar itself : a <b>table of its own</b>, carrying the track color as its background, holding the filled part of the current level as an image stretched to that very progress. A full level
+	 * covers its whole track.<br>
+	 * <br>
+	 * It has to be a table, and it has to be nested inside the cell of the row : the client only handles the bgcolor attribute on tables, so a bare cell can't be given a track color of its own. The
+	 * two halves used to be two textures instead, which is what a stock client can't show - "L2UI.SquareWhite" and "L2UI.SquareGray" are its two hairline textures and they read as the very same grey
+	 * once they sit next to each other, so the bar showed one single block whatever the progress.<br>
+	 * <br>
+	 * The image is drawn one pixel short of its own cell, for the very reason the bar is given a wider cell than itself. A full bar is the exception : its cell is left unsized, so the image alone
+	 * fills the table and the track is covered whole.
+	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
+	 * @return The bar, as a table measuring {@link #getBarSpan()} whatever the progress.
+	 */
+	private static String getBar(int kills)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final int span = getBarSpan();
+		final int filled = Math.min(span, Math.max(0, (int) Math.round(span * getProgress(kills))));
+		final int height = data.getBarHeight();
+
+		final StringBuilder sb = new StringBuilder(320);
+
+		StringUtil.append(sb, "<table width=", span, ((data.getBarTrackColor().isEmpty()) ? "" : " bgcolor=\"" + data.getBarTrackColor() + "\""), "><tr>");
+
+		if (filled >= span)
+			StringUtil.append(sb, "<td height=", height, ">", getBarImage(span, height), "</td>");
+		else if (filled > 0)
+		{
+			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarImage(filled - 1, height), "</td>");
+			StringUtil.append(sb, "<td width=", span - filled, "></td>");
+		}
+		else
+			StringUtil.append(sb, "<td height=", height, "></td>");
+
+		sb.append(ROW_END);
+
+		return sb.toString();
+	}
+
+	/**
+	 * @param width : The width, in pixels, to draw the image at.
+	 * @param height : The height, in pixels, to draw it at.
+	 * @return The filled part of the bar, empty when the datapack holds no texture for it - which leaves the bare track, and is how a datapack drops the fill without moving anything.
+	 */
+	private static String getBarImage(int width, int height)
+	{
+		final String texture = RaidBookData.getInstance().getBarFilled();
+
+		return (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + Math.max(1, width) + " height=" + height + ">";
+	}
+
+	/**
+	 * @return The width, in pixels, the bar itself takes. The cell holding it, and the counter written next to it, are cut out of whatever is left of the layout width.
 	 */
 	private static int getBarSpan()
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return Math.max(1, Math.min(data.getWidth() - 1, data.getBarWidth()));
-	}
-
-	/**
-	 * @param width : The width, in pixels, of the cell.
-	 * @param height : The height, in pixels, to reserve, 0 leaving it to the image.
-	 * @param texture : The client texture to draw, an empty one leaving the cell blank - which is how a datapack drops one half of the bar without moving anything, the cell keeping its width.
-	 * @return One half of the progress bar.
-	 */
-	private static String getBarCell(int width, int height, String texture)
-	{
-		final String image = (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + Math.max(1, width - 1) + " height=" + RaidBookData.getInstance().getBarHeight() + ">";
-
-		return "<td width=" + width + ((height > 0) ? " height=" + height : "") + " align=left>" + image + "</td>";
-	}
-
-	/**
-	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @return The cell holding the counter written right after the bar, owning whatever the bar leaves of the layout width.
-	 */
-	private static String getBarCounterCell(int kills)
-	{
-		final RaidBookData data = RaidBookData.getInstance();
-
-		return getCell(Math.max(1, data.getWidth() - getBarSpan()), 0, data.getBarCounterAlign(), colorize(data.getCountColor(), " " + getProgressText(kills)));
+		return Math.max(1, Math.min(data.getWidth() - BAR_SLACK - 2, data.getBarWidth()));
 	}
 
 	/**
@@ -2419,8 +2470,8 @@ public class RaidBookManager
 		if (Config.RAIDBOOK_MAX_LEVEL > 0 && level >= Config.RAIDBOOK_MAX_LEVEL)
 			return 1.;
 
-		final int lower = getKillsForLevel(level);
-		final int upper = getKillsForLevel(level + 1);
+		final int lower = getLevelStart(level);
+		final int upper = getLevelStart(level + 1);
 
 		return Math.min(1., Math.max(0., (kills - lower) / (double) Math.max(1, upper - lower)));
 	}
@@ -2439,8 +2490,8 @@ public class RaidBookManager
 		if (Config.RAIDBOOK_MAX_LEVEL > 0 && level >= Config.RAIDBOOK_MAX_LEVEL)
 			return escape(data.getMaxLevelLabel());
 
-		final int lower = getKillsForLevel(level);
-		final int upper = getKillsForLevel(level + 1);
+		final int lower = getLevelStart(level);
+		final int upper = getLevelStart(level + 1);
 
 		return (kills - lower) + escape(data.getProgressRange()) + Math.max(1, upper - lower);
 	}
