@@ -41,6 +41,12 @@ public class RaidBookData implements IXmlReader
 	private int _headerLabelWidth;
 	private int _headerGap;
 	private int _titleHeight;
+	private int _searchRowHeight;
+	private int _searchHeight;
+	private int _searchInputWidth;
+	private int _searchButtonWidth;
+	private String _buttonBack;
+	private String _buttonFore;
 	private int _iconSize;
 	private int _maxPages;
 	private int _pageWidth;
@@ -104,6 +110,8 @@ public class RaidBookData implements IXmlReader
 	private String _headerRankAlign;
 	private String _headerPointsAlign;
 	private String _headerLinkAlign;
+	private String _searchFieldAlign;
+	private String _searchQueryAlign;
 
 	private int _screenTime;
 
@@ -144,7 +152,22 @@ public class RaidBookData implements IXmlReader
 	private String _colClanLabel;
 	private String _colPointsLabel;
 	private String _colKillsLabel;
+	private String _colWinsLabel;
 	private String _colTimeLabel;
+	private String _winsLabel;
+	private String _monthlyRankTitle;
+	private String _monthlyTitle;
+	private String _monthlyLabel;
+	private String _rankDailyLabel;
+	private String _rankMonthlyLabel;
+	private String _rewardsLabel;
+	private String _monthlyMessage;
+	private String _nextRewardLabel;
+	private String _nextRewardPattern;
+	private String _nextRewardUnknown;
+	private String _lastKillLabel;
+	private String _lastKillNever;
+	private String _searchNameLabel;
 	private String _statsTitle;
 	private String _huntTitle;
 	private String _respawnLabel;
@@ -249,6 +272,12 @@ public class RaidBookData implements IXmlReader
 				_headerLabelWidth = Math.max(1, parseInt(attrs, "headerLabelWidth", _headerLabelWidth));
 				_headerGap = Math.max(0, parseInt(attrs, "headerGap", _headerGap));
 				_titleHeight = Math.max(1, parseInt(attrs, "titleHeight", _titleHeight));
+				_searchRowHeight = Math.max(1, parseInt(attrs, "searchRowHeight", _searchRowHeight));
+				_searchHeight = Math.max(1, parseInt(attrs, "searchHeight", _searchHeight));
+				_searchInputWidth = Math.max(1, parseInt(attrs, "searchInputWidth", _searchInputWidth));
+				_searchButtonWidth = Math.max(1, parseInt(attrs, "searchButtonWidth", _searchButtonWidth));
+				_buttonBack = parseToken(attrs, "buttonBack", _buttonBack);
+				_buttonFore = parseToken(attrs, "buttonFore", _buttonFore);
 				_iconSize = Math.max(1, parseInt(attrs, "iconSize", _iconSize));
 				_maxPages = Math.max(1, parseInt(attrs, "maxPages", _maxPages));
 				_pageWidth = Math.max(1, parseInt(attrs, "pageWidth", _pageWidth));
@@ -331,6 +360,8 @@ public class RaidBookData implements IXmlReader
 				_headerRankAlign = parseAlign(attrs, "headerRank", _headerRankAlign);
 				_headerPointsAlign = parseAlign(attrs, "headerPoints", _headerPointsAlign);
 				_headerLinkAlign = parseAlign(attrs, "headerLink", _headerLinkAlign);
+				_searchFieldAlign = parseAlign(attrs, "searchField", _searchFieldAlign);
+				_searchQueryAlign = parseAlign(attrs, "searchQuery", _searchQueryAlign);
 			});
 
 			forEach(listNode, "colors", colorsNode ->
@@ -379,7 +410,22 @@ public class RaidBookData implements IXmlReader
 				_colClanLabel = parseString(attrs, "colClan", _colClanLabel);
 				_colPointsLabel = parseString(attrs, "colPoints", _colPointsLabel);
 				_colKillsLabel = parseString(attrs, "colKills", _colKillsLabel);
+				_colWinsLabel = parseString(attrs, "colWins", _colWinsLabel);
 				_colTimeLabel = parseString(attrs, "colTime", _colTimeLabel);
+				_winsLabel = parseString(attrs, "wins", _winsLabel);
+				_monthlyRankTitle = parseString(attrs, "monthlyRankTitle", _monthlyRankTitle);
+				_monthlyTitle = parseString(attrs, "monthlyTitle", _monthlyTitle);
+				_monthlyLabel = parseString(attrs, "monthly", _monthlyLabel);
+				_rankDailyLabel = parseString(attrs, "rankDaily", _rankDailyLabel);
+				_rankMonthlyLabel = parseString(attrs, "rankMonthly", _rankMonthlyLabel);
+				_rewardsLabel = parseString(attrs, "rewards", _rewardsLabel);
+				_monthlyMessage = parseString(attrs, "msgMonthly", _monthlyMessage);
+				_nextRewardLabel = parseString(attrs, "nextReward", _nextRewardLabel);
+				_nextRewardPattern = parseToken(attrs, "nextRewardPattern", _nextRewardPattern);
+				_nextRewardUnknown = parseString(attrs, "nextRewardUnknown", _nextRewardUnknown);
+				_lastKillLabel = parseString(attrs, "lastKill", _lastKillLabel);
+				_lastKillNever = parseString(attrs, "lastKillNever", _lastKillNever);
+				_searchNameLabel = parseString(attrs, "searchName", _searchNameLabel);
 				_statsTitle = parseString(attrs, "statsTitle", _statsTitle);
 				_huntTitle = parseString(attrs, "huntTitle", _huntTitle);
 				_respawnLabel = parseString(attrs, "respawn", _respawnLabel);
@@ -494,6 +540,8 @@ public class RaidBookData implements IXmlReader
 		_headerRankAlign = "left";
 		_headerPointsAlign = "right";
 		_headerLinkAlign = "center";
+		_searchFieldAlign = "left";
+		_searchQueryAlign = "right";
 	}
 
 	private void setDefaultLayout()
@@ -504,7 +552,13 @@ public class RaidBookData implements IXmlReader
 		_headerHeight = 16;
 		_headerLabelWidth = 76;
 		_headerGap = 6;
-		_titleHeight = 18;
+		_titleHeight = 16;
+		_searchRowHeight = 22;
+		_searchHeight = 15;
+		_searchInputWidth = 150;
+		_searchButtonWidth = 60;
+		_buttonBack = "sek.cbui94";
+		_buttonFore = "sek.cbui92";
 		_iconSize = 32;
 		_maxPages = 10;
 		_pageWidth = 26;
@@ -586,7 +640,22 @@ public class RaidBookData implements IXmlReader
 		_colClanLabel = "Clan";
 		_colPointsLabel = "Points";
 		_colKillsLabel = "Kills";
+		_colWinsLabel = "Wins";
 		_colTimeLabel = "Date";
+		_winsLabel = " wins";
+		_monthlyRankTitle = "Ranking of the month";
+		_monthlyTitle = "Monthly rewards";
+		_monthlyLabel = "Monthly rewards";
+		_rankDailyLabel = "Day";
+		_rankMonthlyLabel = "Month";
+		_rewardsLabel = "Rewards";
+		_monthlyMessage = "Monthly reward for the %place% place : %item% x%count%.";
+		_nextRewardLabel = "      Next reward : ";
+		_nextRewardPattern = "HH:mm dd.MM.yy";
+		_nextRewardUnknown = "-";
+		_lastKillLabel = "Last kill";
+		_lastKillNever = "-";
+		_searchNameLabel = "Find";
 		_statsTitle = "      Stats";
 		_huntTitle = "      Hunt";
 		_respawnLabel = "Respawn";
@@ -790,6 +859,61 @@ public class RaidBookData implements IXmlReader
 	public int getTitleHeight()
 	{
 		return _titleHeight;
+	}
+
+	/**
+	 * @return The height, in pixels, of the whole search row of the main list. It holds a field and a button, both of them taller than a text line, so it is taller than a menu row.
+	 */
+	public int getSearchRowHeight()
+	{
+		return _searchRowHeight;
+	}
+
+	/**
+	 * @return The height, in pixels, of the search field and of the button next to it.
+	 */
+	public int getSearchHeight()
+	{
+		return _searchHeight;
+	}
+
+	public int getSearchInputWidth()
+	{
+		return _searchInputWidth;
+	}
+
+	public int getSearchButtonWidth()
+	{
+		return _searchButtonWidth;
+	}
+
+	/**
+	 * @return The client texture the pressed state of a button is drawn with.
+	 */
+	public String getButtonBack()
+	{
+		return _buttonBack;
+	}
+
+	/**
+	 * @return The client texture a button is drawn with.
+	 */
+	public String getButtonFore()
+	{
+		return _buttonFore;
+	}
+
+	public String getSearchFieldAlign()
+	{
+		return _searchFieldAlign;
+	}
+
+	/**
+	 * @return The alignment of the running search query, written next to the search box.
+	 */
+	public String getSearchQueryAlign()
+	{
+		return _searchQueryAlign;
 	}
 
 	public String getListNameAlign()
@@ -1188,11 +1312,125 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
+	 * @return The caption of the score column of the monthly ladder, which counts the days its players won.
+	 */
+	public String getColWinsLabel()
+	{
+		return _colWinsLabel;
+	}
+
+	/**
 	 * @return The caption of the kill date column of the history.
 	 */
 	public String getColTimeLabel()
 	{
 		return _colTimeLabel;
+	}
+
+	/**
+	 * @return The text appended to the amount of daily wins shown on the head of the monthly ladder, the way "points" is on the daily one.
+	 */
+	public String getWinsLabel()
+	{
+		return _winsLabel;
+	}
+
+	public String getMonthlyRankTitle()
+	{
+		return _monthlyRankTitle;
+	}
+
+	public String getMonthlyTitle()
+	{
+		return _monthlyTitle;
+	}
+
+	/**
+	 * @return The caption naming the monthly reward page, the way "daily" names the daily one.
+	 */
+	public String getMonthlyLabel()
+	{
+		return _monthlyLabel;
+	}
+
+	/**
+	 * @return The caption of the link leading to the daily ladder.
+	 */
+	public String getRankDailyLabel()
+	{
+		return _rankDailyLabel;
+	}
+
+	/**
+	 * @return The caption of the link leading to the monthly ladder.
+	 */
+	public String getRankMonthlyLabel()
+	{
+		return _rankMonthlyLabel;
+	}
+
+	/**
+	 * @return The caption of the link leading from a ladder to the rewards of that very ladder.
+	 */
+	public String getRewardsLabel()
+	{
+		return _rewardsLabel;
+	}
+
+	/**
+	 * @return The message sent along a monthly ladder reward, holding the %place%, %item% and %count% variables.
+	 */
+	public String getMonthlyMessage()
+	{
+		return _monthlyMessage;
+	}
+
+	/**
+	 * @return The caption put in front of the date the next handout of a ladder reward is due. An empty one drops that band altogether.
+	 */
+	public String getNextRewardLabel()
+	{
+		return _nextRewardLabel;
+	}
+
+	/**
+	 * @return The {@link java.text.SimpleDateFormat} pattern that date is rendered with.
+	 */
+	public String getNextRewardPattern()
+	{
+		return _nextRewardPattern;
+	}
+
+	/**
+	 * @return The value shown instead of that date, when the task handing the reward out isn't scheduled at all.
+	 */
+	public String getNextRewardUnknown()
+	{
+		return _nextRewardUnknown;
+	}
+
+	/**
+	 * @return The caption of the date a raid boss went down for the last time.
+	 */
+	public String getLastKillLabel()
+	{
+		return _lastKillLabel;
+	}
+
+	/**
+	 * @return The value shown instead of that date, for a raid boss nobody ever killed.
+	 */
+	public String getLastKillNever()
+	{
+		return _lastKillNever;
+	}
+
+	/**
+	 * @return The caption of the button firing a search of the main list. The "search" label belongs to the radar button of a detail page instead.
+	 */
+	public String getSearchNameLabel()
+	{
+		return _searchNameLabel;
 	}
 
 	/**

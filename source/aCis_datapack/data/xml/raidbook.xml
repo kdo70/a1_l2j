@@ -26,6 +26,17 @@
 	and it stays there afterwards. A list of the 213 raid bosses of the server tells a player nothing ;
 	the list of the ones he actually fought is his own hunting record.
 
+	Right under the head sits a search box, which narrows that list down to the names holding what is
+	typed in it. It runs over the very list the page is built out of - a handful of templates already
+	sitting in memory, sorted once at startup - so it costs one walk of that list and nothing else :
+	no database, no world lookup, no index to keep. The typed text rides along every link of the book
+	afterwards, so coming back from a boss lands back on the narrowed list rather than on the whole
+	one ; the "clear" link next to the box drops it.
+
+	The head links to the ladders, and a ladder page holds a menu of its own : the daily ladder, ranked
+	on the hunting points summed over every raid boss, the monthly one, ranked on the amount of days
+	its players took the first place of the daily one, and the rewards of whichever one is shown.
+
 	A row draws the name and the level of the boss on one line and the progress bar of the hunting
 	level right under it - the way the experience bar of a character reads - followed by the kills
 	done over the kills the next level takes.
@@ -49,7 +60,7 @@
 		========================
 		HP  ...   Exp ...          the pools on the left column, the rewards on the right one
 		MP  ...   SP  ...
-		Респаун 2-12 ч.            the window the boss comes back in, on a line of its own
+		Респаун 2-12 ч.  Убит 03.09 21:40   when it comes back, and when it last went down
 		========================   the hairline cutting the blocks apart
 		Физ.Атака  ...  Маг.Атака  ...
 		Физ.Защита ...  Маг.Защита ...
@@ -76,9 +87,11 @@
 	"clear" link sitting right next to it takes that marker back off the map : a marker outlives the
 	page it was dropped from, so dropping one has to be as reachable as undoing it.
 
-	The ladder page is the same list, holding the position, the name, the clan and the score of each
-	player, the row of the reader being written with the "self" color. Its head links to the daily
-	reward page, which tells what each rewarded position of the ladder is handed every day. That page
+	A ladder page is the same list, holding the position, the name, the clan and the score of each
+	player, the row of the reader being written with the "self" color. Its menu links to the reward
+	page of that very ladder, which tells what each rewarded position is handed - and when the next
+	handout is due, read off the schedule of the task doing it rather than off a setting of its own.
+	That page
 	is laid out the way the shift click window lays out a drop list, since it holds the very same
 	thing - items grouped under what hands them out : one group header per rewarded position, framed
 	by the rules cutting a page into groups, and the items of that position under it, an icon on the
@@ -112,9 +125,20 @@
 		headerGap        : width, in pixels, of the spacer sitting between the two columns. Without
 		                   it the caption of the right column would touch the value of the left one,
 		                   which is right aligned on the column edge. 0 drops it.
-		titleHeight      : height, in pixels, of a caption band - the one naming the statistics of a
-		                   boss and the one naming the hunting block. Unused when both labels are
-		                   empty.
+		titleHeight      : height, in pixels, of a caption band - the ones naming the statistics of a
+		                   boss and the hunting block, and the one telling when the next ladder
+		                   reward is due. Unused when every one of those labels is empty.
+		searchRowHeight  : height, in pixels, of the search row of the main list. It holds a field and
+		                   a button, both taller than a text line, so keep it above "searchHeight".
+		searchHeight     : height, in pixels, of the search field itself and of the button next to it.
+		searchInputWidth / searchButtonWidth : widths, in pixels, of those two. Whatever the layout
+		                   width leaves of them goes to the running query and to the link dropping it,
+		                   so keep their sum under it.
+		buttonBack / buttonFore : client textures the pressed and the idle states of a button are
+		                   drawn with. The stock pair is the small one the datapack uses at a height
+		                   of 15 ("sek.cbui94" / "sek.cbui92") ; the taller pair
+		                   ("L2UI_ch3.Btn1_normalOn" / "L2UI_ch3.Btn1_normal") wants a "searchHeight"
+		                   around 21, and the row height to follow.
 		iconSize    : size, in pixels, the item icons are drawn at.
 		pageWidth   : width, in pixels, of a single cell of the page selector - a page link or an
 		              arrow - and of the "clear" link of a detail page. It is what keeps the selector
@@ -140,10 +164,13 @@
 		              know how much the page has to be padded with. Only worth touching after
 		              editing the HTMs. Rough guide : <br> 16, <br1> 8, a separator img 1, a
 		              selector row 18. The stock HTMs add up to 27.
-		pageHeight  : total height, in pixels, every page is padded up to. Since it is the very same
-		              on every page, the page selector always lands on the same spot ; and since it
-		              is set slightly above the height of the dialog, the scrollbar stays shown
-		              everywhere. 0 disables the padding.
+		pageHeight  : total height, in pixels, every page is padded up to, 0 - the stock value -
+		              disabling the padding altogether, which is what keeps the page selector right
+		              under the last row of a page whatever amount of rows it holds. Setting it back
+		              to a height pins that selector to one single spot instead, whatever the page :
+		              a short page is then padded up to it, which is worth a lot of empty space on a
+		              book holding few bosses. Set slightly above the height of the dialog, it also
+		              keeps the scrollbar shown everywhere.
 
 		screenTime  : how long, in milliseconds, an informational message stays on the screen of the
 		              player it is sent to. The chat always gets those messages ; whether the screen
@@ -204,6 +231,8 @@
 		                    headers.
 		headerRank / headerPoints / headerLink : the position, the score and the links of the head of
 		                                         a page.
+		searchField / searchQuery : the search field of the main list, and the query being searched
+		                            for, written next to it along with the link dropping it.
 
 	<colors>
 		Every color of the book, taken from the shift click window (data/xml/droplist.xml) so both
@@ -229,9 +258,26 @@
 		highChanceFrom / mediumChanceFrom     : those thresholds, in percent.
 
 	<labels>
-		bookTitle / rankTitle / dailyTitle : title bars of the main list, of the ladder page and of
-		                        the daily reward page. A detail page titles itself with the name and
-		                        the level of its boss.
+		bookTitle             : title bar of the main list. A detail page titles itself with the name
+		                        and the level of its boss.
+		rankTitle / monthlyRankTitle : title bars of the two ladders - the daily one, ranked on the
+		                        hunting points, and the monthly one, ranked on the amount of days its
+		                        players topped the daily one.
+		dailyTitle / monthlyTitle : title bars of the two reward pages which go with them.
+		daily / monthly       : captions naming those two reward pages inside their own head.
+		rankDaily / rankMonthly / rewards : the menu of a ladder page - the two ladders, and the
+		                        rewards of whichever one is shown.
+		nextReward            : caption put in front of the date the next handout of the shown reward
+		                        is due. That date is read off the schedule of the very task which
+		                        hands it out (data/xml/scripts.xml), so there is no second place to
+		                        write it. Emptying this label drops the whole band.
+		nextRewardPattern     : SimpleDateFormat pattern that date is rendered with.
+		nextRewardUnknown     : shown instead of it, when that task isn't scheduled at all.
+		searchName            : caption of the button firing a search of the main list. The "search"
+		                        label below belongs to the radar button of a detail page instead.
+		wins                  : appended to the amount of daily wins on the head of the monthly
+		                        ladder, the way "points" is on the daily one. The leading space
+		                        belongs to the attribute.
 		statsTitle            : caption of the band opening the statistics of a raid boss, naming the
 		                        two stat blocks sitting under it. It is the very caption the shift
 		                        click window uses. Empty drops the band.
@@ -253,8 +299,10 @@
 		daily reward page, whose group headers name the positions.
 
 		colPos / colName / colClan   : columns of the ladders - position, character, clan.
-		colPoints                    : score column of the server wide ladder, which counts points.
+		colPoints                    : score column of the daily ladder, which counts points.
 		colKills                     : score column of a per boss ladder, which counts kills.
+		colWins                      : score column of the monthly ladder, which counts the days a
+		                               player took the first place of the daily one.
 		colName / colClan / colTime  : columns of the history - killer, his clan, when it happened.
 		levelPrefix           : put in front of the level of a raid boss, and of the level a reward
 		                        belongs to.
@@ -286,6 +334,12 @@
 		                        hours. The leading space belongs to the attribute.
 		respawnUnknown        : shown instead of it, for a boss owning no spawn point at all.
 		respawnPattern        : DecimalFormat pattern that window is rendered with.
+		lastKill              : caption of the date the boss went down for the last time, which sits
+		                        on the right of that window - a window means nothing without the
+		                        moment it is counted from. It is read off the kill history, so it is
+		                        the last kill of the server rather than the one of the reader, and it
+		                        is written with "timePattern".
+		lastKillNever         : shown instead of it, for a boss nobody ever killed.
 		pAtk / pDef / atkSpd  : captions of the left column of the second block.
 		mAtk / mDef / castSpd : captions of its right column.
 		noClan                : shown instead of the clan of a killer who had none.
@@ -310,9 +364,9 @@
 		msgLevelUp            : sent when a hunting level is reached. Holds %boss% and %level%.
 		msgReward             : sent along each item a hunting level rewards. Holds %level%, %item%
 		                        and %count%.
-		msgDaily              : sent along each item a daily ladder reward gives - on the spot when
-		                        the winner is online, on his next login otherwise. Holds %place%,
-		                        %item% and %count%.
+		msgDaily / msgMonthly : sent along each item a daily or a monthly ladder reward gives - on the
+		                        spot when the winner is online, on his next login otherwise. Both hold
+		                        %place%, %item% and %count%.
 		msgBookGiven          : sent along the book itself, the first time its owner lays a hand on
 		                        a raid boss. Holds no variable.
 		countPrefix           : put in front of an amount, which tells it apart from the item name
@@ -343,13 +397,13 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="36" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="18" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="27" pageHeight="440" screenTime="5000" barWidth="120" barHeight="7" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareGray" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="150" searchButtonWidth="60" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="7" barFilled="L2UI.SquareWhite" barEmpty="L2UI.SquareGray" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
-	<aligns listName="left" listLevel="center" listButton="right" barCounter="left" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" />
+	<aligns listName="left" listLevel="center" listButton="right" barCounter="left" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 
 	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
 
-	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг охотников" dailyTitle="Ежедневные награды" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очк." hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " progressRange="/" msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг дня" monthlyRankTitle="Рейтинг месяца" dailyTitle="Награды дня" monthlyTitle="Награды месяца" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" monthly="Награды месяца" rankDaily="Рейтинг дня" rankMonthly="Рейтинг месяца" rewards="Награды" nextReward="      Следующая награда: " nextRewardPattern="HH:mm dd.MM.yy" nextRewardUnknown="-" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" searchName="Найти" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очков" wins=" побед" hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colWins="Побед" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" lastKill="Убит" lastKillNever="-" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " progressRange="/" msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgMonthly="Награда месяца за %place% место: %item% x%count%." msgBookGiven="Вы получили Книгу рейдбоссов." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 
 	<filters>
 		<filter label="Все" min="0" max="0" />

@@ -218,6 +218,9 @@ public final class Config
 	public static boolean RAIDBOOK_SCREEN_MESSAGES;
 	public static boolean RAIDBOOK_DAILY_ENABLED;
 	public static Map<Integer, List<IntIntHolder>> RAIDBOOK_DAILY_REWARDS;
+	public static boolean RAIDBOOK_MONTHLY_ENABLED;
+	public static Map<Integer, List<IntIntHolder>> RAIDBOOK_MONTHLY_REWARDS;
+	public static int RAIDBOOK_SEARCH_CHARS;
 	public static int RAIDBOOK_HISTORY_SIZE;
 	public static int RAIDBOOK_RANKING_SIZE;
 	public static int RAIDBOOK_SHOWN_REWARDS;
@@ -1003,6 +1006,11 @@ public final class Config
 
 		RAIDBOOK_DAILY_ENABLED = raidbook.getProperty("RaidBookDailyRewardEnabled", true);
 		RAIDBOOK_DAILY_REWARDS = parseRewardMap(raidbook.getProperty("RaidBookDailyRewards", ""));
+
+		RAIDBOOK_MONTHLY_ENABLED = raidbook.getProperty("RaidBookMonthlyRewardEnabled", true);
+		RAIDBOOK_MONTHLY_REWARDS = parseRewardMap(raidbook.getProperty("RaidBookMonthlyRewards", ""));
+
+		RAIDBOOK_SEARCH_CHARS = Math.max(1, raidbook.getProperty("RaidBookSearchChars", 24));
 	}
 
 	/**

@@ -980,6 +980,8 @@
 	<script path="task.ClanLadderRefresh" schedule="DAILY" start="00:05:00" />
 	<script path="task.ClanLeaderTransfer" schedule="WEEKLY" start="TUE 16:55:00" />
 	<script path="task.RaidBookDailyReward" schedule="DAILY" start="00:10:00" />
+	<!-- Runs after the daily task of the very same night on purpose : the day which just ended still belongs to the month being closed, so its win has to be counted before the board is read. -->
+	<script path="task.RaidBookMonthlyReward" schedule="MONTHLY_DAY" start="1 00:20:00" />
 	<script path="task.RaidPointReset" schedule="MONTHLY_WEEK" start="TUE-1 00:00:00" />
 	<script path="task.RecommendationUpdate" schedule="DAILY" start="13:00:00" />
 	<!--	<script path="task.ServerRestart" schedule="WEEKLY" start="TUE 17:00:00"/> -->

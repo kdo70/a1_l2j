@@ -35,6 +35,7 @@ import net.sf.l2j.gameserver.data.xml.ItemIconData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.RaidBookData;
 import net.sf.l2j.gameserver.data.xml.RaidBookData.LevelFilter;
+import net.sf.l2j.gameserver.data.xml.ScriptData;
 import net.sf.l2j.gameserver.enums.DropType;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Creature;
@@ -52,6 +53,9 @@ import net.sf.l2j.gameserver.model.location.Location;
 import net.sf.l2j.gameserver.model.pledge.Clan;
 import net.sf.l2j.gameserver.model.pledge.ClanMember;
 import net.sf.l2j.gameserver.model.spawn.ASpawn;
+import net.sf.l2j.gameserver.scripting.Quest;
+import net.sf.l2j.gameserver.scripting.ScheduledQuest;
+
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -90,9 +94,13 @@ public class RaidBookManager
 	private static final String SAVE_HISTORY = "INSERT INTO raidboss_kill_history (boss_id, char_name, clan_name, kill_time) VALUES (?,?,?,?)";
 	private static final String TRIM_HISTORY = "DELETE FROM raidboss_kill_history WHERE boss_id = ? AND kill_time < ?";
 	private static final String LOAD_PENDING = "SELECT char_id, place, item_id, count FROM raidboss_daily_rewards";
-	private static final String SAVE_PENDING = "INSERT INTO raidboss_daily_rewards (char_id, place, item_id, count) VALUES (?,?,?,?)";
-	private static final String READ_PENDING = "SELECT place, item_id, count FROM raidboss_daily_rewards WHERE char_id = ?";
+	private static final String SAVE_PENDING = "INSERT INTO raidboss_daily_rewards (char_id, place, item_id, count, kind) VALUES (?,?,?,?,?)";
+	private static final String READ_PENDING = "SELECT place, item_id, count, kind FROM raidboss_daily_rewards WHERE char_id = ?";
 	private static final String CLEAR_PENDING = "DELETE FROM raidboss_daily_rewards WHERE char_id = ?";
+
+	private static final String LOAD_WINS = "SELECT char_id, wins FROM raidboss_monthly_wins";
+	private static final String SAVE_WIN = "REPLACE INTO raidboss_monthly_wins (char_id, wins) VALUES (?,?)";
+	private static final String CLEAR_WINS = "DELETE FROM raidboss_monthly_wins";
 
 	private static final String ROW_END = "</tr></table>";
 
@@ -119,6 +127,17 @@ public class RaidBookManager
 
 	/** The memo telling a character has already been handed the book. It is stored on character_memo, so it outlives whatever happens to the item itself. */
 	private static final String GIVEN_MEMO = "raidbook_given";
+
+	/** The two ladders of the book, and the two reward pages which go with them : the daily one, ranked on hunting points, and the monthly one, ranked on daily wins. */
+	private static final int MODE_DAILY = 0;
+	private static final int MODE_MONTHLY = 1;
+
+	/** The name of the scheduled scripts handing out both rewards, which is what the book reads the date of the next handout off. */
+	private static final String DAILY_SCRIPT = "RaidBookDailyReward";
+	private static final String MONTHLY_SCRIPT = "RaidBookMonthlyReward";
+
+	/** The characters a search query is allowed to hold. Anything else is dropped : a query travels back to the server inside a bypass, and it is written back into the page afterwards. */
+	private static final String QUERY_EXTRAS = " '-.";
 
 	/** The tabs of a detail page, in the very order they are shown. */
 	private static final int TAB_REWARDS = 0;
@@ -165,13 +184,16 @@ public class RaidBookManager
 	{
 	}
 
-	/** One daily reward waiting for its winner to log in. */
-	private record PendingReward(int place, int itemId, int count)
+	/** One ladder reward waiting for its winner to log in, the kind telling a daily one from a monthly one - which is the only thing which still differs once it is stored. */
+	private record PendingReward(int place, int itemId, int count, int kind)
 	{
 	}
 
 	private final Map<Integer, Map<Integer, HuntData>> _hunts = new ConcurrentHashMap<>();
 	private final Map<Integer, Deque<KillRecord>> _history = new ConcurrentHashMap<>();
+
+	/** How many times each character took the first place of the daily ladder since the last monthly handout. It is what the monthly ladder is ranked on, and it is wiped by that handout. */
+	private final Map<Integer, Integer> _wins = new ConcurrentHashMap<>();
 
 	/** The objectIds owning a daily reward they haven't been handed yet, which is what spares a database read on every single login. */
 	private final Set<Integer> _pending = ConcurrentHashMap.newKeySet();
@@ -184,6 +206,7 @@ public class RaidBookManager
 		loadHunts();
 		loadHistory();
 		loadPending();
+		loadWins();
 
 		LOGGER.info("Loaded {} raid boss hunting records.", _hunts.size());
 	}
@@ -239,6 +262,21 @@ public class RaidBookManager
 		catch (Exception e)
 		{
 			LOGGER.error("Couldn't load the pending raid book daily rewards.", e);
+		}
+	}
+
+	private void loadWins()
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(LOAD_WINS);
+			ResultSet rs = ps.executeQuery())
+		{
+			while (rs.next())
+				_wins.put(rs.getInt("char_id"), rs.getInt("wins"));
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't load the raid book monthly wins.", e);
 		}
 	}
 
@@ -474,14 +512,53 @@ public class RaidBookManager
 	 */
 	public void runDailyRewards()
 	{
-		if (!Config.RAIDBOOK_ENABLED || !Config.RAIDBOOK_DAILY_ENABLED || Config.RAIDBOOK_DAILY_REWARDS.isEmpty())
+		if (!Config.RAIDBOOK_ENABLED)
 			return;
 
 		final List<RankRow> ranking = getRanking();
 
+		// Whoever tops the daily ladder wins the day, and the month is won by whoever won the most days. That is counted whatever the daily ladder itself hands out - the win is the ranking, not
+		// the reward.
+		if (!ranking.isEmpty())
+			addWin(ranking.get(0).objectId());
+
+		if (!Config.RAIDBOOK_DAILY_ENABLED || Config.RAIDBOOK_DAILY_REWARDS.isEmpty())
+			return;
+
+		LOGGER.info("Handed out the raid book daily rewards to {} player(s).", hand(ranking, Config.RAIDBOOK_DAILY_REWARDS, MODE_DAILY));
+	}
+
+	/**
+	 * Hand out the monthly rewards of the daily win ladder, called on the first day of every month by the scheduled task, and wipe that ladder afterwards - the month starts over from an empty board.
+	 * <br>
+	 * <br>
+	 * It runs after the daily task of the very same night on purpose (see data/xml/scripts.xml) : the day which just ended belongs to the month which is being closed, so its win has to be counted
+	 * before the board is read.
+	 */
+	public void runMonthlyRewards()
+	{
+		if (!Config.RAIDBOOK_ENABLED || !Config.RAIDBOOK_MONTHLY_ENABLED || Config.RAIDBOOK_MONTHLY_REWARDS.isEmpty())
+			return;
+
+		final int rewarded = hand(getWinRanking(), Config.RAIDBOOK_MONTHLY_REWARDS, MODE_MONTHLY);
+
+		clearWins();
+
+		LOGGER.info("Handed out the raid book monthly rewards to {} player(s).", rewarded);
+	}
+
+	/**
+	 * Hand out the rewards of one ladder.
+	 * @param ranking : The already sorted ladder to read the winners off.
+	 * @param rewards : What each rewarded position is given.
+	 * @param kind : Which of the two rewards this is, which is what its winner is told about it.
+	 * @return The amount of players which have been rewarded.
+	 */
+	private int hand(List<RankRow> ranking, Map<Integer, List<IntIntHolder>> rewards, int kind)
+	{
 		int rewarded = 0;
 
-		for (Entry<Integer, List<IntIntHolder>> entry : Config.RAIDBOOK_DAILY_REWARDS.entrySet())
+		for (Entry<Integer, List<IntIntHolder>> entry : rewards.entrySet())
 		{
 			final int place = entry.getKey();
 			if (place > ranking.size())
@@ -489,7 +566,7 @@ public class RaidBookManager
 
 			final int objectId = ranking.get(place - 1).objectId();
 
-			store(objectId, place, entry.getValue());
+			store(objectId, place, entry.getValue(), kind);
 			rewarded++;
 
 			// The winner may very well be online, and waiting for his next login to be told would read as a missing reward.
@@ -498,10 +575,50 @@ public class RaidBookManager
 				deliver(player);
 		}
 
-		LOGGER.info("Handed out the raid book daily rewards to {} player(s).", rewarded);
+		return rewarded;
 	}
 
-	private void store(int objectId, int place, List<IntIntHolder> items)
+	/**
+	 * Credit one more daily win to the {@link Player} which just topped the daily ladder.
+	 * @param objectId : The objectId of that {@link Player}.
+	 */
+	private void addWin(int objectId)
+	{
+		final int wins = _wins.merge(objectId, 1, Integer::sum);
+
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(SAVE_WIN))
+		{
+			ps.setInt(1, objectId);
+			ps.setInt(2, wins);
+			ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't save the raid book monthly win of the objectId {}.", e, objectId);
+		}
+	}
+
+	/**
+	 * Wipe the daily win ladder, which is what closes a month. The memory is only cleared once the table is, so a failed wipe leaves the board standing rather than losing it silently.
+	 */
+	private void clearWins()
+	{
+		try (Connection con = ConnectionPool.getConnection();
+			PreparedStatement ps = con.prepareStatement(CLEAR_WINS))
+		{
+			ps.executeUpdate();
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Couldn't wipe the raid book monthly wins ; they are kept, so the next month starts on the same board.", e);
+			return;
+		}
+
+		_wins.clear();
+	}
+
+	private void store(int objectId, int place, List<IntIntHolder> items, int kind)
 	{
 		_pending.add(objectId);
 
@@ -514,13 +631,14 @@ public class RaidBookManager
 				ps.setInt(2, place);
 				ps.setInt(3, item.getId());
 				ps.setInt(4, item.getValue());
+				ps.setInt(5, kind);
 				ps.addBatch();
 			}
 			ps.executeBatch();
 		}
 		catch (Exception e)
 		{
-			LOGGER.error("Couldn't store the raid book daily reward of the objectId {}.", e, objectId);
+			LOGGER.error("Couldn't store the raid book ladder reward of the objectId {}.", e, objectId);
 		}
 	}
 
@@ -549,7 +667,7 @@ public class RaidBookManager
 			try (ResultSet rs = read.executeQuery())
 			{
 				while (rs.next())
-					rewards.add(new PendingReward(rs.getInt("place"), rs.getInt("item_id"), rs.getInt("count")));
+					rewards.add(new PendingReward(rs.getInt("place"), rs.getInt("item_id"), rs.getInt("count"), rs.getInt("kind")));
 			}
 		}
 		catch (Exception e)
@@ -582,7 +700,9 @@ public class RaidBookManager
 		{
 			player.addItem(reward.itemId(), reward.count(), true);
 
-			inform(player, data.getDailyMessage().replace("%place%", String.valueOf(reward.place())).replace("%item%", getItemName(reward.itemId())).replace("%count%", StringUtil.formatNumber(reward.count())), true);
+			final String message = (reward.kind() == MODE_MONTHLY) ? data.getMonthlyMessage() : data.getDailyMessage();
+
+			inform(player, message.replace("%place%", String.valueOf(reward.place())).replace("%item%", getItemName(reward.itemId())).replace("%count%", StringUtil.formatNumber(reward.count())), true);
 		}
 	}
 
@@ -719,20 +839,68 @@ public class RaidBookManager
 	}
 
 	/**
-	 * @param objectId : The objectId of the {@link Player} to check.
-	 * @return The position of that {@link Player} on the server wide ladder, 0 when he holds no point at all.
+	 * @return The monthly ladder, sorted by decreasing amount of daily wins, holding every {@link Player} owning at least one.
 	 */
-	private int getRank(int objectId)
+	private List<RankRow> getWinRanking()
 	{
-		final List<RankRow> rows = getRanking();
+		final List<RankRow> rows = new ArrayList<>();
 
-		for (int i = 0; i < rows.size(); i++)
+		for (Entry<Integer, Integer> entry : _wins.entrySet())
 		{
-			if (rows.get(i).objectId() == objectId)
+			if (entry.getValue() > 0)
+				rows.add(new RankRow(entry.getKey(), entry.getValue()));
+		}
+
+		rows.sort(Comparator.comparingInt(RankRow::score).reversed());
+
+		return rows;
+	}
+
+	/**
+	 * @param mode : Which of the two ladders to read.
+	 * @return That ladder, already sorted.
+	 */
+	private List<RankRow> getRanking(int mode)
+	{
+		return (mode == MODE_MONTHLY) ? getWinRanking() : getRanking();
+	}
+
+	/**
+	 * @param ranking : The already sorted ladder to walk.
+	 * @param objectId : The objectId of the {@link Player} to look for.
+	 * @return The position of that {@link Player} on the given ladder, 0 when he doesn't stand on it at all.
+	 */
+	private static int getRank(List<RankRow> ranking, int objectId)
+	{
+		for (int i = 0; i < ranking.size(); i++)
+		{
+			if (ranking.get(i).objectId() == objectId)
 				return i + 1;
 		}
 
 		return 0;
+	}
+
+	/**
+	 * @param objectId : The objectId of the {@link Player} to check.
+	 * @return The score that {@link Player} holds on the monthly ladder, being the amount of days he topped the daily one.
+	 */
+	private int getWins(int objectId)
+	{
+		return _wins.getOrDefault(objectId, 0);
+	}
+
+	/**
+	 * The date the next handout of a ladder reward is due, read off the very schedule the task runs on (data/xml/scripts.xml) rather than off a setting of its own - two places to write one date
+	 * apart is one place too many.
+	 * @param mode : Which of the two rewards to look at.
+	 * @return That date, in milliseconds, 0 when the related script isn't scheduled at all.
+	 */
+	private static long getNextRewardTime(int mode)
+	{
+		final Quest quest = ScriptData.getInstance().getQuest((mode == MODE_MONTHLY) ? MONTHLY_SCRIPT : DAILY_SCRIPT);
+
+		return (quest instanceof ScheduledQuest scheduled) ? scheduled.getTimeNext() : 0;
 	}
 
 	/**
@@ -813,7 +981,7 @@ public class RaidBookManager
 		if (!Config.RAIDBOOK_ENABLED)
 			return;
 
-		showList(player, 0, 0);
+		showList(player, 0, 0, "");
 	}
 
 	/**
@@ -831,34 +999,37 @@ public class RaidBookManager
 			final StringTokenizer st = new StringTokenizer(command, " ");
 			final String action = st.nextToken();
 
+			// The search query is written last on every single bypass, and it is the only parameter which may hold spaces - so whatever is left once the numbers have been read is the query.
 			switch (action)
 			{
 				case "l":
-					showList(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					showList(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 
 				case "i":
-					showDetail(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					showDetail(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 
 				case "f":
-					final int bossId = Integer.parseInt(st.nextToken());
+					final int searched = Integer.parseInt(st.nextToken());
 
-					search(player, bossId);
-					showDetail(player, bossId, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					search(player, searched);
+					showDetail(player, searched, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 
 				case "x":
+					final int cleared = Integer.parseInt(st.nextToken());
+
 					clear(player);
-					showDetail(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					showDetail(player, cleared, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 
 				case "r":
-					showRanking(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					showRanking(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 
 				case "d":
-					showDaily(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+					showRewards(player, Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), getQuery(st));
 					break;
 			}
 		}
@@ -866,6 +1037,46 @@ public class RaidBookManager
 		{
 			LOGGER.warn("Couldn't handle the raid book bypass '{}'.", e, command);
 		}
+	}
+
+	/**
+	 * Read the search query off the tail of a bypass. It is the one parameter a player writes himself - it travels back inside the bypass and it is written into the page afterwards - so it is
+	 * stripped down to letters, digits and a handful of harmless characters rather than trusted : a quote or an angle bracket would break the page it lands on.
+	 * @param st : The already walked bypass, standing on its last number.
+	 * @return Whatever is left of the bypass, cleaned up and shortened to {@link Config#RAIDBOOK_SEARCH_CHARS}, an empty {@link String} meaning no search at all.
+	 */
+	private static String getQuery(StringTokenizer st)
+	{
+		final StringBuilder sb = new StringBuilder(32);
+
+		while (st.hasMoreTokens())
+		{
+			if (sb.length() > 0)
+				sb.append(' ');
+
+			sb.append(st.nextToken());
+		}
+
+		final StringBuilder query = new StringBuilder(32);
+
+		for (int i = 0; i < sb.length() && query.length() < Config.RAIDBOOK_SEARCH_CHARS; i++)
+		{
+			final char c = sb.charAt(i);
+
+			if (Character.isLetterOrDigit(c) || QUERY_EXTRAS.indexOf(c) >= 0)
+				query.append(c);
+		}
+
+		return query.toString().trim();
+	}
+
+	/**
+	 * @param query : The already cleaned up search query.
+	 * @return That query, as the tail every bypass of the book carries - an empty one costing nothing but a trailing space.
+	 */
+	private static String getContext(String query)
+	{
+		return (query.isEmpty()) ? "" : " " + query;
 	}
 
 	/**
@@ -917,19 +1128,24 @@ public class RaidBookManager
 	}
 
 	/**
-	 * Generate and send the main page of the book : the ranking position of the {@link Player} on its head, the level filter menu right under it, then one row per raid boss.
+	 * Generate and send the main page of the book : the ranking position of the {@link Player} on its head, the search box and the level filter menu right under it, then one row per raid boss.
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param filter : The index of the shown level filter.
 	 * @param page : The page index to show.
+	 * @param query : The search query, an empty one listing everything the level filter allows.
 	 */
-	private void showList(Player player, int filter, int page)
+	private void showList(Player player, int filter, int page, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
 		filter = Math.min(Math.max(filter, 0), data.getFilters().size() - 1);
 
 		final LevelFilter levelFilter = data.getFilter(filter);
-		final List<NpcTemplate> bosses = getDiscovered(player).stream().filter(t -> levelFilter.matches(t.getLevel())).toList();
+
+		// The search runs over the bosses this very player already met - a handful of templates already sitting in memory, sorted once at startup - so it costs one walk of that list and nothing
+		// else : no database, no world lookup, no index to keep.
+		final String needle = query.toLowerCase();
+		final List<NpcTemplate> bosses = getDiscovered(player).stream().filter(t -> levelFilter.matches(t.getLevel()) && (needle.isEmpty() || t.getName().toLowerCase().contains(needle))).toList();
 
 		final int perPage = data.getRowsPerPage();
 		final int pages = Math.max(1, (bosses.size() + perPage - 1) / perPage);
@@ -948,23 +1164,74 @@ public class RaidBookManager
 		int band = 1;
 
 		for (int i = first; i < last; i++)
-			sb.append(getBossRow(player, bosses.get(i), filter, page).replace(BAND, getBandAttribute(band++)));
+			sb.append(getBossRow(player, bosses.get(i), filter, page, query).replace(BAND, getBandAttribute(band++)));
 
 		final int shown = Math.max(1, last - first);
 
 		// The page selector is built by a lambda, so the browsed range has to be handed to it as a final.
 		final int index = filter;
+		final String tail = getContext(query);
 
 		String content = HtmCache.getInstance().getHtmForce(LIST_HTM);
 		content = content.replace("%title%", escape(data.getBookTitle()));
-		content = content.replace("%header%", getListHeader(player, filter, page));
-		content = content.replace("%filters%", getFilters(index));
+		content = content.replace("%header%", getListHeader(player, filter, page, query));
+		content = content.replace("%search%", getSearchRow(index, query));
+		content = content.replace("%filters%", getFilters(index, query));
 		content = content.replace("%list%", sb.toString());
-		content = content.replace("%footer%", getFooter(page, pages, p -> getBypass("l " + index + " " + p)));
-		content = content.replace("%filler%", getFiller(getBlockHeight() + getBlockHeight() + shown * data.getRowHeight()));
+		content = content.replace("%footer%", getFooter(page, pages, p -> getBypass("l " + index + " " + p + tail)));
+		content = content.replace("%filler%", getFiller(getBlockHeight() + getBlockHeight() + getSearchHeight() + shown * data.getRowHeight()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, content);
+	}
+
+	/**
+	 * The search box sitting between the head of the main list and the level filter menu : a field to write a name in, the button firing the search, and - once a search is running - what is being
+	 * searched for, along with the link dropping it.<br>
+	 * <br>
+	 * The typed text reaches the server as the tail of the bypass of the button, which is what the "$" of an "edit" variable does. The client only ever sends the prefix standing in front of that
+	 * "$" as the bypass to validate, so such a bypass passes {@link Player#validateBypass(String)} on its prefix - see {@link net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage}.
+	 * @param filter : The index of the shown level filter, which a search doesn't change.
+	 * @param query : The running search query, an empty one meaning none.
+	 * @return The search row.
+	 */
+	private static String getSearchRow(int filter, String query)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final int width = data.getWidth();
+		final int inputWidth = Math.max(1, Math.min(width - 2, data.getSearchInputWidth()));
+		final int buttonWidth = Math.max(1, Math.min(width - inputWidth - 1, data.getSearchButtonWidth()));
+		final int restWidth = Math.max(1, width - inputWidth - buttonWidth);
+
+		// The field owns a variable of its own, and the button hands its content over as the tail of the bypass.
+		final String field = "<edit var=\"q\" width=" + Math.max(1, inputWidth - 4) + " height=" + data.getSearchHeight() + ">";
+		final String button = "<button value=\"" + escape(data.getSearchNameLabel()) + "\" action=\"bypass -h " + getBypass("l " + filter + " 0 $q") + "\" width=" + Math.max(1, buttonWidth - 4) + " height=" + data.getSearchHeight() + " back=\"" + data.getButtonBack() + "\" fore=\"" + data.getButtonFore() + "\">";
+
+		// Whatever is being searched for is written next to the box, since the client can't be asked to keep it inside the field itself. It is cut down to what its cell holds - the query is allowed
+		// to be far longer than that, and a wrapped line would make the whole row taller.
+		final String running = (query.isEmpty()) ? "" : colorize(data.getValueColor(), escape(truncate(query, Math.max(1, restWidth / 6 - 2)))) + " " + getLink(getBypass("l " + filter + " 0"), data.getClearLabel(), data.getTabColor());
+
+		final StringBuilder sb = new StringBuilder(512);
+
+		StringUtil.append(sb, getRowStart(data.getRowColor()));
+		StringUtil.append(sb, getCell(inputWidth, data.getSearchRowHeight(), data.getSearchFieldAlign(), field));
+		StringUtil.append(sb, getCell(buttonWidth, 0, data.getMenuAlign(), button));
+		StringUtil.append(sb, getCell(restWidth, 0, data.getSearchQueryAlign(), running));
+		StringUtil.append(sb, ROW_END);
+		sb.append(getSeparator());
+
+		return sb.toString();
+	}
+
+	/**
+	 * @return The height, in pixels, the search row takes, the rule closing it included.
+	 */
+	private static int getSearchHeight()
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		return data.getSearchRowHeight() + ((data.getSeparator().isEmpty()) ? 0 : SEPARATOR_HEIGHT);
 	}
 
 	/**
@@ -974,11 +1241,11 @@ public class RaidBookManager
 	 * @param page : The shown page index, for the same reason.
 	 * @return The header block, closed by the rule cutting the page into blocks.
 	 */
-	private String getListHeader(Player player, int filter, int page)
+	private String getListHeader(Player player, int filter, int page, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int rank = getRank(player.getObjectId());
+		final int rank = getRank(getRanking(), player.getObjectId());
 		final int points = getPoints(player.getObjectId());
 
 		final int width = data.getWidth();
@@ -990,7 +1257,7 @@ public class RaidBookManager
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
 		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - pointsWidth), data.getGroupHeight(), data.getHeaderRankAlign(), colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
 		StringUtil.append(sb, getCell(pointsWidth, 0, data.getHeaderPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
-		StringUtil.append(sb, getCell(linkWidth, 0, data.getHeaderLinkAlign(), getLink(getBypass("r " + filter + " " + page + " 0"), data.getRankLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(linkWidth, 0, data.getHeaderLinkAlign(), getLink(getBypass("r " + filter + " " + page + " 0 " + MODE_DAILY + getContext(query)), data.getRankLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 		sb.append(getSeparator());
 
@@ -1014,10 +1281,13 @@ public class RaidBookManager
 	 * @param filter : The index of the shown level filter.
 	 * @return The filter row, closed by the rule cutting the page into blocks.
 	 */
-	private static String getFilters(int filter)
+	private static String getFilters(int filter, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 		final List<LevelFilter> filters = data.getFilters();
+
+		// A range is picked while a search is running, so the search rides along rather than being dropped under the player.
+		final String tail = getContext(query);
 
 		final int cellWidth = Math.max(1, data.getWidth() / filters.size());
 
@@ -1031,7 +1301,7 @@ public class RaidBookManager
 			final int width = (i == filters.size() - 1) ? Math.max(1, data.getWidth() - i * cellWidth) : cellWidth;
 			final String label = escape(filters.get(i).label());
 
-			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == filter) ? colorize(data.getActiveFilterColor(), label) : getLink(getBypass("l " + i + " 0"), filters.get(i).label(), data.getFilterColor())));
+			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == filter) ? colorize(data.getActiveFilterColor(), label) : getLink(getBypass("l " + i + " 0" + tail), filters.get(i).label(), data.getFilterColor())));
 		}
 
 		StringUtil.append(sb, ROW_END);
@@ -1051,7 +1321,7 @@ public class RaidBookManager
 	 * @param page : The shown page index, carried over for the same reason.
 	 * @return The whole row, its background color left as the {@link #BAND} placeholder - on both of its tables.
 	 */
-	private String getBossRow(Player player, NpcTemplate template, int filter, int page)
+	private String getBossRow(Player player, NpcTemplate template, int filter, int page, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
@@ -1070,7 +1340,7 @@ public class RaidBookManager
 		StringUtil.append(sb, getRowStart());
 		StringUtil.append(sb, getCell(data.getListNameWidth(), nameHeight, data.getListNameAlign(), name));
 		StringUtil.append(sb, getCell(data.getListLevelWidth(), 0, data.getListLevelAlign(), colorize(data.getHuntLevelColor(), escape(data.getHuntLevelPrefix()) + level)));
-		StringUtil.append(sb, getCell(data.getListButtonWidth(), 0, data.getListButtonAlign(), getLink(getBypass("i " + template.getNpcId() + " " + TAB_REWARDS + " 0 " + filter + " " + page), data.getDetailsLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(data.getListButtonWidth(), 0, data.getListButtonAlign(), getLink(getBypass("i " + template.getNpcId() + " " + TAB_REWARDS + " 0 " + filter + " " + page + getContext(query)), data.getDetailsLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 
 		StringUtil.append(sb, getRowStart());
@@ -1089,8 +1359,9 @@ public class RaidBookManager
 	 * @param page : The page index of the shown tab.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
+	 * @param query : The search query the list was showing.
 	 */
-	private void showDetail(Player player, int bossId, int tab, int page, int filter, int listPage)
+	private void showDetail(Player player, int bossId, int tab, int page, int filter, int listPage, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
@@ -1150,16 +1421,17 @@ public class RaidBookManager
 		final int shownTab = tab;
 
 		final int groupHeight = data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
-		final String context = " " + shownTab + " " + page + " " + filter + " " + listPage;
+		final String tail = getContext(query);
+		final String context = " " + shownTab + " " + page + " " + filter + " " + listPage + tail;
 
 		String html = HtmCache.getInstance().getHtmForce(DETAIL_HTM);
 		html = html.replace("%title%", escape(template.getName()) + escape(data.getTitleSeparator()) + escape(data.getLevelPrefix()) + template.getLevel());
 		html = html.replace("%stats%", getStats(player, template));
 		html = html.replace("%hunt%", getHunt(player, bossId));
-		html = html.replace("%buttons%", getDetailButtons(bossId, context, filter, listPage));
-		html = html.replace("%tabs%", getTabs(bossId, shownTab, filter, listPage));
+		html = html.replace("%buttons%", getDetailButtons(bossId, context, filter, listPage, tail));
+		html = html.replace("%tabs%", getTabs(bossId, shownTab, filter, listPage, tail));
 		html = html.replace("%content%", sb.toString());
-		html = html.replace("%footer%", getFooter(page, pages, p -> getBypass("i " + bossId + " " + shownTab + " " + p + " " + filter + " " + listPage)));
+		html = html.replace("%footer%", getFooter(page, pages, p -> getBypass("i " + bossId + " " + shownTab + " " + p + " " + filter + " " + listPage + tail)));
 		html = html.replace("%filler%", getFiller(getStatsHeight() + getHuntHeight() + data.getGroupHeight() + getBlockHeight() + getColumnsHeight(content.columns()) + shownGroups * groupHeight + shown * data.getGroupHeight()));
 		html = html.replace("%width%", String.valueOf(data.getWidth()));
 
@@ -1175,7 +1447,7 @@ public class RaidBookManager
 	 * @param template : The raid boss to describe.
 	 * @return The statistics block, closed by the rule cutting the page into blocks.
 	 */
-	private static String getStats(Player player, NpcTemplate template)
+	private String getStats(Player player, NpcTemplate template)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 		final BossStats stats = getBossStats(template, player.getStatus().getLevel());
@@ -1193,8 +1465,8 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getHpLabel(), stats.hp(), data.getExpLabel(), stats.exp()));
 		sb.append(getStatRow(data.getMpLabel(), stats.mp(), data.getSpLabel(), stats.sp()));
 
-		// The respawn window owns a line of its own : it is the one number of the block which isn't a stat of the boss but a promise about when it can be hunted again.
-		sb.append(getStatRow(data.getRespawnLabel(), getRespawnText(template.getNpcId()), "", ""));
+		// The two halves of one question - when the boss can be hunted again : the window it comes back in, and when it went down for the last time.
+		sb.append(getStatRow(data.getRespawnLabel(), getRespawnText(template.getNpcId()), data.getLastKillLabel(), getLastKillText(template.getNpcId())));
 		sb.append("</table>");
 		sb.append(getSeparator());
 
@@ -1228,6 +1500,24 @@ public class RaidBookManager
 		final String window = (random <= 0) ? format.format((spawn.getRespawnDelay()) / 3600.) : format.format((spawn.getRespawnDelay() - random) / 3600.) + escape(data.getRespawnRange()) + format.format((spawn.getRespawnDelay() + random) / 3600.);
 
 		return window + escape(data.getRespawnSuffix());
+	}
+
+	/**
+	 * When a raid boss went down for the last time, which is the other half of the respawn question : a window means nothing without the moment it is counted from.<br>
+	 * <br>
+	 * It is read off the kill history of the boss, which is already held in memory, newest first - so it is the last kill of the server rather than the last kill of the reader.
+	 * @param bossId : The npcId of the raid boss to read.
+	 * @return That date, and the "lastKillNever" label for a boss nobody ever killed.
+	 */
+	private String getLastKillText(int bossId)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final List<KillRecord> history = getHistory(bossId);
+		if (history.isEmpty())
+			return escape(data.getLastKillNever());
+
+		return escape(new SimpleDateFormat(data.getTimePattern()).format(new Date(history.get(0).time())));
 	}
 
 	/**
@@ -1339,14 +1629,23 @@ public class RaidBookManager
 
 	/**
 	 * One full width band naming the section opening under it, drawn on the plain band color the blocks of a page use - the very way the shift click window opens its own statistics.
-	 * @param caption : The caption to write.
+	 * @param caption : The datapack caption to write.
 	 * @return The band, rendered as its own table.
 	 */
 	private static String getBand(String caption)
 	{
+		return getBandContent(escape(caption));
+	}
+
+	/**
+	 * @param content : The already escaped content of the band, which lets a band hold something built out of several labels.
+	 * @return The band, rendered as its own table.
+	 */
+	private static String getBandContent(String content)
+	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getBlockStart() + "<tr>" + getCell(data.getWidth(), data.getTitleHeight(), data.getTitleAlign(), colorize(data.getTitleColor(), escape(caption))) + ROW_END;
+		return getBlockStart() + "<tr>" + getCell(data.getWidth(), data.getTitleHeight(), data.getTitleAlign(), colorize(data.getTitleColor(), content)) + ROW_END;
 	}
 
 	/**
@@ -1358,7 +1657,7 @@ public class RaidBookManager
 	 * @param listPage : The page index the list was showing.
 	 * @return The button row.
 	 */
-	private static String getDetailButtons(int bossId, String context, int filter, int listPage)
+	private static String getDetailButtons(int bossId, String context, int filter, int listPage, String tail)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
@@ -1369,7 +1668,7 @@ public class RaidBookManager
 		final StringBuilder sb = new StringBuilder(512);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("l " + filter + " " + listPage + tail), data.getBackLabel(), data.getTabColor())));
 		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - half - clearWidth), 0, data.getMenuAlign(), getLink(getBypass("f " + bossId + context), data.getSearchLabel(), data.getActiveTabColor())));
 		StringUtil.append(sb, getCell(clearWidth, 0, data.getMenuAlign(), getLink(getBypass("x " + bossId + context), data.getClearLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
@@ -1385,7 +1684,7 @@ public class RaidBookManager
 	 * @param listPage : The page index the list was showing.
 	 * @return The tab row, closed by the rule cutting the page into blocks.
 	 */
-	private static String getTabs(int bossId, int tab, int filter, int listPage)
+	private static String getTabs(int bossId, int tab, int filter, int listPage, String tail)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
@@ -1408,7 +1707,7 @@ public class RaidBookManager
 			// The last cell takes whatever is left of the layout width, which absorbs the rounding of an uneven division.
 			final int width = (i == TAB_COUNT - 1) ? Math.max(1, data.getWidth() - i * cellWidth) : cellWidth;
 
-			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == tab) ? colorize(data.getActiveTabColor(), escape(labels[i])) : getLink(getBypass("i " + bossId + " " + i + " 0 " + filter + " " + listPage), labels[i], data.getTabColor())));
+			StringUtil.append(sb, getCell(width, data.getGroupHeight(), data.getMenuAlign(), (i == tab) ? colorize(data.getActiveTabColor(), escape(labels[i])) : getLink(getBypass("i " + bossId + " " + i + " 0 " + filter + " " + listPage + tail), labels[i], data.getTabColor())));
 		}
 
 		StringUtil.append(sb, ROW_END);
@@ -1739,17 +2038,24 @@ public class RaidBookManager
 	}
 
 	/**
-	 * Generate and send the server wide ladder, summing the points of every raid boss.
+	 * Generate and send one of the two ladders of the book : the daily one, ranked on the hunting points summed over every raid boss, and the monthly one, ranked on the amount of days its players
+	 * topped that daily ladder.
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
 	 * @param page : The page index of the ladder to show.
+	 * @param mode : Which of the two ladders to show.
+	 * @param query : The search query the list was showing.
 	 */
-	private void showRanking(Player player, int filter, int listPage, int page)
+	private void showRanking(Player player, int filter, int listPage, int page, int mode, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final List<String> rows = getRankRows(player, getRanking());
+		mode = (mode == MODE_MONTHLY) ? MODE_MONTHLY : MODE_DAILY;
+
+		// The ladder is walked once and handed over to the head as well : building it twice would sum the points of every hunting record of the server twice, for one single page.
+		final List<RankRow> ranking = getRanking(mode);
+		final List<String> rows = getRankRows(player, ranking);
 
 		final int perPage = data.getRowsPerPage();
 		final int pages = Math.max(1, (rows.size() + perPage - 1) / perPage);
@@ -1759,7 +2065,8 @@ public class RaidBookManager
 		final int first = page * perPage;
 		final int last = Math.min(rows.size(), first + perPage);
 
-		final String columns = getRankColumns(data.getColPointsLabel());
+		// A daily ladder counts points, a monthly one counts the days which have been won.
+		final String columns = getRankColumns((mode == MODE_MONTHLY) ? data.getColWinsLabel() : data.getColPointsLabel());
 
 		final StringBuilder sb = new StringBuilder(4096);
 
@@ -1774,44 +2081,78 @@ public class RaidBookManager
 			sb.append(rows.get(i).replace(BAND, getBandAttribute(band++)));
 
 		final int shown = Math.max(1, last - first);
+		final int shownMode = mode;
+		final String tail = getContext(query);
 
 		String content = HtmCache.getInstance().getHtmForce(RANK_HTM);
-		content = content.replace("%title%", escape(data.getRankTitle()));
-		content = content.replace("%header%", getRankHeader(player, filter, listPage));
+		content = content.replace("%title%", escape((mode == MODE_MONTHLY) ? data.getMonthlyRankTitle() : data.getRankTitle()));
+		content = content.replace("%header%", getRankHeader(player, ranking, filter, listPage, mode, tail));
+		content = content.replace("%menu%", getRankMenu(filter, listPage, mode, tail));
 		content = content.replace("%list%", sb.toString());
-		content = content.replace("%footer%", getFooter(page, pages, p -> getBypass("r " + filter + " " + listPage + " " + p)));
-		content = content.replace("%filler%", getFiller(getBlockHeight() + getColumnsHeight(columns) + shown * data.getGroupHeight()));
+		content = content.replace("%footer%", getFooter(page, pages, p -> getBypass("r " + filter + " " + listPage + " " + p + " " + shownMode + tail)));
+		content = content.replace("%filler%", getFiller(getBlockHeight() + getBlockHeight() + getColumnsHeight(columns) + shown * data.getGroupHeight()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, content);
 	}
 
 	/**
-	 * The head of the ladder page : the way back to the list, the link to the daily rewards, and the position of the very {@link Player} reading it.
+	 * The head of a ladder page : the way back to the list, and where the very {@link Player} reading it stands on the shown ladder.
 	 * @param player : The {@link Player} the position is computed for.
+	 * @param ranking : The already sorted ladder, handed over rather than built again.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
+	 * @param mode : Which of the two ladders is shown.
+	 * @param tail : The search query the list was showing, as the tail of a bypass.
 	 * @return The header block, closed by the rule cutting the page into blocks.
 	 */
-	private String getRankHeader(Player player, int filter, int listPage)
+	private String getRankHeader(Player player, List<RankRow> ranking, int filter, int listPage, int mode, String tail)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int rank = getRank(player.getObjectId());
-		final int points = getPoints(player.getObjectId());
+		final int rank = getRank(ranking, player.getObjectId());
+		final int score = (mode == MODE_MONTHLY) ? getWins(player.getObjectId()) : getPoints(player.getObjectId());
+		final String suffix = (mode == MODE_MONTHLY) ? data.getWinsLabel() : data.getPointsLabel();
 
 		final int width = data.getWidth();
 		final int linkWidth = Math.max(1, Math.min((width - 2) / 2, data.getListButtonWidth()));
-		final int dailyWidth = Math.max(1, Math.min(width - linkWidth - 2, data.getListButtonWidth() + 20));
-		final int pointsWidth = Math.max(1, (width - linkWidth - dailyWidth) / 2);
+		final int scoreWidth = Math.max(1, (width - linkWidth) / 2);
 
 		final StringBuilder sb = new StringBuilder(640);
 
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getCell(linkWidth, data.getGroupHeight(), data.getHeaderLinkAlign(), getLink(getBypass("l " + filter + " " + listPage), data.getBackLabel(), data.getTabColor())));
-		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - dailyWidth - pointsWidth), 0, data.getHeaderPointsAlign(), colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
-		StringUtil.append(sb, getCell(pointsWidth, 0, data.getHeaderPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(points) + escape(data.getPointsLabel()))));
-		StringUtil.append(sb, getCell(dailyWidth, 0, data.getHeaderLinkAlign(), getLink(getBypass("d " + filter + " " + listPage), data.getDailyLabel(), data.getActiveTabColor())));
+		StringUtil.append(sb, getCell(linkWidth, data.getGroupHeight(), data.getHeaderLinkAlign(), getLink(getBypass("l " + filter + " " + listPage + tail), data.getBackLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(Math.max(1, width - linkWidth - scoreWidth), 0, data.getHeaderPointsAlign(), colorize(data.getLabelColor(), escape(data.getRankPrefix())) + colorize(data.getValueColor(), (rank > 0) ? String.valueOf(rank) : escape(data.getUnrankedLabel()))));
+		StringUtil.append(sb, getCell(scoreWidth, 0, data.getHeaderPointsAlign(), colorize(data.getCountColor(), StringUtil.formatNumber(score) + escape(suffix))));
+		StringUtil.append(sb, ROW_END);
+		sb.append(getSeparator());
+
+		return sb.toString();
+	}
+
+	/**
+	 * The menu of a ladder page : the two ladders, and the rewards of the shown one. The shown ladder is written with the active color instead of being a link, the way every other menu of the book
+	 * does, so a player always reads which one he browses.
+	 * @param filter : The index of the level filter the list was showing.
+	 * @param listPage : The page index the list was showing.
+	 * @param mode : Which of the two ladders is shown.
+	 * @param tail : The search query the list was showing, as the tail of a bypass.
+	 * @return The menu row, closed by the rule cutting the page into blocks.
+	 */
+	private static String getRankMenu(int filter, int listPage, int mode, String tail)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final int cellWidth = Math.max(1, data.getWidth() / 3);
+
+		final String context = " " + filter + " " + listPage;
+
+		final StringBuilder sb = new StringBuilder(512);
+
+		StringUtil.append(sb, getRowStart(data.getRowColor()));
+		StringUtil.append(sb, getCell(cellWidth, data.getGroupHeight(), data.getMenuAlign(), (mode == MODE_DAILY) ? colorize(data.getActiveTabColor(), escape(data.getRankDailyLabel())) : getLink(getBypass("r" + context + " 0 " + MODE_DAILY + tail), data.getRankDailyLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(cellWidth, 0, data.getMenuAlign(), (mode == MODE_MONTHLY) ? colorize(data.getActiveTabColor(), escape(data.getRankMonthlyLabel())) : getLink(getBypass("r" + context + " 0 " + MODE_MONTHLY + tail), data.getRankMonthlyLabel(), data.getTabColor())));
+		StringUtil.append(sb, getCell(Math.max(1, data.getWidth() - 2 * cellWidth), 0, data.getMenuAlign(), getLink(getBypass("d" + context + " " + mode + tail), data.getRewardsLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 		sb.append(getSeparator());
 
@@ -1827,22 +2168,30 @@ public class RaidBookManager
 	 * @param player : The {@link Player} to send the dialog to.
 	 * @param filter : The index of the level filter the list was showing.
 	 * @param listPage : The page index the list was showing.
+	 * @param mode : Which of the two rewards to show - the daily ones or the monthly ones.
+	 * @param query : The search query the list was showing.
 	 */
-	private void showDaily(Player player, int filter, int listPage)
+	private void showRewards(Player player, int filter, int listPage, int mode, String query)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
+
+		mode = (mode == MODE_MONTHLY) ? MODE_MONTHLY : MODE_DAILY;
+
+		final boolean monthly = mode == MODE_MONTHLY;
+		final boolean enabled = (monthly) ? Config.RAIDBOOK_MONTHLY_ENABLED : Config.RAIDBOOK_DAILY_ENABLED;
+		final Map<Integer, List<IntIntHolder>> rewards = (monthly) ? Config.RAIDBOOK_MONTHLY_REWARDS : Config.RAIDBOOK_DAILY_REWARDS;
 
 		final StringBuilder sb = new StringBuilder(2048);
 
 		int groups = 0;
 		int rows = 0;
 
-		if (Config.RAIDBOOK_DAILY_ENABLED)
+		if (enabled)
 		{
-			final List<Integer> places = new ArrayList<>(Config.RAIDBOOK_DAILY_REWARDS.keySet());
+			final List<Integer> places = new ArrayList<>(rewards.keySet());
 			places.sort(null);
 
-			// The head sitting right above is drawn on the plain band color, so the list starts on the other one rather than stacking two identical blocks.
+			// The band sitting right above is drawn on the plain band color, so the list starts on the other one rather than stacking two identical blocks.
 			int band = 1;
 
 			for (int place : places)
@@ -1853,7 +2202,7 @@ public class RaidBookManager
 
 				groups++;
 
-				for (IntIntHolder item : Config.RAIDBOOK_DAILY_REWARDS.get(place))
+				for (IntIntHolder item : rewards.get(place))
 				{
 					sb.append(getRewardRow(item).replace(BAND, getBandAttribute(band++)));
 
@@ -1870,27 +2219,53 @@ public class RaidBookManager
 		}
 
 		final int half = Math.max(1, data.getWidth() / 2);
+		final int shownMode = mode;
+		final String tail = getContext(query);
 
-		final StringBuilder header = new StringBuilder(384);
+		final StringBuilder header = new StringBuilder(512);
 		StringUtil.append(header, getRowStart(data.getRowColor()));
-		StringUtil.append(header, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("r " + filter + " " + listPage + " 0"), data.getRankLabel(), data.getTabColor())));
-		StringUtil.append(header, getCell(Math.max(1, data.getWidth() - half), 0, data.getMenuAlign(), colorize(data.getActiveTabColor(), escape(data.getDailyLabel()))));
+		StringUtil.append(header, getCell(half, data.getGroupHeight(), data.getMenuAlign(), getLink(getBypass("r " + filter + " " + listPage + " 0 " + shownMode + tail), data.getRankLabel(), data.getTabColor())));
+		StringUtil.append(header, getCell(Math.max(1, data.getWidth() - half), 0, data.getMenuAlign(), colorize(data.getActiveTabColor(), escape((monthly) ? data.getMonthlyLabel() : data.getDailyLabel()))));
 		StringUtil.append(header, ROW_END);
 		header.append(getSeparator());
+
+		// When the next handout is due, read off the schedule of the very task which does it - a reward list nobody can date is half a promise. Emptying the label drops the band altogether.
+		final String next = (data.getNextRewardLabel().isEmpty()) ? "" : escape(data.getNextRewardLabel()) + getNextRewardText(mode);
+
+		if (!next.isEmpty())
+		{
+			header.append(getBandContent(next));
+			header.append(getSeparator());
+		}
 
 		final int groupHeight = data.getGroupHeight() + ((data.getSeparator().isEmpty()) ? 0 : 2 * SEPARATOR_HEIGHT);
 
 		String content = HtmCache.getInstance().getHtmForce(DAILY_HTM);
-		content = content.replace("%title%", escape(data.getDailyTitle()));
+		content = content.replace("%title%", escape((monthly) ? data.getMonthlyTitle() : data.getDailyTitle()));
 		content = content.replace("%header%", header.toString());
 		content = content.replace("%list%", sb.toString());
 
 		// The page holds everything it has to show, but the selector row is still emitted : it is what the shared "overhead" of the layout counts on.
-		content = content.replace("%footer%", getFooter(0, 1, p -> getBypass("d " + filter + " " + listPage)));
-		content = content.replace("%filler%", getFiller(getBlockHeight() + groups * groupHeight + rows * data.getRowHeight()));
+		content = content.replace("%footer%", getFooter(0, 1, p -> getBypass("d " + filter + " " + listPage + " " + shownMode + tail)));
+		content = content.replace("%filler%", getFiller(getBlockHeight() + getBandHeight(next) + groups * groupHeight + rows * data.getRowHeight()));
 		content = content.replace("%width%", String.valueOf(data.getWidth()));
 
 		send(player, content);
+	}
+
+	/**
+	 * @param mode : Which of the two rewards to look at.
+	 * @return The date the next handout of that reward is due, rendered with the pattern of the datapack, and the "nextRewardUnknown" label when its task isn't scheduled at all.
+	 */
+	private static String getNextRewardText(int mode)
+	{
+		final RaidBookData data = RaidBookData.getInstance();
+
+		final long time = getNextRewardTime(mode);
+		if (time <= 0)
+			return escape(data.getNextRewardUnknown());
+
+		return escape(new SimpleDateFormat(data.getNextRewardPattern()).format(new Date(time)));
 	}
 
 	/**
@@ -2045,8 +2420,10 @@ public class RaidBookManager
 	}
 
 	/**
+	 * The counter written next to the progress bar. It counts <b>inside the current hunting level</b>, exactly like the bar standing in front of it : an absolute counter next to a relative bar reads
+	 * as a broken bar - "10/15" sitting next to an empty bar is what a freshly reached level used to look like. The absolute amount of kills is what the hunting block writes on its own line.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @return The text sitting next to the progress bar, being the kills done over the kills the next level takes.
+	 * @return The kills done into the current level over the kills that level takes.
 	 */
 	private static String getProgressText(int kills)
 	{
@@ -2056,7 +2433,10 @@ public class RaidBookManager
 		if (Config.RAIDBOOK_MAX_LEVEL > 0 && level >= Config.RAIDBOOK_MAX_LEVEL)
 			return escape(data.getMaxLevelLabel());
 
-		return kills + escape(data.getProgressRange()) + getKillsForLevel(level + 1);
+		final int lower = getKillsForLevel(level);
+		final int upper = getKillsForLevel(level + 1);
+
+		return (kills - lower) + escape(data.getProgressRange()) + Math.max(1, upper - lower);
 	}
 
 	/**
