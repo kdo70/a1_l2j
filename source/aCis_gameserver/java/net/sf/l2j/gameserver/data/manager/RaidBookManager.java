@@ -119,6 +119,15 @@ public class RaidBookManager
 	private static final int BAR_SLACK = 2;
 
 	/**
+	 * The see-through texture the empty part of a progress bar is drawn with. It shows nothing at all - the track is a background color, and this is drawn over it.<br>
+	 * <br>
+	 * Its one job is to give its cell the height of the bar : <b>a cell holding nothing is drawn as thin as the client feels like, whatever height it declares</b>, which left the track thinner than
+	 * the fill standing next to it. Filling both cells with an image of the very same height is what makes the bar one solid block, and it doesn't rely on the client honouring a height attribute at
+	 * all.
+	 */
+	private static final String BAR_SPACER = "L2UI.SquareBlank";
+
+	/**
 	 * Amount of lines the statistics block of a detail page holds : two for the pools and the rewards, one for the respawn window, three for the combat stats. Both blocks are two columns wide, so a
 	 * line carries two stats - the respawn one being the exception, it owns its whole line.
 	 */
@@ -2458,17 +2467,17 @@ public class RaidBookManager
 		// other row lines up on - and stretch the track past the fill which is supposed to cover it.
 		StringUtil.append(sb, "<table width=", span, " cellspacing=0 cellpadding=0 border=0", ((data.getBarTrackColor().isEmpty()) ? "" : " bgcolor=\"" + data.getBarTrackColor() + "\""), "><tr>");
 
+		// Both halves hold an image of the very same height - the fill its own texture, the rest a see-through one - so the bar is one solid block whatever the client makes of a height attribute.
+		// The only cell of a bar which is whole, or of one which is empty, is left unsized : its image alone fills the table, and no slack has to be left for it.
 		if (filled >= span)
-			StringUtil.append(sb, "<td height=", height, ">", getBarImage(span, height), "</td>");
-		else if (filled > 0)
-		{
-			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarImage(filled - 1, height), "</td>");
-
-			// The rest of the track carries the very same height : a cell holding nothing is drawn at whatever height it can get away with, and the track then reads as thinner than the fill.
-			StringUtil.append(sb, "<td width=", span - filled, " height=", height, "></td>");
-		}
+			StringUtil.append(sb, "<td height=", height, ">", getBarImage(data.getBarFilled(), span, height), "</td>");
+		else if (filled <= 0)
+			StringUtil.append(sb, "<td height=", height, ">", getBarImage(BAR_SPACER, span, height), "</td>");
 		else
-			StringUtil.append(sb, "<td height=", height, "></td>");
+		{
+			StringUtil.append(sb, "<td width=", filled, " height=", height, ">", getBarImage(data.getBarFilled(), filled - 1, height), "</td>");
+			StringUtil.append(sb, "<td width=", span - filled, " height=", height, ">", getBarImage(BAR_SPACER, span - filled - 1, height), "</td>");
+		}
 
 		sb.append(ROW_END);
 
@@ -2476,14 +2485,13 @@ public class RaidBookManager
 	}
 
 	/**
+	 * @param texture : The client texture to draw, an empty one drawing nothing at all - which is how a datapack drops the fill of the bar, leaving the bare track.
 	 * @param width : The width, in pixels, to draw the image at.
 	 * @param height : The height, in pixels, to draw it at.
-	 * @return The filled part of the bar, empty when the datapack holds no texture for it - which leaves the bare track, and is how a datapack drops the fill without moving anything.
+	 * @return One half of the bar.
 	 */
-	private static String getBarImage(int width, int height)
+	private static String getBarImage(String texture, int width, int height)
 	{
-		final String texture = RaidBookData.getInstance().getBarFilled();
-
 		return (texture.isEmpty()) ? "" : "<img src=\"" + texture + "\" width=" + Math.max(1, width) + " height=" + height + ">";
 	}
 
