@@ -18,7 +18,7 @@
 		============================================
 		Все    1-20   20-40   40-60   60-80
 		Greyclaw Kutus  Ур.23           ур.3   Инфо
-		        [############........]
+		[############........]
 
 	A book opens empty : a raid boss only shows up on that list once its owner has laid a hand on it,
 	and it stays there afterwards. A list of the 213 raid bosses of the server tells a player nothing ;
@@ -60,11 +60,14 @@
 	stacked tables sharing one background color rather than one table, because a bar can't share a
 	table with text sitting in columns of its own.
 
-	The bar is centered on both pages, so it reads as the bottom half of the card of its boss rather
-	than as a fourth column of the row above it. It owns a single cell spanning the whole layout
-	width and it is centered inside it by the "bar" alignment : spacer cells on both of its sides
-	would be empty ones, and an empty cell is drawn as wide as the client feels like whatever width
-	it declares - so they pushed the bar off center instead of centering it.
+	The bar owns a single cell spanning the whole layout width, and the "bar" alignment is what places
+	it inside that cell : spacer cells on both of its sides would be empty ones, and an empty cell is
+	drawn as wide as the client feels like whatever width it declares - so they pushed the bar around
+	instead of placing it.
+
+	Its width differs between the two pages. On the main list it is "barWidth", starting on the very
+	edge the name above it starts on ; on a detail page it is stretched over the whole row, since that
+	page shows one single boss and the bar is the only thing on its line.
 
 	It carries no counter : the detail page writes the kills and what the next level takes on its own
 	lines right above the bar, and a counter would repeat them.
@@ -87,7 +90,7 @@
 		========================
 		Ур.охоты  3     Убийств    12
 		Бонус урона 3%  До уровня   3
-		        [############........]
+		[##################..........]
 		========================
 		Назад          Искать     x
 		Награды  Дроп  История  Рейтинг
@@ -132,7 +135,11 @@
 		              button row, the page selector, a group header, a column header and every row of
 		              a detail page tab.
 		headerHeight     : height, in pixels, of a single line of a two columns block - the
-		                   statistics of a boss and the hunting block.
+		                   statistics of a boss and the hunting block. It is the <b>only</b> thing
+		                   spacing those lines apart : the blocks carry no cell spacing of their own,
+		                   since the couple of pixels the client puts between every pair of cells
+		                   added up to a fair share of the page over six stacked lines. Keep it at or
+		                   just above the height of a line of text, or the lines start touching.
 		headerLabelWidth : width, in pixels, of one caption cell of those blocks. A block is two
 		                   columns wide, so the value of a column takes what is left of that column -
 		                   ((width - headerGap) / 2) - headerLabelWidth - and the numbers are written
@@ -200,10 +207,12 @@
 		              player it is sent to. The chat always gets those messages ; whether the screen
 		              gets them too is "RaidBookScreenMessages" of the properties.
 
-		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level. Keep barWidth
-		                       a few pixels under the layout width : the bar sits in a cell of that
-		                       very width, and something as wide as its own cell leaves the client no
-		                       slack, which gets it wrapped onto the next line.
+		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level <b>on the main
+		                       list</b> - on a detail page the bar is stretched over the whole row
+		                       and barWidth doesn't apply. Keep it a few pixels under the layout
+		                       width : the bar sits in a cell of that very width, and something as
+		                       wide as its own cell leaves the client no slack, which gets it wrapped
+		                       onto the next line.
 		barFilled            : client texture the filled part of the bar is drawn with, stretched to
 		                       the progress ; the track under it is a background color ("barTrack")
 		                       rather than a second texture, so a full level covers its whole track.
@@ -264,7 +273,8 @@
 		nextReward        : the band telling when the next ladder reward is due, which stands on its
 		                    own rather than naming what opens under it.
 		bar               : the progress bar inside its cell, which spans the whole layout width -
-		                    this is what centers it on the card of its boss.
+		                    this is what places it on its row. A detail page bar fills that cell
+		                    whole, so this only ever moves the one of a list row.
 		headerRank / headerPoints / headerLink : the position, the score and the links of the head of
 		                                         a page.
 		searchField / searchQuery : the search field of the main list, and the query being searched
@@ -439,9 +449,9 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="6" barFilled="L2UI_CH3.ps_cpbar" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="13" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="6" barFilled="L2UI_CH3.ps_cpbar" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
-	<aligns listName="left" listLevel="center" listButton="right" bar="center" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
+	<aligns listName="left" listLevel="center" listButton="right" bar="left" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 
 	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" barTrack="1E1E1E" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
 

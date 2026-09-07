@@ -1378,8 +1378,9 @@ public class RaidBookManager
 		StringUtil.append(sb, getCell(data.getListButtonWidth(), 0, data.getListButtonAlign(), getLink(getBypass("i " + template.getNpcId() + " " + TAB_REWARDS + " 0 " + filter + " " + page + getContext(query)), data.getDetailsLabel(), data.getTabColor())));
 		StringUtil.append(sb, ROW_END);
 
+		// The bar of a list row is the one the datapack sizes, and it starts on the very edge the name above it starts on.
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getBarCells(kills, barHeight));
+		StringUtil.append(sb, getBarCells(kills, barHeight, getBarSpan()));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1620,10 +1621,10 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + escape(data.getChanceSuffix()), data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
 		sb.append("</table>");
 
-		// The bar owns the middle of the row, the very way the one of a list row does. It carries no counter of its own : the two lines sitting right above it already write the kills and what the
-		// next level takes, which is the very thing such a counter would repeat.
+		// A detail page shows one single boss, so its bar is stretched over the whole row rather than sized by the datapack the way a list row is. It carries no counter of its own : the two lines
+		// sitting right above it already write the kills and what the next level takes, which is the very thing such a counter would repeat.
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight()));
+		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight(), getMaxBarSpan()));
 		StringUtil.append(sb, ROW_END);
 
 		sb.append(getSeparator());
@@ -2375,19 +2376,20 @@ public class RaidBookManager
 	}
 
 	/**
-	 * The whole progress bar line of a hunting level : one single cell owning the width of the row, the bar being centered inside it.<br>
+	 * The whole progress bar line of a hunting level : one single cell owning the width of the row, the bar sitting inside it on the edge the "bar" alignment names.<br>
 	 * <br>
-	 * It is one cell and not three, and that is what centers the bar : the spacer cells which used to sit on both of its sides were <b>empty</b>, and an empty cell is drawn as wide as the client feels
-	 * like whatever width it declares - so the bar ended up anywhere but the middle. The "bar" alignment does the very same job without a single cell to be swallowed.
+	 * It is one cell and not three, and that is what places the bar : the spacer cells which used to sit on both of its sides were <b>empty</b>, and an empty cell is drawn as wide as the client feels
+	 * like whatever width it declares - so the bar ended up anywhere but where it was put. The alignment does the very same job without a single cell to be swallowed.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
 	 * @param height : The height, in pixels, of the row the bar sits on.
+	 * @param span : The width, in pixels, of the bar itself.
 	 * @return The cell of the line, which spans the layout width.
 	 */
-	private static String getBarCells(int kills, int height)
+	private static String getBarCells(int kills, int height, int span)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getCell(data.getWidth(), height, data.getBarAlign(), getBar(kills));
+		return getCell(data.getWidth(), height, data.getBarAlign(), getBar(kills, span));
 	}
 
 	/**
@@ -2401,13 +2403,13 @@ public class RaidBookManager
 	 * The image is drawn one pixel short of its own cell, for the very reason the bar is given a wider cell than itself. A full bar is the exception : its cell is left unsized, so the image alone
 	 * fills the table and the track is covered whole.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @return The bar, as a table measuring {@link #getBarSpan()} whatever the progress.
+	 * @param span : The width, in pixels, the bar takes, whatever the progress.
+	 * @return The bar, as a table measuring that very width.
 	 */
-	private static String getBar(int kills)
+	private static String getBar(int kills, int span)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int span = getBarSpan();
 		final int filled = Math.min(span, Math.max(0, (int) Math.round(span * getProgress(kills))));
 		final int height = data.getBarHeight();
 
@@ -2446,13 +2448,19 @@ public class RaidBookManager
 	}
 
 	/**
-	 * @return The width, in pixels, the bar itself takes. The cell holding it, and the counter written next to it, are cut out of whatever is left of the layout width.
+	 * @return The width, in pixels, the bar of a list row takes - the one the datapack sizes, capped to what the row can hold.
 	 */
 	private static int getBarSpan()
 	{
-		final RaidBookData data = RaidBookData.getInstance();
+		return Math.min(getMaxBarSpan(), Math.max(1, RaidBookData.getInstance().getBarWidth()));
+	}
 
-		return Math.max(1, Math.min(data.getWidth() - BAR_SLACK - 2, data.getBarWidth()));
+	/**
+	 * @return The widest a bar may be : the layout width, minus the slack the cell holding it needs. Something as wide as its own cell leaves the client no room and gets wrapped onto the next line.
+	 */
+	private static int getMaxBarSpan()
+	{
+		return Math.max(1, RaidBookData.getInstance().getWidth() - BAR_SLACK - 2);
 	}
 
 	/**
@@ -2593,13 +2601,15 @@ public class RaidBookManager
 	}
 
 	/**
+	 * The spacing of a two columns block is stripped : the client puts a couple of pixels between every pair of cells out of the box, and on a block stacking six lines that is what a page spends its
+	 * height on. The lines are spaced by their own height ("headerHeight") instead, which is the one place a datapack sets it.
 	 * @return The opening tags of one two columns block, drawn on the plain band color of the page.
 	 */
 	private static String getBlockStart()
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return "<table width=" + data.getWidth() + ((data.getRowColor().isEmpty()) ? "" : " bgcolor=\"" + data.getRowColor() + "\"") + ">";
+		return "<table width=" + data.getWidth() + " cellspacing=0" + ((data.getRowColor().isEmpty()) ? "" : " bgcolor=\"" + data.getRowColor() + "\"") + ">";
 	}
 
 	private static String getStatRow(String leftLabel, long leftValue, String rightLabel, long rightValue)
