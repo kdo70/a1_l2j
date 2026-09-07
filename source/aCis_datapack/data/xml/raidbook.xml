@@ -400,7 +400,8 @@
 		                        break them with a "|", and keep each of them under the layout width.
 		                        A line the client has to break itself is broken against the width of
 		                        the dialog rather than the one of the cell, and a centered line
-		                        wider than its cell loses its first words off the left edge.
+		                        wider than its cell loses its first words off the left edge. Those
+		                        breaks are tight ones, so the lines keep reading as one sentence.
 		notFound              : sent to whoever asks for a raid boss which doesn't exist any more.
 		noLocation            : sent to whoever asks to be pointed at a boss which owns no spawn
 		                        point at all.

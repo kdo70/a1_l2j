@@ -2581,13 +2581,15 @@ public class RaidBookManager
 	 * Honor the line breaks a datapack label carries.<br>
 	 * <br>
 	 * A label too long for the layout width is broken by the client itself, but it does that against the width of the <b>dialog</b> rather than the one of the cell, and a centered line which turns out
-	 * wider than its cell is then clipped on its left edge - the first word of the label simply goes missing. So a label which doesn't fit is broken where the datapack wants it broken.
+	 * wider than its cell is then clipped on its left edge - the first word of the label simply goes missing. So a label which doesn't fit is broken where the datapack wants it broken.<br>
+	 * <br>
+	 * The break is the tight one : a "&lt;br&gt;" spaces two lines of one single sentence as far apart as two paragraphs, where "&lt;br1&gt;" leaves them reading as the one sentence they are.
 	 * @param text : The already escaped label.
 	 * @return That label, its breaks turned into the tag the client renders.
 	 */
 	private static String breakLines(String text)
 	{
-		return (text.indexOf(LINE_BREAK) < 0) ? text : text.replace(String.valueOf(LINE_BREAK), "<br>");
+		return (text.indexOf(LINE_BREAK) < 0) ? text : text.replace(String.valueOf(LINE_BREAK), "<br1>");
 	}
 
 	/**
