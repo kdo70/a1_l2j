@@ -74,6 +74,8 @@ $GRADES = @('NG', 'D', 'C', 'B', 'A', 'S')
 $GRADE_IDX = @{ NG = 0; D = 1; C = 2; B = 3; A = 4; S = 5 }
 $TOP_GRADE = 5
 $FIRST_ITEM_ID = 10000
+# Where tools\weapons\generate.ps1 starts : our buckets stop below it, and its own are not ours to drop.
+$FIRST_WEAPON_ID = 12000
 $FIRST_SKILL_ID = 9500
 $ENCHANT_SKILL = @{ HEAVY = 9700; LIGHT = 9701; MAGIC = 9702 }
 $ITEMS_PER_FILE = 100
@@ -197,13 +199,16 @@ function Write-Datapack([string]$path, [string[]]$body, [string]$eol, [bool]$end
 
 # A table that shrank leaves its top buckets behind, and the server would happily go on loading the
 # orphans out of them. Every "<from>-<to>.xml" of our own id range that this run didn't write goes.
-function Remove-StaleBuckets([string]$dir, [int]$firstId, $written)
+#
+# $lastId bounds that range from above, because the id space past ours belongs to somebody else -
+# tools\weapons\generate.ps1 mints from 12000 up, and its buckets are not ours to drop.
+function Remove-StaleBuckets([string]$dir, [int]$firstId, [int]$lastId, $written)
 {
 	$dropped = 0
 	foreach ($f in Get-ChildItem $dir -Filter *.xml)
 	{
-		if ($f.Name -notmatch '^(\d+)-\d+\.xml$') { continue }
-		if ([int]$Matches[1] -lt $firstId -or $written.ContainsKey($f.Name)) { continue }
+		if ($f.Name -notmatch '^(\d+)-(\d+)\.xml$') { continue }
+		if ([int]$Matches[1] -lt $firstId -or [int]$Matches[2] -gt $lastId -or $written.ContainsKey($f.Name)) { continue }
 		Remove-Item $f.FullName -Force
 		$dropped++
 	}
@@ -466,7 +471,7 @@ foreach ($bucket in ($buckets.Keys | Sort-Object))
 	Write-Datapack (Join-Path $itemsDir $name) $body "`r`n" $false
 }
 
-$dropped = Remove-StaleBuckets $itemsDir $FIRST_ITEM_ID $mintedFiles
+$dropped = Remove-StaleBuckets $itemsDir $FIRST_ITEM_ID $FIRST_WEAPON_ID $mintedFiles
 Write-Host "wrote $($buckets.Count) item files$(if ($dropped) { ", removed $dropped stale" })"
 
 # ---------------------------------------------------------------------------
@@ -722,7 +727,7 @@ foreach ($bucket in ($skillBuckets.Keys | Sort-Object))
 	$body = @('<?xml version="1.0" encoding="UTF-8"?>', '<list>') + $skillBuckets[$bucket] + @('</list>')
 	[System.IO.File]::WriteAllText((Join-Path $skillsDir $name), ($body -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
 }
-$dropped = Remove-StaleBuckets $skillsDir $FIRST_SKILL_ID $writtenSkills
+$dropped = Remove-StaleBuckets $skillsDir $FIRST_SKILL_ID ([int]::MaxValue) $writtenSkills
 Write-Host "wrote $($families.Count) set skills + 3 enchant skills in $($skillBuckets.Count) files$(if ($dropped) { ", removed $dropped stale" })"
 
 # ---------------------------------------------------------------------------
