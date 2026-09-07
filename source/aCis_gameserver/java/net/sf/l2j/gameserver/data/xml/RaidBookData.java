@@ -187,7 +187,6 @@ public class RaidBookData implements IXmlReader
 	private String _levelUpMessage;
 	private String _rewardMessage;
 	private String _dailyMessage;
-	private String _bookGivenMessage;
 	private String _levelPrefix;
 	private String _huntLevelPrefix;
 	private String _detailsLabel;
@@ -218,6 +217,7 @@ public class RaidBookData implements IXmlReader
 	private String _castSpdLabel;
 	private String _noClanLabel;
 	private String _emptyLabel;
+	private String _hintLabel;
 	private String _notFoundLabel;
 	private String _noLocationLabel;
 	private String _searchDoneLabel;
@@ -449,7 +449,6 @@ public class RaidBookData implements IXmlReader
 				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
 				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
 				_dailyMessage = parseString(attrs, "msgDaily", _dailyMessage);
-				_bookGivenMessage = parseString(attrs, "msgBookGiven", _bookGivenMessage);
 				_levelPrefix = parseString(attrs, "levelPrefix", _levelPrefix);
 				_huntLevelPrefix = parseString(attrs, "huntLevelPrefix", _huntLevelPrefix);
 				_detailsLabel = parseString(attrs, "details", _detailsLabel);
@@ -480,6 +479,7 @@ public class RaidBookData implements IXmlReader
 				_castSpdLabel = parseString(attrs, "castSpd", _castSpdLabel);
 				_noClanLabel = parseString(attrs, "noClan", _noClanLabel);
 				_emptyLabel = parseString(attrs, "empty", _emptyLabel);
+				_hintLabel = parseString(attrs, "hint", _hintLabel);
 				_notFoundLabel = parseString(attrs, "notFound", _notFoundLabel);
 				_noLocationLabel = parseString(attrs, "noLocation", _noLocationLabel);
 				_searchDoneLabel = parseString(attrs, "searchDone", _searchDoneLabel);
@@ -683,7 +683,6 @@ public class RaidBookData implements IXmlReader
 		_levelUpMessage = "Hunting level %level% reached on %boss% !";
 		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
 		_dailyMessage = "Daily reward for the %place% place : %item% x%count%.";
-		_bookGivenMessage = "You have been handed the raid boss book.";
 		_levelPrefix = "Lv.";
 		_huntLevelPrefix = "Hunt ";
 		_detailsLabel = "Info";
@@ -714,6 +713,7 @@ public class RaidBookData implements IXmlReader
 		_castSpdLabel = "Casting Spd.";
 		_noClanLabel = "-";
 		_emptyLabel = "-";
+		_hintLabel = "Find a raid boss and attack it to write it in.";
 		_notFoundLabel = "Unknown raid boss.";
 		_noLocationLabel = "Unknown location.";
 		_searchDoneLabel = "The location has been marked on your map.";
@@ -1601,14 +1601,6 @@ public class RaidBookData implements IXmlReader
 		return _dailyMessage;
 	}
 
-	/**
-	 * @return The message sent along the book itself, the first time its owner lays a hand on a raid boss.
-	 */
-	public String getBookGivenMessage()
-	{
-		return _bookGivenMessage;
-	}
-
 	public String getRowColor()
 	{
 		return _rowColor;
@@ -1876,6 +1868,14 @@ public class RaidBookData implements IXmlReader
 	public String getEmptyLabel()
 	{
 		return _emptyLabel;
+	}
+
+	/**
+	 * @return The label shown instead of a book which never met a single raid boss, telling how one gets written in.
+	 */
+	public String getHintLabel()
+	{
+		return _hintLabel;
 	}
 
 	public String getNotFoundLabel()

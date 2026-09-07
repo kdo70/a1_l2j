@@ -61,9 +61,9 @@ import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
- * Generates the raid boss book a {@link Player} opens by using the book item, and holds the hunting record which feeds it.<br>
+ * Generates the raid boss book a {@link Player} opens by talking to an {@link net.sf.l2j.gameserver.model.actor.instance.Adventurer}, and holds the hunting record which feeds it.<br>
  * <br>
- * The book lists every raid boss of the server, filtered by level ranges, each row telling the hunting level of that very {@link Player} on that boss and how far he stands from the next one - a bar
+ * The book lists the raid bosses that very {@link Player} already fought, filtered by level ranges, each row telling his hunting level on that boss and how far he stands from the next one - a bar
  * drawn the way the experience bar of a character is. A row leads to a detail page holding the statistics of the boss, a button dropping a radar marker on its spawn point, and four tabs : the rewards
  * the coming hunting levels give, the drop list of the boss, the last kills it suffered and the players who killed it the most.<br>
  * <br>
@@ -137,9 +137,6 @@ public class RaidBookManager
 
 	/** {@link DecimalFormat} isn't thread safe and several {@link Player}s can browse the book at once, so a formatter is built per cell ; only its symbols are shared. */
 	private static final DecimalFormatSymbols NUMBER_SYMBOLS = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
-
-	/** The memo telling a character has already been handed the book. It is stored on character_memo, so it outlives whatever happens to the item itself. */
-	private static final String GIVEN_MEMO = "raidbook_given";
 
 	/** The two ladders of the book, and the two reward pages which go with them : the daily one, ranked on hunting points, and the monthly one, ranked on daily wins. */
 	private static final int MODE_DAILY = 0;
@@ -294,7 +291,7 @@ public class RaidBookManager
 	}
 
 	/**
-	 * Answer the very first hit a {@link Player} lands on a raid boss : the boss enters his own book, and the book itself is handed over when he owns none yet.
+	 * Answer the very first hit a {@link Player} lands on a raid boss : the boss enters his own book.
 	 * @param attacker : The {@link Creature} which just hit the boss, its owner being the one credited.
 	 * @param bossId : The npcId of the hit raid boss.
 	 */
@@ -308,7 +305,6 @@ public class RaidBookManager
 			return;
 
 		discover(player, bossId);
-		giveBook(player);
 	}
 
 	/**
@@ -328,34 +324,6 @@ public class RaidBookManager
 			return;
 
 		saveHunt(player, bossId, 0, 0);
-	}
-
-	/**
-	 * Hand the book over the first time a {@link Player} lays a hand on a raid boss - the moment the feature starts being worth anything to him, and the one moment he is bound to notice it.<br>
-	 * <br>
-	 * It is handed once and only once, whatever happens to the item afterwards : the marker lives on the character rather than on his inventory, so a book which somehow got destroyed isn't handed
-	 * again. The one case which does hand it again is a full inventory - nothing was given, so nothing is remembered.
-	 * @param player : The {@link Player} to hand the book to.
-	 */
-	private static void giveBook(Player player)
-	{
-		if (Config.RAIDBOOK_ITEM_ID <= 0)
-			return;
-
-		// The marker is claimed atomically too, and for the very same reason.
-		if (player.getMemos().putIfAbsent(GIVEN_MEMO, Boolean.TRUE.toString()) != null)
-			return;
-
-		if (player.addItem(Config.RAIDBOOK_ITEM_ID, 1, true) == null)
-		{
-			// The inventory was full. Nothing has been written to the database yet, so dropping the marker from memory is enough to try again on the next hit.
-			player.getMemos().remove(GIVEN_MEMO);
-			return;
-		}
-
-		player.getMemos().set(GIVEN_MEMO, true);
-
-		inform(player, RaidBookData.getInstance().getBookGivenMessage(), true);
 	}
 
 	/**
@@ -1202,7 +1170,8 @@ public class RaidBookManager
 		// The search runs over the bosses this very player already met - a handful of templates already sitting in memory, sorted once at startup - so it costs one walk of that list and nothing
 		// else : no database, no world lookup, no index to keep.
 		final String needle = query.toLowerCase();
-		final List<NpcTemplate> bosses = getDiscovered(player).stream().filter(t -> levelFilter.matches(t.getLevel()) && (needle.isEmpty() || t.getName().toLowerCase().contains(needle))).toList();
+		final List<NpcTemplate> discovered = getDiscovered(player);
+		final List<NpcTemplate> bosses = discovered.stream().filter(t -> levelFilter.matches(t.getLevel()) && (needle.isEmpty() || t.getName().toLowerCase().contains(needle))).toList();
 
 		final int perPage = data.getRowsPerPage();
 		final int pages = Math.max(1, (bosses.size() + perPage - 1) / perPage);
@@ -1214,8 +1183,9 @@ public class RaidBookManager
 
 		final StringBuilder sb = new StringBuilder(4096);
 
+		// A book which never met a raid boss says what to do about it ; one narrowed down to nothing by a filter or a search only says that it holds nothing, since the way out is right above it.
 		if (bosses.isEmpty())
-			sb.append(getEmptyRow(data.getRowHeight()));
+			sb.append(getEmptyRow(data.getRowHeight(), (discovered.isEmpty()) ? data.getHintLabel() : data.getEmptyLabel()));
 
 		// The filter menu right above is drawn on the plain band color, so the list starts on the other one rather than stacking two identical blocks.
 		int band = 1;
@@ -1406,7 +1376,7 @@ public class RaidBookManager
 		StringUtil.append(sb, ROW_END);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getBarCells(kills, barHeight, false));
+		StringUtil.append(sb, getBarCells(kills, barHeight, true));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1647,7 +1617,7 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + escape(data.getChanceSuffix()), data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
 		sb.append("</table>");
 
-		// A detail page shows one single boss, so its bar owns the middle of the row rather than starting on the left edge the way a list row does.
+		// The bar owns the middle of the row, the very way the one of a list row does.
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
 		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight(), true));
 		StringUtil.append(sb, ROW_END);
@@ -2404,7 +2374,7 @@ public class RaidBookManager
 	 * The whole progress bar line of a hunting level : the bar itself, the counter written next to it, and - when asked for - the spacers centering both of them on the row.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
 	 * @param height : The height, in pixels, of the row the bar sits on. It is written on the first emitted cell, the way every other row of the book does.
-	 * @param centered : Whether the bar and its counter are centered on the row, which is what a detail page does - a list row reads better with its bar starting under the name of its boss.
+	 * @param centered : Whether the bar and its counter are centered on the row, which is what both pages do - the bar reads as the bottom half of the card of its boss rather than as a fourth column.
 	 * @return The cells of the line, which always add up to the layout width.
 	 */
 	private static String getBarCells(int kills, int height, boolean centered)
@@ -2623,9 +2593,19 @@ public class RaidBookManager
 	 */
 	private static String getEmptyRow(int height)
 	{
+		return getEmptyRow(height, RaidBookData.getInstance().getEmptyLabel());
+	}
+
+	/**
+	 * @param height : The height, in pixels, the row takes. A label longer than its row wraps and takes more than that, which is fine here : such a row is the only one of its page.
+	 * @param label : The label to write in it.
+	 * @return The row shown instead of an empty list, already striped - it is the only row of its page.
+	 */
+	private static String getEmptyRow(int height, String label)
+	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, data.getEmptyAlign(), colorize(data.getDisabledColor(), escape(data.getEmptyLabel()))) + ROW_END;
+		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, data.getEmptyAlign(), colorize(data.getDisabledColor(), escape(label))) + ROW_END;
 	}
 
 	/**

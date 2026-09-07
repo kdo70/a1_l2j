@@ -153,7 +153,7 @@ public final class RequestBypassToServer extends L2GameClientPacket
 
 			DropListManager.getInstance().handleBypass(player, _command.substring(DropListManager.BYPASS.length()));
 		}
-		// Raid boss book, opened by the book item ; see RaidBookManager.
+		// Raid boss book, opened by talking to an Adventurer ; see RaidBookManager.
 		else if (_command.startsWith(RaidBookManager.BYPASS))
 		{
 			if (!player.validateBypass(_command))
