@@ -18,7 +18,7 @@
 		============================================
 		Все    1-20   20-40   40-60   60-80
 		Greyclaw Kutus  Ур.23           ур.3   Инфо
-		[############........] 2/5
+		        [############........]
 
 	A book opens empty : a raid boss only shows up on that list once its owner has laid a hand on it,
 	and it stays there afterwards. A list of the 213 raid bosses of the server tells a player nothing ;
@@ -39,8 +39,7 @@
 	its players took the first place of the daily one, and the rewards of whichever one is shown.
 
 	A row draws the name and the level of the boss on one line and the progress bar of the hunting
-	level right under it - the way the experience bar of a character reads - followed by the kills
-	done over the kills the next level takes.
+	level right under it - the way the experience bar of a character reads.
 
 	The bar is a table of its own, nested inside the cell of the row : its background is the track, and
 	it holds two halves - the filled part, stretched to the progress, and a see-through spacer taking
@@ -61,8 +60,14 @@
 	stacked tables sharing one background color rather than one table, because a bar can't share a
 	table with text sitting in columns of its own.
 
-	The bar and its counter are centered together on both pages, so the bar reads as the bottom half
-	of the card of its boss rather than as a fourth column of the row above it.
+	The bar is centered on both pages, so it reads as the bottom half of the card of its boss rather
+	than as a fourth column of the row above it. It owns a single cell spanning the whole layout
+	width and it is centered inside it by the "bar" alignment : spacer cells on both of its sides
+	would be empty ones, and an empty cell is drawn as wide as the client feels like whatever width
+	it declares - so they pushed the bar off center instead of centering it.
+
+	It carries no counter : the detail page writes the kills and what the next level takes on its own
+	lines right above the bar, and a counter would repeat them.
 
 	A detail page opens on the statistics of the boss, laid out the way the status window of a
 	character is - two blocks of two columns, each opening on a caption band of its own, exactly like
@@ -82,7 +87,7 @@
 		========================
 		Ур.охоты  3     Убийств    12
 		Бонус урона 3%  До уровня   3
-		      [############........] 2/5
+		        [############........]
 		========================
 		Назад          Искать     x
 		Награды  Дроп  История  Рейтинг
@@ -196,12 +201,9 @@
 		              gets them too is "RaidBookScreenMessages" of the properties.
 
 		barWidth / barHeight : size, in pixels, of the progress bar of a hunting level. Keep barWidth
-		                       a few pixels under the layout width, so the counter written next to it
-		                       is left a column of its own.
-		barCounterWidth      : width, in pixels, of that counter. The bar and the counter are centered
-		                       together as one block, and this is the half of that block the counter
-		                       owns ; whatever the two of them leave of the layout width is split
-		                       evenly on both of their sides.
+		                       a few pixels under the layout width : the bar sits in a cell of that
+		                       very width, and something as wide as its own cell leaves the client no
+		                       slack, which gets it wrapped onto the next line.
 		barFilled            : client texture the filled part of the bar is drawn with, stretched to
 		                       the progress ; the track under it is a background color ("barTrack")
 		                       rather than a second texture, so a full level covers its whole track.
@@ -220,10 +222,11 @@
 		The five sets of column widths below must each sum up to the layout width, otherwise the
 		rows of that table won't be aligned - a mismatch is warned about in the log.
 
-		listNameWidth / listLevelWidth / listButtonWidth       : rows of the main list - the name and
-		                                                         the bar, the hunting level and the
-		                                                         counter of the bar, the link to the
-		                                                         detail page.
+		listNameWidth / listLevelWidth / listButtonWidth       : rows of the main list - the name of
+		                                                         the boss, the hunting level, the
+		                                                         link to the detail page. The bar
+		                                                         drawn under them owns its own line
+		                                                         whole, so it is out of that split.
 		dropIconWidth / dropNameWidth / dropChanceWidth        : rows of the "drop" tab. The group
 		                                                         headers are cut out of the same
 		                                                         widths - caption on the left, group
@@ -245,7 +248,6 @@
 		listName / listLevel / listButton : columns of the main list. The "Инфо" link is right
 		                                    aligned out of the box, so it sits as close to the
 		                                    scrollbar as the layout width allows.
-		barCounter        : the counter written right after a progress bar.
 		statLabel / statValue : captions and values of the two columns blocks.
 		dropIcon / dropName / dropChance : columns of the "drop" tab.
 		group / groupChance : caption of a group header - a drop category, and a rewarded position of
@@ -261,8 +263,8 @@
 		                    captions of the group headers.
 		nextReward        : the band telling when the next ladder reward is due, which stands on its
 		                    own rather than naming what opens under it.
-		bar               : the progress bar inside its own cell, and the spacers centering it on a
-		                    detail page.
+		bar               : the progress bar inside its cell, which spans the whole layout width -
+		                    this is what centers it on the card of its boss.
 		headerRank / headerPoints / headerLink : the position, the score and the links of the head of
 		                                         a page.
 		searchField / searchQuery : the search field of the main list, and the query being searched
@@ -384,8 +386,11 @@
 		                        to nothing.
 		hint                  : shown instead of the list of a book which never met a single raid
 		                        boss - which is what a fresh one is - telling how a boss gets written
-		                        in. It owns the whole layout width and it is the only row of its
-		                        page, so it may wrap onto several lines.
+		                        in. It is the only row of its page, so it may take several lines :
+		                        break them with a "|", and keep each of them under the layout width.
+		                        A line the client has to break itself is broken against the width of
+		                        the dialog rather than the one of the cell, and a centered line
+		                        wider than its cell loses its first words off the left edge.
 		notFound              : sent to whoever asks for a raid boss which doesn't exist any more.
 		noLocation            : sent to whoever asks to be pointed at a boss which owns no spawn
 		                        point at all.
@@ -393,8 +398,6 @@
 		clearDone             : sent when that marker has been taken back off the map.
 		titleSeparator        : sits between the name and the level of a raid boss on the title bar of
 		                        its detail page. The spaces around it belong to the attribute.
-		progressRange         : sits between the two numbers of the counter written after a progress
-		                        bar - the kills done over the kills the next level takes.
 
 		The five messages below are what the book tells a player about his own hunting. They all go
 		to the chat ; all but the first also go to the screen when "RaidBookScreenMessages" allows it -
@@ -436,13 +439,13 @@
 		            which is what the "Все" entry is.
 -->
 <list>
-	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="6" barCounterWidth="44" barFilled="L2UI_CH3.ps_cpbar" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
+	<layout width="280" rowHeight="32" groupHeight="18" headerHeight="16" headerLabelWidth="76" headerGap="6" lastKillWidth="36" titleHeight="16" searchRowHeight="22" searchHeight="15" searchInputWidth="130" searchButtonWidth="56" buttonBack="sek.cbui94" buttonFore="sek.cbui92" iconSize="32" pageWidth="26" maxPages="10" nameChars="24" bossNameChars="18" ellipsis="..." separator="L2UI.SquareGray" overhead="23" pageHeight="0" screenTime="5000" barWidth="120" barHeight="6" barFilled="L2UI_CH3.ps_cpbar" listNameWidth="170" listLevelWidth="52" listButtonWidth="58" dropIconWidth="36" dropNameWidth="190" dropChanceWidth="54" rewardIconWidth="36" rewardNameWidth="190" rewardLevelWidth="54" historyNameWidth="108" historyClanWidth="92" historyTimeWidth="80" rankPosWidth="30" rankNameWidth="104" rankClanWidth="78" rankPointsWidth="68" />
 
-	<aligns listName="left" listLevel="center" listButton="right" bar="left" barCounter="left" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
+	<aligns listName="left" listLevel="center" listButton="right" bar="center" nextReward="center" statLabel="left" statValue="right" dropIcon="center" dropName="left" dropChance="right" group="left" groupChance="right" rewardIcon="center" rewardName="left" rewardLevel="right" historyName="left" historyClan="left" historyTime="right" rankPos="center" rankName="left" rankClan="left" rankPoints="right" menu="center" empty="center" title="left" headerRank="left" headerPoints="right" headerLink="center" searchField="left" searchQuery="right" />
 
 	<colors row="000000" altRow="" name="" groupText="BDB76B" bossLevel="B09878" huntLevel="LEVEL" label="808080" value="B09878" count="B09878" title="FFFFFF" barTrack="1E1E1E" tab="" activeTab="LEVEL" filter="" activeFilter="LEVEL" page="" activePage="LEVEL" self="LEVEL" disabled="707070" highChance="90EE90" mediumChance="BDB76B" lowChance="F08080" highChanceFrom="80" mediumChanceFrom="5" />
 
-	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг дня" monthlyRankTitle="Рейтинг месяца" dailyTitle="Награды дня" monthlyTitle="Награды месяца" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" monthly="Награды месяца" rankDaily="Рейтинг дня" rankMonthly="Рейтинг месяца" rewards="Награды" nextReward="      Следующая награда: " nextRewardPattern="HH:mm dd.MM.yy" nextRewardUnknown="-" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" searchName="Найти" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очков" wins=" побед" hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colWins="Побед" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" lastKill="Убит" lastKillNever="-" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" hint="Разыщите рейдбосса и атакуйте его, чтобы он появился в списке" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " progressRange="/" msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgMonthly="Награда месяца за %place% место: %item% x%count%." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
+	<labels bookTitle="Книга рейдбоссов" rankTitle="Рейтинг дня" monthlyRankTitle="Рейтинг месяца" dailyTitle="Награды дня" monthlyTitle="Награды месяца" statsTitle="      Боевые характеристики" huntTitle="      Охота на рейдбосса" daily="Награды дня" monthly="Награды месяца" rankDaily="Рейтинг дня" rankMonthly="Рейтинг месяца" rewards="Награды" nextReward="      Следующая награда: " nextRewardPattern="HH:mm dd.MM.yy" nextRewardUnknown="-" placeSuffix=" место" levelPrefix="Ур." huntLevelPrefix="ур." details="Инфо" search="Искать" searchName="Найти" clear="x" back="Назад" rank="Рейтинг" rankPrefix="Место: " unranked="-" points=" очков" wins=" побед" hunt="Ур.охоты" kills="Убийств" bonus="Бонус урона" nextLevel="До уровня" maxLevel="макс." tabRewards="Награды" tabDrop="Дроп" tabHistory="История" tabRank="Рейтинг" dropGroup="Category" numberPrefix=" №" colPos="#" colName="Имя" colClan="Клан" colPoints="Очки" colKills="Убийств" colWins="Побед" colTime="Когда" hp="HP" mp="MP" exp="Exp" sp="SP" respawn="Респаун" respawnRange="-" respawnSuffix=" ч." respawnUnknown="?" respawnPattern="#0.#" lastKill="Убит" lastKillNever="-" pAtk="Физ.Атака" pDef="Физ.Защита" atkSpd="Скор.Атаки" mAtk="Маг.Атака" mDef="Маг.Защита" castSpd="Скор.Каста" noClan="-" empty="Здесь пусто" hint="Разыщите рейдбосса и атакуйте его,|чтобы он появился в списке" notFound="Такого рейдбосса нет." noLocation="Местоположение этого рейдбосса неизвестно." searchDone="Местоположение отмечено на карте." clearDone="Отметка снята с карты." titleSeparator=" - " msgKill="%boss%: +%points% очков рейтинга." msgLevelUp="Уровень охоты на %boss% повышен до %level%!" msgReward="Награда за %level% ур. охоты: %item% x%count%." msgDaily="Ежедневная награда за %place% место: %item% x%count%." msgMonthly="Награда месяца за %place% место: %item% x%count%." countPrefix="x" countRange="-" chancePattern="#0.##" chanceSuffix="%" nearZero="&lt;0.01%" timePattern="dd.MM HH:mm" prevPage="&lt;&lt;" nextPage="&gt;&gt;" />
 
 	<filters>
 		<filter label="Все" min="0" max="0" />

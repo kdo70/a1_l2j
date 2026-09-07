@@ -146,6 +146,9 @@ public class RaidBookManager
 	private static final String DAILY_SCRIPT = "RaidBookDailyReward";
 	private static final String MONTHLY_SCRIPT = "RaidBookMonthlyReward";
 
+	/** The character a datapack label breaks its own lines on, since a bare tag written in the XML wouldn't survive the escaping every single label goes through. */
+	private static final char LINE_BREAK = '|';
+
 	/** The characters a search query is allowed to hold. Anything else is dropped : a query travels back to the server inside a bypass, and it is written back into the page afterwards. */
 	private static final String QUERY_EXTRAS = " '-.";
 
@@ -1376,7 +1379,7 @@ public class RaidBookManager
 		StringUtil.append(sb, ROW_END);
 
 		StringUtil.append(sb, getRowStart());
-		StringUtil.append(sb, getBarCells(kills, barHeight, true));
+		StringUtil.append(sb, getBarCells(kills, barHeight));
 		StringUtil.append(sb, ROW_END);
 
 		return sb.toString();
@@ -1617,9 +1620,10 @@ public class RaidBookManager
 		sb.append(getStatRow(data.getBonusLabel(), format(getDamageBonus(level)) + escape(data.getChanceSuffix()), data.getNextLevelLabel(), (capped) ? escape(data.getMaxLevelLabel()) : String.valueOf(Math.max(0, next))));
 		sb.append("</table>");
 
-		// The bar owns the middle of the row, the very way the one of a list row does.
+		// The bar owns the middle of the row, the very way the one of a list row does. It carries no counter of its own : the two lines sitting right above it already write the kills and what the
+		// next level takes, which is the very thing such a counter would repeat.
 		StringUtil.append(sb, getRowStart(data.getRowColor()));
-		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight(), true));
+		StringUtil.append(sb, getBarCells(kills, data.getGroupHeight()));
 		StringUtil.append(sb, ROW_END);
 
 		sb.append(getSeparator());
@@ -2371,42 +2375,19 @@ public class RaidBookManager
 	}
 
 	/**
-	 * The whole progress bar line of a hunting level : the bar itself, the counter written next to it, and - when asked for - the spacers centering both of them on the row.
+	 * The whole progress bar line of a hunting level : one single cell owning the width of the row, the bar being centered inside it.<br>
+	 * <br>
+	 * It is one cell and not three, and that is what centers the bar : the spacer cells which used to sit on both of its sides were <b>empty</b>, and an empty cell is drawn as wide as the client feels
+	 * like whatever width it declares - so the bar ended up anywhere but the middle. The "bar" alignment does the very same job without a single cell to be swallowed.
 	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @param height : The height, in pixels, of the row the bar sits on. It is written on the first emitted cell, the way every other row of the book does.
-	 * @param centered : Whether the bar and its counter are centered on the row, which is what both pages do - the bar reads as the bottom half of the card of its boss rather than as a fourth column.
-	 * @return The cells of the line, which always add up to the layout width.
+	 * @param height : The height, in pixels, of the row the bar sits on.
+	 * @return The cell of the line, which spans the layout width.
 	 */
-	private static String getBarCells(int kills, int height, boolean centered)
+	private static String getBarCells(int kills, int height)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		final int width = data.getWidth();
-
-		// The bar sits in a cell slightly wider than itself : a cell holding something of its very width leaves the client no slack, and it wraps that content onto the next line.
-		final int barWidth = Math.max(1, Math.min(width - 1, getBarSpan() + BAR_SLACK));
-		final int counterWidth = (centered) ? Math.max(1, Math.min(width - barWidth - 1, data.getBarCounterWidth())) : Math.max(1, width - barWidth);
-		final int pad = (centered) ? Math.max(0, (width - barWidth - counterWidth) / 2) : 0;
-
-		final StringBuilder sb = new StringBuilder(448);
-
-		// The height rides on the very first emitted cell, whichever it turns out to be.
-		int first = height;
-
-		if (pad > 0)
-		{
-			sb.append(getCell(pad, first, data.getBarAlign(), ""));
-			first = 0;
-		}
-
-		sb.append(getCell(barWidth, first, data.getBarAlign(), getBar(kills)));
-		sb.append(getCell(counterWidth, 0, data.getBarCounterAlign(), colorize(data.getCountColor(), " " + getProgressText(kills))));
-
-		final int rest = width - pad - barWidth - counterWidth;
-		if (rest > 0)
-			sb.append(getCell(rest, 0, data.getBarAlign(), ""));
-
-		return sb.toString();
+		return getCell(data.getWidth(), height, data.getBarAlign(), getBar(kills));
 	}
 
 	/**
@@ -2488,26 +2469,6 @@ public class RaidBookManager
 		final int upper = getLevelStart(level + 1);
 
 		return Math.min(1., Math.max(0., (kills - lower) / (double) Math.max(1, upper - lower)));
-	}
-
-	/**
-	 * The counter written next to the progress bar. It counts <b>inside the current hunting level</b>, exactly like the bar standing in front of it : an absolute counter next to a relative bar reads
-	 * as a broken bar - "10/15" sitting next to an empty bar is what a freshly reached level used to look like. The absolute amount of kills is what the hunting block writes on its own line.
-	 * @param kills : The amount of kills of one {@link Player} on one raid boss.
-	 * @return The kills done into the current level over the kills that level takes.
-	 */
-	private static String getProgressText(int kills)
-	{
-		final RaidBookData data = RaidBookData.getInstance();
-
-		final int level = getHuntLevel(kills);
-		if (Config.RAIDBOOK_MAX_LEVEL > 0 && level >= Config.RAIDBOOK_MAX_LEVEL)
-			return escape(data.getMaxLevelLabel());
-
-		final int lower = getLevelStart(level);
-		final int upper = getLevelStart(level + 1);
-
-		return (kills - lower) + escape(data.getProgressRange()) + Math.max(1, upper - lower);
 	}
 
 	/**
@@ -2597,15 +2558,28 @@ public class RaidBookManager
 	}
 
 	/**
-	 * @param height : The height, in pixels, the row takes. A label longer than its row wraps and takes more than that, which is fine here : such a row is the only one of its page.
-	 * @param label : The label to write in it.
+	 * @param height : The height, in pixels, the row takes. A label broken onto several lines takes more than that, which is fine here : such a row is the only one of its page.
+	 * @param label : The label to write in it, its {@link #LINE_BREAK}s honored.
 	 * @return The row shown instead of an empty list, already striped - it is the only row of its page.
 	 */
 	private static String getEmptyRow(int height, String label)
 	{
 		final RaidBookData data = RaidBookData.getInstance();
 
-		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, data.getEmptyAlign(), colorize(data.getDisabledColor(), escape(label))) + ROW_END;
+		return getRowStart(data.getAltRowColor()) + getCell(data.getWidth(), height, data.getEmptyAlign(), colorize(data.getDisabledColor(), breakLines(escape(label)))) + ROW_END;
+	}
+
+	/**
+	 * Honor the line breaks a datapack label carries.<br>
+	 * <br>
+	 * A label too long for the layout width is broken by the client itself, but it does that against the width of the <b>dialog</b> rather than the one of the cell, and a centered line which turns out
+	 * wider than its cell is then clipped on its left edge - the first word of the label simply goes missing. So a label which doesn't fit is broken where the datapack wants it broken.
+	 * @param text : The already escaped label.
+	 * @return That label, its breaks turned into the tag the client renders.
+	 */
+	private static String breakLines(String text)
+	{
+		return (text.indexOf(LINE_BREAK) < 0) ? text : text.replace(String.valueOf(LINE_BREAK), "<br>");
 	}
 
 	/**

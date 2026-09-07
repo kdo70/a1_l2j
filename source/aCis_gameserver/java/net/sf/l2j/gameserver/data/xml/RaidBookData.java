@@ -60,7 +60,6 @@ public class RaidBookData implements IXmlReader
 
 	private int _barWidth;
 	private int _barHeight;
-	private int _barCounterWidth;
 	private String _barFilled;
 	private String _barTrackColor;
 
@@ -89,7 +88,6 @@ public class RaidBookData implements IXmlReader
 	private String _listLevelAlign;
 	private String _listButtonAlign;
 	private String _barAlign;
-	private String _barCounterAlign;
 	private String _nextRewardAlign;
 	private String _statLabelAlign;
 	private String _statValueAlign;
@@ -182,7 +180,6 @@ public class RaidBookData implements IXmlReader
 	private String _clearLabel;
 	private String _clearDoneLabel;
 	private String _titleSeparator;
-	private String _progressRange;
 	private String _killMessage;
 	private String _levelUpMessage;
 	private String _rewardMessage;
@@ -295,7 +292,6 @@ public class RaidBookData implements IXmlReader
 
 				_barWidth = Math.max(1, parseInt(attrs, "barWidth", _barWidth));
 				_barHeight = Math.max(1, parseInt(attrs, "barHeight", _barHeight));
-				_barCounterWidth = Math.max(1, parseInt(attrs, "barCounterWidth", _barCounterWidth));
 				_barFilled = parseToken(attrs, "barFilled", _barFilled);
 
 				_listNameWidth = Math.max(1, parseInt(attrs, "listNameWidth", _listNameWidth));
@@ -336,7 +332,6 @@ public class RaidBookData implements IXmlReader
 				_listLevelAlign = parseAlign(attrs, "listLevel", _listLevelAlign);
 				_listButtonAlign = parseAlign(attrs, "listButton", _listButtonAlign);
 				_barAlign = parseAlign(attrs, "bar", _barAlign);
-				_barCounterAlign = parseAlign(attrs, "barCounter", _barCounterAlign);
 				_nextRewardAlign = parseAlign(attrs, "nextReward", _nextRewardAlign);
 
 				_statLabelAlign = parseAlign(attrs, "statLabel", _statLabelAlign);
@@ -444,7 +439,6 @@ public class RaidBookData implements IXmlReader
 				_clearLabel = parseString(attrs, "clear", _clearLabel);
 				_clearDoneLabel = parseString(attrs, "clearDone", _clearDoneLabel);
 				_titleSeparator = parseString(attrs, "titleSeparator", _titleSeparator);
-				_progressRange = parseString(attrs, "progressRange", _progressRange);
 				_killMessage = parseString(attrs, "msgKill", _killMessage);
 				_levelUpMessage = parseString(attrs, "msgLevelUp", _levelUpMessage);
 				_rewardMessage = parseString(attrs, "msgReward", _rewardMessage);
@@ -518,8 +512,7 @@ public class RaidBookData implements IXmlReader
 		_listNameAlign = "left";
 		_listLevelAlign = "center";
 		_listButtonAlign = "right";
-		_barAlign = "left";
-		_barCounterAlign = "left";
+		_barAlign = "center";
 		_nextRewardAlign = "center";
 
 		_statLabelAlign = "left";
@@ -582,7 +575,6 @@ public class RaidBookData implements IXmlReader
 
 		_barWidth = 96;
 		_barHeight = 6;
-		_barCounterWidth = 44;
 		_barFilled = "L2UI_CH3.ps_cpbar";
 
 		_listNameWidth = 160;
@@ -678,7 +670,6 @@ public class RaidBookData implements IXmlReader
 		_clearLabel = "x";
 		_clearDoneLabel = "The marker has been removed from your map.";
 		_titleSeparator = " - ";
-		_progressRange = "/";
 		_killMessage = "%boss% : +%points% ranking points.";
 		_levelUpMessage = "Hunting level %level% reached on %boss% !";
 		_rewardMessage = "Hunting level %level% reward : %item% x%count%.";
@@ -962,14 +953,6 @@ public class RaidBookData implements IXmlReader
 	}
 
 	/**
-	 * @return The alignment of the counter written right after a progress bar.
-	 */
-	public String getBarCounterAlign()
-	{
-		return _barCounterAlign;
-	}
-
-	/**
 	 * @return The alignment of the band telling when the next ladder reward is due.
 	 */
 	public String getNextRewardAlign()
@@ -1165,14 +1148,6 @@ public class RaidBookData implements IXmlReader
 	public int getBarHeight()
 	{
 		return _barHeight;
-	}
-
-	/**
-	 * @return The width, in pixels, of the counter written next to a centered progress bar. A bar which isn't centered leaves it whatever is left of the layout width instead.
-	 */
-	public int getBarCounterWidth()
-	{
-		return _barCounterWidth;
 	}
 
 	/**
@@ -1559,14 +1534,6 @@ public class RaidBookData implements IXmlReader
 	public String getTitleSeparator()
 	{
 		return _titleSeparator;
-	}
-
-	/**
-	 * @return The text sitting between the two numbers of the counter written after a progress bar.
-	 */
-	public String getProgressRange()
-	{
-		return _progressRange;
 	}
 
 	/**
