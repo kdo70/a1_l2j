@@ -27,14 +27,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="8303" type="EtcItem" name="Recipe: Mysterious Sword (100%)">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="8304" type="EtcItem" name="Recipe: Ecliptic Sword (100%)">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />

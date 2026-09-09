@@ -4,14 +4,16 @@
 
 .DESCRIPTION
 	A weapon keeps the grade it always had and gains one copy per grade above it, up to S - the same
-	ladder the armor sets got (see docs/armor-sets-all-grades.md) :
+	ladder the armor sets got (see docs/armor-sets-all-grades.md), with one exception : No Grade
+	weapons do not climb at all.
 
-	    a No Grade weapon exists as  NG D C B A S
-	    a D grade weapon as             D C B A S
-	    a C grade weapon as               C B A S
+	    a No Grade weapon stays       NG            - it is not upgradable
+	    a D grade weapon exists as       D C B A S
+	    a C grade weapon as                C B A S
 	    ... and an S grade weapon is left exactly as it is.
 
-	So Katana, a C grade sword, gains a B, an A and an S version ; Arcana Mace, already S, gains nothing.
+	So Katana, a C grade sword, gains a B, an A and an S version ; Arcana Mace, already S, gains nothing ;
+	and Short Sword, No Grade, gains nothing either.
 
 	**No existing item is touched.** The rung of a weapon's own grade is the retail item itself, with the
 	numbers it always had ; only the rungs above it are minted. That is the one place this differs from
@@ -65,6 +67,8 @@ $GRADES = @('NG', 'D', 'C', 'B', 'A', 'S')
 $GRADE_IDX = @{ NG = 0; D = 1; C = 2; B = 3; A = 4; S = 5 }
 $TOP_GRADE = 5
 $FIRST_ITEM_ID = 12000
+# The top of the range this script may claim - the same one patch_client.ps1 clears out of weapongrp.
+$LAST_OWNED_ID = 19999
 $ITEMS_PER_FILE = 100
 
 # P. Atk. and M. Atk. of the best retail weapon of each class at each grade. A minted copy gets these
@@ -124,19 +128,25 @@ $CATEGORY = @{
 }
 
 # One buy list per category and grade. 9001..9053 are the stock admin shop lists ; No Grade had no
-# dual list and mystic weapons had no list at all, so those seven are ours (9105..9111) and are
-# created on the first run.
+# dual list and mystic weapons had no list at all, so those seven are ours - 9129..9135, and they
+# are created on the first run.
+#
+# They used to be 9105..9111, which was a straight collision : those seven exist in the stock
+# datapack and belong to the ARMOR pages - 9105 No Grade Shields, 9106 Cloaks, 9107 Underwears,
+# 9108..9110 Jewels NG/D/C, 9111 Dark Crystal Sets. Weapons were appended into them, so
+# //gmshop -> Weapons -> No Grade -> Dual Swords opened a list of shields. Pick from 9129..9147,
+# which is the gap between the armor pages and 9148.
 $BUYLISTS = @{
 	sword1h = @{ NG = 9001; D = 9009; C = 9018; B = 9027; A = 9036; S = 9045 }
 	sword2h = @{ NG = 9002; D = 9010; C = 9019; B = 9028; A = 9037; S = 9046 }
-	dual    = @{ NG = 9105; D = 9011; C = 9020; B = 9029; A = 9038; S = 9047 }
+	dual    = @{ NG = 9129; D = 9011; C = 9020; B = 9029; A = 9038; S = 9047 }
 	dagger  = @{ NG = 9003; D = 9012; C = 9021; B = 9030; A = 9039; S = 9048 }
 	bow     = @{ NG = 9004; D = 9013; C = 9022; B = 9031; A = 9040; S = 9049 }
 	fist    = @{ NG = 9005; D = 9014; C = 9023; B = 9032; A = 9041; S = 9050 }
 	pole    = @{ NG = 9006; D = 9015; C = 9024; B = 9033; A = 9042; S = 9051 }
 	blunt1h = @{ NG = 9007; D = 9016; C = 9025; B = 9034; A = 9043; S = 9052 }
 	blunt2h = @{ NG = 9008; D = 9017; C = 9026; B = 9035; A = 9044; S = 9053 }
-	mystic  = @{ NG = 9106; D = 9107; C = 9108; B = 9109; A = 9110; S = 9111 }
+	mystic  = @{ NG = 9130; D = 9131; C = 9132; B = 9133; A = 9134; S = 9135 }
 }
 
 # The enchant glow package groups weapons by shape, not by class - see docs/enchant-glow.md. The
@@ -144,10 +154,13 @@ $BUYLISTS = @{
 $GLOW_TYPE = @{
 	DUALFIST = '001t'
 	DAGGER_P = '002t'; DAGGER_M = '002t'; POLE = '002t'
-	SWORD_P = '004t'; BIGSWORD = '004t'
+	# SWORD_M is here and not with the blunts : "Sword of Magic", "Homunkulus's Sword",
+	# "Sword of Mystic" are swords, whatever the class name says about who swings them. The class
+	# splits weapons by who may use them, the glow package splits them by what they look like.
+	SWORD_P = '004t'; BIGSWORD = '004t'; SWORD_M = '004t'
 	BIGBLUNT_P = '005t'; BIGBLUNT_M = '005t'
 	DUAL = '006t'
-	BLUNT_P = '007t'; BLUNT_M = '007t'; SWORD_M = '007t'; ETC_M = '007t'
+	BLUNT_P = '007t'; BLUNT_M = '007t'; ETC_M = '007t'
 	BOW = '008t'
 }
 
@@ -247,10 +260,16 @@ foreach ($w in $weapons)
 	$id = [int]$w.id
 	$rungs = @{}
 	$rungs[$w.origGrade] = $id
-	for ($gi = $GRADE_IDX[$w.origGrade] + 1; $gi -le $TOP_GRADE; $gi++)
+	# No Grade weapons have no ladder at all : a starter weapon stays a starter weapon. Every grade
+	# above it climbs to S. They stay in weapons.csv all the same, because the client half writes the
+	# enchant glow onto every weapon of the table, rung or no rung.
+	if ($w.origGrade -ne 'NG')
 	{
-		$rungs[$GRADES[$gi]] = $next
-		$next++
+		for ($gi = $GRADE_IDX[$w.origGrade] + 1; $gi -le $TOP_GRADE; $gi++)
+		{
+			$rungs[$GRADES[$gi]] = $next
+			$next++
+		}
 	}
 	$ladder[$id] = $rungs
 }
@@ -373,15 +392,24 @@ Write-Host "wrote generated\client_items.tsv ($($clientItems.Count - 1)), upgrad
 
 # ---------------------------------------------------------------------------
 # The GM shop. //gmshop -> Weapons -> <grade> reads one buy list per grade and weapon category
-# (data/html/admin/gmshop/*gradew.htm) ; the minted copies have to be filed under the grade they carry,
-# next to the original they were cloned from.
+# (data/html/admin/gmshop/*gradew.htm).
 #
-# Only the ids this script owns are touched : whatever else those lists hold is left where it is.
+# EVERY rung goes in, the originals as well as the minted copies - a list is "all the weapons of this
+# category at this grade", full stop. Filing only the copies looked right while the nine stock
+# categories carried their retail weapons already, but the seven lists this script creates have no
+# stock content at all : Mystic Weapons -> No Grade would have been empty, because a weapon's own
+# rung is never minted. It also puts right whatever the stock lists filed under the wrong grade
+# (85 Phantom Sword, A grade, sat in the C blunt list).
+#
+# Anything in those lists that is NOT a weapon of weapons.csv is left exactly where it is - the
+# arrows the bow lists carry, event and monster weapons, and everything else.
 # ---------------------------------------------------------------------------
 
 $wanted = @{}
 foreach ($perGrade in $BUYLISTS.Values) { foreach ($list in $perGrade.Values) { $wanted[$list] = @() } }
 
+# Ours to place : every id of the ladder, original or minted. A list is rebuilt out of this, so an
+# id that moves category or grade moves with it instead of being left behind in both.
 $owned = New-Object 'System.Collections.Generic.HashSet[int]'
 foreach ($w in $weapons)
 {
@@ -389,10 +417,9 @@ foreach ($w in $weapons)
 	foreach ($g in $GRADES)
 	{
 		if (-not $ladder[$id].ContainsKey($g)) { continue }
-		$newId = $ladder[$id][$g]
-		if ($newId -eq $id) { continue }
-		$null = $owned.Add($newId)
-		$wanted[$BUYLISTS[$CATEGORY[$w.class]][$g]] += $newId
+		$rung = $ladder[$id][$g]
+		$null = $owned.Add($rung)
+		$wanted[$BUYLISTS[$CATEGORY[$w.class]][$g]] += $rung
 	}
 }
 
@@ -400,6 +427,24 @@ $buyListsPath = Join-Path $dataDir 'buyLists.xml'
 $buyListsEndsNl = Test-EndsWithNewline $buyListsPath
 $buyLines = [System.Collections.Generic.List[string]]::new()
 foreach ($l in [System.IO.File]::ReadAllLines($buyListsPath)) { $null = $buyLines.Add($l) }
+
+# A minted id has no business in any admin list but ours. This sweeps the whole GM shop
+# (npcId="-1") clean of the range this script owns before anything is refilled, so that a list this
+# run no longer uses - or one an older run wrote into by mistake - does not keep a weapon forever.
+$swept = 0
+$inGmList = $false
+for ($i = 0; $i -lt $buyLines.Count; $i++)
+{
+	if ($buyLines[$i] -match '^\s*<buyList\s+id="(\d+)"') { $inGmList = ($buyLines[$i] -match 'npcId="-1"') }
+	if (-not $inGmList) { continue }
+	if ($buyLines[$i] -notmatch '^\s*<product\s+id="(\d+)"') { continue }
+	$product = [int]$Matches[1]
+	if ($product -lt $FIRST_ITEM_ID -or $product -gt $LAST_OWNED_ID) { continue }
+	$buyLines.RemoveAt($i)
+	$i--
+	$swept++
+}
+if ($swept) { Write-Host "buyLists.xml : swept $swept minted product(s) out of the GM shop" }
 
 # The seven lists that don't exist in the stock datapack, appended once, in id order.
 $present = @{}
@@ -412,7 +457,7 @@ if ($new.Count -gt 0)
 	if ($at -lt 0) { throw 'buyLists.xml has no </list>.' }
 	$add = @()
 	foreach ($id in $new) { $add += "`t<buyList id=`"$id`" npcId=`"-1`"></buyList>" }
-	$buyLines.InsertRange($at, $add)
+	$buyLines.InsertRange($at, [string[]]$add)
 	Write-Host "buyLists.xml : created $($new.Count) list(s) - $($new -join ', ')"
 }
 
@@ -437,12 +482,12 @@ foreach ($b in ($found | Sort-Object { $_.start } -Descending))
 	{
 		$l = $buyLines[$i]
 		if ($l -match '</buyList>') { continue }
-		# Ours, and about to be written back in order - or a minted id this run no longer has, left
-		# behind by an earlier one.
+		# Any weapon of the ladder comes out and is written back below, into the list its category
+		# and grade call for - which may not be this one. Everything else stays put.
 		if ($l -match '<product\s+id="(\d+)"')
 		{
 			$product = [int]$Matches[1]
-			if ($owned.Contains($product) -or $product -ge $FIRST_ITEM_ID) { continue }
+			if ($owned.Contains($product) -or ($product -ge $FIRST_ITEM_ID -and $product -le $LAST_OWNED_ID)) { continue }
 		}
 		$null = $keep.Add($l)
 	}

@@ -48,30 +48,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="2602" type="Weapon" name="Raid Sword*Sword of Delusion">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1044" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2180" />
-		<set name="price" val="7830000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3013-1" />
-		<for>
-			<set stat="pAtk" val="204" />
-			<set stat="mAtk" val="89" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="2603" type="Weapon" name="Raid Sword*Sword of Nightmare">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
@@ -192,30 +168,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="2608" type="Weapon" name="Caliburs*Sword of Delusion">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2140" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3044-11" />
-		<for>
-			<set stat="pAtk" val="213" />
-			<set stat="mAtk" val="91" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="2609" type="Weapon" name="Caliburs*Sword of Nightmare">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
@@ -312,30 +264,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="2613" type="Weapon" name="Sword of Limit*Sword of Delusion">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2140" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3013-1" />
-		<for>
-			<set stat="pAtk" val="213" />
-			<set stat="mAtk" val="91" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="2614" type="Weapon" name="Sword of Limit*Sword of Nightmare">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
@@ -399,102 +327,6 @@
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
 		<set name="enchant4_skill" val="3046-13" />
-		<for>
-			<set stat="pAtk" val="228" />
-			<set stat="mAtk" val="97" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="2617" type="Weapon" name="Sword of Delusion*Sword of Delusion">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2150" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3046-11" />
-		<for>
-			<set stat="pAtk" val="213" />
-			<set stat="mAtk" val="91" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="2618" type="Weapon" name="Sword of Delusion*Sword of Nightmare">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2130" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3042-11" />
-		<for>
-			<set stat="pAtk" val="213" />
-			<set stat="mAtk" val="91" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="2619" type="Weapon" name="Sword of Delusion*Tsurugi">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2140" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3013-1" />
-		<for>
-			<set stat="pAtk" val="213" />
-			<set stat="mAtk" val="91" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="2620" type="Weapon" name="Sword of Delusion*Samurai Long Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1506" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2110" />
-		<set name="price" val="11300000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="enchant4_skill" val="3042-13" />
 		<for>
 			<set stat="pAtk" val="228" />
 			<set stat="mAtk" val="97" />

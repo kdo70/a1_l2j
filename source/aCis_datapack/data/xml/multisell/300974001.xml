@@ -17,11 +17,6 @@
 		<production id="72" count="1"/>
 	</item>
 	<!-- Sword of Delusion -->
-	<item>
-		<ingredient id="1459" count="1075"/>
-		<ingredient id="1458" count="5375"/>
-		<production id="76" count="1"/>
-	</item>
 	<!-- Silver Axe -->
 	<item>
 		<ingredient id="1459" count="573"/>
@@ -83,15 +78,20 @@
 		<production id="283" count="1"/>
 	</item>
 	<!-- Orcish Glaive -->
-	<item>
-		<ingredient id="1459" count="573"/>
-		<ingredient id="1458" count="2865"/>
-		<production id="298" count="1"/>
-	</item>
 	<!-- Poleaxe -->
 	<item>
 		<ingredient id="1459" count="1075"/>
 		<ingredient id="1458" count="5375"/>
 		<production id="95" count="1"/>
+	</item>
+	<item>
+		<ingredient id="1459" count="1075"/>
+		<ingredient id="1458" count="5375"/>
+		<production id="76" count="1"/>
+	</item>
+	<item>
+		<ingredient id="1459" count="573"/>
+		<ingredient id="1458" count="2865"/>
+		<production id="298" count="1"/>
 	</item>
 </list>

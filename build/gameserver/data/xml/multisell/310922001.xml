@@ -5,13 +5,13 @@
 		<npc>31092</npc> <!-- Black Marketeer of Mammon -->
 	</npcs>
 	<item>
-		<production id="76" count="1"/>
-		<ingredient id="4700" count="1"/>
-		<ingredient id="5575" count="45900"/>
-	</item>
-	<item>
 		<production id="210" count="1"/>
 		<ingredient id="4900" count="1"/>
 		<ingredient id="5575" count="169500"/>
+	</item>
+	<item>
+		<production id="76" count="1"/>
+		<ingredient id="4700" count="1"/>
+		<ingredient id="5575" count="45900"/>
 	</item>
 </list>

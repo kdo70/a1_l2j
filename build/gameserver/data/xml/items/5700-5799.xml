@@ -42,29 +42,6 @@
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="2168-1" />
 	</item>
-	<item id="5704" type="Weapon" name="Keshanberk*Keshanberk">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="crystal_count" val="1464" />
-		<set name="crystal_type" val="A" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2080" />
-		<set name="price" val="18300000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="259" />
-			<set stat="mAtk" val="107" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="5705" type="Weapon" name="Keshanberk*Damascus">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />

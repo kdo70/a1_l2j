@@ -957,31 +957,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="240" type="Weapon" name="Conjurer's Knife">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="crystal_count" val="1758" />
-		<set name="crystal_type" val="D" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="750" />
-		<set name="price" val="967000" />
-		<set name="soulshots" val="2" />
-		<set name="spiritshots" val="2" />
-		<for>
-			<set stat="pAtk" val="45" />
-			<set stat="mAtk" val="52" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="241" type="Weapon" name="Shilen Knife">
 		<set name="is_magical" val="true" />
 		<set name="default_action" val="equip" />

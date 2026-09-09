@@ -5,11 +5,11 @@
 		<npc>31126</npc> <!-- Blacksmith of Mammon -->
 	</npcs>
 	<item>
-		<production id="76" count="1"/>
-		<ingredient id="4700" count="1"/>
-	</item>
-	<item>
 		<production id="210" count="1"/>
 		<ingredient id="4900" count="1"/>
+	</item>
+	<item>
+		<production id="76" count="1"/>
+		<ingredient id="4700" count="1"/>
 	</item>
 </list>
