@@ -12,6 +12,7 @@ import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
+import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SkillList;
 import net.sf.l2j.gameserver.skills.L2Skill;
 
@@ -155,9 +156,11 @@ public class AdminEnchant implements IAdminCommandHandler
 		}
 		else
 		{
-			player.sendMessage("Usage: //enchant slot enchant");
-			player.sendMessage("Slots: under|lear|rear|neck|lfinger|rfinger|head|rhand|lhand");
-			player.sendMessage("Slots: gloves|chest|legs|feet|cloak|face|hair|hairall");
+			// No slot, no value : open the panel instead of printing a usage line. Type the level
+			// into the box, then click the slot - the client puts $enchant into the bypass for us.
+			final NpcHtmlMessage html = new NpcHtmlMessage(0);
+			html.setFile("data/html/admin/enchant.htm");
+			player.sendPacket(html);
 		}
 	}
 	

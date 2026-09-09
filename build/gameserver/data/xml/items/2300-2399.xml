@@ -585,15 +585,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="2365" type="EtcItem" name="Recipe: Scroll of Destruction">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="122600" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="2366" type="EtcItem" name="Recipe: Claws of Black Dragon">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
@@ -624,9 +615,6 @@
 		<set name="price" val="138" />
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="7" />
 			<set stat="mAtk" val="5" />
@@ -647,9 +635,6 @@
 		<set name="price" val="138" />
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="6" />
 			<set stat="mAtk" val="5" />
@@ -669,96 +654,12 @@
 		<set name="price" val="138" />
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="6" />
 			<set stat="mAtk" val="5" />
 			<set stat="rCrit" val="4" />
 			<add stat="accCombat" val="4" />
 			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
-	<item id="2371" type="Weapon" name="Fist of Butcher">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUALFIST" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;32;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1400" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="16" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
-	</item>
-	<item id="2372" type="Weapon" name="Dagger of Adept">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1050" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="11" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-		</for>
-	</item>
-	<item id="2373" type="Weapon" name="Eldritch Staff">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGBLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="1050" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="13" />
-			<set stat="mAtk" val="13" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
-	</item>
-	<item id="2374" type="Weapon" name="Red Sunset Dagger">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1100" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="11" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
 		</for>
 	</item>
 	<item id="2375" type="EtcItem" name="Wolf Collar">

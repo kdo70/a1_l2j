@@ -186,7 +186,6 @@
 		<set name="attack_range" val="80" />
 		<set name="damage_range" val="0;0;66;120" />
 		<set name="material" val="STEEL" />
-		<set name="is_dropable" val="false" />
 		<set name="item_skill" val="3599-1" />
 		<for>
 			<set stat="pAtk" val="1" />

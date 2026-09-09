@@ -8,13 +8,18 @@
 	script keeps the plain one and drops the copies.
 
 	What is dropped is the explicit list in retired_sa.csv, not a name pattern, so a rerun is a no-op and
-	nothing new can wander into it by accident. Three kinds of weapon named the same way are NOT in it :
+	nothing new can wander into it by accident. Two kinds of weapon named the same way are NOT in it :
 
 	  * polearms and other weapons whose <item_skill> is their own behaviour (3599 Pole Attack), not an SA ;
 	  * "Falchion - for Beginners", "Mage Staff - for Beginners" and "Redemption Bow - Event Use", which are
-	    items in their own right rather than a copy of another one ;
-	  * 4700 "Sword of Delusion - Health" and 4900 "Staff of Evil Spirits - Magic Focus", which NPCs carry
-	    in their rHand - NPC weapons are left alone whatever else they are.
+	    items in their own right rather than a copy of another one.
+
+	**This script cannot take an SA copy off an NPC.** 4700 "Sword of Delusion - Health" and 4900 "Staff
+	of Evil Spirits - Magic Focus" are in the list but two NPCs hold them, and an emptied hand is worse
+	than an SA copy - so those two go through remove_weapons.ps1 instead, which repoints the hand at the
+	base weapon out of its $NPC_SWAP table :
+
+	    powershell -File tools\weapons\remove_weapons.ps1 -Retired tools\weapons\retired_sa.csv
 
 	Everything that points at a dropped id goes with it :
 

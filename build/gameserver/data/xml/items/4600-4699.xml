@@ -536,11 +536,6 @@
 		<set name="weight" val="1140" />
 		<set name="soulshots" val="1" />
 		<set name="spiritshots" val="1" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_destroyable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<for>
 			<set stat="pAtk" val="10" />
 			<set stat="mAtk" val="9" />

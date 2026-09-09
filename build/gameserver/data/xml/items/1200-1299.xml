@@ -117,31 +117,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
 	</item>
-	<item id="1213" type="Weapon" name="Guard's Bow">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BOW" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="500" />
-		<set name="damage_range" val="0;0;10;0" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1800" />
-		<set name="price" val="136000" />
-		<set name="soulshots" val="7" />
-		<set name="spiritshots" val="2" />
-		<set name="mp_consume" val="3" />
-		<set name="reuse_delay" val="1500" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
-		<for>
-			<set stat="pAtk" val="49" />
-			<set stat="mAtk" val="17" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="293" />
-		</for>
-	</item>
 	<item id="1214" type="EtcItem" name="Moretti's Letter">
 		<set name="material" val="STEEL" />
 		<set name="is_tradable" val="false" />
@@ -879,29 +854,6 @@
 		<set name="price" val="66600" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_sellable" val="false" />
-		<for>
-			<set stat="pAtk" val="22" />
-			<set stat="mAtk" val="6" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
-	<item id="1296" type="Weapon" name="Gladius">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="300" />
-		<set name="price" val="66600" />
-		<set name="soulshots" val="2" />
-		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="22" />
 			<set stat="mAtk" val="6" />
@@ -921,8 +873,6 @@
 		<set name="price" val="66600" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="22" />
 			<set stat="mAtk" val="6" />
@@ -942,8 +892,6 @@
 		<set name="price" val="66600" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="22" />
 			<set stat="mAtk" val="6" />
@@ -963,8 +911,6 @@
 		<set name="price" val="3340000" />
 		<set name="soulshots" val="3" />
 		<set name="spiritshots" val="3" />
-		<set name="is_tradable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="200" />
 			<set stat="mAtk" val="6" />

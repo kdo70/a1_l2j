@@ -18,7 +18,6 @@
 		<set name="attack_range" val="40" />
 		<set name="damage_range" val="0;0;40;120" />
 		<set name="material" val="STEEL" />
-		<set name="is_dropable" val="false" />
 		<for>
 			<set stat="pAtk" val="1" />
 			<set stat="mAtk" val="1" />
@@ -114,11 +113,6 @@
 		<set name="price" val="244000" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_destroyable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<for>
 			<set stat="pAtk" val="31" />
 			<set stat="mAtk" val="21" />
@@ -138,11 +132,6 @@
 		<set name="price" val="244000" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_destroyable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<for>
 			<set stat="pAtk" val="27" />
 			<set stat="mAtk" val="21" />
@@ -163,11 +152,6 @@
 		<set name="price" val="244000" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_destroyable" val="false" />
-		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<for>
 			<set stat="pAtk" val="31" />
 			<set stat="mAtk" val="21" />

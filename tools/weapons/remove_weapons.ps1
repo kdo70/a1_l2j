@@ -85,6 +85,13 @@ $NPC_SWAP = @{
 	228  = 227    # Crystal Dagger     C  -> Stiletto
 	240  = 239    # Conjurer's Knife   D  -> Mystic Knife
 	298  = 299    # Orcish Glaive      C  -> Orcish Poleaxe
+
+	# The two SA copies NPCs carry. Their base weapon has the same mesh and the same texture - only
+	# the inventory icon differs, and nobody sees an NPC's inventory - so the swap is invisible in
+	# the world. This is the one place where an NPC hand moves off the weapon retail gave it, and it
+	# buys the datapack a game with no SA copy left in it at all.
+	4700 = 76     # Sword of Delusion - Health      -> Sword of Delusion
+	4900 = 210    # Staff of Evil Spirits - M.Focus -> Staff of Evil Spirits
 }
 
 # ---------------------------------------------------------------------------
@@ -98,8 +105,18 @@ if ($list.Count -eq 0) { throw "$Retired is empty." }
 
 $ids = New-Object 'System.Collections.Generic.HashSet[int]'
 $nameOf = @{}
-foreach ($r in $list) { $null = $ids.Add([int]$r.id) ; $nameOf[[int]$r.id] = $r.name }
-Write-Host "$($ids.Count) weapon(s) to remove"
+# A list may carry its own answer for the hand of an NPC, in a "swap" column - that is how
+# dedup_weapons.ps1 says "this weapon is being merged into that one". Without it the hardcoded
+# $NPC_SWAP above is the only source, and an id missing from both is refused.
+$swapOf = @{}
+foreach ($r in $list)
+{
+	$null = $ids.Add([int]$r.id)
+	$nameOf[[int]$r.id] = $r.name
+	if (($r.PSObject.Properties.Name -contains 'swap') -and $r.swap -ne '') { $swapOf[[int]$r.id] = [int]$r.swap }
+}
+foreach ($k in $NPC_SWAP.Keys) { if (-not $swapOf.ContainsKey($k)) { $swapOf[$k] = $NPC_SWAP[$k] } }
+Write-Host "$($ids.Count) weapon(s) to remove$(if ($swapOf.Count -ne $NPC_SWAP.Count) { " ($($swapOf.Count - $NPC_SWAP.Count) of them with a swap of their own)" })"
 
 # The ladder has to be regenerated without them first, or generate.ps1 mints their graded copies
 # again on its next run and this script's work is undone by the very next command.
@@ -309,11 +326,11 @@ foreach ($f in Get-ChildItem $npcsDir -Filter *.xml)
 		if ($l -match '<set\s+name="([rl])Hand"\s+val="(\d+)"' -and $ids.Contains([int]$Matches[2]))
 		{
 			$was = [int]$Matches[2]
-			if (-not $NPC_SWAP.ContainsKey($was) -or $NPC_SWAP[$was] -eq 0)
+			if (-not $swapOf.ContainsKey($was) -or $swapOf[$was] -eq 0)
 			{
-				throw "an NPC in $($f.Name) holds $was ($($nameOf[$was])) and \$NPC_SWAP has nothing to put there."
+				throw "an NPC in $($f.Name) holds $was ($($nameOf[$was])) and neither the list nor \$NPC_SWAP says what to put there."
 			}
-			$null = $out.Add(($l -replace 'val="\d+"', "val=`"$($NPC_SWAP[$was])`""))
+			$null = $out.Add(($l -replace 'val="\d+"', "val=`"$($swapOf[$was])`""))
 			$swapped[$was] = 1 + $(if ($swapped.ContainsKey($was)) { $swapped[$was] } else { 0 })
 			$hit++
 			continue
@@ -324,7 +341,7 @@ foreach ($f in Get-ChildItem $npcsDir -Filter *.xml)
 }
 foreach ($k in ($swapped.Keys | Sort-Object))
 {
-	Write-Host ("data\xml\npcs : {0,3} NPC hand(s) {1} ({2}) -> {3}" -f $swapped[$k], $k, $nameOf[$k], $NPC_SWAP[$k])
+	Write-Host ("data\xml\npcs : {0,3} NPC hand(s) {1} ({2}) -> {3}" -f $swapped[$k], $k, $nameOf[$k], $swapOf[$k])
 }
 
 if ($DryRun) { Write-Host '' ; Write-Host 'dry run, nothing written' ; return }

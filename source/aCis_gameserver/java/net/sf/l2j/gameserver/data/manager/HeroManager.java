@@ -51,6 +51,7 @@ public class HeroManager
 	
 	private static final String UPDATE_DIARY = "INSERT INTO heroes_diary (char_id, time, action, param) values(?,?,?,?)";
 	private static final String UPDATE_MESSAGE = "UPDATE heroes SET message=? WHERE char_id=?";
+	private static final String DELETE_HERO = "DELETE FROM heroes WHERE char_id=?";
 	private static final String DELETE_ITEMS = "DELETE FROM items WHERE item_id IN (6842, 6611, 6612, 6613, 6614, 6615, 6616, 6617, 6618, 6619, 6620, 6621) AND owner_id NOT IN (SELECT obj_Id FROM characters WHERE accesslevel > 0)";
 	
 	public static final String CHAR_ID = "char_id";
@@ -759,6 +760,80 @@ public class HeroManager
 		}
 	}
 	
+	/**
+	 * Hands hero status to a Player, or takes it back, and remembers it - the Olympiad is not the
+	 * only way to become one on this server, //set hero is the other.
+	 * <p>
+	 * Unlike {@link Player#setHero(boolean)}, which only lights the flag up on the character in
+	 * front of you, this writes the <i>heroes</i> table, so the status is still there after a
+	 * restart, the Monument lists the player, and the hero weapons and circlet can be claimed.
+	 * @param player : the Player to crown or uncrown.
+	 * @param state : true to crown, false to take it back.
+	 */
+	public void grantHero(Player player, boolean state)
+	{
+		final int objectId = player.getObjectId();
+
+		if (state)
+		{
+			// An Olympiad hero of an earlier period keeps its count and its diary ; only "played"
+			// moves, because that is the column the constructor reads a live hero out of.
+			StatSet hero = _completeHeroes.get(objectId);
+			if (hero == null)
+			{
+				hero = new StatSet();
+				hero.set(CHAR_NAME, player.getName());
+				hero.set(CLASS_ID, player.getBaseClass());
+				hero.set(COUNT, 0);
+				hero.set(CLAN_CREST, 0);
+				hero.set(CLAN_NAME, "");
+				hero.set(ALLY_CREST, 0);
+				hero.set(ALLY_NAME, "");
+			}
+			hero.set(PLAYED, 1);
+			hero.set(ACTIVE, 0);
+
+			_heroes.put(objectId, hero);
+			_completeHeroes.put(objectId, hero);
+
+			try (Connection con = ConnectionPool.getConnection();
+				PreparedStatement ps = con.prepareStatement(INSERT_HERO))
+			{
+				ps.setInt(1, objectId);
+				ps.setInt(2, hero.getInteger(CLASS_ID));
+				ps.setInt(3, hero.getInteger(COUNT));
+				ps.setInt(4, hero.getInteger(PLAYED));
+				ps.setInt(5, hero.getInteger(ACTIVE));
+				ps.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				LOGGER.error("Couldn't store the hero status of " + player.getName() + ".", e);
+			}
+
+			setHeroGained(objectId);
+		}
+		else
+		{
+			_heroes.remove(objectId);
+			_completeHeroes.remove(objectId);
+
+			try (Connection con = ConnectionPool.getConnection();
+				PreparedStatement ps = con.prepareStatement(DELETE_HERO))
+			{
+				ps.setInt(1, objectId);
+				ps.executeUpdate();
+			}
+			catch (Exception e)
+			{
+				LOGGER.error("Couldn't drop the hero status of " + player.getName() + ".", e);
+			}
+		}
+
+		player.setHero(state);
+		player.broadcastUserInfo();
+	}
+
 	public void setHeroGained(int objectId)
 	{
 		setDiaryData(objectId, ACTION_HERO_GAINED, 0);

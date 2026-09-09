@@ -149,6 +149,10 @@ $BUYLISTS = @{
 	mystic  = @{ NG = 9130; D = 9131; C = 9132; B = 9133; A = 9134; S = 9135 }
 }
 
+# Monster weapons have no ladder and no grade worth sorting by - they exist so an NPC has something
+# in its hand. One list, one tab, all of them, so they stop being scattered through the grades.
+$MONSTER_LIST = 9136
+
 # The enchant glow package groups weapons by shape, not by class - see docs/enchant-glow.md. The
 # suffix travels to the client in client_items.tsv, so patch_client.ps1 can write it into weapongrp.
 $GLOW_TYPE = @{
@@ -407,9 +411,14 @@ Write-Host "wrote generated\client_items.tsv ($($clientItems.Count - 1)), upgrad
 
 $wanted = @{}
 foreach ($perGrade in $BUYLISTS.Values) { foreach ($list in $perGrade.Values) { $wanted[$list] = @() } }
+$wanted[$MONSTER_LIST] = @()
 
 # Ours to place : every id of the ladder, original or minted. A list is rebuilt out of this, so an
 # id that moves category or grade moves with it instead of being left behind in both.
+#
+# Sorted by where the weapon STARTED, not by id : in the S list a D grade weapon walked all the way
+# to S comes first, then the C ones, then B, then A, and the weapons that were born S last. That is
+# the order a GM reads the list in - cheapest climb first, native top grade at the bottom.
 $owned = New-Object 'System.Collections.Generic.HashSet[int]'
 foreach ($w in $weapons)
 {
@@ -419,9 +428,26 @@ foreach ($w in $weapons)
 		if (-not $ladder[$id].ContainsKey($g)) { continue }
 		$rung = $ladder[$id][$g]
 		$null = $owned.Add($rung)
-		$wanted[$BUYLISTS[$CATEGORY[$w.class]][$g]] += $rung
+		$wanted[$BUYLISTS[$CATEGORY[$w.class]][$g]] += , @{ id = $rung; from = $GRADE_IDX[$w.origGrade]; name = $w.name }
 	}
 }
+
+# The monster tab. These are not on the ladder at all - no grade, no rungs - so they are read
+# straight out of the datapack and thrown together in one list.
+$monsterIds = New-Object 'System.Collections.Generic.HashSet[int]'
+foreach ($id in ($index.Keys | Sort-Object))
+{
+	$e = $index[$id]
+	$head = $files[$e.file][$e.start]
+	if ($head -notmatch 'type="Weapon"') { continue }
+	if ($head -notmatch 'name="([^"]*)"') { continue }
+	$name = $Matches[1]
+	if ($name -notmatch '(?i)monster') { continue }
+	$null = $owned.Add($id)
+	$null = $monsterIds.Add($id)
+	$wanted[$MONSTER_LIST] += , @{ id = $id; from = 0; name = $name }
+}
+Write-Host "monster weapons in list $MONSTER_LIST : $($wanted[$MONSTER_LIST].Count)"
 
 $buyListsPath = Join-Path $dataDir 'buyLists.xml'
 $buyListsEndsNl = Test-EndsWithNewline $buyListsPath
@@ -432,19 +458,31 @@ foreach ($l in [System.IO.File]::ReadAllLines($buyListsPath)) { $null = $buyLine
 # (npcId="-1") clean of the range this script owns before anything is refilled, so that a list this
 # run no longer uses - or one an older run wrote into by mistake - does not keep a weapon forever.
 $swept = 0
+$sweptMonster = 0
 $inGmList = $false
+$listId = 0
 for ($i = 0; $i -lt $buyLines.Count; $i++)
 {
-	if ($buyLines[$i] -match '^\s*<buyList\s+id="(\d+)"') { $inGmList = ($buyLines[$i] -match 'npcId="-1"') }
+	if ($buyLines[$i] -match '^\s*<buyList\s+id="(\d+)"')
+	{
+		$listId = [int]$Matches[1]
+		$inGmList = ($buyLines[$i] -match 'npcId="-1"')
+	}
 	if (-not $inGmList) { continue }
 	if ($buyLines[$i] -notmatch '^\s*<product\s+id="(\d+)"') { continue }
 	$product = [int]$Matches[1]
-	if ($product -lt $FIRST_ITEM_ID -or $product -gt $LAST_OWNED_ID) { continue }
+
+	$mine = ($product -ge $FIRST_ITEM_ID -and $product -le $LAST_OWNED_ID)
+	# A monster weapon belongs in the monster tab and nowhere else, whatever stock list it sat in.
+	$strayMonster = ($monsterIds.Contains($product) -and $listId -ne $MONSTER_LIST)
+	if (-not $mine -and -not $strayMonster) { continue }
+
 	$buyLines.RemoveAt($i)
 	$i--
-	$swept++
+	if ($mine) { $swept++ } else { $sweptMonster++ }
 }
 if ($swept) { Write-Host "buyLists.xml : swept $swept minted product(s) out of the GM shop" }
+if ($sweptMonster) { Write-Host "buyLists.xml : swept $sweptMonster monster weapon(s) out of the other tabs" }
 
 # The seven lists that don't exist in the stock datapack, appended once, in id order.
 $present = @{}
@@ -491,7 +529,7 @@ foreach ($b in ($found | Sort-Object { $_.start } -Descending))
 		}
 		$null = $keep.Add($l)
 	}
-	foreach ($id in ($wanted[$b.id] | Sort-Object)) { $null = $keep.Add("`t`t<product id=`"$id`"/>") }
+	foreach ($p in ($wanted[$b.id] | Sort-Object { $_.from }, { $_.name }, { $_.id })) { $null = $keep.Add("`t`t<product id=`"$($p.id)`"/>") }
 	$null = $keep.Add("`t</buyList>")
 
 	$buyLines.RemoveRange($b.start, $b.end - $b.start + 1)
@@ -499,7 +537,7 @@ foreach ($b in ($found | Sort-Object { $_.start } -Descending))
 	$touched++
 }
 
-if ($touched -ne 60) { throw "expected 60 GM shop weapon buy lists, refilled $touched" }
+if ($touched -ne 61) { throw "expected 60 GM shop weapon buy lists plus the monster one, refilled $touched" }
 Write-Datapack $buyListsPath $buyLines $buyListsEndsNl
 Write-Host "refilled $touched GM shop buy lists with $($owned.Count) weapons"
 

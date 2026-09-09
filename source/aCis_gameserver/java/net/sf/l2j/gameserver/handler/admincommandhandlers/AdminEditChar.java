@@ -8,6 +8,7 @@ import net.sf.l2j.commons.lang.StringUtil;
 import net.sf.l2j.commons.pool.ConnectionPool;
 import net.sf.l2j.commons.pool.ThreadPool;
 
+import net.sf.l2j.gameserver.data.manager.HeroManager;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.PlayerData;
@@ -128,7 +129,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		{
 			if (!st.hasMoreTokens())
 			{
-				player.sendMessage("Usage: //set <access|class|color|exp|karma|level>");
+				player.sendMessage("Usage: //set <access|class|color|exp|hero|karma|level>");
 				player.sendMessage("Usage: //set <name|noble|rec|sex|sp|tcolor|title>");
 				return;
 			}
@@ -400,6 +401,35 @@ public class AdminEditChar implements IAdminCommandHandler
 					catch (Exception e)
 					{
 						player.sendMessage("Usage: //set name <name>");
+					}
+					break;
+				
+				case "hero":
+					try
+					{
+						if (!(targetWorldObject instanceof Player targetPlayer))
+						{
+							player.sendPacket(SystemMessageId.INVALID_TARGET);
+							return;
+						}
+						
+						// Plain "//set hero" crowns ; "//set hero 0" (or off, or false) takes it back.
+						boolean state = true;
+						if (st.hasMoreTokens())
+						{
+							final String arg = st.nextToken().toLowerCase();
+							state = !(arg.equals("0") || arg.equals("off") || arg.equals("false"));
+						}
+						
+						// Not Player.setHero, which only lights the flag up until the next relog : this one
+						// writes the heroes table, so the Monument lists them and the hero gear can be claimed.
+						HeroManager.getInstance().grantHero(targetPlayer, state);
+						
+						player.sendMessage(targetPlayer.getName() + ((state) ? " is now a hero." : " is not a hero anymore."));
+					}
+					catch (Exception e)
+					{
+						player.sendMessage("Usage: //set hero [0|1]");
 					}
 					break;
 				

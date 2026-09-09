@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="4900" type="Weapon" name="Staff of Evil Spirits - Magic Focus">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGBLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="crystal_count" val="1746" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="930" />
-		<set name="price" val="13100000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="oncast_chance" val="20" />
-		<set name="oncast_skill" val="1077-3" />
-		<for>
-			<set stat="pAtk" val="189" />
-			<set stat="mAtk" val="132" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="4906" type="EtcItem" name="Spellbook: Solar Spark">
 		<set name="material" val="PAPER" />
 		<set name="weight" val="120" />

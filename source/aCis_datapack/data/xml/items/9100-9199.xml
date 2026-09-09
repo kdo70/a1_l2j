@@ -326,30 +326,6 @@
 			<set stat="pAtkSpd" val="293" />
 		</for>
 	</item>
-	<item id="9141" type="Weapon" name="Redemption Bow - Event Use">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BOW" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="1" />
-		<set name="attack_range" val="500" />
-		<set name="damage_range" val="0;0;10;0" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="300" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<set name="mp_consume" val="1" />
-		<set name="reuse_delay" val="1500" />
-		<set name="equip_reuse_delay" val="30" />
-		<set name="item_skill" val="3260-1;3262-1" />
-		<set name="duration" val="60" />
-		<for>
-			<set stat="pAtk" val="1" />
-			<set stat="mAtk" val="1" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="293" />
-		</for>
-	</item>
 	<item id="9142" type="EtcItem" name="Apiga">
 		<set name="material" val="PAPER" />
 		<set name="is_stackable" val="true" />

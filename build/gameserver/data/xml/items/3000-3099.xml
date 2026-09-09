@@ -257,9 +257,6 @@
 		<set name="weight" val="800" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<set name="item_skill" val="3599-1" />
 		<for>
 			<set stat="pAtk" val="24" />
@@ -280,9 +277,6 @@
 		<set name="weight" val="2100" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="29" />
 			<set stat="mAtk" val="17" />
@@ -303,9 +297,6 @@
 		<set name="spiritshots" val="2" />
 		<set name="mp_consume" val="2" />
 		<set name="reuse_delay" val="1500" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="34" />
 			<set stat="mAtk" val="12" />
@@ -325,9 +316,6 @@
 		<set name="weight" val="1200" />
 		<set name="soulshots" val="2" />
 		<set name="spiritshots" val="2" />
-		<set name="is_tradable" val="false" />
-		<set name="is_dropable" val="false" />
-		<set name="is_sellable" val="false" />
 		<for>
 			<set stat="pAtk" val="17" />
 			<set stat="mAtk" val="12" />

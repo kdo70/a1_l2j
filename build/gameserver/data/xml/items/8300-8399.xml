@@ -396,7 +396,6 @@
 		<set name="attack_range" val="40" />
 		<set name="damage_range" val="0;0;44;120" />
 		<set name="material" val="FINE_STEEL" />
-		<set name="is_dropable" val="false" />
 		<set name="enchant4_skill" val="3045-14" />
 		<for>
 			<set stat="pAtk" val="1" />
