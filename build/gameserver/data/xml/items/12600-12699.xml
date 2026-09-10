@@ -1,190 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="12600" type="Weapon" name="Bastard Sword*Bastard Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="2452" />
-		<set name="price" val="6130000" />
-		<set name="soulshots" val="3" />
-		<set name="spiritshots" val="3" />
-		<for>
-			<set stat="pAtk" val="190" />
-			<set stat="mAtk" val="83" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12601" type="Weapon" name="Bastard Sword*Bastard Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="1746" />
-		<set name="price" val="13100000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="236" />
-			<set stat="mAtk" val="99" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12602" type="Weapon" name="Bastard Sword*Bastard Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="2824" />
-		<set name="price" val="35300000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="305" />
-			<set stat="mAtk" val="121" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12603" type="Weapon" name="Bastard Sword*Bastard Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="2440" />
-		<set name="price" val="48800000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="361" />
-			<set stat="mAtk" val="137" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12604" type="Weapon" name="Bastard Sword*Spinebone Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="C" />
-		<set name="crystal_count" val="2452" />
-		<set name="price" val="6130000" />
-		<set name="soulshots" val="3" />
-		<set name="spiritshots" val="3" />
-		<for>
-			<set stat="pAtk" val="190" />
-			<set stat="mAtk" val="83" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12605" type="Weapon" name="Bastard Sword*Spinebone Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="B" />
-		<set name="crystal_count" val="1746" />
-		<set name="price" val="13100000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="236" />
-			<set stat="mAtk" val="99" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12606" type="Weapon" name="Bastard Sword*Spinebone Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="A" />
-		<set name="crystal_count" val="2824" />
-		<set name="price" val="35300000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="305" />
-			<set stat="mAtk" val="121" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12607" type="Weapon" name="Bastard Sword*Spinebone Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUAL" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;44;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="2470" />
-		<set name="crystal_type" val="S" />
-		<set name="crystal_count" val="2440" />
-		<set name="price" val="48800000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="361" />
-			<set stat="mAtk" val="137" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="12608" type="Weapon" name="Bastard Sword*Artisan's Sword">
+	<item id="12600" type="Weapon" name="Bastard Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -207,7 +23,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12609" type="Weapon" name="Bastard Sword*Artisan's Sword">
+	<item id="12601" type="Weapon" name="Bastard Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -230,7 +46,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12610" type="Weapon" name="Bastard Sword*Artisan's Sword">
+	<item id="12602" type="Weapon" name="Bastard Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -253,7 +69,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12611" type="Weapon" name="Bastard Sword*Artisan's Sword">
+	<item id="12603" type="Weapon" name="Bastard Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -276,7 +92,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12612" type="Weapon" name="Bastard Sword*Knight's Sword">
+	<item id="12604" type="Weapon" name="Bastard Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -299,7 +115,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12613" type="Weapon" name="Bastard Sword*Knight's Sword">
+	<item id="12605" type="Weapon" name="Bastard Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -322,7 +138,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12614" type="Weapon" name="Bastard Sword*Knight's Sword">
+	<item id="12606" type="Weapon" name="Bastard Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -345,7 +161,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12615" type="Weapon" name="Bastard Sword*Knight's Sword">
+	<item id="12607" type="Weapon" name="Bastard Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -368,7 +184,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12616" type="Weapon" name="Bastard Sword*Elven Sword">
+	<item id="12608" type="Weapon" name="Bastard Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -391,7 +207,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12617" type="Weapon" name="Bastard Sword*Elven Sword">
+	<item id="12609" type="Weapon" name="Bastard Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -414,7 +230,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12618" type="Weapon" name="Bastard Sword*Elven Sword">
+	<item id="12610" type="Weapon" name="Bastard Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -437,7 +253,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12619" type="Weapon" name="Bastard Sword*Elven Sword">
+	<item id="12611" type="Weapon" name="Bastard Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -460,7 +276,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12620" type="Weapon" name="Bastard Sword*Sword of Revolution">
+	<item id="12612" type="Weapon" name="Bastard Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -483,7 +299,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12621" type="Weapon" name="Bastard Sword*Sword of Revolution">
+	<item id="12613" type="Weapon" name="Bastard Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -506,7 +322,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12622" type="Weapon" name="Bastard Sword*Sword of Revolution">
+	<item id="12614" type="Weapon" name="Bastard Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -529,7 +345,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12623" type="Weapon" name="Bastard Sword*Elven Long Sword">
+	<item id="12615" type="Weapon" name="Bastard Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -552,7 +368,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12624" type="Weapon" name="Bastard Sword*Elven Long Sword">
+	<item id="12616" type="Weapon" name="Bastard Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -575,7 +391,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12625" type="Weapon" name="Bastard Sword*Elven Long Sword">
+	<item id="12617" type="Weapon" name="Bastard Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -598,7 +414,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12626" type="Weapon" name="Spinebone Sword*Spinebone Sword">
+	<item id="12618" type="Weapon" name="Spinebone Sword*Spinebone Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -621,7 +437,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12627" type="Weapon" name="Spinebone Sword*Spinebone Sword">
+	<item id="12619" type="Weapon" name="Spinebone Sword*Spinebone Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -644,7 +460,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12628" type="Weapon" name="Spinebone Sword*Spinebone Sword">
+	<item id="12620" type="Weapon" name="Spinebone Sword*Spinebone Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -667,7 +483,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12629" type="Weapon" name="Spinebone Sword*Spinebone Sword">
+	<item id="12621" type="Weapon" name="Spinebone Sword*Spinebone Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -690,7 +506,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12630" type="Weapon" name="Spinebone Sword*Artisan's Sword">
+	<item id="12622" type="Weapon" name="Spinebone Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -713,7 +529,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12631" type="Weapon" name="Spinebone Sword*Artisan's Sword">
+	<item id="12623" type="Weapon" name="Spinebone Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -736,7 +552,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12632" type="Weapon" name="Spinebone Sword*Artisan's Sword">
+	<item id="12624" type="Weapon" name="Spinebone Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -759,7 +575,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12633" type="Weapon" name="Spinebone Sword*Artisan's Sword">
+	<item id="12625" type="Weapon" name="Spinebone Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -782,7 +598,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12634" type="Weapon" name="Spinebone Sword*Knight's Sword">
+	<item id="12626" type="Weapon" name="Spinebone Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -805,7 +621,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12635" type="Weapon" name="Spinebone Sword*Knight's Sword">
+	<item id="12627" type="Weapon" name="Spinebone Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -828,7 +644,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12636" type="Weapon" name="Spinebone Sword*Knight's Sword">
+	<item id="12628" type="Weapon" name="Spinebone Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -851,7 +667,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12637" type="Weapon" name="Spinebone Sword*Knight's Sword">
+	<item id="12629" type="Weapon" name="Spinebone Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -874,7 +690,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12638" type="Weapon" name="Spinebone Sword*Elven Sword">
+	<item id="12630" type="Weapon" name="Spinebone Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -897,7 +713,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12639" type="Weapon" name="Spinebone Sword*Elven Sword">
+	<item id="12631" type="Weapon" name="Spinebone Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -920,7 +736,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12640" type="Weapon" name="Spinebone Sword*Elven Sword">
+	<item id="12632" type="Weapon" name="Spinebone Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -943,7 +759,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12641" type="Weapon" name="Spinebone Sword*Elven Sword">
+	<item id="12633" type="Weapon" name="Spinebone Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -966,7 +782,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12642" type="Weapon" name="Spinebone Sword*Sword of Revolution">
+	<item id="12634" type="Weapon" name="Spinebone Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -989,7 +805,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12643" type="Weapon" name="Spinebone Sword*Sword of Revolution">
+	<item id="12635" type="Weapon" name="Spinebone Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1012,7 +828,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12644" type="Weapon" name="Spinebone Sword*Sword of Revolution">
+	<item id="12636" type="Weapon" name="Spinebone Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1035,7 +851,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12645" type="Weapon" name="Spinebone Sword*Elven Long Sword">
+	<item id="12637" type="Weapon" name="Spinebone Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1058,7 +874,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12646" type="Weapon" name="Spinebone Sword*Elven Long Sword">
+	<item id="12638" type="Weapon" name="Spinebone Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1081,7 +897,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12647" type="Weapon" name="Spinebone Sword*Elven Long Sword">
+	<item id="12639" type="Weapon" name="Spinebone Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1104,7 +920,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12648" type="Weapon" name="Artisan's Sword*Artisan's Sword">
+	<item id="12640" type="Weapon" name="Artisan's Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1127,7 +943,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12649" type="Weapon" name="Artisan's Sword*Artisan's Sword">
+	<item id="12641" type="Weapon" name="Artisan's Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1150,7 +966,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12650" type="Weapon" name="Artisan's Sword*Artisan's Sword">
+	<item id="12642" type="Weapon" name="Artisan's Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1173,7 +989,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12651" type="Weapon" name="Artisan's Sword*Artisan's Sword">
+	<item id="12643" type="Weapon" name="Artisan's Sword*Artisan's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1196,7 +1012,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12652" type="Weapon" name="Artisan's Sword*Knight's Sword">
+	<item id="12644" type="Weapon" name="Artisan's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1219,7 +1035,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12653" type="Weapon" name="Artisan's Sword*Knight's Sword">
+	<item id="12645" type="Weapon" name="Artisan's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1242,7 +1058,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12654" type="Weapon" name="Artisan's Sword*Knight's Sword">
+	<item id="12646" type="Weapon" name="Artisan's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1265,7 +1081,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12655" type="Weapon" name="Artisan's Sword*Knight's Sword">
+	<item id="12647" type="Weapon" name="Artisan's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1288,7 +1104,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12656" type="Weapon" name="Artisan's Sword*Elven Sword">
+	<item id="12648" type="Weapon" name="Artisan's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1311,7 +1127,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12657" type="Weapon" name="Artisan's Sword*Elven Sword">
+	<item id="12649" type="Weapon" name="Artisan's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1334,7 +1150,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12658" type="Weapon" name="Artisan's Sword*Elven Sword">
+	<item id="12650" type="Weapon" name="Artisan's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1357,7 +1173,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12659" type="Weapon" name="Artisan's Sword*Elven Sword">
+	<item id="12651" type="Weapon" name="Artisan's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1380,7 +1196,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12660" type="Weapon" name="Artisan's Sword*Sword of Revolution">
+	<item id="12652" type="Weapon" name="Artisan's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1403,7 +1219,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12661" type="Weapon" name="Artisan's Sword*Sword of Revolution">
+	<item id="12653" type="Weapon" name="Artisan's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1426,7 +1242,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12662" type="Weapon" name="Artisan's Sword*Sword of Revolution">
+	<item id="12654" type="Weapon" name="Artisan's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1449,7 +1265,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12663" type="Weapon" name="Artisan's Sword*Elven Long Sword">
+	<item id="12655" type="Weapon" name="Artisan's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1472,7 +1288,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12664" type="Weapon" name="Artisan's Sword*Elven Long Sword">
+	<item id="12656" type="Weapon" name="Artisan's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1495,7 +1311,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12665" type="Weapon" name="Artisan's Sword*Elven Long Sword">
+	<item id="12657" type="Weapon" name="Artisan's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1518,7 +1334,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12666" type="Weapon" name="Knight's Sword*Knight's Sword">
+	<item id="12658" type="Weapon" name="Knight's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1541,7 +1357,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12667" type="Weapon" name="Knight's Sword*Knight's Sword">
+	<item id="12659" type="Weapon" name="Knight's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1564,7 +1380,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12668" type="Weapon" name="Knight's Sword*Knight's Sword">
+	<item id="12660" type="Weapon" name="Knight's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1587,7 +1403,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12669" type="Weapon" name="Knight's Sword*Knight's Sword">
+	<item id="12661" type="Weapon" name="Knight's Sword*Knight's Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1610,7 +1426,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12670" type="Weapon" name="Knight's Sword*Elven Sword">
+	<item id="12662" type="Weapon" name="Knight's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1633,7 +1449,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12671" type="Weapon" name="Knight's Sword*Elven Sword">
+	<item id="12663" type="Weapon" name="Knight's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1656,7 +1472,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12672" type="Weapon" name="Knight's Sword*Elven Sword">
+	<item id="12664" type="Weapon" name="Knight's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1679,7 +1495,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12673" type="Weapon" name="Knight's Sword*Elven Sword">
+	<item id="12665" type="Weapon" name="Knight's Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1702,7 +1518,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12674" type="Weapon" name="Knight's Sword*Sword of Revolution">
+	<item id="12666" type="Weapon" name="Knight's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1725,7 +1541,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12675" type="Weapon" name="Knight's Sword*Sword of Revolution">
+	<item id="12667" type="Weapon" name="Knight's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1748,7 +1564,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12676" type="Weapon" name="Knight's Sword*Sword of Revolution">
+	<item id="12668" type="Weapon" name="Knight's Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1771,7 +1587,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12677" type="Weapon" name="Knight's Sword*Elven Long Sword">
+	<item id="12669" type="Weapon" name="Knight's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1794,7 +1610,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12678" type="Weapon" name="Knight's Sword*Elven Long Sword">
+	<item id="12670" type="Weapon" name="Knight's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1817,7 +1633,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12679" type="Weapon" name="Knight's Sword*Elven Long Sword">
+	<item id="12671" type="Weapon" name="Knight's Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1840,7 +1656,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12680" type="Weapon" name="Elven Sword*Elven Sword">
+	<item id="12672" type="Weapon" name="Elven Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1863,7 +1679,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12681" type="Weapon" name="Elven Sword*Elven Sword">
+	<item id="12673" type="Weapon" name="Elven Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1886,7 +1702,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12682" type="Weapon" name="Elven Sword*Elven Sword">
+	<item id="12674" type="Weapon" name="Elven Sword*Elven Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1909,7 +1725,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12683" type="Weapon" name="Elven Sword*Sword of Revolution">
+	<item id="12675" type="Weapon" name="Elven Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1932,7 +1748,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12684" type="Weapon" name="Elven Sword*Sword of Revolution">
+	<item id="12676" type="Weapon" name="Elven Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1955,7 +1771,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12685" type="Weapon" name="Elven Sword*Sword of Revolution">
+	<item id="12677" type="Weapon" name="Elven Sword*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -1978,7 +1794,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12686" type="Weapon" name="Elven Sword*Elven Long Sword">
+	<item id="12678" type="Weapon" name="Elven Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2002,7 +1818,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12687" type="Weapon" name="Elven Sword*Elven Long Sword">
+	<item id="12679" type="Weapon" name="Elven Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2026,7 +1842,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12688" type="Weapon" name="Elven Sword*Elven Long Sword">
+	<item id="12680" type="Weapon" name="Elven Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2050,7 +1866,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12689" type="Weapon" name="Sword of Revolution*Sword of Revolution">
+	<item id="12681" type="Weapon" name="Sword of Revolution*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2074,7 +1890,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12690" type="Weapon" name="Sword of Revolution*Sword of Revolution">
+	<item id="12682" type="Weapon" name="Sword of Revolution*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2098,7 +1914,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12691" type="Weapon" name="Sword of Revolution*Sword of Revolution">
+	<item id="12683" type="Weapon" name="Sword of Revolution*Sword of Revolution">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2122,7 +1938,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12692" type="Weapon" name="Sword of Revolution*Elven Long Sword">
+	<item id="12684" type="Weapon" name="Sword of Revolution*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2146,7 +1962,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12693" type="Weapon" name="Sword of Revolution*Elven Long Sword">
+	<item id="12685" type="Weapon" name="Sword of Revolution*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2170,7 +1986,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12694" type="Weapon" name="Sword of Revolution*Elven Long Sword">
+	<item id="12686" type="Weapon" name="Sword of Revolution*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2194,7 +2010,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12695" type="Weapon" name="Elven Long Sword*Elven Long Sword">
+	<item id="12687" type="Weapon" name="Elven Long Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2218,7 +2034,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12696" type="Weapon" name="Elven Long Sword*Elven Long Sword">
+	<item id="12688" type="Weapon" name="Elven Long Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2242,7 +2058,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12697" type="Weapon" name="Elven Long Sword*Elven Long Sword">
+	<item id="12689" type="Weapon" name="Elven Long Sword*Elven Long Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2266,7 +2082,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12698" type="Weapon" name="Stormbringer*Stormbringer">
+	<item id="12690" type="Weapon" name="Stormbringer*Stormbringer">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2290,7 +2106,7 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="12699" type="Weapon" name="Stormbringer*Stormbringer">
+	<item id="12691" type="Weapon" name="Stormbringer*Stormbringer">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="DUAL" />
 		<set name="bodypart" val="lrhand" />
@@ -2300,6 +2116,198 @@
 		<set name="material" val="FINE_STEEL" />
 		<set name="weight" val="2330" />
 		<set name="enchant4_skill" val="3046-6" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="2824" />
+		<set name="price" val="35300000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="305" />
+			<set stat="mAtk" val="121" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12692" type="Weapon" name="Stormbringer*Stormbringer">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2330" />
+		<set name="enchant4_skill" val="3046-6" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="2440" />
+		<set name="price" val="48800000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="361" />
+			<set stat="mAtk" val="137" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12693" type="Weapon" name="Stormbringer*Spirit Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2310" />
+		<set name="enchant4_skill" val="3044-7" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="1746" />
+		<set name="price" val="13100000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="236" />
+			<set stat="mAtk" val="99" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12694" type="Weapon" name="Stormbringer*Spirit Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2310" />
+		<set name="enchant4_skill" val="3044-7" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="2824" />
+		<set name="price" val="35300000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="305" />
+			<set stat="mAtk" val="121" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12695" type="Weapon" name="Stormbringer*Spirit Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2310" />
+		<set name="enchant4_skill" val="3044-7" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="2440" />
+		<set name="price" val="48800000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="361" />
+			<set stat="mAtk" val="137" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12696" type="Weapon" name="Stormbringer*Raid Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2340" />
+		<set name="enchant4_skill" val="3045-7" />
+		<set name="crystal_type" val="B" />
+		<set name="crystal_count" val="1746" />
+		<set name="price" val="13100000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="236" />
+			<set stat="mAtk" val="99" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12697" type="Weapon" name="Stormbringer*Raid Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2340" />
+		<set name="enchant4_skill" val="3045-7" />
+		<set name="crystal_type" val="A" />
+		<set name="crystal_count" val="2824" />
+		<set name="price" val="35300000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="305" />
+			<set stat="mAtk" val="121" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12698" type="Weapon" name="Stormbringer*Raid Sword">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2340" />
+		<set name="enchant4_skill" val="3045-7" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="2440" />
+		<set name="price" val="48800000" />
+		<set name="soulshots" val="1" />
+		<set name="spiritshots" val="1" />
+		<for>
+			<set stat="pAtk" val="361" />
+			<set stat="mAtk" val="137" />
+			<set stat="rCrit" val="8" />
+			<set stat="pAtkSpd" val="325" />
+			<enchant val="0" stat="pAtk" />
+			<enchant val="0" stat="mAtk" />
+		</for>
+	</item>
+	<item id="12699" type="Weapon" name="Stormbringer*Caliburs">
+		<set name="default_action" val="equip" />
+		<set name="weapon_type" val="DUAL" />
+		<set name="bodypart" val="lrhand" />
+		<set name="random_damage" val="10" />
+		<set name="attack_range" val="40" />
+		<set name="damage_range" val="0;0;44;120" />
+		<set name="material" val="FINE_STEEL" />
+		<set name="weight" val="2260" />
+		<set name="enchant4_skill" val="3046-9" />
 		<set name="crystal_type" val="A" />
 		<set name="crystal_count" val="2824" />
 		<set name="price" val="35300000" />

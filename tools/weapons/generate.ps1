@@ -154,6 +154,13 @@ $BUYLISTS = @{
 # both the weapon and the armor tab.
 $MONSTER_LIST = 9136
 
+# How monster kit is recognised : by its ICON, not by its name. The name catches the obvious
+# `Monster Only (...)` and `For Monsters Only (...)`, and misses twenty-eight others that read like
+# ordinary weapons - `Silenos Blowgun`, `Dreadbane`, `Giant Cannon`, `Tomb Guard A`, `Nephilim
+# Lord`, `Dusk`, `Dawn`, `Frintezza's Sword`, `Sword of Valakas`. They all wear one and the same
+# icon, and that is the only thing they have in common.
+$MONSTER_ICON = 'weapon_monster_i00'
+
 # The enchant glow package groups weapons by shape, not by class - see docs/enchant-glow.md. The
 # suffix travels to the client in client_items.tsv, so patch_client.ps1 can write it into weapongrp.
 $GLOW_TYPE = @{
@@ -254,6 +261,27 @@ foreach ($w in $weapons)
 	if (-not $GRADE_IDX.ContainsKey($w.origGrade)) { throw "weapon $id : unknown grade $($w.origGrade)" }
 	$blocks[$id] = Get-ItemBlock $id
 	if ($blocks[$id][0] -notmatch 'type="Weapon"') { throw "item $id is not a weapon any more" }
+}
+
+# What every item looks like, straight out of the datapack - no client needed. The monster icon is
+# how monster kit is told apart ; see $MONSTER_ICON.
+$iconOf = @{}
+$iconsPath = Join-Path $dataDir 'itemIcons.xml'
+if (Test-Path $iconsPath)
+{
+	foreach ($l in [System.IO.File]::ReadLines($iconsPath))
+	{
+		if ($l -match '<item\s+id="(\d+)"\s+icon="([^"]*)"') { $iconOf[[int]$Matches[1]] = $Matches[2] }
+	}
+}
+else { Write-Warning "No $iconsPath ; monster kit will only be found by name." }
+
+# Monster kit has no business on the ladder : minting five grades of `Tomb Guard A` puts five more
+# of it in the shop. Refused rather than skipped, so the row gets taken out of weapons.csv for good.
+$onLadder = @($weapons | Where-Object { $iconOf.ContainsKey([int]$_.id) -and $iconOf[[int]$_.id] -eq $MONSTER_ICON })
+if ($onLadder.Count -gt 0)
+{
+	throw "$($onLadder.Count) monster weapon(s) are still in weapons.csv - take them out : $(($onLadder | ForEach-Object { "$($_.id) $($_.name)" }) -join ', ')"
 }
 
 # Numbering runs weapon by weapon in id order and, inside a weapon, bottom grade up, so a rerun gives
@@ -446,7 +474,9 @@ foreach ($id in ($index.Keys | Sort-Object))
 	if ($head -notmatch 'type="(Weapon|Armor)"') { continue }
 	if ($head -notmatch 'name="([^"]*)"') { continue }
 	$name = $Matches[1]
-	if ($name -notmatch '(?i)monster') { continue }
+	# The icon is the real test ; the name is the fallback for an item itemIcons.xml has no row for.
+	$byIcon = $iconOf.ContainsKey($id) -and $iconOf[$id] -eq $MONSTER_ICON
+	if (-not $byIcon -and $name -notmatch '(?i)monster') { continue }
 	$null = $owned.Add($id)
 	$null = $monsterIds.Add($id)
 	$wanted[$MONSTER_LIST] += , @{ id = $id; from = 0; name = $name }

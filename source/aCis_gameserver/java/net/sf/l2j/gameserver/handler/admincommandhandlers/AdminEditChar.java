@@ -413,8 +413,10 @@ public class AdminEditChar implements IAdminCommandHandler
 							return;
 						}
 						
-						// Plain "//set hero" crowns ; "//set hero 0" (or off, or false) takes it back.
-						boolean state = true;
+						// Plain "//set hero" toggles, the way "//set noble" next door does : run it
+						// once to crown, once more to take it back. "//set hero 0" and "//set hero 1"
+						// say it outright, for when you would rather not guess the current state.
+						boolean state = !targetPlayer.isHero();
 						if (st.hasMoreTokens())
 						{
 							final String arg = st.nextToken().toLowerCase();
