@@ -147,7 +147,7 @@ public class ThirdClassQuest extends Quest
 	private static final Map<Npc, Attackable> _npcSpawns = new ConcurrentHashMap<>();
 	
 	/**
-	 * Implicit constructor for third class quest core. The third class quest core is used for shared functionalities between all third class quests ({@link Q070_SagaOfThePhoenixKnight} up to {@link Q100_SagaOfTheMaestro}).
+	 * Implicit constructor for third class quest core. The third class quest core is used for shared functionalities between all third class quests (the Saga quests, Q070 up to Q100).
 	 */
 	public ThirdClassQuest()
 	{
@@ -160,7 +160,7 @@ public class ThirdClassQuest extends Quest
 	}
 	
 	/**
-	 * Superclass constructor, used by particular third class quest ({@link Q070_SagaOfThePhoenixKnight} up to {@link Q100_SagaOfTheMaestro}).
+	 * Superclass constructor, used by particular third class quest (the Saga quests, Q070 up to Q100).
 	 * @param id : ID of the third class quest.
 	 * @param descr : Name of the third class quest.
 	 * @param classId : The target third class of the quest.

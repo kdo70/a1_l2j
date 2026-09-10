@@ -226,25 +226,6 @@
 		<set name="handler" val="ScrollsOfResurrection" />
 		<set name="item_skill" val="2014-1" />
 	</item>
-	<item id="738" type="Weapon" name="Sword of Solidarity">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="BRONZE" />
-		<set name="weight" val="1300" />
-		<set name="price" val="18500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="12" />
-			<set stat="mAtk" val="9" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
 	<item id="739" type="EtcItem" name="Broken Sword Handle">
 		<set name="material" val="STEEL" />
 		<set name="is_tradable" val="false" />
@@ -281,46 +262,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
 	</item>
-	<item id="743" type="Weapon" name="Sword of Sentinel">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1300" />
-		<set name="price" val="33600" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="14" />
-			<set stat="mAtk" val="11" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
-	<item id="744" type="Weapon" name="Staff of Sentinel">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGBLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="1800" />
-		<set name="price" val="33600" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="13" />
-			<set stat="mAtk" val="14" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
-	</item>
 	<item id="745" type="EtcItem" name="Cobendell Medicine">
 		<set name="material" val="STEEL" />
 		<set name="is_tradable" val="false" />
@@ -338,47 +279,6 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
-	</item>
-	<item id="747" type="Weapon" name="Wand of Adept">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BLUNT" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="1300" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="11" />
-			<set stat="mAtk" val="13" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
-	<item id="748" type="Weapon" name="Gallint's Oak Wand">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="1350" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="10" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
 	</item>
 	<item id="750" type="EtcItem" name="Kinship Crystal">
 		<set name="material" val="STEEL" />
@@ -415,27 +315,6 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
-	</item>
-	<item id="754" type="Weapon" name="Red Sunset Staff">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGBLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="material" val="WOOD" />
-		<set name="weight" val="1700" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="13" />
-			<set stat="mAtk" val="13" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
 	</item>
 	<item id="755" type="EtcItem" name="Colleen's Letter">
 		<set name="material" val="STEEL" />

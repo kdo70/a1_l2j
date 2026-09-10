@@ -766,7 +766,12 @@ public class HeroManager
 	 * <p>
 	 * Unlike {@link Player#setHero(boolean)}, which only lights the flag up on the character in
 	 * front of you, this writes the <i>heroes</i> table, so the status is still there after a
-	 * restart, the Monument lists the player, and the hero weapons and circlet can be claimed.
+	 * restart and the Monument lists the player.
+	 * <p>
+	 * The hero is created <b>active</b>, and that is not a detail : {@link PcInventory#equipItem}
+	 * gates hero weapons on {@link #isActiveHero(int)}, not on {@link Player#isHero()}. A hero that
+	 * is merely "played" is one who has not claimed the title at the Monument yet, and would wear
+	 * the aura while being unable to hold Infinity Blade.
 	 * @param player : the Player to crown or uncrown.
 	 * @param state : true to crown, false to take it back.
 	 */
@@ -791,10 +796,16 @@ public class HeroManager
 				hero.set(ALLY_NAME, "");
 			}
 			hero.set(PLAYED, 1);
-			hero.set(ACTIVE, 0);
+			hero.set(ACTIVE, 1);
 
 			_heroes.put(objectId, hero);
 			_completeHeroes.put(objectId, hero);
+
+			// The Monument pages read these three ; without them they answer with an empty window.
+			loadFights(objectId);
+			loadDiary(objectId);
+			if (!_heroMessages.containsKey(objectId))
+				_heroMessages.put(objectId, "");
 
 			try (Connection con = ConnectionPool.getConnection();
 				PreparedStatement ps = con.prepareStatement(INSERT_HERO))
@@ -827,6 +838,14 @@ public class HeroManager
 			catch (Exception e)
 			{
 				LOGGER.error("Couldn't drop the hero status of " + player.getName() + ".", e);
+			}
+
+			// Whatever hero gear is worn comes off - it is not his to wear any more. It is left in
+			// the inventory rather than destroyed : an admin toggle is not the end of a period.
+			for (ItemInstance item : player.getInventory().getPaperdollItems())
+			{
+				if (item.isHeroItem())
+					player.useEquippableItem(item, true);
 			}
 		}
 

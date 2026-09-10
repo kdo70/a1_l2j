@@ -608,14 +608,13 @@ public class VillageMaster extends Folk
 		if (player.isNoble())
 			return true;
 		
-		QuestState qs = player.getQuestList().getQuestState("Q234_FatesWhisper");
+		// Retail asks for Q234_FatesWhisper on top of Q235, but that quest was taken out of this
+		// datapack along with the weapon it handed out. Asking for a quest nobody can start would
+		// have left subclasses closed to everyone who is not noble.
+		final QuestState qs = player.getQuestList().getQuestState("Q235_MimirsElixir");
 		if (qs == null || !qs.isCompleted())
 			return false;
-		
-		qs = player.getQuestList().getQuestState("Q235_MimirsElixir");
-		if (qs == null || !qs.isCompleted())
-			return false;
-		
+
 		return true;
 	}
 	

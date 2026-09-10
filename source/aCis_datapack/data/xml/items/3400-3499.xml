@@ -522,25 +522,6 @@
 		<set name="price" val="10000" />
 		<set name="is_stackable" val="true" />
 	</item>
-	<item id="3471" type="Weapon" name="Cybellin's Dagger">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="400" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="10" />
-			<set stat="mAtk" val="9" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-		</for>
-	</item>
 	<item id="3472" type="EtcItem" name="Blood Medusa">
 		<set name="material" val="STEEL" />
 		<set name="price" val="50" />

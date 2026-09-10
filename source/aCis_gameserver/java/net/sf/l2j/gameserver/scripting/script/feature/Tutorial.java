@@ -13,14 +13,6 @@ import net.sf.l2j.gameserver.scripting.QuestState;
 public class Tutorial extends Quest
 {
 	private static final String QUEST_NAME = "Tutorial";
-	private static final String QUEST_NAME_101 = "Q101_SwordOfSolidarity";
-	private static final String QUEST_NAME_102 = "Q102_SeaOfSporesFever";
-	private static final String QUEST_NAME_103 = "Q103_SpiritOfCraftsman";
-	private static final String QUEST_NAME_104 = "Q104_SpiritOfMirrors";
-	private static final String QUEST_NAME_105 = "Q105_SkirmishWithTheOrcs";
-	private static final String QUEST_NAME_106 = "Q106_ForgottenTruth";
-	private static final String QUEST_NAME_107 = "Q107_MercilessPunishment";
-	private static final String QUEST_NAME_108 = "Q108_JumbleTumbleDiamondFuss";
 	
 	private static final Map<Integer, TutorialEvent> EVENTS = HashMap.newHashMap(9);
 	
@@ -166,22 +158,11 @@ public class Tutorial extends Quest
 						break;
 					
 					case 2:
-						final QuestState qs101 = player.getQuestList().getQuestState(QUEST_NAME_101);
-						final QuestState qs102 = player.getQuestList().getQuestState(QUEST_NAME_102);
-						final QuestState qs103 = player.getQuestList().getQuestState(QUEST_NAME_103);
-						final QuestState qs104 = player.getQuestList().getQuestState(QUEST_NAME_104);
-						final QuestState qs105 = player.getQuestList().getQuestState(QUEST_NAME_105);
-						final QuestState qs106 = player.getQuestList().getQuestState(QUEST_NAME_106);
-						final QuestState qs107 = player.getQuestList().getQuestState(QUEST_NAME_107);
-						final QuestState qs108 = player.getQuestList().getQuestState(QUEST_NAME_108);
-						
-						if (qs101 != null || qs102 != null || qs103 != null || qs104 != null || qs105 != null || qs106 != null || qs107 != null || qs108 != null)
-						{
-							st.set("ucMemo", 5);
-							showQuestionMark(player, 6);
-						}
-						else
-							showQuestionMark(player, 2);
+						// Retail asked here whether the newbie had picked up one of the eight first
+						// class quests (Q101..Q108) and pointed at it if so. Those quests were taken
+						// out of this datapack, so there is nothing left to point at and the tutorial
+						// goes straight on with the "not started yet" mark.
+						showQuestionMark(player, 2);
 						
 						playSound(player, SOUND_TUTORIAL);
 						break;

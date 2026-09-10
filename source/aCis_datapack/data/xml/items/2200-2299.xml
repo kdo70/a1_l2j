@@ -737,15 +737,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="2283" type="EtcItem" name="Recipe: Blue Crystal Skull">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="30400" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="2284" type="EtcItem" name="Recipe: Demon Fangs">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
@@ -828,24 +819,6 @@
 		<set name="handler" val="Recipes" />
 	</item>
 	<item id="2293" type="EtcItem" name="Recipe: Glaive">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="36000" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2294" type="EtcItem" name="Recipe: Vajra Wands">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="36000" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2295" type="EtcItem" name="Recipe: Ancient Reagent">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
 		<set name="material" val="LIQUID" />

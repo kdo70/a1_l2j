@@ -842,25 +842,6 @@
 		<set name="weight" val="120" />
 		<set name="price" val="75" />
 	</item>
-	<item id="1295" type="Weapon" name="Long Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="200" />
-		<set name="price" val="66600" />
-		<set name="soulshots" val="2" />
-		<set name="spiritshots" val="2" />
-		<for>
-			<set stat="pAtk" val="22" />
-			<set stat="mAtk" val="6" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
 	<item id="1297" type="Weapon" name="Bastard Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="SWORD" />

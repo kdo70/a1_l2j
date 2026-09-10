@@ -12,7 +12,6 @@ import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Armor;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
-import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.network.serverpackets.SkillList;
 import net.sf.l2j.gameserver.skills.L2Skill;
 
@@ -28,9 +27,11 @@ public class AdminEnchant implements IAdminCommandHandler
 	{
 		final StringTokenizer st = new StringTokenizer(command, " ");
 		st.nextToken(); // skip command
-		
+
 		if (st.countTokens() == 2)
 		{
+			// Whatever comes of it, the panel is put back in front of the GM afterwards - one slot
+			// is rarely the whole job, and retyping the level for every one of them is not work.
 			try
 			{
 				final Paperdoll paperdoll = Paperdoll.getEnumByName(st.nextToken());
@@ -153,14 +154,18 @@ public class AdminEnchant implements IAdminCommandHandler
 			{
 				player.sendMessage("Please specify a new enchant value.");
 			}
+			finally
+			{
+				// A finally, because half the paths above leave through a return : an unknown slot,
+				// an empty slot, a level that is already set. The panel comes back either way.
+				sendFile(player, "enchant.htm");
+			}
 		}
 		else
 		{
 			// No slot, no value : open the panel instead of printing a usage line. Type the level
 			// into the box, then click the slot - the client puts $enchant into the bypass for us.
-			final NpcHtmlMessage html = new NpcHtmlMessage(0);
-			html.setFile("data/html/admin/enchant.htm");
-			player.sendPacket(html);
+			sendFile(player, "enchant.htm");
 		}
 	}
 	

@@ -149,8 +149,9 @@ $BUYLISTS = @{
 	mystic  = @{ NG = 9130; D = 9131; C = 9132; B = 9133; A = 9134; S = 9135 }
 }
 
-# Monster weapons have no ladder and no grade worth sorting by - they exist so an NPC has something
-# in its hand. One list, one tab, all of them, so they stop being scattered through the grades.
+# Monster only kit has no ladder and no grade worth sorting by - it exists so an NPC has something
+# in its hand. One list, one tab, all of it, so it stops being scattered through the grade pages of
+# both the weapon and the armor tab.
 $MONSTER_LIST = 9136
 
 # The enchant glow package groups weapons by shape, not by class - see docs/enchant-glow.md. The
@@ -434,12 +435,15 @@ foreach ($w in $weapons)
 
 # The monster tab. These are not on the ladder at all - no grade, no rungs - so they are read
 # straight out of the datapack and thrown together in one list.
+#
+# Armor as well as weapons : the five `Monster Only (Shield of ...)` are shields, and they were
+# sitting on the No Grade Shields page of the armor tab. Same kit, same tab.
 $monsterIds = New-Object 'System.Collections.Generic.HashSet[int]'
 foreach ($id in ($index.Keys | Sort-Object))
 {
 	$e = $index[$id]
 	$head = $files[$e.file][$e.start]
-	if ($head -notmatch 'type="Weapon"') { continue }
+	if ($head -notmatch 'type="(Weapon|Armor)"') { continue }
 	if ($head -notmatch 'name="([^"]*)"') { continue }
 	$name = $Matches[1]
 	if ($name -notmatch '(?i)monster') { continue }
@@ -447,7 +451,7 @@ foreach ($id in ($index.Keys | Sort-Object))
 	$null = $monsterIds.Add($id)
 	$wanted[$MONSTER_LIST] += , @{ id = $id; from = 0; name = $name }
 }
-Write-Host "monster weapons in list $MONSTER_LIST : $($wanted[$MONSTER_LIST].Count)"
+Write-Host "monster only items in list $MONSTER_LIST : $($wanted[$MONSTER_LIST].Count)"
 
 $buyListsPath = Join-Path $dataDir 'buyLists.xml'
 $buyListsEndsNl = Test-EndsWithNewline $buyListsPath

@@ -8,7 +8,6 @@
 	<recipe alias="mk_dirk" id="6" material="2009-2;1869-80;1870-80" product="216-1" itemId="1790" level="1" mpConsume="45" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_brandish" id="7" material="2010-2;1869-110;1870-55" product="1333-1" itemId="1791" level="1" mpConsume="45" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_short_spear" id="8" material="2011-3;1869-220;1870-110;1866-55" product="15-1" itemId="1792" level="1" mpConsume="60" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_sword_of_reflexion" id="9" material="2012-3;1869-200;1870-200" product="120-1" itemId="1793" level="1" mpConsume="60" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_bow_of_forest" id="10" material="2013-3;1869-225;1878-45;1866-45" product="272-1" itemId="1794" level="1" mpConsume="60" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_leather_shoes" id="11" material="1921-2;1867-8;1866-1" product="37-1" itemId="1795" level="1" mpConsume="45" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_leather_tunic" id="12" material="1922-2;1867-24;1868-12" product="429-1" itemId="1796" level="1" mpConsume="45" successRate="100" isDwarven="true"/>
@@ -173,7 +172,6 @@
 	<recipe alias="mk_hammer_in_flames" id="172" material="2041-7;1880-180;1879-90;1885-45;1458-430;2130-139" product="294-1" itemId="2279" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_crucifix_of_blood" id="173" material="2042-7;1880-100;1881-200;1878-100;1458-430;2130-139" product="318-1" itemId="2280" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_eye_of_infinity" id="174" material="2043-7;1880-100;1881-200;1878-100;1458-430;2130-139" product="319-1" itemId="2281" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_blue_crystal_skull" id="176" material="2045-7;1880-110;1881-220;1878-110;1458-470;2130-153" product="320-1" itemId="2283" level="4" mpConsume="123" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_demon_fangs" id="177" material="2046-7;1880-110;1881-220;1878-110;1458-470;2130-153" product="321-1" itemId="2284" level="4" mpConsume="123" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_claymore" id="178" material="2047-8;1883-3;1880-270;1879-135;1458-550;2130-185" product="70-1" itemId="2285" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_bonebreaker" id="179" material="2048-8;1880-160;1879-160;1885-80;1458-550;2130-185" product="159-1" itemId="2286" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
@@ -184,8 +182,6 @@
 	<recipe alias="mk_scallop_jamadhr" id="184" material="2053-8;1880-160;1879-160;1885-80;1458-550;2130-185" product="262-1" itemId="2291" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_cyclone_bow" id="185" material="2054-8;1880-275;1878-55;1885-55;1458-550;2130-185" product="280-1" itemId="2292" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_glaive" id="186" material="2055-8;1880-220;1879-110;1885-55;1458-550;2130-185" product="297-1" itemId="2293" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_vajra_wands" id="187" material="2056-8;1880-130;1881-260;1878-130;1458-550;2130-185" product="322-1" itemId="2294" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_ancient_reagent" id="188" material="2057-8;1880-130;1881-260;1878-130;1458-550;2130-185" product="323-1" itemId="2295" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_atuba_mace" id="189" material="2058-8;1880-220;1879-110;1885-55;1458-550;2130-185" product="190-1" itemId="2296" level="4" mpConsume="129" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_flamberge" id="190" material="2059-8;1891-3;1890-24;1888-12;5220-48;1458-700;2131-81" product="71-1" itemId="2297" level="4" mpConsume="138" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_stormbringer" id="191" material="2060-8;1891-2;1890-25;1888-25;5220-50;1458-700;2131-81" product="72-1" itemId="2298" level="4" mpConsume="138" successRate="100" isDwarven="true"/>
@@ -234,7 +230,6 @@
 	<recipe alias="mk_fist_blade" id="239" material="2108-10;1890-54;1888-54;1885-27;5220-108;1459-300;2131-166" product="265-1" itemId="2346" level="5" mpConsume="156" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_akat_long_bow" id="240" material="2109-10;1890-85;1889-17;1885-17;5220-102;1459-290;2131-166" product="283-1" itemId="2347" level="5" mpConsume="156" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_heathen_s_book" id="241" material="2110-10;1893-37;1881-74;1889-37;5220-111;1459-300;2131-166" product="326-1" itemId="2348" level="5" mpConsume="156" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_hex_doll" id="242" material="2111-10;1893-37;1881-74;1889-37;5220-111;1459-300;2131-166" product="327-1" itemId="2349" level="5" mpConsume="156" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_paagrio_axe" id="243" material="2112-10;1890-80;1888-40;1885-20;5220-100;1459-330;2131-187" product="203-1" itemId="2350" level="5" mpConsume="159" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_scorpion" id="244" material="2113-10;1890-80;1888-40;1885-20;5220-100;1459-330;2131-187" product="301-1" itemId="2351" level="5" mpConsume="159" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_widow_maker" id="245" material="2114-10;1890-80;1888-40;1885-20;5220-100;1459-330;2131-187" product="303-1" itemId="2352" level="5" mpConsume="159" successRate="100" isDwarven="true"/>
@@ -245,12 +240,6 @@
 	<recipe alias="mk_great_pata" id="251" material="2120-11;1890-80;1888-80;1885-40;5220-160;1459-410;2131-248" product="266-1" itemId="2358" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_eminence_bow" id="252" material="2121-11;1890-120;1889-24;1885-24;5220-144;1459-420;2131-248" product="286-1" itemId="2359" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_orcish_poleaxe" id="253" material="2122-11;1890-104;1888-52;1885-26;5220-130;1459-420;2131-248" product="299-1" itemId="2360" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_candle_of_wisdom" id="254" material="2123-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="328-1" itemId="2361" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_blessed_branch" id="255" material="2124-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="329-1" itemId="2362" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_phoenix_s_feather" id="256" material="2125-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="330-1" itemId="2363" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_cerberus_s_eye" id="257" material="2126-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="331-1" itemId="2364" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_claws_of_blackdragon" id="259" material="2128-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="333-1" itemId="2366" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_three_eye_crow_s_feather" id="260" material="2129-11;1893-54;1881-108;1889-54;5220-162;1459-410;2131-248" product="334-1" itemId="2367" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_ring_of_binding" id="261" material="2917-11;1886-1;1895-40;1887-8;1459-20;2131-7" product="886-1" itemId="2970" level="6" mpConsume="165" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_mithril_scale_gaiters" id="262" material="2918-7;1883-2;1880-32;1458-60;2130-14" product="2377-1" itemId="2971" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_brigandine_gaiters" id="263" material="2919-7;1883-2;1880-32;1458-60;2130-14" product="2378-1" itemId="2972" level="3" mpConsume="120" successRate="100" isDwarven="true"/>

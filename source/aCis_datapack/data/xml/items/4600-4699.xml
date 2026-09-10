@@ -525,25 +525,6 @@
 		<set name="weight" val="20" />
 		<set name="is_oly_restricted" val="true" />
 	</item>
-	<item id="4665" type="Weapon" name="Pipette Knife">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="BRONZE" />
-		<set name="weight" val="1140" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="10" />
-			<set stat="mAtk" val="9" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-		</for>
-	</item>
 	<item id="4666" type="EtcItem" name="Reiria's Soul Orb">
 		<set name="material" val="STEEL" />
 		<set name="is_tradable" val="false" />

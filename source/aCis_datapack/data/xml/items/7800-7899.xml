@@ -97,30 +97,6 @@
 		<set name="is_dropable" val="false" />
 		<set name="is_sellable" val="false" />
 	</item>
-	<item id="7834" type="Weapon" name="Art of Battle Axe">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BLUNT" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="crystal_count" val="1746" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="CHRYSOLITE" />
-		<set name="weight" val="1570" />
-		<set name="price" val="13100000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="194" />
-			<set stat="mAtk" val="99" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="379" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="7835" type="EtcItem" name="Amulet: Seal of Disease">
 		<set name="material" val="PAPER" />
 		<set name="weight" val="120" />

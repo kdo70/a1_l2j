@@ -76,45 +76,6 @@
 			<baseadd stat="mDef" val="11" />
 		</for>
 	</item>
-	<item id="1510" type="Weapon" name="Butcher's Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1450" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="13" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
-	<item id="1511" type="Weapon" name="Silversmith Hammer">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BLUNT" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1860" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="13" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
 	<item id="1512" type="EtcItem" name="Spellbook: Confusion">
 		<set name="material" val="PAPER" />
 		<set name="weight" val="120" />

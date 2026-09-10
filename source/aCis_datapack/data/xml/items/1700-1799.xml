@@ -665,15 +665,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="1793" type="EtcItem" name="Recipe: Sword of Reflection">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="2720" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="1794" type="EtcItem" name="Recipe: Forest Bow">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />

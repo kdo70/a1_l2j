@@ -842,25 +842,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
 	</item>
-	<item id="975" type="Weapon" name="Blood Saber">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="1450" />
-		<set name="price" val="33600" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="14" />
-			<set stat="mAtk" val="11" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
 	<item id="976" type="EtcItem" name="1st Mark of Sentinel">
 		<set name="material" val="STEEL" />
 		<set name="is_tradable" val="false" />
@@ -905,25 +886,6 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
-	</item>
-	<item id="981" type="Weapon" name="Red Sunset Sword">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGSWORD" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1300" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="16" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="325" />
-		</for>
 	</item>
 	<item id="982" type="EtcItem" name="Esrandell's Letter">
 		<set name="material" val="STEEL" />
@@ -987,26 +949,6 @@
 		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="etcitem_type" val="QUEST" />
-	</item>
-	<item id="989" type="Weapon" name="Eldritch Dagger">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1130" />
-		<set name="price" val="25500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="11" />
-			<set stat="mAtk" val="10" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-		</for>
 	</item>
 	<item id="990" type="Armor" name="Mandragora Essence">
 		<set name="default_action" val="equip" />

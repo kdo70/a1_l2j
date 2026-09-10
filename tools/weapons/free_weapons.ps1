@@ -15,7 +15,10 @@
 
 	  * `Monster Only (...)` and `For Monsters Only (...)` - NPC kit, no player is meant to hold it;
 	  * the two cursed weapons, Zariche and Akamanah - dropping and trading them is the whole point
-	    of the curse and the engine, not the item flags, decides how that works.
+	    of the curse and the engine, not the item flags, decides how that works;
+	  * the eleven Infinity hero weapons - they are lent for a hero period, not owned. HeroManager
+	    takes them back when the period turns, and a tradable one would have been handed to somebody
+	    who is not a hero in the meantime.
 
 	The graded copies the ladder mints never carried these flags in the first place - generate.ps1
 	drops them, because a quest's lock on a donor says nothing about a copy.
@@ -52,8 +55,10 @@ $UTF8 = New-Object System.Text.UTF8Encoding $false
 
 $FLAGS = @('is_tradable', 'is_sellable', 'is_depositable', 'is_dropable', 'is_destroyable')
 
-# The curse is a feature of the engine, and it leans on these items being what they are.
+# The curse is a feature of the engine, and it leans on these items being what they are ; the hero
+# weapons are on loan from the Olympiad and go back at the end of the period.
 $KEEP_LOCKED = New-Object 'System.Collections.Generic.HashSet[int]'
+foreach ($id in 6611..6621) { $null = $KEEP_LOCKED.Add($id) }
 $cursed = Join-Path $xmlDir 'cursedWeapons.xml'
 if (Test-Path $cursed)
 {
@@ -62,7 +67,7 @@ if (Test-Path $cursed)
 		if ($l -match '<item\s+id="(\d+)"') { $null = $KEEP_LOCKED.Add([int]$Matches[1]) }
 	}
 }
-Write-Host "cursed weapons left locked : $(($KEEP_LOCKED | Sort-Object) -join ', ')"
+Write-Host "left locked : $(($KEEP_LOCKED | Sort-Object) -join ', ')"
 
 function Test-EndsWithNewline([string]$path)
 {

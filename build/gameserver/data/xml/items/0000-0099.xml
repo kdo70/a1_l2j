@@ -1184,29 +1184,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="82" type="Weapon" name="God's Blade">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="crystal_count" val="1900" />
-		<set name="crystal_type" val="S" />
-		<set name="material" val="ADAMANTAITE" />
-		<set name="weight" val="1300" />
-		<set name="price" val="38000000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="257" />
-			<set stat="mAtk" val="124" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="83" type="Weapon" name="Sword of Magic">
 		<set name="is_magical" val="true" />
 		<set name="default_action" val="equip" />
