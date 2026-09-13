@@ -18,9 +18,13 @@
 | `restore_weapons.ps1` | обратная операция: возвращает оружие в датапак из нетронутой копии (`-From`) — предмет, иконку, рецепт, продукты лавок, обмены и руки NPC |
 | `remove_sa_client.ps1` | клиентская половина удалений: выкидывает id списка из `weapongrp.dat` и `itemname-e.dat`; список задаётся `-Retired`, имя бэкапа — `-BackupSuffix` |
 | `restore_weapons_client.ps1` | клиентская половина возврата: копирует строки id из `*.bak` обратно в `weapongrp.dat` и `itemname-e.dat` |
-| `find_duplicates.ps1` | ищет оружие, неотличимое в мире, и предлагает, кого из группы оставить — пишет `duplicates.csv` |
-| `dedup_weapons.ps1` | сливает группы в одно оружие по `duplicates.csv`; квестовые строки пропускает, пока не сказано иначе |
+| `duplicates_texture.csv` | второй проход: 22 оружия, делящих текстуру и тип с другим, с тем, кто остаётся. Пишется `find_duplicates.ps1 -ByTexture` |
+| `find_duplicates.ps1` | ищет оружие, неотличимое в мире, и предлагает, кого из группы оставить — пишет `duplicates.csv`; с `-ByTexture` группирует по текстуре и типу и оставляет самый низкий грейд выше NG |
+| `dedup_weapons.ps1` | сливает группы в одно оружие по `duplicates.csv` (`-List`), список удалённых — в `generated\` под `-RetiredName`; квестовые строки пропускает, пока не сказано иначе |
 | `free_weapons.ps1` | снимает запреты на продажу, обмен, склад и выброс со всего оружия, кроме монстрового и проклятого |
+| `monster_only.csv` | ретейльное оружие, сделанное монстровым: NPC его держат, игроку взять негде. **Исходник, правится руками.** |
+| `monster_only.ps1` | снимает оружие `monster_only.csv` с игроков: лавки NPC, обмены, рецепты вместе с предметами-рецептами, `droplist.sql`; пишет `generated/monster_only_live.sql` для рабочей БД |
+| `monster_icons_client.ps1` | клиентская половина: ставит тому же оружию иконку `weapon_monster_i00` в `weapongrp.dat` (в `itemIcons.xml` она уже стоит) |
 | `generate.ps1` | чеканит лестницу, перезаполняет списки GM-магазина, пишет `generated/*.tsv` |
 | `patch_client.ps1` | дописывает новые id в `weapongrp.dat` / `itemname-e.dat` и переписывает эффект свечения |
 | `generated/client_items.tsv` | что скармливается `patch_client.ps1`: id, донор, грейд, числа, класс, вид свечения, имя |
@@ -54,6 +58,11 @@ powershell -ExecutionPolicy Bypass -File tools\weapons\dedup_weapons.ps1
 # 2e. снять запреты на продажу/обмен/склад/выброс
 powershell -ExecutionPolicy Bypass -File tools\weapons\free_weapons.ps1
 
+# 2f. сделать оружие monster only : id из monster_only.csv убрать из weapons.csv, шаг 2, потом
+#     это (скрипт откажется, пока id в weapons.csv). На живой БД ещё generated\monster_only_live.sql
+#     и //reload drop
+powershell -ExecutionPolicy Bypass -File tools\weapons\monster_only.ps1
+
 # 3. клиент: новые предметы и свечение
 powershell -ExecutionPolicy Bypass -File tools\weapons\patch_client.ps1 `
     -SystemDir "C:\Users\KRIVOSHEEC\Desktop\1\system" `
@@ -81,6 +90,15 @@ powershell -ExecutionPolicy Bypass -File tools\weapons\remove_sa_client.ps1 `
     -SystemDir "C:\Users\KRIVOSHEEC\Desktop\1\system" `
     -ToolsDir  "C:\Users\KRIVOSHEEC\Desktop\L2_File_Editor_2a__C4_to_Freya__by_CriticalError\data" `
     -Retired tools\weapons\generated\dedup_retired.csv -BackupSuffix ".dedup.bak"
+
+# 3f. клиент: дубли по текстуре, пятым списком (серверная половина - find_duplicates.ps1 -ByTexture
+#     -Out duplicates_texture.csv, dedup_weapons.ps1 -List duplicates_texture.csv
+#     -RetiredName dedup_texture_retired.csv), затем patch_client.ps1, monster_icons_client.ps1 и
+#     tools\client\tune_enchant_glow.ps1 -ByTexture
+powershell -ExecutionPolicy Bypass -File tools\weapons\remove_sa_client.ps1 `
+    -SystemDir "C:\Users\KRIVOSHEEC\Desktop\1\system" `
+    -ToolsDir  "C:\Users\KRIVOSHEEC\Desktop\L2_File_Editor_2a__C4_to_Freya__by_CriticalError\data" `
+    -Retired tools\weapons\generated\dedup_texture_retired.csv -BackupSuffix ".dedup_texture.bak"
 
 # 4. EnchantGlow.u кладётся в system\ КАК ЕСТЬ - голым, licensee 0.
 #    Заворачивать его в контейнер и трогать licensee нельзя, см. docs/enchant-glow.md.

@@ -26,16 +26,6 @@
 		<npc>30560</npc> <!-- Uska (Accessory Merchant) -->
 	</npcs>
 	<item>
-		<production id="152" count="1"/>
-		<ingredient id="4" count="1"/>
-		<ingredient id="57" count="8032"/>
-	</item>
-	<item>
-		<production id="5" count="1"/>
-		<ingredient id="152" count="1"/>
-		<ingredient id="57" count="4873"/>
-	</item>
-	<item>
 		<production id="155" count="1"/>
 		<ingredient id="154" count="1"/>
 		<ingredient id="57" count="208890"/>
@@ -64,21 +54,6 @@
 		<production id="215" count="1"/>
 		<ingredient id="11" count="1"/>
 		<ingredient id="57" count="12905"/>
-	</item>
-	<item>
-		<production id="216" count="1"/>
-		<ingredient id="12" count="1"/>
-		<ingredient id="57" count="45760"/>
-	</item>
-	<item>
-		<production id="216" count="1"/>
-		<ingredient id="215" count="1"/>
-		<ingredient id="57" count="45760"/>
-	</item>
-	<item>
-		<production id="218" count="1"/>
-		<ingredient id="216" count="1"/>
-		<ingredient id="57" count="90090"/>
 	</item>
 	<item>
 		<production id="218" count="1"/>
@@ -136,32 +111,12 @@
 		<ingredient id="57" count="90090"/>
 	</item>
 	<item>
-		<production id="68" count="1"/>
-		<ingredient id="2" count="1"/>
-		<ingredient id="57" count="118800"/>
-	</item>
-	<item>
-		<production id="68" count="1"/>
-		<ingredient id="121" count="1"/>
-		<ingredient id="57" count="118800"/>
-	</item>
-	<item>
 		<production id="8" count="1"/>
 		<ingredient id="7" count="1"/>
 		<ingredient id="57" count="12905"/>
 	</item>
 	<item>
-		<production id="99" count="1"/>
-		<ingredient id="7" count="1"/>
-		<ingredient id="57" count="12905"/>
-	</item>
-	<item>
 		<production id="8" count="1"/>
-		<ingredient id="308" count="1"/>
-		<ingredient id="57" count="12905"/>
-	</item>
-	<item>
-		<production id="99" count="1"/>
 		<ingredient id="308" count="1"/>
 		<ingredient id="57" count="12905"/>
 	</item>
@@ -169,21 +124,6 @@
 		<production id="9" count="1"/>
 		<ingredient id="8" count="1"/>
 		<ingredient id="57" count="45760"/>
-	</item>
-	<item>
-		<production id="9" count="1"/>
-		<ingredient id="99" count="1"/>
-		<ingredient id="57" count="45760"/>
-	</item>
-	<item>
-		<production id="176" count="1"/>
-		<ingredient id="9" count="1"/>
-		<ingredient id="57" count="90090"/>
-	</item>
-	<item>
-		<production id="311" count="1"/>
-		<ingredient id="176" count="1"/>
-		<ingredient id="57" count="118800"/>
 	</item>
 	<item>
 		<production id="311" count="1"/>
@@ -394,20 +334,5 @@
 		<production id="878" count="1"/>
 		<ingredient id="877" count="1"/>
 		<ingredient id="57" count="5258"/>
-	</item>
-	<item>
-		<production id="153" count="1"/>
-		<ingredient id="5" count="1"/>
-		<ingredient id="57" count="6600"/>
-	</item>
-	<item>
-		<production id="154" count="1"/>
-		<ingredient id="153" count="1"/>
-		<ingredient id="57" count="39160"/>
-	</item>
-	<item>
-		<production id="2" count="1"/>
-		<ingredient id="67" count="1"/>
-		<ingredient id="57" count="90090"/>
 	</item>
 </list>

@@ -199,10 +199,13 @@ $IAT_GETTICKCOUNT = 0x11D8E95C
 #   +20 offZ
 #   +24 scale
 #   +28 velocity
+#   +32 weapon    optional : the item id the three numbers above belong to, see flag 128
 #
 # Read whole or not at all : a short read drops the magic, so half a file being written while
-# the client reads it can never be applied.
-$LIVE_LEN = 32
+# the client reads it can never be applied. The file is 32 bytes, or 36 with the weapon id ; a
+# 32 byte one leaves +32 at zero.
+$LIVE_LEN = 36
+$LIVE_MIN = 32
 $LIVE_MAGIC = 0x574F4C47                  # 'GLOW'
 $LIVE_F_OFFSET = 1
 $LIVE_F_SCALE = 2
@@ -220,6 +223,10 @@ $LIVE_F_POKE = 16
 # 64 : report back. 16 bytes - magic, the weapon in hand, the level it was graded by, the outcome -
 # rewritten on every call, so an editor outside the client knows which weapon it is tuning.
 $LIVE_F_STATE = 64
+# 128 : offset, scale and velocity are applied only while the weapon in hand is the one at +32.
+# Any other weapon is built with what weapongrp says - so equipping one shows its real numbers,
+# the report below hands them out, and an editor can start from there.
+$LIVE_F_ONLY_WEAPON = 128
 
 # The report, whole :
 #
@@ -227,7 +234,12 @@ $LIVE_F_STATE = 64
 #   +4  [pawn+0x6A0] - the ITEM ID of the weapon in hand, see $FLD_WEAPONID below
 #   +8  the level the rung was graded by (the pawn's own, or the one -Live forced)
 #   +12 the outcome, the same byte the trace carries, with the step in the bits above it
-$STATE_LEN = 16
+#   +16 offX offY offZ scale velocity - what the ORIGINAL filled in from weapongrp, before any
+#       override. Taken on mesh 0 only : the second hand of a two-mesh weapon carries its own
+#       numbers and would overwrite them on the very next call.
+#   +36 which of those are real : 1 offset, 2 scale, 4 velocity (a NULL out-parameter is skipped)
+#   +40 the item id they were taken for - an editor trusts +16..+36 only while this equals +4
+$STATE_LEN = 44
 $STATE_MAGIC = 0x54534C47                 # 'GLST'
 
 # The gates inside the routine that actually builds the effect actor, APawn's
@@ -316,9 +328,9 @@ $AT_REC = 0x0720                          # the trace record, then the DWORD Wri
 $AT_PATH = 0x0780                         # where the trace goes, UTF-16, NUL terminated
 $AT_NAMES = 0x0A00                        # 64 slots of $SLOT bytes, UTF-16, NUL terminated
 $AT_LIVE = 0x1A00                         # the 32 bytes of the live config, as read
-$AT_LIVEREAD = 0x1A20                     # the DWORD ReadFile fills in
+$AT_LIVEREAD = 0x1A30                     # the DWORD ReadFile fills in
 $AT_LIVEPATH = 0x1A40                     # where that file is, UTF-16, NUL terminated
-$AT_STATE = 0x1C80                        # what the cave reports back : 16 bytes
+$AT_STATE = 0x1C80                        # what the cave reports back : 44 bytes
 $AT_STATEWROTE = 0x1CC0                   # the DWORD WriteFile fills in
 $AT_STATEPATH = 0x1CE0                    # where that report goes, UTF-16, NUL terminated
 $SLOT = 64
@@ -506,6 +518,7 @@ $cave = Assemble {
 	if ($Live)
 	{
 		B @(0xC7, 0x83) ; Va 'live' 0 ; I32 0        # mov  dword [ebx+<live>],0
+		B @(0xC7, 0x83) ; Va 'live' 32 ; I32 0       # mov  dword [ebx+<live>+32],0 ; no weapon, unless the file has one
 		B @(0xC7, 0x83) ; Va 'liveread' 0 ; I32 0    # mov  dword [ebx+<liveread>],0
 
 		B @(0x6A, 0x00)                              # push 0            ; hTemplateFile
@@ -524,7 +537,7 @@ $cave = Assemble {
 		B @(0x6A, 0x00)                              # push 0            ; lpOverlapped
 		B @(0x8D, 0x8B) ; Va 'liveread'              # lea  ecx,[ebx+<liveread>]
 		B @(0x51)                                    # push ecx
-		B @(0x6A, [byte]$LIVE_LEN)                   # push <32>
+		B @(0x6A, [byte]$LIVE_LEN)                   # push <36>
 		B @(0x8D, 0x93) ; Va 'live'                  # lea  edx,[ebx+<live>]
 		B @(0x52)                                    # push edx
 		B @(0xFF, 0x75, 0xE0)                        # push [ebp-20h]
@@ -533,8 +546,8 @@ $cave = Assemble {
 		B @(0xFF, 0x75, 0xE0)                        # push [ebp-20h]
 		B @(0xFF, 0x93) ; Abs32 $IAT_CLOSEHANDLE     # call [ebx+<CloseHandle>]
 
-		B @(0x81, 0xBB) ; Va 'liveread' ; I32 $LIVE_LEN  # cmp dword [ebx+<liveread>],<32>
-		B @(0x74) ; Rel8 'live_done'                 # je   live_done
+		B @(0x81, 0xBB) ; Va 'liveread' ; I32 $LIVE_MIN  # cmp dword [ebx+<liveread>],<32>
+		B @(0x73) ; Rel8 'live_done'                 # jae  live_done   ; 32 or 36, both whole
 		B @(0xC7, 0x83) ; Va 'live' 0 ; I32 0        # mov  dword [ebx+<live>],0
 		L 'live_done'
 	}
@@ -676,8 +689,56 @@ $cave = Assemble {
 	# rebuilding the dat. Each is guarded twice : by its flag, and by the pointer being real.
 	if ($Live)
 	{
+		# ---- first, what the original just took out of weapongrp, before anything below overwrites
+		# it : the report hands it out, so an editor can start from the numbers the weapon really
+		# has. Mesh 0 only, and only when the original found the row - outcome 0 is every way of
+		# reaching call_orig without one, and then the out-parameters hold whatever the caller had.
+		B @(0x83, 0x7D, 0x18, 0x00)                           # cmp  dword [ebp+18h],0 ; mesh index
+		B @(0x0F, 0x85) ; Rel32 'no_base'                     # jne  no_base
+		B @(0x83, 0x7D, 0xF4, 0x00)                           # cmp  dword [ebp-0Ch],0 ; outcome
+		B @(0x0F, 0x84) ; Rel32 'no_base'                     # je   no_base
+		B @(0xC7, 0x83) ; Va 'state' 36 ; I32 0               # mov  dword [ebx+<state>+36],0
+		B @(0x8B, 0x86) ; Abs32 $FLD_WEAPONID                 # mov  eax,[esi+6A0h]
+		B @(0x89, 0x83) ; Va 'state' 40                       # mov  [ebx+<state>+40],eax
+
+		B @(0x8B, 0x45, 0x0C)                                 # mov  eax,[ebp+0Ch]
+		B @(0x85, 0xC0)                                       # test eax,eax
+		B @(0x74) ; Rel8 'no_base_off'                        # jz   no_base_off
+		B @(0x8B, 0x08)                                       # mov  ecx,[eax]
+		B @(0x89, 0x8B) ; Va 'state' 16                       # mov  [ebx+<state>+16],ecx
+		B @(0x8B, 0x48, 0x04)                                 # mov  ecx,[eax+4]
+		B @(0x89, 0x8B) ; Va 'state' 20                       # mov  [ebx+<state>+20],ecx
+		B @(0x8B, 0x48, 0x08)                                 # mov  ecx,[eax+8]
+		B @(0x89, 0x8B) ; Va 'state' 24                       # mov  [ebx+<state>+24],ecx
+		B @(0x83, 0x8B) ; Va 'state' 36 ; B @(0x01)           # or   dword [ebx+<state>+36],1
+		L 'no_base_off'
+
+		B @(0x8B, 0x45, 0x10)                                 # mov  eax,[ebp+10h]
+		B @(0x85, 0xC0)                                       # test eax,eax
+		B @(0x74) ; Rel8 'no_base_scale'                      # jz   no_base_scale
+		B @(0x8B, 0x08)                                       # mov  ecx,[eax]
+		B @(0x89, 0x8B) ; Va 'state' 28                       # mov  [ebx+<state>+28],ecx
+		B @(0x83, 0x8B) ; Va 'state' 36 ; B @(0x02)           # or   dword [ebx+<state>+36],2
+		L 'no_base_scale'
+
+		B @(0x8B, 0x45, 0x14)                                 # mov  eax,[ebp+14h]
+		B @(0x85, 0xC0)                                       # test eax,eax
+		B @(0x74) ; Rel8 'no_base'                            # jz   no_base
+		B @(0x8B, 0x08)                                       # mov  ecx,[eax]
+		B @(0x89, 0x8B) ; Va 'state' 32                       # mov  [ebx+<state>+32],ecx
+		B @(0x83, 0x8B) ; Va 'state' 36 ; B @(0x04)           # or   dword [ebx+<state>+36],4
+		L 'no_base'
+
 		B @(0x81, 0xBB) ; Va 'live' ; I32 $LIVE_MAGIC         # cmp  dword [ebx+<live>],'GLOW'
 		B @(0x0F, 0x85) ; Rel32 'live_off'                    # jne  live_off
+
+		# Flag 128 : the numbers belong to one weapon, and every other one keeps its own.
+		B @(0xF7, 0x83) ; Va 'live' 4 ; I32 $LIVE_F_ONLY_WEAPON  # test dword [ebx+<live>+4],128
+		B @(0x74) ; Rel8 'any_weapon'                         # jz   any_weapon
+		B @(0x8B, 0x86) ; Abs32 $FLD_WEAPONID                 # mov  eax,[esi+6A0h]
+		B @(0x3B, 0x83) ; Va 'live' 32                        # cmp  eax,[ebx+<live>+32]
+		B @(0x0F, 0x85) ; Rel32 'live_off'                    # jne  live_off
+		L 'any_weapon'
 
 		B @(0xF7, 0x83) ; Va 'live' 4 ; I32 $LIVE_F_OFFSET    # test dword [ebx+<live>+4],1
 		B @(0x74) ; Rel8 'no_off'                             # jz   no_off

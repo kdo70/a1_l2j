@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list>
-	<item id="2300" type="EtcItem" name="Recipe: Scythe">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="45800" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2301" type="EtcItem" name="Recipe: Battle Axe">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="45800" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="2302" type="EtcItem" name="Recipe: Silver Axe">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
@@ -117,39 +99,12 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="2313" type="EtcItem" name="Recipe: Orcish Glaive">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="45800" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="2314" type="EtcItem" name="Recipe: Body Slasher">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
 		<set name="material" val="LIQUID" />
 		<set name="weight" val="30" />
 		<set name="price" val="45800" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2315" type="EtcItem" name="Recipe: Shamshir">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="57400" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2316" type="EtcItem" name="Recipe: Katana">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="57400" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
@@ -235,15 +190,6 @@
 		<set name="handler" val="Recipes" />
 	</item>
 	<item id="2327" type="EtcItem" name="Recipe: Caliburs">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="86000" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2328" type="EtcItem" name="Recipe: Sword of Delusion">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
 		<set name="material" val="LIQUID" />
@@ -487,15 +433,6 @@
 		<set name="handler" val="Recipes" />
 	</item>
 	<item id="2356" type="EtcItem" name="Recipe: Demon's Staff">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="122600" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
-	<item id="2357" type="EtcItem" name="Recipe: Crystal Dagger">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
 		<set name="material" val="LIQUID" />

@@ -78,12 +78,16 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $LIVE_LEN = 32
+# tune_glow_keys.ps1 writes 36 : the same block plus the id of the one weapon it applies to (flag
+# 128). Such a file is read and written back at its own length, so that id and flag survive.
+$LIVE_LEN_WEAPON = 36
 $LIVE_MAGIC = 0x574F4C47                  # 'GLOW'
 $F_OFFSET = 1
 $F_SCALE = 2
 $F_VELOCITY = 4
 $F_ENCHANT = 8
 $F_POKE = 16
+$F_ONLY_WEAPON = 128
 
 if (-not (Test-Path $SystemDir)) { throw "No such directory: $SystemDir" }
 $path = Join-Path $SystemDir $FileName
@@ -108,6 +112,7 @@ function Show-Live([byte[]] $b)
 	}
 	if ($flags -band $F_SCALE) { $on += "scale=$(([BitConverter]::ToSingle($b, 24)).ToString('0.###', $inv))" }
 	if ($flags -band $F_VELOCITY) { $on += "velocity=$(([BitConverter]::ToSingle($b, 28)).ToString('0.###', $inv))" }
+	if (($flags -band $F_ONLY_WEAPON) -and $b.Length -ge $LIVE_LEN_WEAPON) { $on += "only for id $([BitConverter]::ToInt32($b, 32))" }
 	if ($on.Count -eq 0) { Write-Host "$path : nothing overridden" } else { Write-Host "$path : $($on -join '  ')" }
 }
 
@@ -117,8 +122,8 @@ $cur = $null
 if (Test-Path $path)
 {
 	$raw = [System.IO.File]::ReadAllBytes($path)
-	if ($raw.Length -eq $LIVE_LEN -and [BitConverter]::ToInt32($raw, 0) -eq $LIVE_MAGIC) { $cur = $raw }
-	elseif (-not $Clear) { Write-Warning "$path is not a $LIVE_LEN byte 'GLOW' file ; starting over." }
+	if (($raw.Length -eq $LIVE_LEN -or $raw.Length -eq $LIVE_LEN_WEAPON) -and [BitConverter]::ToInt32($raw, 0) -eq $LIVE_MAGIC) { $cur = $raw }
+	elseif (-not $Clear) { Write-Warning "$path is not a $LIVE_LEN or $LIVE_LEN_WEAPON byte 'GLOW' file ; starting over." }
 }
 
 if ($Show) { Show-Live $cur ; return }
@@ -130,8 +135,8 @@ if ($Clear)
 	return
 }
 
-$b = New-Object 'byte[]' $LIVE_LEN
-if ($cur) { [Array]::Copy($cur, $b, $LIVE_LEN) }
+$b = New-Object 'byte[]' $(if ($cur) { $cur.Length } else { $LIVE_LEN })
+if ($cur) { [Array]::Copy($cur, $b, $cur.Length) }
 [Array]::Copy([BitConverter]::GetBytes([int]$LIVE_MAGIC), 0, $b, 0, 4)
 
 $flags = $(if ($cur) { [BitConverter]::ToInt32($cur, 4) } else { 0 })

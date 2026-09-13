@@ -175,31 +175,6 @@
 			<enchant val="0" stat="mAtk" />
 		</for>
 	</item>
-	<item id="207" type="Weapon" name="Staff of Phantom">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="BIGBLUNT" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="20" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;46;120" />
-		<set name="crystal_count" val="1157" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="ORIHARUKON" />
-		<set name="weight" val="980" />
-		<set name="price" val="8680000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="170" />
-			<set stat="mAtk" val="122" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
 	<item id="210" type="Weapon" name="Staff of Evil Spirits">
 		<set name="is_magical" val="true" />
 		<set name="default_action" val="equip" />
@@ -290,26 +265,6 @@
 		<for>
 			<set stat="pAtk" val="10" />
 			<set stat="mAtk" val="9" />
-			<set stat="rCrit" val="12" />
-			<sub stat="accCombat" val="3" />
-			<set stat="pAtkSpd" val="433" />
-		</for>
-	</item>
-	<item id="216" type="Weapon" name="Dirk">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DAGGER" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="STEEL" />
-		<set name="weight" val="1130" />
-		<set name="price" val="54100" />
-		<set name="soulshots" val="2" />
-		<set name="spiritshots" val="2" />
-		<for>
-			<set stat="pAtk" val="15" />
-			<set stat="mAtk" val="12" />
 			<set stat="rCrit" val="12" />
 			<sub stat="accCombat" val="3" />
 			<set stat="pAtkSpd" val="433" />
@@ -1259,30 +1214,6 @@
 		<for>
 			<set stat="pAtk" val="130" />
 			<set stat="mAtk" val="61" />
-			<set stat="rCrit" val="4" />
-			<add stat="accCombat" val="4" />
-			<set stat="pAtkSpd" val="325" />
-			<enchant val="0" stat="pAtk" />
-			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="264" type="Weapon" name="Pata">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="DUALFIST" />
-		<set name="bodypart" val="lrhand" />
-		<set name="random_damage" val="5" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;42;90" />
-		<set name="crystal_count" val="1044" />
-		<set name="crystal_type" val="B" />
-		<set name="material" val="FINE_STEEL" />
-		<set name="weight" val="1440" />
-		<set name="price" val="7830000" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="204" />
-			<set stat="mAtk" val="89" />
 			<set stat="rCrit" val="4" />
 			<add stat="accCombat" val="4" />
 			<set stat="pAtkSpd" val="325" />

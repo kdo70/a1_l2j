@@ -44,7 +44,10 @@ param(
 	[string]$Repo = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
 	[string]$List = '',
 	[switch]$IncludeQuestBound,
-	[switch]$DryRun
+	[switch]$DryRun,
+	# The list handed to remove_weapons.ps1 and later to remove_sa_client.ps1, under generated\. A
+	# second round of merging gets a name of its own, so the first round's list is not overwritten.
+	[string]$RetiredName = 'dedup_retired.csv'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -122,7 +125,7 @@ foreach ($r in ($take | Sort-Object { [int]$_.drop }))
 {
 	$retired.Add(('"{0}","{1}","{2}","{3}"' -f $r.drop, $r.dropName.Replace('"', ''), $r.keep, $r.keepName.Replace('"', '')))
 }
-$retiredPath = Join-Path $outDir 'dedup_retired.csv'
+$retiredPath = Join-Path $outDir $RetiredName
 [System.IO.File]::WriteAllText($retiredPath, (($retired -join "`r`n") + "`r`n"), $UTF8)
 Write-Host "wrote $retiredPath ($($take.Count) weapon(s))"
 

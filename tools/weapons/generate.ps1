@@ -161,6 +161,12 @@ $MONSTER_LIST = 9136
 # icon, and that is the only thing they have in common.
 $MONSTER_ICON = 'weapon_monster_i00'
 
+# ...and retail weapons made monster only by hand : they keep their own icon and name, NPCs keep
+# holding them, and monster_only.ps1 takes away every way a player had of getting one.
+$MONSTER_ONLY = New-Object 'System.Collections.Generic.HashSet[int]'
+$monsterOnlyCsv = Join-Path $PSScriptRoot 'monster_only.csv'
+if (Test-Path $monsterOnlyCsv) { foreach ($r in Import-Csv $monsterOnlyCsv) { $null = $MONSTER_ONLY.Add([int]$r.id) } }
+
 # The enchant glow package groups weapons by shape, not by class - see docs/enchant-glow.md. The
 # suffix travels to the client in client_items.tsv, so patch_client.ps1 can write it into weapongrp.
 $GLOW_TYPE = @{
@@ -278,7 +284,7 @@ else { Write-Warning "No $iconsPath ; monster kit will only be found by name." }
 
 # Monster kit has no business on the ladder : minting five grades of `Tomb Guard A` puts five more
 # of it in the shop. Refused rather than skipped, so the row gets taken out of weapons.csv for good.
-$onLadder = @($weapons | Where-Object { $iconOf.ContainsKey([int]$_.id) -and $iconOf[[int]$_.id] -eq $MONSTER_ICON })
+$onLadder = @($weapons | Where-Object { ($iconOf.ContainsKey([int]$_.id) -and $iconOf[[int]$_.id] -eq $MONSTER_ICON) -or $MONSTER_ONLY.Contains([int]$_.id) })
 if ($onLadder.Count -gt 0)
 {
 	throw "$($onLadder.Count) monster weapon(s) are still in weapons.csv - take them out : $(($onLadder | ForEach-Object { "$($_.id) $($_.name)" }) -join ', ')"
@@ -476,7 +482,7 @@ foreach ($id in ($index.Keys | Sort-Object))
 	$name = $Matches[1]
 	# The icon is the real test ; the name is the fallback for an item itemIcons.xml has no row for.
 	$byIcon = $iconOf.ContainsKey($id) -and $iconOf[$id] -eq $MONSTER_ICON
-	if (-not $byIcon -and $name -notmatch '(?i)monster') { continue }
+	if (-not $byIcon -and -not $MONSTER_ONLY.Contains($id) -and $name -notmatch '(?i)monster') { continue }
 	$null = $owned.Add($id)
 	$null = $monsterIds.Add($id)
 	$wanted[$MONSTER_LIST] += , @{ id = $id; from = 0; name = $name }

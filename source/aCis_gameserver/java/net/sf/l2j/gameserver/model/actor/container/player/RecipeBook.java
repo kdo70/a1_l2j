@@ -167,6 +167,9 @@ public class RecipeBook
 				while (rs.next())
 				{
 					final Recipe recipe = RecipeData.getInstance().getRecipeList(rs.getInt("recipeId"));
+					if (recipe == null)
+						continue;
+
 					putRecipe(recipe, recipe.isDwarven(), false);
 				}
 			}

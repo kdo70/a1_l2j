@@ -27,8 +27,13 @@
 	  ALT + 1 .. 7             jump to a rung : 4, 7, 10, 12, 14, 15, 17
 	  ALT + S                  save these numbers for this weapon SHAPE
 	  ALT + D                  save them against the id of the weapon in hand instead
-	  ALT + R                  back to 0 0 0, scale 1, velocity 1
+	  ALT + R                  back to what the weapon in hand was equipped with
 	  ALT + Q                  quit, leaving the client on the last numbers
+
+	Equipping a weapon starts you from ITS numbers : the row the tuning table already has for it
+	(id:<n>, then its shape, then "*"), or else what weapongrp holds - the cave reports those back.
+	The numbers you dial in apply to that one weapon only ; any other weapon is drawn off weapongrp
+	until you equip it, and then it is the one being tuned.
 
 	RUN THIS WINDOW AS ADMINISTRATOR if the client runs as one. Windows will not let a process see
 	input going to a window of higher integrity (UIPI), so an unelevated script reads nothing while
@@ -39,9 +44,8 @@
 	way to tell a modifier that never arrives from a script that died on startup.
 
 	-Poke is set for you, so the forced rung works without a server. The other half is engine side :
-	while the pawn already holds an effect the client rebuilds nothing, so the engine needs
-	-NoEffectCache AND -RebuildAlways, or nothing moves until the weapon is taken off. See
-	docs/enchant-glow.md.
+	while the pawn already holds an effect the client rebuilds nothing, so without -RebuildAlways a
+	change is seen only once the weapon is taken off and put back on. See docs/enchant-glow.md.
 
 	Saving writes a shape row - or "id:<weapon>" with ALT+D - into the tuning table. To put the
 	table into weapongrp afterwards :
@@ -82,9 +86,10 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$LIVE_LEN = 32
+$LIVE_LEN = 36                            # 32 of numbers, then the id of the weapon they are for
 $LIVE_MAGIC = 0x574F4C47                  # 'GLOW'
 $STATE_LEN = 16
+$STATE_LEN_BASE = 44                      # a build that also reports what weapongrp holds
 $STATE_MAGIC = 0x54534C47                 # 'GLST'
 
 $F_OFFSET = 1
@@ -94,6 +99,9 @@ $F_ENCHANT = 8
 $F_POKE = 16
 # 32 is dead : rebuilding every tick is engine-side, patch_engine_enchant_glow.ps1 -NoEffectCache.
 $F_STATE = 64
+# The numbers apply to the weapon whose id is at +32 and to nothing else : any other weapon is built
+# with what weapongrp says, and the report hands those numbers back to start from.
+$F_ONLY_WEAPON = 128
 
 $RUNGS = @(4, 7, 10, 12, 14, 15, 17)
 $INV = [System.Globalization.CultureInfo]::InvariantCulture
@@ -203,16 +211,22 @@ if ($KeyTest)
 # The two files.
 # ---------------------------------------------------------------------------
 
-$state = @{ ox = 0.0; oy = 0.0; oz = 0.0; scale = 1.0; velocity = 1.0; enchant = $Enchant }
+# weapon : the id these numbers belong to, 0 while no weapon has been reported. Until then nothing is
+# overridden and the client draws every weapon off weapongrp.
+$state = @{ ox = 0.0; oy = 0.0; oz = 0.0; scale = 1.0; velocity = 1.0; enchant = $Enchant; weapon = 0 }
+# What the weapon in hand started from when it was equipped - ALT+R goes back here.
+$start = $null
 
-# What is already there is where we pick up, so a session continues the last one.
+# What is already there is where we pick up, so a session continues the last one - including the
+# weapon, so that the same weapon still in hand keeps its unsaved numbers instead of being reloaded.
 if (Test-Path $livePath)
 {
 	$raw = [System.IO.File]::ReadAllBytes($livePath)
-	if ($raw.Length -eq $LIVE_LEN -and [BitConverter]::ToInt32($raw, 0) -eq $LIVE_MAGIC)
+	if (($raw.Length -eq 32 -or $raw.Length -eq $LIVE_LEN) -and [BitConverter]::ToInt32($raw, 0) -eq $LIVE_MAGIC)
 	{
 		$f = [BitConverter]::ToInt32($raw, 4)
 		if ($f -band $F_ENCHANT) { $state.enchant = [BitConverter]::ToInt32($raw, 8) }
+		if (($f -band $F_ONLY_WEAPON) -and $raw.Length -eq $LIVE_LEN) { $state.weapon = [BitConverter]::ToInt32($raw, 32) }
 		if ($f -band $F_OFFSET)
 		{
 			$state.ox = [double][BitConverter]::ToSingle($raw, 12)
@@ -227,7 +241,8 @@ if (Test-Path $livePath)
 function Write-Live($s)
 {
 	$b = New-Object 'byte[]' $LIVE_LEN
-	$flags = $F_OFFSET -bor $F_SCALE -bor $F_VELOCITY -bor $F_ENCHANT -bor $F_POKE -bor $F_STATE
+	$flags = $F_OFFSET -bor $F_SCALE -bor $F_VELOCITY -bor $F_ENCHANT -bor $F_POKE -bor $F_STATE -bor $F_ONLY_WEAPON
+	[Array]::Copy([BitConverter]::GetBytes([int]$s.weapon), 0, $b, 32, 4)
 	[Array]::Copy([BitConverter]::GetBytes([int]$LIVE_MAGIC), 0, $b, 0, 4)
 	[Array]::Copy([BitConverter]::GetBytes([int]$flags), 0, $b, 4, 4)
 	[Array]::Copy([BitConverter]::GetBytes([int]$s.enchant), 0, $b, 8, 4)
@@ -290,13 +305,114 @@ function Read-Report
 		$i = [int][Math]::Floor($step / $RUNGS.Count)
 		if ($i -ge 0 -and $i -lt $SHAPES.Count) { $shape = $SHAPES[$i] }
 	}
+	$weapon = [BitConverter]::ToInt32($raw, 4)
+
+	# What the original took out of weapongrp for this weapon, before any override. Only trusted
+	# while it was taken for the weapon the report is about - the cave keeps it from the last call on
+	# mesh 0, which can be a frame behind a weapon change.
+	$base = $null
+	if ($raw.Length -ge $STATE_LEN_BASE -and [BitConverter]::ToInt32($raw, 40) -eq $weapon)
+	{
+		$mask = [BitConverter]::ToInt32($raw, 36)
+		if ($mask -band 7)
+		{
+			$base = @{ ox = 0.0; oy = 0.0; oz = 0.0; scale = 1.0; velocity = 1.0; mask = $mask }
+			if ($mask -band $F_OFFSET)
+			{
+				$base.ox = [Math]::Round([double][BitConverter]::ToSingle($raw, 16), 3)
+				$base.oy = [Math]::Round([double][BitConverter]::ToSingle($raw, 20), 3)
+				$base.oz = [Math]::Round([double][BitConverter]::ToSingle($raw, 24), 3)
+			}
+			if ($mask -band $F_SCALE) { $base.scale = [Math]::Round([double][BitConverter]::ToSingle($raw, 28), 3) }
+			if ($mask -band $F_VELOCITY) { $base.velocity = [Math]::Round([double][BitConverter]::ToSingle($raw, 32), 3) }
+		}
+	}
 	return @{
-		weapon  = [BitConverter]::ToInt32($raw, 4)
+		weapon  = $weapon
 		graded  = [BitConverter]::ToInt32($raw, 8)
 		outcome = $outcome -band 0xFF
 		shape   = $shape
+		base    = $base
+		# A 16 byte report is left over from an engine that did not report weapongrp at all ; the
+		# first call of the current one replaces it, so it is no reason to warn.
+		full    = $raw.Length -ge $STATE_LEN_BASE
 	}
 }
+
+# ---------------------------------------------------------------------------
+# Where a newly equipped weapon starts from.
+#
+#   a row of the tuning table for it   id:<n>, then its shape, then "*" - the order
+#                                      tune_enchant_glow.ps1 applies them in. Saved but not yet
+#                                      put into weapongrp, so the client does not know it.
+#   what weapongrp holds               out of the report - what the client draws it with right now
+# ---------------------------------------------------------------------------
+
+$TUNING_FILE = Join-Path $PSScriptRoot 'enchant_glow_tuning.tsv'
+
+function Find-TuningRow([int] $id, [string] $shape)
+{
+	if (-not (Test-Path $TUNING_FILE)) { return $null }
+	$rows = @{}
+	foreach ($line in [System.IO.File]::ReadAllLines($TUNING_FILE))
+	{
+		$s = $line.Trim()
+		if ($s -eq '' -or $s.StartsWith('#')) { continue }
+		$f = $s -split '\s+'
+		if ($f.Count -lt 6) { continue }
+		$v = @()
+		foreach ($cell in $f[1..5])
+		{
+			$n = 0.0
+			if (-not [double]::TryParse($cell, [Globalization.NumberStyles]::Float, $INV, [ref]$n)) { $v = $null ; break }
+			$v += $n
+		}
+		if ($v) { $rows[$f[0]] = $v }
+	}
+	foreach ($key in @("id:$id", $shape, '*'))
+	{
+		if ($key -and $rows.ContainsKey($key))
+		{
+			$v = $rows[$key]
+			return @{ ox = $v[0]; oy = $v[1]; oz = $v[2]; scale = $v[3]; velocity = $v[4]; from = "table $key" }
+		}
+	}
+	return $null
+}
+
+# A weapon other than the one being tuned is in hand : take its starting numbers and bind the live
+# file to it. Returns $true when the state changed.
+function Update-Weapon($r)
+{
+	if ($null -eq $r -or $r.weapon -le 0 -or $r.weapon -eq $script:state.weapon) { return $false }
+
+	$from = Find-TuningRow $r.weapon $r.shape
+	if ($null -eq $from -and $r.base)
+	{
+		$from = $r.base.Clone()
+		$from.from = 'weapongrp'
+	}
+	if ($null -eq $from)
+	{
+		# No base in the report yet (it lags a frame, or the engine predates it) : wait for the next
+		# one rather than bind the weapon to numbers that are not its own.
+		if ($r.full -and $r.base -eq $null -and -not $script:warnedNoBase)
+		{
+			$script:warnedNoBase = $true
+			Write-Warning "the report carries no weapongrp numbers for id $($r.weapon) yet - normal for a frame after a weapon change ; if it stays, what is in hand has no weapongrp row (the client found none either)"
+		}
+		return $false
+	}
+
+	foreach ($k in 'ox', 'oy', 'oz', 'scale', 'velocity') { $script:state[$k] = [double]$from[$k] }
+	$script:state.weapon = $r.weapon
+	$script:start = $from
+	Write-Live $script:state
+	Write-Host "  id $($r.weapon) equipped : starting from $($from.from)"
+	return $true
+}
+
+$warnedNoBase = $false
 
 function Show-State($s, $r)
 {
@@ -377,6 +493,12 @@ if ($Once)
 	Write-Host "live  : $livePath"
 	Write-Host "state : $statePath"
 	$r = Read-Report
+	if ($r -and $r.base)
+	{
+		Write-Host ([string]::Format($INV, 'weapongrp for id {0} : off ({1}, {2}, {3})  scale {4}  vel {5}', $r.weapon,
+			$r.base.ox, $r.base.oy, $r.base.oz, $r.base.scale, $r.base.velocity))
+	}
+	$null = Update-Weapon $r
 	Write-Host (Show-State $state $r)
 	if ($null -eq $r)
 	{
@@ -404,6 +526,7 @@ Write-Host "  $M + S                      save for this weapon SHAPE   $M + D : 
 Write-Host "  $M + R                      reset      $M + Q : quit"
 Write-Host ''
 $lastReport = Read-Report
+$null = Update-Weapon $lastReport
 Write-Host (Show-State $state $lastReport)
 if ($null -eq $lastReport)
 {
@@ -431,7 +554,8 @@ while ($true)
 		# Nothing is held with the modifier up, so no press carries into the next round.
 		$wasDown.Clear()
 		$w = Read-Report
-		if ($null -ne $w -and ($null -eq $lastReport -or $w.shape -ne $lastReport.shape -or $w.weapon -ne $lastReport.weapon))
+		$switched = Update-Weapon $w
+		if ($null -ne $w -and ($switched -or $null -eq $lastReport -or $w.shape -ne $lastReport.shape -or $w.weapon -ne $lastReport.weapon))
 		{
 			$lastReport = $w
 			Write-Host (Show-State $state $w)
@@ -467,7 +591,15 @@ while ($true)
 
 	if (Pressed $VK.R 'r')
 	{
-		$state.ox = 0.0 ; $state.oy = 0.0 ; $state.oz = 0.0 ; $state.scale = 1.0 ; $state.velocity = 1.0
+		# Back to what the weapon was equipped with ; neutral only when nothing is known about it.
+		if ($start)
+		{
+			foreach ($k in 'ox', 'oy', 'oz', 'scale', 'velocity') { $state[$k] = [double]$start[$k] }
+		}
+		else
+		{
+			$state.ox = 0.0 ; $state.oy = 0.0 ; $state.oz = 0.0 ; $state.scale = 1.0 ; $state.velocity = 1.0
+		}
 		$moved = $true
 	}
 

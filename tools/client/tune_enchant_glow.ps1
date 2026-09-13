@@ -55,6 +55,12 @@
 	A row that names an id of its own always wins over one it inherits this way. Two tuned ids in
 	one look with different numbers is a conflict : the lowest id wins, and it says so.
 
+.PARAMETER ByTexture
+	The same as -ByModel, but a weapon is known by its TEXTURES and its weapon_type, the mesh is not
+	looked at : an "id:" row goes to every row of weapongrp of the same kind painted with the same
+	textures. That catches the graded copies of the ladder and everything else that re-uses one skin.
+	The type is part of the key because one texture sheet can paint a sword and a dagger.
+
 .PARAMETER Report
 	Print what the table holds now, per shape, and change nothing.
 
@@ -71,6 +77,7 @@ param(
 	[Parameter(Mandatory = $true)][string]$ToolsDir,
 	[string]$Tuning = '',
 	[switch]$ByModel,
+	[switch]$ByTexture,
 	[switch]$Report,
 	[switch]$DryRun
 )
@@ -135,11 +142,16 @@ function Read-Tuning([string]$path)
 # meant to. l2disasm writes only as many cells of an array as the data fills, so a column being
 # absent from this table is normal and not a broken ddf.
 $MODEL_COLS = @('wpn_mesh[0]', 'wpn_mesh[1]', 'wpn_tex[0]', 'wpn_tex[1]', 'wpn_tex[2]')
+# -ByTexture : the skin, and the kind of weapon wearing it. One texture sheet can paint a sword and a
+# dagger (149 Sword of Life and 230 Wolverine Needle), and their glow sits at different places ;
+# weapon_type keeps them - and the ladder copies of each - apart.
+$TEXTURE_COLS = @('wpn_tex[0]', 'wpn_tex[1]', 'wpn_tex[2]', 'weapon_type')
 
-# -ByModel : every "id:" row is really about the look that id wears, so hand its numbers to every
-# other row wearing it. Rows named in the table keep their own numbers.
-function Expand-ByModel($table, $rows, $cols)
+# -ByModel / -ByTexture : every "id:" row is really about the look that id wears, so hand its numbers
+# to every other row wearing it. Rows named in the table keep their own numbers.
+function Expand-ByModel($table, $rows, $cols, [string[]]$lookCols = $MODEL_COLS, [string]$label = '-ByModel')
 {
+	$MODEL_COLS = $lookCols
 	$idC = $cols['id']
 	$look = @{}          # id -> look
 	$wearers = @{}       # look -> ids
@@ -194,7 +206,7 @@ function Expand-ByModel($table, $rows, $cols)
 		}
 	}
 
-	Write-Host "  -ByModel : $($tunedIn.Count) look(s) named by the table -> $added more row(s) covered$(if ($clash) { ", $clash conflict(s)" })"
+	Write-Host "  $label : $($tunedIn.Count) look(s) named by the table -> $added more row(s) covered$(if ($clash) { ", $clash conflict(s)" })"
 	$table
 }
 
@@ -278,7 +290,9 @@ try
 	}
 
 	$table = Read-Tuning $Tuning
+	if ($ByModel -and $ByTexture) { throw '-ByModel and -ByTexture are two ways of grouping ; pick one.' }
 	if ($ByModel) { $table = Expand-ByModel $table $rows $cols }
+	if ($ByTexture) { $table = Expand-ByModel $table $rows $cols $TEXTURE_COLS '-ByTexture' }
 
 	$touched = 0
 	$left = 0

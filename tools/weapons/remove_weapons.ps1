@@ -310,6 +310,72 @@ foreach ($id in $emptied)
 }
 
 # ---------------------------------------------------------------------------
+# The drop list : every drop and spoil row of a removed id, recipe items included. Rows sit one per
+# line inside multi-row INSERTs, a statement's last row ending in ");" - when that row goes, the row
+# kept before it takes the ";", and a statement left empty loses its header too. The server would
+# only warn and skip such a row, but a removed item is removed everywhere.
+#
+# sql\droplist.sql installs a database ; the running one needs the same rows gone, which is what the
+# generated *_live.sql next to the list says.
+# ---------------------------------------------------------------------------
+
+$sqlPath = Join-Path $Repo 'source\aCis_datapack\sql\droplist.sql'
+$src = [System.IO.File]::ReadAllLines($sqlPath)
+$out = [System.Collections.Generic.List[string]]::new()
+$goneRows = 0
+$insertAt = -1
+$kept = 0
+for ($i = 0; $i -lt $src.Count; $i++)
+{
+	$l = $src[$i]
+	if ($l -match '^INSERT\b')
+	{
+		$insertAt = $out.Count
+		$null = $out.Add($l)
+		while ($src[$i] -notmatch '\bVALUES\s*$') { $i++ ; $null = $out.Add($src[$i]) }
+		$kept = 0
+		continue
+	}
+	if ($insertAt -ge 0 -and $l -match '^\((\d+),\s*(\d+),\s*(\d+),\s*''(\w+)'',\s*([\d.]+),\s*(\d+),')
+	{
+		# Read before the next -match : it would overwrite $Matches.
+		$item = [int]$Matches[6]
+		$last = ($l -match '\);\s*$')
+		if ($ids.Contains($item))
+		{
+			$goneRows++
+			if ($last)
+			{
+				if ($kept -gt 0) { $out[$out.Count - 1] = ($out[$out.Count - 1] -replace '\),\s*$', ');') }
+				else { $out.RemoveRange($insertAt, $out.Count - $insertAt) }
+				$insertAt = -1
+			}
+			continue
+		}
+		$null = $out.Add($l)
+		$kept++
+		if ($last) { $insertAt = -1 }
+		continue
+	}
+	$null = $out.Add($l)
+}
+if ($goneRows) { Save-Lines $sqlPath $out (Test-EndsWithNewline $sqlPath) }
+Write-Host "sql\droplist.sql : $goneRows drop/spoil row(s) removed"
+
+if (-not $DryRun -and $goneRows)
+{
+	$liveSql = Join-Path $PSScriptRoot ("generated\" + [System.IO.Path]::GetFileNameWithoutExtension($Retired) + '_live.sql')
+	$null = New-Item -ItemType Directory -Force -Path (Split-Path -Parent $liveSql)
+	$live = @(
+		"-- removed weapons : tools/weapons/remove_weapons.ps1 -Retired $([System.IO.Path]::GetFileName($Retired))"
+		"DELETE FROM droplist WHERE item_id IN ($((@($ids) | Sort-Object) -join ','));"
+		'-- then in game : //reload drop'
+	)
+	[System.IO.File]::WriteAllText($liveSql, (($live -join "`n") + "`n"), $UTF8)
+	Write-Host "wrote $liveSql"
+}
+
+# ---------------------------------------------------------------------------
 # NPC hands. An id that is gone would leave the NPC holding nothing the client can draw, so each
 # one is repointed at the survivor named in $NPC_SWAP - and an id with no swap is refused rather
 # than silently emptied.
@@ -379,6 +445,7 @@ if (-not $NoSync)
 				if (-not $have.ContainsKey($f.FullName.Substring($to.Length + 1))) { Remove-Item $f.FullName -Force }
 			}
 		}
-		Write-Host 'synced items, multisell, npcs, html, buyLists.xml, itemIcons.xml and recipes.xml into build\gameserver\data'
+		Copy-Item $sqlPath (Join-Path $Repo 'build\sql\droplist.sql') -Force
+		Write-Host 'synced items, multisell, npcs, html, buyLists.xml, itemIcons.xml, recipes.xml and sql\droplist.sql into build\'
 	}
 }

@@ -215,6 +215,13 @@ ant -f source\aCis_gameserver\build.xml
   **Монстровое опознаётся по иконке `weapon_monster_i00`, а не по имени** — имя промахивается мимо
   28 предметов вроде `Tomb Guard A`, `Dusk`, `Frintezza's Sword`, `Sword of Valakas`. Генератор
   падает, если такое оружие осталось в `weapons.csv`.
+  **Ретейльное оружие делается монстровым списком `tools/weapons/monster_only.csv`** (сейчас 17 id):
+  предмет и руки NPC остаются, иконка становится `weapon_monster_i00`, а `monster_only.ps1`
+  убирает его из лавок, обменов, рецептов (вместе с предметами-рецептами) и `droplist.sql`;
+  рабочей БД — `generated/monster_only_live.sql` плюс `//reload drop`.
+  **Второй проход дублей шёл по текстуре и типу** (`find_duplicates.ps1 -ByTexture`): 22 оружия ушли,
+  остаётся самый низкий грейд выше NG, руки NPC переставлены. Меч и кинжал с одной текстурой — не
+  дубли. `remove_weapons.ps1` теперь чистит и `droplist.sql`.
   Источник — `tools/weapons/weapons.csv`, генератор —
   `tools/weapons/generate.ps1` (пишет `data/xml/items/12*.xml`, `13*.xml`, байлисты
   GM-магазина и копию в `build/`), клиентская половина — `tools/weapons/patch_client.ps1`.

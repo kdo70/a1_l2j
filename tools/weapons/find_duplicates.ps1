@@ -24,6 +24,18 @@
 	carry, then the lower id. Names that are plainly derivative lose points : `(Event)`,
 	`Traveler's`, `Apprentice Adventurer's`, `- for Beginners`, `- Event Use`.
 
+.PARAMETER ByTexture
+	Group by TEXTURE + weapon_type instead : the mesh and the grade are not looked at, so
+	`Journeyman's Staff` (NG), `Bone Staff` (D) and `Staff of Phantom` (B) are one weapon. The type
+	still splits a group - a sword and a dagger painted with one texture are two weapons, and an NPC
+	must not swap one for the other.
+
+	The keeper is then picked by its LADDER first : the lowest grade above No Grade, whose rungs cover
+	every grade of the ones that go (Bone Staff D climbs through B). No Grade survives only in a group
+	that has nothing else. Name score, NPC hands and the lower id break ties, as usual.
+
+	Monster only kit takes part here, since the list asks for one copy of each look however it is used.
+
 .PARAMETER Repo
 	Repository root. Defaults to the one this script lives in.
 
@@ -40,7 +52,8 @@
 param(
 	[string]$Repo = (Split-Path -Parent (Split-Path -Parent $PSScriptRoot)),
 	[string]$Weapongrp = '',
-	[string]$Out = ''
+	[string]$Out = '',
+	[switch]$ByTexture
 )
 
 $ErrorActionPreference = 'Stop'
@@ -121,13 +134,24 @@ foreach ($id in $weapon.Keys)
 {
 	if ([int]$id -ge $LADDER_FIRST -and [int]$id -le $LADDER_LAST) { continue }
 	if ($SKIP_TYPE -contains $weapon[$id].wtype) { continue }
-	if ($weapon[$id].name -match '(?i)monster') { continue }
+	if (-not $ByTexture -and $weapon[$id].name -match '(?i)monster') { continue }
 	if (-not $grp.ContainsKey($id)) { continue }
 	$r = $grp[$id]
 	$mesh = $r[$cols['wpn_mesh[0]']]
-	if ($mesh -eq '') { continue }
-	$key = @($mesh, $r[$cols['wpn_mesh[1]']], $r[$cols['wpn_tex[0]']], $r[$cols['wpn_tex[1]']],
-		$r[$cols['wpn_tex[2]']], $weapon[$id].wtype, $weapon[$id].grade) -join "`t"
+	if ($ByTexture)
+	{
+		# The mesh column is still reported, it just does not group. Case differs between rows of
+		# the same retail texture, so it is folded.
+		$tex = @($r[$cols['wpn_tex[0]']], $r[$cols['wpn_tex[1]']], $r[$cols['wpn_tex[2]']] | Where-Object { $_ -ne '' } | ForEach-Object { $_.ToLowerInvariant() })
+		if ($tex.Count -eq 0) { continue }
+		$key = @(($tex -join '|'), '', '', '', '', $weapon[$id].wtype, '') -join "`t"
+	}
+	else
+	{
+		if ($mesh -eq '') { continue }
+		$key = @($mesh, $r[$cols['wpn_mesh[1]']], $r[$cols['wpn_tex[0]']], $r[$cols['wpn_tex[1]']],
+			$r[$cols['wpn_tex[2]']], $weapon[$id].wtype, $weapon[$id].grade) -join "`t"
+	}
 	if (-not $groups.ContainsKey($key)) { $groups[$key] = New-Object System.Collections.Generic.List[string] }
 	$groups[$key].Add($id)
 }
@@ -182,11 +206,32 @@ if (Test-Path $htmSrc)
 
 function Get-QuestUse([string]$id)
 {
+	if ($ByTexture) { return (Get-ItemUse $id) }
 	$re = '(?<![\w.])' + $id + '(?![\w])'
 	$out = @()
 	foreach ($q in $questText) { if ($q.name -match '^Q\d' -and $q.text -match $re) { $out += $q.name } }
 	if ($out.Count -eq 0) { foreach ($q in $questHtm) { if ($q.text -match $re) { $out += 'htm:' + $q.name ; break } } }
 	($out | Sort-Object -Unique) -join ' '
+}
+
+# The bare number above hits far too much : coordinates, levels, the quest's own number in its
+# class name - Q076_SagaOfTheGrandKhavatari "uses" item 76. -ByTexture asks the scripts only where
+# a number can really be an item : a constant, or a literal inside an item call. Every script counts,
+# AI included - FollowerOfFrintezza swaps the weapon in its hand by id.
+function Get-ItemUse([string]$id)
+{
+	$out = @()
+	$const = 'static\s+final\s+int\s+\w+\s*=\s*' + $id + '\s*;'
+	$call = '(giveItems|takeItems|rewardItems|dropItems|hasItem|getItemCount|hasQuestItems|getQuestItemsCount)\s*\([^;]*(?<![\w.])' + $id + '(?![\w.])'
+	foreach ($q in $questText) { if ($q.text -match $const -or $q.text -match $call) { $out += $q.name } }
+	($out | Sort-Object -Unique) -join ' '
+}
+
+# -ByTexture : the rung the ladder starts from. Lowest graded first ; No Grade last, because it does
+# not climb at all.
+function Get-LadderRank([string]$grade)
+{
+	switch ($grade) { 'D' { 1 } 'C' { 2 } 'B' { 3 } 'A' { 4 } 'S' { 5 } default { 9 } }
 }
 
 $rows = New-Object System.Collections.Generic.List[string]
@@ -209,9 +254,11 @@ foreach ($key in ($groups.Keys | Sort-Object))
 	{
 		$score = (Get-NameScore $weapon[$id].name $mesh) + (Get-Penalty $weapon[$id].name)
 		$hands = $(if ($npcUse.ContainsKey($id)) { $npcUse[$id] } else { 0 })
-		if ($null -eq $keep -or $score -gt $best[0] -or ($score -eq $best[0] -and $hands -gt $best[1]))
+		# The ladder outranks everything else under -ByTexture : a lower rank is a longer ladder.
+		$rank = $(if ($ByTexture) { Get-LadderRank $weapon[$id].grade } else { 0 })
+		if ($null -eq $keep -or $rank -lt $best[2] -or ($rank -eq $best[2] -and ($score -gt $best[0] -or ($score -eq $best[0] -and $hands -gt $best[1]))))
 		{
-			$keep = $id ; $best = @($score, $hands)
+			$keep = $id ; $best = @($score, $hands, $rank)
 		}
 	}
 
@@ -221,8 +268,9 @@ foreach ($key in ($groups.Keys | Sort-Object))
 		$hands = $(if ($npcUse.ContainsKey($id)) { $npcUse[$id] } else { 0 })
 		$quest = Get-QuestUse $id
 		if ($quest -ne '') { $questBound++ }
+		$grade = $(if ($ByTexture) { "$($weapon[$id].grade)>$($weapon[$keep].grade)" } else { $parts[6] })
 		$rows.Add(('"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}"' -f $id, $weapon[$id].name.Replace('"', ''),
-				$keep, $weapon[$keep].name.Replace('"', ''), $parts[5], $parts[6], $hands, $quest, $mesh))
+				$keep, $weapon[$keep].name.Replace('"', ''), $parts[5], $grade, $hands, $quest, $mesh))
 		$dropCount++
 	}
 }

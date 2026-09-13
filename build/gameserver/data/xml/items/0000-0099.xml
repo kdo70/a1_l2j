@@ -866,25 +866,6 @@
 			<set stat="pAtkSpd" val="379" />
 		</for>
 	</item>
-	<item id="68" type="Weapon" name="Falchion">
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="SWORD" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="BRONZE" />
-		<set name="weight" val="1530" />
-		<set name="price" val="244000" />
-		<set name="soulshots" val="2" />
-		<set name="spiritshots" val="2" />
-		<for>
-			<set stat="pAtk" val="31" />
-			<set stat="mAtk" val="21" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
-		</for>
-	</item>
 	<item id="69" type="Weapon" name="Bastard Sword">
 		<set name="default_action" val="equip" />
 		<set name="weapon_type" val="SWORD" />
@@ -1570,26 +1551,6 @@
 			<set stat="pAtkSpd" val="325" />
 			<enchant val="0" stat="pAtk" />
 			<enchant val="0" stat="mAtk" />
-		</for>
-	</item>
-	<item id="99" type="Weapon" name="Apprentice's Spellbook">
-		<set name="is_magical" val="true" />
-		<set name="default_action" val="equip" />
-		<set name="weapon_type" val="ETC" />
-		<set name="bodypart" val="rhand" />
-		<set name="random_damage" val="10" />
-		<set name="attack_range" val="40" />
-		<set name="damage_range" val="0;0;40;120" />
-		<set name="material" val="PAPER" />
-		<set name="weight" val="650" />
-		<set name="price" val="12500" />
-		<set name="soulshots" val="1" />
-		<set name="spiritshots" val="1" />
-		<for>
-			<set stat="pAtk" val="9" />
-			<set stat="mAtk" val="12" />
-			<set stat="rCrit" val="8" />
-			<set stat="pAtkSpd" val="379" />
 		</for>
 	</item>
 </list>
