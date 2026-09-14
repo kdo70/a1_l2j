@@ -161,7 +161,6 @@
 	<recipe alias="mk_winged_spear" id="164" material="2033-7;1880-180;1879-90;1885-45;1458-430;2130-139" product="93-1" itemId="2271" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_sword_of_revolution" id="165" material="2034-7;1883-2;1880-175;1879-175;1458-430;2130-139" product="129-1" itemId="2272" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_tarbar" id="166" material="2035-7;1880-128;1879-128;1885-64;1458-430;2130-139" product="158-1" itemId="2273" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_skull_breaker" id="167" material="2036-7;1880-128;1879-128;1885-64;1458-430;2130-139" product="169-1" itemId="2274" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_heavy_bone_club" id="168" material="2037-7;1880-128;1879-128;1885-64;1458-430;2130-139" product="172-1" itemId="2275" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_maingauche" id="169" material="2038-7;1883-2;1880-175;1879-175;1458-430;2130-139" product="224-1" itemId="2276" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_bich_hwa" id="170" material="2039-7;1880-128;1879-128;1885-64;1458-430;2130-139" product="261-1" itemId="2277" level="3" mpConsume="120" successRate="100" isDwarven="true"/>
@@ -436,8 +435,6 @@
 	<recipe alias="mk_lancia_ii" id="461" material="4193-1;4115-13;4045-4;1890-232;1888-116;1885-58;4042-58;1460-291;2132-98" product="97-1" itemId="4193" level="7" mpConsume="183" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_deadman_s_glory_i" id="462" material="5002-1;4116-13;1890-120;1888-120;1885-60;4042-60;1460-165;2132-98" product="171-1" itemId="5002" level="7" mpConsume="183" successRate="60" isDwarven="true"/>
 	<recipe alias="mk_deadman_s_glory_ii" id="463" material="4194-1;4116-13;4045-3;1890-172;1888-172;1885-86;4042-86;1460-339;2132-98" product="171-1" itemId="4194" level="7" mpConsume="183" successRate="100" isDwarven="true"/>
-	<recipe alias="mk_art_of_battle_axe_i" id="464" material="5003-1;4117-13;1890-120;1888-120;1885-60;4042-60;1460-165;2132-98" product="175-1" itemId="5003" level="7" mpConsume="183" successRate="60" isDwarven="true"/>
-	<recipe alias="mk_art_of_battle_axe_ii" id="465" material="4195-1;4117-13;4045-3;1890-172;1888-172;1885-86;4042-86;1460-339;2132-98" product="175-1" itemId="4195" level="7" mpConsume="183" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_staff_of_evil_sprit_i" id="466" material="5004-1;4118-13;1893-75;1881-150;1889-75;4042-75;1460-165;2132-98" product="210-1" itemId="5004" level="7" mpConsume="183" successRate="60" isDwarven="true"/>
 	<recipe alias="mk_staff_of_evil_sprit_ii" id="467" material="4196-1;4118-13;4045-3;1893-108;1881-216;1889-108;4042-108;1460-342;2132-98" product="210-1" itemId="4196" level="7" mpConsume="183" successRate="100" isDwarven="true"/>
 	<recipe alias="mk_demon_s_sword_i" id="468" material="5005-1;4119-13;1891-2;1890-120;1888-120;4042-60;1460-160;2132-98" product="234-1" itemId="5005" level="7" mpConsume="183" successRate="60" isDwarven="true"/>

@@ -802,15 +802,6 @@
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="Recipes" />
 	</item>
-	<item id="4195" type="EtcItem" name="Recipe: Art of Battle Axe">
-		<set name="default_action" val="recipe" />
-		<set name="etcitem_type" val="RECIPE" />
-		<set name="material" val="LIQUID" />
-		<set name="weight" val="30" />
-		<set name="price" val="262000" />
-		<set name="is_stackable" val="true" />
-		<set name="handler" val="Recipes" />
-	</item>
 	<item id="4196" type="EtcItem" name="Recipe: Staff of Evil Spirits">
 		<set name="default_action" val="recipe" />
 		<set name="etcitem_type" val="RECIPE" />
