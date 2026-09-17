@@ -6,7 +6,7 @@
 	A client patched with -Live reads a 32 byte file before it builds an enchant glow, and lets that
 	file override four things :
 
-	    the enchant level the rung is picked by  - so any rung can be seen without a server
+	    the glow code the rung is picked by      - so any rung can be seen without a server
 	    the offset the effect sits at            - three floats, the weapon's own axes
 	    its scale
 	    the speed of its particles
@@ -36,7 +36,7 @@
 	The "system" directory of the client, where the file goes.
 
 .EXAMPLE
-	.\set_enchant_glow_live.ps1 -SystemDir "C:\l2client\system" -Enchant 17 -Scale 1.4
+	.\set_enchant_glow_live.ps1 -SystemDir "C:\l2client\system" -Enchant 19 -Scale 1.4
 
 .EXAMPLE
 	.\set_enchant_glow_live.ps1 -SystemDir "C:\l2client\system" -Offset 0,2,-3
@@ -48,7 +48,10 @@
 param(
 	[Parameter(Mandatory = $true)][string] $SystemDir,
 	[string] $FileName = 'enchantglow.live',
-	# The level the rung is chosen by. Below the ladder's first rung the weapon goes dark.
+	# The glow code the rung is chosen by - the byte the server sends in place of the level
+	# (model/item/EnchantGlow.java) : 4, 7, 10 show rungs 4, 7, 10 ; 16, 17, 18, 19 show 12, 14, 15, 17 ;
+	# 16 + 4 * (level - 16) + skills in general. Below 4 the weapon goes dark. It also picks the row of
+	# env.int the client reads the opacity from.
 	[int] $Enchant,
 	# Write that level into the pawn as well, not just grade by it. Without this the forced level
 	# only picks the rung, and every other part of the client still sees an unenchanted weapon -

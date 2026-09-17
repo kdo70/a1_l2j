@@ -126,6 +126,7 @@ import net.sf.l2j.gameserver.model.group.CommandChannel;
 import net.sf.l2j.gameserver.model.group.Party;
 import net.sf.l2j.gameserver.model.group.PartyMatchRoom;
 import net.sf.l2j.gameserver.model.holder.skillnode.GeneralSkillNode;
+import net.sf.l2j.gameserver.model.item.EnchantGlow;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.model.item.kind.Weapon;
@@ -5034,7 +5035,13 @@ public final class Player extends Playable
 	public int getEnchantEffect()
 	{
 		final ItemInstance wpn = getActiveWeaponInstance();
-		return (wpn == null) ? 0 : Math.min(127, wpn.getEnchantLevel());
+		if (wpn == null)
+			return 0;
+
+		if (Config.SEND_ENCHANT_GLOW_RUNG)
+			return EnchantGlow.getCode(wpn.getEnchantLevel(), (wpn.getCustomSkills() == null) ? 0 : wpn.getCustomSkills().length);
+
+		return Math.min(127, wpn.getEnchantLevel());
 	}
 	
 	/**

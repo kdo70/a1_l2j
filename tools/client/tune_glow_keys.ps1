@@ -61,8 +61,9 @@
 [CmdletBinding()]
 param(
 	[Parameter(Mandatory = $true)][string] $SystemDir,
-	# The rung to show while tuning. The 1..7 keys switch it.
-	[int] $Enchant = 17,
+	# The glow code to show while tuning - the byte the server sends, see model/item/EnchantGlow.java :
+	# 4, 7, 10 are rungs 4, 7, 10 ; 16, 17, 18, 19 are rungs 12, 14, 15, 17. The 1..7 keys switch it.
+	[int] $Enchant = 19,
 	[double] $OffsetStep = 0.5,
 	[double] $ScaleStep = 0.05,
 	[double] $VelocityStep = 0.05,
@@ -104,6 +105,8 @@ $F_STATE = 64
 $F_ONLY_WEAPON = 128
 
 $RUNGS = @(4, 7, 10, 12, 14, 15, 17)
+# The glow code that shows each rung : the engine grades by code, not by level.
+$RUNG_CODES = @(4, 7, 10, 16, 17, 18, 19)
 $INV = [System.Globalization.CultureInfo]::InvariantCulture
 
 if (-not (Test-Path $SystemDir)) { throw "No such directory: $SystemDir" }
@@ -419,7 +422,9 @@ function Show-State($s, $r)
 	# An outcome other than "rung handed back" leaves the shape unknown - say so rather than
 	# printing an empty slot that reads like a bug.
 	$w = if ($null -eq $r) { 'no report yet' } else { "$(if ($r.shape) { $r.shape } else { "shape ? (outcome $($r.outcome))" }), id $($r.weapon)" }
-	'+{0}  off ({1}, {2}, {3})  scale {4}  vel {5}   [{6}]' -f $s.enchant,
+	$at = [Array]::IndexOf($RUNG_CODES, [int]$s.enchant)
+	$shown = if ($at -ge 0) { "+$($RUNGS[$at]) (code $($s.enchant))" } else { "code $($s.enchant)" }
+	'{0}  off ({1}, {2}, {3})  scale {4}  vel {5}   [{6}]' -f $shown,
 		$s.ox.ToString('0.##', $INV), $s.oy.ToString('0.##', $INV), $s.oz.ToString('0.##', $INV),
 		$s.scale.ToString('0.##', $INV), $s.velocity.ToString('0.##', $INV), $w
 }
@@ -586,7 +591,7 @@ while ($true)
 
 	for ($i = 0; $i -lt $RUNGS.Count; $i++)
 	{
-		if (Pressed (0x31 + $i) "rung$i") { $state.enchant = $RUNGS[$i] ; $moved = $true }
+		if (Pressed (0x31 + $i) "rung$i") { $state.enchant = $RUNG_CODES[$i] ; $moved = $true }
 	}
 
 	if (Pressed $VK.R 'r')

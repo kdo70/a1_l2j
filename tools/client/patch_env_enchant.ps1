@@ -16,6 +16,16 @@
 # -Ladder rewrites the Enchant0..N rows themselves so that the aura follows the
 # same seven rungs the EnchantGlow ladder uses - see Set-Ladder below.
 #
+# -Table <tools\client\enchant_glow_opacity.tsv> rewrites Enchant0..127 off a table
+# of enchant LEVELS. The client multiplies the Opacity of every emitter of the
+# EnchantGlow effect by the Opacity of the row it reads, and it reads the row by
+# the byte the server sent - with SendEnchantGlowRung that is the glow code of
+# model/item/EnchantGlow.java, not the level. So row <code> gets the numbers of
+# the level that code stands for, and the table stays written in levels.
+#
+#   powershell -ExecutionPolicy Bypass -File patch_env_enchant.ps1 `
+#       -In "<client>\system\env.int" -Table enchant_glow_opacity.tsv
+#
 # env.int is a Lineage2Ver111 container : 28 byte UTF-16 header, body XOR'ed with
 # 0xAC, 20 byte plain trailer. XOR is its own inverse, so the body is decoded,
 # edited as text and encoded back ; the header and the trailer are copied over
@@ -44,7 +54,11 @@ param(
 	[int[]] $Rungs = @(4, 7, 10, 12, 14, 15, 17),
 	# [Variation] carries an Enchant0..N table of its own, of the same shape, for
 	# augmented weapons. Left alone unless asked for.
-	[switch] $IncludeVariation
+	[switch] $IncludeVariation,
+	# Rewrite Enchant0..127 off a table of enchant LEVELS (enchant_glow_opacity.tsv) : with
+	# SendEnchantGlowRung the byte the client reads the row by is the server's glow code, not
+	# the level, so every code gets the row of the level it stands for. See Set-Table below.
+	[string] $Table
 )
 
 $ErrorActionPreference = 'Stop'
@@ -143,8 +157,96 @@ function Set-Ladder([string] $section, [int[]] $rungs)
 	Write-Host "$head : $($script:touched) Enchant row(s) rewritten off rungs $($rungs -join ', ')"
 }
 
+# The level a glow code stands for - model/item/EnchantGlow.java on the server :
+# below 16 the code is the level, above it 16 + 4 * (level - 16) + skills.
+$CODES = 128
+function Get-CodeLevel([int] $code)
+{
+	if ($code -lt 16) { return $code }
+	# [int], not the double Floor gives : the level is a key of an int keyed table
+	return [int](16 + [Math]::Floor(($code - 16) / 4))
+}
+
+# level -> the text inside Enchant<n>=(...), off the table file. A level the table leaves out takes the
+# row of the nearest level below it.
+function Read-LevelTable([string] $path)
+{
+	if (!(Test-Path $path)) { throw "No such table: $path" }
+	$cols = @('R1', 'G1', 'B1', 'R2', 'G2', 'B2', 'Opacity', 'Num')
+	$rows = @{}
+	$n = 0
+	foreach ($line in [System.IO.File]::ReadAllLines($path))
+	{
+		$n++
+		$s = $line.Trim()
+		if ($s -eq '' -or $s.StartsWith('#')) { continue }
+		$f = @($s -split '\s+')
+		if ($f.Count -ne 9) { throw "$path line $n : expected 9 fields (level $($cols -join ' ')), got $($f.Count)." }
+		$parts = @()
+		for ($i = 0; $i -lt 8; $i++)
+		{
+			$v = 0.0
+			if (-not [double]::TryParse($f[$i + 1], [Globalization.NumberStyles]::Float, [Globalization.CultureInfo]::InvariantCulture, [ref]$v)) { throw "$path line $n : '$($f[$i + 1])' is not a number." }
+			$parts += "$($cols[$i])=$(Format-Num $v)"
+		}
+		$rows[[int]$f[0]] = $parts -join ','
+	}
+	if (-not $rows.ContainsKey(0)) { throw "$path has no row for level 0." }
+	$rows
+}
+
+# Every Enchant<code>= row the client can ask for (0..127) goes, and the generated block takes the place
+# of the first of them ; rows past 127 are never read and stay as they are.
+function Set-Table([string] $section, [hashtable] $levels)
+{
+	$head = "[$section]"
+	$at = $script:text.IndexOf($head)
+	if ($at -lt 0) { throw "env.int has no $head section." }
+
+	$from = $at + $head.Length
+	$next = [regex]::Match($script:text.Substring($from), '(?m)^\[')
+	$len = $(if ($next.Success) { $next.Index } else { $script:text.Length - $from })
+	$span = $script:text.Substring($from, $len)
+
+	$block = New-Object System.Text.StringBuilder
+	for ($code = 0; $code -lt $CODES; $code++)
+	{
+		$lvl = [int](Get-CodeLevel $code)
+		while ($lvl -gt 0 -and -not $levels.ContainsKey($lvl)) { $lvl-- }
+		[void]$block.Append("Enchant$code=($($levels[$lvl]))`r`n")
+	}
+
+	# Match indices are into the span as it was ; nothing is cut before the first removed row, so the
+	# block goes in at that row's own index.
+	$rx = [regex] '(?m)^Enchant(\d+)=[^\r\n]*\r?\n'
+	$script:first = -1
+	$script:removed = 0
+	$span = $rx.Replace($span, {
+		param($m)
+		if ([int]$m.Groups[1].Value -ge $CODES) { return $m.Value }
+		if ($script:first -lt 0) { $script:first = $m.Index }
+		$script:removed++
+		return ''
+	})
+	if ($script:removed -eq 0) { throw "$head has no Enchant<n>=(...) rows." }
+	$span = $span.Insert($script:first, $block.ToString())
+	$script:text = $script:text.Substring(0, $from) + $span + $script:text.Substring($from + $len)
+	Write-Host "$head : $($script:removed) Enchant row(s) replaced by $CODES, one per glow code"
+}
+
 Set-Key 'EnchantEffectShow' $EffectShow
 Set-Key 'EnchantMeshShow' $MeshShow
+
+if ($Table)
+{
+	if ($Ladder) { throw '-Table and -Ladder both rewrite the Enchant rows ; pass one.' }
+	$levels = Read-LevelTable $Table
+	Set-Table 'EnchantEffect' $levels
+	if ($IncludeVariation) { Set-Table 'Variation' $levels }
+	$shown = @()
+	foreach ($lvl in ($levels.Keys | Sort-Object)) { if ($levels[$lvl] -match 'Opacity=([^,]+)') { $shown += "+$lvl=$($Matches[1])" } }
+	Write-Host "opacity by level : $($shown -join ' ')"
+}
 
 if ($Ladder)
 {

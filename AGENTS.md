@@ -233,8 +233,11 @@ ant -f source\aCis_gameserver\build.xml
   переставленный на 30 `licensee` ломает чтение его текстур и валит клиент. Вид оружия пишется
   в `weapongrp.dat` (`tools/weapons/patch_client.ps1`), ступень выбирает пропатченный
   `engine.dll` (`tools/client/patch_engine_enchant_glow.ps1`), порог включения —
-  `EnchantEffectShow` в `system\env.int` (`tools/client/patch_env_enchant.ps1`). Сервер
-  про свечение не знает ничего. Устройство — `docs/enchant-glow.md`.
+  `EnchantEffectShow` в `system\env.int` (`tools/client/patch_env_enchant.ps1`). **Какую ступень
+  рисовать, решает сервер** (`SendEnchantGlowRung` в `config/mods/client.properties`,
+  `model/item/EnchantGlow.java`): вместо заточки в `CharInfo`/`UserInfo` уходит номер ступени —
+  +4 → 4, +5..9 → 7, +10..15 → 10, с +16 — 12, а с навыками на предмете 1/2/3+ → 14/15/17.
+  Устройство — `docs/enchant-glow.md`.
 
 ## CI/CD (.github)
 
@@ -301,7 +304,9 @@ ant -f source\aCis_gameserver\build.xml
 Отдельно взятый предмет (строка в таблице `items`) может нести свои навыки
 (колонка `skills`, выдаются при экипировке) и свой цвет названия (колонка
 `name_color`, важнее цвета из xml). Клиент показывает их в подсказке —
-устройство в `docs/item-skills.md`.
+устройство в `docs/item-skills.md`. Навыки правятся из админки: `//itemskills`
+(кнопка Item Skills) — список предметов цели, навыки предмета с удалением по
+одному и добавление по id и уровню; надетому предмету переодеваться не нужно.
 
 Числа, которые клиент показывает в подсказке предмета (п. атака, м. атака,
 защита, вес и прочее), лежат в клиентских `weapongrp.dat`/`armorgrp.dat`, но

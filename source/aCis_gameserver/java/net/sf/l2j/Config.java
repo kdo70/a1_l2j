@@ -741,6 +741,7 @@ public final class Config
 
 	/** Item skills */
 	public static boolean SEND_ITEM_SKILLS;
+	public static boolean SEND_ENCHANT_GLOW_RUNG;
 	
 	// --------------------------------------------------
 	// Network
@@ -1735,6 +1736,7 @@ public final class Config
 		SEND_ITEM_NAME_COLORS = client.getProperty("SendItemNameColors", false);
 		SEND_ITEM_STATS = client.getProperty("SendItemStats", false);
 		SEND_ITEM_SKILLS = client.getProperty("SendItemSkills", false);
+		SEND_ENCHANT_GLOW_RUNG = client.getProperty("SendEnchantGlowRung", false);
 	}
 	
 	/**

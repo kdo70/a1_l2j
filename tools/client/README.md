@@ -304,6 +304,13 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
   paths). Written to survey the client's effects — `LineageEffect.u` ships 864 of them — see
   [../../docs/npc-visual-effects.md](../../docs/npc-visual-effects.md). Nothing to do with the `interface.u`
   build either.
+- `enchant_glow_fx.ps1`, `enchant_glow_live_fx.ps1`, `glow_studio.ps1`, `enchant_glow_layout.tsv`,
+  `glow_fx/textures/` — editing the particle effects of `EnchantGlow.u`: as text baked into the package, as
+  text written into the running client's memory, and as a window of sliders. See
+  [../../docs/enchant-glow.md](../../docs/enchant-glow.md). Nothing to do with the `interface.u` build.
+- `enchant_glow_opacity.tsv` — colour and opacity of the enchant glow per enchant level, written into
+  `env.int` by `patch_env_enchant.ps1 -Table` as the rows of the server's glow codes. See
+  [../../docs/enchant-glow.md](../../docs/enchant-glow.md).
 - `patch_nwindow.ps1` — the `nwindow.dll` patch that puts the enchant level on item icons and caps the stack
   count. Nothing to do with the `interface.u` build.
 - `npc_title_colors.ps1` / `npc_title_colors.txt` — the `npcname-e.dat` rewrite that colors the title an NPC

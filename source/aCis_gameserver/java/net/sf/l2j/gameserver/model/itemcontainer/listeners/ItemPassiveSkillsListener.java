@@ -146,6 +146,55 @@ public class ItemPassiveSkillsListener implements OnEquipListener
 	}
 
 	/**
+	 * Bring the skills of a {@link Player} in line with an item whose own skills (see ItemInstance#getCustomSkills()) just changed while it was worn. Nothing to do for an item that isn't equipped : it hands its skills out the next time it is.<br>
+	 * <br>
+	 * The old skills nothing else grants any more are dropped - the item already carries its new ones, so a skill it keeps on another level stays - and every new one is granted, which also moves a level.
+	 * @param player : The {@link Player} wearing the item.
+	 * @param item : The {@link ItemInstance} which skills changed.
+	 * @param oldSkills : The skills that item carried before the change, or null.
+	 */
+	public void onCustomSkillsChanged(Player player, ItemInstance item, IntIntHolder[] oldSkills)
+	{
+		if (!item.isEquipped())
+			return;
+
+		boolean update = false;
+
+		if (oldSkills != null)
+		{
+			for (IntIntHolder skillInfo : oldSkills)
+			{
+				final L2Skill itemSkill = skillInfo.getSkill();
+				if (itemSkill != null && !isStillGranted(player, itemSkill.getId()))
+				{
+					player.removeSkill(itemSkill.getId(), false, itemSkill.isPassive() || itemSkill.isToggle());
+					update = true;
+				}
+			}
+		}
+
+		// Same rule as onEquip : a weapon worn under grade penalty hands out none of its skills.
+		final boolean penalized = item.getItem() instanceof Weapon weapon && player.getSkillLevel(L2Skill.SKILL_EXPERTISE) < weapon.getCrystalType().getId();
+
+		final IntIntHolder[] newSkills = item.getCustomSkills();
+		if (newSkills != null && !penalized)
+		{
+			for (IntIntHolder skillInfo : newSkills)
+			{
+				final L2Skill itemSkill = skillInfo.getSkill();
+				if (itemSkill != null)
+				{
+					player.addSkill(itemSkill, false);
+					update = true;
+				}
+			}
+		}
+
+		if (update)
+			player.sendPacket(new SkillList(player));
+	}
+
+	/**
 	 * Test a skill against everything the {@link Player} still wears, which is what tells a skill to drop on unequip from a skill another item goes on granting. Levels are not compared : the equipped item granting the same skill on another level is the one which set the level the {@link Player} holds.
 	 * @param player : The {@link Player} to test, the unequipped item already out of his paperdoll.
 	 * @param skillId : The skill id to look for.

@@ -7,7 +7,11 @@ import java.sql.ResultSet;
 import net.sf.l2j.commons.logging.CLogger;
 import net.sf.l2j.commons.pool.ConnectionPool;
 
+import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.enums.Paperdoll;
+import net.sf.l2j.gameserver.model.holder.IntIntHolder;
+import net.sf.l2j.gameserver.model.item.EnchantGlow;
+import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
 
 /**
  * A datatype used to store character selection screen informations.
@@ -16,7 +20,7 @@ public class CharSelectSlot
 {
 	private static final CLogger LOGGER = new CLogger(CharSelectSlot.class.getName());
 	
-	private static final String RESTORE_PAPERDOLLS = "SELECT object_id,item_id,loc_data,enchant_level FROM items WHERE owner_id=? AND loc='PAPERDOLL'";
+	private static final String RESTORE_PAPERDOLLS = "SELECT object_id,item_id,loc_data,enchant_level,skills FROM items WHERE owner_id=? AND loc='PAPERDOLL'";
 	
 	private final int _objectId;
 	private final String _name;
@@ -268,7 +272,11 @@ public class CharSelectSlot
 	
 	public int getEnchantEffect()
 	{
-		return _paperdoll[Paperdoll.RHAND.getId()][2];
+		final int[] weapon = _paperdoll[Paperdoll.RHAND.getId()];
+		if (Config.SEND_ENCHANT_GLOW_RUNG)
+			return EnchantGlow.getCode(weapon[2], weapon[3]);
+
+		return weapon[2];
 	}
 	
 	public int getKarma()
@@ -343,7 +351,8 @@ public class CharSelectSlot
 	
 	private static int[][] restoreVisibleInventory(int objectId)
 	{
-		int[][] paperdoll = new int[0x12][3];
+		// object id, item id, enchant level, and the number of skills the item carries on its own.
+		int[][] paperdoll = new int[0x12][4];
 		
 		try (Connection con = ConnectionPool.getConnection();
 			PreparedStatement ps = con.prepareStatement(RESTORE_PAPERDOLLS))
@@ -359,6 +368,9 @@ public class CharSelectSlot
 					paperdoll[slot][0] = rs.getInt("object_id");
 					paperdoll[slot][1] = rs.getInt("item_id");
 					paperdoll[slot][2] = rs.getInt("enchant_level");
+
+					final IntIntHolder[] skills = ItemInstance.parseSkills(rs.getString("skills"), paperdoll[slot][0]);
+					paperdoll[slot][3] = (skills == null) ? 0 : skills.length;
 				}
 			}
 		}

@@ -745,7 +745,7 @@ public final class ItemInstance extends WorldObject implements Runnable, Compara
 	 * @param objectId : The objectId of the item that value belongs to, for logging purposes.
 	 * @return The skills as an {@link IntIntHolder} array, or null if there is none.
 	 */
-	private static IntIntHolder[] parseSkills(String value, int objectId)
+	public static IntIntHolder[] parseSkills(String value, int objectId)
 	{
 		if (value == null || value.isBlank())
 			return null;

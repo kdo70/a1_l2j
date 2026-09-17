@@ -14,13 +14,21 @@
 # blunt, _006t dual sword, _007t one handed blunt and mystic, _008t bow,
 # _010t rapier). tools\weapons\patch_client.ps1 gives every weapon of the ladder
 # an effect of its own shape in weapongrp ; this patch wraps
-# GetEnchantedWeaponEffect so that the rung is chosen from the enchant level the
+# GetEnchantedWeaponEffect so that the rung is chosen from the enchant byte the
 # pawn carries.
 #
+# That byte is not the enchant level but the GLOW CODE the server sends in its
+# place (model/item/EnchantGlow.java) - the rung and the level in one number, so
+# that env.int can give every level an opacity of its own : the client reads the
+# row Enchant<byte> of [EnchantEffect] for it, see ../../docs/enchant-glow.md.
+#
+#   code 0..3                                    -> NAME_None, no glow at all
+#   code 4 / 5..9 / 10..15 (= the level)         -> rung 4 / 7 / 10
+#   code 16 + 4 * (level - 16) + skills (0..3)   -> rung 12 / 14 / 15 / 17 by skills
 #   the weapon's effect is not on our ladder     -> left alone
-#   enchanted below +4                           -> NAME_None, no glow at all
-#   +4..+6 / +7..+9 / +10..+11 / +12..+13
-#     / +14 / +15..+16 / +17 and up              -> that step's effect
+#
+# The cave turns the code into a rung through a 128 byte table, built below by
+# Get-CodeRung ; the byte never goes past 127.
 #
 # A stock weapongrp goes through this patch unchanged. The other way round it is
 # NOT symmetric : this patch needs a weapongrp that carries every name of the
@@ -171,7 +179,7 @@ $LEN_HOOK = 5                             # the first three instructions, exactl
 
 # 0xCC padding behind the thunk table : 65543 bytes of it, nothing jumps in.
 $OFF_CAVE = 0x14A00                       # RVA 0x15600
-$LEN_CAVE = 0x1F00
+$LEN_CAVE = 0x1F80
 
 # core.dll, through engine.dll's import table.
 $IAT_FNAME = 0x11D8D988                   # FName::FName(const TCHAR*, EFindName)
@@ -193,7 +201,7 @@ $IAT_GETTICKCOUNT = 0x11D8E95C
 #
 #   +0  magic     'GLOW', little endian. Anything else and the whole block is ignored.
 #   +4  flags     1 offset, 2 scale, 4 velocity, 8 enchant level - each applied only if set
-#   +8  enchant   the level the rung is picked by, as an int
+#   +8  enchant   the glow code the rung is picked by, as an int (see Get-CodeRung)
 #   +12 offX      the three floats the client positions the effect with
 #   +16 offY
 #   +20 offZ
@@ -333,6 +341,8 @@ $AT_LIVEPATH = 0x1A40                     # where that file is, UTF-16, NUL term
 $AT_STATE = 0x1C80                        # what the cave reports back : 44 bytes
 $AT_STATEWROTE = 0x1CC0                   # the DWORD WriteFile fills in
 $AT_STATEPATH = 0x1CE0                    # where that report goes, UTF-16, NUL terminated
+$AT_GRADE = 0x1F00                        # 128 bytes : glow code -> rung index, 0xFF for no glow
+$GRADE_LEN = 128
 $SLOT = 64
 $PATH_SLOT = 520                          # 260 wchar, MAX_PATH
 
@@ -354,6 +364,29 @@ if ($Levels.Count -gt 1)
 	foreach ($i in 1..($Levels.Count - 1)) { if ($Levels[$i] -le $Levels[$i - 1]) { throw '-Levels has to climb.' } }
 }
 if ($SLOTS -gt 64) { throw "$($SHAPES.Count) shapes x $($Levels.Count) levels plus $KEYS keys is $SLOTS names, and the table holds 64." }
+
+# The rung a glow code stands for - the other half of EnchantGlow.getCode on the server. 0 is no glow.
+function Get-CodeRung([int] $code)
+{
+	if ($code -lt 4) { return 0 }
+	if ($code -lt 16)
+	{
+		if ($code -ge 10) { return 10 }
+		if ($code -ge 5) { return 7 }
+		return 4
+	}
+	return @(12, 14, 15, 17)[($code - 16) % 4]
+}
+
+# code -> index into -Levels : the highest level not above the code's rung, so a ladder cut short
+# covers the rungs above its top with that top. 0xFF : no glow.
+$GRADE = New-Object byte[] $GRADE_LEN
+for ($glowCode = 0; $glowCode -lt $GRADE_LEN; $glowCode++)
+{
+	$rungOf = Get-CodeRung $glowCode
+	$GRADE[$glowCode] = 0xFF
+	for ($i = 0; $i -lt $Levels.Count; $i++) { if ($rungOf -gt 0 -and $Levels[$i] -le $rungOf) { $GRADE[$glowCode] = [byte]$i } }
+}
 
 # ------------------------------------------------------------------ helpers --
 function Get-Hex([byte[]] $bytes, [int] $at, [int] $len)
@@ -624,22 +657,24 @@ $cave = Assemble {
 		L 'have_level'
 	}
 	B @(0x89, 0x45, 0xDC)                        # mov  [ebp-24h],eax  ; what the grading saw
-	B @(0x83, 0xF8, [byte]$Levels[0])            # cmp  eax,<first level>
-	B @(0x7D) ; Rel8 'grade'                     # jge  grade
-	# Under the first rung there is no glow - but the FIELD is left alone. Writing NAME_None
-	# into it would stick, the name would stop being one of ours, and the weapon could never
-	# be graded again. So the silence goes into the returned value instead, after the call.
+	# The byte is a glow code, not a level : the rung comes out of the table. Past 127 is read as 127,
+	# below 0 as no glow.
+	B @(0x85, 0xC0)                              # test eax,eax
+	B @(0x7C) ; Rel8 'below'                     # jl   below
+	B @(0x83, 0xF8, 0x7F)                        # cmp  eax,7Fh
+	B @(0x7E) ; Rel8 'in_table'                  # jle  in_table
+	B @(0xB8) ; I32 0x7F                         # mov  eax,7Fh
+	L 'in_table'
+	B @(0x0F, 0xB6, 0x8C, 0x03) ; Va 'grade'     # movzx ecx,byte [ebx+eax+<grade>]
+	B @(0x80, 0xF9, 0xFF)                        # cmp  cl,0FFh
+	B @(0x75) ; Rel8 'pick'                      # jne  pick
+	L 'below'
+	# No rung for this code - no glow. But the FIELD is left alone : writing NAME_None into it
+	# would stick, the name would stop being one of ours, and the weapon could never be graded
+	# again. So the silence goes into the returned value instead, after the call.
 	B @(0xC7, 0x45, 0xFC) ; I32 1                # mov  dword [ebp-4],1    ; hush it afterwards
 	B @(0xC7, 0x45, 0xF4) ; I32 2                # mov  dword [ebp-0Ch],2
 	B @(0xE9) ; Rel32 'call_orig'                # jmp  call_orig
-	L 'grade'
-	B @(0x33, 0xC9)                              # xor  ecx,ecx
-	for ($i = 1; $i -lt $Levels.Count; $i++)
-	{
-		B @(0x83, 0xF8, [byte]$Levels[$i])       # cmp  eax,<level>
-		B @(0x7C) ; Rel8 'pick'                  # jl   pick
-		B @(0x41)                                # inc  ecx
-	}
 	L 'pick'
 	# edi = the shape, ecx = the rung within it.
 	B @(0x8B, 0xC7)                              # mov  eax,edi
@@ -1002,6 +1037,11 @@ $cave = Assemble {
 	if ($rawState.Length + 2 -gt $PATH_SLOT) { throw "the state path does not fit in $PATH_SLOT bytes." }
 	if ($rawState.Length) { B $rawState }
 	for ($i = $rawState.Length; $i -lt $PATH_SLOT; $i++) { B @(0x00) }
+
+	# ---- glow code -> rung, see Get-CodeRung.
+	while ($script:code.Count -lt $AT_GRADE) { B @(0x00) }
+	L 'grade'
+	B $GRADE
 }
 
 if ($cave.Length -gt $LEN_CAVE) { throw "the cave wants $($cave.Length) bytes, only $LEN_CAVE were checked as free." }
@@ -1012,7 +1052,7 @@ if ($script:labels['tramp'] -ne $AT_TRAMP -or $script:labels['built'] -ne $AT_BU
 	$script:labels['names'] -ne $AT_NAMES -or $script:labels['live'] -ne $AT_LIVE -or
 	$script:labels['liveread'] -ne $AT_LIVEREAD -or $script:labels['livepath'] -ne $AT_LIVEPATH -or
 	$script:labels['state'] -ne $AT_STATE -or $script:labels['statewrote'] -ne $AT_STATEWROTE -or
-	$script:labels['statepath'] -ne $AT_STATEPATH)
+	$script:labels['statepath'] -ne $AT_STATEPATH -or $script:labels['grade'] -ne $AT_GRADE)
 {
 	throw 'the cave layout drifted ; the code outgrew one of its fixed offsets.'
 }

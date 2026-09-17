@@ -54,6 +54,7 @@
 
 	<!-- ENCHANT -->
 	<aCar name="admin_enchant" accessLevel="7" params="slot enchant" desc="Enchant your target's item slot."/>
+	<aCar name="admin_itemskills" accessLevel="7" params="[objectId [add skillId level|del skillId]]" desc="List, add and remove the skills an item of your target carries."/>
 
 	<!-- FIND -->
 	<aCar name="admin_find" accessLevel="7" params="[account|dualbox|ip|item|npc|player]" desc="Find chosen entity based on account/name/ip."/>

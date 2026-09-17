@@ -1,0 +1,26 @@
+<html><title>Item skills</title><body><center>
+	<table width=260>
+		<tr>
+			<td width=40><button value="Back" action="bypass -h admin_itemskills" width=40 height=15 back="sek.cbui94" fore="sek.cbui92"></td>
+			<td width=180 align=center>%name%</td>
+			<td width=40></td>
+		</tr>
+	</table>
+	<img src="l2ui.SquareWhite" width=275 height=1><br>
+	<font color="B09878">%owner% : %state%</font><br><br>
+	Skills this item carries
+	<table width=260>
+		%skills%
+	</table><br>
+	Add a skill, or change the level of one it carries
+	<table width=260>
+		<tr>
+			<td width=50 align=right>Skill id</td>
+			<td width=60><edit var="sid" width=55 height=15></td>
+			<td width=40 align=right>Level</td>
+			<td width=50><edit var="slvl" width=40 height=15></td>
+			<td width=60><button value="Add" action="bypass -h admin_itemskills %objectId% add $sid $slvl" width=55 height=19 back="L2UI_ch3.smallbutton2_over" fore="L2UI_ch3.smallbutton2"></td>
+		</tr>
+	</table><br>
+	<button value="Refresh" action="bypass -h admin_itemskills %objectId%" width=65 height=19 back="L2UI_ch3.smallbutton2_over" fore="L2UI_ch3.smallbutton2">
+</center></body></html>

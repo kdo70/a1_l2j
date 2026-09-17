@@ -1,0 +1,178 @@
+class	offset	property	type
+ParticleEmitter	0x034	Acceleration	Struct<Vector>
+ParticleEmitter	0x040	IndependentSprayAccel	bool bit 0
+ParticleEmitter	0x040	UseCollision	bool bit 1
+ParticleEmitter	0x044	ExtentMultiplier	Struct<Vector>
+ParticleEmitter	0x050	DampingFactorRange	Struct<RangeVector>
+ParticleEmitter	0x068	UseCollisionPlanes	bool bit 0
+ParticleEmitter	0x06C	CollisionPlanes	Array<CollisionPlanes>
+ParticleEmitter	0x078	UseMaxCollisions	bool bit 0
+ParticleEmitter	0x07C	MaxCollisions	Struct<Range>
+ParticleEmitter	0x084	SpawnFromOtherEmitter	Int
+ParticleEmitter	0x088	SpawnAmount	Int
+ParticleEmitter	0x08C	SpawnedVelocityScaleRange	Struct<RangeVector>
+ParticleEmitter	0x0A4	UseSpawnedVelocityScale	bool bit 0
+ParticleEmitter	0x0A4	UseColorScale	bool bit 1
+ParticleEmitter	0x0A8	ColorScale	Array<ColorScale>
+ParticleEmitter	0x0B4	ColorScaleRepeats	Float
+ParticleEmitter	0x0B8	ColorMultiplierRange	Struct<RangeVector>
+ParticleEmitter	0x0D0	Opacity	Float
+ParticleEmitter	0x0D4	OpacityRatio	Float
+ParticleEmitter	0x0D8	FadeOutFactor	Struct<Plane>
+ParticleEmitter	0x0E8	FadeOutStartTime	Float
+ParticleEmitter	0x0EC	FadeOut	bool bit 0
+ParticleEmitter	0x0F0	FadeInFactor	Struct<Plane>
+ParticleEmitter	0x100	FadeInEndTime	Float
+ParticleEmitter	0x104	FadeIn	bool bit 0
+ParticleEmitter	0x104	UseActorForces	bool bit 1
+ParticleEmitter	0x108	CoordinateSystem	Byte<EParticleCoordinateSystem>
+ParticleEmitter	0x10C	MaxParticles	Int
+ParticleEmitter	0x110	ResetAfterChange	bool bit 0
+ParticleEmitter	0x114	EffectAxis	Byte<EParticleEffectAxis>
+ParticleEmitter	0x118	LevelOfWeather	Int
+ParticleEmitter	0x11C	CheckLevelOfWeather	Int
+ParticleEmitter	0x120	ParticleChoice	Byte<EParticleParticleChoice>
+ParticleEmitter	0x124	WeatherEffect	bool bit 0
+ParticleEmitter	0x128	WeatherRangeTime	Array<WeatherRangeTime>
+ParticleEmitter	0x134	WeatherSoundCheck	bool bit 0
+ParticleEmitter	0x134	ForcedLifeTime	bool bit 1
+ParticleEmitter	0x134	ForcedFade	bool bit 2
+ParticleEmitter	0x134	ForcedMaxParticles	bool bit 3
+ParticleEmitter	0x134	RespawnDeadParticles	bool bit 4
+ParticleEmitter	0x134	AutoDestroy	bool bit 5
+ParticleEmitter	0x134	AutoReset	bool bit 6
+ParticleEmitter	0x134	Disabled	bool bit 7
+ParticleEmitter	0x134	DisableFogging	bool bit 8
+ParticleEmitter	0x138	AutoResetTimeRange	Struct<Range>
+ParticleEmitter	0x140	Name	Str
+ParticleEmitter	0x14C	StartLocationOffset	Struct<Vector>
+ParticleEmitter	0x158	StartLocationRange	Struct<RangeVector>
+ParticleEmitter	0x170	AddLocationFromOtherEmitter	Int
+ParticleEmitter	0x174	StartLocationShape	Byte<EParticleStartLocationShape>
+ParticleEmitter	0x178	SphereRadiusRange	Struct<Range>
+ParticleEmitter	0x180	StartLocationPolarRange	Struct<RangeVector>
+ParticleEmitter	0x198	StartMassRange	Struct<Range>
+ParticleEmitter	0x1A0	MeshSpawningStaticMesh	Object<StaticMesh>
+ParticleEmitter	0x1A4	MeshSpawning	Byte<EParticleMeshSpawning>
+ParticleEmitter	0x1A8	VelocityFromMesh	bool bit 0
+ParticleEmitter	0x1AC	VelocityScaleRange	Struct<RangeVector>
+ParticleEmitter	0x1C4	MeshScaleRange	Struct<RangeVector>
+ParticleEmitter	0x1DC	UniformMeshScale	bool bit 0
+ParticleEmitter	0x1DC	UniformVelocityScale	bool bit 1
+ParticleEmitter	0x1DC	UseColorFromMesh	bool bit 2
+ParticleEmitter	0x1DC	SpawnOnlyInDirectionOfNormal	bool bit 3
+ParticleEmitter	0x1E0	MeshNormal	Struct<Vector>
+ParticleEmitter	0x1EC	MeshNormalThresholdRange	Struct<Range>
+ParticleEmitter	0x1F4	AlphaRef	Int
+ParticleEmitter	0x1F8	AlphaTest	bool bit 0
+ParticleEmitter	0x1F8	AcceptsProjectors	bool bit 1
+ParticleEmitter	0x1F8	ZTest	bool bit 2
+ParticleEmitter	0x1F8	ZWrite	bool bit 3
+ParticleEmitter	0x1F8	UseRevolution	bool bit 4
+ParticleEmitter	0x1FC	RevolutionCenterOffsetRange	Struct<RangeVector>
+ParticleEmitter	0x214	RevolutionsPerSecondRange	Struct<RangeVector>
+ParticleEmitter	0x22C	UseRevolutionScale	bool bit 0
+ParticleEmitter	0x230	RevolutionScale	Array<RevolutionScale>
+ParticleEmitter	0x23C	RevolutionScaleRepeats	Float
+ParticleEmitter	0x240	UseRotationFrom	Byte<EParticleRotationSource>
+ParticleEmitter	0x244	SpinParticles	bool bit 0
+ParticleEmitter	0x248	RotationOffset	Struct<Rotator>
+ParticleEmitter	0x254	SpinCCWorCW	Struct<Vector>
+ParticleEmitter	0x260	SpinsPerSecondRange	Struct<RangeVector>
+ParticleEmitter	0x278	StartSpinRange	Struct<RangeVector>
+ParticleEmitter	0x290	DampRotation	bool bit 0
+ParticleEmitter	0x294	RotationDampingFactorRange	Struct<RangeVector>
+ParticleEmitter	0x2AC	RotationNormal	Struct<Vector>
+ParticleEmitter	0x2B8	UseSizeScale	bool bit 0
+ParticleEmitter	0x2B8	UseRegularSizeScale	bool bit 1
+ParticleEmitter	0x2BC	SizeScale	Array<SizeScale>
+ParticleEmitter	0x2C8	SizeScaleRepeats	Float
+ParticleEmitter	0x2CC	StartSizeRange	Struct<RangeVector>
+ParticleEmitter	0x2E4	UniformSize	bool bit 0
+ParticleEmitter	0x2E8	UseSkeletalLocationAs	Byte<ESkelLocationUpdate>
+ParticleEmitter	0x2EC	SkeletalMeshActor	Object<Actor>
+ParticleEmitter	0x2F0	SkeletalScale	Struct<Vector>
+ParticleEmitter	0x2FC	RelativeBoneIndexRange	Struct<Range>
+ParticleEmitter	0x304	Sounds	Array<Sounds>
+ParticleEmitter	0x310	SpawningSound	Byte<EParticleCollisionSound>
+ParticleEmitter	0x314	SpawningSoundIndex	Struct<Range>
+ParticleEmitter	0x31C	SpawningSoundProbability	Struct<Range>
+ParticleEmitter	0x324	CollisionSound	Byte<EParticleCollisionSound>
+ParticleEmitter	0x328	CollisionSoundIndex	Struct<Range>
+ParticleEmitter	0x330	CollisionSoundProbability	Struct<Range>
+ParticleEmitter	0x338	ParticlesPerSecond	Float
+ParticleEmitter	0x33C	InitialParticlesPerSecond	Float
+ParticleEmitter	0x340	AutomaticInitialSpawning	bool bit 0
+ParticleEmitter	0x344	DrawStyle	Byte<EParticleDrawStyle>
+ParticleEmitter	0x348	Texture	Object<Texture>
+ParticleEmitter	0x34C	TextureUSubdivisions	Int
+ParticleEmitter	0x350	TextureVSubdivisions	Int
+ParticleEmitter	0x354	BlendBetweenSubdivisions	bool bit 0
+ParticleEmitter	0x354	UseSubdivisionScale	bool bit 1
+ParticleEmitter	0x358	SubdivisionScale	Array<SubdivisionScale>
+ParticleEmitter	0x364	SubdivisionStart	Int
+ParticleEmitter	0x368	SubdivisionEnd	Int
+ParticleEmitter	0x36C	UseRandomSubdivision	bool bit 0
+ParticleEmitter	0x370	SecondsBeforeInactive	Float
+ParticleEmitter	0x374	MinSquaredVelocity	Float
+ParticleEmitter	0x378	InitialTimeRange	Struct<Range>
+ParticleEmitter	0x380	LifetimeRange	Struct<Range>
+ParticleEmitter	0x388	InitialDelayRange	Struct<Range>
+ParticleEmitter	0x390	TriggerDisabled	bool bit 0
+ParticleEmitter	0x390	ResetOnTrigger	bool bit 1
+ParticleEmitter	0x394	SpawnOnTriggerRange	Struct<Range>
+ParticleEmitter	0x39C	SpawnOnTriggerPPS	Float
+ParticleEmitter	0x3A0	StartVelocityRange	Struct<RangeVector>
+ParticleEmitter	0x3B8	StartVelocityRadialRange	Struct<Range>
+ParticleEmitter	0x3C0	MaxAbsVelocity	Struct<Vector>
+ParticleEmitter	0x3CC	VelocityLossRange	Struct<RangeVector>
+ParticleEmitter	0x3E4	AddVelocityFromOtherEmitter	Int
+ParticleEmitter	0x3E8	AddVelocityMultiplierRange	Struct<RangeVector>
+ParticleEmitter	0x400	GetVelocityDirectionFrom	Byte<EParticleVelocityDirection>
+ParticleEmitter	0x404	UseVelocityScale	bool bit 0
+ParticleEmitter	0x408	VelocityScale	Array<VelocityScale>
+ParticleEmitter	0x414	VelocityScaleRepeats	Float
+ParticleEmitter	0x418	WarmupTicksPerSecond	Float
+ParticleEmitter	0x41C	RelativeWarmupTime	Float
+ParticleEmitter	0x420	Owner	Object<Emitter>
+ParticleEmitter	0x424	Initialized	bool bit 0
+ParticleEmitter	0x424	Inactive	bool bit 1
+ParticleEmitter	0x428	InactiveTime	Float
+ParticleEmitter	0x42C	Particles	Array<Particles>
+ParticleEmitter	0x438	ParticleIndex	Int
+ParticleEmitter	0x43C	ActiveParticles	Int
+ParticleEmitter	0x440	PPSFraction	Float
+ParticleEmitter	0x444	BoundingBox	Struct<Box>
+ParticleEmitter	0x460	RealExtentMultiplier	Struct<Vector>
+ParticleEmitter	0x46C	RealDisableFogging	bool bit 0
+ParticleEmitter	0x46C	AllParticlesDead	bool bit 1
+ParticleEmitter	0x46C	WarmedUp	bool bit 2
+ParticleEmitter	0x470	OtherIndex	Int
+ParticleEmitter	0x474	InitialDelay	Float
+ParticleEmitter	0x478	GlobalOffset	Struct<Vector>
+ParticleEmitter	0x484	TimeTillReset	Float
+ParticleEmitter	0x488	PS2Data	Int
+ParticleEmitter	0x48C	MaxActiveParticles	Int
+ParticleEmitter	0x490	CurrentCollisionSoundIndex	Int
+ParticleEmitter	0x494	CurrentSpawningSoundIndex	Int
+ParticleEmitter	0x498	CurrentMeshSpawningIndex	Int
+ParticleEmitter	0x49C	MaxSizeScale	Float
+ParticleEmitter	0x4A0	KillPending	Int
+ParticleEmitter	0x4A4	DeferredParticles	Int
+ParticleEmitter	0x4A8	RealMeshNormal	Struct<Vector>
+ParticleEmitter	0x4B4	MeshVertsAndNormals	Array<MeshVertsAndNormals>
+ParticleEmitter	0x4C0	CurrentSpawnOnTrigger	Int
+ParticleEmitter	0x4C4	bOwnerTracking	bool bit 0
+ParticleEmitter	0x4C8	CurLifeTime	Float
+ParticleEmitter	0x4CC	bNotifyPreDestroy	bool bit 0
+SpriteEmitter	0x4D0	UseDirectionAs	Byte<EParticleDirectionUsage>
+SpriteEmitter	0x4D4	ProjectionNormal	Struct<Vector>
+SpriteEmitter	0x4E0	Refraction	Int
+SpriteEmitter	0x4E4	RefrUScale	Float
+SpriteEmitter	0x4E8	RefrVScale	Float
+SpriteEmitter	0x4EC	RealProjectionNormal	Struct<Vector>
+MeshEmitter	0x4D0	StaticMesh	Object<StaticMesh>
+MeshEmitter	0x4D4	UseMeshBlendMode	bool bit 0
+MeshEmitter	0x4D4	RenderTwoSided	bool bit 1
+MeshEmitter	0x4D4	UseParticleColor	bool bit 2
+MeshEmitter	0x4D8	MeshExtent	Struct<Vector>
