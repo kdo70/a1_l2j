@@ -28,6 +28,7 @@
 	  ALT + S                  save these numbers for this weapon SHAPE
 	  ALT + D                  save them against the id of the weapon in hand instead
 	  ALT + R                  back to what the weapon in hand was equipped with
+	  ALT + A                  take the numbers the previous weapon was left with
 	  ALT + Q                  quit, leaving the client on the last numbers
 
 	Equipping a weapon starts you from ITS numbers : the row the tuning table already has for it
@@ -177,7 +178,7 @@ $VK = @{
 	PLUS = 0xBB; MINUS = 0xBD; LBRACKET = 0xDB; RBRACKET = 0xDD
 	Z = 0x5A; X = 0x58; C = 0x43; V = 0x56; B = 0x42; N = 0x4E
 	G = 0x47; H = 0x48; J = 0x4A; K = 0x4B
-	S = 0x53; D = 0x44; R = 0x52; Q = 0x51
+	S = 0x53; D = 0x44; R = 0x52; Q = 0x51; A = 0x41
 }
 
 function Down([int] $vk) { return ($script:KB::GetAsyncKeyState($vk) -band 0x8000) -ne 0 }
@@ -219,6 +220,9 @@ if ($KeyTest)
 $state = @{ ox = 0.0; oy = 0.0; oz = 0.0; scale = 1.0; velocity = 1.0; enchant = $Enchant; weapon = 0 }
 # What the weapon in hand started from when it was equipped - ALT+R goes back here.
 $start = $null
+# The numbers the previous weapon was left with, saved or not - ALT+Q takes them. $null until a
+# second weapon has been equipped.
+$previous = $null
 
 # What is already there is where we pick up, so a session continues the last one - including the
 # weapon, so that the same weapon still in hand keeps its unsaved numbers instead of being reloaded.
@@ -407,6 +411,11 @@ function Update-Weapon($r)
 		return $false
 	}
 
+	if ($script:state.weapon -gt 0)
+	{
+		$script:previous = @{ weapon = $script:state.weapon }
+		foreach ($k in 'ox', 'oy', 'oz', 'scale', 'velocity') { $script:previous[$k] = [double]$script:state[$k] }
+	}
 	foreach ($k in 'ox', 'oy', 'oz', 'scale', 'velocity') { $script:state[$k] = [double]$from[$k] }
 	$script:state.weapon = $r.weapon
 	$script:start = $from
@@ -528,6 +537,7 @@ Write-Host "  $M + J K                    slower / faster particles"
 Write-Host "  $M + 1..7                   rung 4 7 10 12 14 15 17"
 Write-Host "  (arrows, pgup/pgdn, = - ] [ also work where they arrive)"
 Write-Host "  $M + S                      save for this weapon SHAPE   $M + D : by weapon id"
+Write-Host "  $M + A                      numbers of the previous weapon"
 Write-Host "  $M + R                      reset      $M + Q : quit"
 Write-Host ''
 $lastReport = Read-Report
@@ -606,6 +616,18 @@ while ($true)
 			$state.ox = 0.0 ; $state.oy = 0.0 ; $state.oz = 0.0 ; $state.scale = 1.0 ; $state.velocity = 1.0
 		}
 		$moved = $true
+	}
+
+	if (Pressed $VK.A 'a')
+	{
+		# The previous weapon's numbers onto the one in hand ; the weapon they apply to stays this one.
+		if ($previous)
+		{
+			foreach ($k in 'ox', 'oy', 'oz', 'scale', 'velocity') { $state[$k] = [double]$previous[$k] }
+			Write-Host "  numbers of id $($previous.weapon) taken - re-equip to see them"
+			$moved = $true
+		}
+		else { Write-Warning 'no previous weapon yet - equip another one first' }
 	}
 
 	if ($moved)

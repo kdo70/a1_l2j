@@ -308,6 +308,9 @@ kit's own `_MXC EncDec.exe` does the same job if you'd rather use it.
   `glow_fx/textures/` — editing the particle effects of `EnchantGlow.u`: as text baked into the package, as
   text written into the running client's memory, and as a window of sliders. See
   [../../docs/enchant-glow.md](../../docs/enchant-glow.md). Nothing to do with the `interface.u` build.
+- `cut_weapongrp_shape.ps1` — cuts `weapongrp.dat` down to the weapons of one EnchantGlow shape (one row per
+  look with `-UniqueByTexture`) for tuning, and `-Restore` puts the full table back. See
+  [../../docs/enchant-glow.md](../../docs/enchant-glow.md).
 - `enchant_glow_opacity.tsv` — colour and opacity of the enchant glow per enchant level, written into
   `env.int` by `patch_env_enchant.ps1 -Table` as the rows of the server's glow codes. See
   [../../docs/enchant-glow.md](../../docs/enchant-glow.md).

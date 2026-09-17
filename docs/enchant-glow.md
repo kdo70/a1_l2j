@@ -82,6 +82,7 @@ EnchantGlow.enchant<уровень>_<вид>t
 | `tools/client/tune_glow_keys.ps1` | подгонка с клавиатуры прямо в игре, с сохранением по форме или по id оружия |
 | `tools/client/dump_weapongrp_ids.ps1` | выписывает из `weapongrp.dat` все id с их формой в `weapongrp_ids.txt` — по нему `ALT+D` проверяет, за что сохраняет |
 | `tools/client/unique_weapongrp_models.ps1` | режет `weapongrp.dat` до одной строки на внешний вид, без щитов и оружия NPC (2651 → 537 → 428); полную таблицу кладёт в `weapongrp.dat.models.bak`, группы с пометкой `kind` — в `weapongrp_models.tsv`; `-KeepShields`/`-KeepMonsters` оставляют их сразу, `-Restore` возвращает потом |
+| `tools/client/cut_weapongrp_shape.ps1` | режет `weapongrp.dat` до оружия одного вида `EnchantGlow` (`-Shape 004t`), с `-UniqueByTexture` — до одной строки на вид по текстурам и `weapon_type` (ключ `-ByTexture`, представитель — id, уже названный в `enchant_glow_tuning.tsv`); полная таблица — в `weapongrp.dat.shape.bak`, `-Restore` возвращает её, перенося смещения по id |
 | `tools/client/spread_weapongrp_glow.ps1` | обратный ход: берёт подобранное свечение с уцелевшей строки и раздаёт его всем id её группы, собирая полную таблицу из `*.models.bak`; щиты и монстрятина приходят из бэкапа как были |
 | `tools/client/enchant_glow_fx.ps1` | сами эффекты `EnchantGlow.u`: выгружает эмиттеры в текст и пишет правленый текст обратно, не сдвигая ни одной текстуры — см. «Правка самих эффектов» |
 | `tools/client/enchant_glow_live_fx.ps1` | тот же текст — прямо в память запущенного клиента, в шаблоны и в горящие копии; `-Show` печатает, что сейчас в шаблонах |
@@ -769,6 +770,7 @@ powershell -ExecutionPolicy Bypass -File tools\client\set_enchant_glow_live.ps1 
 | `ALT` + `S` | | сохранить за **формой** оружия, что в руке (`004t`) |
 | `ALT` + `D` | | сохранить за **одним** оружием, строкой `id:<n>` |
 | `ALT` + `R` | | вернуть числа, с которыми оружие было надето |
+| `ALT` + `A` | | взять числа, с которыми осталось предыдущее надетое оружие (сохранённые или нет); видны после переодевания |
 | `ALT` + `Q` | | выйти, оставив клиенту последние числа |
 
 Движение повторяется, пока клавиша зажата; `S`, `D`, `R`, `Q` и цифры срабатывают по одному разу на
